@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		396C45C02497699800A569CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 396C45BE2497699800A569CE /* Main.storyboard */; };
 		396C45C22497699900A569CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 396C45C12497699900A569CE /* Assets.xcassets */; };
 		396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 396C45C32497699900A569CE /* LaunchScreen.storyboard */; };
+		396C45DE2497882800A569CE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396C45DD2497882800A569CE /* R.generated.swift */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		396C45C12497699900A569CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		396C45C42497699900A569CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		396C45C62497699900A569CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		396C45DD2497882800A569CE /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		447B6BF7452CC91EDC27B562 /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,14 +63,63 @@
 		396C45B72497699800A569CE /* Pharmacy */ = {
 			isa = PBXGroup;
 			children = (
+				396C45CD2497744800A569CE /* Resources */,
+				396C45D02497754300A569CE /* Templates */,
+				396C45CE249774AC00A569CE /* Views */,
+				396C45CF249774D200A569CE /* Flows */,
+				396C45CC2497741B00A569CE /* Models */,
+				396C45C62497699900A569CE /* Info.plist */,
 				396C45B82497699800A569CE /* AppDelegate.swift */,
 				396C45BC2497699800A569CE /* ViewController.swift */,
 				396C45BE2497699800A569CE /* Main.storyboard */,
-				396C45C12497699900A569CE /* Assets.xcassets */,
 				396C45C32497699900A569CE /* LaunchScreen.storyboard */,
-				396C45C62497699900A569CE /* Info.plist */,
 			);
 			path = Pharmacy;
+			sourceTree = "<group>";
+		};
+		396C45CC2497741B00A569CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		396C45CD2497744800A569CE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				396C45DC2497865200A569CE /* Generated */,
+				396C45C12497699900A569CE /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		396C45CE249774AC00A569CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		396C45CF249774D200A569CE /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		396C45D02497754300A569CE /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		396C45DC2497865200A569CE /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				396C45DD2497882800A569CE /* R.generated.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		8C9DDD9B3FE3CF15F89405BA /* Pods */ = {
@@ -77,7 +128,6 @@
 				F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */,
 				447B6BF7452CC91EDC27B562 /* Pods-Pharmacy.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -97,6 +147,7 @@
 			buildConfigurationList = 396C45C92497699900A569CE /* Build configuration list for PBXNativeTarget "Pharmacy" */;
 			buildPhases = (
 				9954A7B0A8CD2500BD606969 /* [CP] Check Pods Manifest.lock */,
+				396C45D92497831A00A569CE /* ShellScript */,
 				396C45B12497699800A569CE /* Sources */,
 				396C45B22497699800A569CE /* Frameworks */,
 				396C45B32497699800A569CE /* Resources */,
@@ -158,6 +209,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		396C45D92497831A00A569CE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/Pharmacy/Resources/Generated/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Pharmacy/Resources/Generated/R.generated.swift\"\n";
+		};
 		9954A7B0A8CD2500BD606969 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -206,6 +276,7 @@
 			files = (
 				396C45BD2497699800A569CE /* ViewController.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
+				396C45DE2497882800A569CE /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
