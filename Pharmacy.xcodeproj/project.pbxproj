@@ -148,6 +148,7 @@
 			buildPhases = (
 				9954A7B0A8CD2500BD606969 /* [CP] Check Pods Manifest.lock */,
 				396C45D92497831A00A569CE /* ShellScript */,
+				396C45DF24978CD000A569CE /* ShellScript */,
 				396C45B12497699800A569CE /* Sources */,
 				396C45B22497699800A569CE /* Frameworks */,
 				396C45B32497699800A569CE /* Resources */,
@@ -227,6 +228,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Pharmacy/Resources/Generated/R.generated.swift\"\n";
+		};
+		396C45DF24978CD000A569CE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		9954A7B0A8CD2500BD606969 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
