@@ -13,6 +13,11 @@
 		396C45C22497699900A569CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 396C45C12497699900A569CE /* Assets.xcassets */; };
 		396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 396C45C32497699900A569CE /* LaunchScreen.storyboard */; };
 		396C45DE2497882800A569CE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396C45DD2497882800A569CE /* R.generated.swift */; };
+		619AAA402498A9AE00AB46ED /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA3F2498A9AE00AB46ED /* AuthAPI.swift */; };
+		619AAA432498ADFE00AB46ED /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA422498ADFE00AB46ED /* DataManager.swift */; };
+		619AAA462498AEA700AB46ED /* SampleResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA452498AEA700AB46ED /* SampleResponseModel.swift */; };
+		619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA472498B01900AB46ED /* KeychainManager.swift */; };
+		619AAA4A2498B09800AB46ED /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA492498B09800AB46ED /* Token.swift */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +31,11 @@
 		396C45C62497699900A569CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		396C45DD2497882800A569CE /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		447B6BF7452CC91EDC27B562 /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
+		619AAA3F2498A9AE00AB46ED /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		619AAA422498ADFE00AB46ED /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		619AAA452498AEA700AB46ED /* SampleResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleResponseModel.swift; sourceTree = "<group>"; };
+		619AAA472498B01900AB46ED /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		619AAA492498B09800AB46ED /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Pharmacy/Services/Managers/Token.swift; sourceTree = SOURCE_ROOT; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +73,7 @@
 		396C45B72497699800A569CE /* Pharmacy */ = {
 			isa = PBXGroup;
 			children = (
+				619AAA3C2498A98200AB46ED /* Services */,
 				396C45CD2497744800A569CE /* Resources */,
 				396C45D02497754300A569CE /* Templates */,
 				396C45CE249774AC00A569CE /* Views */,
@@ -80,6 +91,7 @@
 		396C45CC2497741B00A569CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				619AAA452498AEA700AB46ED /* SampleResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -110,6 +122,7 @@
 		396C45D02497754300A569CE /* Templates */ = {
 			isa = PBXGroup;
 			children = (
+				619AAA492498B09800AB46ED /* Token.swift */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -120,6 +133,32 @@
 				396C45DD2497882800A569CE /* R.generated.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		619AAA3C2498A98200AB46ED /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				619AAA412498ADF100AB46ED /* Managers */,
+				619AAA3E2498A99700AB46ED /* API */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		619AAA3E2498A99700AB46ED /* API */ = {
+			isa = PBXGroup;
+			children = (
+				619AAA3F2498A9AE00AB46ED /* AuthAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		619AAA412498ADF100AB46ED /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				619AAA422498ADFE00AB46ED /* DataManager.swift */,
+				619AAA472498B01900AB46ED /* KeychainManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		8C9DDD9B3FE3CF15F89405BA /* Pods */ = {
@@ -293,8 +332,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				396C45BD2497699800A569CE /* ViewController.swift in Sources */,
+				619AAA432498ADFE00AB46ED /* DataManager.swift in Sources */,
+				619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
+				619AAA402498A9AE00AB46ED /* AuthAPI.swift in Sources */,
+				619AAA462498AEA700AB46ED /* SampleResponseModel.swift in Sources */,
 				396C45DE2497882800A569CE /* R.generated.swift in Sources */,
+				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
