@@ -1,0 +1,11 @@
+/* 
+  localize.strings
+  Pharmacy
+
+  Created by CGI-Kite on 16.06.2020.
+  Copyright © 2020 pharmacy. All rights reserved.
+*/
+
+"placeholder.email" = "email для рассылок";
+"placeholder.phone" = "+7(•••) •••-••-••";
+"placeholder.name" = "Ваше имя*";
