@@ -8,9 +8,9 @@
 
 import UIKit
 
-// swiftlint:disable all
-
 final class TextInputView: UIView {
+    
+    // MARK: - Enums
     
     enum ContentStyle {
         
@@ -22,15 +22,29 @@ final class TextInputView: UIView {
         var placeHolder: String? {
             
             switch self {
-                case .email:
-                    return R.string.localize.placeholderEmail()
-                case .phone:
-                    return R.string.localize.placeholderPhone()
-                case .name:
-                    return R.string.localize.placeholderName()
+            case .email:
+                return R.string.localize.placeholderEmail()
+            case .phone:
+                return R.string.localize.placeholderPhone()
+            case .name:
+                return R.string.localize.placeholderName()
             default:
                 return nil
             }
+        }
+        
+        var keyboardType: UIKeyboardType {
+            
+            switch self {
+            case .email:
+                return .emailAddress
+            case .name:
+                return .default
+            case .phone:
+                return .numberPad
+            default:
+                return .default
+             }
         }
     }
 
@@ -44,60 +58,80 @@ final class TextInputView: UIView {
         var borderColor: CGColor? {
             
             switch self {
-                case .standart:
-                    return R.color.validationGray()?.cgColor
-                case .editing:
-                    return R.color.validationBlue()?.cgColor
-                case .successfulValidation:
-                    return R.color.validationGreen()?.cgColor
-                case .unsuccessfulValidation:
-                    return R.color.validationRed()?.cgColor
+            case .standart:
+                return R.color.validationGray()?.cgColor
+            case .editing:
+                return R.color.validationBlue()?.cgColor
+            case .successfulValidation:
+                return R.color.validationGreen()?.cgColor
+            case .unsuccessfulValidation:
+                return R.color.validationRed()?.cgColor
             }
         }
 
         var image: UIImage? {
             
             switch self {
-                case .standart:
-                    return nil
-                case .editing:
-                    return R.image.validationClose()
-                case .successfulValidation:
-                    return R.image.validationSuccess()
-                case .unsuccessfulValidation:
-                    return R.image.validationError()
+            case .standart:
+                return nil
+            case .editing:
+                return R.image.validationClose()
+            case .successfulValidation:
+                return R.image.validationSuccess()
+            case .unsuccessfulValidation:
+                return R.image.validationError()
             }
         }
         
         var textColor: UIColor? {
             
             switch self {
-                case .unsuccessfulValidation:
-                    return R.color.validationRed()
-                case .editing:
-                    return R.color.textDarkBlue()
-                case .standart, .successfulValidation:
-                    return R.color.textDarkGray()
+            case .unsuccessfulValidation:
+                return R.color.validationRed()
+            case .editing:
+                return R.color.textDarkBlue()
+            case .standart, .successfulValidation:
+                return R.color.textDarkGray()
             }
         }
     }
+    
+    // MARK: - Properties
 
-    var backgroundView: UIView!
-    var inputStatusImageView: UIImageView!
-    var inputTextField: UITextField!
-    var errorLabel: UILabel!
+    private var backgroundView: UIView!
+    private var inputStatusImageView: UIImageView!
+    private var inputTextField: UITextField!
+    private var errorLabel: UILabel!
+    
+    private var lcBackgroundViewHeight: NSLayoutConstraint!
+    private var textFieldDelegate: UITextFieldDelegate? {
+        
+        willSet {
+            inputTextField.delegate = newValue
+        }
+    }
+    
     var contentType: ContentStyle = .other {
         
         willSet {
             inputTextField.placeholder = newValue.placeHolder
+            inputTextField.keyboardType = newValue.keyboardType
         }
     }
+    
     var visualStyle: VisualStyle = .standart {
         
         willSet {
             backgroundView.layer.borderColor = newValue.borderColor
             inputStatusImageView.image = newValue.image
             inputTextField.textColor = newValue.textColor
+        }
+    }
+    
+    var backgroundViewHeight: CGFloat = Const.backgroundViewHeight {
+        
+        willSet {
+            lcBackgroundViewHeight.constant = newValue
         }
     }
     
@@ -114,6 +148,8 @@ final class TextInputView: UIView {
         setup()
         setupFonts()
     }
+    
+    // MARK: - Setup
     
     private func setup() {
         
@@ -135,40 +171,66 @@ final class TextInputView: UIView {
         inputTextField.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.addSubview(inputTextField)
         
+        lcBackgroundViewHeight = backgroundView.heightAnchor.constraint(equalToConstant: Const.backgroundViewHeight)
+        
         NSLayoutConstraint.activate([
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            backgroundView.heightAnchor.constraint(equalToConstant: 48),
+            lcBackgroundViewHeight,
             backgroundView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 0),
             backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            backgroundView.bottomAnchor.constraint(lessThanOrEqualTo: errorLabel.topAnchor, constant: -8)
+            backgroundView.bottomAnchor.constraint(lessThanOrEqualTo: errorLabel.topAnchor, constant: Const.lbErrorTop)
         ])
         
         NSLayoutConstraint.activate([
-            errorLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            errorLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Const.lbErrorLeft),
             errorLabel.trailingAnchor.constraint(equalTo: inputStatusImageView.leadingAnchor, constant: 0),
             errorLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            errorLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: min(15, frame.height))
+            errorLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: min(Const.lbErrorMinHeight, frame.height))
         ])
 
         NSLayoutConstraint.activate([
-            inputStatusImageView.widthAnchor.constraint(equalTo: backgroundView.heightAnchor, multiplier: 0.8, constant: -10),
+            inputStatusImageView.widthAnchor.constraint(equalTo: backgroundView.heightAnchor,
+                                                        multiplier: Const.ivMultiplier, constant: -Const.ivHeightOffset),
             inputStatusImageView.heightAnchor.constraint(equalTo: inputStatusImageView.widthAnchor, multiplier: 1),
-            inputStatusImageView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -14),
+            inputStatusImageView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: Const.ivTralling),
             inputStatusImageView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor, constant: 0)
         ])
         
         NSLayoutConstraint.activate([
-            inputTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 16),
-            inputTextField.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 5),
-            inputTextField.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -5),
-            inputTextField.trailingAnchor.constraint(equalTo: inputStatusImageView.leadingAnchor, constant: -5)
+            inputTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: Const.textfieldLeading),
+            inputTextField.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: Const.textfieldSpace),
+            inputTextField.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -Const.textfieldSpace),
+            inputTextField.trailingAnchor.constraint(equalTo: inputStatusImageView.leadingAnchor, constant: -Const.textfieldSpace)
         ])
         visualStyle = .standart
     }
     
     private func setupFonts() {
-        inputTextField.font = R.font.sourceSansProRegular(size: 16)
-        errorLabel.font = R.font.sourceSansProRegular(size: 12)
+        inputTextField.font = R.font.sourceSansProRegular(size: Const.defaultFontSize)
+        errorLabel.font = R.font.sourceSansProRegular(size: Const.errorFontSize)
         errorLabel.textColor = R.color.validationRed()
+    }
+}
+
+// MARK: - TextInputView + Constants
+
+fileprivate extension TextInputView {
+    
+    private struct Const {
+        
+        private init() {}
+        
+        static let backgroundViewHeight: CGFloat = 48
+        static let lbErrorTop: CGFloat = -8
+        static let lbErrorLeft: CGFloat = 5
+        static let textfieldSpace: CGFloat = 5
+        static let textfieldLeading: CGFloat = 16
+        static let ivTralling: CGFloat = -14
+        static let ivHeightOffset: CGFloat = 10
+        static let ivMultiplier: CGFloat = 0.8
+        static let lbErrorMinHeight: CGFloat = 15
+        
+        static let defaultFontSize: CGFloat = 16
+        static let errorFontSize: CGFloat = 12
     }
 }
