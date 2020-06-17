@@ -15,7 +15,7 @@ class PhoneValidator: BaseTextValidator {
     }
     
     override var pattern: String {
-        return "^\\+[0-9]{1,3}\\s{0,1}[0-9]{3}\\s{0,1}[0-9]{3}\\s{0,1}[0-9]{4}$"
+        return "^\\+[0-9]{1,3}\\s\\({0,1}[0-9]{3}\\)\\s{0,1}[0-9]{3}\\s{0,1}[0-9]{4}$"
     }
     
     override var errorText: String {

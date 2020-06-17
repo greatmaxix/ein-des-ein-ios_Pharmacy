@@ -60,6 +60,16 @@ final class TextInputView: UIView {
                 return nil
             }
         }
+        
+        var startText: String? {
+            switch self {
+            case .email, .name, .other:
+                return nil
+            case .phone:
+                return "+7"
+
+            }
+        }
     }
 
     enum VisualStyle {
@@ -116,8 +126,10 @@ final class TextInputView: UIView {
     private var inputStatusImageView: UIImageView!
     private var inputTextField: UITextField!
     private var errorLabel: UILabel!
-    
     private var lcBackgroundViewHeight: NSLayoutConstraint!
+    
+    private let formatter = PhoneFormatter()
+    
     var textFieldDelegate: UITextFieldDelegate? {
         
         willSet {
@@ -131,6 +143,7 @@ final class TextInputView: UIView {
             errorLabel.text = nil
             inputTextField.placeholder = newValue.placeHolder
             inputTextField.keyboardType = newValue.keyboardType
+            inputTextField.text = newValue.startText
         }
     }
     
@@ -178,7 +191,7 @@ final class TextInputView: UIView {
         }
         
         if contentType == .phone {
-            sender.text = formatPhone(startText: sender.text)
+            sender.text = formatter.updatePhone(text: sender.text)
         }
     }
     
@@ -199,18 +212,6 @@ final class TextInputView: UIView {
         }
         
         return true
-    }
-    
-    func formatPhone(startText: String?) -> String? {
-        
-        guard var result: String = startText else { return nil }
-        
-        let range = result.range(of: "+7")
-        if range?.contains(result.startIndex) != true {
-            result = "+7" + result
-        }
-        
-        return result
     }
     
     // MARK: - Setup
@@ -300,4 +301,3 @@ fileprivate extension TextInputView {
         static let errorFontSize: CGFloat = 12
     }
 }
-

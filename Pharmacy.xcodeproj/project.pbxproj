@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */; };
 		395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D4D2498BDFD001EB6CD /* TextInputView.swift */; };
 		395C9D5C2498D703001EB6CD /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 395C9D572498D0BF001EB6CD /* SourceSansPro-Black.ttf */; };
 		395C9D5D2498D706001EB6CD /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 395C9D5A2498D0BF001EB6CD /* SourceSansPro-BlackItalic.ttf */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
 		395C9D4D2498BDFD001EB6CD /* TextInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
 		395C9D502498D0BE001EB6CD /* SourceSansPro-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightItalic.ttf"; sourceTree = "<group>"; };
 		395C9D512498D0BE001EB6CD /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
@@ -100,6 +102,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3959E9D3249A63FA00FA1F74 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3959E9D5249A642500FA1F74 /* PhoneFormatter */,
+				395C9D722499FBD3001EB6CD /* Validators */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3959E9D5249A642500FA1F74 /* PhoneFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */,
+			);
+			path = PhoneFormatter;
+			sourceTree = "<group>";
+		};
 		395C9D4C2498BDD6001EB6CD /* TextInputView */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +189,7 @@
 				619AAA3C2498A98200AB46ED /* Services */,
 				396C45CD2497744800A569CE /* Resources */,
 				396C45D02497754300A569CE /* Templates */,
+				3959E9D3249A63FA00FA1F74 /* Components */,
 				396C45CE249774AC00A569CE /* Views */,
 				396C45CF249774D200A569CE /* Flows */,
 				396C45CC2497741B00A569CE /* Models */,
@@ -183,7 +203,6 @@
 		396C45CC2497741B00A569CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				395C9D722499FBD3001EB6CD /* Validators */,
 				619AAA452498AEA700AB46ED /* SampleResponseModel.swift */,
 			);
 			path = Models;
@@ -493,6 +512,7 @@
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
 				395C9D762499FC14001EB6CD /* EmailValidator.swift in Sources */,
 				619AAA432498ADFE00AB46ED /* DataManager.swift in Sources */,
+				3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */,
 				619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
 				618C33AA2498BFB400951D11 /* Coordinator.swift in Sources */,
