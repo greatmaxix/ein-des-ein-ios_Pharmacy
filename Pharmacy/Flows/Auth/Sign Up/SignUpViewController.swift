@@ -10,15 +10,15 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
-    @IBOutlet weak var tiName: TextInputView!
-    @IBOutlet weak var tiPhone: TextInputView!
-    @IBOutlet weak var tiEmail: TextInputView!
+    @IBOutlet weak var nameInputView: TextInputView!
+    @IBOutlet weak var phoneInputView: TextInputView!
+    @IBOutlet weak var emailInputView: TextInputView!
     
-    @IBOutlet weak var lbTitle: UILabel!
-    @IBOutlet weak var lbDescription: UILabel!
-    @IBOutlet weak var lbSocialNetworks: UILabel!
-    @IBOutlet weak var btSkip: UIButton!
-    @IBOutlet weak var btApply: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var socialNetworksLabel: UILabel!
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var applyButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +29,10 @@ class SignUpViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func btApplyDidClicked(_ sender: UIButton) {
+    @IBAction func apply(_ sender: UIButton) {
     }
     
-    @IBAction func btSkipDidClicked(_ sender: UIButton) {
+    @IBAction func skipSignUp(_ sender: UIButton) {
     }
     
     // MARK: - Setup
@@ -40,18 +40,18 @@ class SignUpViewController: UIViewController {
     private func setupUI() {
         
         navigationController?.isNavigationBarHidden = true
-        tiName.contentType = .name
-        tiPhone.contentType = .phone
-        tiEmail.contentType = .email
+        nameInputView.contentType = .name
+        phoneInputView.contentType = .phone
+        emailInputView.contentType = .email
     }
     
     private func setupLocalization() {
         
-        lbTitle.text = R.string.localize.loginTitle()
-        lbDescription.text = R.string.localize.loginDescription()
-        lbSocialNetworks.text = R.string.localize.loginSocial()
-        btSkip.setTitle(R.string.localize.loginSkip(), for: .normal)
-        btApply.setTitle(R.string.localize.loginApply(), for: .normal)
+        titleLabel.text = R.string.localize.loginTitle()
+        descriptionLabel.text = R.string.localize.loginDescription()
+        socialNetworksLabel.text = R.string.localize.loginSocial()
+        skipButton.setTitle(R.string.localize.loginSkip(), for: .normal)
+        applyButton.setTitle(R.string.localize.loginApply(), for: .normal)
     }
             
 }
