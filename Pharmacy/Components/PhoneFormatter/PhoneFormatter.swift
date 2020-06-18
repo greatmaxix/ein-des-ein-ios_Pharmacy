@@ -8,6 +8,8 @@
 
 import Foundation
 
+//swiftlint:disable function_body_length
+
 class PhoneFormatter {
     
     private var previousText: String?
@@ -36,13 +38,15 @@ class PhoneFormatter {
         
         if startText.count < Const.countryCode.count {
             
-            startText.removeAll()
+            //startText.removeAll()
             self.previousText = text
             result = Const.countryCode
-            return result
+            return result + " (" + startText
         } else {
             
-            startText.removeFirst(Const.countryCode.count)
+            if startText.contains(Const.countryCode) {
+                startText.removeFirst(Const.countryCode.count)
+            }
             startText.removeAll(where: {separators.contains($0)})
             result = Const.countryCode
         }
