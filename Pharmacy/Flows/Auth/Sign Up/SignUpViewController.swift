@@ -18,6 +18,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var lbDescription: UILabel!
     @IBOutlet weak var lbSocialNetworks: UILabel!
     @IBOutlet weak var btSkip: UIButton!
+    @IBOutlet weak var btApply: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,15 @@ class SignUpViewController: UIViewController {
         setupLocalization()
     }
     
+    // MARK: - Actions
+    
     @IBAction func btApplyDidClicked(_ sender: UIButton) {
     }
+    
+    @IBAction func btSkipDidClicked(_ sender: UIButton) {
+    }
+    
+    // MARK: - Setup
     
     private func setupUI() {
         
@@ -43,6 +51,7 @@ class SignUpViewController: UIViewController {
         lbDescription.text = R.string.localize.loginDescription()
         lbSocialNetworks.text = R.string.localize.loginSocial()
         btSkip.setTitle(R.string.localize.loginSkip(), for: .normal)
+        btApply.setTitle(R.string.localize.loginApply(), for: .normal)
     }
             
 }

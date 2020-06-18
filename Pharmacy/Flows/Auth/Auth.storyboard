@@ -101,6 +101,9 @@
                                         <state key="normal" title="Button">
                                             <color key="titleColor" name="textDarkGray"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btSkipDidClicked:" destination="miv-fQ-a94" eventType="touchUpInside" id="BQj-v0-YBW"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6s-Ll-P9D">
                                         <rect key="frame" x="188.5" y="635.5" width="37" height="20.5"/>
@@ -152,7 +155,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4kF-B5-mZP"/>
                     </view>
+                    <navigationItem key="navigationItem" id="tjC-Mg-Dga"/>
                     <connections>
+                        <outlet property="btApply" destination="3jK-7N-piF" id="3mA-KB-GN1"/>
                         <outlet property="btSkip" destination="L6I-Kh-fZe" id="msH-1F-qkZ"/>
                         <outlet property="lbDescription" destination="WQk-b3-Nxw" id="Abb-2U-1uJ"/>
                         <outlet property="lbSocialNetworks" destination="P6s-Ll-P9D" id="6Ah-0Y-ckM"/>

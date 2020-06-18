@@ -153,6 +153,7 @@ final class TextInputView: UIView {
             backgroundView.layer.borderColor = newValue.borderColor
             inputStatusImageView.image = newValue.image
             inputTextField.textColor = newValue.textColor
+            errorLabel.isHidden = newValue != .unsuccessfulValidation
         }
     }
     
