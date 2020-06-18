@@ -41,10 +41,34 @@ final class TextInputView: UIView {
             case .name:
                 return .default
             case .phone:
-                return .numberPad
+                return .phonePad
             default:
                 return .default
              }
+        }
+        
+        var validator: BaseTextValidator? {
+            
+            switch self {
+            case .email:
+                return EmailValidator()
+            case .name:
+                return NameValidator()
+            case .phone:
+                return PhoneValidator()
+            default:
+                return nil
+            }
+        }
+        
+        var startText: String? {
+            switch self {
+            case .email, .name, .other:
+                return nil
+            case .phone:
+                return "+7"
+
+            }
         }
     }
 
@@ -102,9 +126,11 @@ final class TextInputView: UIView {
     private var inputStatusImageView: UIImageView!
     private var inputTextField: UITextField!
     private var errorLabel: UILabel!
-    
     private var lcBackgroundViewHeight: NSLayoutConstraint!
-    private var textFieldDelegate: UITextFieldDelegate? {
+    
+    private let formatter = PhoneFormatter()
+    
+    var textFieldDelegate: UITextFieldDelegate? {
         
         willSet {
             inputTextField.delegate = newValue
@@ -114,8 +140,10 @@ final class TextInputView: UIView {
     var contentType: ContentStyle = .other {
         
         willSet {
+            errorLabel.text = nil
             inputTextField.placeholder = newValue.placeHolder
             inputTextField.keyboardType = newValue.keyboardType
+            inputTextField.text = newValue.startText
         }
     }
     
@@ -135,6 +163,11 @@ final class TextInputView: UIView {
         }
     }
     
+    var text: String? {
+        
+        return inputTextField.text
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -147,6 +180,38 @@ final class TextInputView: UIView {
         
         setup()
         setupFonts()
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func editingChanged(sender: UITextField) {
+        
+        if visualStyle != .editing {
+            visualStyle = .editing
+        }
+        
+        if contentType == .phone {
+            sender.text = formatter.updatePhone(text: sender.text)
+        }
+    }
+    
+    @objc private func editingDidEnd(sender: UITextField) {
+        
+        validate()
+    }
+    
+    @discardableResult
+    func validate() -> Bool {
+        
+        if let validator: BaseTextValidator = contentType.validator {
+            
+            let result: Bool = validator.validate(text: inputTextField.text)
+            visualStyle = result ? .successfulValidation : .unsuccessfulValidation
+            errorLabel.text = result ? "" : validator.errorText
+            return result
+        }
+        
+        return true
     }
     
     // MARK: - Setup
@@ -170,6 +235,8 @@ final class TextInputView: UIView {
         inputTextField = UITextField()
         inputTextField.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.addSubview(inputTextField)
+        inputTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+        inputTextField.addTarget(self, action: #selector(editingDidEnd), for: .editingDidEnd)
         
         lcBackgroundViewHeight = backgroundView.heightAnchor.constraint(equalToConstant: Const.backgroundViewHeight)
         
@@ -216,7 +283,7 @@ final class TextInputView: UIView {
 
 fileprivate extension TextInputView {
     
-    private struct Const {
+    struct Const {
         
         private init() {}
         

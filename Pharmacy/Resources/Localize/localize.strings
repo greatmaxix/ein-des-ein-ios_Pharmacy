@@ -9,3 +9,6 @@
 "placeholder.email" = "email для рассылок";
 "placeholder.phone" = "+7(•••) •••-••-••";
 "placeholder.name" = "Ваше имя*";
+"error.email" = "Ой: Кажется это не похоже на имейл адрес";
+"error.phone" = "Invalid phone";
+"error.name" = "Is this your real name?";
