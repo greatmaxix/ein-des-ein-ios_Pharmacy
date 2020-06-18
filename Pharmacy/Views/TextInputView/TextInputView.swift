@@ -154,6 +154,9 @@ final class TextInputView: UIView {
     private func setup() {
         
         backgroundView = UIView()
+        self.backgroundColor = .clear
+        backgroundView.backgroundColor = .white
+
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.layer.cornerRadius = 5
         backgroundView.layer.borderWidth = 1

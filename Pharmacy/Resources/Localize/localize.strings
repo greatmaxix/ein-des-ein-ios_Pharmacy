@@ -6,6 +6,15 @@
   Copyright © 2020 pharmacy. All rights reserved.
 */
 
+// MARK: - TextInputView
+
 "placeholder.email" = "email для рассылок";
 "placeholder.phone" = "+7(•••) •••-••-••";
 "placeholder.name" = "Ваше имя*";
+
+// MARK: - Sign Up
+
+"login.title" = "Создание аккаунта";
+"login.description" = "Пожалуйста, авторизируйтесь удобным для вас способом";
+"login.social" = "Или войдите с помощью";
+"login.skip" = "Пропустить";
