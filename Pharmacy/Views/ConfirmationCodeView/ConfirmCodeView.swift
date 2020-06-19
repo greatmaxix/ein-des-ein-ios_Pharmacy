@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol ConfirmCodeDelegate {
+protocol ConfirmCodeDelegate: class {
     
-    func lastDigitWasInputed() -> String?
+    func lastDigitWasInputed(code: String)
 }
 
 class ConfirmCodeView: UIView {
@@ -24,6 +24,15 @@ class ConfirmCodeView: UIView {
     var textFieldsCount: Int = 6
     var textFieldWidth: CGFloat = 20
     var circleColor: UIColor? = R.color.confirmCircleGray()
+    weak var delegate: ConfirmCodeDelegate?
+    
+    var code: String {
+        
+        var result: String = ""
+        textFields.forEach({result += ($0.text ?? "")})
+        result.removeAll(where: {$0 == Const.separator})
+        return result
+    }
     
     private var circleRadius: CGFloat {
         
@@ -40,6 +49,13 @@ class ConfirmCodeView: UIView {
         super.init(coder: coder)
         
         setup()
+    }
+    
+    func startInput() {
+        
+        textFields[0].isUserInteractionEnabled = true
+        textFields[0].becomeFirstResponder()
+        circleViews[0].isHidden = true
     }
     
     // MARK: - Setup
@@ -73,14 +89,13 @@ class ConfirmCodeView: UIView {
             
             let field: UITextField = UITextField()
             field.keyboardType = .numberPad
-            field.backgroundColor = .white
             field.tintColor = R.color.textDarkGray()
             field.textColor = R.color.textDarkGray()
             field.textAlignment = .center
             field.isUserInteractionEnabled = false
             
             field.tag = i
-            field.font = R.font.sourceSansProBold(size: 24)
+            field.font = UIFont.systemFont(ofSize: 24, weight: .bold)
             field.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
             textFields.append(field)
             
@@ -112,7 +127,7 @@ class ConfirmCodeView: UIView {
     
     @objc private func editingChanged(_ sender: UITextField) {
         
-        if let text: String = sender.text, let character: Character = text.last, character != " " {
+        if let text: String = sender.text, let character: Character = text.last, character != Const.separator {
             
             if text.count > Const.maxCountForOtherFields, sender.tag > 0 {
                 sender.text = String(text.dropLast(text.count - Const.maxCountForOtherFields))
@@ -128,8 +143,11 @@ class ConfirmCodeView: UIView {
                 
                 textFields[sender.tag + 1].isUserInteractionEnabled = true
                 textFields[sender.tag + 1].becomeFirstResponder()
-                textFields[sender.tag + 1].text = " "
+                textFields[sender.tag + 1].text = String(Const.separator)
                 circleViews[sender.tag + 1].isHidden = true
+            } else {
+                
+                delegate?.lastDigitWasInputed(code: code)
             }
         }
         if sender.tag - 1 >= 0, sender.text == "" {
@@ -150,7 +168,8 @@ fileprivate extension ConfirmCodeView {
     struct Const {
         static let maxCountForFirstField: Int = 1
         static let maxCountForOtherFields: Int = 2
-        static let circleMultiplier: CGFloat = 0.3
+        static let circleMultiplier: CGFloat = 0.35
         static let stackSpace: CGFloat = 12
+        static let separator: Character = " "
     }
 }
