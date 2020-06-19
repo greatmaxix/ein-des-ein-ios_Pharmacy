@@ -191,7 +191,7 @@ final class TextInputView: UIView {
         }
         
         if contentType == .phone {
-            sender.text = formatter.updatePhone(text: sender.text)
+            sender.text = formatter.formattedNumber(number: sender.text ?? "")
         }
     }
     

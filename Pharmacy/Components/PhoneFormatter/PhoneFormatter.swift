@@ -8,85 +8,32 @@
 
 import Foundation
 
-//swiftlint:disable function_body_length
+//swiftlint:disable identifier_name
 
 class PhoneFormatter {
     
-    private var previousText: String?
-    private let separators: String = " ,()"
-
-    private struct Const {
-        static let code: Int = 3
-        static let endCode: Int = 4
-        static let countryCode: String = "+7"
-    }
-    
-    // +7 (XXX) XXX XXXX
-    
-    func updatePhone(text: String?) -> String? {
-    
-        guard var startText: String = text, startText.count > 0 else {
-            return text
-        }
+    func formattedNumber(number: String) -> String {
         
-        if let previousText: String = previousText, previousText.count > startText.count {
-            self.previousText = text
-            return text
-        }
-        
-        var result: String = ""
-        
-        if startText.count < Const.countryCode.count {
+        let cleanPhoneNumber: String
+        if number.contains("+7") {
             
-            //startText.removeAll()
-            self.previousText = text
-            result = Const.countryCode
-            return result + " (" + startText
+            cleanPhoneNumber = number.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         } else {
-            
-            if startText.contains(Const.countryCode) {
-                startText.removeFirst(Const.countryCode.count)
+            cleanPhoneNumber = ("7" + number).components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        }
+        
+        let mask = "+X (XXX) XXX-XXXX"
+
+        var result = ""
+        var index = cleanPhoneNumber.startIndex
+        for ch in mask where index < cleanPhoneNumber.endIndex {
+            if ch == "X" {
+                result.append(cleanPhoneNumber[index])
+                index = cleanPhoneNumber.index(after: index)
+            } else {
+                result.append(ch)
             }
-            startText.removeAll(where: {separators.contains($0)})
-            result = Const.countryCode
         }
-        
-        if startText.count > Const.code - 1 {
-            
-            let index = startText.index(startText.startIndex, offsetBy: Const.code)
-            let closeScobe: String = String(startText[startText.startIndex..<index])
-            result += " (" + closeScobe + ")"
-            startText.removeFirst(3)
-        } else {
-            
-            self.previousText = result + " (" + startText
-            return result + " (" + startText
-        }
-        
-        if startText.count > Const.code - 1 {
-            
-            let index = startText.index(startText.startIndex, offsetBy: Const.code)
-            let closeScobe: String = String(startText[startText.startIndex..<index])
-            result += " " + closeScobe + " "
-            startText.removeFirst(3)
-        } else {
-            
-            result += " " + startText
-            self.previousText = result
-            return result
-        }
-        
-        if startText.count > Const.endCode {
-            
-            let index = startText.index(startText.startIndex, offsetBy: Const.endCode)
-            let closeScobe: String = String(startText[startText.startIndex..<index])
-            result += closeScobe
-            previousText = result
-            return result
-        }
-        result += startText
-        self.previousText = result
-
         return result
     }
 }

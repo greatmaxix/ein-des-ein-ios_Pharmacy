@@ -30,6 +30,7 @@
 		396C45C22497699900A569CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 396C45C12497699900A569CE /* Assets.xcassets */; };
 		396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 396C45C32497699900A569CE /* LaunchScreen.storyboard */; };
 		396C45DE2497882800A569CE /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396C45DD2497882800A569CE /* R.generated.swift */; };
+		399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */; };
 		618C33952498BD6700951D11 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33942498BD6700951D11 /* AppNavigation.swift */; };
 		618C33982498BDC200951D11 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33972498BDC200951D11 /* SignInViewController.swift */; };
 		618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C339B2498BDF000951D11 /* SignUpViewController.swift */; };
@@ -72,6 +73,7 @@
 		396C45C42497699900A569CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		396C45C62497699900A569CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		396C45DD2497882800A569CE /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeView.swift; sourceTree = "<group>"; };
 		447B6BF7452CC91EDC27B562 /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
 		618C33942498BD6700951D11 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		618C33972498BDC200951D11 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 		396C45CE249774AC00A569CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				399F2426249CA118003BA7E1 /* ConfirmationCodeView */,
 				395C9D4C2498BDD6001EB6CD /* TextInputView */,
 			);
 			path = Views;
@@ -250,6 +253,14 @@
 				396C45DD2497882800A569CE /* R.generated.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		399F2426249CA118003BA7E1 /* ConfirmationCodeView */ = {
+			isa = PBXGroup;
+			children = (
+				399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */,
+			);
+			path = ConfirmationCodeView;
 			sourceTree = "<group>";
 		};
 		618C33932498BD1A00951D11 /* Coordinator */ = {
@@ -520,6 +531,7 @@
 				618C339F2498BE0200951D11 /* ProfileViewController.swift in Sources */,
 				619AAA462498AEA700AB46ED /* SampleResponseModel.swift in Sources */,
 				618C33952498BD6700951D11 /* AppNavigation.swift in Sources */,
+				399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */,
 				396C45DE2497882800A569CE /* R.generated.swift in Sources */,
 				395C9D782499FC14001EB6CD /* BaseTextValidator.swift in Sources */,
 				618C33982498BDC200951D11 /* SignInViewController.swift in Sources */,
