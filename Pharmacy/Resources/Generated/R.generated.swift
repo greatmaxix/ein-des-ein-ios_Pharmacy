@@ -85,6 +85,7 @@ struct R: Rswift.Validatable {
   }
 
   static func validate() throws {
+    try font.validate()
     try intern.validate()
   }
 
@@ -123,11 +124,599 @@ struct R: Rswift.Validatable {
   }
   #endif
 
+  /// This `R.color` struct is generated, and contains static references to 8 colors.
+  struct color {
+    /// Color `backgroundGray`.
+    static let backgroundGray = Rswift.ColorResource(bundle: R.hostingBundle, name: "backgroundGray")
+    /// Color `confirmCircleGray`.
+    static let confirmCircleGray = Rswift.ColorResource(bundle: R.hostingBundle, name: "confirmCircleGray")
+    /// Color `textDarkBlue`.
+    static let textDarkBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "textDarkBlue")
+    /// Color `textDarkGray`.
+    static let textDarkGray = Rswift.ColorResource(bundle: R.hostingBundle, name: "textDarkGray")
+    /// Color `validationBlue`.
+    static let validationBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "validationBlue")
+    /// Color `validationGray`.
+    static let validationGray = Rswift.ColorResource(bundle: R.hostingBundle, name: "validationGray")
+    /// Color `validationGreen`.
+    static let validationGreen = Rswift.ColorResource(bundle: R.hostingBundle, name: "validationGreen")
+    /// Color `validationRed`.
+    static let validationRed = Rswift.ColorResource(bundle: R.hostingBundle, name: "validationRed")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "backgroundGray", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func backgroundGray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.backgroundGray, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "confirmCircleGray", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func confirmCircleGray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.confirmCircleGray, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "textDarkBlue", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func textDarkBlue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.textDarkBlue, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "textDarkGray", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func textDarkGray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.textDarkGray, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "validationBlue", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func validationBlue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.validationBlue, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "validationGray", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func validationGray(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.validationGray, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "validationGreen", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func validationGreen(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.validationGreen, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "validationRed", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func validationRed(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.validationRed, compatibleWith: traitCollection)
+    }
+    #endif
+
+    fileprivate init() {}
+  }
+
+  /// This `R.file` struct is generated, and contains static references to 12 files.
+  struct file {
+    /// Resource file `SourceSansPro-Black.ttf`.
+    static let sourceSansProBlackTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SourceSansPro-Black", pathExtension: "ttf")
+    /// Resource file `SourceSansPro-BlackItalic.ttf`.
+    static let sourceSansProBlackItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SourceSansPro-BlackItalic", pathExtension: "ttf")
+    /// Resource file `SourceSansPro-Bold.ttf`.
+    static let sourceSansProBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SourceSansPro-Bold", pathExtension: "ttf")
+    /// Resource file `SourceSansPro-BoldItalic.ttf`.
+    static let sourceSansProBoldItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SourceSansPro-BoldItalic", pathExtension: "ttf")
+    /// Resource file `SourceSansPro-ExtraLight.ttf`.
+    static let sourceSansProExtraLightTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SourceSansPro-ExtraLight", pathExtension: "ttf")
+    /// Resource file `SourceSansPro-ExtraLightItalic.ttf`.
+    static let sourceSansProExtraLightItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SourceSansPro-ExtraLightItalic", pathExtension: "ttf")
+    /// Resource file `SourceSansPro-Italic.ttf`.
+    static let sourceSansProItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SourceSansPro-Italic", pathExtension: "ttf")
+    /// Resource file `SourceSansPro-Light.ttf`.
+    static let sourceSansProLightTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SourceSansPro-Light", pathExtension: "ttf")
+    /// Resource file `SourceSansPro-LightItalic.ttf`.
+    static let sourceSansProLightItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SourceSansPro-LightItalic", pathExtension: "ttf")
+    /// Resource file `SourceSansPro-Regular.ttf`.
+    static let sourceSansProRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SourceSansPro-Regular", pathExtension: "ttf")
+    /// Resource file `SourceSansPro-SemiBold.ttf`.
+    static let sourceSansProSemiBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SourceSansPro-SemiBold", pathExtension: "ttf")
+    /// Resource file `SourceSansPro-SemiBoldItalic.ttf`.
+    static let sourceSansProSemiBoldItalicTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SourceSansPro-SemiBoldItalic", pathExtension: "ttf")
+
+    /// `bundle.url(forResource: "SourceSansPro-Black", withExtension: "ttf")`
+    static func sourceSansProBlackTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sourceSansProBlackTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SourceSansPro-BlackItalic", withExtension: "ttf")`
+    static func sourceSansProBlackItalicTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sourceSansProBlackItalicTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SourceSansPro-Bold", withExtension: "ttf")`
+    static func sourceSansProBoldTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sourceSansProBoldTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SourceSansPro-BoldItalic", withExtension: "ttf")`
+    static func sourceSansProBoldItalicTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sourceSansProBoldItalicTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SourceSansPro-ExtraLight", withExtension: "ttf")`
+    static func sourceSansProExtraLightTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sourceSansProExtraLightTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SourceSansPro-ExtraLightItalic", withExtension: "ttf")`
+    static func sourceSansProExtraLightItalicTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sourceSansProExtraLightItalicTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SourceSansPro-Italic", withExtension: "ttf")`
+    static func sourceSansProItalicTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sourceSansProItalicTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SourceSansPro-Light", withExtension: "ttf")`
+    static func sourceSansProLightTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sourceSansProLightTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SourceSansPro-LightItalic", withExtension: "ttf")`
+    static func sourceSansProLightItalicTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sourceSansProLightItalicTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SourceSansPro-Regular", withExtension: "ttf")`
+    static func sourceSansProRegularTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sourceSansProRegularTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SourceSansPro-SemiBold", withExtension: "ttf")`
+    static func sourceSansProSemiBoldTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sourceSansProSemiBoldTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    /// `bundle.url(forResource: "SourceSansPro-SemiBoldItalic", withExtension: "ttf")`
+    static func sourceSansProSemiBoldItalicTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sourceSansProSemiBoldItalicTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.font` struct is generated, and contains static references to 12 fonts.
+  struct font: Rswift.Validatable {
+    /// Font `SourceSansPro-BlackItalic`.
+    static let sourceSansProBlackItalic = Rswift.FontResource(fontName: "SourceSansPro-BlackItalic")
+    /// Font `SourceSansPro-Black`.
+    static let sourceSansProBlack = Rswift.FontResource(fontName: "SourceSansPro-Black")
+    /// Font `SourceSansPro-BoldItalic`.
+    static let sourceSansProBoldItalic = Rswift.FontResource(fontName: "SourceSansPro-BoldItalic")
+    /// Font `SourceSansPro-Bold`.
+    static let sourceSansProBold = Rswift.FontResource(fontName: "SourceSansPro-Bold")
+    /// Font `SourceSansPro-ExtraLightItalic`.
+    static let sourceSansProExtraLightItalic = Rswift.FontResource(fontName: "SourceSansPro-ExtraLightItalic")
+    /// Font `SourceSansPro-ExtraLight`.
+    static let sourceSansProExtraLight = Rswift.FontResource(fontName: "SourceSansPro-ExtraLight")
+    /// Font `SourceSansPro-Italic`.
+    static let sourceSansProItalic = Rswift.FontResource(fontName: "SourceSansPro-Italic")
+    /// Font `SourceSansPro-LightItalic`.
+    static let sourceSansProLightItalic = Rswift.FontResource(fontName: "SourceSansPro-LightItalic")
+    /// Font `SourceSansPro-Light`.
+    static let sourceSansProLight = Rswift.FontResource(fontName: "SourceSansPro-Light")
+    /// Font `SourceSansPro-Regular`.
+    static let sourceSansProRegular = Rswift.FontResource(fontName: "SourceSansPro-Regular")
+    /// Font `SourceSansPro-SemiBoldItalic`.
+    static let sourceSansProSemiBoldItalic = Rswift.FontResource(fontName: "SourceSansPro-SemiBoldItalic")
+    /// Font `SourceSansPro-SemiBold`.
+    static let sourceSansProSemiBold = Rswift.FontResource(fontName: "SourceSansPro-SemiBold")
+
+    /// `UIFont(name: "SourceSansPro-Black", size: ...)`
+    static func sourceSansProBlack(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sourceSansProBlack, size: size)
+    }
+
+    /// `UIFont(name: "SourceSansPro-BlackItalic", size: ...)`
+    static func sourceSansProBlackItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sourceSansProBlackItalic, size: size)
+    }
+
+    /// `UIFont(name: "SourceSansPro-Bold", size: ...)`
+    static func sourceSansProBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sourceSansProBold, size: size)
+    }
+
+    /// `UIFont(name: "SourceSansPro-BoldItalic", size: ...)`
+    static func sourceSansProBoldItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sourceSansProBoldItalic, size: size)
+    }
+
+    /// `UIFont(name: "SourceSansPro-ExtraLight", size: ...)`
+    static func sourceSansProExtraLight(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sourceSansProExtraLight, size: size)
+    }
+
+    /// `UIFont(name: "SourceSansPro-ExtraLightItalic", size: ...)`
+    static func sourceSansProExtraLightItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sourceSansProExtraLightItalic, size: size)
+    }
+
+    /// `UIFont(name: "SourceSansPro-Italic", size: ...)`
+    static func sourceSansProItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sourceSansProItalic, size: size)
+    }
+
+    /// `UIFont(name: "SourceSansPro-Light", size: ...)`
+    static func sourceSansProLight(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sourceSansProLight, size: size)
+    }
+
+    /// `UIFont(name: "SourceSansPro-LightItalic", size: ...)`
+    static func sourceSansProLightItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sourceSansProLightItalic, size: size)
+    }
+
+    /// `UIFont(name: "SourceSansPro-Regular", size: ...)`
+    static func sourceSansProRegular(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sourceSansProRegular, size: size)
+    }
+
+    /// `UIFont(name: "SourceSansPro-SemiBold", size: ...)`
+    static func sourceSansProSemiBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sourceSansProSemiBold, size: size)
+    }
+
+    /// `UIFont(name: "SourceSansPro-SemiBoldItalic", size: ...)`
+    static func sourceSansProSemiBoldItalic(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sourceSansProSemiBoldItalic, size: size)
+    }
+
+    static func validate() throws {
+      if R.font.sourceSansProBlack(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SourceSansPro-Black' could not be loaded, is 'SourceSansPro-Black.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.sourceSansProBlackItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SourceSansPro-BlackItalic' could not be loaded, is 'SourceSansPro-BlackItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.sourceSansProBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SourceSansPro-Bold' could not be loaded, is 'SourceSansPro-Bold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.sourceSansProBoldItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SourceSansPro-BoldItalic' could not be loaded, is 'SourceSansPro-BoldItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.sourceSansProExtraLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SourceSansPro-ExtraLight' could not be loaded, is 'SourceSansPro-ExtraLight.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.sourceSansProExtraLightItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SourceSansPro-ExtraLightItalic' could not be loaded, is 'SourceSansPro-ExtraLightItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.sourceSansProItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SourceSansPro-Italic' could not be loaded, is 'SourceSansPro-Italic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.sourceSansProLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SourceSansPro-Light' could not be loaded, is 'SourceSansPro-Light.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.sourceSansProLightItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SourceSansPro-LightItalic' could not be loaded, is 'SourceSansPro-LightItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.sourceSansProRegular(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SourceSansPro-Regular' could not be loaded, is 'SourceSansPro-Regular.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.sourceSansProSemiBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SourceSansPro-SemiBold' could not be loaded, is 'SourceSansPro-SemiBold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.sourceSansProSemiBoldItalic(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SourceSansPro-SemiBoldItalic' could not be loaded, is 'SourceSansPro-SemiBoldItalic.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.image` struct is generated, and contains static references to 5 images.
+  struct image {
+    /// Image `Facebook`.
+    static let facebook = Rswift.ImageResource(bundle: R.hostingBundle, name: "Facebook")
+    /// Image `google`.
+    static let google = Rswift.ImageResource(bundle: R.hostingBundle, name: "google")
+    /// Image `validationClose`.
+    static let validationClose = Rswift.ImageResource(bundle: R.hostingBundle, name: "validationClose")
+    /// Image `validationError`.
+    static let validationError = Rswift.ImageResource(bundle: R.hostingBundle, name: "validationError")
+    /// Image `validationSuccess`.
+    static let validationSuccess = Rswift.ImageResource(bundle: R.hostingBundle, name: "validationSuccess")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "Facebook", bundle: ..., traitCollection: ...)`
+    static func facebook(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.facebook, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "google", bundle: ..., traitCollection: ...)`
+    static func google(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.google, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "validationClose", bundle: ..., traitCollection: ...)`
+    static func validationClose(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.validationClose, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "validationError", bundle: ..., traitCollection: ...)`
+    static func validationError(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.validationError, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "validationSuccess", bundle: ..., traitCollection: ...)`
+    static func validationSuccess(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.validationSuccess, compatibleWith: traitCollection)
+    }
+    #endif
+
+    fileprivate init() {}
+  }
+
   /// This `R.info` struct is generated, and contains static references to 1 properties.
   struct info {
     struct uiApplicationSceneManifest {
       static let _key = "UIApplicationSceneManifest"
       static let uiApplicationSupportsMultipleScenes = false
+
+      fileprivate init() {}
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
+  struct string {
+    /// This `R.string.localize` struct is generated, and contains static references to 15 localization keys.
+    struct localize {
+      /// Value: +7(•••) •••-••-••
+      static let placeholderPhone = Rswift.StringResource(key: "placeholder.phone", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Invalid phone
+      static let errorPhone = Rswift.StringResource(key: "error.phone", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Is this your real name?
+      static let errorName = Rswift.StringResource(key: "error.name", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: email для рассылок
+      static let placeholderEmail = Rswift.StringResource(key: "placeholder.email", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Ваше имя*
+      static let placeholderName = Rswift.StringResource(key: "placeholder.name", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Далее
+      static let loginApply = Rswift.StringResource(key: "login.apply", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Или войдите с помощью
+      static let loginSocial = Rswift.StringResource(key: "login.social", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Не получили код ?
+      static let confirmResendCode = Rswift.StringResource(key: "confirm.resendCode", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Ой: Кажется это не похоже на имейл адрес
+      static let errorEmail = Rswift.StringResource(key: "error.email", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Отправить снова
+      static let confirmResendAgain = Rswift.StringResource(key: "confirm.resendAgain", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Подтверждение номера
+      static let confirmTitle = Rswift.StringResource(key: "confirm.title", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Пожалуйста, авторизируйтесь удобным для вас способом
+      static let loginDescription = Rswift.StringResource(key: "login.description", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Пожалуйста, введите проверочный код, который мы отправили на
+      static let confirmDescription = Rswift.StringResource(key: "confirm.description", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Пропустить
+      static let loginSkip = Rswift.StringResource(key: "login.skip", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Создание аккаунта
+      static let loginTitle = Rswift.StringResource(key: "login.title", tableName: "localize", bundle: R.hostingBundle, locales: [], comment: nil)
+
+      /// Value: +7(•••) •••-••-••
+      static func placeholderPhone(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("placeholder.phone", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "placeholder.phone"
+        }
+
+        return NSLocalizedString("placeholder.phone", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Invalid phone
+      static func errorPhone(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error.phone", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "error.phone"
+        }
+
+        return NSLocalizedString("error.phone", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Is this your real name?
+      static func errorName(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error.name", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "error.name"
+        }
+
+        return NSLocalizedString("error.name", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: email для рассылок
+      static func placeholderEmail(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("placeholder.email", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "placeholder.email"
+        }
+
+        return NSLocalizedString("placeholder.email", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Ваше имя*
+      static func placeholderName(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("placeholder.name", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "placeholder.name"
+        }
+
+        return NSLocalizedString("placeholder.name", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Далее
+      static func loginApply(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login.apply", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "login.apply"
+        }
+
+        return NSLocalizedString("login.apply", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Или войдите с помощью
+      static func loginSocial(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login.social", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "login.social"
+        }
+
+        return NSLocalizedString("login.social", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Не получили код ?
+      static func confirmResendCode(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("confirm.resendCode", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "confirm.resendCode"
+        }
+
+        return NSLocalizedString("confirm.resendCode", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Ой: Кажется это не похоже на имейл адрес
+      static func errorEmail(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("error.email", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "error.email"
+        }
+
+        return NSLocalizedString("error.email", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Отправить снова
+      static func confirmResendAgain(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("confirm.resendAgain", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "confirm.resendAgain"
+        }
+
+        return NSLocalizedString("confirm.resendAgain", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Подтверждение номера
+      static func confirmTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("confirm.title", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "confirm.title"
+        }
+
+        return NSLocalizedString("confirm.title", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Пожалуйста, авторизируйтесь удобным для вас способом
+      static func loginDescription(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login.description", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "login.description"
+        }
+
+        return NSLocalizedString("login.description", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Пожалуйста, введите проверочный код, который мы отправили на
+      static func confirmDescription(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("confirm.description", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "confirm.description"
+        }
+
+        return NSLocalizedString("confirm.description", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Пропустить
+      static func loginSkip(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login.skip", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "login.skip"
+        }
+
+        return NSLocalizedString("login.skip", tableName: "localize", bundle: bundle, comment: "")
+      }
+
+      /// Value: Создание аккаунта
+      static func loginTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("login.title", tableName: "localize", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "localize", preferredLanguages: preferredLanguages) else {
+          return "login.title"
+        }
+
+        return NSLocalizedString("login.title", tableName: "localize", bundle: bundle, comment: "")
+      }
 
       fileprivate init() {}
     }
@@ -174,17 +763,33 @@ struct _R: Rswift.Validatable {
       typealias InitialController = SignInViewController
 
       let bundle = R.hostingBundle
+      let confirmCodeViewController = StoryboardViewControllerResource<ConfirmCodeViewController>(identifier: "ConfirmCodeViewController")
       let name = "Auth"
       let signInViewController = StoryboardViewControllerResource<SignInViewController>(identifier: "SignInViewController")
+      let signUpViewController = StoryboardViewControllerResource<SignUpViewController>(identifier: "SignUpViewController")
+
+      func confirmCodeViewController(_: Void = ()) -> ConfirmCodeViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: confirmCodeViewController)
+      }
 
       func signInViewController(_: Void = ()) -> SignInViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: signInViewController)
       }
 
+      func signUpViewController(_: Void = ()) -> SignUpViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: signUpViewController)
+      }
+
       static func validate() throws {
+        if UIKit.UIImage(named: "Facebook", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Facebook' is used in storyboard 'Auth', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "google", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'google' is used in storyboard 'Auth', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "backgroundGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'backgroundGray' is used in storyboard 'Auth', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "textDarkGray", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'textDarkGray' is used in storyboard 'Auth', but couldn't be loaded.") }
         }
+        if _R.storyboard.auth().confirmCodeViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'confirmCodeViewController' could not be loaded from storyboard 'Auth' as 'ConfirmCodeViewController'.") }
         if _R.storyboard.auth().signInViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signInViewController' could not be loaded from storyboard 'Auth' as 'SignInViewController'.") }
+        if _R.storyboard.auth().signUpViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'signUpViewController' could not be loaded from storyboard 'Auth' as 'SignUpViewController'.") }
       }
 
       fileprivate init() {}
