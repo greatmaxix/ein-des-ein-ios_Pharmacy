@@ -14,6 +14,7 @@ class BaseTextValidator {
         case name
         case phone
         case email
+        case smsCode
     }
     
     var type: ValidatorType {

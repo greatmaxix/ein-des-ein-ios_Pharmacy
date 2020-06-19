@@ -13,7 +13,7 @@ protocol ConfirmCodeDelegate: class {
     func lastDigitWasInputed(code: String)
 }
 
-class ConfirmCodeView: UIView {
+final class ConfirmCodeView: UIView {
     
     private var fieldsStack: UIStackView!
     private var stackTopConstraint: NSLayoutConstraint!
@@ -56,6 +56,20 @@ class ConfirmCodeView: UIView {
         textFields[0].isUserInteractionEnabled = true
         textFields[0].becomeFirstResponder()
         circleViews[0].isHidden = true
+    }
+    
+    func setConfirmationCode(code: String) {
+        
+        let validator: SMSCodeValidator = SMSCodeValidator()
+        if validator.validate(text: code) == true, code.count == textFields.count {
+            
+            var confirmCode = code
+            textFields.forEach({
+                $0.text = String(confirmCode.removeFirst())
+                $0.isUserInteractionEnabled = false
+            })
+            circleViews.forEach({ $0.isHidden = true })
+        }
     }
     
     // MARK: - Setup

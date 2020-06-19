@@ -12,3 +12,11 @@
 "error.email" = "Ой: Кажется это не похоже на имейл адрес";
 "error.phone" = "Invalid phone";
 "error.name" = "Is this your real name?";
+
+// MARK: - Confirm code
+
+"confirm.title" = "Подтверждение номера";
+"confirm.description" = "Пожалуйста, введите проверочный код, который мы отправили на";
+"confirm.resendCode" = "Не получили код ?";
+"confirm.resendAgain" = "Отправить снова";
+
