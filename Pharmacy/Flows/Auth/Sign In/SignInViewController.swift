@@ -22,13 +22,13 @@ final class SignInViewController: UIViewController {
     
     private var tapGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
+    var signInInput: SignInInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupLocalization()
         phoneInputView.contentType = .phone
-        navigationController?.navigationBar.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardDidHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -36,6 +36,12 @@ final class SignInViewController: UIViewController {
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrollView.addGestureRecognizer(tapGesture)
         scrollViewInsets = scrollView.contentInset
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
     }
     
     func setupLocalization() {
@@ -51,8 +57,15 @@ final class SignInViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func apply(_ sender: UIButton) {
+        
+        if let phone: String = phoneInputView.text, phoneInputView.validate() {
+            signInInput.signIn(phone: phone)
+        }
     }
     
+    @IBAction func createAccount(_ sender: UIButton) {
+        signInInput.signUp()
+    }
     
     // MARK: - Keyboard
     

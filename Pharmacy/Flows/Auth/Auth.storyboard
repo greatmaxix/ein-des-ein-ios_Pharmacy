@@ -156,7 +156,7 @@
                         <constraints>
                             <constraint firstItem="4kF-B5-mZP" firstAttribute="bottom" secondItem="bTb-bJ-YBF" secondAttribute="bottom" id="1Lg-Pz-bGM"/>
                             <constraint firstItem="4kF-B5-mZP" firstAttribute="trailing" secondItem="bTb-bJ-YBF" secondAttribute="trailing" id="Mb0-Af-PFw"/>
-                            <constraint firstItem="bTb-bJ-YBF" firstAttribute="top" secondItem="4kF-B5-mZP" secondAttribute="top" id="RRN-9p-o0P"/>
+                            <constraint firstItem="bTb-bJ-YBF" firstAttribute="top" secondItem="mSf-lD-soK" secondAttribute="top" constant="44" id="RRN-9p-o0P"/>
                             <constraint firstItem="bTb-bJ-YBF" firstAttribute="leading" secondItem="4kF-B5-mZP" secondAttribute="leading" id="f5z-qg-tqR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4kF-B5-mZP"/>
@@ -274,7 +274,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2PL-h7-YR1">
-                                <rect key="frame" x="0.0" y="39" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="813"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPU-Mz-pYr">
                                         <rect key="frame" x="16" y="300" width="382" height="37.5"/>
@@ -363,6 +363,7 @@
                                                     <color key="titleColor" name="textDarkGray"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="createAccount:" destination="YLA-4e-cX8" eventType="touchUpInside" id="Ho2-3X-PSJ"/>
                                                     <action selector="skipSignUp:" destination="miv-fQ-a94" eventType="touchUpInside" id="fwc-LV-2w3"/>
                                                 </connections>
                                             </button>
@@ -397,11 +398,11 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="oPj-hS-EaD"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstItem="2PL-h7-YR1" firstAttribute="leading" secondItem="UzT-TH-ugk" secondAttribute="leading" id="1VW-Ir-IjP"/>
                             <constraint firstItem="UzT-TH-ugk" firstAttribute="bottom" secondItem="2PL-h7-YR1" secondAttribute="bottom" constant="5" id="bAx-LX-Nqb"/>
-                            <constraint firstItem="UzT-TH-ugk" firstAttribute="top" secondItem="2PL-h7-YR1" secondAttribute="top" constant="5" id="hLX-zA-hZh"/>
+                            <constraint firstItem="UzT-TH-ugk" firstAttribute="top" secondItem="2PL-h7-YR1" secondAttribute="top" id="hLX-zA-hZh"/>
                             <constraint firstItem="UzT-TH-ugk" firstAttribute="trailing" secondItem="2PL-h7-YR1" secondAttribute="trailing" id="r8y-Sg-H5b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UzT-TH-ugk"/>

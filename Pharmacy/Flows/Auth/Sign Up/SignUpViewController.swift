@@ -22,12 +22,14 @@ final class SignUpViewController: UIViewController {
     
     private var tapGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
+    var signUpInput: SignUpInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
         setupLocalization()
+        navigationController?.navigationBar.isHidden = false
     }
     
     deinit {
@@ -38,6 +40,16 @@ final class SignUpViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func apply(_ sender: UIButton) {
+        
+        var validationResult: Bool = true
+        inputViews.forEach({
+            let isValid: Bool = $0.validate()
+            validationResult = validationResult && isValid
+        })
+        
+        if let name: String = inputViews[0].text, let phone: String = inputViews[1].text, validationResult {
+            signUpInput.signUp(name: name, phone: phone, email: inputViews[2].text)
+        }
     }
     
     @IBAction func skipSignUp(_ sender: UIButton) {
@@ -47,7 +59,6 @@ final class SignUpViewController: UIViewController {
     
     private func setupUI() {
         
-        navigationController?.isNavigationBarHidden = true
         inputViews[0].contentType = .name
         inputViews[1].contentType = .phone
         inputViews[2].contentType = .email

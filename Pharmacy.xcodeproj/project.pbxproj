@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39273A0924A0DA5A004A9909 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0824A0DA5A004A9909 /* SignInViewModel.swift */; };
+		39273A0B24A0DFEC004A9909 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0A24A0DFEC004A9909 /* Model.swift */; };
+		39273A0D24A0F09B004A9909 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0C24A0F09B004A9909 /* SignUpViewModel.swift */; };
 		3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */; };
 		395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D4D2498BDFD001EB6CD /* TextInputView.swift */; };
 		395C9D5C2498D703001EB6CD /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 395C9D572498D0BF001EB6CD /* SourceSansPro-Black.ttf */; };
@@ -50,6 +53,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39273A0824A0DA5A004A9909 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		39273A0A24A0DFEC004A9909 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		39273A0C24A0F09B004A9909 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
 		395C9D4D2498BDFD001EB6CD /* TextInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
 		395C9D502498D0BE001EB6CD /* SourceSansPro-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -248,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				619AAA492498B09800AB46ED /* Token.swift */,
+				39273A0A24A0DFEC004A9909 /* Model.swift */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -288,6 +295,7 @@
 		618C33962498BDA600951D11 /* Sign In */ = {
 			isa = PBXGroup;
 			children = (
+				39273A0824A0DA5A004A9909 /* SignInViewModel.swift */,
 				618C33972498BDC200951D11 /* SignInViewController.swift */,
 			);
 			path = "Sign In";
@@ -297,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				618C339B2498BDF000951D11 /* SignUpViewController.swift */,
+				39273A0C24A0F09B004A9909 /* SignUpViewModel.swift */,
 			);
 			path = "Sign Up";
 			sourceTree = "<group>";
@@ -537,6 +546,7 @@
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
 				395C9D762499FC14001EB6CD /* EmailValidator.swift in Sources */,
 				619AAA432498ADFE00AB46ED /* DataManager.swift in Sources */,
+				39273A0924A0DA5A004A9909 /* SignInViewModel.swift in Sources */,
 				3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */,
 				619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
@@ -547,12 +557,14 @@
 				619AAA462498AEA700AB46ED /* SampleResponseModel.swift in Sources */,
 				618C33952498BD6700951D11 /* AppNavigation.swift in Sources */,
 				399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */,
+				39273A0B24A0DFEC004A9909 /* Model.swift in Sources */,
 				396C45DE2497882800A569CE /* R.generated.swift in Sources */,
 				395C9D782499FC14001EB6CD /* BaseTextValidator.swift in Sources */,
 				618C33982498BDC200951D11 /* SignInViewController.swift in Sources */,
 				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
 				395C9D7A2499FD8F001EB6CD /* NameValidator.swift in Sources */,
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
+				39273A0D24A0F09B004A9909 /* SignUpViewModel.swift in Sources */,
 				395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */,
 				395C9D772499FC14001EB6CD /* PhoneValidator.swift in Sources */,
 			);
