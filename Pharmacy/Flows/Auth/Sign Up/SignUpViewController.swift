@@ -66,11 +66,11 @@ final class SignUpViewController: UIViewController {
     
     private func setupLocalization() {
         
-        titleLabel.text = R.string.localize.loginTitle()
-        descriptionLabel.text = R.string.localize.loginDescription()
-        socialNetworksLabel.text = R.string.localize.loginSocial()
-        skipButton.setTitle(R.string.localize.loginSkip(), for: .normal)
-        applyButton.setTitle(R.string.localize.loginApply(), for: .normal)
+        titleLabel.text = R.string.localize.signupTitle()
+        descriptionLabel.text = R.string.localize.signupDescription()
+        socialNetworksLabel.text = R.string.localize.signupSocial()
+        skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
+        applyButton.setTitle(R.string.localize.signupApply(), for: .normal)
     }
     
     // MARK: - Keyboard
