@@ -169,6 +169,20 @@ final class TextInputView: UIView {
         return inputTextField.text
     }
     
+    var returnKeyType: UIReturnKeyType = .default {
+        
+        willSet {
+            inputTextField.returnKeyType = newValue
+        }
+    }
+    
+    override var tag: Int {
+        
+        didSet {
+            inputTextField.tag = tag
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -185,6 +199,10 @@ final class TextInputView: UIView {
     
     // MARK: - Actions
     
+    func startEditing() {
+        inputTextField.becomeFirstResponder()
+    }
+    
     @objc private func editingChanged(sender: UITextField) {
         
         if visualStyle != .editing {
@@ -192,7 +210,7 @@ final class TextInputView: UIView {
         }
         
         if contentType == .phone {
-            sender.text = formatter.updatePhone(text: sender.text)
+            sender.text = formatter.formattedNumber(number: sender.text ?? "")
         }
     }
     
@@ -273,7 +291,9 @@ final class TextInputView: UIView {
             inputTextField.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -Const.textfieldSpace),
             inputTextField.trailingAnchor.constraint(equalTo: inputStatusImageView.leadingAnchor, constant: -Const.textfieldSpace)
         ])
+        
         visualStyle = .standart
+        inputTextField.tag = tag
     }
     
     private func setupFonts() {

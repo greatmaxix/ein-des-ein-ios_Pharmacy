@@ -15,7 +15,7 @@ class NameValidator: BaseTextValidator {
     }
     
     override var pattern: String {
-        return "^[^_!¡?÷?¿\u{fe68}/\u{fe68}\u{fe68}+=@#$%ˆ&*(){}|~<>;:[\u{fe68}]]*$"
+        return "^[^_ !¡?÷?¿\u{fe68}/\u{fe68}\u{fe68}+=@#$%ˆ&*(){}|~<>;:[\u{fe68}]]{2,12}$"
     }
     
     override var errorText: String {
