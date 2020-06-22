@@ -169,6 +169,13 @@ final class TextInputView: UIView {
         return inputTextField.text
     }
     
+    var returnKeyType: UIReturnKeyType = .default {
+        
+        willSet {
+            inputTextField.returnKeyType = newValue
+        }
+    }
+    
     override var tag: Int {
         
         didSet {
@@ -191,15 +198,6 @@ final class TextInputView: UIView {
     }
     
     // MARK: - Actions
-    
-    func stopEditing() {
-        
-        if inputTextField.isFirstResponder {
-            
-            inputTextField.resignFirstResponder()
-            validate()
-        }
-    }
     
     func startEditing() {
         inputTextField.becomeFirstResponder()

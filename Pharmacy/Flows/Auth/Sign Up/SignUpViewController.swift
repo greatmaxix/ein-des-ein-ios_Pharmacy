@@ -51,7 +51,10 @@ final class SignUpViewController: UIViewController {
         inputViews[0].contentType = .name
         inputViews[1].contentType = .phone
         inputViews[2].contentType = .email
-        inputViews.forEach({$0.textFieldDelegate = self})
+        inputViews.forEach({
+            $0.textFieldDelegate = self
+            $0.returnKeyType = .next
+        })
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardDidHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -88,7 +91,7 @@ final class SignUpViewController: UIViewController {
     @objc private func hideKeyboard() {
         
         scrollView.contentInset = scrollViewInsets
-        inputViews.forEach({$0.stopEditing()})
+        inputViews.forEach({$0.endEditing(true)})
     }
 }
 
