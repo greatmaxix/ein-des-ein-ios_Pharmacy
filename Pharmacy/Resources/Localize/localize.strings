@@ -12,7 +12,7 @@
 "placeholder.phone" = "+7(•••) •••-••-••";
 "placeholder.name" = "Ваше имя*";
 "error.email" = "Ой: Кажется это не похоже на имейл адрес";
-"error.phone" = "Invalid phone";
+"error.phone" = "Ой, кажется это не похоже на номер телефона";
 "error.name" = "Is this your real name?";
 
 // MARK: - Confirm code

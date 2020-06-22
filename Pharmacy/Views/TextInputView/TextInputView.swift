@@ -169,6 +169,13 @@ final class TextInputView: UIView {
         return inputTextField.text
     }
     
+    override var tag: Int {
+        
+        didSet {
+            inputTextField.tag = tag
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -184,6 +191,19 @@ final class TextInputView: UIView {
     }
     
     // MARK: - Actions
+    
+    func stopEditing() {
+        
+        if inputTextField.isFirstResponder {
+            
+            inputTextField.resignFirstResponder()
+            validate()
+        }
+    }
+    
+    func startEditing() {
+        inputTextField.becomeFirstResponder()
+    }
     
     @objc private func editingChanged(sender: UITextField) {
         
@@ -273,7 +293,9 @@ final class TextInputView: UIView {
             inputTextField.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -Const.textfieldSpace),
             inputTextField.trailingAnchor.constraint(equalTo: inputStatusImageView.leadingAnchor, constant: -Const.textfieldSpace)
         ])
+        
         visualStyle = .standart
+        inputTextField.tag = tag
     }
     
     private func setupFonts() {

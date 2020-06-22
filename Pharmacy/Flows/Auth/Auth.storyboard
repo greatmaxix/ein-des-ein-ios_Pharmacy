@@ -12,6 +12,9 @@
         <array key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
         </array>
+        <array key="SourceSansPro-SemiBold.ttf">
+            <string>SourceSansPro-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Sign Up View Controller-->
@@ -44,17 +47,15 @@
                                             <constraint firstAttribute="height" constant="65" id="IDw-lS-W99"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzs-Bg-4pR" customClass="TextInputView" customModule="Pharmacy" customModuleProvider="target">
+                                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzs-Bg-4pR" customClass="TextInputView" customModule="Pharmacy" customModuleProvider="target">
                                         <rect key="frame" x="16" y="311.5" width="382" height="65"/>
-
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="QK6-z6-r8s"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6B-89-TlH" customClass="TextInputView" customModule="Pharmacy" customModuleProvider="target">
+                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6B-89-TlH" customClass="TextInputView" customModule="Pharmacy" customModuleProvider="target">
                                         <rect key="frame" x="16" y="394.5" width="382" height="65"/>
-
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="gH6-ZQ-Squ"/>
@@ -62,7 +63,6 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jK-7N-piF">
                                         <rect key="frame" x="16" y="507.5" width="382" height="48"/>
-
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="A5y-Kg-pAn"/>
@@ -76,7 +76,6 @@
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="wgj-IP-2v1">
                                         <rect key="frame" x="139" y="672" width="136" height="48"/>
-
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHh-6f-LiM">
                                                 <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
@@ -98,7 +97,6 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6I-Kh-fZe">
                                         <rect key="frame" x="16" y="736" width="382" height="30"/>
-
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="DVL-ND-QJe"/>
                                         </constraints>
@@ -164,17 +162,18 @@
                     <connections>
                         <outlet property="applyButton" destination="3jK-7N-piF" id="3mA-KB-GN1"/>
                         <outlet property="descriptionLabel" destination="WQk-b3-Nxw" id="Abb-2U-1uJ"/>
-                        <outlet property="emailInputView" destination="m6B-89-TlH" id="R0e-Vq-ajr"/>
-                        <outlet property="nameInputView" destination="S2u-Vq-b7l" id="mdW-tM-DKq"/>
-                        <outlet property="phoneInputView" destination="gzs-Bg-4pR" id="oMi-Iz-wEJ"/>
+                        <outlet property="scrollView" destination="bTb-bJ-YBF" id="N5H-hf-Zvw"/>
                         <outlet property="skipButton" destination="L6I-Kh-fZe" id="msH-1F-qkZ"/>
                         <outlet property="socialNetworksLabel" destination="P6s-Ll-P9D" id="6Ah-0Y-ckM"/>
                         <outlet property="titleLabel" destination="Sjv-TE-D3z" id="aLT-kC-F9I"/>
+                        <outletCollection property="inputViews" destination="S2u-Vq-b7l" collectionClass="NSMutableArray" id="D9T-3l-xfu"/>
+                        <outletCollection property="inputViews" destination="gzs-Bg-4pR" collectionClass="NSMutableArray" id="jFS-Gr-0PI"/>
+                        <outletCollection property="inputViews" destination="m6B-89-TlH" collectionClass="NSMutableArray" id="IQc-hP-AhS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grI-C7-bCC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="877" y="-477"/>
+            <point key="canvasLocation" x="959" y="-477"/>
         </scene>
         <!--Confirm Code View Controller-->
         <scene sceneID="dSn-Qj-npy">
@@ -184,7 +183,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cc-Vw-d6e">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cc-Vw-d6e">
                                 <rect key="frame" x="37" y="54" width="361" height="40.5"/>
                                 <fontDescription key="fontDescription" name="SourceSansPro-SemiBold" family="Source Sans Pro" pointSize="32"/>
                                 <color key="textColor" name="textDarkGray"/>
