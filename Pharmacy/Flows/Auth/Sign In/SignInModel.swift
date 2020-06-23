@@ -23,14 +23,14 @@ protocol SignInOutput {
     
 }
 
-final class SignInViewModel: Model {
+final class SignInModel: Model {
     
     private func makeSignInRequest(phone: String) {
         
     }
 }
 
-extension SignInViewModel: SignInInput {
+extension SignInModel: SignInInput {
     
     func signIn(phone: String) {
         makeSignInRequest(phone: phone)

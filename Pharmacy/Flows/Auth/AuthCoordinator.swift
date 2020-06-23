@@ -29,7 +29,7 @@ class AuthFlowCoordinator: EventNode, Coordinator {
             case .signIn(let phone):
                 break
             case .signUp:
-                self?.routeToSignUp()
+                self?.presentSignUp()
             }
         }
     }
@@ -40,7 +40,7 @@ class AuthFlowCoordinator: EventNode, Coordinator {
             withIdentifier: "SignInViewController") as! SignInViewController
         // swiftlint:enable force_cast
 
-        signInController.signInInput = SignInViewModel(parent: self)
+        signInController.model = SignInModel(parent: self)
         root = signInController
         let navigation = UINavigationController(rootViewController: root)
         navigation.isToolbarHidden = true
@@ -48,15 +48,15 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         return navigation
     }
     
-    func routeToSignUp() {
+    func presentSignUp() {
         if let signUpVC: SignUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
             
-            signUpVC.signUpInput = SignUpViewModel(parent: self)
+            signUpVC.model = SignUpModel(parent: self)
             root.navigationController?.pushViewController(signUpVC, animated: true)
         }
     }
     
-    func routeToConfirmSMS() {
+    func presentConfirmSMS() {
         let confirmVC: UIViewController = storyboard.instantiateViewController(withIdentifier: "ConfirmCodeViewController")
         root.navigationController?.pushViewController(confirmVC, animated: true)
     }

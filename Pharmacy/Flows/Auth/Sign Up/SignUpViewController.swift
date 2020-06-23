@@ -22,7 +22,11 @@ final class SignUpViewController: UIViewController {
     
     private var tapGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
-    var signUpInput: SignUpInput!
+    var model: SignUpInput!
+    
+    private var areFieldsValid: Bool {
+        return inputViews.allSatisfy({$0.validate()})
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +45,8 @@ final class SignUpViewController: UIViewController {
     
     @IBAction func apply(_ sender: UIButton) {
         
-        var validationResult: Bool = true
-        inputViews.forEach({
-            let isValid: Bool = $0.validate()
-            validationResult = validationResult && isValid
-        })
-        
-        if let name: String = inputViews[0].text, let phone: String = inputViews[1].text, validationResult {
-            signUpInput.signUp(name: name, phone: phone, email: inputViews[2].text)
+        if areFieldsValid {
+            model.signUp(name: inputViews[0].text, phone: inputViews[1].text, email: inputViews[2].text)
         }
     }
     

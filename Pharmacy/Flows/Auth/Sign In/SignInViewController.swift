@@ -10,8 +10,8 @@ import UIKit
 
 final class SignInViewController: UIViewController {
 
-    @IBOutlet weak var lbTitle: UILabel!
-    @IBOutlet weak var lbDescription: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var phoneInputView: TextInputView!
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -22,7 +22,7 @@ final class SignInViewController: UIViewController {
     
     private var tapGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
-    var signInInput: SignInInput!
+    var model: SignInInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +46,8 @@ final class SignInViewController: UIViewController {
     
     func setupLocalization() {
         
-        lbTitle.text = R.string.localize.loginTitle()
-        lbDescription.text = R.string.localize.loginDescription()
+        titleLabel.text = R.string.localize.loginTitle()
+        descriptionLabel.text = R.string.localize.loginDescription()
         applyButton.setTitle(R.string.localize.loginApply(), for: .normal)
         registerButton.setTitle(R.string.localize.loginSignup(), for: .normal)
         accountLabel.text = R.string.localize.loginAccount()
@@ -59,12 +59,12 @@ final class SignInViewController: UIViewController {
     @IBAction func apply(_ sender: UIButton) {
         
         if let phone: String = phoneInputView.text, phoneInputView.validate() {
-            signInInput.signIn(phone: phone)
+            model.signIn(phone: phone)
         }
     }
     
     @IBAction func createAccount(_ sender: UIButton) {
-        signInInput.signUp()
+        model.signUp()
     }
     
     // MARK: - Keyboard

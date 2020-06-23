@@ -410,12 +410,12 @@
                     <connections>
                         <outlet property="accountLabel" destination="YQm-8b-RLe" id="pL7-n3-lBe"/>
                         <outlet property="applyButton" destination="7yD-9h-ZPj" id="BGO-nx-5vJ"/>
-                        <outlet property="lbDescription" destination="Byp-bM-C6T" id="jqL-bE-ZOf"/>
-                        <outlet property="lbTitle" destination="pPU-Mz-pYr" id="xAr-tj-SZe"/>
+                        <outlet property="descriptionLabel" destination="Byp-bM-C6T" id="jqL-bE-ZOf"/>
                         <outlet property="phoneInputView" destination="12K-OV-63Q" id="8qq-nU-p3w"/>
                         <outlet property="registerButton" destination="bhf-PW-fiI" id="YiF-LL-kpX"/>
                         <outlet property="scrollView" destination="2PL-h7-YR1" id="w1b-vb-0sN"/>
                         <outlet property="socialLabel" destination="9nS-B8-XPe" id="n9y-9L-AOY"/>
+                        <outlet property="titleLabel" destination="pPU-Mz-pYr" id="xAr-tj-SZe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBE-Qt-eFn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

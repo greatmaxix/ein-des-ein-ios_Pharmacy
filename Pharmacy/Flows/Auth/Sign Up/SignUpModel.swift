@@ -14,10 +14,10 @@ enum SignUp: Event {
 }
 
 protocol SignUpInput {
-    func signUp(name: String, phone: String, email: String?)
+    func signUp(name: String?, phone: String?, email: String?)
 }
 
-final class SignUpViewModel: Model {
+final class SignUpModel: Model {
     
     private func makeSignUpRequest(name: String, phone: String, email: String?) {
         
@@ -26,10 +26,12 @@ final class SignUpViewModel: Model {
 
 // MARK: - SignUpInput
 
-extension SignUpViewModel: SignUpInput {
+extension SignUpModel: SignUpInput {
     
-    func signUp(name: String, phone: String, email: String?) {
+    func signUp(name: String?, phone: String?, email: String?) {
         
-        makeSignUpRequest(name: name, phone: phone, email: email)
+        if let name: String = name, let phone: String = phone {
+            makeSignUpRequest(name: name, phone: phone, email: email)
+        }
     }
 }
