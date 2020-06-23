@@ -17,6 +17,8 @@ final class ConfirmCodeViewController: UIViewController {
     @IBOutlet weak var resendButton: UIButton!
     @IBOutlet weak var confirmCodeView: ConfirmCodeView!
     
+    var model: ConfirmCodeInput!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,9 +42,21 @@ final class ConfirmCodeViewController: UIViewController {
     }
 }
 
+// MARK: - ConfirmCodeDelegate
+
 extension ConfirmCodeViewController: ConfirmCodeDelegate {
     
     func lastDigitWasInputed(code: String) {
-        //
+        
+        //model
+    }
+}
+
+// MARK: - ConfirmCodeOutput
+
+extension ConfirmCodeViewController: ConfirmCodeOutput {
+    
+    func setCode(code: String) {
+        confirmCodeView.setConfirmationCode(code: code)
     }
 }

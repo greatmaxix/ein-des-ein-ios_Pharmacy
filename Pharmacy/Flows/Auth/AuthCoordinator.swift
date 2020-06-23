@@ -32,6 +32,13 @@ class AuthFlowCoordinator: EventNode, Coordinator {
                 self?.presentSignUp()
             }
         }
+        
+        addHandler { [weak self] (event: SignUpEvent) in
+            switch event {
+            case .receiveCode(let code):
+                break
+            }
+        }
     }
 
     func createFlow() -> UIViewController {
@@ -56,13 +63,13 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         }
     }
     
-    func presentConfirmSMS() {
+    func presentConfirmSMS(code: String?) {
         let confirmVC: UIViewController = storyboard.instantiateViewController(withIdentifier: "ConfirmCodeViewController")
+        
         root.navigationController?.pushViewController(confirmVC, animated: true)
     }
   
     private func popController() {
         root.navigationController?.popViewController(animated: true)
     }
-
 }
