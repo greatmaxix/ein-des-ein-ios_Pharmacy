@@ -22,12 +22,18 @@ final class SignUpViewController: UIViewController {
     
     private var tapGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
+    var model: SignUpInput!
+    
+    private var areFieldsValid: Bool {
+        return inputViews.allSatisfy({$0.validate()})
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
         setupLocalization()
+        navigationController?.navigationBar.isHidden = false
     }
     
     deinit {
@@ -38,6 +44,10 @@ final class SignUpViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func apply(_ sender: UIButton) {
+        
+        if areFieldsValid {
+            model.signUp(name: inputViews[0].text, phone: inputViews[1].text, email: inputViews[2].text)
+        }
     }
     
     @IBAction func skipSignUp(_ sender: UIButton) {
@@ -47,7 +57,6 @@ final class SignUpViewController: UIViewController {
     
     private func setupUI() {
         
-        navigationController?.isNavigationBarHidden = true
         inputViews[0].contentType = .name
         inputViews[1].contentType = .phone
         inputViews[2].contentType = .email
@@ -66,11 +75,11 @@ final class SignUpViewController: UIViewController {
     
     private func setupLocalization() {
         
-        titleLabel.text = R.string.localize.loginTitle()
-        descriptionLabel.text = R.string.localize.loginDescription()
-        socialNetworksLabel.text = R.string.localize.loginSocial()
-        skipButton.setTitle(R.string.localize.loginSkip(), for: .normal)
-        applyButton.setTitle(R.string.localize.loginApply(), for: .normal)
+        titleLabel.text = R.string.localize.signupTitle()
+        descriptionLabel.text = R.string.localize.signupDescription()
+        socialNetworksLabel.text = R.string.localize.signupSocial()
+        skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
+        applyButton.setTitle(R.string.localize.signupApply(), for: .normal)
     }
     
     // MARK: - Keyboard

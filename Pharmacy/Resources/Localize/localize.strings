@@ -22,10 +22,19 @@
 "confirm.resendCode" = "Не получили код ?";
 "confirm.resendAgain" = "Отправить снова";
 
+// MARK: - Log in
+"login.title" = "С возвращением!";
+"login.description" = "Пожалуйста, авторизируйтесь с помощью номер телефона";
+"login.social" = "Или войдите с помощью";
+"login.account" = "Еще нет аккаунта ?";
+"login.apply" = "Далее";
+"login.signup" = "Зарегестрируйтесь";
+
 // MARK: - Sign Up
 
-"login.title" = "Создание аккаунта";
-"login.description" = "Пожалуйста, авторизируйтесь удобным для вас способом";
-"login.social" = "Или войдите с помощью";
-"login.skip" = "Пропустить";
-"login.apply" = "Далее";
+"signup.title" = "Создание аккаунта";
+"signup.description" = "Пожалуйста, авторизируйтесь удобным для вас способом";
+"signup.social" = "Или войдите с помощью";
+"signup.skip" = "Пропустить";
+"signup.apply" = "Далее";
+

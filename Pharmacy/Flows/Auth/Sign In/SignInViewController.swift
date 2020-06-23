@@ -8,22 +8,96 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+final class SignInViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var phoneInputView: TextInputView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var applyButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var accountLabel: UILabel!
+    @IBOutlet weak var socialLabel: UILabel!
+    
+    private var tapGesture: UITapGestureRecognizer!
+    private var scrollViewInsets: UIEdgeInsets!
+    var model: SignInInput!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupLocalization()
+        phoneInputView.contentType = .phone
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardDidHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        scrollView.addGestureRecognizer(tapGesture)
+        scrollViewInsets = scrollView.contentInset
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
     }
-    */
+    
+    func setupLocalization() {
+        
+        titleLabel.text = R.string.localize.loginTitle()
+        descriptionLabel.text = R.string.localize.loginDescription()
+        applyButton.setTitle(R.string.localize.loginApply(), for: .normal)
+        registerButton.setTitle(R.string.localize.loginSignup(), for: .normal)
+        accountLabel.text = R.string.localize.loginAccount()
+        socialLabel.text = R.string.localize.loginSocial()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func apply(_ sender: UIButton) {
+        
+        if let phone: String = phoneInputView.text, phoneInputView.validate() {
+            model.signIn(phone: phone)
+        }
+    }
+    
+    @IBAction func createAccount(_ sender: UIButton) {
+        model.signUp()
+    }
+    
+    // MARK: - Keyboard
+    
+    @objc private func keyboardWillAppear(notification: NSNotification) {
+        
+        if let rect: CGRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            
+            scrollView.contentInset = UIEdgeInsets(top: scrollViewInsets.top, left: scrollViewInsets.left, bottom: scrollViewInsets.bottom + rect.height, right: scrollViewInsets.right)
+        }
+    }
+    
+    @objc private func keyboardWillDisappear() {
+        
+        scrollView.contentInset = scrollViewInsets
+    }
+    
+    @objc private func hideKeyboard() {
+        
+        scrollView.contentInset = scrollViewInsets
+        phoneInputView.endEditing(true)
+    }
+    
+}
 
+// MARK: - UITextFieldDelegate
+
+extension SignInViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        apply(applyButton)
+        textField.resignFirstResponder()
+        return true
+    }
 }
