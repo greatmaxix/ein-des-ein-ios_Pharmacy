@@ -11,26 +11,32 @@
         <!--Profile View Controller-->
         <scene sceneID="ozN-7X-66e">
             <objects>
-                <viewController id="fUy-H0-CJC" customClass="ProfileViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="fUy-H0-CJC" customClass="ProfileViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WXh-wU-bsR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gv0-xj-s7b">
-                                <rect key="frame" x="186" y="471" width="49" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8c9-zm-oAB">
+                                <rect key="frame" x="0.0" y="162" width="414" height="700"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8c9-zm-oAB" firstAttribute="top" secondItem="CcQ-xR-41a" secondAttribute="top" constant="118" id="ERY-W3-8q5"/>
+                            <constraint firstItem="8c9-zm-oAB" firstAttribute="leading" secondItem="CcQ-xR-41a" secondAttribute="leading" id="Pu0-Tn-UXp"/>
+                            <constraint firstItem="8c9-zm-oAB" firstAttribute="bottom" secondItem="CcQ-xR-41a" secondAttribute="bottom" id="Tui-dq-flk"/>
+                            <constraint firstItem="CcQ-xR-41a" firstAttribute="trailing" secondItem="8c9-zm-oAB" secondAttribute="trailing" id="dif-B2-jmM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="CcQ-xR-41a"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="8c9-zm-oAB" id="oiK-qI-V0e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h0r-fr-Ic8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="184" y="138"/>
+            <point key="canvasLocation" x="182.60869565217394" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>
