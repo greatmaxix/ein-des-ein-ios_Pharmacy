@@ -13,6 +13,7 @@
 		39273A0B24A0DFEC004A9909 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0A24A0DFEC004A9909 /* Model.swift */; };
 		39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0C24A0F09B004A9909 /* SignUpModel.swift */; };
 		3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */; };
+		395A7FB824A34B5200A7CFC6 /* UIBlockerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */; };
 		395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D4D2498BDFD001EB6CD /* TextInputView.swift */; };
 		395C9D5C2498D703001EB6CD /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 395C9D572498D0BF001EB6CD /* SourceSansPro-Black.ttf */; };
 		395C9D5D2498D706001EB6CD /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 395C9D5A2498D0BF001EB6CD /* SourceSansPro-BlackItalic.ttf */; };
@@ -61,6 +62,7 @@
 		39273A0A24A0DFEC004A9909 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		39273A0C24A0F09B004A9909 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
+		395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockerDelegate.swift; sourceTree = "<group>"; };
 		395C9D4D2498BDFD001EB6CD /* TextInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
 		395C9D502498D0BE001EB6CD /* SourceSansPro-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightItalic.ttf"; sourceTree = "<group>"; };
 		395C9D512498D0BE001EB6CD /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		3959E9D3249A63FA00FA1F74 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				395A7FB624A34B3100A7CFC6 /* UIBlockerDelegate */,
 				3959E9D5249A642500FA1F74 /* PhoneFormatter */,
 				395C9D722499FBD3001EB6CD /* Validators */,
 			);
@@ -133,6 +136,14 @@
 				3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */,
 			);
 			path = PhoneFormatter;
+			sourceTree = "<group>";
+		};
+		395A7FB624A34B3100A7CFC6 /* UIBlockerDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */,
+			);
+			path = UIBlockerDelegate;
 			sourceTree = "<group>";
 		};
 		395C9D4C2498BDD6001EB6CD /* TextInputView */ = {
@@ -565,6 +576,7 @@
 				618C33952498BD6700951D11 /* AppNavigation.swift in Sources */,
 				399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */,
 				39273A0B24A0DFEC004A9909 /* Model.swift in Sources */,
+				395A7FB824A34B5200A7CFC6 /* UIBlockerDelegate.swift in Sources */,
 				396C45DE2497882800A569CE /* R.generated.swift in Sources */,
 				395C9D782499FC14001EB6CD /* BaseTextValidator.swift in Sources */,
 				618C33982498BDC200951D11 /* SignInViewController.swift in Sources */,

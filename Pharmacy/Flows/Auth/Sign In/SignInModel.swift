@@ -20,12 +20,12 @@ protocol SignInInput {
     func signUp()
 }
 
-protocol SignInOutput {
-    
+protocol SignInOutput: UIBlockerDelegate {
 }
 
 final class SignInModel: Model {
     
+    weak var output: SignInOutput!
     private let provider = MoyaProvider<AuthAPI>()
     
     private func makeSignInRequest(phone: String) {
@@ -41,6 +41,7 @@ final class SignInModel: Model {
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
+                self?.output.unblockApplyButton()
             }
         }
     }

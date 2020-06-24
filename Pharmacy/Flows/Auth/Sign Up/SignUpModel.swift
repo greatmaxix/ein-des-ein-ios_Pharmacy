@@ -14,6 +14,9 @@ enum SignUpEvent: Event {
     case receiveCode(phone: String)
 }
 
+protocol SignUpOutput: UIBlockerDelegate {
+}
+
 protocol SignUpInput {
     func signUp(name: String?, phone: String?, email: String?)
 }
@@ -21,6 +24,8 @@ protocol SignUpInput {
 final class SignUpModel: Model {
     
     private let provider = MoyaProvider<AuthAPI>()
+    
+    weak var output: SignUpOutput!
     
     private func makeSignUpRequest(name: String, phone: String, email: String?) {
         
@@ -35,6 +40,7 @@ final class SignUpModel: Model {
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
+                self?.output.unblockApplyButton()
             }
         }
     }
