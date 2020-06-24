@@ -12,7 +12,7 @@ import Moya
 enum AuthAPI {
     // swiftlint:disable all
 
-    case register(name: String, phone: String, email: String)
+    case register(name: String, phone: String, email: String?)
     case requestCodeFor(phone: String)
     case login(phone: String, code: String)
 }
@@ -60,10 +60,11 @@ extension AuthAPI: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: [
                 "phone" : phone], encoding: JSONEncoding.default)
         case .register(name: let name, phone: let phone, let email):
-            return .requestParameters(parameters: [
-            "username" : name,
-            "phone" : phone,
-            "email" : email], encoding: JSONEncoding.default)
+            var params = ["username" : name, "phone" : phone]
+            if let email = email {
+                params["email"] = email
+            }
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         case .login(phone: let phone, code: let code):
             return .requestParameters(parameters: ["phone": phone, "code": code], encoding: JSONEncoding.default)
         }

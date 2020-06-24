@@ -30,19 +30,17 @@ final class SignInModel: Model {
     
     private func makeSignInRequest(phone: String) {
         
-        DispatchQueue.global(qos: .utility).async { [weak self] in
-            self?.provider.request(.requestCodeFor(phone: phone), callbackQueue: DispatchQueue.main) {  (result: Result<Moya.Response, MoyaError>) in
-                switch result {
-                case .success(let response):
-                    
-                    if 200..<300 ~= response.statusCode {
-                        self?.raise(event: SignInEvent.signIn(phone: phone))
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
+        self.provider.request(.requestCodeFor(phone: phone)) {  (result: Result<Moya.Response, MoyaError>) in
+            switch result {
+            case .success(let response):
+                
+                if 200..<300 ~= response.statusCode {
+                    self.raise(event: SignInEvent.signIn(phone: phone))
                 }
-                self?.output.unblockApplyButton()
+            case .failure(let error):
+                print(error.localizedDescription)
             }
+            self.output.unblockApplyButton()
         }
     }
 }

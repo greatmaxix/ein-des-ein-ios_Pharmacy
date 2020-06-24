@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EventsTree
 import Moya
 
 protocol ConfirmCodeInput {
@@ -20,14 +21,16 @@ protocol ConfirmCodeOutput: class {
     func setCode(code: String)
 }
 
-final class ConfirmCodeModel {
+final class ConfirmCodeModel: Model {
     
-    private var phone: String
+    private var phone: String!
     private let provider: DataManager<AuthAPI, LoginResponse> = DataManager<AuthAPI, LoginResponse>()
     
     weak var output: ConfirmCodeOutput!
     
-    init(phone: String) {
+    init(parent: EventNode, phone: String) {
+        
+        super.init(parent: parent)
         self.phone = phone
     }
     
@@ -36,20 +39,14 @@ final class ConfirmCodeModel {
     private func login() {
         
         let code: String = ""
-        
-        DispatchQueue.global(qos: .utility).async { [weak self] in
-            guard let `self` = self else {return}
+
+        self.provider.load(target: .login(phone: self.phoneNumber, code: code)) { (result) in
             
-            self.provider.load(target: .login(phone: self.phoneNumber, code: code)) { (result) in
-                
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let response):
-                         let _: String = response.token
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
-                }
+            switch result {
+            case .success(let response):
+                 let _: String = response.token
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
