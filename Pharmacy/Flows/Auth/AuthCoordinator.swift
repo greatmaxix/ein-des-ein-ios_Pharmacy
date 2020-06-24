@@ -27,7 +27,8 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         addHandler { [weak self] (event: SignInEvent) in
             switch event {
             case .signIn(let phone):
-                break
+                
+                self?.presentConfirmSMS(phone: phone)
             case .signUp:
                 self?.presentSignUp()
             }
@@ -35,8 +36,8 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         
         addHandler { [weak self] (event: SignUpEvent) in
             switch event {
-            case .receiveCode(let code):
-                break
+            case .receiveCode(let phone):
+                self?.presentConfirmSMS(phone: phone)
             }
         }
     }
@@ -63,10 +64,12 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         }
     }
     
-    func presentConfirmSMS(code: String?) {
-        let confirmVC: UIViewController = storyboard.instantiateViewController(withIdentifier: "ConfirmCodeViewController")
-        
-        root.navigationController?.pushViewController(confirmVC, animated: true)
+    func presentConfirmSMS(phone: String) {
+        if let confirmVC: ConfirmCodeViewController = storyboard.instantiateViewController(withIdentifier: "ConfirmCodeViewController") as? ConfirmCodeViewController {
+            
+            confirmVC.model = ConfirmCodeModel(phone: phone)
+            root.navigationController?.pushViewController(confirmVC, animated: true)
+        }
     }
   
     private func popController() {

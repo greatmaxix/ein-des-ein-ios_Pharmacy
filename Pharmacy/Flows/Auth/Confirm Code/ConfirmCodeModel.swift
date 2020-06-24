@@ -11,7 +11,9 @@ import Moya
 
 protocol ConfirmCodeInput {
     
-    func sendConfirmCode(code: String, phone: String)
+    func sendConfirmCode()
+    
+    var phoneNumber: String { get set }
 }
 
 protocol ConfirmCodeOutput: class {
@@ -20,34 +22,33 @@ protocol ConfirmCodeOutput: class {
 
 final class ConfirmCodeModel {
     
-    var code: String? {
-        willSet {
-            if let value: String = newValue {
-                output.setCode(code: value)
-            }
-        }
-    }
-    
-    var phone: String?
-    
+    private var phone: String
     private let provider: DataManager<AuthAPI, LoginResponse> = DataManager<AuthAPI, LoginResponse>()
     
     weak var output: ConfirmCodeOutput!
     
-    init(code: String) {
-        self.code = code
+    init(phone: String) {
+        self.phone = phone
     }
+    
+    // TODO: Add sms code
     
     private func login() {
         
-        if let phone: String = phone, let code: String = code {
+        let code: String = ""
+        
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            guard let `self` = self else {return}
             
-            provider.load(target: .login(phone: phone, code: code)) { [weak self] (result) in
-                switch result {
-                case .success(let response):
-                     let token: String = response.token
-                case .failure(let error):
-                    print(error.localizedDescription)
+            self.provider.load(target: .login(phone: self.phoneNumber, code: code)) { (result) in
+                
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let response):
+                         let _: String = response.token
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
                 }
             }
         }
@@ -58,7 +59,16 @@ final class ConfirmCodeModel {
 
 extension ConfirmCodeModel: ConfirmCodeInput {
     
-    func sendConfirmCode(code: String, phone: String) {
-        //
+    var phoneNumber: String {
+        get {
+            return phone
+        }
+        set {
+            phone = newValue
+        }
+    }
+    
+    func sendConfirmCode() {
+        login()
     }
 }

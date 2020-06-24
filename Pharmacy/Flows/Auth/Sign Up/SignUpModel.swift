@@ -11,32 +11,31 @@ import EventsTree
 import Moya
 
 enum SignUpEvent: Event {
-    case receiveCode(code: String)
+    case receiveCode(phone: String)
 }
 
 protocol SignUpInput {
     func signUp(name: String?, phone: String?, email: String?)
-    func receiveCode(code: String)
 }
 
 final class SignUpModel: Model {
     
+    private let provider = MoyaProvider<AuthAPI>()
+    
     private func makeSignUpRequest(name: String, phone: String, email: String?) {
-        let provider = MoyaProvider<AuthAPI>()
         
-        DispatchQueue.global(qos: .background).async {
-            provider.request(.register(name: name, phone: phone, email: email!), completion: { [weak self] (result: Result<Moya.Response, MoyaError>) in
-                
-                DispatchQueue.main.async {
-                    
-                    switch result {
-                    case .success(let response):
-                        self?.raise(event: SignUpEvent.receiveCode(code: "111111"))
-                    case .failure(let error):
-                        print(error.localizedDescription)
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            self?.provider.request(.register(name: name, phone: phone, email: email!), callbackQueue: DispatchQueue.main) {  (result: Result<Moya.Response, MoyaError>) in
+                                    
+                switch result {
+                case .success(let response):
+                    if 200..<300 ~= response.statusCode {
+                        self?.raise(event: SignUpEvent.receiveCode(phone: phone))
                     }
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
-            })
+            }
         }
     }
 }
@@ -44,10 +43,6 @@ final class SignUpModel: Model {
 // MARK: - SignUpInput
 
 extension SignUpModel: SignUpInput {
-    
-    func receiveCode(code: String) {
-        //
-    }
     
     func signUp(name: String?, phone: String?, email: String?) {
         

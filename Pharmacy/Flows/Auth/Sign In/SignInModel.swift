@@ -8,6 +8,7 @@
 
 import Foundation
 import EventsTree
+import Moya
 
 enum SignInEvent: Event {
     case signIn(phone: String)
@@ -25,8 +26,23 @@ protocol SignInOutput {
 
 final class SignInModel: Model {
     
+    private let provider = MoyaProvider<AuthAPI>()
+    
     private func makeSignInRequest(phone: String) {
         
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            self?.provider.request(.requestCodeFor(phone: phone), callbackQueue: DispatchQueue.main) {  (result: Result<Moya.Response, MoyaError>) in
+                switch result {
+                case .success(let response):
+                    
+                    if 200..<300 ~= response.statusCode {
+                        self?.raise(event: SignInEvent.signIn(phone: phone))
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
 
