@@ -9,6 +9,7 @@
 import Foundation
 import EventsTree
 import Moya
+import Alamofire
 
 enum SignUpEvent: Event {
     case receiveCode(phone: String)
@@ -28,20 +29,20 @@ final class SignUpModel: Model {
     weak var output: SignUpOutput!
     
     private func makeSignUpRequest(name: String, phone: String, email: String?) {
+
+        guard let self: SignUpModel = self else { return }
         
-        DispatchQueue.global(qos: .utility).async { [weak self] in
-            self?.provider.request(.register(name: name, phone: phone, email: email!), callbackQueue: DispatchQueue.main) {  (result: Result<Moya.Response, MoyaError>) in
-                                    
-                switch result {
-                case .success(let response):
-                    if 200..<300 ~= response.statusCode {
-                        self?.raise(event: SignUpEvent.receiveCode(phone: phone))
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
+        self.provider.request(.register(name: name, phone: phone, email: email)) {  (result: Result<Moya.Response, MoyaError>) in
+                                
+            switch result {
+            case .success(let response):
+                if 200..<300 ~= response.statusCode {
+                    self.raise(event: SignUpEvent.receiveCode(phone: phone))
                 }
-                self?.output.unblockApplyButton()
+            case .failure(let error):
+                print(error.localizedDescription)
             }
+            self.output.unblockApplyButton()
         }
     }
 }
