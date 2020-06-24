@@ -59,7 +59,9 @@ final class SignInViewController: UIViewController {
     @IBAction func apply(_ sender: UIButton) {
         
         if let phone: String = phoneInputView.text, phoneInputView.validate() {
+            
             model.signIn(phone: phone)
+            sender.isUserInteractionEnabled = false
         }
     }
     
@@ -99,5 +101,14 @@ extension SignInViewController: UITextFieldDelegate {
         apply(applyButton)
         textField.resignFirstResponder()
         return true
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension SignInViewController: SignInOutput {
+    
+    func unblockApplyButton() {
+        applyButton.isUserInteractionEnabled = true
     }
 }

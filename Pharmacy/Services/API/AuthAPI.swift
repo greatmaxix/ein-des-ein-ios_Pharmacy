@@ -14,8 +14,7 @@ enum AuthAPI {
 
     case register(name: String, phone: String, email: String)
     case requestCodeFor(phone: String)
-    case validate(code: String)
-
+    case login(phone: String, code: String)
 }
 
 extension AuthAPI: TargetType, AccessTokenAuthorizable {
@@ -26,17 +25,17 @@ extension AuthAPI: TargetType, AccessTokenAuthorizable {
 
     // Change this for real one
     var baseURL: URL {
-        return URL(string: "https://sample.com")!
+        return URL(string: "https://api.pharmacies.fmc-dev.com")!
     }
 
     var path: String {
         switch self {
         case .register:
-            return ""
+            return "/api/v1/customer/registration"
         case .requestCodeFor:
-            return ""
-        case .validate:
-            return ""
+            return "/api/v1/customer/auth"
+        case .login:
+            return "​/api​/v1​/customer​/login"
         }
     }
 
@@ -44,9 +43,9 @@ extension AuthAPI: TargetType, AccessTokenAuthorizable {
         switch self {
         case .register:
             return .post
-        case .requestCodeFor:
+        case .login:
             return .post
-        case .validate:
+        case .requestCodeFor:
             return .post
         }
     }
@@ -57,17 +56,16 @@ extension AuthAPI: TargetType, AccessTokenAuthorizable {
 
     var task: Task {
         switch self {
-        case .validate(let code):
-            return .requestParameters(parameters: [
-                "code" : code], encoding: JSONEncoding.default)
         case .requestCodeFor(let phone):
             return .requestParameters(parameters: [
                 "phone" : phone], encoding: JSONEncoding.default)
         case .register(name: let name, phone: let phone, let email):
             return .requestParameters(parameters: [
-            "name" : name,
+            "username" : name,
             "phone" : phone,
             "email" : email], encoding: JSONEncoding.default)
+        case .login(phone: let phone, code: let code):
+            return .requestParameters(parameters: ["phone": phone, "code": code], encoding: JSONEncoding.default)
         }
     }
 

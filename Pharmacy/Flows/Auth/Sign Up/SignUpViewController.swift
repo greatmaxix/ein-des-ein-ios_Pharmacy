@@ -46,6 +46,8 @@ final class SignUpViewController: UIViewController {
     @IBAction func apply(_ sender: UIButton) {
         
         if areFieldsValid {
+            
+            sender.isUserInteractionEnabled = false
             model.signUp(name: inputViews[0].text, phone: inputViews[1].text, email: inputViews[2].text)
         }
     }
@@ -93,12 +95,10 @@ final class SignUpViewController: UIViewController {
     }
     
     @objc private func keyboardWillDisappear() {
-        
         scrollView.contentInset = scrollViewInsets
     }
     
     @objc private func hideKeyboard() {
-        
         scrollView.contentInset = scrollViewInsets
         inputViews.forEach({$0.endEditing(true)})
     }
@@ -118,5 +118,14 @@ extension SignUpViewController: UITextFieldDelegate {
         
         textField.resignFirstResponder()
         return true
+    }
+}
+
+// MARK: - SignUpOutput
+
+extension SignUpViewController: SignUpOutput {
+    
+    func unblockApplyButton() {
+        applyButton.isUserInteractionEnabled = true
     }
 }

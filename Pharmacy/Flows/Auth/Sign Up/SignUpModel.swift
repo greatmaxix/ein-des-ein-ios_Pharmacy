@@ -8,9 +8,13 @@
 
 import Foundation
 import EventsTree
+import Moya
 
-enum SignUp: Event {
-    
+enum SignUpEvent: Event {
+    case receiveCode(phone: String)
+}
+
+protocol SignUpOutput: UIBlockerDelegate {
 }
 
 protocol SignUpInput {
@@ -19,8 +23,26 @@ protocol SignUpInput {
 
 final class SignUpModel: Model {
     
+    private let provider = MoyaProvider<AuthAPI>()
+    
+    weak var output: SignUpOutput!
+    
     private func makeSignUpRequest(name: String, phone: String, email: String?) {
         
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            self?.provider.request(.register(name: name, phone: phone, email: email!), callbackQueue: DispatchQueue.main) {  (result: Result<Moya.Response, MoyaError>) in
+                                    
+                switch result {
+                case .success(let response):
+                    if 200..<300 ~= response.statusCode {
+                        self?.raise(event: SignUpEvent.receiveCode(phone: phone))
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+                self?.output.unblockApplyButton()
+            }
+        }
     }
 }
 
@@ -30,7 +52,9 @@ extension SignUpModel: SignUpInput {
     
     func signUp(name: String?, phone: String?, email: String?) {
         
-        if let name: String = name, let phone: String = phone {
+        if let name: String = name, var phone: String = phone {
+            
+            phone = phone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
             makeSignUpRequest(name: name, phone: phone, email: email)
         }
     }
