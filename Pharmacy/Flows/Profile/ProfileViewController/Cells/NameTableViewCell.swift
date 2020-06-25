@@ -35,7 +35,6 @@ class NameTableViewCell: BaseTableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         

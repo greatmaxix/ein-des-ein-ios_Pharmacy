@@ -49,7 +49,7 @@ final class ProfileModel: Model {
             cellsData.append(cellData)
         }
         do {
-            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePayment(), additionalInfo: "1000$", type: .paiment)
+            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePayment(), additionalInfo: "1000$", type: .payment)
             cellsData.append(cellData)
         }
         do {

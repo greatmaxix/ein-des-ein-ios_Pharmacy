@@ -34,7 +34,7 @@ class ProfileTableViewCell: BaseTableViewCell {
     enum VisualStyle {
         case base
         case exit
-        case paiment
+        case payment
         case region
     }
     
@@ -72,7 +72,7 @@ class ProfileTableViewCell: BaseTableViewCell {
         case .exit:
             arrowView.isHidden = true
             additionaInfoLabel.isHidden = true
-        case .paiment:
+        case .payment:
             break
         case .region:
             arrowView.isHidden = true
