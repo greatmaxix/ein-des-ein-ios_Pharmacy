@@ -23,6 +23,7 @@
 "confirm.resendAgain" = "Отправить снова";
 
 // MARK: - Log in
+
 "login.title" = "С возвращением!";
 "login.description" = "Пожалуйста, авторизируйтесь с помощью номер телефона";
 "login.social" = "Или войдите с помощью";
@@ -37,4 +38,17 @@
 "signup.social" = "Или войдите с помощью";
 "signup.skip" = "Пропустить";
 "signup.apply" = "Далее";
+
+// MARK: - Profile
+
+"profile.profile" = "Профиль";
+"profile.region" = "Регион";
+"profile.orders" = "Мои заказы";
+"profile.receipes" = "Мои рецепты";
+"profile.payment" = "Оплата";
+"profile.notifications" = "Уведомления";
+"profile.address" = "Адрес";
+"profile.about" = "О приложении";
+"profile.questions" = "Есть вопросы или нужна помощь?";
+"profile.exit" = "Выйти из приложения";
 

@@ -14,6 +14,14 @@
 		39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0C24A0F09B004A9909 /* SignUpModel.swift */; };
 		3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */; };
 		395A7FB824A34B5200A7CFC6 /* UIBlockerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */; };
+		395A7FC224A3980D00A7CFC6 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395A7FBC24A3980C00A7CFC6 /* ProfileTableViewCell.xib */; };
+		395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FBD24A3980C00A7CFC6 /* EmptyTableViewCell.swift */; };
+		395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FBE24A3980C00A7CFC6 /* BaseTableViewCell.swift */; };
+		395A7FC524A3980D00A7CFC6 /* NameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FBF24A3980C00A7CFC6 /* NameTableViewCell.swift */; };
+		395A7FC624A3980D00A7CFC6 /* NameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395A7FC024A3980C00A7CFC6 /* NameTableViewCell.xib */; };
+		395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FC124A3980D00A7CFC6 /* ProfileTableViewCell.swift */; };
+		395A7FC924A399B000A7CFC6 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FC824A399B000A7CFC6 /* ProfileModel.swift */; };
+		395A7FCC24A3A2B700A7CFC6 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FCB24A3A2B700A7CFC6 /* ProfileCoordinator.swift */; };
 		395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D4D2498BDFD001EB6CD /* TextInputView.swift */; };
 		395C9D5C2498D703001EB6CD /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 395C9D572498D0BF001EB6CD /* SourceSansPro-Black.ttf */; };
 		395C9D5D2498D706001EB6CD /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 395C9D5A2498D0BF001EB6CD /* SourceSansPro-BlackItalic.ttf */; };
@@ -63,6 +71,14 @@
 		39273A0C24A0F09B004A9909 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
 		395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockerDelegate.swift; sourceTree = "<group>"; };
+		395A7FBC24A3980C00A7CFC6 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		395A7FBD24A3980C00A7CFC6 /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
+		395A7FBE24A3980C00A7CFC6 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		395A7FBF24A3980C00A7CFC6 /* NameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameTableViewCell.swift; sourceTree = "<group>"; };
+		395A7FC024A3980C00A7CFC6 /* NameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NameTableViewCell.xib; sourceTree = "<group>"; };
+		395A7FC124A3980D00A7CFC6 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		395A7FC824A399B000A7CFC6 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		395A7FCB24A3A2B700A7CFC6 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		395C9D4D2498BDFD001EB6CD /* TextInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
 		395C9D502498D0BE001EB6CD /* SourceSansPro-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightItalic.ttf"; sourceTree = "<group>"; };
 		395C9D512498D0BE001EB6CD /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
@@ -144,6 +160,30 @@
 				395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */,
 			);
 			path = UIBlockerDelegate;
+			sourceTree = "<group>";
+		};
+		395A7FBB24A397C600A7CFC6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				395A7FBE24A3980C00A7CFC6 /* BaseTableViewCell.swift */,
+				395A7FBD24A3980C00A7CFC6 /* EmptyTableViewCell.swift */,
+				395A7FBF24A3980C00A7CFC6 /* NameTableViewCell.swift */,
+				395A7FC024A3980C00A7CFC6 /* NameTableViewCell.xib */,
+				395A7FC124A3980D00A7CFC6 /* ProfileTableViewCell.swift */,
+				395A7FBC24A3980C00A7CFC6 /* ProfileTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		395A7FCA24A3A29600A7CFC6 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				395A7FBB24A397C600A7CFC6 /* Cells */,
+				618C339E2498BE0200951D11 /* ProfileViewController.swift */,
+				395A7FC824A399B000A7CFC6 /* ProfileModel.swift */,
+				395A7FCB24A3A2B700A7CFC6 /* ProfileCoordinator.swift */,
+			);
+			path = ProfileViewController;
 			sourceTree = "<group>";
 		};
 		395C9D4C2498BDD6001EB6CD /* TextInputView */ = {
@@ -330,7 +370,7 @@
 		618C339D2498BDF600951D11 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				618C339E2498BE0200951D11 /* ProfileViewController.swift */,
+				395A7FCA24A3A29600A7CFC6 /* ProfileViewController */,
 				618C33A42498BE6200951D11 /* Profile.storyboard */,
 			);
 			path = Profile;
@@ -459,6 +499,7 @@
 				395C9D602498D70F001EB6CD /* SourceSansPro-ExtraLight.ttf in Resources */,
 				395C9D672498D724001EB6CD /* SourceSansPro-SemiBoldItalic.ttf in Resources */,
 				395C9D5F2498D70C001EB6CD /* SourceSansPro-BoldItalic.ttf in Resources */,
+				395A7FC224A3980D00A7CFC6 /* ProfileTableViewCell.xib in Resources */,
 				395C9D632498D719001EB6CD /* SourceSansPro-Light.ttf in Resources */,
 				395C9D5C2498D703001EB6CD /* SourceSansPro-Black.ttf in Resources */,
 				396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */,
@@ -470,6 +511,7 @@
 				395C9D5E2498D709001EB6CD /* SourceSansPro-Bold.ttf in Resources */,
 				395C9D612498D712001EB6CD /* SourceSansPro-ExtraLightItalic.ttf in Resources */,
 				395C9D642498D71C001EB6CD /* SourceSansPro-LightItalic.ttf in Resources */,
+				395A7FC624A3980D00A7CFC6 /* NameTableViewCell.xib in Resources */,
 				395C9D662498D721001EB6CD /* SourceSansPro-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,12 +604,15 @@
 				618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */,
 				3915D60824A2466700A93627 /* ConfirmCodeModel.swift in Sources */,
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
+				395A7FC924A399B000A7CFC6 /* ProfileModel.swift in Sources */,
+				395A7FCC24A3A2B700A7CFC6 /* ProfileCoordinator.swift in Sources */,
 				395C9D762499FC14001EB6CD /* EmailValidator.swift in Sources */,
 				619AAA432498ADFE00AB46ED /* DataManager.swift in Sources */,
 				39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */,
 				3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */,
 				619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
+				395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */,
 				618C33AA2498BFB400951D11 /* Coordinator.swift in Sources */,
 				39CBDA6E249CF5BA00A04831 /* ConfirmCodeViewController.swift in Sources */,
 				619AAA402498A9AE00AB46ED /* AuthAPI.swift in Sources */,
@@ -581,11 +626,14 @@
 				395C9D782499FC14001EB6CD /* BaseTextValidator.swift in Sources */,
 				618C33982498BDC200951D11 /* SignInViewController.swift in Sources */,
 				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
+				395A7FC524A3980D00A7CFC6 /* NameTableViewCell.swift in Sources */,
 				395C9D7A2499FD8F001EB6CD /* NameValidator.swift in Sources */,
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
+				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
 				3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */,
 				395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */,
+				395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */,
 				395C9D772499FC14001EB6CD /* PhoneValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
