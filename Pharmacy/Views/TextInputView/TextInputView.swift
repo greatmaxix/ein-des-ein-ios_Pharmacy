@@ -118,15 +118,24 @@ final class TextInputView: UIView {
                 return R.color.textDarkGray()
             }
         }
+        
+        var backgroundColor: UIColor? {
+            switch self {
+            case .editing, .successfulValidation, .unsuccessfulValidation:
+                return .clear
+            case .standart:
+                return UIColor(red: 0.965, green: 0.973, blue: 0.98, alpha: 1)
+            }
+        }
     }
     
     // MARK: - Properties
 
     private var backgroundView: UIView!
-    private var inputStatusImageView: UIImageView!
+    private var inputStatusButton: UIButton!
     private var inputTextField: UITextField!
     private var errorLabel: UILabel!
-    private var lcBackgroundViewHeight: NSLayoutConstraint!
+    private var constraintBackgroundViewHeight: NSLayoutConstraint!
     
     private let formatter = PhoneFormatter()
     
@@ -142,6 +151,7 @@ final class TextInputView: UIView {
         willSet {
             errorLabel.text = nil
             inputTextField.placeholder = newValue.placeHolder
+            setupPlaceHolder()
             inputTextField.keyboardType = newValue.keyboardType
             inputTextField.text = newValue.startText
         }
@@ -151,7 +161,7 @@ final class TextInputView: UIView {
         
         willSet {
             backgroundView.layer.borderColor = newValue.borderColor
-            inputStatusImageView.image = newValue.image
+            inputStatusButton.setBackgroundImage(newValue.image, for: .normal)
             inputTextField.textColor = newValue.textColor
             errorLabel.isHidden = newValue != .unsuccessfulValidation
         }
@@ -160,7 +170,7 @@ final class TextInputView: UIView {
     var backgroundViewHeight: CGFloat = Const.backgroundViewHeight {
         
         willSet {
-            lcBackgroundViewHeight.constant = newValue
+            constraintBackgroundViewHeight.constant = newValue
         }
     }
     
@@ -219,6 +229,13 @@ final class TextInputView: UIView {
         validate()
     }
     
+    @objc private func clearText() {
+        
+        if visualStyle == .editing {
+            inputTextField.text = ""
+        }
+    }
+    
     @discardableResult
     func validate() -> Bool {
         
@@ -242,13 +259,14 @@ final class TextInputView: UIView {
         backgroundView.backgroundColor = .white
 
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundView.layer.cornerRadius = 5
+        backgroundView.layer.cornerRadius = Const.backgroundViewHeight / 2
         backgroundView.layer.borderWidth = 1
         addSubview(backgroundView)
         
-        inputStatusImageView = UIImageView()
-        backgroundView.addSubview(inputStatusImageView)
-        inputStatusImageView.translatesAutoresizingMaskIntoConstraints = false
+        inputStatusButton = UIButton()
+        inputStatusButton.addTarget(self, action: #selector(clearText), for: .touchUpInside)
+        backgroundView.addSubview(inputStatusButton)
+        inputStatusButton.translatesAutoresizingMaskIntoConstraints = false
         
         errorLabel = UILabel()
         addSubview(errorLabel)
@@ -260,11 +278,11 @@ final class TextInputView: UIView {
         inputTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         inputTextField.addTarget(self, action: #selector(editingDidEnd), for: .editingDidEnd)
         
-        lcBackgroundViewHeight = backgroundView.heightAnchor.constraint(equalToConstant: Const.backgroundViewHeight)
+        constraintBackgroundViewHeight = backgroundView.heightAnchor.constraint(equalToConstant: Const.backgroundViewHeight)
         
         NSLayoutConstraint.activate([
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            lcBackgroundViewHeight,
+            constraintBackgroundViewHeight,
             backgroundView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 0),
             backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             backgroundView.bottomAnchor.constraint(lessThanOrEqualTo: errorLabel.topAnchor, constant: Const.lbErrorTop)
@@ -272,24 +290,24 @@ final class TextInputView: UIView {
         
         NSLayoutConstraint.activate([
             errorLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Const.lbErrorLeft),
-            errorLabel.trailingAnchor.constraint(equalTo: inputStatusImageView.leadingAnchor, constant: 0),
+            errorLabel.trailingAnchor.constraint(equalTo: inputStatusButton.leadingAnchor, constant: 0),
             errorLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
             errorLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: min(Const.lbErrorMinHeight, frame.height))
         ])
 
         NSLayoutConstraint.activate([
-            inputStatusImageView.widthAnchor.constraint(equalTo: backgroundView.heightAnchor,
+            inputStatusButton.widthAnchor.constraint(equalTo: backgroundView.heightAnchor,
                                                         multiplier: Const.ivMultiplier, constant: -Const.ivHeightOffset),
-            inputStatusImageView.heightAnchor.constraint(equalTo: inputStatusImageView.widthAnchor, multiplier: 1),
-            inputStatusImageView.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: Const.ivTralling),
-            inputStatusImageView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor, constant: 0)
+            inputStatusButton.heightAnchor.constraint(equalTo: inputStatusButton.widthAnchor, multiplier: 1),
+            inputStatusButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: Const.ivTralling),
+            inputStatusButton.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor, constant: 0)
         ])
         
         NSLayoutConstraint.activate([
             inputTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: Const.textfieldLeading),
             inputTextField.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: Const.textfieldSpace),
             inputTextField.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -Const.textfieldSpace),
-            inputTextField.trailingAnchor.constraint(equalTo: inputStatusImageView.leadingAnchor, constant: -Const.textfieldSpace)
+            inputTextField.trailingAnchor.constraint(equalTo: inputStatusButton.leadingAnchor, constant: -Const.textfieldSpace)
         ])
         
         visualStyle = .standart
@@ -297,9 +315,19 @@ final class TextInputView: UIView {
     }
     
     private func setupFonts() {
-        inputTextField.font = R.font.sourceSansProRegular(size: Const.defaultFontSize)
-        errorLabel.font = R.font.sourceSansProRegular(size: Const.errorFontSize)
+        inputTextField.font = R.font.notoSans(size: Const.defaultFontSize)
+        errorLabel.font = R.font.notoSans(size: Const.errorFontSize)
         errorLabel.textColor = R.color.validationRed()
+    }
+    
+    private func setupPlaceHolder() {
+        
+        if let text = inputTextField!.attributedPlaceholder, contentType != .email {
+            let attrText = NSMutableAttributedString(attributedString: text)
+            let asterisk: NSAttributedString = NSAttributedString(string: "*", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red, NSAttributedString.Key.font: R.font.notoSans(size: 16) ?? UIFont.systemFont(ofSize: 16)])
+            attrText.append(asterisk)
+            inputTextField!.attributedPlaceholder = attrText
+        }
     }
 }
 
