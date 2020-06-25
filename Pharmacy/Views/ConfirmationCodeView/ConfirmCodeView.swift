@@ -99,11 +99,11 @@ final class ConfirmCodeView: UIView {
             
             let field: UITextField = UITextField()
             field.keyboardType = .numberPad
-            field.tintColor = R.color.textDarkGray()
+            field.tintColor = .clear
             field.textColor = R.color.textDarkGray()
             field.textAlignment = .center
             field.isUserInteractionEnabled = false
-            field.backgroundColor = .white
+            field.backgroundColor = R.color.confirmLightGray()
             field.layer.borderWidth = 1
             field.layer.cornerRadius = 10
             field.layer.borderColor = R.color.backgroundGray()?.cgColor
@@ -119,7 +119,7 @@ final class ConfirmCodeView: UIView {
         let spacesCount: CGFloat = CGFloat(textFieldsCount + 1)
         let fieldsWidth: CGFloat = textFieldWidth * CGFloat(textFieldsCount)
         
-        fieldsStack.spacing = (frame.width - fieldsWidth - 2 * Const.stackSpace) / spacesCount
+        fieldsStack.spacing = (frame.width - fieldsWidth) / (spacesCount - 1)
         fieldsStack.distribution = .fillEqually
         // swiftlint:enable identifier_name
     }
@@ -166,7 +166,7 @@ fileprivate extension ConfirmCodeView {
         static let maxCountForFirstField: Int = 1
         static let maxCountForOtherFields: Int = 2
         static let circleMultiplier: CGFloat = 0.35
-        static let stackSpace: CGFloat = 8
+        static let stackSpace: CGFloat = 16
         static let separator: Character = " "
     }
 }

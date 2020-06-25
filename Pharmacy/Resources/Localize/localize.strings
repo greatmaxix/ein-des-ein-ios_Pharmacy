@@ -26,7 +26,7 @@
 
 "login.title" = "С возвращением!";
 "login.description" = "Пожалуйста, авторизируйтесь с помощью номер телефона";
-"login.social" = "Войти с помощью";
+"login.social" = "Или войти с помощью";
 "login.enter" = "Войти";
 "login.account" = "Еще нет аккаунта ?";
 "login.apply" = "Далее";
@@ -36,9 +36,12 @@
 
 "signup.title" = "Создание аккаунта";
 "signup.description" = "Пожалуйста, авторизируйтесь удобным для вас способом";
-"signup.social" = "Или войдите с помощью";
+"signup.social" = "Авторизироваться с помощью";
 "signup.skip" = "Пропустить";
 "signup.apply" = "Далее";
+"signup.privacy" = "Регистрируясь, я соглашаюсь на ";
+"signup.registration" = "Регистрация";
+"signup.link" = "Обработку персональных данных";
 
 // MARK: - Profile
 

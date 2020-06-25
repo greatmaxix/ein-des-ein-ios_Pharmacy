@@ -31,7 +31,7 @@ final class ConfirmCodeViewController: UIViewController {
         titleLabel.text = R.string.localize.confirmTitle()
         confirmTextLabel.text = R.string.localize.confirmDescription()
         resendCodeLabel.text = R.string.localize.confirmResendCode()
-        let attrs: [NSAttributedString.Key: Any] = [.font: R.font.notoSans(size: 12) ?? UIFont.systemFont(ofSize: 12, weight: .bold),
+        let attrs: [NSAttributedString.Key: Any] = [.font: R.font.notoSansJPRegular(size: 12) ?? UIFont.systemFont(ofSize: 12, weight: .bold),
                                                     .underlineStyle: 1, .foregroundColor: R.color.textDarkGray()!]
         
         let attrText: NSAttributedString = NSAttributedString(string: R.string.localize.confirmResendAgain(), attributes: attrs)

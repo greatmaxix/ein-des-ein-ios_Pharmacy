@@ -19,6 +19,12 @@ final class SignUpViewController: UIViewController {
     @IBOutlet weak var socialNetworksLabel: UILabel!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var applyButton: UIButton!
+    @IBOutlet weak var privacyLabel: UILabel!
+    @IBOutlet weak var registrationLabel: UILabel!
+    
+    @IBOutlet weak var facebookButton: UIButton!
+    @IBOutlet weak var googleButton: UIButton!
+    @IBOutlet weak var appleButton: UIButton!
     
     private var tapGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
@@ -35,7 +41,7 @@ final class SignUpViewController: UIViewController {
         setupLocalization()
         navigationController?.navigationBar.isHidden = false
     }
-    
+        
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -73,6 +79,15 @@ final class SignUpViewController: UIViewController {
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrollView.addGestureRecognizer(tapGesture)
         scrollViewInsets = scrollView.contentInset
+        
+        applyButton.layer.cornerRadius = applyButton.frame.height / 2
+        facebookButton.layer.cornerRadius = facebookButton.frame.height / 2
+        googleButton.layer.cornerRadius = googleButton.frame.height / 2
+        appleButton.layer.cornerRadius = appleButton.frame.height / 2
+        
+        facebookButton.dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
+        googleButton.dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
+        appleButton.dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
     }
     
     private func setupLocalization() {
@@ -81,7 +96,9 @@ final class SignUpViewController: UIViewController {
         descriptionLabel.text = R.string.localize.signupDescription()
         socialNetworksLabel.text = R.string.localize.signupSocial()
         skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
-        applyButton.setTitle(R.string.localize.signupApply(), for: .normal)
+        registrationLabel.text = R.string.localize.signupRegistration()
+        privacyLabel.text = R.string.localize.signupPrivacy() +
+            R.string.localize.signupLink()
     }
     
     // MARK: - Keyboard

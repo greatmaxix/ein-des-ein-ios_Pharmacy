@@ -84,7 +84,7 @@ final class SignInViewController: UIViewController {
     @IBAction func apply(_ sender: UIButton) {
         
         if let phone: String = phoneInputView.text, phoneInputView.validate() {
-            
+
             model.signIn(phone: phone)
             sender.isUserInteractionEnabled = false
         }

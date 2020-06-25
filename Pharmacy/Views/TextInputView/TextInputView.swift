@@ -161,6 +161,7 @@ final class TextInputView: UIView {
         
         willSet {
             backgroundView.layer.borderColor = newValue.borderColor
+            backgroundView.backgroundColor = newValue.backgroundColor
             inputStatusButton.setBackgroundImage(newValue.image, for: .normal)
             inputTextField.textColor = newValue.textColor
             errorLabel.isHidden = newValue != .unsuccessfulValidation
@@ -315,16 +316,17 @@ final class TextInputView: UIView {
     }
     
     private func setupFonts() {
-        inputTextField.font = R.font.notoSans(size: Const.defaultFontSize)
-        errorLabel.font = R.font.notoSans(size: Const.errorFontSize)
+        inputTextField.font = R.font.notoSansJPRegular(size: Const.defaultFontSize)
+        errorLabel.font = R.font.notoSansJPRegular(size: Const.errorFontSize)
         errorLabel.textColor = R.color.validationRed()
     }
     
     private func setupPlaceHolder() {
         
         if let text = inputTextField!.attributedPlaceholder, contentType != .email {
+            
             let attrText = NSMutableAttributedString(attributedString: text)
-            let asterisk: NSAttributedString = NSAttributedString(string: "*", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red, NSAttributedString.Key.font: R.font.notoSans(size: 16) ?? UIFont.systemFont(ofSize: 16)])
+            let asterisk: NSAttributedString = NSAttributedString(string: "*", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red, NSAttributedString.Key.font: R.font.notoSansJPRegular(size: 16) ?? UIFont.systemFont(ofSize: 16)])
             attrText.append(asterisk)
             inputTextField!.attributedPlaceholder = attrText
         }
