@@ -76,7 +76,7 @@ class ProfileTableViewCell: BaseTableViewCell {
             break
         case .region:
             arrowView.isHidden = true
-            additionaInfoLabel.textColor = .blue
+            additionaInfoLabel.textColor = .systemBlue
         }
     }
 }

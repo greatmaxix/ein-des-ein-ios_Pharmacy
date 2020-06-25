@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellsData.count
+        return model.cellCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

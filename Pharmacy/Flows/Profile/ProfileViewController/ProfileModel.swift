@@ -10,7 +10,7 @@ import Foundation
 import EventsTree
 
 protocol ProfileInput {
-    var controlsCount: Int { get }
+    var cellCount: Int { get }
     func selectActionAt(index: Int) -> (() -> Void)?
     func cellDataAt(index: Int) -> BaseCellData
 }
@@ -33,7 +33,7 @@ final class ProfileModel: Model {
             cellsData.append(cellData)
         }
         do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24.5, color: UIColor.gray)
+            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24.5)
             cellsData.append(cellData)
         }
         do {
@@ -61,7 +61,7 @@ final class ProfileModel: Model {
             cellsData.append(cellData)
         }
         do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24.5, color: UIColor.gray)
+            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 32)
             cellsData.append(cellData)
         }
         do {
@@ -73,7 +73,7 @@ final class ProfileModel: Model {
             cellsData.append(cellData)
         }
         do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24.5, color: UIColor.gray)
+            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 50)
             cellsData.append(cellData)
         }
         do {
@@ -81,7 +81,7 @@ final class ProfileModel: Model {
             cellsData.append(cellData)
         }
         do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24.5, color: UIColor.gray)
+            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24.5)
             cellsData.append(cellData)
         }
     }
@@ -91,7 +91,7 @@ final class ProfileModel: Model {
 
 extension ProfileModel: ProfileInput {
     
-    var controlsCount: Int {
+    var cellCount: Int {
         return cellsData.count
     }
     
