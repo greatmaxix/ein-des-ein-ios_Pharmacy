@@ -19,10 +19,9 @@ final class ConfirmCodeView: UIView {
     private var stackTopConstraint: NSLayoutConstraint!
     private var stackBottomConstraint: NSLayoutConstraint!
     private var textFields: [UITextField]!
-    private var circleViews: [UIView]!
     
-    var textFieldsCount: Int = 6
-    var textFieldWidth: CGFloat = 20
+    var textFieldsCount: Int = 4
+    var textFieldWidth: CGFloat = 48
     var circleColor: UIColor? = R.color.confirmCircleGray()
     weak var delegate: ConfirmCodeDelegate?
     
@@ -55,7 +54,6 @@ final class ConfirmCodeView: UIView {
         
         textFields[0].isUserInteractionEnabled = true
         textFields[0].becomeFirstResponder()
-        circleViews[0].isHidden = true
     }
     
     func setConfirmationCode(code: String) {
@@ -68,7 +66,6 @@ final class ConfirmCodeView: UIView {
                 $0.text = String(confirmCode.removeFirst())
                 $0.isUserInteractionEnabled = false
             })
-            circleViews.forEach({ $0.isHidden = true })
         }
     }
     
@@ -96,37 +93,25 @@ final class ConfirmCodeView: UIView {
     private func setupTextFields() {
         
         textFields = []
-        circleViews = []
         
         // swiftlint:disable identifier_name
         for i in 0..<textFieldsCount {
             
             let field: UITextField = UITextField()
             field.keyboardType = .numberPad
-            field.tintColor = R.color.textDarkGray()
-            field.textColor = R.color.textDarkGray()
+            field.tintColor = .clear
+            field.textColor = R.color.textDarkBlue()
             field.textAlignment = .center
             field.isUserInteractionEnabled = false
+            field.backgroundColor = R.color.confirmLightGray()
+            field.layer.borderWidth = 1
+            field.layer.cornerRadius = 10
+            field.layer.borderColor = R.color.backgroundGray()?.cgColor
             
             field.tag = i
             field.font = UIFont.systemFont(ofSize: 24, weight: .bold)
             field.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
             textFields.append(field)
-            
-            let circle: UIView = UIView()
-            circle.backgroundColor = circleColor
-            circle.translatesAutoresizingMaskIntoConstraints = false
-            circle.layer.cornerRadius = circleRadius
-            circle.isHidden = false
-            circleViews.append(circle)
-            field.addSubview(circle)
-
-            NSLayoutConstraint.activate([
-                circle.centerYAnchor.constraint(equalTo: field.centerYAnchor),
-                circle.centerXAnchor.constraint(equalTo: field.centerXAnchor),
-                circle.heightAnchor.constraint(equalTo: field.heightAnchor, multiplier: Const.circleMultiplier),
-                circle.widthAnchor.constraint(equalTo: circle.heightAnchor)
-            ])
             
             fieldsStack.addArrangedSubview(field)
         }
@@ -134,7 +119,7 @@ final class ConfirmCodeView: UIView {
         let spacesCount: CGFloat = CGFloat(textFieldsCount + 1)
         let fieldsWidth: CGFloat = textFieldWidth * CGFloat(textFieldsCount)
         
-        fieldsStack.spacing = (frame.width - fieldsWidth - 2 * Const.stackSpace) / spacesCount
+        fieldsStack.spacing = (frame.width - fieldsWidth) / (spacesCount - 1)
         fieldsStack.distribution = .fillEqually
         // swiftlint:enable identifier_name
     }
@@ -153,24 +138,28 @@ final class ConfirmCodeView: UIView {
             if sender.tag+1 < textFields.count {
                  
                 sender.isUserInteractionEnabled = false
+                sender.removeShadow()
                 sender.resignFirstResponder()
-                
+
+                textFields[sender.tag + 1].dropBlueShadow()
                 textFields[sender.tag + 1].isUserInteractionEnabled = true
                 textFields[sender.tag + 1].becomeFirstResponder()
                 textFields[sender.tag + 1].text = String(Const.separator)
-                circleViews[sender.tag + 1].isHidden = true
             } else {
                 
+                sender.removeShadow()
                 delegate?.lastDigitWasInputed(code: code)
             }
         }
         if sender.tag - 1 >= 0, sender.text == "" {
             
             sender.isUserInteractionEnabled = false
-            textFields[sender.tag - 1].isUserInteractionEnabled = true
+            sender.removeShadow()
             sender.resignFirstResponder()
+
+            textFields[sender.tag - 1].isUserInteractionEnabled = true
             textFields[sender.tag - 1].becomeFirstResponder()
-            circleViews[sender.tag].isHidden = false
+            textFields[sender.tag - 1].dropBlueShadow()
         }
     }
 }
@@ -183,7 +172,7 @@ fileprivate extension ConfirmCodeView {
         static let maxCountForFirstField: Int = 1
         static let maxCountForOtherFields: Int = 2
         static let circleMultiplier: CGFloat = 0.35
-        static let stackSpace: CGFloat = 12
+        static let stackSpace: CGFloat = 16
         static let separator: Character = " "
     }
 }

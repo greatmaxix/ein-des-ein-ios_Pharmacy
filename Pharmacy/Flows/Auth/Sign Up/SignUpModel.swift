@@ -16,6 +16,8 @@ enum SignUpEvent: Event {
 }
 
 protocol SignUpOutput: UIBlockerDelegate {
+    
+    func failedToSignUp(message: String)
 }
 
 protocol SignUpInput {
@@ -26,18 +28,20 @@ final class SignUpModel: Model {
     
     private let provider = MoyaProvider<AuthAPI>()
     
-    weak var output: SignUpOutput!
+    unowned var output: SignUpOutput!
     
     private func makeSignUpRequest(name: String, phone: String, email: String?) {
-
-        guard let self: SignUpModel = self else { return }
         
-        self.provider.request(.register(name: name, phone: phone, email: email)) {  (result: Result<Moya.Response, MoyaError>) in
-                                
+        provider.request(.register(name: name, phone: phone, email: email)) { [weak self] (result: Result<Moya.Response, MoyaError>) in
+            
+            guard let self: SignUpModel = self else { return }
+
             switch result {
             case .success(let response):
                 if 200..<300 ~= response.statusCode {
                     self.raise(event: SignUpEvent.receiveCode(phone: phone))
+                } else {
+                    self.output.failedToSignUp(message: "Failed to create account.")
                 }
             case .failure(let error):
                 print(error.localizedDescription)

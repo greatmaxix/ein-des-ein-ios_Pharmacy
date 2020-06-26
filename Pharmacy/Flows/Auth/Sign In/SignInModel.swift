@@ -21,21 +21,29 @@ protocol SignInInput {
 }
 
 protocol SignInOutput: UIBlockerDelegate {
+    
+    func failedToLogin(message: String)
 }
 
 final class SignInModel: Model {
     
-    weak var output: SignInOutput!
+    unowned var output: SignInOutput!
     private let provider = MoyaProvider<AuthAPI>()
     
     private func makeSignInRequest(phone: String) {
         
-        self.provider.request(.requestCodeFor(phone: phone)) {  (result: Result<Moya.Response, MoyaError>) in
+        let cleanNumber: String = phone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        provider.request(.requestCodeFor(phone: cleanNumber)) { [weak self] (result: Result<Moya.Response, MoyaError>) in
+            
+            guard let self = self else {return}
             switch result {
             case .success(let response):
-                
+                //swiftlint:disable all
+                let ccc = try! JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as! [String: Any]
                 if 200..<300 ~= response.statusCode {
                     self.raise(event: SignInEvent.signIn(phone: phone))
+                } else {
+                    self.output.failedToLogin(message: "Failed to login.")
                 }
             case .failure(let error):
                 print(error.localizedDescription)
