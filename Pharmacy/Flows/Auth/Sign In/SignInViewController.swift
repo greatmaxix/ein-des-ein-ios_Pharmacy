@@ -136,4 +136,8 @@ extension SignInViewController: SignInOutput {
     func unblockApplyButton() {
         applyButton.isUserInteractionEnabled = true
     }
+    
+    func failedToLogin(message: String) {
+        showAlertVC(title: message)
+    }
 }

@@ -326,7 +326,8 @@ final class TextInputView: UIView {
         if let text = inputTextField!.attributedPlaceholder, contentType != .email {
             
             let attrText = NSMutableAttributedString(attributedString: text)
-            let asterisk: NSAttributedString = NSAttributedString(string: "*", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red, NSAttributedString.Key.font: R.font.notoSansJPRegular(size: 16) ?? UIFont.systemFont(ofSize: 16)])
+            let asterisk: NSAttributedString = NSAttributedString(string: "*", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red,
+                    NSAttributedString.Key.font: R.font.notoSansJPRegular(size: 16) ?? UIFont.systemFont(ofSize: 16)])
             attrText.append(asterisk)
             inputTextField!.attributedPlaceholder = attrText
         }

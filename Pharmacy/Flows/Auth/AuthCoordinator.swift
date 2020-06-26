@@ -48,7 +48,10 @@ class AuthFlowCoordinator: EventNode, Coordinator {
             withIdentifier: "SignInViewController") as! SignInViewController
         // swiftlint:enable force_cast
 
-        signInController.model = SignInModel(parent: self)
+        let model: SignInModel = SignInModel(parent: self)
+        model.output = signInController
+        signInController.model = model
+        
         root = signInController
         let navigation = UINavigationController(rootViewController: root)
         navigation.isToolbarHidden = true

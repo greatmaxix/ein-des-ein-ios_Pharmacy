@@ -168,6 +168,10 @@ extension SignUpViewController: UITextFieldDelegate {
 
 extension SignUpViewController: SignUpOutput {
     
+    func failedToSignUp(message: String) {
+        showAlertVC(title: message)
+    }
+    
     func unblockApplyButton() {
         applyButton.isUserInteractionEnabled = true
     }

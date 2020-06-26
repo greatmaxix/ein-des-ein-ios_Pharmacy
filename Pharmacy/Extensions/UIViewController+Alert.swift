@@ -10,6 +10,15 @@ import UIKit
 
 extension UIViewController {
     
+    func showAlertVC(title: String) {
+        let alertVC = UIAlertController(title: "Error", message: title, preferredStyle: .alert)
+        let action: UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            alertVC.dismiss(animated: true, completion: nil)
+        })
+        alertVC.addAction(action)
+        present(alertVC, animated: true, completion: nil)
+    }
+    
     func showSpinner(isUserInteractionEnabled: Bool = false) {
         
         view.subviews.first(where: {$0.tag == "spiner".hash})?.removeFromSuperview()
