@@ -100,7 +100,7 @@ final class ConfirmCodeView: UIView {
             let field: UITextField = UITextField()
             field.keyboardType = .numberPad
             field.tintColor = .clear
-            field.textColor = R.color.textDarkGray()
+            field.textColor = R.color.textDarkBlue()
             field.textAlignment = .center
             field.isUserInteractionEnabled = false
             field.backgroundColor = R.color.confirmLightGray()
@@ -138,22 +138,28 @@ final class ConfirmCodeView: UIView {
             if sender.tag+1 < textFields.count {
                  
                 sender.isUserInteractionEnabled = false
+                sender.removeShadow()
                 sender.resignFirstResponder()
-                
+
+                textFields[sender.tag + 1].dropBlueShadow()
                 textFields[sender.tag + 1].isUserInteractionEnabled = true
                 textFields[sender.tag + 1].becomeFirstResponder()
                 textFields[sender.tag + 1].text = String(Const.separator)
             } else {
                 
+                sender.removeShadow()
                 delegate?.lastDigitWasInputed(code: code)
             }
         }
         if sender.tag - 1 >= 0, sender.text == "" {
             
             sender.isUserInteractionEnabled = false
-            textFields[sender.tag - 1].isUserInteractionEnabled = true
+            sender.removeShadow()
             sender.resignFirstResponder()
+
+            textFields[sender.tag - 1].isUserInteractionEnabled = true
             textFields[sender.tag - 1].becomeFirstResponder()
+            textFields[sender.tag - 1].dropBlueShadow()
         }
     }
 }

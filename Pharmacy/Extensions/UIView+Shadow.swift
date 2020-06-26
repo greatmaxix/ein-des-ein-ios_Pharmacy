@@ -20,4 +20,14 @@ extension UIView {
         layer.shouldRasterize = true
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
+    
+    func dropBlueShadow() {
+        dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
+    }
+    
+    func removeShadow() {
+        layer.shadowColor = nil
+        layer.shadowOpacity = 0
+        layer.shadowOffset = CGSize(width: 0, height: -3)
+    }
 }

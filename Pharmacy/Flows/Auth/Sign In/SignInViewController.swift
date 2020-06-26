@@ -73,10 +73,10 @@ final class SignInViewController: UIViewController {
         appleButton.layer.cornerRadius = appleButton.frame.height / 2
         faceIdButton.layer.cornerRadius = faceIdButton.frame.height / 2
         
-        facebookButton.dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
-        googleButton.dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
-        appleButton.dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
-        faceIdButton.dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
+        facebookButton.dropBlueShadow()
+        googleButton.dropBlueShadow()
+        appleButton.dropBlueShadow()
+        faceIdButton.dropBlueShadow()
     }
     
     // MARK: - Actions

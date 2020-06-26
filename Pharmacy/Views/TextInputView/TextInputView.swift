@@ -163,7 +163,7 @@ final class TextInputView: UIView {
             backgroundView.layer.borderColor = newValue.borderColor
             backgroundView.backgroundColor = newValue.backgroundColor
             inputStatusButton.setBackgroundImage(newValue.image, for: .normal)
-            inputTextField.textColor = newValue.textColor
+             inputTextField.textColor = newValue.textColor
             errorLabel.isHidden = newValue != .unsuccessfulValidation
         }
     }
@@ -342,7 +342,7 @@ fileprivate extension TextInputView {
         private init() {}
         
         static let backgroundViewHeight: CGFloat = 48
-        static let lbErrorTop: CGFloat = -8
+        static let lbErrorTop: CGFloat = 0
         static let lbErrorLeft: CGFloat = 5
         static let textfieldSpace: CGFloat = 5
         static let textfieldLeading: CGFloat = 16

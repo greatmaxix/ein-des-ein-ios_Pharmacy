@@ -27,6 +27,7 @@ final class SignUpViewController: UIViewController {
     @IBOutlet weak var appleButton: UIButton!
     
     private var tapGesture: UITapGestureRecognizer!
+    private var privacyGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
     var model: SignUpInput!
     
@@ -80,14 +81,17 @@ final class SignUpViewController: UIViewController {
         scrollView.addGestureRecognizer(tapGesture)
         scrollViewInsets = scrollView.contentInset
         
+        privacyGesture = UITapGestureRecognizer(target: self, action: #selector(openPrivacyPolicy))
+        privacyLabel.addGestureRecognizer(privacyGesture)
+        
         applyButton.layer.cornerRadius = applyButton.frame.height / 2
         facebookButton.layer.cornerRadius = facebookButton.frame.height / 2
         googleButton.layer.cornerRadius = googleButton.frame.height / 2
         appleButton.layer.cornerRadius = appleButton.frame.height / 2
         
-        facebookButton.dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
-        googleButton.dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
-        appleButton.dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
+        facebookButton.dropBlueShadow()
+        googleButton.dropBlueShadow()
+        appleButton.dropBlueShadow()
     }
     
     private func setupLocalization() {
@@ -97,8 +101,16 @@ final class SignUpViewController: UIViewController {
         socialNetworksLabel.text = R.string.localize.signupSocial()
         skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
         registrationLabel.text = R.string.localize.signupRegistration()
-        privacyLabel.text = R.string.localize.signupPrivacy() +
-            R.string.localize.signupLink()
+        
+        if let font: UIFont = R.font.notoSansJPRegular(size: 14) {
+            
+            var attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: R.color.textDarkBlue() ??  UIColor.black]
+            let attrText: NSMutableAttributedString = NSMutableAttributedString(string: R.string.localize.signupPrivacy(), attributes: attributes)
+            attributes[NSAttributedString.Key.foregroundColor] = UIColor.systemBlue
+            let linkText: NSAttributedString = NSMutableAttributedString(string: R.string.localize.signupLink(), attributes: attributes)
+            attrText.append(linkText)
+            privacyLabel.attributedText = attrText
+        }
     }
     
     // MARK: - Keyboard
@@ -118,6 +130,20 @@ final class SignUpViewController: UIViewController {
     @objc private func hideKeyboard() {
         scrollView.contentInset = scrollViewInsets
         inputViews.forEach({$0.endEditing(true)})
+    }
+    
+    @objc private func openPrivacyPolicy(sender: UIGestureRecognizer) {
+        
+        let size = privacyLabel.intrinsicContentSize
+        let firstLineRect: CGRect = CGRect(x: size.width / 2, y: 0, width: size.width / 2, height: size.height / 2)
+        let secondLineRect: CGRect = CGRect(x: 0, y: size.height / 2, width: size.width, height: size.height / 2)
+        
+        let location: CGPoint = sender.location(in: privacyLabel)
+        
+        if firstLineRect.contains(location) || secondLineRect.contains(location) {
+            
+            print("open privacy")
+        }
     }
 }
 

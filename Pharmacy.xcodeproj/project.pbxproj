@@ -12,6 +12,7 @@
 		39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0824A0DA5A004A9909 /* SignInModel.swift */; };
 		39273A0B24A0DFEC004A9909 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0A24A0DFEC004A9909 /* Model.swift */; };
 		39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0C24A0F09B004A9909 /* SignUpModel.swift */; };
+		39520E8E24A5EFAC00C2B7D8 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */; };
 		39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */; };
 		39534EC224A4EB57009AA5BB /* NotoSansJP-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EBC24A4EB56009AA5BB /* NotoSansJP-Black.otf */; };
 		39534EC324A4EB57009AA5BB /* NotoSansJP-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EBD24A4EB56009AA5BB /* NotoSansJP-Thin.otf */; };
@@ -64,6 +65,7 @@
 		39273A0824A0DA5A004A9909 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		39273A0A24A0DFEC004A9909 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		39273A0C24A0F09B004A9909 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		39534EBC24A4EB56009AA5BB /* NotoSansJP-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Black.otf"; sourceTree = "<group>"; };
 		39534EBD24A4EB56009AA5BB /* NotoSansJP-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Thin.otf"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */,
+				39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				618C33982498BDC200951D11 /* SignInViewController.swift in Sources */,
 				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
 				395A7FC524A3980D00A7CFC6 /* NameTableViewCell.swift in Sources */,
+				39520E8E24A5EFAC00C2B7D8 /* UIViewController+Alert.swift in Sources */,
 				395C9D7A2499FD8F001EB6CD /* NameValidator.swift in Sources */,
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
