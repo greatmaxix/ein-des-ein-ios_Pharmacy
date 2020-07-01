@@ -56,3 +56,10 @@
 "profile.questions" = "Есть вопросы или нужна помощь?";
 "profile.exit" = "Выйти из приложения";
 
+// MARK: - Tab Bar
+
+"tabbar.main" = "Главная";
+"tabbar.catalogue" = "Каталог";
+"tabbar.favorite" = "Избранное";
+"tabbar.basket" = "Корзина";
+"tabbar.profile" = "Профиль";
