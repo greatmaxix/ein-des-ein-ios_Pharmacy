@@ -18,19 +18,18 @@ final class ConfirmCodeView: UIView {
     private var fieldsStack: UIStackView!
     private var stackTopConstraint: NSLayoutConstraint!
     private var stackBottomConstraint: NSLayoutConstraint!
-    private var textFields: [UITextField]!
+    private var codeLabels: [UILabel]!
+    private var inputTextField: UITextField!
+    private var previousText: String?
     
-    var textFieldsCount: Int = 4
-    var textFieldWidth: CGFloat = 48
+    var textFieldsCount: Int = 6
+    var textFieldWidth: CGFloat = 40
     var circleColor: UIColor? = R.color.confirmCircleGray()
     weak var delegate: ConfirmCodeDelegate?
     
     var code: String {
         
-        var result: String = ""
-        textFields.forEach({result += ($0.text ?? "")})
-        result.removeAll(where: {$0 == Const.separator})
-        return result
+        return inputTextField.text ?? ""
     }
     
     private var circleRadius: CGFloat {
@@ -52,17 +51,17 @@ final class ConfirmCodeView: UIView {
     
     func startInput() {
         
-        textFields[0].isUserInteractionEnabled = true
-        textFields[0].becomeFirstResponder()
+        inputTextField.isUserInteractionEnabled = true
+        inputTextField.becomeFirstResponder()
     }
     
     func setConfirmationCode(code: String) {
         
         let validator: SMSCodeValidator = SMSCodeValidator()
-        if validator.validate(text: code) == true, code.count == textFields.count {
+        if validator.validate(text: code) == true, code.count == codeLabels.count {
             
             var confirmCode = code
-            textFields.forEach({
+            codeLabels.forEach({
                 $0.text = String(confirmCode.removeFirst())
                 $0.isUserInteractionEnabled = false
             })
@@ -92,28 +91,33 @@ final class ConfirmCodeView: UIView {
     
     private func setupTextFields() {
         
-        textFields = []
+        codeLabels = []
+        
+        inputTextField = UITextField()
+        inputTextField.keyboardType = .numberPad
+        inputTextField.textContentType = .oneTimeCode
+        inputTextField.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
+        addSubview(inputTextField)
         
         // swiftlint:disable identifier_name
         for i in 0..<textFieldsCount {
             
-            let field: UITextField = UITextField()
-            field.keyboardType = .numberPad
-            field.tintColor = .clear
-            field.textColor = R.color.textDarkBlue()
-            field.textAlignment = .center
-            field.isUserInteractionEnabled = false
-            field.backgroundColor = R.color.confirmLightGray()
-            field.layer.borderWidth = 1
-            field.layer.cornerRadius = 10
-            field.layer.borderColor = R.color.backgroundGray()?.cgColor
+            let label: UILabel = UILabel()
+            label.tintColor = .clear
+            label.textColor = R.color.textDarkBlue()
+            label.textAlignment = .center
+            label.isUserInteractionEnabled = false
+            label.backgroundColor = R.color.confirmLightGray()
+            label.layer.borderWidth = 1
+            label.layer.cornerRadius = 10
+            label.layer.borderColor = R.color.backgroundGray()?.cgColor
             
-            field.tag = i
-            field.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-            field.addTarget(self, action: #selector(editingChanged(_:)), for: .editingChanged)
-            textFields.append(field)
+            label.clipsToBounds = true
+            label.tag = i
+            label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+            codeLabels.append(label)
             
-            fieldsStack.addArrangedSubview(field)
+            fieldsStack.addArrangedSubview(label)
         }
         
         let spacesCount: CGFloat = CGFloat(textFieldsCount + 1)
@@ -126,40 +130,24 @@ final class ConfirmCodeView: UIView {
     
     @objc private func editingChanged(_ sender: UITextField) {
         
-        if let text: String = sender.text, let character: Character = text.last, character != Const.separator {
+        if let text: String = sender.text {
+            var index: Int = 0
+            var resultText: String = ""
             
-            if text.count > Const.maxCountForOtherFields, sender.tag > 0 {
-                sender.text = String(text.dropLast(text.count - Const.maxCountForOtherFields))
-            } else if sender.tag == 0, text.count > Const.maxCountForFirstField {
-                
-                sender.text = String(text.dropLast(text.count - Const.maxCountForFirstField))
-            }
-                          
-            if sender.tag+1 < textFields.count {
-                 
-                sender.isUserInteractionEnabled = false
-                sender.removeShadow()
-                sender.resignFirstResponder()
-
-                textFields[sender.tag + 1].dropBlueShadow()
-                textFields[sender.tag + 1].isUserInteractionEnabled = true
-                textFields[sender.tag + 1].becomeFirstResponder()
-                textFields[sender.tag + 1].text = String(Const.separator)
-            } else {
-                
-                sender.removeShadow()
-                delegate?.lastDigitWasInputed(code: code)
-            }
-        }
-        if sender.tag - 1 >= 0, sender.text == "" {
+            codeLabels.forEach({$0.text = nil})
             
-            sender.isUserInteractionEnabled = false
-            sender.removeShadow()
-            sender.resignFirstResponder()
-
-            textFields[sender.tag - 1].isUserInteractionEnabled = true
-            textFields[sender.tag - 1].becomeFirstResponder()
-            textFields[sender.tag - 1].dropBlueShadow()
+            for ch in text where index < textFieldsCount {
+                
+                resultText.append(ch)
+                codeLabels[index].text = String(ch)
+                index += 1
+            }
+            sender.text = resultText
+            
+            if resultText.count == textFieldsCount {
+                
+                delegate?.lastDigitWasInputed(code: resultText)
+            }
         }
     }
 }

@@ -26,6 +26,12 @@ final class ConfirmCodeViewController: UIViewController {
         setupLocalization()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        confirmCodeView.startInput()
+    }
+    
     func setupLocalization() {
         
         titleLabel.text = R.string.localize.confirmTitle()
