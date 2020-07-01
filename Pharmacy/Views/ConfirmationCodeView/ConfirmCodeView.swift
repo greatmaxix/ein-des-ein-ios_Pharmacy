@@ -20,9 +20,9 @@ final class ConfirmCodeView: UIView {
     private var stackBottomConstraint: NSLayoutConstraint!
     private var codeLabels: [UILabel]!
     private var inputTextField: UITextField!
-    private var previousText: String?
+    private var tapGesture: UITapGestureRecognizer!
     
-    var textFieldsCount: Int = 6
+    var textFieldsCount: Int = 5
     var textFieldWidth: CGFloat = 40
     var circleColor: UIColor? = R.color.confirmCircleGray()
     weak var delegate: ConfirmCodeDelegate?
@@ -49,7 +49,7 @@ final class ConfirmCodeView: UIView {
         setup()
     }
     
-    func startInput() {
+    @objc func startInput() {
         
         inputTextField.isUserInteractionEnabled = true
         inputTextField.becomeFirstResponder()
@@ -125,6 +125,9 @@ final class ConfirmCodeView: UIView {
         
         fieldsStack.spacing = (frame.width - fieldsWidth) / (spacesCount - 1)
         fieldsStack.distribution = .fillEqually
+        
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(startInput))
+        addGestureRecognizer(tapGesture)
         // swiftlint:enable identifier_name
     }
     

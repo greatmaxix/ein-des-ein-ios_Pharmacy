@@ -72,7 +72,9 @@ class AuthFlowCoordinator: EventNode, Coordinator {
     func presentConfirmSMS(phone: String) {
         if let confirmVC: ConfirmCodeViewController = storyboard.instantiateViewController(withIdentifier: "ConfirmCodeViewController") as? ConfirmCodeViewController {
             
-            confirmVC.model = ConfirmCodeModel(parent: self, phone: phone)
+            let model = ConfirmCodeModel(parent: self, phone: phone)
+            confirmVC.model = model
+            model.output = confirmVC
             root.navigationController?.pushViewController(confirmVC, animated: true)
         }
     }

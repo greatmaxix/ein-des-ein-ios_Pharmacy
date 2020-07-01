@@ -39,9 +39,8 @@ final class SignInModel: Model {
             switch result {
             case .success(let response):
                 //swiftlint:disable all
-                let ccc = try! JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as! [String: Any]
                 if 200..<300 ~= response.statusCode {
-                    self.raise(event: SignInEvent.signIn(phone: phone))
+                    self.raise(event: SignInEvent.signIn(phone: cleanNumber))
                 } else {
                     self.output.failedToLogin(message: "Failed to login.")
                 }

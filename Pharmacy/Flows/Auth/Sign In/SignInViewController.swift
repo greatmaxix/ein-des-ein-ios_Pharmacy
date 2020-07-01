@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventsTree
 
 final class SignInViewController: UIViewController {
 
@@ -91,6 +92,11 @@ final class SignInViewController: UIViewController {
     }
     
     @IBAction func createAccount(_ sender: UIButton) {
+//        if let confirmVC: ConfirmCodeViewController = R.storyboard.auth().instantiateViewController(withIdentifier: "ConfirmCodeViewController") as? ConfirmCodeViewController {
+//
+//            confirmVC.model = ConfirmCodeModel(parent: EventNode(parent: nil), phone: "32222")
+//            navigationController?.pushViewController(confirmVC, animated: true)
+//        }
         model.signUp()
     }
     

@@ -17,12 +17,16 @@ final class ConfirmCodeViewController: UIViewController {
     @IBOutlet weak var resendButton: UIButton!
     @IBOutlet weak var confirmCodeView: ConfirmCodeView!
     
+    private var tapGesture: UITapGestureRecognizer!
+
     var model: ConfirmCodeInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         confirmCodeView.delegate = self
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(stopInputCode))
+        view.addGestureRecognizer(tapGesture)
         setupLocalization()
     }
     
@@ -46,6 +50,13 @@ final class ConfirmCodeViewController: UIViewController {
     }
 
     @IBAction func resendCode(_ sender: UIButton) {
+        confirmCodeView.isUserInteractionEnabled = false
+        resendButton.isUserInteractionEnabled = false
+        model.resendCode()
+    }
+    
+    @objc private func stopInputCode() {
+        confirmCodeView.endEditing(true)
     }
 }
 
@@ -55,13 +66,29 @@ extension ConfirmCodeViewController: ConfirmCodeDelegate {
     
     func lastDigitWasInputed(code: String) {
         
-        //model
+        confirmCodeView.endEditing(true)
+        confirmCodeView.isUserInteractionEnabled = false
+        resendButton.isUserInteractionEnabled = false
+        model.sendCode()
     }
 }
 
 // MARK: - ConfirmCodeOutput
 
 extension ConfirmCodeViewController: ConfirmCodeOutput {
+    
+    func failedToConfirmCode(message: String) {
+        showAlertVC(title: message)
+    }
+    
+    func unblockResendButton() {
+        resendButton.isUserInteractionEnabled = true
+        confirmCodeView.isUserInteractionEnabled = true
+    }
+    
+    var confirmCode: String {
+        return confirmCodeView.code
+    }
     
     func setCode(code: String) {
         confirmCodeView.setConfirmationCode(code: code)
