@@ -12,6 +12,10 @@
 		39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0824A0DA5A004A9909 /* SignInModel.swift */; };
 		39273A0B24A0DFEC004A9909 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0A24A0DFEC004A9909 /* Model.swift */; };
 		39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0C24A0F09B004A9909 /* SignUpModel.swift */; };
+		39505F5524AC73620045EC02 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39505F5124AC73620045EC02 /* TabBarController.swift */; };
+		39505F5624AC73620045EC02 /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39505F5224AC73620045EC02 /* TabBarModel.swift */; };
+		39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39505F5324AC73620045EC02 /* TabBarCoordinator.swift */; };
+		39505F5824AC73620045EC02 /* TabBarEmbedCoordinable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39505F5424AC73620045EC02 /* TabBarEmbedCoordinable.swift */; };
 		39520E8E24A5EFAC00C2B7D8 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */; };
 		39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */; };
 		39534EC224A4EB57009AA5BB /* NotoSansJP-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EBC24A4EB56009AA5BB /* NotoSansJP-Black.otf */; };
@@ -65,6 +69,10 @@
 		39273A0824A0DA5A004A9909 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		39273A0A24A0DFEC004A9909 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		39273A0C24A0F09B004A9909 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		39505F5124AC73620045EC02 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		39505F5224AC73620045EC02 /* TabBarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
+		39505F5324AC73620045EC02 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		39505F5424AC73620045EC02 /* TabBarEmbedCoordinable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarEmbedCoordinable.swift; sourceTree = "<group>"; };
 		39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		39534EBC24A4EB56009AA5BB /* NotoSansJP-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Black.otf"; sourceTree = "<group>"; };
@@ -128,6 +136,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39505F5024AC73500045EC02 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				39505F5924AC73E50045EC02 /* TabBarController */,
+				39505F5324AC73620045EC02 /* TabBarCoordinator.swift */,
+				39505F5424AC73620045EC02 /* TabBarEmbedCoordinable.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		39505F5924AC73E50045EC02 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				39505F5124AC73620045EC02 /* TabBarController.swift */,
+				39505F5224AC73620045EC02 /* TabBarModel.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 		39534EA524A4D962009AA5BB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +209,6 @@
 				395A7FBB24A397C600A7CFC6 /* Cells */,
 				618C339E2498BE0200951D11 /* ProfileViewController.swift */,
 				395A7FC824A399B000A7CFC6 /* ProfileModel.swift */,
-				395A7FCB24A3A2B700A7CFC6 /* ProfileCoordinator.swift */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -296,6 +322,7 @@
 		396C45CF249774D200A569CE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				39505F5024AC73500045EC02 /* Main */,
 				618C33A62498BF0B00951D11 /* Auth */,
 				618C339D2498BDF600951D11 /* Profile */,
 			);
@@ -367,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				395A7FCA24A3A29600A7CFC6 /* ProfileViewController */,
+				395A7FCB24A3A2B700A7CFC6 /* ProfileCoordinator.swift */,
 				618C33A42498BE6200951D11 /* Profile.storyboard */,
 			);
 			path = Profile;
@@ -596,6 +624,7 @@
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
 				395A7FC924A399B000A7CFC6 /* ProfileModel.swift in Sources */,
 				395A7FCC24A3A2B700A7CFC6 /* ProfileCoordinator.swift in Sources */,
+				39505F5624AC73620045EC02 /* TabBarModel.swift in Sources */,
 				395C9D762499FC14001EB6CD /* EmailValidator.swift in Sources */,
 				619AAA432498ADFE00AB46ED /* DataManager.swift in Sources */,
 				39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */,
@@ -616,13 +645,16 @@
 				396C45DE2497882800A569CE /* R.generated.swift in Sources */,
 				395C9D782499FC14001EB6CD /* BaseTextValidator.swift in Sources */,
 				618C33982498BDC200951D11 /* SignInViewController.swift in Sources */,
+				39505F5824AC73620045EC02 /* TabBarEmbedCoordinable.swift in Sources */,
 				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
 				395A7FC524A3980D00A7CFC6 /* NameTableViewCell.swift in Sources */,
 				39520E8E24A5EFAC00C2B7D8 /* UIViewController+Alert.swift in Sources */,
 				395C9D7A2499FD8F001EB6CD /* NameValidator.swift in Sources */,
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
+				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
+				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
 				3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */,
 				395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */,
 				395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */,
@@ -764,6 +796,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DU5QL9C8C6;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -783,6 +816,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = DU5QL9C8C6;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -23,6 +23,10 @@ final class AppNavigation: EventNode {
     func startFlow() {
         presentAuthFlow()
     }
+    
+    func startMainFlow() {
+        presentMainFlow()
+    }
 }
 
 // MARK: Navigation
@@ -30,7 +34,8 @@ final class AppNavigation: EventNode {
 extension AppNavigation {
 
     fileprivate func presentMainFlow() {
-
+        let coordinator: TabBarCoordinator = TabBarCoordinator(parent: self)
+        presentCoordinatorFlow(coordinator)
     }
 
     fileprivate func presentAuthFlow() {
