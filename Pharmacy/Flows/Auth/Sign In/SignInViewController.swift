@@ -86,7 +86,7 @@ final class SignInViewController: UIViewController {
         
         if let phone: String = phoneInputView.text, phoneInputView.validate() {
 
-            model.signIn(phone: phone)
+            model.signIn(phone: "380631929449")
             sender.isUserInteractionEnabled = false
         }
     }

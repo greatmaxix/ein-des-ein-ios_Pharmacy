@@ -36,9 +36,7 @@ final class ConfirmCodeModel: Model {
         super.init(parent: parent)
         self.phone = phone
     }
-    
-    // TODO: Add sms code
-    
+        
     private func login() {
         
         self.provider.load(target: .login(phone: phone, code: output.confirmCode)) { [weak self] (result) in
@@ -47,6 +45,7 @@ final class ConfirmCodeModel: Model {
             case .success(let response):
                 
                 let token: String = response.token
+                let user: User = response.user
                 self?.startMainFlow()
             case .failure(let error):
                 self?.output.unblockResendButton()

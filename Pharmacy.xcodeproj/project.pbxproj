@@ -40,6 +40,8 @@
 		395C9D772499FC14001EB6CD /* PhoneValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D742499FC14001EB6CD /* PhoneValidator.swift */; };
 		395C9D782499FC14001EB6CD /* BaseTextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D752499FC14001EB6CD /* BaseTextValidator.swift */; };
 		395C9D7A2499FD8F001EB6CD /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D792499FD8F001EB6CD /* NameValidator.swift */; };
+		396448DF24ADE13F00E6D852 /* NSUserDefaults+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396448DE24ADE13F00E6D852 /* NSUserDefaults+User.swift */; };
+		396448E224ADE17A00E6D852 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396448E124ADE17A00E6D852 /* User.swift */; };
 		396C45B92497699800A569CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396C45B82497699800A569CE /* AppDelegate.swift */; };
 		396C45C22497699900A569CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 396C45C12497699900A569CE /* Assets.xcassets */; };
 		396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 396C45C32497699900A569CE /* LaunchScreen.storyboard */; };
@@ -97,6 +99,8 @@
 		395C9D742499FC14001EB6CD /* PhoneValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneValidator.swift; sourceTree = "<group>"; };
 		395C9D752499FC14001EB6CD /* BaseTextValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextValidator.swift; sourceTree = "<group>"; };
 		395C9D792499FD8F001EB6CD /* NameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
+		396448DE24ADE13F00E6D852 /* NSUserDefaults+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+User.swift"; sourceTree = "<group>"; };
+		396448E124ADE17A00E6D852 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		396C45B52497699800A569CE /* Pharmacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pharmacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		396C45B82497699800A569CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		396C45C12497699900A569CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 			children = (
 				39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */,
 				39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */,
+				396448DE24ADE13F00E6D852 /* NSUserDefaults+User.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -254,6 +259,15 @@
 			path = Validators;
 			sourceTree = "<group>";
 		};
+		396448E024ADE16600E6D852 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				396448E124ADE17A00E6D852 /* User.swift */,
+			);
+			name = Models;
+			path = Templates/Models;
+			sourceTree = "<group>";
+		};
 		396C45AC2497699800A569CE = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +292,7 @@
 				619AAA3C2498A98200AB46ED /* Services */,
 				396C45CD2497744800A569CE /* Resources */,
 				39534EA524A4D962009AA5BB /* Extensions */,
+				396448E024ADE16600E6D852 /* Models */,
 				396C45D02497754300A569CE /* Templates */,
 				3959E9D3249A63FA00FA1F74 /* Components */,
 				396C45CE249774AC00A569CE /* Views */,
@@ -639,6 +654,7 @@
 				619AAA462498AEA700AB46ED /* SampleResponseModel.swift in Sources */,
 				618C33952498BD6700951D11 /* AppNavigation.swift in Sources */,
 				399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */,
+				396448E224ADE17A00E6D852 /* User.swift in Sources */,
 				39273A0B24A0DFEC004A9909 /* Model.swift in Sources */,
 				395A7FB824A34B5200A7CFC6 /* UIBlockerDelegate.swift in Sources */,
 				39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */,
@@ -656,6 +672,7 @@
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
 				3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */,
+				396448DF24ADE13F00E6D852 /* NSUserDefaults+User.swift in Sources */,
 				395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */,
 				395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */,
 				395C9D772499FC14001EB6CD /* PhoneValidator.swift in Sources */,
