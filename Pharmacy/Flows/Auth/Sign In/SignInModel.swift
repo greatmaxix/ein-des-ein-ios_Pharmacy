@@ -33,18 +33,7 @@ final class SignInModel: Model {
     
     private func makeSignInRequest(phone: String) {
         
-        let cleanNumber: String = "380631929449"//phone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-        
-//        let api = AuthAPI.login(phone: cleanNumber, code: "31911")
-//
-//        AF.request(api.baseURL.appendingPathComponent(api.path), method: .post, parameters: ["phone": cleanNumber, "code": "31911"], encoding: JSONEncoding.default, headers: HTTPHeaders(api.headers!), interceptor: nil, requestModifier: nil).responseJSON(completionHandler: { response in
-//
-//            if let data = response.data, let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
-//                print(json)
-//            } else {
-//                print(response.request)
-//            }
-//        })
+        let cleanNumber: String = phone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
 
         provider.request(.requestCodeFor(phone: cleanNumber)) { [weak self] (result: Result<Moya.Response, MoyaError>) in
             
