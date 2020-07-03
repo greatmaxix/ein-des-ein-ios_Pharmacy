@@ -297,7 +297,7 @@
 				3959E9D3249A63FA00FA1F74 /* Components */,
 				396C45CE249774AC00A569CE /* Views */,
 				396C45CF249774D200A569CE /* Flows */,
-				396C45CC2497741B00A569CE /* Models */,
+				396C45CC2497741B00A569CE /* Responces */,
 				396C45C62497699900A569CE /* Info.plist */,
 				396C45B82497699800A569CE /* AppDelegate.swift */,
 				396C45C32497699900A569CE /* LaunchScreen.storyboard */,
@@ -305,13 +305,13 @@
 			path = Pharmacy;
 			sourceTree = "<group>";
 		};
-		396C45CC2497741B00A569CE /* Models */ = {
+		396C45CC2497741B00A569CE /* Responces */ = {
 			isa = PBXGroup;
 			children = (
 				619AAA452498AEA700AB46ED /* SampleResponseModel.swift */,
 				3915D60924A24DF500A93627 /* LoginResponse.swift */,
 			);
-			path = Models;
+			path = Responces;
 			sourceTree = "<group>";
 		};
 		396C45CD2497744800A569CE /* Resources */ = {

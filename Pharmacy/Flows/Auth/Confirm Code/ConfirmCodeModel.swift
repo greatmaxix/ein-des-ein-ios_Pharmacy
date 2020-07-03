@@ -45,7 +45,7 @@ final class ConfirmCodeModel: Model {
             case .success(let response):
                 
                 UserDefaults.standard.saveUser(user: response.user)
-                //KeychainManager.shared.saveToken(token: response.token)
+                KeychainManager.shared.saveToken(token: response.token)
                 
                 self?.startMainFlow()
             case .failure(let error):
