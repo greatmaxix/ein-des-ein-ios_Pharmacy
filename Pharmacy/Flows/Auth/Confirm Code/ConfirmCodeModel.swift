@@ -11,44 +11,65 @@ import EventsTree
 import Moya
 
 protocol ConfirmCodeInput {
+    func sendCode(code: String)
+    func resendCode()
     
-    func sendConfirmCode()
-    
-    var phoneNumber: String { get set }
+    var phoneNumber: String { get }
+}
+
+enum ConfirmCodeEvent: Event {
+    case openMainScreen
 }
 
 protocol ConfirmCodeOutput: class {
-    func setCode(code: String)
+    func unblockResendButton()
+    func failedToConfirmCode(message: String)
 }
 
 final class ConfirmCodeModel: Model {
     
     private var phone: String!
     private let provider: DataManager<AuthAPI, LoginResponse> = DataManager<AuthAPI, LoginResponse>()
-    
     weak var output: ConfirmCodeOutput!
     
     init(parent: EventNode, phone: String) {
-        
         super.init(parent: parent)
         self.phone = phone
     }
     
-    // TODO: Add sms code
-    
-    private func login() {
-        
-        let code: String = ""
-
-        self.provider.load(target: .login(phone: self.phoneNumber, code: code)) { (result) in
+    private func sendCodeAgain() {
+        provider.create(target: AuthAPI.requestCodeFor(phone: phone)) { [weak self] result in
             
+            guard let self = self else { return }
             switch result {
             case .success(let response):
-                 let _: String = response.token
-            case .failure(let error):
-                print(error.localizedDescription)
+                if !response {
+                    self.output.failedToConfirmCode(message: "Failed to resend code.")
+                }
+            case .failure:
+                self.output.failedToConfirmCode(message: "Failed to resend code.")
             }
+            self.output.unblockResendButton()
         }
+    }
+    
+    private func login(code: String) {
+        self.provider.load(target: .login(phone: phone, code: code)) { [weak self] (result) in
+             
+             guard let self: ConfirmCodeModel = self else { return }
+             switch result {
+             case .success(let response):
+                UserSession.shared.save(user: response.user, token: response.token)
+                self.raise(event: ConfirmCodeEvent.openMainScreen)
+             case .failure:
+                self.loginFail()
+             }
+        }
+    }
+    
+    private func loginFail() {
+        output.unblockResendButton()
+        output.failedToConfirmCode(message: "Failed to verify code.")
     }
 }
 
@@ -56,16 +77,16 @@ final class ConfirmCodeModel: Model {
 
 extension ConfirmCodeModel: ConfirmCodeInput {
     
+    func resendCode() {
+        sendCodeAgain()
+    }
+        
     var phoneNumber: String {
-        get {
-            return phone
-        }
-        set {
-            phone = newValue
-        }
+        return phone
     }
     
-    func sendConfirmCode() {
-        login()
+    func sendCode(code: String) {
+        
+        login(code: code)
     }
 }

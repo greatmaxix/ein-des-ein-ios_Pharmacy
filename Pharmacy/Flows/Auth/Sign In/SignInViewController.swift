@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventsTree
 
 final class SignInViewController: UIViewController {
 

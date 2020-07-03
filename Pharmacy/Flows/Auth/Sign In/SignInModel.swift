@@ -9,6 +9,7 @@
 import Foundation
 import EventsTree
 import Moya
+import Alamofire
 
 enum SignInEvent: Event {
     case signIn(phone: String)
@@ -33,15 +34,15 @@ final class SignInModel: Model {
     private func makeSignInRequest(phone: String) {
         
         let cleanNumber: String = phone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+
         provider.request(.requestCodeFor(phone: cleanNumber)) { [weak self] (result: Result<Moya.Response, MoyaError>) in
             
             guard let self = self else {return}
             switch result {
             case .success(let response):
                 //swiftlint:disable all
-                let ccc = try! JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as! [String: Any]
                 if 200..<300 ~= response.statusCode {
-                    self.raise(event: SignInEvent.signIn(phone: phone))
+                    self.raise(event: SignInEvent.signIn(phone: cleanNumber))
                 } else {
                     self.output.failedToLogin(message: "Failed to login.")
                 }

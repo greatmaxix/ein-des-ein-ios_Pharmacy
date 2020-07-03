@@ -43,7 +43,6 @@ class TabBarModel: Model {
             }
         }
     }
-
 }
 
 extension TabBarModel: TabBarModelInput, TabBarControllerOutput {}

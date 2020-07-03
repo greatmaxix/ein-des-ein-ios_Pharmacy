@@ -21,6 +21,8 @@
 "confirm.description" = "Пожалуйста, введите проверочный код, который мы отправили на";
 "confirm.resendCode" = "Не получили код ?";
 "confirm.resendAgain" = "Отправить снова";
+"confirm.resend_fail" = "Failed to resend code.";
+"confirm.confirm_fail" = "Failed to verify code.";
 
 // MARK: - Log in
 

@@ -35,7 +35,7 @@ extension AuthAPI: TargetType, AccessTokenAuthorizable {
         case .requestCodeFor:
             return "/api/v1/customer/auth"
         case .login:
-            return "​/api​/v1​/customer​/login"
+            return "/api/v1/customer/login"
         }
     }
 
@@ -71,7 +71,7 @@ extension AuthAPI: TargetType, AccessTokenAuthorizable {
     }
 
     var headers: [String: String]? {
-        return ["Content-type": "application/json; charset=utf-8"]
+        return ["Content-type": "application/json"]
     }
 }
 
