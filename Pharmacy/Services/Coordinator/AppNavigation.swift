@@ -18,6 +18,12 @@ final class AppNavigation: EventNode {
         self.window = window
 
         super.init(parent: nil)
+        
+        addHandler { [weak self] (event: ConfirmCodeEvent) in
+            if event == .openMainScreen {
+                self?.startMainFlow()
+            }
+        }
     }
 
     func startFlow() {

@@ -50,6 +50,8 @@ final class ConfirmCodeViewController: UIViewController {
     }
 
     @IBAction func resendCode(_ sender: UIButton) {
+
+        confirmCodeView.clear()
         confirmCodeView.isUserInteractionEnabled = false
         resendButton.isUserInteractionEnabled = false
         model.resendCode()
@@ -69,7 +71,7 @@ extension ConfirmCodeViewController: ConfirmCodeDelegate {
         confirmCodeView.endEditing(true)
         confirmCodeView.isUserInteractionEnabled = false
         resendButton.isUserInteractionEnabled = false
-        model.sendCode()
+        model.sendCode(code: code)
     }
 }
 
@@ -84,13 +86,5 @@ extension ConfirmCodeViewController: ConfirmCodeOutput {
     func unblockResendButton() {
         resendButton.isUserInteractionEnabled = true
         confirmCodeView.isUserInteractionEnabled = true
-    }
-    
-    var confirmCode: String {
-        return confirmCodeView.code
-    }
-    
-    func setCode(code: String) {
-        confirmCodeView.setConfirmationCode(code: code)
     }
 }

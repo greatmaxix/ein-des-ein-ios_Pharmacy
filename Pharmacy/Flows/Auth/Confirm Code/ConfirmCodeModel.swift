@@ -11,74 +11,65 @@ import EventsTree
 import Moya
 
 protocol ConfirmCodeInput {
-    func sendCode()
+    func sendCode(code: String)
     func resendCode()
     
     var phoneNumber: String { get }
 }
 
+enum ConfirmCodeEvent: Event {
+    case openMainScreen
+}
+
 protocol ConfirmCodeOutput: class {
-    func setCode(code: String)
     func unblockResendButton()
     func failedToConfirmCode(message: String)
-    var confirmCode: String { get }
 }
 
 final class ConfirmCodeModel: Model {
     
     private var phone: String!
     private let provider: DataManager<AuthAPI, LoginResponse> = DataManager<AuthAPI, LoginResponse>()
-    private let resendProvider = MoyaProvider<AuthAPI>()
-
     weak var output: ConfirmCodeOutput!
     
     init(parent: EventNode, phone: String) {
         super.init(parent: parent)
         self.phone = phone
     }
-        
-    private func login() {
-        
-        self.provider.load(target: .login(phone: phone, code: output.confirmCode)) { [weak self] (result) in
-            
-            switch result {
-            case .success(let response):
-                
-                UserDefaults.standard.saveUser(user: response.user)
-                KeychainManager.shared.saveToken(token: response.token)
-                
-                self?.startMainFlow()
-            case .failure(let error):
-                self?.output.unblockResendButton()
-                self?.output.failedToConfirmCode(message: "Failed to verify code.")
-                print(error.localizedDescription)
-            }
-        }
-    }
     
-    private func resendConfirmCode() {
-        
-        resendProvider.request(.requestCodeFor(phone: phoneNumber)) { [weak self] (result: Result<Moya.Response, MoyaError>) in
+    private func sendCodeAgain() {
+        provider.create(target: AuthAPI.requestCodeFor(phone: phone)) { [weak self] result in
+            
+            guard let self = self else { return }
             switch result {
             case .success(let response):
-                if 200..<300 ~= response.statusCode {
-                } else {
-                    self?.output.failedToConfirmCode(message: "Failed to resend code.")
+                if !response {
+                    self.output.failedToConfirmCode(message: "Failed to resend code.")
                 }
-            case .failure(let error):
-                self?.output.failedToConfirmCode(message: "Failed to resend code.")
-                print(error.localizedDescription)
+            case .failure:
+                self.output.failedToConfirmCode(message: "Failed to resend code.")
             }
-            self?.output.unblockResendButton()
+            self.output.unblockResendButton()
         }
     }
     
-    private func startMainFlow() {
-        
-        if let appNav = (UIApplication.shared.delegate as? AppDelegate)?.appNavigationCoordinator {
-            
-            appNav.startMainFlow()
+    private func login(code: String) {
+        self.provider.load(target: .login(phone: phone, code: code)) { [weak self] (result) in
+             
+             guard let self: ConfirmCodeModel = self else { return }
+             switch result {
+             case .success(let response):
+                UserSession.shared.save(user: response.user, token: response.token)
+                self.raise(event: ConfirmCodeEvent.openMainScreen)
+             case .failure:
+                self.loginFail()
+             }
         }
+    }
+    
+    private func loginFail() {
+        output.unblockResendButton()
+        output.failedToConfirmCode(message: "Failed to verify code.")
     }
 }
 
@@ -87,16 +78,15 @@ final class ConfirmCodeModel: Model {
 extension ConfirmCodeModel: ConfirmCodeInput {
     
     func resendCode() {
-        resendConfirmCode()
+        sendCodeAgain()
     }
         
     var phoneNumber: String {
-        get {
-            return phone
-        }
+        return phone
     }
     
-    func sendCode() {
-        login()
+    func sendCode(code: String) {
+        
+        login(code: code)
     }
 }

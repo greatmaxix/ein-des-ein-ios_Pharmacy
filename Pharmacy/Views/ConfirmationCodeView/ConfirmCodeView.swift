@@ -153,6 +153,11 @@ final class ConfirmCodeView: UIView {
             }
         }
     }
+    
+    func clear() {
+        inputTextField.text = nil
+        codeLabels.forEach({$0.text = nil})
+    }
 }
 
 // MARK: - Constants
