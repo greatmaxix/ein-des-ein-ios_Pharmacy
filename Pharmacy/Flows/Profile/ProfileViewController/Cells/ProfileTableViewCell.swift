@@ -12,6 +12,7 @@ class ProfileTableViewCellData: BaseCellData {
     
     var title: String
     var additionalInfo: String?
+    var image: UIImage?
     var style: ProfileTableViewCell.VisualStyle = .base
     
     override var nibName: String? {
@@ -19,7 +20,7 @@ class ProfileTableViewCellData: BaseCellData {
     }
     
     override var cellHeight: CGFloat {
-        return 44
+        return 58
     }
     
     init(title: String, additionalInfo: String? = nil, type: ProfileTableViewCell.VisualStyle = .base) {
@@ -42,6 +43,7 @@ class ProfileTableViewCell: BaseTableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var additionaInfoLabel: UILabel!
     @IBOutlet weak var arrowView: UIView!
+    @IBOutlet weak var contentBackgroundView: UIView!
     
     var style: VisualStyle = .base
 
@@ -49,6 +51,7 @@ class ProfileTableViewCell: BaseTableViewCell {
         super.awakeFromNib()
         
         selectionStyle = .none
+        contentBackgroundView.layer.cornerRadius = 8
     }
     
     override func setup(cellData: BaseCellData) {
@@ -58,8 +61,10 @@ class ProfileTableViewCell: BaseTableViewCell {
             titleLabel.text = cd.title
             additionaInfoLabel.text = cd.additionalInfo
             style = cd.style
+            typeImageView.image = cd.image
             setupUI()
         }
+        
     }
     
     func setupUI() {

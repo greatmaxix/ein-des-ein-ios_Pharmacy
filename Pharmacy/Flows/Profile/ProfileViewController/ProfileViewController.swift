@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController {
         tableView.register(UINib(nibName: String(describing: NameTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: NameTableViewCell.self))
         tableView.register(EmptyTableViewCell.self, forCellReuseIdentifier: String(describing: EmptyTableViewCell.self))
         tableView.register(UINib(nibName: String(describing: ProfileTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ProfileTableViewCell.self))
+        tableView.register(UINib(nibName: String(describing: ProfileOptionsCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ProfileOptionsCell.self))
     }
 }
 
@@ -41,6 +42,7 @@ extension ProfileViewController: UITableViewDataSource {
         let cellData: BaseCellData = model.cellDataAt(index: indexPath.row)
         if let cell: BaseTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellData.nibName!, for: indexPath) as? BaseTableViewCell {
             cell.setup(cellData: cellData)
+            cell.backgroundColor = .clear
             return cell
         }
         return UITableViewCell()

@@ -33,6 +33,10 @@ final class ProfileModel: Model {
             cellsData.append(cellData)
         }
         do {
+            let cd: ProfileOptionsCellData = ProfileOptionsCellData()
+            cellsData.append(cd)
+        }
+        do {
             let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24.5)
             cellsData.append(cellData)
         }

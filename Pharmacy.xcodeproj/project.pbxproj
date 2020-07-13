@@ -12,6 +12,8 @@
 		39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0824A0DA5A004A9909 /* SignInModel.swift */; };
 		39273A0B24A0DFEC004A9909 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0A24A0DFEC004A9909 /* Model.swift */; };
 		39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0C24A0F09B004A9909 /* SignUpModel.swift */; };
+		3949851A24BC519B006A773D /* ProfileOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949851824BC519B006A773D /* ProfileOptionsCell.swift */; };
+		3949851B24BC519B006A773D /* ProfileOptionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3949851924BC519B006A773D /* ProfileOptionsCell.xib */; };
 		39505F5524AC73620045EC02 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39505F5124AC73620045EC02 /* TabBarController.swift */; };
 		39505F5624AC73620045EC02 /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39505F5224AC73620045EC02 /* TabBarModel.swift */; };
 		39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39505F5324AC73620045EC02 /* TabBarCoordinator.swift */; };
@@ -72,6 +74,8 @@
 		39273A0824A0DA5A004A9909 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		39273A0A24A0DFEC004A9909 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		39273A0C24A0F09B004A9909 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		3949851824BC519B006A773D /* ProfileOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionsCell.swift; sourceTree = "<group>"; };
+		3949851924BC519B006A773D /* ProfileOptionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileOptionsCell.xib; sourceTree = "<group>"; };
 		39505F5124AC73620045EC02 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		39505F5224AC73620045EC02 /* TabBarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
 		39505F5324AC73620045EC02 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 				395A7FC024A3980C00A7CFC6 /* NameTableViewCell.xib */,
 				395A7FC124A3980D00A7CFC6 /* ProfileTableViewCell.swift */,
 				395A7FBC24A3980C00A7CFC6 /* ProfileTableViewCell.xib */,
+				3949851824BC519B006A773D /* ProfileOptionsCell.swift */,
+				3949851924BC519B006A773D /* ProfileOptionsCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -538,6 +544,7 @@
 			files = (
 				618C33A52498BE6200951D11 /* Profile.storyboard in Resources */,
 				39534EC424A4EB57009AA5BB /* NotoSansJP-Medium.otf in Resources */,
+				3949851B24BC519B006A773D /* ProfileOptionsCell.xib in Resources */,
 				618C33A12498BE4A00951D11 /* Auth.storyboard in Resources */,
 				395A7FC224A3980D00A7CFC6 /* ProfileTableViewCell.xib in Resources */,
 				39534EC724A4EB57009AA5BB /* NotoSansJP-Regular.otf in Resources */,
@@ -673,6 +680,7 @@
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
 				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
+				3949851A24BC519B006A773D /* ProfileOptionsCell.swift in Sources */,
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
 				3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */,

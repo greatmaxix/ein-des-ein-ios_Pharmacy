@@ -19,7 +19,7 @@ class NameTableViewCellData: BaseCellData {
     }
 
     override var cellHeight: CGFloat {
-        return 80
+        return UITableView.automaticDimension
     }
     
     init(image: UIImage?, name: String, phone: String) {
@@ -34,13 +34,14 @@ class NameTableViewCell: BaseTableViewCell {
     @IBOutlet weak var customerImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         customerImageView.layer.cornerRadius = customerImageView.frame.width / 2
         selectionStyle = .none
-        backgroundColor = .white
+        editButton.layer.cornerRadius = editButton.frame.height / 2
     }
     
     override func setup(cellData: BaseCellData) {
