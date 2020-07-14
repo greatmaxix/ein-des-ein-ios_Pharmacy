@@ -13,10 +13,10 @@ class ProfileOptionsCellData: BaseCellData {
         return "ProfileOptionsCell"
     }
     
-    var handlers: [() -> Void]?
+    var handlers: [() -> Void] = []
     
     override var cellHeight: CGFloat {
-        return 80.0
+        return 90.0
     }
 }
 
@@ -24,14 +24,15 @@ class ProfileOptionsCell: BaseTableViewCell {
 
     @IBOutlet var optionImageViews: [UIImageView]!
     @IBOutlet var optionLabels: [UILabel]!
+    @IBOutlet weak var roundedView: UIView!
     
     private var handlers: [() -> Void] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        layer.cornerRadius = 8
-        optionImageViews.forEach({$0.layer.cornerRadius = 4})
+        roundedView.layer.cornerRadius = 12
+        optionImageViews.forEach({$0.layer.cornerRadius = 8})
         optionLabels[0].text = R.string.localize.profileSelected()
         optionLabels[1].text = R.string.localize.profileOrders()
         optionLabels[2].text = R.string.localize.profileAnalize()
@@ -40,7 +41,7 @@ class ProfileOptionsCell: BaseTableViewCell {
     }
     
     override func setup(cellData: BaseCellData) {
-        if let cd: ProfileOptionsCell = cellData as? ProfileOptionsCell {
+        if let cd: ProfileOptionsCellData = cellData as? ProfileOptionsCellData {
             handlers = cd.handlers
         }
     }

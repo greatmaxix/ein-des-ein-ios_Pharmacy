@@ -77,11 +77,10 @@ class ProfileTableViewCell: BaseTableViewCell {
         case .exit:
             arrowView.isHidden = true
             additionaInfoLabel.isHidden = true
-        case .payment:
+            titleLabel.textColor = .red
+            typeImageView.tintColor = .red
+        case .payment, .region:
             break
-        case .region:
-            arrowView.isHidden = true
-            additionaInfoLabel.textColor = .systemBlue
         }
     }
 }

@@ -42,26 +42,22 @@ final class ProfileModel: Model {
         }
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileRegion(), additionalInfo: "Москва", type: .region)
+            cellData.image = R.image.profilePin()
             cellsData.append(cellData)
         }
         do {
-            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileOrders())
-            cellsData.append(cellData)
-        }
-        do {
-            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileReceipes())
-            cellsData.append(cellData)
-        }
-        do {
-            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePayment(), additionalInfo: "1000$", type: .payment)
-            cellsData.append(cellData)
-        }
-        do {
-            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileNotifications())
+            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePayment(), additionalInfo: "1000", type: .payment)
+            cellData.image = R.image.profilePayment()
             cellsData.append(cellData)
         }
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAddress())
+            cellData.image = R.image.profileAddress()
+            cellsData.append(cellData)
+        }
+        do {
+            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileNotifications())
+            cellData.image = R.image.profileBellOn()
             cellsData.append(cellData)
         }
         do {
@@ -70,10 +66,12 @@ final class ProfileModel: Model {
         }
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAbout())
+            cellData.image = R.image.profileAttension()
             cellsData.append(cellData)
         }
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileQuestions())
+            cellData.image = R.image.profileQuestion()
             cellsData.append(cellData)
         }
         do {
@@ -82,6 +80,7 @@ final class ProfileModel: Model {
         }
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileExit(), type: .exit)
+            cellData.image = R.image.profileQuit()
             cellsData.append(cellData)
         }
         do {

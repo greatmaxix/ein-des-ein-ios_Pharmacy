@@ -60,6 +60,7 @@ final class SignUpViewController: UIViewController {
     }
     
     @IBAction func skipSignUp(_ sender: UIButton) {
+        model.openProfile()
     }
     
     // MARK: - Setup

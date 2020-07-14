@@ -42,7 +42,6 @@ extension ProfileViewController: UITableViewDataSource {
         let cellData: BaseCellData = model.cellDataAt(index: indexPath.row)
         if let cell: BaseTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellData.nibName!, for: indexPath) as? BaseTableViewCell {
             cell.setup(cellData: cellData)
-            cell.backgroundColor = .clear
             return cell
         }
         return UITableViewCell()
