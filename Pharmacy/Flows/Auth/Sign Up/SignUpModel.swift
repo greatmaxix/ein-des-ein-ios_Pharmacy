@@ -22,7 +22,6 @@ protocol SignUpOutput: UIBlockerDelegate {
 
 protocol SignUpInput {
     func signUp(name: String?, phone: String?, email: String?)
-    func openProfile()
 }
 
 final class SignUpModel: Model {
@@ -55,10 +54,6 @@ final class SignUpModel: Model {
 // MARK: - SignUpInput
 
 extension SignUpModel: SignUpInput {
-    func openProfile() {
-        raise(event: ConfirmCodeEvent.openMainScreen)
-    }
-    
     
     func signUp(name: String?, phone: String?, email: String?) {
         

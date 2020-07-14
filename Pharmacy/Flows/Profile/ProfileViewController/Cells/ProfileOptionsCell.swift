@@ -32,6 +32,7 @@ class ProfileOptionsCell: BaseTableViewCell {
         super.awakeFromNib()
         // Initialization code
         roundedView.layer.cornerRadius = 12
+        selectionStyle = .none
         optionImageViews.forEach({$0.layer.cornerRadius = 8})
         optionLabels[0].text = R.string.localize.profileSelected()
         optionLabels[1].text = R.string.localize.profileOrders()
