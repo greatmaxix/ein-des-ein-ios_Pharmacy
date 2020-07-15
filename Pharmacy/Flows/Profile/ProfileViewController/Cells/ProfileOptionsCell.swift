@@ -7,30 +7,33 @@
 //
 
 import UIKit
+import EventsTree
 
 class ProfileOptionsCellData: BaseCellData {
     override var nibName: String? {
         return "ProfileOptionsCell"
     }
-    
-    var handlers: [() -> Void] = []
-    
+        
     override var cellHeight: CGFloat {
         return 90.0
     }
+    
+    var events: [ProfileEvent] = []
+    var openProfileOption: ((_: ProfileEvent) -> Void)?
 }
 
 class ProfileOptionsCell: BaseTableViewCell {
 
-    @IBOutlet var optionImageViews: [UIImageView]!
-    @IBOutlet var optionLabels: [UILabel]!
-    @IBOutlet weak var roundedView: UIView!
-    
-    private var handlers: [() -> Void] = []
-    
+    @IBOutlet private var optionImageViews: [UIImageView]!
+    @IBOutlet private var optionLabels: [UILabel]!
+    @IBOutlet private weak var roundedView: UIView!
+        
+    private var openProfileOption: ((_: ProfileEvent) -> Void)?
+    private var events: [ProfileEvent] = []
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         roundedView.layer.cornerRadius = 12
         selectionStyle = .none
         optionImageViews.forEach({$0.layer.cornerRadius = 8})
@@ -43,13 +46,14 @@ class ProfileOptionsCell: BaseTableViewCell {
     
     override func setup(cellData: BaseCellData) {
         if let cd: ProfileOptionsCellData = cellData as? ProfileOptionsCellData {
-            handlers = cd.handlers
+            openProfileOption = cd.openProfileOption
+            events = cd.events
         }
     }
     
     @IBAction func selectOption(sender: UIButton) {
-        if handlers.count > sender.tag {
-            handlers[sender.tag]()
+        if events.count > sender.tag {
+            openProfileOption?(events[sender.tag])
         }
     }
 }

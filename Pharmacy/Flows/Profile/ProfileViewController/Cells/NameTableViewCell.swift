@@ -27,14 +27,17 @@ class NameTableViewCellData: BaseCellData {
         self.name = name
         self.phone = phone
     }
+    var editProfile:  ((_: ProfileEvent) -> Void)?
 }
 
 class NameTableViewCell: BaseTableViewCell {
 
-    @IBOutlet weak var customerImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet private weak var customerImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var phoneLabel: UILabel!
+    @IBOutlet private weak var editButton: UIButton!
+        
+    private var editProfileHandler:  ((_: ProfileEvent) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,12 +53,11 @@ class NameTableViewCell: BaseTableViewCell {
             customerImageView.image = cd.image
             nameLabel.text = cd.name
             phoneLabel.text = cd.phone
+            editProfileHandler = cd.editProfile
         }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func editProfile(_ sender: Any) {
+        editProfileHandler?(ProfileEvent.editProfile)
     }
 }

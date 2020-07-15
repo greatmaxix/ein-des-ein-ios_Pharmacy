@@ -39,11 +39,11 @@ class ProfileTableViewCell: BaseTableViewCell {
         case region
     }
     
-    @IBOutlet weak var typeImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var additionaInfoLabel: UILabel!
-    @IBOutlet weak var arrowView: UIView!
-    @IBOutlet weak var contentBackgroundView: UIView!
+    @IBOutlet private weak var typeImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var additionaInfoLabel: UILabel!
+    @IBOutlet private weak var arrowView: UIView!
+    @IBOutlet private weak var contentBackgroundView: UIView!
     
     var style: VisualStyle = .base
 
