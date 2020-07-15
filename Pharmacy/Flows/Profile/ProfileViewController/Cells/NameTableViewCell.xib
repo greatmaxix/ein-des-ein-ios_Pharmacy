@@ -4,63 +4,80 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NotoSansJP-Bold.otf">
+            <string>NotoSansJP-Bold</string>
+        </array>
+        <array key="NotoSansJP-Regular.otf">
+            <string>NotoSansJP-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="NameTableViewCell" customModule="Pharmacy" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="KGk-i7-Jjw" customClass="NameTableViewCell" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g45-Cf-27H">
-                        <rect key="frame" x="16" y="10" width="60" height="60"/>
+                        <rect key="frame" x="16" y="15" width="60" height="60"/>
+                        <color key="backgroundColor" name="confirmLightGray"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Spy-0M-DF8"/>
                             <constraint firstAttribute="height" constant="60" id="tRc-0a-EYu"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alK-nU-7fT">
-                        <rect key="frame" x="83" y="10" width="205" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="83" y="10" width="175" height="21"/>
+                        <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Roc-kz-zu9">
-                        <rect key="frame" x="83" y="36" width="205" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="83" y="36" width="175" height="16.5"/>
+                        <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="14"/>
+                        <color key="textColor" name="textDarkBlue"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow" translatesAutoresizingMaskIntoConstraints="NO" id="JI4-qL-ctr">
-                        <rect key="frame" x="296" y="33.5" width="8" height="13"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHL-z8-y2I">
+                        <rect key="frame" x="266" y="29" width="32" height="32"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="8" id="OzX-2C-ahv"/>
-                            <constraint firstAttribute="height" constant="13" id="zTS-79-ISQ"/>
+                            <constraint firstAttribute="height" constant="32" id="RhR-Iq-33d"/>
+                            <constraint firstAttribute="width" secondItem="yHL-z8-y2I" secondAttribute="height" multiplier="1:1" id="zhb-6N-d0f"/>
                         </constraints>
-                    </imageView>
+                        <state key="normal" image="profileEdit"/>
+                        <connections>
+                            <action selector="editProfile:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YvM-Ew-fyh"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="JI4-qL-ctr" firstAttribute="leading" secondItem="alK-nU-7fT" secondAttribute="trailing" constant="8" id="4LW-mB-3UH"/>
                     <constraint firstItem="g45-Cf-27H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="5MQ-yy-tvK"/>
-                    <constraint firstAttribute="trailing" secondItem="JI4-qL-ctr" secondAttribute="trailing" constant="16" id="Irq-iC-vWo"/>
+                    <constraint firstItem="alK-nU-7fT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="6a1-qp-1jV"/>
+                    <constraint firstAttribute="trailing" secondItem="yHL-z8-y2I" secondAttribute="trailing" constant="22" id="SQ2-hn-Lau"/>
                     <constraint firstItem="Roc-kz-zu9" firstAttribute="trailing" secondItem="alK-nU-7fT" secondAttribute="trailing" id="Tgx-Vc-6k1"/>
-                    <constraint firstAttribute="bottom" secondItem="Roc-kz-zu9" secondAttribute="bottom" constant="23" id="aSu-gU-0Ut"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Roc-kz-zu9" secondAttribute="bottom" constant="23" id="aSu-gU-0Ut"/>
                     <constraint firstItem="alK-nU-7fT" firstAttribute="leading" secondItem="g45-Cf-27H" secondAttribute="trailing" constant="7" id="exA-AB-8Ec"/>
-                    <constraint firstItem="JI4-qL-ctr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fCj-JQ-YTg"/>
                     <constraint firstItem="Roc-kz-zu9" firstAttribute="leading" secondItem="alK-nU-7fT" secondAttribute="leading" id="fs7-q9-FQy"/>
                     <constraint firstItem="g45-Cf-27H" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="irY-wf-17V"/>
-                    <constraint firstItem="alK-nU-7fT" firstAttribute="top" secondItem="g45-Cf-27H" secondAttribute="top" id="kHo-Rl-fKN"/>
                     <constraint firstItem="Roc-kz-zu9" firstAttribute="top" secondItem="alK-nU-7fT" secondAttribute="bottom" constant="5" id="lLH-GQ-6wQ"/>
+                    <constraint firstItem="yHL-z8-y2I" firstAttribute="leading" secondItem="alK-nU-7fT" secondAttribute="trailing" constant="8" id="mnc-c5-mFW"/>
+                    <constraint firstItem="yHL-z8-y2I" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zfA-G1-n30"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" name="backgroundGray"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="customerImageView" destination="g45-Cf-27H" id="cwd-18-7eP"/>
+                <outlet property="editButton" destination="yHL-z8-y2I" id="Pyh-2b-BpE"/>
                 <outlet property="nameLabel" destination="alK-nU-7fT" id="BzO-Mt-McD"/>
                 <outlet property="phoneLabel" destination="Roc-kz-zu9" id="deL-v0-YmD"/>
             </connections>
@@ -68,6 +85,15 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Arrow" width="8.5" height="13"/>
+        <image name="profileEdit" width="16" height="16"/>
+        <namedColor name="backgroundGray">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="confirmLightGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

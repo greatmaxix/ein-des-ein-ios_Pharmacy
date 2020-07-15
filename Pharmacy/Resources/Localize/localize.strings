@@ -46,17 +46,19 @@
 "signup.link" = "Обработку персональных данных";
 
 // MARK: - Profile
+"profile.orders" = "Заказы";
+"profile.receipes" = "Рецепты";
+"profile.selected" = "Избранное";
+"profile.analize" = "Анализы";
 
 "profile.profile" = "Профиль";
-"profile.region" = "Регион";
-"profile.orders" = "Мои заказы";
-"profile.receipes" = "Мои рецепты";
-"profile.payment" = "Оплата";
+"profile.region" = "Мой регион";
+"profile.payment" = "Оплата и бонусы";
 "profile.notifications" = "Уведомления";
-"profile.address" = "Адрес";
+"profile.address" = "Адрес доставки";
 "profile.about" = "О приложении";
-"profile.questions" = "Есть вопросы или нужна помощь?";
-"profile.exit" = "Выйти из приложения";
+"profile.questions" = "Нужна помощь?";
+"profile.exit" = "Выйти из аккаунта";
 
 // MARK: - Tab Bar
 

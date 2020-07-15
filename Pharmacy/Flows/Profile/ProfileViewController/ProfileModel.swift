@@ -9,6 +9,20 @@
 import Foundation
 import EventsTree
 
+enum ProfileEvent: Event {
+    case editProfile
+    case openSelected
+    case openOrder
+    case openAnalize
+    case openReceipe
+    case changeRegion
+    case openPayment
+    case openNotifications
+    case openAbout
+    case openHelp
+    case logout
+}
+
 protocol ProfileInput {
     var cellCount: Int { get }
     func selectActionAt(index: Int) -> (() -> Void)?
@@ -27,10 +41,20 @@ final class ProfileModel: Model {
 
     private func setupDataSource() {
         
+        let openOptionHandler: ((_: ProfileEvent) -> Void) = { [weak self] event in
+            self?.raise(event: event)
+        }
         cellsData = []
         do {
             let cellData: NameTableViewCellData = NameTableViewCellData(image: nil, name: "Name Surname", phone: "+111 111 111 1111")
+            cellData.editProfile = openOptionHandler
             cellsData.append(cellData)
+        }
+        do {
+            let cd: ProfileOptionsCellData = ProfileOptionsCellData()
+            cd.events = [ProfileEvent.openSelected, ProfileEvent.openOrder, ProfileEvent.openAnalize, ProfileEvent.openReceipe]
+            cd.openProfileOption = openOptionHandler
+            cellsData.append(cd)
         }
         do {
             let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24.5)
@@ -38,26 +62,31 @@ final class ProfileModel: Model {
         }
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileRegion(), additionalInfo: "Москва", type: .region)
+            cellData.image = R.image.profilePin()
             cellsData.append(cellData)
         }
         do {
-            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileOrders())
-            cellsData.append(cellData)
-        }
-        do {
-            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileReceipes())
-            cellsData.append(cellData)
-        }
-        do {
-            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePayment(), additionalInfo: "1000$", type: .payment)
-            cellsData.append(cellData)
-        }
-        do {
-            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileNotifications())
+            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePayment(), additionalInfo: "1000", type: .payment)
+            cellData.image = R.image.profilePayment()
+            cellData.selectHandler = { [weak self] in
+                self?.raise(event: ProfileEvent.openPayment)
+            }
             cellsData.append(cellData)
         }
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAddress())
+            cellData.image = R.image.profileAddress()
+            cellData.selectHandler = { [weak self] in
+                self?.raise(event: ProfileEvent.changeRegion)
+            }
+            cellsData.append(cellData)
+        }
+        do {
+            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileNotifications())
+            cellData.image = R.image.profileBellOn()
+            cellData.selectHandler = { [weak self] in
+                self?.raise(event: ProfileEvent.openNotifications)
+            }
             cellsData.append(cellData)
         }
         do {
@@ -66,10 +95,18 @@ final class ProfileModel: Model {
         }
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAbout())
+            cellData.image = R.image.profileAttension()
+            cellData.selectHandler = { [weak self] in
+                self?.raise(event: ProfileEvent.openAbout)
+            }
             cellsData.append(cellData)
         }
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileQuestions())
+            cellData.image = R.image.profileQuestion()
+            cellData.selectHandler = { [weak self] in
+                self?.raise(event: ProfileEvent.openHelp)
+            }
             cellsData.append(cellData)
         }
         do {
@@ -78,6 +115,10 @@ final class ProfileModel: Model {
         }
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileExit(), type: .exit)
+            cellData.image = R.image.profileQuit()
+            cellData.selectHandler = { [weak self] in
+                self?.raise(event: ProfileEvent.logout)
+            }
             cellsData.append(cellData)
         }
         do {
