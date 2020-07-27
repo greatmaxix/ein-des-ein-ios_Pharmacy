@@ -44,6 +44,10 @@ class TabBarCoordinator: EventNode, Coordinator {
         let config = ProfileFlowConfiguration(parent: self)
         coordinators.append(ProfileFlowCoordinator(configuration: config))
         addTabCoordinators(coordinators: coordinators)
+        
+        let welcomeConfig: WelcomeFlowConfiguration = WelcomeFlowConfiguration(parent: self)
+        coordinators.append(WelcomeCoordinator(configuration: welcomeConfig))
+        addTabCoordinators(coordinators: coordinators)
     }
     
 }

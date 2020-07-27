@@ -67,3 +67,7 @@
 "tabbar.favorite" = "Избранное";
 "tabbar.basket" = "Корзина";
 "tabbar.profile" = "Профиль";
+
+// MARK: - Welcome
+
+"welcome.title" = "Начните поиск";
