@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "profileProxy.png",
+      "filename" : "tabbarSearch.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "profileProxy@2x.png",
+      "filename" : "tabbarSearch@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "profileProxy@3x.png",
+      "filename" : "tabbarSearch@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
