@@ -71,3 +71,10 @@
 // MARK: - Welcome
 
 "welcome.title" = "Начните поиск";
+"welcome.ask" = "Начните поиск";
+"welcome.diagnostic" = "Начните поиск";
+"welcome.map" = "Начните поиск";
+"welcome.receipe" = "Загрузить рецепт";
+"welcome.categories" = "Категории";
+"welcome.watch_all" = "Смотреть все";
+

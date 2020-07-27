@@ -92,7 +92,8 @@ final class SignInViewController: UIViewController {
     }
     
     @IBAction func createAccount(_ sender: UIButton) {
-        model.signUp()
+        //model.signUp()
+        model.openProfile()
     }
     
     // MARK: - Keyboard
