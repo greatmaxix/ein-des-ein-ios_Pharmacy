@@ -29,6 +29,7 @@ class WelcomeCoordinator: EventNode, Coordinator {
         // swiftlint:disable force_cast
         root = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
         let model = WelcomeModel(parent: self)
+        model.output = root
         root.model = model
         
         let navigationVC: UINavigationController = UINavigationController(rootViewController: root)

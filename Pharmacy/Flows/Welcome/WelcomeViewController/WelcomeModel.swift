@@ -15,8 +15,13 @@ enum WelcomeEvent: Event {
     case openBarCodeReader
 }
 
-protocol WelcomeModelOutput: class {}
-protocol WelcomeModelInput: class {}
+protocol WelcomeModelOutput: class {
+    
+    func showReadyOrders(orders: [String])
+}
+protocol WelcomeModelInput: class {
+    func loadReadyOrders()
+}
 
 final class WelcomeModel: EventNode {
     
@@ -25,4 +30,8 @@ final class WelcomeModel: EventNode {
 
 extension WelcomeModel: WelcomeModelInput {
     
+    func loadReadyOrders() {
+        let orders = ["34542", "90100"]
+        output.showReadyOrders(orders: orders)
+    }
 }

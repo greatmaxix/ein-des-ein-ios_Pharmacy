@@ -71,10 +71,15 @@
 // MARK: - Welcome
 
 "welcome.title" = "Начните поиск";
-"welcome.ask" = "Начните поиск";
-"welcome.diagnostic" = "Начните поиск";
-"welcome.map" = "Начните поиск";
+"welcome.ask" = "Спроси фармецевта";
+"welcome.diagnostic" = "Анализы и диагностика";
+"welcome.map" = "Карта аптек";
 "welcome.receipe" = "Загрузить рецепт";
 "welcome.categories" = "Категории";
 "welcome.watch_all" = "Смотреть все";
+"welcome.watchRecently" = "Вы недавно смотрели";
+
+"welcome.yourOrder" = "Ваш заказ";
+"welcome.ready" = "готов";
+"welcome.delivery" = "Вы можете использовать их при заказе доставки или самовывоза";
 

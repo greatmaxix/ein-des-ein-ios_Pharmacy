@@ -42,6 +42,8 @@
 		395C9D772499FC14001EB6CD /* PhoneValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D742499FC14001EB6CD /* PhoneValidator.swift */; };
 		395C9D782499FC14001EB6CD /* BaseTextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D752499FC14001EB6CD /* BaseTextValidator.swift */; };
 		395C9D7A2499FD8F001EB6CD /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D792499FD8F001EB6CD /* NameValidator.swift */; };
+		395D04FA24D01230007A278D /* ReadyOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D04F924D01230007A278D /* ReadyOrderView.swift */; };
+		395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395D04FB24D01242007A278D /* ReadyOrderView.xib */; };
 		396448DF24ADE13F00E6D852 /* UserDefaults+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396448DE24ADE13F00E6D852 /* UserDefaults+User.swift */; };
 		396448E224ADE17A00E6D852 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396448E124ADE17A00E6D852 /* User.swift */; };
 		396C45B92497699800A569CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396C45B82497699800A569CE /* AppDelegate.swift */; };
@@ -108,6 +110,8 @@
 		395C9D742499FC14001EB6CD /* PhoneValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneValidator.swift; sourceTree = "<group>"; };
 		395C9D752499FC14001EB6CD /* BaseTextValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextValidator.swift; sourceTree = "<group>"; };
 		395C9D792499FD8F001EB6CD /* NameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
+		395D04F924D01230007A278D /* ReadyOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyOrderView.swift; sourceTree = "<group>"; };
+		395D04FB24D01242007A278D /* ReadyOrderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadyOrderView.xib; sourceTree = "<group>"; };
 		396448DE24ADE13F00E6D852 /* UserDefaults+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+User.swift"; sourceTree = "<group>"; };
 		396448E124ADE17A00E6D852 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		396C45B52497699800A569CE /* Pharmacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pharmacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +279,15 @@
 			path = Validators;
 			sourceTree = "<group>";
 		};
+		395D04F824D011F6007A278D /* ReadyOrderView */ = {
+			isa = PBXGroup;
+			children = (
+				395D04F924D01230007A278D /* ReadyOrderView.swift */,
+				395D04FB24D01242007A278D /* ReadyOrderView.xib */,
+			);
+			path = ReadyOrderView;
+			sourceTree = "<group>";
+		};
 		396448E024ADE16600E6D852 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				399F2426249CA118003BA7E1 /* ConfirmationCodeView */,
+				395D04F824D011F6007A278D /* ReadyOrderView */,
 				395C9D4C2498BDD6001EB6CD /* TextInputView */,
 			);
 			path = Views;
@@ -585,6 +599,7 @@
 				39534EC524A4EB57009AA5BB /* NotoSansJP-Light.otf in Resources */,
 				39534EC324A4EB57009AA5BB /* NotoSansJP-Thin.otf in Resources */,
 				395A7FC624A3980D00A7CFC6 /* NameTableViewCell.xib in Resources */,
+				395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,6 +731,7 @@
 				39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */,
 				3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */,
 				396448DF24ADE13F00E6D852 /* UserDefaults+User.swift in Sources */,
+				395D04FA24D01230007A278D /* ReadyOrderView.swift in Sources */,
 				395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */,
 				395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */,
 				39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */,
