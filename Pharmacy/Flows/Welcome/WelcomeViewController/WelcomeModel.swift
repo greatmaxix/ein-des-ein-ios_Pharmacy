@@ -13,6 +13,7 @@ enum WelcomeEvent: Event {
     
     case openMap
     case openBarCodeReader
+    case openCategories
 }
 
 protocol WelcomeModelOutput: class {

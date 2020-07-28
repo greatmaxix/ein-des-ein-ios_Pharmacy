@@ -44,6 +44,11 @@
 		395C9D7A2499FD8F001EB6CD /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D792499FD8F001EB6CD /* NameValidator.swift */; };
 		395D04FA24D01230007A278D /* ReadyOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D04F924D01230007A278D /* ReadyOrderView.swift */; };
 		395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395D04FB24D01242007A278D /* ReadyOrderView.xib */; };
+		395D04FF24D04B19007A278D /* CatalogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D04FE24D04B19007A278D /* CatalogsViewController.swift */; };
+		395D050124D04B3A007A278D /* CatalogsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D050024D04B3A007A278D /* CatalogsModel.swift */; };
+		395D050524D05206007A278D /* FarmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D050324D05206007A278D /* FarmacyCell.swift */; };
+		395D050624D05206007A278D /* FarmacyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395D050424D05206007A278D /* FarmacyCell.xib */; };
+		395D050824D05816007A278D /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D050724D05816007A278D /* CategoryCell.swift */; };
 		396448DF24ADE13F00E6D852 /* UserDefaults+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396448DE24ADE13F00E6D852 /* UserDefaults+User.swift */; };
 		396448E224ADE17A00E6D852 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396448E124ADE17A00E6D852 /* User.swift */; };
 		396C45B92497699800A569CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396C45B82497699800A569CE /* AppDelegate.swift */; };
@@ -112,6 +117,11 @@
 		395C9D792499FD8F001EB6CD /* NameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
 		395D04F924D01230007A278D /* ReadyOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyOrderView.swift; sourceTree = "<group>"; };
 		395D04FB24D01242007A278D /* ReadyOrderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadyOrderView.xib; sourceTree = "<group>"; };
+		395D04FE24D04B19007A278D /* CatalogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogsViewController.swift; sourceTree = "<group>"; };
+		395D050024D04B3A007A278D /* CatalogsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogsModel.swift; sourceTree = "<group>"; };
+		395D050324D05206007A278D /* FarmacyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FarmacyCell.swift; sourceTree = "<group>"; };
+		395D050424D05206007A278D /* FarmacyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FarmacyCell.xib; sourceTree = "<group>"; };
+		395D050724D05816007A278D /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		396448DE24ADE13F00E6D852 /* UserDefaults+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+User.swift"; sourceTree = "<group>"; };
 		396448E124ADE17A00E6D852 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		396C45B52497699800A569CE /* Pharmacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pharmacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +298,26 @@
 			path = ReadyOrderView;
 			sourceTree = "<group>";
 		};
+		395D04FD24D04A9F007A278D /* CatalogsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				395D050224D051D0007A278D /* Cells */,
+				395D04FE24D04B19007A278D /* CatalogsViewController.swift */,
+				395D050024D04B3A007A278D /* CatalogsModel.swift */,
+			);
+			path = CatalogsViewController;
+			sourceTree = "<group>";
+		};
+		395D050224D051D0007A278D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				395D050324D05206007A278D /* FarmacyCell.swift */,
+				395D050424D05206007A278D /* FarmacyCell.xib */,
+				395D050724D05816007A278D /* CategoryCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		396448E024ADE16600E6D852 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +442,7 @@
 		39F8B2F424CEFB0C00195AD8 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				395D04FD24D04A9F007A278D /* CatalogsViewController */,
 				39F8B2F524CEFB9100195AD8 /* WelcomeViewController */,
 				39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */,
 				39F8B2FC24CF004900195AD8 /* Welcome.storyboard */,
@@ -584,6 +615,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				395D050624D05206007A278D /* FarmacyCell.xib in Resources */,
 				618C33A52498BE6200951D11 /* Profile.storyboard in Resources */,
 				39534EC424A4EB57009AA5BB /* NotoSansJP-Medium.otf in Resources */,
 				3949851B24BC519B006A773D /* ProfileOptionsCell.xib in Resources */,
@@ -705,6 +737,7 @@
 				39CBDA6E249CF5BA00A04831 /* ConfirmCodeViewController.swift in Sources */,
 				39818FA124AF69B0007D6D94 /* UserSession.swift in Sources */,
 				619AAA402498A9AE00AB46ED /* AuthAPI.swift in Sources */,
+				395D050124D04B3A007A278D /* CatalogsModel.swift in Sources */,
 				618C339F2498BE0200951D11 /* ProfileViewController.swift in Sources */,
 				619AAA462498AEA700AB46ED /* SampleResponseModel.swift in Sources */,
 				618C33952498BD6700951D11 /* AppNavigation.swift in Sources */,
@@ -723,8 +756,10 @@
 				395C9D7A2499FD8F001EB6CD /* NameValidator.swift in Sources */,
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
+				395D04FF24D04B19007A278D /* CatalogsViewController.swift in Sources */,
 				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
 				39F8B2F724CEFBBA00195AD8 /* WelcomeViewController.swift in Sources */,
+				395D050824D05816007A278D /* CategoryCell.swift in Sources */,
 				3949851A24BC519B006A773D /* ProfileOptionsCell.swift in Sources */,
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
@@ -736,6 +771,7 @@
 				395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */,
 				39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */,
 				395C9D772499FC14001EB6CD /* PhoneValidator.swift in Sources */,
+				395D050524D05206007A278D /* FarmacyCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
