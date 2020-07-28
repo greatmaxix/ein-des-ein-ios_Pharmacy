@@ -42,6 +42,8 @@
 		395C9D772499FC14001EB6CD /* PhoneValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D742499FC14001EB6CD /* PhoneValidator.swift */; };
 		395C9D782499FC14001EB6CD /* BaseTextValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D752499FC14001EB6CD /* BaseTextValidator.swift */; };
 		395C9D7A2499FD8F001EB6CD /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D792499FD8F001EB6CD /* NameValidator.swift */; };
+		395D04FA24D01230007A278D /* ReadyOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D04F924D01230007A278D /* ReadyOrderView.swift */; };
+		395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395D04FB24D01242007A278D /* ReadyOrderView.xib */; };
 		396448DF24ADE13F00E6D852 /* UserDefaults+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396448DE24ADE13F00E6D852 /* UserDefaults+User.swift */; };
 		396448E224ADE17A00E6D852 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396448E124ADE17A00E6D852 /* User.swift */; };
 		396C45B92497699800A569CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396C45B82497699800A569CE /* AppDelegate.swift */; };
@@ -52,6 +54,10 @@
 		399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */; };
 		39CBDA6E249CF5BA00A04831 /* ConfirmCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDA6D249CF5BA00A04831 /* ConfirmCodeViewController.swift */; };
 		39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDA6F249CF7F900A04831 /* SMSCodeValidator.swift */; };
+		39F8B2F724CEFBBA00195AD8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2F624CEFBBA00195AD8 /* WelcomeViewController.swift */; };
+		39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2F824CEFBDA00195AD8 /* WelcomeModel.swift */; };
+		39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */; };
+		39F8B2FD24CF004900195AD8 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F8B2FC24CF004900195AD8 /* Welcome.storyboard */; };
 		618C33952498BD6700951D11 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33942498BD6700951D11 /* AppNavigation.swift */; };
 		618C33982498BDC200951D11 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33972498BDC200951D11 /* SignInViewController.swift */; };
 		618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C339B2498BDF000951D11 /* SignUpViewController.swift */; };
@@ -104,6 +110,8 @@
 		395C9D742499FC14001EB6CD /* PhoneValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneValidator.swift; sourceTree = "<group>"; };
 		395C9D752499FC14001EB6CD /* BaseTextValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextValidator.swift; sourceTree = "<group>"; };
 		395C9D792499FD8F001EB6CD /* NameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
+		395D04F924D01230007A278D /* ReadyOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyOrderView.swift; sourceTree = "<group>"; };
+		395D04FB24D01242007A278D /* ReadyOrderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadyOrderView.xib; sourceTree = "<group>"; };
 		396448DE24ADE13F00E6D852 /* UserDefaults+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+User.swift"; sourceTree = "<group>"; };
 		396448E124ADE17A00E6D852 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		396C45B52497699800A569CE /* Pharmacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pharmacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +124,10 @@
 		399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeView.swift; sourceTree = "<group>"; };
 		39CBDA6D249CF5BA00A04831 /* ConfirmCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewController.swift; sourceTree = "<group>"; };
 		39CBDA6F249CF7F900A04831 /* SMSCodeValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCodeValidator.swift; sourceTree = "<group>"; };
+		39F8B2F624CEFBBA00195AD8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		39F8B2F824CEFBDA00195AD8 /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
+		39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		39F8B2FC24CF004900195AD8 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		447B6BF7452CC91EDC27B562 /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
 		618C33942498BD6700951D11 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		618C33972498BDC200951D11 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +279,15 @@
 			path = Validators;
 			sourceTree = "<group>";
 		};
+		395D04F824D011F6007A278D /* ReadyOrderView */ = {
+			isa = PBXGroup;
+			children = (
+				395D04F924D01230007A278D /* ReadyOrderView.swift */,
+				395D04FB24D01242007A278D /* ReadyOrderView.xib */,
+			);
+			path = ReadyOrderView;
+			sourceTree = "<group>";
+		};
 		396448E024ADE16600E6D852 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				399F2426249CA118003BA7E1 /* ConfirmationCodeView */,
+				395D04F824D011F6007A278D /* ReadyOrderView */,
 				395C9D4C2498BDD6001EB6CD /* TextInputView */,
 			);
 			path = Views;
@@ -345,6 +367,7 @@
 		396C45CF249774D200A569CE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				39F8B2F424CEFB0C00195AD8 /* Welcome */,
 				39505F5024AC73500045EC02 /* Main */,
 				618C33A62498BF0B00951D11 /* Auth */,
 				618C339D2498BDF600951D11 /* Profile */,
@@ -384,6 +407,25 @@
 				3915D60724A2466700A93627 /* ConfirmCodeModel.swift */,
 			);
 			path = "Confirm Code";
+			sourceTree = "<group>";
+		};
+		39F8B2F424CEFB0C00195AD8 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				39F8B2F524CEFB9100195AD8 /* WelcomeViewController */,
+				39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */,
+				39F8B2FC24CF004900195AD8 /* Welcome.storyboard */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		39F8B2F524CEFB9100195AD8 /* WelcomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				39F8B2F624CEFBBA00195AD8 /* WelcomeViewController.swift */,
+				39F8B2F824CEFBDA00195AD8 /* WelcomeModel.swift */,
+			);
+			path = WelcomeViewController;
 			sourceTree = "<group>";
 		};
 		618C33932498BD1A00951D11 /* Coordinator */ = {
@@ -547,6 +589,7 @@
 				3949851B24BC519B006A773D /* ProfileOptionsCell.xib in Resources */,
 				618C33A12498BE4A00951D11 /* Auth.storyboard in Resources */,
 				395A7FC224A3980D00A7CFC6 /* ProfileTableViewCell.xib in Resources */,
+				39F8B2FD24CF004900195AD8 /* Welcome.storyboard in Resources */,
 				39534EC724A4EB57009AA5BB /* NotoSansJP-Regular.otf in Resources */,
 				396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */,
 				39534EC224A4EB57009AA5BB /* NotoSansJP-Black.otf in Resources */,
@@ -556,6 +599,7 @@
 				39534EC524A4EB57009AA5BB /* NotoSansJP-Light.otf in Resources */,
 				39534EC324A4EB57009AA5BB /* NotoSansJP-Thin.otf in Resources */,
 				395A7FC624A3980D00A7CFC6 /* NameTableViewCell.xib in Resources */,
+				395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,13 +724,17 @@
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
 				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
+				39F8B2F724CEFBBA00195AD8 /* WelcomeViewController.swift in Sources */,
 				3949851A24BC519B006A773D /* ProfileOptionsCell.swift in Sources */,
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
+				39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */,
 				3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */,
 				396448DF24ADE13F00E6D852 /* UserDefaults+User.swift in Sources */,
+				395D04FA24D01230007A278D /* ReadyOrderView.swift in Sources */,
 				395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */,
 				395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */,
+				39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */,
 				395C9D772499FC14001EB6CD /* PhoneValidator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

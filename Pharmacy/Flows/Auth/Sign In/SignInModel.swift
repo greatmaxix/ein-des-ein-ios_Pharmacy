@@ -19,6 +19,7 @@ enum SignInEvent: Event {
 protocol SignInInput {
     func signIn(phone: String)
     func signUp()
+    func openProfile()
 }
 
 protocol SignInOutput: UIBlockerDelegate {
@@ -64,4 +65,10 @@ extension SignInModel: SignInInput {
         let event: SignInEvent = SignInEvent.signUp
         raise(event: event)
     }
+    
+    func openProfile() {
+        let event = ConfirmCodeEvent.openMainScreen
+        raise(event: event)
+    }
+
 }
