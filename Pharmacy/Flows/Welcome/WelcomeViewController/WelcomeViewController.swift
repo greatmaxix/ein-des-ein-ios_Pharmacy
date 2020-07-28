@@ -10,27 +10,27 @@ import UIKit
 
 final class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var barCodeButton: UIButton!
-    @IBOutlet weak var searchTextfield: UITextField!
-    @IBOutlet weak var searchView: UIView!
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var ordersStackView: UIStackView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var barCodeButton: UIButton!
+    @IBOutlet private weak var searchTextfield: UITextField!
+    @IBOutlet private weak var searchView: UIView!
+    @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var ordersStackView: UIStackView!
     
-    @IBOutlet var stackViewSpaceConstr: NSLayoutConstraint!
-    @IBOutlet weak var stackViewHeightConstr: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var stackViewSpaceConstr: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var stackViewHeightConstr: NSLayoutConstraint!
     
-    @IBOutlet weak var askLabel: UILabel!
-    @IBOutlet weak var diagnosticLabel: UILabel!
-    @IBOutlet weak var mapLabel: UILabel!
+    @IBOutlet private weak var askLabel: UILabel!
+    @IBOutlet private weak var diagnosticLabel: UILabel!
+    @IBOutlet private weak var mapLabel: UILabel!
     
-    @IBOutlet var buttonsBackground: [UIView]!
+    @IBOutlet private var buttonsBackground: [UIView]!
     
-    @IBOutlet weak var loadReceipeButton: UIButton!
-    @IBOutlet weak var watchCategoriesButton: UIButton!
-    @IBOutlet weak var categoriesLabel: UILabel!
-    @IBOutlet weak var watchRecentlyLabel: UILabel!
+    @IBOutlet private weak var loadReceipeButton: UIButton!
+    @IBOutlet private weak var watchCategoriesButton: UIButton!
+    @IBOutlet private weak var categoriesLabel: UILabel!
+    @IBOutlet private weak var watchRecentlyLabel: UILabel!
     
     var model: WelcomeModelInput!
     

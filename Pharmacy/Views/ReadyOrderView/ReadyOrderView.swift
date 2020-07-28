@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ReadyOrderView: UIView {
+final class ReadyOrderView: UIView {
     
-    @IBOutlet weak var titleLable: UILabel!
-    @IBOutlet weak var deliveryLable: UILabel!
+    @IBOutlet private weak var titleLable: UILabel!
+    @IBOutlet private weak var deliveryLable: UILabel!
 
     var orderNumber: String = ""
     
@@ -21,6 +21,7 @@ class ReadyOrderView: UIView {
     }
     
     override func didMoveToSuperview() {
+        
         deliveryLable.text = R.string.localize.welcomeDelivery()
         titleLable.text = R.string.localize.welcomeYourOrder() + " " + orderNumber + " "
             + R.string.localize.welcomeReady() + "!"
