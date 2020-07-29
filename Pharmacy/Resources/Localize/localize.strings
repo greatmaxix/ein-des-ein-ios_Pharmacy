@@ -60,6 +60,11 @@
 "profile.questions" = "Нужна помощь?";
 "profile.exit" = "Выйти из аккаунта";
 
+// MARK: - Edit Profile
+
+"profile.edit" = "Редактировать";
+"profile.saveChanges" = "Готово";
+
 // MARK: - Tab Bar
 
 "tabbar.main" = "Главная";

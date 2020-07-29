@@ -33,7 +33,28 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let navigationVC: UINavigationController = UINavigationController(rootViewController: root)
         navigationVC.isToolbarHidden = true
 
+        addHandler { [weak self] (event: ProfileEvent) in
+            switch event {
+            case .editProfile:
+                self?.presentEditProfile()
+            default:
+                break
+            }
+        }
+        
         return navigationVC
+    }
+    
+    func presentEditProfile() {
+        
+        guard let editProfileVC: EditProfileViewController = storyboard.instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController else {
+            return
+        }
+        
+        let model = EditProfileModel(parent: self)
+        model.output = editProfileVC
+        editProfileVC.model = model
+        root.navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
     private func popController() {

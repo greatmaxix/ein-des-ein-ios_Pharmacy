@@ -28,6 +28,8 @@
 		39534EC724A4EB57009AA5BB /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EC124A4EB57009AA5BB /* NotoSansJP-Regular.otf */; };
 		3954D11C24D1776F00AB44BD /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D11B24D1776F00AB44BD /* TitleHeaderView.swift */; };
 		3954D11E24D1780E00AB44BD /* TitleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3954D11D24D1780E00AB44BD /* TitleHeaderView.xib */; };
+		3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */; };
+		3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D12224D1BB7400AB44BD /* EditProfileModel.swift */; };
 		3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */; };
 		395A7FB824A34B5200A7CFC6 /* UIBlockerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */; };
 		395A7FC224A3980D00A7CFC6 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395A7FBC24A3980C00A7CFC6 /* ProfileTableViewCell.xib */; };
@@ -103,6 +105,8 @@
 		39534EC124A4EB57009AA5BB /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
 		3954D11B24D1776F00AB44BD /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
 		3954D11D24D1780E00AB44BD /* TitleHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleHeaderView.xib; sourceTree = "<group>"; };
+		3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		3954D12224D1BB7400AB44BD /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
 		395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockerDelegate.swift; sourceTree = "<group>"; };
 		395A7FBC24A3980C00A7CFC6 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
@@ -208,6 +212,15 @@
 				3954D11D24D1780E00AB44BD /* TitleHeaderView.xib */,
 			);
 			path = TitleHeaderView;
+			sourceTree = "<group>";
+		};
+		3954D11F24D1B5DA00AB44BD /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */,
+				3954D12224D1BB7400AB44BD /* EditProfileModel.swift */,
+			);
+			path = EditProfile;
 			sourceTree = "<group>";
 		};
 		3959E9D3249A63FA00FA1F74 /* Components */ = {
@@ -503,6 +516,7 @@
 		618C339D2498BDF600951D11 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				3954D11F24D1B5DA00AB44BD /* EditProfile */,
 				395A7FCA24A3A29600A7CFC6 /* ProfileViewController */,
 				395A7FCB24A3A2B700A7CFC6 /* ProfileCoordinator.swift */,
 				618C33A42498BE6200951D11 /* Profile.storyboard */,
@@ -761,6 +775,7 @@
 				396448E224ADE17A00E6D852 /* User.swift in Sources */,
 				39273A0B24A0DFEC004A9909 /* Model.swift in Sources */,
 				395A7FB824A34B5200A7CFC6 /* UIBlockerDelegate.swift in Sources */,
+				3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */,
 				39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */,
 				396C45DE2497882800A569CE /* R.generated.swift in Sources */,
 				395C9D782499FC14001EB6CD /* BaseTextValidator.swift in Sources */,
@@ -780,6 +795,7 @@
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
 				39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */,
+				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,
 				3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */,
 				396448DF24ADE13F00E6D852 /* UserDefaults+User.swift in Sources */,
 				395D04FA24D01230007A278D /* ReadyOrderView.swift in Sources */,

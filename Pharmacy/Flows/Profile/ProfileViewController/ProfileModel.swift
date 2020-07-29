@@ -48,6 +48,7 @@ final class ProfileModel: Model {
         do {
             let cellData: NameTableViewCellData = NameTableViewCellData(image: nil, name: "Name Surname", phone: "+111 111 111 1111")
             cellData.editProfile = openOptionHandler
+            cellData.selectHandler = nil
             cellsData.append(cellData)
         }
         do {
