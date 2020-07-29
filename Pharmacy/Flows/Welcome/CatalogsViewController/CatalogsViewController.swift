@@ -25,8 +25,8 @@ class CatalogsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(CategoryCell.self, forCellReuseIdentifier: "CategoryCell")
         tableView.register(UINib(resource: R.nib.farmacyCell), forCellReuseIdentifier: "FarmacyCell")
+        tableView.register(<#T##nib: UINib?##UINib?#>, forHeaderFooterViewReuseIdentifier: "header")
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -35,14 +35,25 @@ class CatalogsViewController: UIViewController {
     
     func setupUI() {
         
+        
+    }
+    
+    @IBAction private func close() {
+        model.close()
     }
 }
 
 extension CatalogsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
 }
 
 extension CatalogsViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return model.cellHeightAt(indexPath: indexPath)
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return model.sectionsCount
@@ -62,3 +73,5 @@ extension CatalogsViewController: UITableViewDataSource {
         return UITableViewCell()
     }
 }
+
+extension CatalogsViewController: CatalogsModelOutput { }

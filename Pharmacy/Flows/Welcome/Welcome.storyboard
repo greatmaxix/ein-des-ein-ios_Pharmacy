@@ -59,13 +59,13 @@
                                                 <state key="normal" image="barcode"/>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N3H-tD-HKE">
-                                                <rect key="frame" x="67" y="152" width="269" height="25.5"/>
+                                                <rect key="frame" x="67" y="154.5" width="269" height="20.5"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Начните поиск" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6s-Vx-coD">
-                                                <rect key="frame" x="26" y="94" width="245.5" height="47.5"/>
+                                                <rect key="frame" x="26" y="94" width="222.5" height="47.5"/>
                                                 <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -103,7 +103,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="113.5" height="114"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rec-if-piZ">
-                                                                <rect key="frame" x="8" y="88" width="31" height="18"/>
+                                                                <rect key="frame" x="8" y="92" width="29.5" height="14"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -129,7 +129,7 @@
                                                         <rect key="frame" x="126.5" y="0.0" width="114" height="114"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tFg-4F-QR7">
-                                                                <rect key="frame" x="8" y="88" width="31" height="18"/>
+                                                                <rect key="frame" x="8" y="92" width="29.5" height="14"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="12"/>
                                                                 <color key="textColor" red="0.14509803921568626" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -155,7 +155,7 @@
                                                         <rect key="frame" x="253.5" y="0.0" width="113.5" height="114"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkZ-Z7-Jey">
-                                                                <rect key="frame" x="8" y="88" width="31" height="18"/>
+                                                                <rect key="frame" x="8" y="92" width="29.5" height="14"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="12"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -193,17 +193,20 @@
                                         <rect key="frame" x="0.0" y="311" width="414" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wc-wu-jbC">
-                                                <rect key="frame" x="30" y="4" width="43.5" height="25"/>
+                                                <rect key="frame" x="30" y="4" width="39.5" height="25"/>
                                                 <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="16"/>
                                                 <color key="textColor" name="textDarkBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv0-cY-p6c">
-                                                <rect key="frame" x="359" y="1.5" width="39" height="30"/>
+                                                <rect key="frame" x="361" y="3.5" width="37" height="26"/>
                                                 <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="12"/>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" name="welcomeBlue"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="selectCategory:" destination="L4j-vz-G1f" eventType="touchUpInside" id="RcI-6X-zTE"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tEk-nz-Dqs">
                                                 <rect key="frame" x="30" y="36" width="359" height="106"/>
@@ -336,7 +339,7 @@
                                         <rect key="frame" x="0.0" y="589" width="414" height="230"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KO-g9-hLT">
-                                                <rect key="frame" x="29" y="8" width="43.5" height="24"/>
+                                                <rect key="frame" x="29" y="8" width="39.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="16"/>
                                                 <color key="textColor" name="textDarkBlue"/>
                                                 <nil key="highlightedColor"/>
@@ -427,7 +430,7 @@
         <!--Catalogs View Controller-->
         <scene sceneID="lrf-uJ-kzF">
             <objects>
-                <viewController id="Hzm-dD-NB6" customClass="CatalogsViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CatalogsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hzm-dD-NB6" customClass="CatalogsViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P4U-ww-pwV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -436,7 +439,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                                 <subviews>
                                     <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfh-UH-3lS">
-                                        <rect key="frame" x="230" y="48" width="115" height="36"/>
+                                        <rect key="frame" x="230" y="44" width="115" height="36"/>
                                         <subviews>
                                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dv-j7-YAB">
                                                 <rect key="frame" x="6" y="3" width="30" height="30"/>
@@ -447,7 +450,7 @@
                                                 <state key="normal" image="backArrow"/>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K8W-ge-6fA">
-                                                <rect key="frame" x="36" y="7" width="36" height="22.5"/>
+                                                <rect key="frame" x="36" y="9" width="36" height="18"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -474,53 +477,56 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnN-ar-8Yc">
-                                        <rect key="frame" x="366" y="52" width="32" height="32"/>
+                                        <rect key="frame" x="366" y="48" width="32" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="0kH-9X-eeZ"/>
                                             <constraint firstAttribute="width" constant="32" id="k7N-Ty-uz8"/>
                                         </constraints>
                                         <state key="normal" image="welcomeSearch"/>
-                                        <state key="highlighted" image="barcode"/>
+                                        <state key="selected" image="barcode"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCO-D3-CWS">
-                                        <rect key="frame" x="147.5" y="58" width="119" height="24"/>
+                                        <rect key="frame" x="152" y="56.5" width="110" height="19"/>
                                         <fontDescription key="fontDescription" name="NotoSansJP-Bold" family="Noto Sans JP" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0x-XY-kRB">
-                                        <rect key="frame" x="24" y="56" width="82" height="28"/>
-                                        <state key="normal" title="Button" image="catalogLeftArrow">
+                                        <rect key="frame" x="16" y="52" width="28" height="28"/>
+                                        <state key="normal" image="catalogLeftArrow">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="close" destination="Hzm-dD-NB6" eventType="touchUpInside" id="XBH-GA-2Sv"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="welcomeBlue"/>
                                 <constraints>
-                                    <constraint firstItem="J0x-XY-kRB" firstAttribute="leading" secondItem="pMd-Qv-ILJ" secondAttribute="leading" constant="24" id="8dW-fG-odA"/>
+                                    <constraint firstItem="J0x-XY-kRB" firstAttribute="leading" secondItem="pMd-Qv-ILJ" secondAttribute="leading" constant="16" id="8dW-fG-odA"/>
                                     <constraint firstAttribute="height" constant="88" id="B3h-Gb-GBJ"/>
                                     <constraint firstItem="PnN-ar-8Yc" firstAttribute="leading" secondItem="gfh-UH-3lS" secondAttribute="trailing" priority="750" constant="21" id="IhT-Co-yc0"/>
                                     <constraint firstItem="gfh-UH-3lS" firstAttribute="leading" secondItem="pMd-Qv-ILJ" secondAttribute="leading" constant="230" id="Owp-wU-aq8"/>
                                     <constraint firstItem="jCO-D3-CWS" firstAttribute="centerX" secondItem="pMd-Qv-ILJ" secondAttribute="centerX" id="R32-Om-p2x"/>
-                                    <constraint firstAttribute="bottom" secondItem="gfh-UH-3lS" secondAttribute="bottom" constant="4" id="Rde-T2-Asa"/>
+                                    <constraint firstAttribute="bottom" secondItem="gfh-UH-3lS" secondAttribute="bottom" constant="8" id="Rde-T2-Asa"/>
                                     <constraint firstAttribute="trailing" secondItem="PnN-ar-8Yc" secondAttribute="trailing" constant="16" id="WUB-pt-XZA"/>
-                                    <constraint firstAttribute="bottom" secondItem="J0x-XY-kRB" secondAttribute="bottom" constant="4" id="bWX-tf-nW8"/>
+                                    <constraint firstAttribute="bottom" secondItem="J0x-XY-kRB" secondAttribute="bottom" constant="8" id="bWX-tf-nW8"/>
                                     <constraint firstItem="jCO-D3-CWS" firstAttribute="centerY" secondItem="J0x-XY-kRB" secondAttribute="centerY" id="cPJ-fX-9Pd"/>
-                                    <constraint firstAttribute="bottom" secondItem="PnN-ar-8Yc" secondAttribute="bottom" constant="4" id="kxd-en-bY1"/>
+                                    <constraint firstAttribute="bottom" secondItem="PnN-ar-8Yc" secondAttribute="bottom" constant="8" id="kxd-en-bY1"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jsp-tl-thj">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" rowHeight="80" id="AVm-no-kqQ" customClass="CategoryCell" customModule="Pharmacy" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatalogsCell" rowHeight="80" id="AVm-no-kqQ" customClass="CategoryCell" customModule="Pharmacy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AVm-no-kqQ" id="B43-RV-FVL">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cTy-0Q-ych">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcomeCategory" translatesAutoresizingMaskIntoConstraints="NO" id="cTy-0Q-ych">
                                                     <rect key="frame" x="20" y="11" width="58" height="58"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="cTy-0Q-ych" secondAttribute="height" multiplier="1:1" id="NMe-ga-faS"/>
@@ -528,7 +534,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4s-dX-PQf">
-                                                    <rect key="frame" x="100" y="29.5" width="59" height="21"/>
+                                                    <rect key="frame" x="100" y="32" width="57.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="14"/>
                                                     <color key="textColor" name="textDarkBlue"/>
                                                     <nil key="highlightedColor"/>
@@ -541,11 +547,15 @@
                                                 <constraint firstItem="cTy-0Q-ych" firstAttribute="leading" secondItem="B43-RV-FVL" secondAttribute="leading" constant="20" id="jjo-GC-kAu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="I4s-dX-PQf" id="0oH-82-7Re"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstItem="iFb-9R-g3B" firstAttribute="trailing" secondItem="Jsp-tl-thj" secondAttribute="trailing" id="FdS-BV-S8M"/>
                             <constraint firstItem="iFb-9R-g3B" firstAttribute="trailing" secondItem="pMd-Qv-ILJ" secondAttribute="trailing" id="JHf-m8-nOT"/>

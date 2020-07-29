@@ -11,21 +11,24 @@ import EventsTree
 
 enum CatalogsEvent: Event {
     
-    case openMap
     case openBarCodeReader
+    case close
 }
 
 protocol CatalogsModelOutput: class {
     
-    func showReadyOrders(orders: [String])
 }
 
 protocol CatalogsModelInput: class {
+    
     var sectionsCount: Int {get}
     var farmacyCategories: [String] {get}
+    
     func rowInSection(section: Int) -> Int
     func cellId(section: Int) -> String
-    func objectAt(indexPath: IndexPath)-> Any?
+    func objectAt(indexPath: IndexPath) -> Any?
+    func cellHeightAt(indexPath: IndexPath) -> CGFloat
+    func close()
 }
 
 class CatalogsModel: EventNode {
@@ -36,24 +39,34 @@ class CatalogsModel: EventNode {
         let title: String?
         let objects: [Any]
         let cellId: String
+        let cellHeight: CGFloat
     }
     
     private var categories: [String] = ["category1", "category2", "category3", "category4", "category5"]
-    private var farmacyName: String?
+    private var farmacyName: String? = "Farmacy 01"
     private var sections: [TableSection] = []
     
     func setup(title: String) {
         
-        sections = [TableSection(rows: categories.count, title: nil, objects: categories, cellId: "FarmacyCell")]
         if let farmacyName: String = farmacyName {
-            sections.append(TableSection(rows: 1, title: "Goods of day", objects: [farmacyName], cellId: "CatalogsCell"))
+            sections.append(TableSection(rows: 1, title: "Goods of day", objects: [farmacyName], cellId: "FarmacyCell", cellHeight: 136))
         }
+        
+        sections.append(TableSection(rows: categories.count, title: nil, objects: categories, cellId: "CatalogsCell", cellHeight: 80))
     }
     
     unowned var output: CatalogsModelOutput!
 }
 
 extension CatalogsModel: CatalogsModelInput {
+    
+    func close() {
+        raise(event: CatalogsEvent.close)
+    }
+    
+    func cellHeightAt(indexPath: IndexPath) -> CGFloat {
+        return sections[indexPath.section].cellHeight
+    }
 
     func cellId(section: Int) -> String {
         return sections[section].cellId
@@ -67,7 +80,7 @@ extension CatalogsModel: CatalogsModelInput {
         return categories
     }
     
-    func rowInSection(section: Int)-> Int {
+    func rowInSection(section: Int) -> Int {
         return sections[section].rows
     }
     

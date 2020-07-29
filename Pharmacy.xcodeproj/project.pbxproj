@@ -26,6 +26,8 @@
 		39534EC524A4EB57009AA5BB /* NotoSansJP-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EBF24A4EB57009AA5BB /* NotoSansJP-Light.otf */; };
 		39534EC624A4EB57009AA5BB /* NotoSansJP-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EC024A4EB57009AA5BB /* NotoSansJP-Bold.otf */; };
 		39534EC724A4EB57009AA5BB /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EC124A4EB57009AA5BB /* NotoSansJP-Regular.otf */; };
+		3954D11C24D1776F00AB44BD /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D11B24D1776F00AB44BD /* TitleHeaderView.swift */; };
+		3954D11E24D1780E00AB44BD /* TitleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3954D11D24D1780E00AB44BD /* TitleHeaderView.xib */; };
 		3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */; };
 		395A7FB824A34B5200A7CFC6 /* UIBlockerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */; };
 		395A7FC224A3980D00A7CFC6 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395A7FBC24A3980C00A7CFC6 /* ProfileTableViewCell.xib */; };
@@ -99,6 +101,8 @@
 		39534EBF24A4EB57009AA5BB /* NotoSansJP-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Light.otf"; sourceTree = "<group>"; };
 		39534EC024A4EB57009AA5BB /* NotoSansJP-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Bold.otf"; sourceTree = "<group>"; };
 		39534EC124A4EB57009AA5BB /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
+		3954D11B24D1776F00AB44BD /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
+		3954D11D24D1780E00AB44BD /* TitleHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleHeaderView.xib; sourceTree = "<group>"; };
 		3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
 		395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockerDelegate.swift; sourceTree = "<group>"; };
 		395A7FBC24A3980C00A7CFC6 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
@@ -195,6 +199,15 @@
 				396448DE24ADE13F00E6D852 /* UserDefaults+User.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3954D11A24D1771A00AB44BD /* TitleHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				3954D11B24D1776F00AB44BD /* TitleHeaderView.swift */,
+				3954D11D24D1780E00AB44BD /* TitleHeaderView.xib */,
+			);
+			path = TitleHeaderView;
 			sourceTree = "<group>";
 		};
 		3959E9D3249A63FA00FA1F74 /* Components */ = {
@@ -301,6 +314,7 @@
 		395D04FD24D04A9F007A278D /* CatalogsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3954D11A24D1771A00AB44BD /* TitleHeaderView */,
 				395D050224D051D0007A278D /* Cells */,
 				395D04FE24D04B19007A278D /* CatalogsViewController.swift */,
 				395D050024D04B3A007A278D /* CatalogsModel.swift */,
@@ -621,6 +635,7 @@
 				3949851B24BC519B006A773D /* ProfileOptionsCell.xib in Resources */,
 				618C33A12498BE4A00951D11 /* Auth.storyboard in Resources */,
 				395A7FC224A3980D00A7CFC6 /* ProfileTableViewCell.xib in Resources */,
+				3954D11E24D1780E00AB44BD /* TitleHeaderView.xib in Resources */,
 				39F8B2FD24CF004900195AD8 /* Welcome.storyboard in Resources */,
 				39534EC724A4EB57009AA5BB /* NotoSansJP-Regular.otf in Resources */,
 				396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */,
@@ -723,6 +738,7 @@
 				618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */,
 				3915D60824A2466700A93627 /* ConfirmCodeModel.swift in Sources */,
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
+				3954D11C24D1776F00AB44BD /* TitleHeaderView.swift in Sources */,
 				395A7FC924A399B000A7CFC6 /* ProfileModel.swift in Sources */,
 				395A7FCC24A3A2B700A7CFC6 /* ProfileCoordinator.swift in Sources */,
 				39505F5624AC73620045EC02 /* TabBarModel.swift in Sources */,
