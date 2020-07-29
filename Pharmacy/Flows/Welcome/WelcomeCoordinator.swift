@@ -22,6 +22,23 @@ class WelcomeCoordinator: EventNode, Coordinator {
     init(configuration: WelcomeFlowConfiguration) {
         super.init(parent: configuration.parent)
         
+        addHandler { [weak self] (event: WelcomeEvent) in
+            switch event {
+            case .openCategories(let categoryName):
+                self?.presentCategories(categoryName: categoryName)
+            default:
+                break
+            }
+        }
+        
+        addHandler { [weak self] (event: CatalogsEvent) in
+            switch event {
+            case .close:
+                self?.popController()
+            default:
+                break
+            }
+        }
     }
     
     func createFlow() -> UIViewController {
@@ -39,6 +56,18 @@ class WelcomeCoordinator: EventNode, Coordinator {
     
     private func popController() {
         root.navigationController?.popViewController(animated: true)
+    }
+    
+    private func presentCategories(categoryName: String) {
+        guard let vc: CatalogsViewController = storyboard.instantiateViewController(withIdentifier: "CatalogsViewController") as? CatalogsViewController else {
+            return
+        }
+        
+        let model = CatalogsModel(parent: self)
+        model.setup(title: categoryName)
+        model.output = vc
+        vc.model = model
+        root.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

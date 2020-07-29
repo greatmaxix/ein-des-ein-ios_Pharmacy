@@ -13,6 +13,7 @@ enum WelcomeEvent: Event {
     
     case openMap
     case openBarCodeReader
+    case openCategories(categoryName: String)
 }
 
 protocol WelcomeModelOutput: class {
@@ -21,6 +22,7 @@ protocol WelcomeModelOutput: class {
 }
 protocol WelcomeModelInput: class {
     func loadReadyOrders()
+    func openCategories()
 }
 
 final class WelcomeModel: EventNode {
@@ -33,5 +35,9 @@ extension WelcomeModel: WelcomeModelInput {
     func loadReadyOrders() {
         let orders = ["34542", "90100"]
         output.showReadyOrders(orders: orders)
+    }
+    
+    func openCategories() {
+        raise(event: WelcomeEvent.openCategories(categoryName: "category1"))
     }
 }

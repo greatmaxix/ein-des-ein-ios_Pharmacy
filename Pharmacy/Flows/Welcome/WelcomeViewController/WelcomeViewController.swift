@@ -42,6 +42,8 @@ final class WelcomeViewController: UIViewController {
         model.loadReadyOrders()
     }
     
+    // MARK: - Setup
+    
     private func setupLocalization() {
         
         titleLabel.text = R.string.localize.welcomeTitle()
@@ -69,6 +71,12 @@ final class WelcomeViewController: UIViewController {
         loadReceipeButton.dropBlueShadow()
         searchView.layer.cornerRadius = searchView.bounds.height / 2
         loadReceipeButton.layer.cornerRadius = loadReceipeButton.frame.height / 2
+    }
+    
+    // MARK: Actions
+    
+    @IBAction private func selectCategory(_ sender: UIButton) {
+        model.openCategories()
     }
     
 }
