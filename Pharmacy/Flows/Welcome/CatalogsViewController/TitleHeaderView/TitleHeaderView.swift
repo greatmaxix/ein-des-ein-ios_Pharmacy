@@ -12,9 +12,6 @@ class TitleHeaderView: UIView {
 
     @IBOutlet private weak var titleLabel: UILabel!
     
-    private let heightWithTitle: CGFloat = 60
-    private let heightWithoutTitle: CGFloat = 30
-    
     var title: String? {
         willSet {
             titleLabel.text = newValue

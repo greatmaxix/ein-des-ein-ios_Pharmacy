@@ -10,14 +10,14 @@ import UIKit
 
 class FarmacyCell: BaseTableViewCell {
     
-    @IBOutlet weak var farmacyImageView: UIImageView!
-    @IBOutlet weak var likeImageView: UIImageView!
+    @IBOutlet private weak var farmacyImageView: UIImageView!
+    @IBOutlet private weak var likeImageView: UIImageView!
 
-    @IBOutlet weak var receipeButton: UIButton!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var typeLabel: UILabel!
-    @IBOutlet weak var factoryLabel: UILabel!
-    @IBOutlet weak var costLabel: UILabel!
+    @IBOutlet private weak var receipeButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var typeLabel: UILabel!
+    @IBOutlet private weak var factoryLabel: UILabel!
+    @IBOutlet private weak var costLabel: UILabel!
     
     var addToFavoritesHandler: (() -> Void)?
     var addToPurchesesHandler: (() -> Void)?
