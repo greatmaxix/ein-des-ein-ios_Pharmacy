@@ -18,8 +18,6 @@ class TitleHeaderView: UIView {
     var title: String? {
         willSet {
             titleLabel.text = newValue
-            let height: CGFloat = newValue == nil ? heightWithoutTitle : heightWithTitle
-            frame = CGRect(origin: frame.origin, size: CGSize(width: frame.width, height: height))
         }
     }
 }

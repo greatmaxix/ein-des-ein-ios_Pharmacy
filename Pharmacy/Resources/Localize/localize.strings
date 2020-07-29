@@ -83,3 +83,7 @@
 "welcome.ready" = "готов";
 "welcome.delivery" = "Вы можете использовать их при заказе доставки или самовывоза";
 
+// MARK: - Catalogue
+
+"catalog.good_of_day" = "Товар дня";
+

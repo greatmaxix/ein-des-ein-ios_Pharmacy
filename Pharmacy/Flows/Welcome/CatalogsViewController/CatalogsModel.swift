@@ -28,6 +28,7 @@ protocol CatalogsModelInput: class {
     func cellId(section: Int) -> String
     func objectAt(indexPath: IndexPath) -> Any?
     func cellHeightAt(indexPath: IndexPath) -> CGFloat
+    func sectionTitleAt(section: Int) -> String?
     func close()
 }
 
@@ -42,14 +43,14 @@ class CatalogsModel: EventNode {
         let cellHeight: CGFloat
     }
     
-    private var categories: [String] = ["category1", "category2", "category3", "category4", "category5"]
+    private var categories: [String] = ["category1", "category2", "category3", "category4", "category5", "category6", "category7"]
     private var farmacyName: String? = "Farmacy 01"
     private var sections: [TableSection] = []
     
     func setup(title: String) {
         
         if let farmacyName: String = farmacyName {
-            sections.append(TableSection(rows: 1, title: "Goods of day", objects: [farmacyName], cellId: "FarmacyCell", cellHeight: 136))
+            sections.append(TableSection(rows: 1, title: R.string.localize.catalogGood_of_day(), objects: [farmacyName], cellId: "FarmacyCell", cellHeight: 136))
         }
         
         sections.append(TableSection(rows: categories.count, title: nil, objects: categories, cellId: "CatalogsCell", cellHeight: 80))
@@ -87,4 +88,9 @@ extension CatalogsModel: CatalogsModelInput {
     func objectAt(indexPath: IndexPath) -> Any? {
         return sections[indexPath.section].objects[indexPath.row]
     }
+    
+    func sectionTitleAt(section: Int) -> String? {
+        return sections[section].title
+    }
+
 }
