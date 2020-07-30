@@ -27,7 +27,7 @@ class NameTableViewCellData: BaseCellData {
         self.name = name
         self.phone = phone
     }
-    var editProfile:  ((_: ProfileEvent) -> Void)?
+    var editProfile: ((_: ProfileEvent) -> Void)?
 }
 
 class NameTableViewCell: BaseTableViewCell {
@@ -37,7 +37,7 @@ class NameTableViewCell: BaseTableViewCell {
     @IBOutlet private weak var phoneLabel: UILabel!
     @IBOutlet private weak var editButton: UIButton!
         
-    private var editProfileHandler:  ((_: ProfileEvent) -> Void)?
+    private var editProfileHandler: ((_: ProfileEvent) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()

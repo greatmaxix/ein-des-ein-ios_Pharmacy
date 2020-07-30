@@ -99,7 +99,7 @@ final class TextInputView: UIView {
             case .standart:
                 return nil
             case .editing:
-                return R.image.validationClose()
+                return R.image.cancelSearch()
             case .successfulValidation:
                 return R.image.validationSuccess()
             case .unsuccessfulValidation:

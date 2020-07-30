@@ -22,6 +22,14 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     init(configuration: ProfileFlowConfiguration) {
         super.init(parent: configuration.parent)
         
+        addHandler { [weak self] (event: ProfileEvent) in
+            switch event {
+            case .editProfile:
+                self?.presentEditProfile()
+            default:
+                break
+            }
+        }
     }
     
     func createFlow() -> UIViewController {
@@ -32,16 +40,6 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         
         let navigationVC: UINavigationController = UINavigationController(rootViewController: root)
         navigationVC.isToolbarHidden = true
-
-        addHandler { [weak self] (event: ProfileEvent) in
-            switch event {
-            case .editProfile:
-                self?.presentEditProfile()
-            default:
-                break
-            }
-        }
-        
         return navigationVC
     }
     

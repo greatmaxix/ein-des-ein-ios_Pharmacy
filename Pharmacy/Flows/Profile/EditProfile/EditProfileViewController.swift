@@ -14,6 +14,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet private weak var titleLable: UILabel!
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var saveButton: UIButton!
+    @IBOutlet private weak var editPhotoButton: UIButton!
 
     @IBOutlet private weak var userImageView: UIImageView!
     @IBOutlet private weak var nameInputView: TextInputView!
@@ -29,7 +30,7 @@ class EditProfileViewController: UIViewController {
         setupLocalization()
     }
 
-    func setupUI() {
+    private func setupUI() {
         
         nameInputView.contentType = .name
         phoneInputView.contentType = .phone
@@ -40,9 +41,25 @@ class EditProfileViewController: UIViewController {
         
         navigationController?.isNavigationBarHidden = true
         userImageView.layer.cornerRadius = userImageView.bounds.height / 2
+        editPhotoButton.layer.cornerRadius = editPhotoButton.bounds.height / 2
+        setBlur()
+    }
+
+    func setBlur() {
+        if let image = R.image.confirmIcon(), var ciImage = CIImage(image: image) {
+
+            ciImage = ciImage.applyingGaussianBlur(sigma: 5)
+            let extent = ciImage.extent
+            let space = abs(ciImage.extent.origin.x)
+            let rect = CGRect(x: 0, y: 0, width: extent.width - space * 2, height: extent.height - space * 2)
+            let croppedImage = ciImage.cropped(to: rect)
+            // swiftlint:disable all
+            let blurredImage = UIImage(ciImage: croppedImage)
+            userImageView.image = blurredImage
+        }
     }
     
-    func setupLocalization() {
+    private func setupLocalization() {
         titleLable.text = R.string.localize.profileEdit()
         backButton.setTitle(R.string.localize.profileProfile(), for: .normal)
         saveButton.setTitle(R.string.localize.profileSaveChanges(), for: .normal)
