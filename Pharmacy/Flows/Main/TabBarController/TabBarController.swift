@@ -71,29 +71,12 @@ final class TabBarController: UITabBarController {
         
         roundedView.layer.insertSublayer(shadowLayer, at: 0)
         
-        let searchButton = UIButton()
-        searchButton.translatesAutoresizingMaskIntoConstraints = false
-        searchButton.setBackgroundImage(R.image.tabbarSearch(), for: .normal)
-        tabBar.addSubview(searchButton)
-        
         NSLayoutConstraint.activate([
             roundedView.trailingAnchor.constraint(equalTo: tabBar.trailingAnchor),
             roundedView.leadingAnchor.constraint(equalTo: tabBar.leadingAnchor),
             roundedView.topAnchor.constraint(equalTo: tabBar.topAnchor),
             roundedView.bottomAnchor.constraint(equalTo: tabBar.bottomAnchor),
-            
-            searchButton.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: 3),
-            searchButton.widthAnchor.constraint(equalToConstant: 48),
-            searchButton.heightAnchor.constraint(equalToConstant: 48),
-            searchButton.centerXAnchor.constraint(equalTo: tabBar.centerXAnchor)
         ])
-        
-        searchButton.addTarget(self, action: #selector(openSearch), for: .touchUpInside)
-    }
-    
-    @objc private func openSearch() {
-        
-        changeCurrentTab(Tab.main)
     }
 }
 

@@ -10,7 +10,6 @@ import Foundation
 import EventsTree
 
 struct WelcomeFlowConfiguration {
-    
     let parent: EventNode
 }
 
@@ -76,6 +75,8 @@ class WelcomeCoordinator: EventNode, Coordinator {
 extension WelcomeCoordinator: TabBarEmbedCoordinable {
     
     var tabItemInfo: TabBarItemInfo {
-        return TabBarItemInfo(title: R.string.localize.tabbarMain(), icon: R.image.tabbarMain(), highlightedIcon: R.image.tabbarMain())
+        return TabBarItemInfo(title: R.string.localize.tabbarMain(),
+                              icon: R.image.tabbarMain(),
+                              highlightedIcon: R.image.tabbarMain())
     }
 }

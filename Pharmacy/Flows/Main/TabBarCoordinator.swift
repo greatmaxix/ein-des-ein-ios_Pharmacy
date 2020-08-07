@@ -41,13 +41,21 @@ class TabBarCoordinator: EventNode, Coordinator {
     
     private func setupTabBar() {
         var coordinators: [TabBarEmbedCoordinable] = []
+        let welcomeConfig = WelcomeFlowConfiguration(parent: self)
+        coordinators.append(WelcomeCoordinator(configuration: welcomeConfig))
+        
+        let catalogueConfig = CatalogueFlowConfiguration(parent: self)
+        coordinators.append(CatalogueCoordinator(configuration: catalogueConfig))
+        
+        let serachConfig = SearchFlowConfiguration(parent: self)
+        coordinators.append(SearchCoordinator(configuration: serachConfig))
+        
+        let basketConfig = BasketFlowConfiguration(parent: self)
+        coordinators.append(BasketCoordinator(configuration: basketConfig))
+        
         let config = ProfileFlowConfiguration(parent: self)
         coordinators.append(ProfileFlowCoordinator(configuration: config))
-        addTabCoordinators(coordinators: coordinators)
         
-        let welcomeConfig: WelcomeFlowConfiguration = WelcomeFlowConfiguration(parent: self)
-        coordinators.append(WelcomeCoordinator(configuration: welcomeConfig))
         addTabCoordinators(coordinators: coordinators)
     }
-    
 }
