@@ -61,7 +61,8 @@ final class ConfirmCodeModel: Model {
              case .success(let response):
                 UserSession.shared.save(user: response.user, token: response.token)
                 self.raise(event: ConfirmCodeEvent.openMainScreen)
-             case .failure:
+             case .failure(let error):
+                print(error)
                 self.loginFail()
              }
         }

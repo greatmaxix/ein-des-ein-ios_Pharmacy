@@ -8,18 +8,15 @@
 
 import Foundation
 
-struct User: Equatable, Codable {
-    
-    enum CodingKeys: String, CodingKey {
-        
-        case name = "username"
-        case uuid
-        case phone
-        case email
-    }
-    
+struct User: Equatable, Codable, Identifiable {
+    let id: UInt64
     let name: String
     let email: String?
     let phone: String
     let uuid: String
+    let avatar: Avatar?
+}
+
+struct Avatar: Equatable, Codable {
+    let url: URL
 }

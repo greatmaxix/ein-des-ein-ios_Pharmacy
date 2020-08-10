@@ -41,8 +41,8 @@ class TabBarCoordinator: EventNode, Coordinator {
     
     private func setupTabBar() {
         var coordinators: [TabBarEmbedCoordinable] = []
-        let welcomeConfig = WelcomeFlowConfiguration(parent: self)
-        coordinators.append(WelcomeCoordinator(configuration: welcomeConfig))
+        let welcomeConfig = HomeFlowConfiguration(parent: self)
+        coordinators.append(HomeCoordinator(configuration: welcomeConfig))
         
         let catalogueConfig = CatalogueFlowConfiguration(parent: self)
         coordinators.append(CatalogueCoordinator(configuration: catalogueConfig))
