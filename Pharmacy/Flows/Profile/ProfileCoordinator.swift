@@ -30,6 +30,15 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 break
             }
         }
+        
+        addHandler { [weak self] (event: EditProfileEvent) in
+            switch event {
+            case .close:
+                self?.popController()
+            default:
+                break
+            }
+        }
     }
     
     func createFlow() -> UIViewController {

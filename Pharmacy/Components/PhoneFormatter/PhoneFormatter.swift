@@ -12,14 +12,14 @@ import Foundation
 
 class PhoneFormatter {
     
-    func formattedNumber(number: String) -> String {
+    func formattedNumber(number: String, needsCountryCode: Bool = true) -> String {
         
-        let cleanPhoneNumber: String
-        if number.contains("+7") {
-            
-            cleanPhoneNumber = number.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-        } else {
+        var cleanPhoneNumber: String = number
+        if needsCountryCode, !number.contains("+7") {
+
             cleanPhoneNumber = ("7" + number).components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        } else {
+            cleanPhoneNumber = number.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         }
         
         let mask = "+X (XXX) XXX-XXXX"

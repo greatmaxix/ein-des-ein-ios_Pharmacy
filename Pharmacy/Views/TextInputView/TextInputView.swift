@@ -187,6 +187,17 @@ final class TextInputView: UIView {
         }
     }
     
+    var placeholder: String? {
+        get {
+            return inputTextField.placeholder
+        }
+        set {
+            inputTextField.placeholder = newValue ?? contentType.placeHolder
+        }
+    }
+    
+    var needsCountryCode: Bool = true
+    
     override var tag: Int {
         
         didSet {
@@ -221,7 +232,7 @@ final class TextInputView: UIView {
         }
         
         if contentType == .phone {
-            sender.text = formatter.formattedNumber(number: sender.text ?? "")
+            sender.text = formatter.formattedNumber(number: sender.text ?? "", needsCountryCode: needsCountryCode)
         }
     }
     

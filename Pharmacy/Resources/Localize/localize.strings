@@ -64,6 +64,10 @@
 
 "profile.edit" = "Редактировать";
 "profile.saveChanges" = "Готово";
+"profile.makePhoto" = "Сделать фото";
+"profile.makePhotoDescription" = "Сделайте новую фотографию или\nвыберете из своего альбома";
+"profile.camera" = "Камера";
+"profile.galery" = "Галерея";
 
 // MARK: - Tab Bar
 
