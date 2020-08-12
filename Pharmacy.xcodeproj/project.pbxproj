@@ -93,6 +93,8 @@
 		603D31B224E3CA1D000E5A6C /* MedicineListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31B124E3CA1D000E5A6C /* MedicineListModel.swift */; };
 		603D31B424E3CFEE000E5A6C /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31B324E3CFEE000E5A6C /* Medicine.swift */; };
 		603D31B624E3D323000E5A6C /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31B524E3D323000E5A6C /* UIButton.swift */; };
+		603D31B824E3F57B000E5A6C /* NSAttributedString+Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31B724E3F57B000E5A6C /* NSAttributedString+Price.swift */; };
+		603D31BA24E3FA1F000E5A6C /* UIImageView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31B924E3FA1F000E5A6C /* UIImageView+URL.swift */; };
 		6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */; };
 		6075BD4624DEA6FF00BC78BD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075BD4524DEA6FF00BC78BD /* R.generated.swift */; };
 		6075BD4724DEA7FB00BC78BD /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6075BD3324DEA3C800BC78BD /* OpenSans-BoldItalic.ttf */; };
@@ -216,6 +218,8 @@
 		603D31B124E3CA1D000E5A6C /* MedicineListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListModel.swift; sourceTree = "<group>"; };
 		603D31B324E3CFEE000E5A6C /* Medicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicine.swift; sourceTree = "<group>"; };
 		603D31B524E3D323000E5A6C /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		603D31B724E3F57B000E5A6C /* NSAttributedString+Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Price.swift"; sourceTree = "<group>"; };
+		603D31B924E3FA1F000E5A6C /* UIImageView+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+URL.swift"; sourceTree = "<group>"; };
 		6075BD2F24DEA3C800BC78BD /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		6075BD3124DEA3C800BC78BD /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
@@ -285,12 +289,14 @@
 			isa = PBXGroup;
 			children = (
 				39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */,
+				603D31B724E3F57B000E5A6C /* NSAttributedString+Price.swift */,
 				39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */,
 				6075BD5B24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift */,
 				6075BD5924DEB9EA00BC78BD /* UIView+Nib.swift */,
 				603D31AA24E3BFBE000E5A6C /* UIEdgeInsets.swift */,
 				603D31B524E3D323000E5A6C /* UIButton.swift */,
 				396448DE24ADE13F00E6D852 /* UserDefaults+User.swift */,
+				603D31B924E3FA1F000E5A6C /* UIImageView+URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1024,6 +1030,7 @@
 				395A7FC524A3980D00A7CFC6 /* NameTableViewCell.swift in Sources */,
 				60F2673924E0550E00BFF296 /* UINavigationController+NavigationBar.swift in Sources */,
 				39520E8E24A5EFAC00C2B7D8 /* UIViewController+Alert.swift in Sources */,
+				603D31B824E3F57B000E5A6C /* NSAttributedString+Price.swift in Sources */,
 				395C9D7A2499FD8F001EB6CD /* NameValidator.swift in Sources */,
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
@@ -1045,6 +1052,7 @@
 				6075BD5824DEB94F00BC78BD /* NavigationBar.swift in Sources */,
 				395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */,
 				39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */,
+				603D31BA24E3FA1F000E5A6C /* UIImageView+URL.swift in Sources */,
 				603D318F24E2A2D3000E5A6C /* ReceiptView.swift in Sources */,
 				395C9D772499FC14001EB6CD /* PhoneValidator.swift in Sources */,
 				395D050524D05206007A278D /* MedicineCell.swift in Sources */,
@@ -1195,7 +1203,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pharmacy.Pharmacy.ab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1215,7 +1223,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pharmacy.Pharmacy.ab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

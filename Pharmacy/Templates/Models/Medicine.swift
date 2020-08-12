@@ -12,4 +12,5 @@ struct Medicine {
     let tittle: String
     let price: String
     let imageURL: URL?
+    var currency = "₽"
 }

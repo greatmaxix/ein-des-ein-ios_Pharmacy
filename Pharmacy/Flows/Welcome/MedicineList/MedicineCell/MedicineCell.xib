@@ -15,9 +15,6 @@
         <array key="NotoSansJP-Regular.otf">
             <string>NotoSansJP-Regular</string>
         </array>
-        <array key="OpenSans-Regular.ttf">
-            <string>OpenSans-Regular</string>
-        </array>
         <array key="OpenSans-SemiBold.ttf">
             <string>OpenSans-SemiBold</string>
         </array>
@@ -38,9 +35,9 @@
                             <constraint firstAttribute="width" constant="135" id="w4o-gN-Rnw"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gds-W2-8h8">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gds-W2-8h8">
                         <rect key="frame" x="294" y="128" width="40" height="40"/>
-                        <state key="normal" backgroundImage="add_to_bag"/>
+                        <state key="normal" image="add_to_bag"/>
                         <connections>
                             <action selector="buyActionWithSender:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="msN-nD-RL4"/>
                         </connections>
@@ -83,14 +80,8 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="от" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJr-ej-dT6">
-                        <rect key="frame" x="151" y="146" width="12.5" height="14"/>
-                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
-                        <color key="textColor" name="welcomeBlue"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" text="568₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ov-8r-eXk">
-                        <rect key="frame" x="167.5" y="132" width="53.5" height="28"/>
+                        <rect key="frame" x="151" y="132" width="53.5" height="28"/>
                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
                         <color key="textColor" name="welcomeBlue"/>
                         <nil key="highlightedColor"/>
@@ -107,10 +98,9 @@
                 <constraints>
                     <constraint firstItem="DiF-bT-pis" firstAttribute="leading" secondItem="Wmg-WZ-8Ma" secondAttribute="leading" id="FWl-Iq-T15"/>
                     <constraint firstItem="jDY-I7-xSF" firstAttribute="leading" secondItem="cdA-d1-kbx" secondAttribute="trailing" constant="16" id="FbG-nR-F9H"/>
-                    <constraint firstItem="wJr-ej-dT6" firstAttribute="leading" secondItem="jDY-I7-xSF" secondAttribute="leading" id="HRP-HC-Af3"/>
-                    <constraint firstItem="7Ov-8r-eXk" firstAttribute="leading" secondItem="wJr-ej-dT6" secondAttribute="trailing" constant="4" id="JVo-A7-OH4"/>
                     <constraint firstAttribute="bottom" secondItem="7Ov-8r-eXk" secondAttribute="bottom" constant="16" id="KYx-yx-T6h"/>
                     <constraint firstAttribute="trailing" secondItem="CX3-7P-K0L" secondAttribute="trailing" constant="17" id="Kfw-Sr-YdE"/>
+                    <constraint firstItem="7Ov-8r-eXk" firstAttribute="leading" secondItem="jDY-I7-xSF" secondAttribute="leading" id="NJk-NF-lEk"/>
                     <constraint firstItem="CX3-7P-K0L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="Q3u-yI-Lgc"/>
                     <constraint firstItem="cdA-d1-kbx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="VCx-cA-dN7"/>
                     <constraint firstItem="jDY-I7-xSF" firstAttribute="centerY" secondItem="cdA-d1-kbx" secondAttribute="centerY" id="VVq-Dw-bKq"/>
@@ -122,7 +112,6 @@
                     <constraint firstAttribute="bottom" secondItem="cdA-d1-kbx" secondAttribute="bottom" id="iVF-GG-3Rc"/>
                     <constraint firstItem="cdA-d1-kbx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kn5-3h-8l7"/>
                     <constraint firstAttribute="trailing" secondItem="gds-W2-8h8" secondAttribute="trailing" constant="8" id="qXp-ce-UJM"/>
-                    <constraint firstItem="wJr-ej-dT6" firstAttribute="bottom" secondItem="7Ov-8r-eXk" secondAttribute="bottom" id="vvh-9E-Za6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

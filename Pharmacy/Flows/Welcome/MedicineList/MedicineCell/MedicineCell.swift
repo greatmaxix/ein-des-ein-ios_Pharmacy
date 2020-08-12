@@ -26,10 +26,10 @@ final class MedicineCell: BaseTableViewCell {
     func apply(medicine: Medicine) {
         titleLabel.text = medicine.tittle
         costLabel.text = medicine.price
+        costLabel.attributedText = NSAttributedString.fromPriceAttributed(for: medicine.price, currency: medicine.currency)
         
-        if let url = medicine
-            .imageURL {
-            //TODO: load image
+        if let url = medicine.imageURL {
+            farmacyImageView.loadImageBy(url: url)
         }
     }
     

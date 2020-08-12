@@ -15,6 +15,7 @@ final class MedicineListViewController: UIViewController {
     
     enum GUI {
         static let sortButtonImagePadding: CGFloat = 9
+        static let separatorInset = UIEdgeInsets.only(left: 135)
     }
     
     @IBOutlet private weak var tableView: UITableView!
@@ -32,7 +33,8 @@ final class MedicineListViewController: UIViewController {
     //MARK: - Private
     
     private func configUI() {
-        tableView.separatorStyle = .none
+        tableView.separatorInset = GUI.separatorInset
+        tableView.separatorColor = R.color.applyBlueGray()!
         sortButton.setTitle(R.string.localize.medicineSort(), for: .normal)
         sortButton.setTrailingImageViewWith(padding: GUI.sortButtonImagePadding)
     }

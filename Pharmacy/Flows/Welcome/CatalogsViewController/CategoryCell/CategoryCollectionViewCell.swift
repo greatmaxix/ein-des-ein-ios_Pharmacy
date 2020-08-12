@@ -30,7 +30,7 @@ final class CategoryCollectionViewCell: UICollectionViewCell {
         titleLabel.text = category.title
         
         if let url = category.imageURL {
-            //TODO: - load image
+            imageView.loadImageBy(url: url)
         }
     }
 }

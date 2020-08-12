@@ -43,9 +43,9 @@ extension WelcomeModel: WelcomeModelInput {
     
     private func loadReceipts() {
         let receipts = [Receipt(title: "Название товара",
-                                subtitle: "Таблетки шипучие, 20 мг", imageURL: nil, price: "568₽"),
+                                subtitle: "Таблетки шипучие, 20 мг", imageURL: nil, price: "568"),
                         Receipt(title: "Название товара",
-                                subtitle: "Таблетки шипучие, 20 мг", imageURL: nil, price: "568₽")]
+                                subtitle: "Таблетки шипучие, 20 мг", imageURL: nil, price: "568")]
         
         output.showReceipts(receipts)
     }

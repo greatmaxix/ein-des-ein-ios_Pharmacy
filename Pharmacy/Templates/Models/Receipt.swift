@@ -13,4 +13,5 @@ struct Receipt {
     let subtitle: String
     let imageURL: URL?
     let price: String
+    var currency = "₽"
 }

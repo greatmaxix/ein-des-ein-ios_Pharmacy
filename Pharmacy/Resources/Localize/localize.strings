@@ -6,6 +6,10 @@
   Copyright © 2020 pharmacy. All rights reserved.
 */
 
+//MARK: - General
+
+"general.price.from" = "от";
+
 // MARK: - TextInputView
 
 "placeholder.email" = "email для рассылок";

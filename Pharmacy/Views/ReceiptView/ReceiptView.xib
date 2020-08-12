@@ -42,7 +42,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iz-1O-hnm">
-                            <rect key="frame" x="8" y="99" width="401" height="67"/>
+                            <rect key="frame" x="8" y="99" width="401" height="14"/>
                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                             <color key="textColor" name="textDarkBlue"/>
                             <nil key="highlightedColor"/>
@@ -64,12 +64,6 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="от" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tK-Tk-Ppx">
                             <rect key="frame" x="8" y="179" width="13" height="14"/>
                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
-                            <color key="textColor" name="welcomeBlue"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="751" text="568₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyC-JL-C1q">
-                            <rect key="frame" x="25" y="174" width="36" height="19"/>
-                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                             <color key="textColor" name="welcomeBlue"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -99,7 +93,6 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstItem="IyC-JL-C1q" firstAttribute="leading" secondItem="7tK-Tk-Ppx" secondAttribute="trailing" constant="4" id="3bH-uN-1FW"/>
                         <constraint firstItem="5nO-Vo-pN2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="42M-06-NDh"/>
                         <constraint firstItem="6eo-VJ-HAE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6kc-cE-evg"/>
                         <constraint firstItem="IF3-07-xGa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="AHh-hb-T6C"/>
@@ -108,14 +101,12 @@
                         <constraint firstItem="1iz-1O-hnm" firstAttribute="top" secondItem="5nO-Vo-pN2" secondAttribute="bottom" id="DY5-Qr-RyY"/>
                         <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="k1q-BK-l8t" secondAttribute="trailing" id="KWu-yg-d3R"/>
                         <constraint firstItem="LGe-Ub-BVr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="NbI-PN-lL5"/>
-                        <constraint firstItem="IyC-JL-C1q" firstAttribute="top" secondItem="1iz-1O-hnm" secondAttribute="bottom" constant="8" id="POq-D4-fs4"/>
                         <constraint firstItem="7tK-Tk-Ppx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="Qbo-i9-2f9"/>
                         <constraint firstAttribute="trailing" secondItem="IF3-07-xGa" secondAttribute="trailing" constant="10" id="T27-UT-mBF"/>
                         <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1iz-1O-hnm" secondAttribute="trailing" constant="8" id="UOi-OI-1O7"/>
                         <constraint firstItem="LGe-Ub-BVr" firstAttribute="top" secondItem="7tK-Tk-Ppx" secondAttribute="bottom" constant="16" id="WLW-t3-Wbu"/>
                         <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="LGe-Ub-BVr" secondAttribute="bottom" id="bat-py-jVK"/>
                         <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LGe-Ub-BVr" secondAttribute="trailing" id="fSC-2k-aqV"/>
-                        <constraint firstItem="IyC-JL-C1q" firstAttribute="bottom" secondItem="7tK-Tk-Ppx" secondAttribute="bottom" id="g5F-5j-JeM"/>
                         <constraint firstItem="k1q-BK-l8t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hJF-sN-ev9"/>
                         <constraint firstItem="5nO-Vo-pN2" firstAttribute="top" secondItem="k1q-BK-l8t" secondAttribute="bottom" id="myV-0h-fbL"/>
                         <constraint firstItem="6eo-VJ-HAE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tWj-jc-x5W"/>
@@ -138,10 +129,9 @@
             <connections>
                 <outlet property="actionButton" destination="LGe-Ub-BVr" id="6uL-fb-RPD"/>
                 <outlet property="containerView" destination="iN0-l3-epB" id="xh4-bh-AfR"/>
-                <outlet property="fromPriceLabel" destination="7tK-Tk-Ppx" id="Gz0-Pv-ZWi"/>
                 <outlet property="imageView" destination="k1q-BK-l8t" id="Ui9-xn-Wjq"/>
                 <outlet property="likeButton" destination="IF3-07-xGa" id="OKD-C0-nh5"/>
-                <outlet property="priceLabel" destination="IyC-JL-C1q" id="qWj-AF-NRO"/>
+                <outlet property="priceLabel" destination="7tK-Tk-Ppx" id="Yne-rd-xHL"/>
                 <outlet property="receiptButton" destination="6eo-VJ-HAE" id="Ixv-Gb-kJi"/>
                 <outlet property="subtitleLabel" destination="1iz-1O-hnm" id="PJB-1Q-I14"/>
                 <outlet property="titleLabel" destination="5nO-Vo-pN2" id="Vb8-fR-luv"/>

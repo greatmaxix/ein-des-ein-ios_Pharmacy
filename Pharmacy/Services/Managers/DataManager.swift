@@ -8,7 +8,6 @@
 
 import Foundation
 import Moya
-import Result
 
 struct Responce<U: Decodable>: Decodable {
     let message: String

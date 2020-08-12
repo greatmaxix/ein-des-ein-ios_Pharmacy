@@ -39,8 +39,6 @@ final class WelcomeCoordinator: EventNode {
                 self?.popController()
             case .openMedicineListFor(let category):
                 self?.presenMedicineListFor(category: category)
-            default:
-                break
             }
         }
     }

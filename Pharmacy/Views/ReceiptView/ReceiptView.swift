@@ -19,7 +19,6 @@ final class ReceiptView: UIView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var actionButton: UIButton!
-    @IBOutlet private weak var fromPriceLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var likeButton: UIButton!
     @IBOutlet private weak var receiptButton: UIButton!
@@ -28,9 +27,10 @@ final class ReceiptView: UIView {
         titleLabel.text = receipt.title
         subtitleLabel.text = receipt.subtitle
         priceLabel.text = receipt.price
+        priceLabel.attributedText = NSAttributedString.fromPriceAttributed(for: receipt.price, currency: receipt.currency)
         
         if let url = receipt.imageURL {
-//            TODO: load image
+            imageView.loadImageBy(url: url)
         }
     }
     
