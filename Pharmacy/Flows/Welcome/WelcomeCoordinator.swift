@@ -37,6 +37,8 @@ final class WelcomeCoordinator: EventNode {
             switch event {
             case .close:
                 self?.popController()
+            case .openMedicineListFor(let category):
+                self?.presenMedicineListFor(category: category)
             default:
                 break
             }
@@ -48,27 +50,13 @@ final class WelcomeCoordinator: EventNode {
         let model = WelcomeModel(parent: self)
         model.output = root
         root.model = model
-    
+        
         navigation.isToolbarHidden = true
         navigation.setViewControllers([root], animated: false)
         return navigation
     }
     
-    private func popController() {
-        navigation.popViewController(animated: true)
-    }
     
-    private func presentCategories(categoryName: String) {
-        guard let vc: CatalogsViewController = storyboard.instantiateViewController(withIdentifier: "CatalogsViewController") as? CatalogsViewController else {
-            return
-        }
-        
-        let model = CatalogsModel(parent: self)
-        model.setup(title: categoryName)
-        model.output = vc
-        vc.model = model
-        navigation.pushViewController(vc, animated: true)
-    }
 }
 
 // MARK: - TabBarEmbedCoordinable
@@ -79,5 +67,27 @@ extension WelcomeCoordinator: TabBarEmbedCoordinable {
         return TabBarItemInfo(title: R.string.localize.tabbarMain(),
                               icon: R.image.tabbarMain(),
                               highlightedIcon: R.image.tabbarMain())
+    }
+}
+
+extension WelcomeCoordinator {
+    fileprivate func popController() {
+        navigation.popViewController(animated: true)
+    }
+    
+    fileprivate func presentCategories(categoryName: String) {
+        let vc = R.storyboard.welcome.catalogsViewController()!
+        let model = CatalogsModel(title: categoryName, parent: self)
+        model.output = vc
+        vc.model = model
+        navigation.pushViewController(vc, animated: true)
+    }
+    
+    fileprivate func presenMedicineListFor(category: Category) {
+        let vc = R.storyboard.welcome.medicineListViewController()!
+        let model = MedicineListModel(parent: self)
+        model.output = vc
+        vc.model = model
+        navigation.pushViewController(vc, animated: true)
     }
 }

@@ -33,7 +33,6 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupLocalization()
         setupUI()
         model.load()
     }
@@ -65,6 +64,8 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     }
     
     private func setupUI() {
+        setupLocalization()
+        
         buttonsBackground.forEach({
             $0.layer.cornerRadius = 10
             $0.dropBlueShadow()

@@ -11,52 +11,32 @@ import EventsTree
 
 enum CatalogsEvent: Event {
     
-    case openBarCodeReader
+    case openMedicineListFor(category: Category)
     case close
 }
 
 protocol CatalogsModelOutput: class {
-    
+    func didLoadCategories()
 }
 
 protocol CatalogsModelInput: class {
-    
-    var sectionsCount: Int {get}
-    var farmacyCategories: [String] {get}
-    
-    func rowInSection(section: Int) -> Int
-    func cellId(section: Int) -> String
-    func objectAt(indexPath: IndexPath) -> Any?
-    func cellHeightAt(indexPath: IndexPath) -> CGFloat
-    func sectionTitleAt(section: Int) -> String?
+    var categoryDataSource: CollectionDataSource<CategoryCellSection> { get }
+    var title: String { get }
+    func load()
     func close()
+    func didSelectCategoryBy(indexPath: IndexPath)
 }
 
 class CatalogsModel: EventNode {
-    
-    struct TableSection {
-        
-        let rows: Int
-        let title: String?
-        let objects: [Any]
-        let cellId: String
-        let cellHeight: CGFloat
-    }
-    
-    private var categories: [String] = ["category1", "category2", "category3", "category4", "category5", "category6", "category7"]
-    private var farmacyName: String? = "Farmacy 01"
-    private var sections: [TableSection] = []
-    
-    func setup(title: String) {
-        
-        if let farmacyName: String = farmacyName {
-            sections.append(TableSection(rows: 1, title: R.string.localize.catalogGood_of_day(), objects: [farmacyName], cellId: "FarmacyCell", cellHeight: 136))
-        }
-        
-        sections.append(TableSection(rows: categories.count, title: nil, objects: categories, cellId: "CatalogsCell", cellHeight: 80))
-    }
-    
     unowned var output: CatalogsModelOutput!
+    let categoryDataSource = CollectionDataSource<CategoryCellSection>()
+    
+    let title: String
+    
+    init(title: String, parent: EventNode?) {
+        self.title = title
+        super.init(parent: parent)
+    }
 }
 
 extension CatalogsModel: CatalogsModelInput {
@@ -65,32 +45,18 @@ extension CatalogsModel: CatalogsModelInput {
         raise(event: CatalogsEvent.close)
     }
     
-    func cellHeightAt(indexPath: IndexPath) -> CGFloat {
-        return sections[indexPath.section].cellHeight
-    }
-
-    func cellId(section: Int) -> String {
-        return sections[section].cellId
-    }
-    
-    var sectionsCount: Int {
-        return sections.count
+    internal func load() {
+        let category = Category(title: "Название категшории", imageURL: nil)
+        let array = Array(repeating: category, count: 9)
+        categoryDataSource.cells = array.map { CategoryCellSection.common(category: $0) }
+        output.didLoadCategories()
     }
     
-    var farmacyCategories: [String] {
-        return categories
+    func didSelectCategoryBy(indexPath: IndexPath) {
+        guard let cell = categoryDataSource.cell(for: indexPath) else { return }
+        switch cell {
+        case .common(let category):
+            raise(event: CatalogsEvent.openMedicineListFor(category: category))
+        }
     }
-    
-    func rowInSection(section: Int) -> Int {
-        return sections[section].rows
-    }
-    
-    func objectAt(indexPath: IndexPath) -> Any? {
-        return sections[indexPath.section].objects[indexPath.row]
-    }
-    
-    func sectionTitleAt(section: Int) -> String? {
-        return sections[section].title
-    }
-
 }
