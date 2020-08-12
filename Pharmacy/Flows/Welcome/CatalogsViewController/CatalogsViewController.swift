@@ -8,88 +8,30 @@
 
 import UIKit
 
-class CatalogsViewController: UIViewController {
+final class CatalogsViewController: UIViewController, NavigationBarStyled {
 
     @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var backButton: UIButton!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var headerView: UIView!
-
-    @IBOutlet private weak var searchAndCodeButton: UIButton!
-    @IBOutlet private weak var cancelSearchButton: UIButton!
-    @IBOutlet private weak var searchTextField: UITextField!
-    @IBOutlet private weak var searchView: UIView!
-    
-    @IBOutlet private var leftSpaceSearchConstr: NSLayoutConstraint!
     
     var model: CatalogsModel!
     
+    var style: NavigationBarStyle = .normal
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupUI()
+    }
+    
+    func setupUI() {
+        title = R.string.localize.tabbarCatalogue()
         tableView.register(UINib(resource: R.nib.farmacyCell), forCellReuseIdentifier: "FarmacyCell")
         tableView.register(UINib(resource: R.nib.titleHeaderView), forHeaderFooterViewReuseIdentifier: "header")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.sectionFooterHeight = 5
-        setupUI()
-    }
-    
-    func setupUI() {
-        headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        headerView.layer.cornerRadius = 10
-        
-        searchView.layer.cornerRadius = searchView.bounds.height / 2
-        searchAndCodeButton.layer.cornerRadius = 6
     }
     
     @IBAction private func close() {
         model.close()
-    }
-    
-    @IBAction private func clearTextField(_ sender: Any) {
-        searchTextField.text = nil
-    }
-    
-    @IBAction private func openSearch(_ sender: UIButton) {
-        
-        if !sender.isSelected {
-            sender.isSelected = true
-            setHeaderStyle(searchIsHidden: false)
-        } else {
-            
-        }
-    }
-    
-    @IBAction private func hideSearch(_ sender: UIButton) {
-        searchAndCodeButton.isSelected = false
-        setHeaderStyle(searchIsHidden: true)
-    }
-    
-    private func setHeaderStyle(searchIsHidden: Bool) {
-        
-        searchAndCodeButton.backgroundColor = searchIsHidden ? .clear : R.color.welcomeGreen()
-        
-        self.leftSpaceSearchConstr.constant = searchIsHidden ? Const.searchIsHidden : Const.searchIsVisible
-        self.searchAndCodeButton.isSelected = !searchIsHidden
-        self.backButton.isHidden = !searchIsHidden
-        
-        if searchIsHidden {
-            
-            UIView.animate(withDuration: 0.3, animations: {
-                
-                self.view.layoutIfNeeded()
-            }, completion: { _ in
-                self.searchView.isHidden = searchIsHidden
-            })
-        } else {
-            
-            self.searchView.isHidden = searchIsHidden
-            UIView.animate(withDuration: 0.3, animations: {
-                
-                self.view.layoutIfNeeded()
-            })
-        }
     }
 }
 

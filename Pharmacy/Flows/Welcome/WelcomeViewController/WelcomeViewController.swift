@@ -8,18 +8,12 @@
 
 import UIKit
 
-final class WelcomeViewController: UIViewController {
+final class WelcomeViewController: UIViewController, NavigationBarStyled {
 
     @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var barCodeButton: UIButton!
-    @IBOutlet private weak var searchTextfield: UITextField!
-    @IBOutlet private weak var searchView: UIView!
-    @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var ordersStackView: UIStackView!
-    
-    @IBOutlet fileprivate weak var stackViewSpaceConstr: NSLayoutConstraint!
     @IBOutlet fileprivate weak var stackViewHeightConstr: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var receiptStackView: UIStackView!
     
     @IBOutlet private weak var askLabel: UILabel!
     @IBOutlet private weak var diagnosticLabel: UILabel!
@@ -32,6 +26,8 @@ final class WelcomeViewController: UIViewController {
     @IBOutlet private weak var categoriesLabel: UILabel!
     @IBOutlet private weak var watchRecentlyLabel: UILabel!
     
+    var style: NavigationBarStyle = .large
+    
     var model: WelcomeModelInput!
     
     override func viewDidLoad() {
@@ -39,14 +35,15 @@ final class WelcomeViewController: UIViewController {
 
         setupLocalization()
         setupUI()
-        model.loadReadyOrders()
+        model.load()
     }
     
     // MARK: - Setup
     
     private func setupLocalization() {
         
-        titleLabel.text = R.string.localize.welcomeTitle()
+        scrollView.horizontalScrollIndicatorInsets = .zero
+        scrollView.alwaysBounceHorizontal = false
         askLabel.text = R.string.localize.welcomeAsk()
         diagnosticLabel.text = R.string.localize.welcomeDiagnostic()
         mapLabel.text = R.string.localize.welcomeMap()
@@ -57,19 +54,23 @@ final class WelcomeViewController: UIViewController {
         watchRecentlyLabel.text = R.string.localize.welcomeWatchRecently()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if let nvc = navigationController,
+
+            let navigationBar = nvc.navigationBar as? NavigationBar {
+            navigationBar.title = R.string.localize.welcomeTitle()
+        }
+    }
+    
     private func setupUI() {
-        
-        navigationController?.isNavigationBarHidden = true
-        headerView.layer.cornerRadius = 10
-        headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        barCodeButton.layer.cornerRadius = 6
         buttonsBackground.forEach({
             $0.layer.cornerRadius = 10
             $0.dropBlueShadow()
         })
         
         loadReceipeButton.dropBlueShadow()
-        searchView.layer.cornerRadius = searchView.bounds.height / 2
         loadReceipeButton.layer.cornerRadius = loadReceipeButton.frame.height / 2
     }
     
@@ -84,8 +85,6 @@ final class WelcomeViewController: UIViewController {
 extension WelcomeViewController: WelcomeModelOutput {
     
     func showReadyOrders(orders: [String]) {
-        
-        stackViewSpaceConstr.isActive = orders.count == 0
         ordersStackView.isHidden = orders.count == 0
         
         ordersStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
@@ -102,5 +101,16 @@ extension WelcomeViewController: WelcomeModelOutput {
         }
         
         stackViewHeightConstr.constant = height + CGFloat(max(orders.count - 1, 0)) * 10
+    }
+    
+    func showReceipts(_ receipts: [Receipt]) {
+        receiptStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
+        
+        for receipt in receipts {
+            if let receiptView: ReceiptView  = R.nib.receiptView(owner: self) {
+                receiptView.apply(receipt: receipt)
+                receiptStackView.addArrangedSubview(receiptView)
+            }
+        }
     }
 }

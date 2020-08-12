@@ -1,5 +1,5 @@
 //
-//  HomeNavigationBar.swift
+//  NavigationBar.swift
 //  Pharmacy
 //
 //  Created by Anton Bal’ on 08.08.2020.
@@ -8,20 +8,20 @@
 
 import UIKit
 
-protocol HomeNavigationBarDelegate: class {
+protocol NavigationBarDelegate: class {
     
 }
 
-protocol HomeNavigationBarStyled {
-    var style: HomeNavigationBarStyle { get }
+protocol NavigationBarStyled {
+    var style: NavigationBarStyle { get }
 }
 
-enum HomeNavigationBarStyle {
+enum NavigationBarStyle {
     case large
     case normal
 }
 
-final class HomeNavigationBar: UINavigationBar {
+final class NavigationBar: UINavigationBar {
     
     fileprivate enum GUI {
         static let largeTitleFont = R.font.openSansBold(size: 32)!
@@ -29,16 +29,14 @@ final class HomeNavigationBar: UINavigationBar {
         static let animationDurartion: TimeInterval = 0.3
         static let textFiledNormalTextColor = UIColor.white
         static let textFiledDarkTextColor = R.color.textDarkBlue()!
-        static let largeHeight: CGFloat = 194
-        static let smallHeight: CGFloat = 50
+        static let largeHeight: CGFloat = 150
+        static let smallHeight: CGFloat = 44
         static let cornerRadius: CGFloat = 10
         static let scanButtonCornerRadius: CGFloat = 6
         static let searchViewBackgorundAlpha: CGFloat = 0.3
-        static let backButtonTopMargin: CGFloat = 8
         static let searchViewLargeBottomMargin: CGFloat = 16
         static let searchViewLargeLeftMargin: CGFloat = 16
         static let searchViewNormalBottomMargin: CGFloat = 8
-        
     }
     
     var title: String? {
@@ -47,7 +45,6 @@ final class HomeNavigationBar: UINavigationBar {
     }
     
     private var contentView: UIView!
-    private var topConstraint: NSLayoutConstraint!
     private var heightConstraint: NSLayoutConstraint!
     
     @IBOutlet private weak var backButtonConstraint: NSLayoutConstraint!
@@ -66,9 +63,9 @@ final class HomeNavigationBar: UINavigationBar {
     @IBOutlet private weak var cancelSearchButton: UIButton!
     @IBOutlet private weak var searchButton: UIButton!
     
-    var style: HomeNavigationBarStyle = .large
+    var style: NavigationBarStyle = .normal
     
-    var height: CGFloat { heightBy(style: style) + safeAreaHeight }
+    var height: CGFloat { heightBy(style: style) }
     
     var safeAreaHeight: CGFloat {
         let window = UIApplication.shared.keyWindow
@@ -76,7 +73,7 @@ final class HomeNavigationBar: UINavigationBar {
         return topPadding ?? 0
     }
     
-    weak var homeDelegate: HomeNavigationBarDelegate?
+    weak var homeDelegate: NavigationBarDelegate?
     
     //MARK: Lifecycle
     
@@ -93,19 +90,18 @@ final class HomeNavigationBar: UINavigationBar {
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         CGSize(width: UIScreen.main.bounds.width, height: height)
     }
-    
+
     override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         contentView.point(inside: point, with: event)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        topConstraint.constant = -safeAreaHeight
         heightConstraint.constant = height
-        backButtonConstraint.constant = safeAreaHeight + GUI.backButtonTopMargin
+        backButtonConstraint.constant = safeAreaHeight
     }
     
-    func heightBy(style: HomeNavigationBarStyle) -> CGFloat {
+    func heightBy(style: NavigationBarStyle) -> CGFloat {
         switch style {
         case .large:
             return GUI.largeHeight
@@ -132,10 +128,10 @@ final class HomeNavigationBar: UINavigationBar {
     }
 }
 
-extension HomeNavigationBar {
+extension NavigationBar {
     fileprivate func config() {
         clipsToBounds = false
-        
+        barStyle = .black
         titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.clear]
         tintColor = .clear
         barTintColor = R.color.welcomeBlue()
@@ -150,11 +146,9 @@ extension HomeNavigationBar {
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
-        topConstraint = contentView.topAnchor.constraint(equalTo: topAnchor, constant: -safeAreaHeight)
-        heightConstraint = contentView.heightAnchor.constraint(equalToConstant: height)
-       
+        heightConstraint = contentView.heightAnchor.constraint(equalTo: heightAnchor)
         NSLayoutConstraint.activate([
-            topConstraint,
+            contentView.topAnchor.constraint(equalTo: topAnchor),
             heightConstraint,
             contentView.leftAnchor.constraint(equalTo: leftAnchor),
             contentView.rightAnchor.constraint(equalTo: rightAnchor),
@@ -163,7 +157,7 @@ extension HomeNavigationBar {
         configUIBy(style: style)
     }
     
-    func configUIBy(style: HomeNavigationBarStyle) {
+    func configUIBy(style: NavigationBarStyle) {
         self.style = style
         let isLarge = style == .large
         
@@ -176,7 +170,7 @@ extension HomeNavigationBar {
         titleLeadingConstraint.isActive = isLarge
         titleCenterXConstraint.isActive = !isLarge
         titleCenterYConstraint.isActive = !isLarge
-        titleCenterYConstraint.constant = safeAreaHeight / 2 - titleLabel.font.pointSize / 4
+        titleCenterYConstraint.constant = safeAreaHeight / 2 - titleLabel.font.pointSize / 2
         
         configSearchTextFieldBy(style: style)
         
@@ -191,13 +185,13 @@ extension HomeNavigationBar {
             : GUI.searchViewNormalBottomMargin
     }
     
-    func hideButtonsBy(style: HomeNavigationBarStyle) {
+    func hideButtonsBy(style: NavigationBarStyle) {
         let isLarge = style == .large
         scanButton.isHidden = !isLarge
         backButton.isHidden = isLarge
     }
     
-    private func configSearchTextFieldBy(style: HomeNavigationBarStyle) {
+    private func configSearchTextFieldBy(style: NavigationBarStyle) {
         let isLarge = style == .large
         searchViewLeadingConstraint.constant = isLarge
         ? GUI.searchViewLargeLeftMargin

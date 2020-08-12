@@ -13,12 +13,15 @@ struct WelcomeFlowConfiguration {
     let parent: EventNode
 }
 
-class WelcomeCoordinator: EventNode, Coordinator {
+final class WelcomeCoordinator: EventNode {
     
-    private unowned var root: WelcomeViewController!
     private let storyboard: UIStoryboard = R.storyboard.welcome()
     
+    let navigation: UINavigationController
+    
     init(configuration: WelcomeFlowConfiguration) {
+        navigation = UINavigationController(navigationBarClass: NavigationBar.self, toolbarClass: nil)
+        
         super.init(parent: configuration.parent)
         
         addHandler { [weak self] (event: WelcomeEvent) in
@@ -41,20 +44,18 @@ class WelcomeCoordinator: EventNode, Coordinator {
     }
     
     func createFlow() -> UIViewController {
-        
-        // swiftlint:disable force_cast
-        root = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+        let root = R.storyboard.welcome.instantiateInitialViewController()!
         let model = WelcomeModel(parent: self)
         model.output = root
         root.model = model
-        
-        let navigationVC: UINavigationController = UINavigationController(rootViewController: root)
-        navigationVC.isToolbarHidden = true
-        return navigationVC
+    
+        navigation.isToolbarHidden = true
+        navigation.setViewControllers([root], animated: false)
+        return navigation
     }
     
     private func popController() {
-        root.navigationController?.popViewController(animated: true)
+        navigation.popViewController(animated: true)
     }
     
     private func presentCategories(categoryName: String) {
@@ -66,7 +67,7 @@ class WelcomeCoordinator: EventNode, Coordinator {
         model.setup(title: categoryName)
         model.output = vc
         vc.model = model
-        root.navigationController?.pushViewController(vc, animated: true)
+        navigation.pushViewController(vc, animated: true)
     }
 }
 

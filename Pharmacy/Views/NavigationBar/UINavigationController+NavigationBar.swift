@@ -1,5 +1,5 @@
 //
-//  UINavigationController+HomeNavigationBar.swift
+//  UINavigationController+NavigationBar.swift
 //  Pharmacy
 //
 //  Created by Anton Bal’ on 09.08.2020.
@@ -11,35 +11,47 @@ import UIKit
 extension UINavigationController {
     static private var coordinatorHelperKey = "UINavigationController.TransitionCoordinatorHelper"
     
-    var transitionCoordinatorHelper: HomeTransitionCoordinator? {
-        objc_getAssociatedObject(self, &UINavigationController.coordinatorHelperKey) as? HomeTransitionCoordinator
-    }
-    
-    func addCustomTransitioning() {
-        var object = objc_getAssociatedObject(self, &UINavigationController.coordinatorHelperKey)
-        guard object == nil else { return }
-        object = HomeTransitionCoordinator()
-        let nonatomic = objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC
-        objc_setAssociatedObject(self, &UINavigationController.coordinatorHelperKey, object, nonatomic)
-        delegate = object as? HomeTransitionCoordinator
-    }
-    
     open override func viewDidLoad() {
         super.viewDidLoad()
         configCustomNavigationBar()
     }
+
+    open override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let navigationBar = navigationBar as? NavigationBar {
+            viewControllers.forEach { $0.additionalSafeAreaInsets.top = navigationBar.height }
+        }
+    }
+    
+    private var transitionCoordinatorHelper: TransitionCoordinator? {
+        objc_getAssociatedObject(self, &UINavigationController.coordinatorHelperKey) as? TransitionCoordinator
+    }
+    
+    private func addCustomTransitioning() {
+        var object = objc_getAssociatedObject(self, &UINavigationController.coordinatorHelperKey)
+        guard object == nil else { return }
+        object = TransitionCoordinator()
+        let nonatomic = objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC
+        objc_setAssociatedObject(self, &UINavigationController.coordinatorHelperKey, object, nonatomic)
+        delegate = object as? TransitionCoordinator
+    }
+    
     
     @objc private func back() {
         popViewController(animated: true)
     }
     
     private func configCustomNavigationBar() {
-        if let bar = navigationBar as? HomeNavigationBar {
+        if let bar = navigationBar as? NavigationBar {
             addCustomTransitioning()
             bar.backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
             let edgeSwipeGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
             edgeSwipeGestureRecognizer.edges = .left
             view.addGestureRecognizer(edgeSwipeGestureRecognizer)
+            guard let styledVC = viewControllers.first as? NavigationBarStyled else { return }
+            bar.configUIBy(style: styledVC.style)
+            bar.backButton.isHidden = true
+            view.layoutIfNeeded()
         }
     }
     

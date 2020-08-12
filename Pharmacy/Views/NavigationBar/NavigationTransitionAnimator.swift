@@ -1,5 +1,5 @@
 //
-//  HomeTransitionAnimator.swift
+//  NavigationTransitionAnimator.swift
 //  Pharmacy
 //
 //  Created by Anton Bal’ on 09.08.2020.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-final class HomeTransitionCoordinator: NSObject, UINavigationControllerDelegate {
+final class TransitionCoordinator: NSObject, UINavigationControllerDelegate {
 
     var interactionController: UIPercentDrivenInteractiveTransition?
     
     internal func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
         case .push:
-            return HomeTransitionAnimator(presenting: true)
+            return NavigationTransitionAnimator(presenting: true)
         case .pop:
-            return HomeTransitionAnimator(presenting: false)
+            return NavigationTransitionAnimator(presenting: false)
         default:
             return nil
         }
@@ -29,7 +29,7 @@ final class HomeTransitionCoordinator: NSObject, UINavigationControllerDelegate 
 }
 
 
-final class HomeTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+final class NavigationTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     let presenting: Bool
     
@@ -46,10 +46,10 @@ final class HomeTransitionAnimator: NSObject, UIViewControllerAnimatedTransition
         guard let toView = transitionContext.view(forKey: .to) else { return }
         guard let toVC = transitionContext.viewController(forKey: .to) else { return }
         guard let fromVC = transitionContext.viewController(forKey: .from) else { return }
-        guard let navigationBar = toVC.navigationController?.navigationBar as? HomeNavigationBar else { return }
+        guard let navigationBar = toVC.navigationController?.navigationBar as? NavigationBar else { return }
         
-        let toStyle = (toVC as? HomeNavigationBarStyled)?.style ?? .normal
-        let formStyle = (fromVC as? HomeNavigationBarStyled)?.style ?? .normal
+        let toStyle = (toVC as? NavigationBarStyled)?.style ?? .normal
+        let formStyle = (fromVC as? NavigationBarStyled)?.style ?? .normal
         
         let duration = transitionDuration(using: transitionContext)
         
