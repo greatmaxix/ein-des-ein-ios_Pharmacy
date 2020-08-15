@@ -14,11 +14,17 @@ protocol NavigationBarDelegate: class {
 
 protocol NavigationBarStyled {
     var style: NavigationBarStyle { get }
+    var addditionalViews: [UIView] { get }
+}
+
+extension NavigationBarStyled {
+    var addditionalViews: [UIView] { [] }
 }
 
 enum NavigationBarStyle {
     case large
     case normal
+    case normalWithoutSearch
 }
 
 final class NavigationBar: UINavigationBar {
@@ -35,6 +41,7 @@ final class NavigationBar: UINavigationBar {
         static let scanButtonCornerRadius: CGFloat = 6
         static let searchViewBackgorundAlpha: CGFloat = 0.3
         static let searchViewLargeBottomMargin: CGFloat = 16
+        static let searchViewHiddenBottomMargin: CGFloat = 16
         static let searchViewLargeLeftMargin: CGFloat = 16
         static let searchViewNormalBottomMargin: CGFloat = 8
     }
@@ -62,6 +69,9 @@ final class NavigationBar: UINavigationBar {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet private weak var cancelSearchButton: UIButton!
     @IBOutlet private weak var searchButton: UIButton!
+    @IBOutlet private weak var stackView: UIStackView!
+    
+    private var addditionalViews: [UIView] = []
     
     var style: NavigationBarStyle = .normal
     
@@ -183,12 +193,31 @@ extension NavigationBar {
         searchContainerViewBottomConstraint.constant = isLarge
             ? GUI.searchViewLargeBottomMargin
             : GUI.searchViewNormalBottomMargin
+        
+        hideSearchIfNeeded()
     }
     
     func hideButtonsBy(style: NavigationBarStyle) {
         let isLarge = style == .large
         scanButton.isHidden = !isLarge
         backButton.isHidden = isLarge
+        hideSearchIfNeeded()
+    }
+    
+    private func hideSearchIfNeeded() {
+        let isHidden = style == .normalWithoutSearch
+        searchView.isHidden = isHidden
+        scanButton.isHidden = isHidden
+         
+        searchContainerViewBottomConstraint.constant = isHidden
+                   ? GUI.searchViewHiddenBottomMargin
+                   : searchContainerViewBottomConstraint.constant
+    }
+    
+    func fillStackViewWith(additionalViews: [UIView]) {
+        let views = stackView.arrangedSubviews.compactMap {  $0 != scanButton && $0 != searchView ? $0 : nil }
+        views.forEach { stackView.removeArrangedSubview($0); $0.removeFromSuperview() }
+        additionalViews.forEach { stackView.addArrangedSubview($0) }
     }
     
     private func configSearchTextFieldBy(style: NavigationBarStyle) {
@@ -201,12 +230,14 @@ extension NavigationBar {
     fileprivate func showSearchTextFieldAnimated() {
         searchButton.isSelected = true
         cancelSearchButton.isHidden = false
+        scanButton.isHidden = false
         
         textField.textColor = GUI.textFiledDarkTextColor
         configSearchTextFieldBy(style: .large)
         
         UIView.animate(withDuration: GUI.animationDurartion) {
             self.searchView.backgroundColor = .white
+            self.scanButton.alpha = 1
             self.layoutIfNeeded()
         }
     }
@@ -218,9 +249,12 @@ extension NavigationBar {
         textField.textColor = GUI.textFiledNormalTextColor
         configSearchTextFieldBy(style: style)
         
-        UIView.animate(withDuration: GUI.animationDurartion) {
+        UIView.animate(withDuration: GUI.animationDurartion, animations: {
             self.searchView.backgroundColor = UIColor.white.withAlphaComponent(0)
+            self.scanButton.alpha = 0
             self.layoutIfNeeded()
+        }) { (_) in
+            self.scanButton.isHidden = true
         }
     }
 }

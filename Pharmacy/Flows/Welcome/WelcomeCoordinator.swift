@@ -27,7 +27,7 @@ final class WelcomeCoordinator: EventNode {
         addHandler { [weak self] (event: WelcomeEvent) in
             switch event {
             case .openCategories(let categoryName):
-                self?.presentCategories(categoryName: categoryName)
+                self?.openCategories(categoryName: categoryName)
             default:
                 break
             }
@@ -38,7 +38,14 @@ final class WelcomeCoordinator: EventNode {
             case .close:
                 self?.popController()
             case .openMedicineListFor(let category):
-                self?.presenMedicineListFor(category: category)
+                self?.openMedicineListFor(category: category)
+            }
+        }
+        
+        addHandler {  [weak self] (event: MedicineListModelEvent) in
+            switch event {
+            case .openProduct(let medicine):
+                self?.openProductMedicineFor(medicine: medicine)
             }
         }
     }
@@ -73,7 +80,7 @@ extension WelcomeCoordinator {
         navigation.popViewController(animated: true)
     }
     
-    fileprivate func presentCategories(categoryName: String) {
+    fileprivate func openCategories(categoryName: String) {
         let vc = R.storyboard.welcome.catalogsViewController()!
         let model = CatalogsModel(title: categoryName, parent: self)
         model.output = vc
@@ -81,11 +88,13 @@ extension WelcomeCoordinator {
         navigation.pushViewController(vc, animated: true)
     }
     
-    fileprivate func presenMedicineListFor(category: Category) {
-        let vc = R.storyboard.welcome.medicineListViewController()!
-        let model = MedicineListModel(parent: self)
-        model.output = vc
-        vc.model = model
+    fileprivate func openMedicineListFor(category: Category) {
+        let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
+        navigation.pushViewController(vc, animated: true)
+    }
+    
+    fileprivate func openProductMedicineFor(medicine: Medicine) {
+        let vc = ProductCoordinator(configuration: .init(parent: self, navigation: navigation)).createFlowFor(product: medicine)
         navigation.pushViewController(vc, animated: true)
     }
 }

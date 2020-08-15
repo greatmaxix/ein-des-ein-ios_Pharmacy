@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MedicineCell: BaseTableViewCell {
+final class MedicineCell: HighlightedTableViewCell {
     
     @IBOutlet private weak var farmacyImageView: UIImageView!
     @IBOutlet private weak var likedButton: UIButton!

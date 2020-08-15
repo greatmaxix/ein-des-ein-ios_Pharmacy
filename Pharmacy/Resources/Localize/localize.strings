@@ -9,6 +9,7 @@
 //MARK: - General
 
 "general.price.from" = "от";
+"general.price.to" = "до";
 
 // MARK: - TextInputView
 

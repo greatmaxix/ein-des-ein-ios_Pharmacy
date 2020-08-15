@@ -34,7 +34,7 @@ class CatalogsModel: EventNode {
     let title: String
     
     init(title: String, parent: EventNode?) {
-        self.title = title
+        self.title = R.string.localize.welcomeCategories()
         super.init(parent: parent)
     }
 }

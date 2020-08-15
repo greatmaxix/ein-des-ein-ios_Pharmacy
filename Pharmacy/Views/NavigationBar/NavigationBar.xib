@@ -27,6 +27,7 @@
                 <outlet property="searchContainerViewBottomConstraint" destination="7AM-Qv-8qQ" id="J2V-65-S4J"/>
                 <outlet property="searchView" destination="xco-T6-RjQ" id="A2q-je-nEw"/>
                 <outlet property="searchViewLeadingConstraint" destination="pA2-ty-HpN" id="rPt-D6-cXp"/>
+                <outlet property="stackView" destination="YP0-IU-yky" id="3cg-pj-Pou"/>
                 <outlet property="textField" destination="EHj-y1-HZh" id="Fu3-ie-aq5"/>
                 <outlet property="titleBottomConstraint" destination="msl-Tm-oSW" id="Oq6-ET-MGD"/>
                 <outlet property="titleCenterXConstraint" destination="qx0-Og-v1Q" id="2hh-3l-CKy"/>

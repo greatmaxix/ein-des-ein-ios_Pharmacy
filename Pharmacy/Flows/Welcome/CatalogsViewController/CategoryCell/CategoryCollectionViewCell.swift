@@ -8,13 +8,13 @@
 
 import UIKit
 
-final class CategoryCollectionViewCell: UICollectionViewCell {
+final class CategoryCollectionViewCell: HighlightedCollectionViewCell, ContainerView {
     
     private enum GUI {
         static let cornerRadius: CGFloat = 8
     }
     
-    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet internal weak var containerView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     

@@ -13,5 +13,6 @@ target 'Pharmacy' do
   pod 'EventsTree'
   pod 'Moya', '~> 14.0'
   pod 'Kingfisher', '~> 5.0'
+  pod "TTGTagCollectionView"
 
 end

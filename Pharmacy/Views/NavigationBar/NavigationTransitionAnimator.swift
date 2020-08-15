@@ -49,7 +49,9 @@ final class NavigationTransitionAnimator: NSObject, UIViewControllerAnimatedTran
         guard let navigationBar = toVC.navigationController?.navigationBar as? NavigationBar else { return }
         
         let toStyle = (toVC as? NavigationBarStyled)?.style ?? .normal
-        let formStyle = (fromVC as? NavigationBarStyled)?.style ?? .normal
+        let fromStyle = (fromVC as? NavigationBarStyled)?.style ?? .normal
+        let toAdditionalViews = (toVC as? NavigationBarStyled)?.addditionalViews ?? []
+        let fromAdditionalViews = (fromVC as? NavigationBarStyled)?.addditionalViews ?? []
         
         let duration = transitionDuration(using: transitionContext)
         
@@ -95,11 +97,13 @@ final class NavigationTransitionAnimator: NSObject, UIViewControllerAnimatedTran
         }) { finished in
             
             if transitionContext.transitionWasCancelled {
-                navigationBar.hideButtonsBy(style: formStyle)
-                navigationBar.configUIBy(style: formStyle)
+                navigationBar.hideButtonsBy(style: fromStyle)
+                navigationBar.configUIBy(style: fromStyle)
                 navigationBar.title = fromVC.title
+                navigationBar.fillStackViewWith(additionalViews: fromAdditionalViews)
             } else {
-                 navigationBar.hideButtonsBy(style: toStyle)
+                navigationBar.hideButtonsBy(style: toStyle)
+                navigationBar.fillStackViewWith(additionalViews: toAdditionalViews)
             }
             
             container.addSubview(toView)

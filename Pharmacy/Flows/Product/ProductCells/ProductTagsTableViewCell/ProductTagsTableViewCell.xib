@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="220" id="KGk-i7-Jjw" customClass="ProductTagsTableViewCell" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="366" height="220"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="366" height="220"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Теги :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtJ-72-syp">
+                        <rect key="frame" x="20" y="27" width="326" height="19"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                        <color key="textColor" name="textDarkBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aRH-Gj-rs4" customClass="TTGTextTagCollectionView">
+                        <rect key="frame" x="20" y="62" width="326" height="138"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="aRH-Gj-rs4" firstAttribute="top" secondItem="rtJ-72-syp" secondAttribute="bottom" constant="16" id="HBF-Ho-jG7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="aRH-Gj-rs4" secondAttribute="trailing" id="QNw-88-w5e"/>
+                    <constraint firstItem="rtJ-72-syp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="SVF-ay-rV5"/>
+                    <constraint firstItem="rtJ-72-syp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="TwX-bF-P8E"/>
+                    <constraint firstAttribute="bottom" secondItem="aRH-Gj-rs4" secondAttribute="bottom" constant="20" id="hdo-Uk-ptQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="rtJ-72-syp" secondAttribute="trailing" id="iLy-Ff-tmf"/>
+                    <constraint firstItem="aRH-Gj-rs4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="veH-1H-S0M"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="tagsView" destination="aRH-Gj-rs4" id="j0v-C8-YNA"/>
+            </connections>
+            <point key="canvasLocation" x="104.34782608695653" y="211.60714285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

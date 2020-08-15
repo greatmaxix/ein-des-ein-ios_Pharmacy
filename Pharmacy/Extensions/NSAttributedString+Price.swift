@@ -12,15 +12,22 @@ import Foundation
 extension NSAttributedString {
     
     static func fromPriceAttributed(for price: String, currency: String ) -> NSAttributedString {
-        let fromText = R.string.localize.generalPriceFrom()
-        let text = "\(fromText) \(price) \(currency)"
+        priceAttributed(for: price, currency: currency, prefixText: R.string.localize.generalPriceFrom())
+    }
+    
+    static func toPriceAttributed(for price: String, currency: String ) -> NSAttributedString {
+        priceAttributed(for: price, currency: currency, prefixText: R.string.localize.generalPriceTo())
+    }
+    
+    static func priceAttributed(for price: String, currency: String, prefixText: String) -> NSAttributedString {
+        let text = "\(prefixText) \(price) \(currency)"
         
         let fromFont = R.font.openSansRegular(size: 12)!
         let font =  R.font.openSansSemiBold(size: 24)!
         let color = R.color.welcomeBlue()!
         
         let att = NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.font: font, .foregroundColor: color])
-        att.addAttribute(.font, value: fromFont, range: NSRange(location: 0, length: fromText.count))
+        att.addAttribute(.font, value: fromFont, range: NSRange(location: 0, length: prefixText.count))
         
         return att
     }

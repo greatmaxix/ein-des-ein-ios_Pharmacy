@@ -16,6 +16,7 @@ final class MedicineListViewController: UIViewController {
     enum GUI {
         static let sortButtonImagePadding: CGFloat = 9
         static let separatorInset = UIEdgeInsets.only(left: 135)
+        static let separatorColor = R.color.applyBlueGray()?.withAlphaComponent(0.2)
     }
     
     @IBOutlet private weak var tableView: UITableView!
@@ -33,8 +34,10 @@ final class MedicineListViewController: UIViewController {
     //MARK: - Private
     
     private func configUI() {
+        title = model.title
         tableView.separatorInset = GUI.separatorInset
-        tableView.separatorColor = R.color.applyBlueGray()!
+        tableView.separatorColor = GUI.separatorColor
+        tableView.delegate = self
         sortButton.setTitle(R.string.localize.medicineSort(), for: .normal)
         sortButton.setTrailingImageViewWith(padding: GUI.sortButtonImagePadding)
     }
@@ -52,6 +55,15 @@ extension MedicineListViewController: MedicineListViewControllerInput {
     func didLoadList() {
         model.medicineDataSource.assign(tableView: tableView)
         productCountLabel.attributedText = titleAttributed(count: model.medicineDataSource.cells.count)
+    }
+}
+
+//MARK: - UITableViewDelegate
+
+extension MedicineListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        model.didSelectProductBy(indexPath: indexPath)
     }
 }
 
