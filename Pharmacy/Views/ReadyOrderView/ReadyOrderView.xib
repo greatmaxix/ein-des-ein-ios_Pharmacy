@@ -27,18 +27,23 @@
                         <constraint firstAttribute="width" secondItem="OmQ-Ud-FHV" secondAttribute="height" multiplier="1:1" id="x8U-9c-YI2"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rad-se-GTZ">
-                    <rect key="frame" x="64" y="16" width="34.5" height="16.5"/>
-                    <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xQ-zk-ubF">
-                    <rect key="frame" x="64" y="36.5" width="29.5" height="14"/>
-                    <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="12"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rGQ-ko-59u">
+                    <rect key="frame" x="56" y="23" width="240" height="34.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rad-se-GTZ">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="16.5"/>
+                            <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xQ-zk-ubF">
+                            <rect key="frame" x="0.0" y="20.5" width="240" height="14"/>
+                            <fontDescription key="fontDescription" name="NotoSansJP-Regular" family="Noto Sans JP" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcomeBox" translatesAutoresizingMaskIntoConstraints="NO" id="oZg-RN-mfo">
                     <rect key="frame" x="312" y="8" width="24" height="24"/>
                     <constraints>
@@ -48,17 +53,14 @@
             </subviews>
             <color key="backgroundColor" name="welcomeGreen"/>
             <constraints>
-                <constraint firstItem="8xQ-zk-ubF" firstAttribute="leading" secondItem="rad-se-GTZ" secondAttribute="leading" id="0HD-w8-K4e"/>
                 <constraint firstAttribute="trailing" secondItem="oZg-RN-mfo" secondAttribute="trailing" constant="8" id="9R0-ai-uH6"/>
+                <constraint firstItem="rGQ-ko-59u" firstAttribute="centerY" secondItem="OmQ-Ud-FHV" secondAttribute="centerY" id="ArP-Jp-1BA"/>
                 <constraint firstItem="OmQ-Ud-FHV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IO6-fw-JrC"/>
-                <constraint firstItem="8xQ-zk-ubF" firstAttribute="top" secondItem="rad-se-GTZ" secondAttribute="bottom" constant="4" id="LgQ-2v-BEV"/>
-                <constraint firstItem="rad-se-GTZ" firstAttribute="top" secondItem="OmQ-Ud-FHV" secondAttribute="top" constant="-4" id="RXm-es-hmo"/>
+                <constraint firstItem="rGQ-ko-59u" firstAttribute="leading" secondItem="OmQ-Ud-FHV" secondAttribute="trailing" constant="8" id="Tch-bW-mWz"/>
                 <constraint firstAttribute="top" secondItem="oZg-RN-mfo" secondAttribute="top" constant="-8" id="VJ3-rs-yy0"/>
-                <constraint firstItem="rad-se-GTZ" firstAttribute="leading" secondItem="OmQ-Ud-FHV" secondAttribute="trailing" constant="16" id="eOj-Tj-AD6"/>
+                <constraint firstItem="oZg-RN-mfo" firstAttribute="leading" secondItem="rGQ-ko-59u" secondAttribute="trailing" constant="16" id="iGV-uJ-F2Q"/>
                 <constraint firstItem="OmQ-Ud-FHV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="jjF-EO-qfS"/>
-                <constraint firstItem="oZg-RN-mfo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8xQ-zk-ubF" secondAttribute="trailing" constant="8" id="kFJ-2q-pwG"/>
                 <constraint firstItem="oZg-RN-mfo" firstAttribute="width" secondItem="oZg-RN-mfo" secondAttribute="height" multiplier="1:1" id="mX8-7n-0jS"/>
-                <constraint firstItem="oZg-RN-mfo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rad-se-GTZ" secondAttribute="trailing" constant="8" id="pY0-Yo-8xJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

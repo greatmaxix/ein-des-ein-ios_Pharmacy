@@ -44,8 +44,8 @@ extension EditProfileModel: EditProfileInput {
     
     func saveProfile(name: String, phone: String, email: String) {
         if let oldProfile = getUser() {
-            let user = User(name: name, email: email, phone: phone, uuid: oldProfile.uuid)
-            updateUser(newUser: user)
+            //let user = User(name: name, email: email, phone: phone, uuid: oldProfile.uuid)
+            //updateUser(newUser: user)
         }
     }
     

@@ -27,11 +27,11 @@ final class AppNavigation: EventNode {
     }
 
     func startFlow() {
-        presentAuthFlow()
+        presentMainFlow()
     }
     
     func startMainFlow() {
-        presentMainFlow()
+        presentAuthFlow()
     }
 }
 

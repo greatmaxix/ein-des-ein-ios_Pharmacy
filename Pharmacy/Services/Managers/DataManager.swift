@@ -8,7 +8,12 @@
 
 import Foundation
 import Moya
-import Result
+
+struct Responce<U: Decodable>: Decodable {
+    let message: String
+    let status: String
+    let data: U
+}
 
 protocol ParseKeyPath {
     static var parseKeyPathExtension: String { get }
@@ -58,13 +63,16 @@ class DataManager<T, U> where T: TargetType, U: Decodable {
                     keyPath = String()
                 }
 
-                let data = try successResponse.map(U.self,
-                                                   atKeyPath: keyPath,
-                                                   using: jsonDecoder,
-                                                   failsOnEmptyData: false)
-                self.data = data
+                let responceData = try successResponse.map(Responce<U>.self,
+                                                           atKeyPath: keyPath,
+                                                           using: jsonDecoder,
+                                                           failsOnEmptyData: false)
+               
+                
+                
+                self.data = responceData.data
                 isLoading = false
-                self.completion?(.success(data))
+                self.completion?(.success(responceData.data))
             } catch let error as MoyaError {
                 isLoading = false
                 self.completion?(.failure(error))

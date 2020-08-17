@@ -10,22 +10,24 @@ import Foundation
 import EventsTree
 
 struct WelcomeFlowConfiguration {
-    
     let parent: EventNode
 }
 
-class WelcomeCoordinator: EventNode, Coordinator {
+final class WelcomeCoordinator: EventNode {
     
-    private unowned var root: WelcomeViewController!
     private let storyboard: UIStoryboard = R.storyboard.welcome()
     
+    let navigation: UINavigationController
+    
     init(configuration: WelcomeFlowConfiguration) {
+        navigation = UINavigationController(navigationBarClass: NavigationBar.self, toolbarClass: nil)
+        
         super.init(parent: configuration.parent)
         
         addHandler { [weak self] (event: WelcomeEvent) in
             switch event {
             case .openCategories(let categoryName):
-                self?.presentCategories(categoryName: categoryName)
+                self?.openCategories(categoryName: categoryName)
             default:
                 break
             }
@@ -35,40 +37,31 @@ class WelcomeCoordinator: EventNode, Coordinator {
             switch event {
             case .close:
                 self?.popController()
-            default:
-                break
+            case .openMedicineListFor(let category):
+                self?.openMedicineListFor(category: category)
+            }
+        }
+        
+        addHandler {  [weak self] (event: MedicineListModelEvent) in
+            switch event {
+            case .openProduct(let medicine):
+                self?.openProductMedicineFor(medicine: medicine)
             }
         }
     }
     
     func createFlow() -> UIViewController {
-        
-        // swiftlint:disable force_cast
-        root = storyboard.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+        let root = R.storyboard.welcome.instantiateInitialViewController()!
         let model = WelcomeModel(parent: self)
         model.output = root
         root.model = model
         
-        let navigationVC: UINavigationController = UINavigationController(rootViewController: root)
-        navigationVC.isToolbarHidden = true
-        return navigationVC
+        navigation.isToolbarHidden = true
+        navigation.setViewControllers([root], animated: false)
+        return navigation
     }
     
-    private func popController() {
-        root.navigationController?.popViewController(animated: true)
-    }
     
-    private func presentCategories(categoryName: String) {
-        guard let vc: CatalogsViewController = storyboard.instantiateViewController(withIdentifier: "CatalogsViewController") as? CatalogsViewController else {
-            return
-        }
-        
-        let model = CatalogsModel(parent: self)
-        model.setup(title: categoryName)
-        model.output = vc
-        vc.model = model
-        root.navigationController?.pushViewController(vc, animated: true)
-    }
 }
 
 // MARK: - TabBarEmbedCoordinable
@@ -76,6 +69,32 @@ class WelcomeCoordinator: EventNode, Coordinator {
 extension WelcomeCoordinator: TabBarEmbedCoordinable {
     
     var tabItemInfo: TabBarItemInfo {
-        return TabBarItemInfo(title: R.string.localize.tabbarMain(), icon: R.image.tabbarMain(), highlightedIcon: R.image.tabbarMain())
+        return TabBarItemInfo(title: R.string.localize.tabbarMain(),
+                              icon: R.image.tabbarMain(),
+                              highlightedIcon: R.image.tabbarMain())
+    }
+}
+
+extension WelcomeCoordinator {
+    fileprivate func popController() {
+        navigation.popViewController(animated: true)
+    }
+    
+    fileprivate func openCategories(categoryName: String) {
+        let vc = R.storyboard.welcome.catalogsViewController()!
+        let model = CatalogsModel(title: categoryName, parent: self)
+        model.output = vc
+        vc.model = model
+        navigation.pushViewController(vc, animated: true)
+    }
+    
+    fileprivate func openMedicineListFor(category: Category) {
+        let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
+        navigation.pushViewController(vc, animated: true)
+    }
+    
+    fileprivate func openProductMedicineFor(medicine: Medicine) {
+        let vc = ProductCoordinator(configuration: .init(parent: self, navigation: navigation)).createFlowFor(product: medicine)
+        navigation.pushViewController(vc, animated: true)
     }
 }

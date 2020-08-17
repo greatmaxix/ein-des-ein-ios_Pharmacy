@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationBar" customModule="Pharmacy" customModuleProvider="target">
+            <connections>
+                <outlet property="backButton" destination="ayr-iR-W0Y" id="xie-fD-tGS"/>
+                <outlet property="backButtonConstraint" destination="s23-MD-rFy" id="mcA-yM-V4Z"/>
+                <outlet property="cancelSearchButton" destination="h2J-zK-4IY" id="3Yn-TY-6nR"/>
+                <outlet property="scanButton" destination="vgu-Y8-T4D" id="pAD-SY-F7U"/>
+                <outlet property="searchButton" destination="sL4-RM-eDS" id="SO6-zD-ksA"/>
+                <outlet property="searchContainerViewBottomConstraint" destination="7AM-Qv-8qQ" id="J2V-65-S4J"/>
+                <outlet property="searchView" destination="xco-T6-RjQ" id="A2q-je-nEw"/>
+                <outlet property="searchViewLeadingConstraint" destination="pA2-ty-HpN" id="rPt-D6-cXp"/>
+                <outlet property="stackView" destination="YP0-IU-yky" id="3cg-pj-Pou"/>
+                <outlet property="textField" destination="EHj-y1-HZh" id="Fu3-ie-aq5"/>
+                <outlet property="titleBottomConstraint" destination="msl-Tm-oSW" id="Oq6-ET-MGD"/>
+                <outlet property="titleCenterXConstraint" destination="qx0-Og-v1Q" id="2hh-3l-CKy"/>
+                <outlet property="titleCenterYConstraint" destination="ITE-ff-jmb" id="hax-sV-faT"/>
+                <outlet property="titleLabel" destination="WH4-I2-bvT" id="5jG-qZ-vsX"/>
+                <outlet property="titleLeadingConstraint" destination="lhs-ab-9zg" id="u1s-9D-FPG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="449" height="244"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hd1-fq-e0X">
+                    <rect key="frame" x="0.0" y="0.0" width="449" height="244"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Начните поиск" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WH4-I2-bvT">
+                            <rect key="frame" x="18" y="103.5" width="222.5" height="37.5"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="32"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YP0-IU-yky">
+                            <rect key="frame" x="18" y="153" width="415" height="75"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xco-T6-RjQ">
+                                    <rect key="frame" x="0.0" y="16" width="367" height="43"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sL4-RM-eDS">
+                                            <rect key="frame" x="9" y="9.5" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="ecP-85-dEL"/>
+                                                <constraint firstAttribute="height" constant="24" id="pdG-my-XzN"/>
+                                            </constraints>
+                                            <state key="normal" image="welcomeSearch"/>
+                                            <state key="selected" image="backArrow"/>
+                                            <connections>
+                                                <action selector="searchButtonAction:" destination="-1" eventType="touchUpInside" id="aBc-sS-vIb"/>
+                                            </connections>
+                                        </button>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EHj-y1-HZh">
+                                            <rect key="frame" x="46" y="9.5" width="279" height="24"/>
+                                            <color key="tintColor" name="welcomeBlue"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="ctw-s9-vr4"/>
+                                            </constraints>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                        </textField>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2J-zK-4IY">
+                                            <rect key="frame" x="334" y="9.5" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="ZcN-hh-Hmw"/>
+                                                <constraint firstAttribute="height" constant="24" id="oKf-RL-zpN"/>
+                                            </constraints>
+                                            <state key="normal" image="cancelSearch"/>
+                                            <connections>
+                                                <action selector="cancelSearchAction:" destination="-1" eventType="touchUpInside" id="Jdc-7n-eI8"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="43" id="68E-BX-MhD"/>
+                                        <constraint firstItem="EHj-y1-HZh" firstAttribute="centerY" secondItem="xco-T6-RjQ" secondAttribute="centerY" id="9MN-DC-AST"/>
+                                        <constraint firstItem="h2J-zK-4IY" firstAttribute="leading" secondItem="EHj-y1-HZh" secondAttribute="trailing" constant="9" id="NGN-oc-QLN"/>
+                                        <constraint firstItem="EHj-y1-HZh" firstAttribute="leading" secondItem="sL4-RM-eDS" secondAttribute="trailing" priority="999" constant="13" id="Pmt-0l-aF6"/>
+                                        <constraint firstItem="sL4-RM-eDS" firstAttribute="leading" secondItem="xco-T6-RjQ" secondAttribute="leading" constant="9" id="R9y-E4-Wbm"/>
+                                        <constraint firstItem="h2J-zK-4IY" firstAttribute="centerY" secondItem="xco-T6-RjQ" secondAttribute="centerY" id="Vw9-4A-TbG"/>
+                                        <constraint firstAttribute="trailing" secondItem="h2J-zK-4IY" secondAttribute="trailing" constant="9" id="pC1-RV-1Ft"/>
+                                        <constraint firstItem="sL4-RM-eDS" firstAttribute="centerY" secondItem="xco-T6-RjQ" secondAttribute="centerY" id="tCA-X3-ECN"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-Y8-T4D">
+                                    <rect key="frame" x="383" y="21.5" width="32" height="32"/>
+                                    <color key="backgroundColor" name="validationGreen"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="vgu-Y8-T4D" secondAttribute="height" multiplier="1:1" priority="999" id="AK9-El-gnu"/>
+                                        <constraint firstAttribute="height" constant="32" id="cGr-Gq-ESd"/>
+                                    </constraints>
+                                    <state key="normal" image="barcode"/>
+                                    <connections>
+                                        <action selector="scanButtonAction:" destination="-1" eventType="touchUpInside" id="g1U-Yk-cGX"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayr-iR-W0Y">
+                            <rect key="frame" x="22" y="12" width="20" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="Nk9-44-yfB"/>
+                                <constraint firstAttribute="width" constant="20" id="cDF-C5-fYc"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="leftArrow"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="welcomeBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="YP0-IU-yky" secondAttribute="bottom" constant="16" id="7AM-Qv-8qQ"/>
+                        <constraint firstItem="WH4-I2-bvT" firstAttribute="centerY" secondItem="Hd1-fq-e0X" secondAttribute="centerY" id="ITE-ff-jmb"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WH4-I2-bvT" secondAttribute="trailing" constant="18" id="Jw8-kj-fRc"/>
+                        <constraint firstAttribute="trailing" secondItem="YP0-IU-yky" secondAttribute="trailing" constant="16" id="jZT-r6-1QA"/>
+                        <constraint firstItem="ayr-iR-W0Y" firstAttribute="leading" secondItem="Hd1-fq-e0X" secondAttribute="leading" constant="22" id="kJL-VA-EXl"/>
+                        <constraint firstItem="WH4-I2-bvT" firstAttribute="leading" secondItem="Hd1-fq-e0X" secondAttribute="leading" constant="18" id="lhs-ab-9zg"/>
+                        <constraint firstItem="YP0-IU-yky" firstAttribute="top" secondItem="WH4-I2-bvT" secondAttribute="bottom" constant="12" id="msl-Tm-oSW"/>
+                        <constraint firstItem="YP0-IU-yky" firstAttribute="leading" secondItem="Hd1-fq-e0X" secondAttribute="leading" constant="18" id="pA2-ty-HpN"/>
+                        <constraint firstItem="WH4-I2-bvT" firstAttribute="centerX" secondItem="Hd1-fq-e0X" secondAttribute="centerX" id="qx0-Og-v1Q"/>
+                        <constraint firstItem="ayr-iR-W0Y" firstAttribute="top" secondItem="Hd1-fq-e0X" secondAttribute="top" constant="12" id="s23-MD-rFy"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="qx0-Og-v1Q"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="welcomeBlue"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Hd1-fq-e0X" secondAttribute="bottom" id="JZS-Ba-uWS"/>
+                <constraint firstItem="Hd1-fq-e0X" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Var-YA-Bc3"/>
+                <constraint firstItem="Hd1-fq-e0X" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="g7y-Se-wCx"/>
+                <constraint firstItem="Hd1-fq-e0X" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jXx-CU-fKz"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="163.04347826086959" y="-67.633928571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backArrow" width="24" height="24"/>
+        <image name="barcode" width="24" height="24"/>
+        <image name="cancelSearch" width="24" height="24"/>
+        <image name="leftArrow" width="28" height="28"/>
+        <image name="welcomeSearch" width="24" height="24"/>
+        <namedColor name="validationGreen">
+            <color red="0.20784313725490197" green="0.90980392156862744" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="welcomeBlue">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

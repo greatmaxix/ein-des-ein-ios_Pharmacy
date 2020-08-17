@@ -25,17 +25,17 @@ extension AuthAPI: TargetType, AccessTokenAuthorizable {
 
     // Change this for real one
     var baseURL: URL {
-        return URL(string: "https://api.pharmacies.fmc-dev.com")!
+        return URL(string: "https://api.pharmacies.release.fmc-dev.com/api/v1/")!
     }
 
     var path: String {
         switch self {
         case .register:
-            return "/api/v1/customer/registration"
+            return "customer/registration"
         case .requestCodeFor:
-            return "/api/v1/customer/auth"
+            return "customer/auth"
         case .login:
-            return "/api/v1/customer/login"
+            return "customer/login"
         }
     }
 
@@ -60,7 +60,7 @@ extension AuthAPI: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: [
                 "phone" : phone], encoding: JSONEncoding.default)
         case .register(name: let name, phone: let phone, let email):
-            var params = ["username" : name, "phone" : phone]
+            var params = ["name" : name, "phone" : phone]
             if let email = email {
                 params["email"] = email
             }

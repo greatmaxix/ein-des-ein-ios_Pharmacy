@@ -10,10 +10,12 @@ import Foundation
 
 struct LoginResponse: Equatable, Codable {
     var token: String
+    var refreshToken: String
     var user: User
     
     enum CodingKeys: String, CodingKey {
+        case user = "item"
         case token
-        case user = "customer"
+        case refreshToken
     }
 }

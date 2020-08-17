@@ -74,7 +74,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
 extension ProfileFlowCoordinator: TabBarEmbedCoordinable {
     
     var tabItemInfo: TabBarItemInfo {
-        // return TabBarItemInfo(title: R.string.localize.tabbarProfile(), icon: R.image.profileProxy(), highlightedIcon: R.image.profileProxy())
-        return TabBarItemInfo(title: nil, icon: nil, highlightedIcon: nil)
+        return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
+                              icon: R.image.profileProxy()?.withRenderingMode(.alwaysOriginal),
+                              highlightedIcon: R.image.profileProxy()?.withRenderingMode(.alwaysOriginal))
     }
 }

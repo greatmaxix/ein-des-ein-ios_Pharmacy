@@ -25,6 +25,18 @@ extension UIView {
         dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
     }
     
+    func bottomViewDropGrayShadow() {
+        dropShadow(scale: true, color: R.color.gray(), width: 0, height: -4, radius: 8, opacity: 0.1)
+    }
+    
+    func buttonDropBlueShadow() {
+        dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 4, radius: 20, opacity: 0.1)
+    }
+    
+    func dropLightBlueShadow() {
+        dropShadow(scale: true, color: R.color.lightBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
+    }
+    
     func removeShadow() {
         layer.shadowColor = nil
         layer.shadowOpacity = 0

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="126" id="KGk-i7-Jjw" customClass="ProductAnalogTableViewCell" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="363" height="126"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="363" height="126"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dp7-dl-jI0">
+                        <rect key="frame" x="20" y="27" width="323" height="80"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Аналоги и основное действующее вещетсво" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guo-EC-Gs3">
+                                <rect key="frame" x="16" y="12" width="291" height="27"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsr-6i-bXm">
+                                <rect key="frame" x="16" y="47" width="291" height="21"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="vxO-ou-OHG">
+                                <rect key="frame" x="269" y="28" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="CUp-RI-jCB"/>
+                                    <constraint firstAttribute="height" constant="24" id="LNj-wD-fO5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="violet"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vxO-ou-OHG" secondAttribute="trailing" constant="30" id="F8j-0x-tFb"/>
+                            <constraint firstItem="guo-EC-Gs3" firstAttribute="leading" secondItem="dp7-dl-jI0" secondAttribute="leading" constant="16" id="FOh-5S-oAv"/>
+                            <constraint firstItem="guo-EC-Gs3" firstAttribute="top" secondItem="dp7-dl-jI0" secondAttribute="top" constant="12" id="Qyg-ZR-vDi"/>
+                            <constraint firstAttribute="trailing" secondItem="guo-EC-Gs3" secondAttribute="trailing" constant="16" id="eRL-Gd-Ch4"/>
+                            <constraint firstAttribute="bottom" secondItem="qsr-6i-bXm" secondAttribute="bottom" constant="12" id="eVV-K2-mjd"/>
+                            <constraint firstItem="qsr-6i-bXm" firstAttribute="top" secondItem="guo-EC-Gs3" secondAttribute="bottom" constant="8" id="opG-xy-Olt"/>
+                            <constraint firstAttribute="trailing" secondItem="qsr-6i-bXm" secondAttribute="trailing" constant="16" id="rth-aG-AQ2"/>
+                            <constraint firstItem="vxO-ou-OHG" firstAttribute="centerY" secondItem="dp7-dl-jI0" secondAttribute="centerY" id="s4q-5u-VFV"/>
+                            <constraint firstItem="qsr-6i-bXm" firstAttribute="leading" secondItem="dp7-dl-jI0" secondAttribute="leading" constant="16" id="uxL-LA-KXD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="dp7-dl-jI0" secondAttribute="bottom" constant="8" id="7Ft-YY-ZPJ"/>
+                    <constraint firstItem="dp7-dl-jI0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="blo-No-OMf"/>
+                    <constraint firstItem="dp7-dl-jI0" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="cRv-qd-Nex"/>
+                    <constraint firstItem="dp7-dl-jI0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="pDJ-if-ybS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="containerView" destination="dp7-dl-jI0" id="f2Z-jn-kpD"/>
+                <outlet property="titleLabel" destination="qsr-6i-bXm" id="YdT-nU-gE8"/>
+            </connections>
+            <point key="canvasLocation" x="76.08695652173914" y="121.20535714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="rightArrow" width="24" height="24"/>
+        <namedColor name="violet">
+            <color red="0.43137254901960786" green="0.49019607843137253" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
