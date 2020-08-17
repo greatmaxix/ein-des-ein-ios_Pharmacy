@@ -56,23 +56,9 @@ final class EditProfileViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         userImageView.layer.cornerRadius = userImageView.bounds.height / 2
         editPhotoButton.layer.cornerRadius = editPhotoButton.bounds.height / 2
-        setBlur()
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(endTextfieldEditing))
         view.addGestureRecognizer(tapGesture)
-    }
-
-    private func setBlur() {
-        if let image = userImageView.image, var ciImage = CIImage(image: image) {
-
-            ciImage = ciImage.applyingGaussianBlur(sigma: 5)
-            let extent = ciImage.extent
-            let space = abs(ciImage.extent.origin.x)
-            let rect = CGRect(x: 0, y: 0, width: extent.width - space * 2, height: extent.height - space * 2)
-            let croppedImage = ciImage.cropped(to: rect)
-            let blurredImage = UIImage(ciImage: croppedImage)
-            userImageView.image = blurredImage
-        }
     }
     
     private func setupLocalization() {
@@ -99,8 +85,8 @@ final class EditProfileViewController: UIViewController {
         
         let alertVC = UIAlertController(title: R.string.localize.profileMakePhoto(), message: R.string.localize.profileMakePhotoDescription(), preferredStyle: .alert)
         
-        alertVC.addAction(UIAlertAction(title: R.string.localize.profileCamera(), style: .default, handler: { _ in
-            print("Open camera")
+        alertVC.addAction(UIAlertAction(title: R.string.localize.profileCamera(), style: .default, handler: { [weak self] _ in
+            self?.openCamera()
         }))
         alertVC.addAction(UIAlertAction(title: R.string.localize.profileGalery(), style: .default, handler: { [weak self] _ in
             self?.openPhotoLibrary()
@@ -112,6 +98,12 @@ final class EditProfileViewController: UIViewController {
     
     private func openPhotoLibrary() {
         imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func openCamera() {
+        imagePicker.sourceType = .camera
         imagePicker.allowsEditing = false
         present(imagePicker, animated: true, completion: nil)
     }
@@ -133,8 +125,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         
         if let image: UIImage = info[.originalImage] as? UIImage {
             model.saveImage(image: image)
-            userImageView.image = image
-            setBlur()
+            userImageView.image = image.bluredImage(sigma: 10)
         }
         picker.dismiss(animated: true, completion: nil)
     }
