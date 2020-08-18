@@ -48,10 +48,12 @@ extension UINavigationController {
             let edgeSwipeGestureRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
             edgeSwipeGestureRecognizer.edges = .left
             view.addGestureRecognizer(edgeSwipeGestureRecognizer)
-            guard let styledVC = viewControllers.first as? NavigationBarStyled else { return }
-            bar.configUIBy(style: styledVC.style)
+            let style = (viewControllers.first as? NavigationBarStyled)?.style ?? .normal
+            bar.configUIBy(style: style)
             bar.backButton.isHidden = true
+            bar.title = viewControllers.first?.title
             view.layoutIfNeeded()
+            hideKeyboardByTap()
         }
     }
     

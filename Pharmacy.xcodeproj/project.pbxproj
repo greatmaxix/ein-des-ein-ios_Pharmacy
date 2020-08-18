@@ -139,6 +139,12 @@
 		6075BD5824DEB94F00BC78BD /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075BD5724DEB94F00BC78BD /* NavigationBar.swift */; };
 		6075BD5A24DEB9EA00BC78BD /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075BD5924DEB9EA00BC78BD /* UIView+Nib.swift */; };
 		6075BD5C24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075BD5B24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift */; };
+		60E1A6F424EB8C5E00B3D205 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A6F224EB8C5E00B3D205 /* SearchTableViewCell.swift */; };
+		60E1A6F524EB8C5E00B3D205 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E1A6F324EB8C5E00B3D205 /* SearchTableViewCell.xib */; };
+		60E1A6F724EB8C7800B3D205 /* SearchCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A6F624EB8C7800B3D205 /* SearchCellSection.swift */; };
+		60E1A6F924EBB1DC00B3D205 /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A6F824EBB1DC00B3D205 /* UIImage+Blur.swift */; };
+		60E1A6FB24EBB20E00B3D205 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A6FA24EBB20E00B3D205 /* UIViewController+Keyboard.swift */; };
+		60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A6FC24EBB25B00B3D205 /* NSObject+RunTime.swift */; };
 		60F2673924E0550E00BFF296 /* UINavigationController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F2673824E0550E00BFF296 /* UINavigationController+NavigationBar.swift */; };
 		60F2673B24E0566B00BFF296 /* NavigationTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F2673A24E0566B00BFF296 /* NavigationTransitionAnimator.swift */; };
 		618C33952498BD6700951D11 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33942498BD6700951D11 /* AppNavigation.swift */; };
@@ -293,6 +299,12 @@
 		6075BD5724DEB94F00BC78BD /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		6075BD5924DEB9EA00BC78BD /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		6075BD5B24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
+		60E1A6F224EB8C5E00B3D205 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		60E1A6F324EB8C5E00B3D205 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		60E1A6F624EB8C7800B3D205 /* SearchCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellSection.swift; sourceTree = "<group>"; };
+		60E1A6F824EBB1DC00B3D205 /* UIImage+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Blur.swift"; sourceTree = "<group>"; };
+		60E1A6FA24EBB20E00B3D205 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		60E1A6FC24EBB25B00B3D205 /* NSObject+RunTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+RunTime.swift"; sourceTree = "<group>"; };
 		60F2673824E0550E00BFF296 /* UINavigationController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+NavigationBar.swift"; sourceTree = "<group>"; };
 		60F2673A24E0566B00BFF296 /* NavigationTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTransitionAnimator.swift; sourceTree = "<group>"; };
 		618C33942498BD6700951D11 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
@@ -347,6 +359,8 @@
 			isa = PBXGroup;
 			children = (
 				603D31FC24E64912000E5A6C /* UITableViewCell.swift */,
+				60E1A6F824EBB1DC00B3D205 /* UIImage+Blur.swift */,
+				60E1A6FA24EBB20E00B3D205 /* UIViewController+Keyboard.swift */,
 				39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */,
 				603D31B724E3F57B000E5A6C /* NSAttributedString+Price.swift */,
 				39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */,
@@ -355,6 +369,7 @@
 				603D31AA24E3BFBE000E5A6C /* UIEdgeInsets.swift */,
 				603D31B524E3D323000E5A6C /* UIButton.swift */,
 				396448DE24ADE13F00E6D852 /* UserDefaults+User.swift */,
+				60E1A6FC24EBB25B00B3D205 /* NSObject+RunTime.swift */,
 				603D31B924E3FA1F000E5A6C /* UIImageView+URL.swift */,
 			);
 			path = Extensions;
@@ -654,6 +669,7 @@
 		6036EB0124DD2740003336C2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				60E1A6F124EB8C3D00B3D205 /* SearchTableViewCell */,
 				6036EB0224DD27A5003336C2 /* Search.storyboard */,
 				6036EB0424DD27B1003336C2 /* SearchViewController.swift */,
 				6036EB0624DD27BB003336C2 /* SearchModel.swift */,
@@ -885,6 +901,16 @@
 			path = NavigationBar;
 			sourceTree = "<group>";
 		};
+		60E1A6F124EB8C3D00B3D205 /* SearchTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				60E1A6F624EB8C7800B3D205 /* SearchCellSection.swift */,
+				60E1A6F224EB8C5E00B3D205 /* SearchTableViewCell.swift */,
+				60E1A6F324EB8C5E00B3D205 /* SearchTableViewCell.xib */,
+			);
+			path = SearchTableViewCell;
+			sourceTree = "<group>";
+		};
 		618C33932498BD1A00951D11 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1083,6 +1109,7 @@
 				603D31DC24E5A88C000E5A6C /* ProductAnalogTableViewCell.xib in Resources */,
 				6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */,
 				395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */,
+				60E1A6F524EB8C5E00B3D205 /* SearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1193,12 +1220,14 @@
 				619AAA432498ADFE00AB46ED /* DataManager.swift in Sources */,
 				39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */,
 				603D320524E65874000E5A6C /* HighlightedTableViewCell.swift in Sources */,
+				60E1A6F924EBB1DC00B3D205 /* UIImage+Blur.swift in Sources */,
 				3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */,
 				603D31C324E578BE000E5A6C /* ProductViewController.swift in Sources */,
 				603D31F224E5A9F7000E5A6C /* ProductAdviceTableViewCell.swift in Sources */,
 				619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */,
 				603D31FD24E64912000E5A6C /* UITableViewCell.swift in Sources */,
 				6036EB0724DD27BB003336C2 /* SearchModel.swift in Sources */,
+				60E1A6F724EB8C7800B3D205 /* SearchCellSection.swift in Sources */,
 				603D31A724E3B627000E5A6C /* CategoryCellSection.swift in Sources */,
 				603D31A424E3B608000E5A6C /* CategoryCollectionViewCell.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
@@ -1214,8 +1243,10 @@
 				603D31D524E5A0C2000E5A6C /* ProductCellSection.swift in Sources */,
 				603D31A924E3B67B000E5A6C /* Category.swift in Sources */,
 				618C339F2498BE0200951D11 /* ProfileViewController.swift in Sources */,
+				60E1A6F424EB8C5E00B3D205 /* SearchTableViewCell.swift in Sources */,
 				619AAA462498AEA700AB46ED /* SampleResponseModel.swift in Sources */,
 				618C33952498BD6700951D11 /* AppNavigation.swift in Sources */,
+				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,
 				399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */,
 				396448E224ADE17A00E6D852 /* User.swift in Sources */,
 				39273A0B24A0DFEC004A9909 /* Model.swift in Sources */,
@@ -1256,6 +1287,7 @@
 				395D04FF24D04B19007A278D /* CatalogsViewController.swift in Sources */,
 				6075BD5324DEB16600BC78BD /* RoundedCornerNavigationBar.swift in Sources */,
 				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
+				60E1A6FB24EBB20E00B3D205 /* UIViewController+Keyboard.swift in Sources */,
 				603D31E524E5A90C000E5A6C /* ProductTagsTableViewCell.swift in Sources */,
 				6075BD5C24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift in Sources */,
 				39F8B2F724CEFBBA00195AD8 /* WelcomeViewController.swift in Sources */,

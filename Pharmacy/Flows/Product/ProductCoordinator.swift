@@ -36,14 +36,14 @@ final class ProductCoordinator: EventNode, Coordinator {
         addHandler { [weak self] (event: ProductModelEvent) in
             switch event {
             case .openAnalogsFor, .openCatalogsFor:
-                self?.openMedicineListFor()
+                self?.openMedicineList()
             }
         }
     }
 }
 
 extension ProductCoordinator {
-    fileprivate func openMedicineListFor() {
+    fileprivate func openMedicineList() {
         let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
         navigation.pushViewController(vc, animated: true)
     }

@@ -14,17 +14,18 @@ protocol NavigationBarDelegate: class {
 
 protocol NavigationBarStyled {
     var style: NavigationBarStyle { get }
-    var addditionalViews: [UIView] { get }
+    var additionalViews: [UIView] { get }
 }
 
 extension NavigationBarStyled {
-    var addditionalViews: [UIView] { [] }
+    var additionalViews: [UIView] { [] }
 }
 
 enum NavigationBarStyle {
-    case large
     case normal
+    case largeSearch
     case normalWithoutSearch
+    case search
 }
 
 final class NavigationBar: UINavigationBar {
@@ -71,8 +72,6 @@ final class NavigationBar: UINavigationBar {
     @IBOutlet private weak var searchButton: UIButton!
     @IBOutlet private weak var stackView: UIStackView!
     
-    private var addditionalViews: [UIView] = []
-    
     var style: NavigationBarStyle = .normal
     
     var height: CGFloat { heightBy(style: style) }
@@ -113,7 +112,7 @@ final class NavigationBar: UINavigationBar {
     
     func heightBy(style: NavigationBarStyle) -> CGFloat {
         switch style {
-        case .large:
+        case .largeSearch:
             return GUI.largeHeight
         default:
             return GUI.smallHeight
@@ -164,12 +163,15 @@ extension NavigationBar {
             contentView.rightAnchor.constraint(equalTo: rightAnchor),
         ])
         
+        textField.delegate = self
+        
         configUIBy(style: style)
     }
     
     func configUIBy(style: NavigationBarStyle) {
         self.style = style
-        let isLarge = style == .large
+        let isLarge = style == .largeSearch
+        let isSearch = style == .largeSearch || style == .search
         
         endEditing(true)
         searchButton.isSelected = false
@@ -185,12 +187,10 @@ extension NavigationBar {
         configSearchTextFieldBy(style: style)
         
         let searchViewColor = searchView.backgroundColor
-        searchView.backgroundColor = searchViewColor?.withAlphaComponent(isLarge ? GUI.searchViewBackgorundAlpha : 0)
+        searchView.backgroundColor = searchViewColor?.withAlphaComponent(isSearch ? GUI.searchViewBackgorundAlpha : 0)
         
-        scanButton.alpha = !isLarge ? 0 : 1
-        backButton.alpha = isLarge ? 0 : 1
         titleBottomConstraint.isActive = isLarge
-        searchContainerViewBottomConstraint.constant = isLarge
+        searchContainerViewBottomConstraint.constant = isSearch
             ? GUI.searchViewLargeBottomMargin
             : GUI.searchViewNormalBottomMargin
         
@@ -198,16 +198,20 @@ extension NavigationBar {
     }
     
     func hideButtonsBy(style: NavigationBarStyle) {
-        let isLarge = style == .large
-        scanButton.isHidden = !isLarge
-        backButton.isHidden = isLarge
+        let isSearch = style == .largeSearch || style == .search
+        scanButton.isHidden = !isSearch
+        backButton.isHidden = isSearch
+        
+        scanButton.alpha = !isSearch ? 0 : 1
+        backButton.alpha = isSearch ? 0 : 1
+        
         hideSearchIfNeeded()
     }
     
     private func hideSearchIfNeeded() {
         let isHidden = style == .normalWithoutSearch
         searchView.isHidden = isHidden
-        scanButton.isHidden = isHidden
+//        scanButton.isHidden = isHidden
          
         searchContainerViewBottomConstraint.constant = isHidden
                    ? GUI.searchViewHiddenBottomMargin
@@ -221,8 +225,8 @@ extension NavigationBar {
     }
     
     private func configSearchTextFieldBy(style: NavigationBarStyle) {
-        let isLarge = style == .large
-        searchViewLeadingConstraint.constant = isLarge
+        let isSearch = style == .largeSearch || style == .search
+        searchViewLeadingConstraint.constant = isSearch
         ? GUI.searchViewLargeLeftMargin
         : frame.width - GUI.searchViewLargeLeftMargin * 3
     }
@@ -233,7 +237,7 @@ extension NavigationBar {
         scanButton.isHidden = false
         
         textField.textColor = GUI.textFiledDarkTextColor
-        configSearchTextFieldBy(style: .large)
+        configSearchTextFieldBy(style: .largeSearch)
         
         UIView.animate(withDuration: GUI.animationDurartion) {
             self.searchView.backgroundColor = .white
@@ -256,5 +260,13 @@ extension NavigationBar {
         }) { (_) in
             self.scanButton.isHidden = true
         }
+    }
+}
+
+//MARK: - UITextFieldDelegate
+
+extension NavigationBar: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }

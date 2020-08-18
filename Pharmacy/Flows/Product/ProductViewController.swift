@@ -29,7 +29,7 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
     
     var style: NavigationBarStyle { .normalWithoutSearch }
     
-    var addditionalViews: [UIView] {
+    var additionalViews: [UIView] {
         let button = UIButton(type: .custom)
         button.setImage(R.image.share(), for: .normal)
         return [button]

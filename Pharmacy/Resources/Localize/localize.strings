@@ -11,6 +11,11 @@
 "general.price.from" = "от";
 "general.price.to" = "до";
 
+//MARK: - Actions
+
+"action.cancel" = "Отмена";
+"action.clean" = "Очистить";
+
 // MARK: - TextInputView
 
 "placeholder.email" = "email для рассылок";
@@ -99,3 +104,7 @@
 "medicine.found.product" = "продукт";
 "medicine.found.products" = "продукт(ов)";
 
+// MARK: - Search
+
+"search.clean.title" = "Очистить историю поиска?";
+"search.clean.message" = "Это позволяет приложению поделиться информацией о Вас";
