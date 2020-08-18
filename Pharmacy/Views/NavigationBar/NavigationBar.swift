@@ -42,7 +42,7 @@ final class NavigationBar: UINavigationBar {
         static let scanButtonCornerRadius: CGFloat = 6
         static let searchViewBackgorundAlpha: CGFloat = 0.3
         static let searchViewLargeBottomMargin: CGFloat = 16
-        static let searchViewHiddenBottomMargin: CGFloat = 16
+        static let searchViewHiddenBottomMargin: CGFloat = 8
         static let searchViewLargeLeftMargin: CGFloat = 16
         static let searchViewNormalBottomMargin: CGFloat = 8
     }
