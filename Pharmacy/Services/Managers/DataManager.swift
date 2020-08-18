@@ -35,7 +35,7 @@ class DataManager<T, U> where T: TargetType, U: Decodable {
         var result = [PluginType]()
 
         let accessPlugin = AccessTokenPlugin { _ in
-            return KeychainManager.shared.bearerToken
+            return KeychainManager.shared.getToken() ?? ""
         }
         result.append(accessPlugin)
 
@@ -68,8 +68,6 @@ class DataManager<T, U> where T: TargetType, U: Decodable {
                                                            using: jsonDecoder,
                                                            failsOnEmptyData: false)
                
-                
-                
                 self.data = responceData.data
                 isLoading = false
                 self.completion?(.success(responceData.data))
