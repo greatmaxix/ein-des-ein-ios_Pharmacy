@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 class NameTableViewCellData: BaseCellData {
     
-    var image: UIImage?
+    var imageUrl: URL?
     var name: String
     var phone: String
     
@@ -22,12 +23,12 @@ class NameTableViewCellData: BaseCellData {
         return UITableView.automaticDimension
     }
     
-    init(image: UIImage?, name: String, phone: String) {
-        self.image = image
+    init(imageUrl: URL?, name: String, phone: String) {
+        self.imageUrl = imageUrl
         self.name = name
         self.phone = phone
     }
-    var editProfile: ((_: ProfileEvent) -> Void)?
+    var editProfile: EmptyClosure?
 }
 
 class NameTableViewCell: BaseTableViewCell {
@@ -37,7 +38,7 @@ class NameTableViewCell: BaseTableViewCell {
     @IBOutlet private weak var phoneLabel: UILabel!
     @IBOutlet private weak var editButton: UIButton!
         
-    private var editProfileHandler: ((_: ProfileEvent) -> Void)?
+    private var editProfileHandler: EmptyClosure?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,7 +51,9 @@ class NameTableViewCell: BaseTableViewCell {
     override func setup(cellData: BaseCellData) {
         if let cd: NameTableViewCellData = cellData as? NameTableViewCellData {
             
-            customerImageView.image = cd.image
+            if let url = cd.imageUrl {
+                customerImageView.loadImageBy(url: url)
+            }
             nameLabel.text = cd.name
             phoneLabel.text = cd.phone
             editProfileHandler = cd.editProfile
@@ -58,6 +61,6 @@ class NameTableViewCell: BaseTableViewCell {
     }
     
     @IBAction func editProfile(_ sender: Any) {
-        editProfileHandler?(ProfileEvent.editProfile)
+        editProfileHandler?()
     }
 }

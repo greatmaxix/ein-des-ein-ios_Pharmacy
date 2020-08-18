@@ -24,8 +24,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         
         addHandler { [weak self] (event: ProfileEvent) in
             switch event {
-            case .editProfile:
-                self?.presentEditProfile()
+            case .editProfile(let profile):
+                self?.presentEditProfile(profile: profile)
             default:
                 break
             }
@@ -52,13 +52,13 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         return navigationVC
     }
     
-    func presentEditProfile() {
+    func presentEditProfile(profile: User) {
         
         guard let editProfileVC: EditProfileViewController = storyboard.instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController else {
             return
         }
         
-        let model = EditProfileModel(parent: self)
+        let model = EditProfileModel(parent: self, user: profile)
         model.output = editProfileVC
         editProfileVC.model = model
         root.navigationController?.pushViewController(editProfileVC, animated: true)

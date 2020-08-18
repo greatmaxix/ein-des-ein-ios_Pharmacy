@@ -14,8 +14,7 @@ struct User: Equatable, Codable, Identifiable {
     let email: String?
     let phone: String
     let uuid: String
-    let avatar: Avatar?
-    let avatarUuid: String?
+    var avatar: Avatar?
 }
 
 struct Avatar: Equatable, Codable {

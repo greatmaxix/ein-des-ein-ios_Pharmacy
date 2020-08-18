@@ -77,7 +77,7 @@ final class EditProfileViewController: UIViewController {
         validationSuccess = emailInputView.validate() && validationSuccess
         validationSuccess = nameInputView.validate() && validationSuccess
         if validationSuccess, let name: String = nameInputView.text, let email: String = emailInputView.text, let phone: String = phoneInputView.text {
-            model.saveProfile(name: name, phone: phone, email: email)
+            model.saveProfile(name: name, email: email)
         }
     }
     
@@ -124,8 +124,15 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         if let image: UIImage = info[.originalImage] as? UIImage {
-            model.saveImage(image: image)
-            userImageView.image = image.bluredImage(sigma: 10)
+            
+            var mime = "image/"
+            if let url = info[.imageURL] as? URL {
+                
+                mime += url.lastPathComponent.components(separatedBy: ".").last ?? ""
+                model.saveImage(image: image, mime: mime, fileName: url.lastPathComponent)
+                userImageView.image = image.bluredImage(sigma: 10)
+            }
+            
         }
         picker.dismiss(animated: true, completion: nil)
     }

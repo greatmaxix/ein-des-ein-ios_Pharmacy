@@ -142,6 +142,7 @@ class DataManager<T, U> where T: TargetType, U: Decodable {
         self.createCompletion = completion
         provider.request(target, completion: createCompletion)
     }
+    
     public func createCompletion(with result: Swift.Result<Moya.Response, MoyaError>) {
         switch result {
         case let .success(response):

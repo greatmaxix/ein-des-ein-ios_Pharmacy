@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias EmptyClosure = () -> Void
+
 class UserSession {
     
     static let shared: UserSession = UserSession()
@@ -20,7 +22,7 @@ class UserSession {
         }
     }
     
-    func getUser()-> User? {
+    func getUser() -> User? {
         return UserDefaults.standard.getCurrentUser()
     }
 }
