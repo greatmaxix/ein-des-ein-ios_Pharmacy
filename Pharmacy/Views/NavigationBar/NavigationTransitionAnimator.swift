@@ -50,8 +50,8 @@ final class NavigationTransitionAnimator: NSObject, UIViewControllerAnimatedTran
         
         let toStyle = (toVC as? NavigationBarStyled)?.style ?? .normal
         let fromStyle = (fromVC as? NavigationBarStyled)?.style ?? .normal
-        let toAdditionalViews = (toVC as? NavigationBarStyled)?.addditionalViews ?? []
-        let fromAdditionalViews = (fromVC as? NavigationBarStyled)?.addditionalViews ?? []
+        let toAdditionalViews = (toVC as? NavigationBarStyled)?.additionalViews ?? []
+        let fromAdditionalViews = (fromVC as? NavigationBarStyled)?.additionalViews ?? []
         
         let duration = transitionDuration(using: transitionContext)
         

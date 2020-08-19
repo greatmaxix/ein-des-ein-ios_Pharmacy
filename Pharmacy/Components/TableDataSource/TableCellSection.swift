@@ -17,4 +17,7 @@ protocol TableCellSection {
 
 extension TableCellSection {
     func config(cell: UITableViewCell) {}
+    func reuseIdentifier() -> String {
+        String(describing: self)
+    }
 }

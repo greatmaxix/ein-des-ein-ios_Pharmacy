@@ -21,6 +21,14 @@ extension UIImage {
             let croppedImage = ciImage.cropped(to: rect)
             return UIImage(ciImage: croppedImage)
         }
+      return nil
+    }
+  
+    func withGaussianBlur() -> UIImage? {
+        if let ciImg = CIImage(image: self) {
+            ciImg.applyingGaussianBlur(sigma: 0.5)
+            return UIImage(ciImage: ciImg)
+        }
         return nil
     }
 }

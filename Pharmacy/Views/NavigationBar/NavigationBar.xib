@@ -44,17 +44,17 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hd1-fq-e0X">
                     <rect key="frame" x="0.0" y="0.0" width="449" height="244"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Начните поиск" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WH4-I2-bvT">
-                            <rect key="frame" x="18" y="103.5" width="222.5" height="37.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Начните поиск" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WH4-I2-bvT">
+                            <rect key="frame" x="18" y="135.5" width="222.5" height="37.5"/>
                             <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="32"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YP0-IU-yky">
-                            <rect key="frame" x="18" y="153" width="415" height="75"/>
+                            <rect key="frame" x="18" y="185" width="415" height="43"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xco-T6-RjQ">
-                                    <rect key="frame" x="0.0" y="16" width="367" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="367" height="43"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sL4-RM-eDS">
                                             <rect key="frame" x="9" y="9.5" width="24" height="24"/>
@@ -65,7 +65,7 @@
                                             <state key="normal" image="welcomeSearch"/>
                                             <state key="selected" image="backArrow"/>
                                             <connections>
-                                                <action selector="searchButtonAction:" destination="-1" eventType="touchUpInside" id="aBc-sS-vIb"/>
+                                                <action selector="searchButtonAction:" destination="-1" eventType="touchUpInside" id="Psz-7t-hLx"/>
                                             </connections>
                                         </button>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EHj-y1-HZh">
@@ -103,7 +103,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-Y8-T4D">
-                                    <rect key="frame" x="383" y="21.5" width="32" height="32"/>
+                                    <rect key="frame" x="383" y="5.5" width="32" height="32"/>
                                     <color key="backgroundColor" name="validationGreen"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="vgu-Y8-T4D" secondAttribute="height" multiplier="1:1" priority="999" id="AK9-El-gnu"/>
@@ -115,6 +115,9 @@
                                     </connections>
                                 </button>
                             </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="43" id="MN4-jn-sJ3"/>
+                            </constraints>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayr-iR-W0Y">
                             <rect key="frame" x="22" y="12" width="20" height="28"/>
@@ -141,6 +144,7 @@
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
+                            <exclude reference="ITE-ff-jmb"/>
                             <exclude reference="qx0-Og-v1Q"/>
                         </mask>
                     </variation>

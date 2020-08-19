@@ -26,7 +26,7 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var categoriesLabel: UILabel!
     @IBOutlet private weak var watchRecentlyLabel: UILabel!
     
-    var style: NavigationBarStyle = .large
+    var style: NavigationBarStyle = .largeSearch
     
     var model: WelcomeModelInput!
     
@@ -51,6 +51,8 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
         watchCategoriesButton.setTitle(R.string.localize.welcomeWatch_all(), for: .normal)
         categoriesLabel.text = R.string.localize.welcomeCategories()
         watchRecentlyLabel.text = R.string.localize.welcomeWatchRecently()
+        
+        subscribeScrollViewToKeyboard(scrollView)
     }
     
     override func viewDidAppear(_ animated: Bool) {

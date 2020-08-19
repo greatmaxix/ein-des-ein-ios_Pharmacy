@@ -14,20 +14,29 @@ struct SearchFlowConfiguration {
 }
 
 final class SearchCoordinator: EventNode, Coordinator {
+
+   let navigation: UINavigationController
     
     func createFlow() -> UIViewController {
         let root =  R.storyboard.search.instantiateInitialViewController()!
         let model = SearchModel(parent: self)
         root.model = model
         model.output = root
-        return root
+        navigation.setViewControllers([root], animated: false)
+        return navigation
     }
     
     init(configuration: SearchFlowConfiguration) {
+        
+        navigation = UINavigationController(navigationBarClass: NavigationBar.self, toolbarClass: nil)
+        
         super.init(parent: configuration.parent)
         
-        addHandler { (event: SearchModelEvent) in
-            
+        addHandler { [weak self] (event: SearchModelEvent) in
+            switch event {
+            case .openList:
+                self?.openMedicineList()
+            }
         }
     }
 }
@@ -39,5 +48,13 @@ extension SearchCoordinator: TabBarEmbedCoordinable {
         return TabBarItemInfo(title: "",
                               icon: R.image.tabbarSearch()?.withRenderingMode(.alwaysOriginal),
                               highlightedIcon: R.image.tabbarSearch()?.withRenderingMode(.alwaysOriginal))
+    }
+}
+
+
+extension SearchCoordinator  {
+    fileprivate func openMedicineList() {
+        let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
+        navigation.pushViewController(vc, animated: true)
     }
 }
