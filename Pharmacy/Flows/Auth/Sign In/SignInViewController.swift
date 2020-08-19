@@ -144,6 +144,6 @@ extension SignInViewController: SignInOutput {
     }
     
     func failedToLogin(message: String) {
-        showAlertVC(title: message)
+        showError(message: message)
     }
 }

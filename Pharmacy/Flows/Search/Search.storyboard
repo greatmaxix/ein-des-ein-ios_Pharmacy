@@ -4,9 +4,18 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Search View Controller-->
         <scene sceneID="VBT-lz-S3S">
@@ -16,24 +25,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rU-gj-jfP">
-                                <rect key="frame" x="180.5" y="442.5" width="53.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Часто ищут" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhP-3g-etx">
+                                <rect key="frame" x="16" y="80" width="87" height="19"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" name="textDarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGF-eD-mds" customClass="TTGTextTagCollectionView">
+                                <rect key="frame" x="16" y="115" width="382" height="72"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="Aho-dU-Wpp"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="История поиска" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoZ-go-xwQ">
+                                <rect key="frame" x="16" y="219" width="121.5" height="19"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdN-Ta-2k3">
+                                <rect key="frame" x="345" y="215.5" width="53" height="26"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                <state key="normal" title="Очистить">
+                                    <color key="titleColor" name="welcomeBlue"/>
+                                </state>
+                                <connections>
+                                    <action selector="cleanAction:" destination="2C1-VN-Cki" eventType="touchUpInside" id="7ud-Jx-CCa"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vMT-iO-nOG">
+                                <rect key="frame" x="0.0" y="253.5" width="414" height="608.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
-                            <constraint firstItem="6rU-gj-jfP" firstAttribute="centerX" secondItem="fy4-Ge-JJd" secondAttribute="centerX" id="FML-uV-Vhs"/>
-                            <constraint firstItem="6rU-gj-jfP" firstAttribute="centerY" secondItem="fy4-Ge-JJd" secondAttribute="centerY" id="c60-2S-agg"/>
+                            <constraint firstItem="fy4-Ge-JJd" firstAttribute="trailing" secondItem="cdN-Ta-2k3" secondAttribute="trailing" constant="16" id="2bB-Kn-tVp"/>
+                            <constraint firstItem="DhP-3g-etx" firstAttribute="leading" secondItem="fy4-Ge-JJd" secondAttribute="leading" constant="16" id="AaX-Dt-Wnh"/>
+                            <constraint firstItem="vMT-iO-nOG" firstAttribute="top" secondItem="cdN-Ta-2k3" secondAttribute="bottom" constant="12" id="Acn-oU-XWn"/>
+                            <constraint firstItem="DGF-eD-mds" firstAttribute="leading" secondItem="DhP-3g-etx" secondAttribute="leading" id="W1L-84-ih4"/>
+                            <constraint firstItem="fy4-Ge-JJd" firstAttribute="bottom" secondItem="vMT-iO-nOG" secondAttribute="bottom" id="bVm-cg-gNs"/>
+                            <constraint firstItem="DhP-3g-etx" firstAttribute="top" secondItem="fy4-Ge-JJd" secondAttribute="top" constant="36" id="dcp-cY-KI8"/>
+                            <constraint firstItem="WoZ-go-xwQ" firstAttribute="leading" secondItem="DhP-3g-etx" secondAttribute="leading" id="fQy-pZ-SGk"/>
+                            <constraint firstItem="cdN-Ta-2k3" firstAttribute="centerY" secondItem="WoZ-go-xwQ" secondAttribute="centerY" id="hZC-8V-BXE"/>
+                            <constraint firstItem="DGF-eD-mds" firstAttribute="top" secondItem="DhP-3g-etx" secondAttribute="bottom" constant="16" id="kNa-46-8Bw"/>
+                            <constraint firstItem="fy4-Ge-JJd" firstAttribute="trailing" secondItem="vMT-iO-nOG" secondAttribute="trailing" id="l4Z-pw-6Aw"/>
+                            <constraint firstItem="fy4-Ge-JJd" firstAttribute="trailing" secondItem="DGF-eD-mds" secondAttribute="trailing" constant="16" id="mA6-xT-vK6"/>
+                            <constraint firstItem="WoZ-go-xwQ" firstAttribute="top" secondItem="DGF-eD-mds" secondAttribute="bottom" constant="32" id="pc3-ta-CTj"/>
+                            <constraint firstItem="vMT-iO-nOG" firstAttribute="leading" secondItem="fy4-Ge-JJd" secondAttribute="leading" id="r4O-tY-xVl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fy4-Ge-JJd"/>
                     </view>
+                    <connections>
+                        <outlet property="cleanButton" destination="cdN-Ta-2k3" id="vLw-zM-svi"/>
+                        <outlet property="storyLabel" destination="WoZ-go-xwQ" id="uIb-Va-GP4"/>
+                        <outlet property="tableView" destination="vMT-iO-nOG" id="Wjf-lH-BTw"/>
+                        <outlet property="tagsCollectionView" destination="DGF-eD-mds" id="WIR-Rn-Cgp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1I-zK-HaC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="367" y="-183"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="backgroundGray">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="welcomeBlue">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

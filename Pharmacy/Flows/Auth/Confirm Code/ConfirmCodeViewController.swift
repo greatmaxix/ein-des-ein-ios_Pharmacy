@@ -80,7 +80,7 @@ extension ConfirmCodeViewController: ConfirmCodeDelegate {
 extension ConfirmCodeViewController: ConfirmCodeOutput {
     
     func failedToConfirmCode(message: String) {
-        showAlertVC(title: message)
+        showError(message: message)
     }
     
     func unblockResendButton() {
