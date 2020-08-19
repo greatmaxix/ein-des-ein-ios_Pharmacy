@@ -9,7 +9,8 @@
 import UIKit
 
 protocol NavigationBarDelegate: class {
-    
+    func navigationBarDidSelectScan()
+    func navigationBar(didReturn text: String)
 }
 
 protocol NavigationBarStyled {
@@ -64,10 +65,10 @@ final class NavigationBar: UINavigationBar {
     @IBOutlet private weak var titleLeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var searchView: UIView!
     @IBOutlet private weak var scanButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet private weak var cancelSearchButton: UIButton!
     @IBOutlet private weak var searchButton: UIButton!
     @IBOutlet private weak var stackView: UIStackView!
@@ -82,7 +83,7 @@ final class NavigationBar: UINavigationBar {
         return topPadding ?? 0
     }
     
-    weak var homeDelegate: NavigationBarDelegate?
+    weak var searchDelegate: NavigationBarDelegate?
     
     //MARK: Lifecycle
     
@@ -122,7 +123,7 @@ final class NavigationBar: UINavigationBar {
     //MARK: - Actions
     
     @IBAction func scanButtonAction(_ sender: UIButton) {
-        
+        searchDelegate?.navigationBarDidSelectScan()
     }
     
     @IBAction func searchButtonAction(_ sender: UIButton) {
@@ -267,6 +268,7 @@ extension NavigationBar {
 
 extension NavigationBar: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        searchDelegate?.navigationBar(didReturn: textField.text ?? "")
+        return textField.resignFirstResponder()
     }
 }

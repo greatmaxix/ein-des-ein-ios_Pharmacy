@@ -13,9 +13,9 @@ struct SearchFlowConfiguration {
     let parent: EventNode
 }
 
-final class SearchCoordinator: EventNode, Coordinator {
-
-   let navigation: UINavigationController
+final class SearchCoordinator: EventNode, Coordinator, NaviagationEmbedCoordinable {
+    
+    lazy private(set) var navigationCoordinator: NavigationCoordinator = SearchNavigationCoordinator(configuration: .init(parent: self))
     
     func createFlow() -> UIViewController {
         let root =  R.storyboard.search.instantiateInitialViewController()!
@@ -27,11 +27,8 @@ final class SearchCoordinator: EventNode, Coordinator {
     }
     
     init(configuration: SearchFlowConfiguration) {
-        
-        navigation = UINavigationController(navigationBarClass: NavigationBar.self, toolbarClass: nil)
-        
         super.init(parent: configuration.parent)
-        
+    
         addHandler { [weak self] (event: SearchModelEvent) in
             switch event {
             case .openList:
