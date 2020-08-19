@@ -10,14 +10,18 @@ import Foundation
 
 //swiftlint:disable identifier_name
 
+fileprivate struct CountryCodes {
+    static let kaz: String = "7"
+}
+
 class PhoneFormatter {
     
     func formattedNumber(number: String, needsCountryCode: Bool = true) -> String {
         
         var cleanPhoneNumber: String = number
-        if needsCountryCode, !number.contains("+7") {
+        if needsCountryCode, !number.contains("+" + CountryCodes.kaz) {
 
-            cleanPhoneNumber = ("7" + number).components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+            cleanPhoneNumber = (CountryCodes.kaz + number).components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         } else {
             cleanPhoneNumber = number.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         }

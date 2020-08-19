@@ -177,7 +177,7 @@ final class TextInputView: UIView {
     
     var text: String? {
         
-        return inputTextField.text
+        inputTextField.text
     }
     
     var returnKeyType: UIReturnKeyType = .default {
