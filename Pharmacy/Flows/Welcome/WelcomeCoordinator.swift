@@ -13,15 +13,14 @@ struct WelcomeFlowConfiguration {
     let parent: EventNode
 }
 
-final class WelcomeCoordinator: EventNode {
+final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
+    
+    lazy private(set) var navigationCoordinator: NavigationCoordinator = SearchNavigationCoordinator(configuration: .init(parent: self))
     
     private let storyboard: UIStoryboard = R.storyboard.welcome()
     
-    let navigation: UINavigationController
-    
     init(configuration: WelcomeFlowConfiguration) {
-        navigation = UINavigationController(navigationBarClass: NavigationBar.self, toolbarClass: nil)
-        
+      
         super.init(parent: configuration.parent)
         
         addHandler { [weak self] (event: WelcomeEvent) in
@@ -60,8 +59,6 @@ final class WelcomeCoordinator: EventNode {
         navigation.setViewControllers([root], animated: false)
         return navigation
     }
-    
-    
 }
 
 // MARK: - TabBarEmbedCoordinable

@@ -15,8 +15,8 @@ struct AlertAction {
 
 extension UIViewController {
     
-    func showError(message: String) {
-        let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+    func showError(title: String = "Error", message: String) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action: UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
             alertVC.dismiss(animated: true, completion: nil)
         })
@@ -36,7 +36,7 @@ extension UIViewController {
         return UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
     }
     
-    func blurView() -> UIView {
+    func blurScreenshotView() -> UIView {
         let image = takeScreenshot().withGaussianBlur()
         let visualView = UIImageView(image: image)
         visualView.frame = view.bounds
@@ -47,7 +47,7 @@ extension UIViewController {
     
     func showAlert(title: String, message: String, action: AlertAction, cancelStyleAction: AlertAction, hasBlurBackground: Bool = true ) {
         
-        let visualEffectView = hasBlurBackground ? blurView() : nil
+        let visualEffectView = hasBlurBackground ? blurScreenshotView() : nil
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let uiAction = UIAlertAction(title: action.title, style: .default, handler: { _ in
