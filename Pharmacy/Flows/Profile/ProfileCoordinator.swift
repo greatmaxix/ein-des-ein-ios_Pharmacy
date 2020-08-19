@@ -22,6 +22,23 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     init(configuration: ProfileFlowConfiguration) {
         super.init(parent: configuration.parent)
         
+        addHandler { [weak self] (event: ProfileEvent) in
+            switch event {
+            case .editProfile(let profile):
+                self?.presentEditProfile(profile: profile)
+            default:
+                break
+            }
+        }
+        
+        addHandler { [weak self] (event: EditProfileEvent) in
+            switch event {
+            case .close:
+                self?.popController()
+            default:
+                break
+            }
+        }
     }
     
     func createFlow() -> UIViewController {
@@ -32,8 +49,19 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         
         let navigationVC: UINavigationController = UINavigationController(rootViewController: root)
         navigationVC.isToolbarHidden = true
-
         return navigationVC
+    }
+    
+    func presentEditProfile(profile: User) {
+        
+        guard let editProfileVC: EditProfileViewController = storyboard.instantiateViewController(withIdentifier: "EditProfileViewController") as? EditProfileViewController else {
+            return
+        }
+        
+        let model = EditProfileModel(parent: self, user: profile)
+        model.output = editProfileVC
+        editProfileVC.model = model
+        root.navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
     private func popController() {

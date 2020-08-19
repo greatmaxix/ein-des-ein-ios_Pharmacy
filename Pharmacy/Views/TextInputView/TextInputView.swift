@@ -99,7 +99,7 @@ final class TextInputView: UIView {
             case .standart:
                 return nil
             case .editing:
-                return R.image.validationClose()
+                return R.image.cancelSearch()
             case .successfulValidation:
                 return R.image.validationSuccess()
             case .unsuccessfulValidation:
@@ -177,7 +177,7 @@ final class TextInputView: UIView {
     
     var text: String? {
         
-        return inputTextField.text
+        inputTextField.text
     }
     
     var returnKeyType: UIReturnKeyType = .default {
@@ -186,6 +186,17 @@ final class TextInputView: UIView {
             inputTextField.returnKeyType = newValue
         }
     }
+    
+    var placeholder: String? {
+        get {
+            return inputTextField.placeholder
+        }
+        set {
+            inputTextField.placeholder = newValue ?? contentType.placeHolder
+        }
+    }
+    
+    var needsCountryCode: Bool = true
     
     override var tag: Int {
         
@@ -221,7 +232,7 @@ final class TextInputView: UIView {
         }
         
         if contentType == .phone {
-            sender.text = formatter.formattedNumber(number: sender.text ?? "")
+            sender.text = formatter.formattedNumber(number: sender.text ?? "", needsCountryCode: needsCountryCode)
         }
     }
     

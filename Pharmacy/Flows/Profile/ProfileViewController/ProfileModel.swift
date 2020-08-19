@@ -8,9 +8,10 @@
 
 import Foundation
 import EventsTree
+import Moya
 
 enum ProfileEvent: Event {
-    case editProfile
+    case editProfile(profile: User)
     case openSelected
     case openOrder
     case openAnalize
@@ -25,14 +26,17 @@ enum ProfileEvent: Event {
 
 protocol ProfileInput {
     var cellCount: Int { get }
-    func selectActionAt(index: Int) -> (() -> Void)?
+    func selectActionAt(index: Int) -> EmptyClosure?
     func cellDataAt(index: Int) -> BaseCellData
+    func loadUser(completion: EmptyClosure?)
 }
 
 final class ProfileModel: Model {
     
     private var cellsData: [BaseCellData] = []
-    
+    private var user: User? = UserSession.shared.getUser()
+    private let provider = DataManager<ProfileAPI, ProfileResponse>()
+
     override init(parent: EventNode?) {
         super.init(parent: parent)
         
@@ -46,8 +50,13 @@ final class ProfileModel: Model {
         }
         cellsData = []
         do {
-            let cellData: NameTableViewCellData = NameTableViewCellData(image: nil, name: "Name Surname", phone: "+111 111 111 1111")
-            cellData.editProfile = openOptionHandler
+            let cellData: NameTableViewCellData = NameTableViewCellData(imageUrl: user?.avatar?.url, name: user?.name ?? "Name Surname", phone: user?.phone ?? "+1111111111111")
+            cellData.editProfile = { [weak self] in
+                if let user: User = self?.user {
+                    self?.raise(event: ProfileEvent.editProfile(profile: user))
+                }
+            }
+            cellData.selectHandler = nil
             cellsData.append(cellData)
         }
         do {
@@ -140,7 +149,24 @@ extension ProfileModel: ProfileInput {
         return cellsData[index]
     }
     
-    func selectActionAt(index: Int)-> (()-> Void)? {
+    func selectActionAt(index: Int) -> EmptyClosure? {
         cellsData[index].selectHandler
+    }
+    
+    func loadUser(completion: EmptyClosure?) {
+
+        provider.load(target: .getCustomer) { [weak self] response in
+            guard let self = self else {return}
+
+            switch response {
+            case .success(let result):
+                UserSession.shared.save(user: result.user, token: nil)
+                self.user = result.user
+                self.setupDataSource()
+                completion?()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

@@ -8,13 +8,21 @@
 
 import Foundation
 
+typealias EmptyClosure = () -> Void
+
 class UserSession {
     
     static let shared: UserSession = UserSession()
     
-    func save(user: User, token: String) {
+    func save(user: User, token: String?) {
         
         UserDefaults.standard.saveUser(user: user)
-        KeychainManager.shared.saveToken(token: token)
+        if let token = token {
+            KeychainManager.shared.saveToken(token: token)
+        }
+    }
+    
+    func getUser() -> User? {
+        return UserDefaults.standard.getCurrentUser()
     }
 }
