@@ -46,6 +46,7 @@ class NameTableViewCell: BaseTableViewCell {
         customerImageView.layer.cornerRadius = customerImageView.frame.width / 2
         selectionStyle = .none
         editButton.layer.cornerRadius = editButton.frame.height / 2
+        editButton.dropBlueShadow()
     }
     
     override func setup(cellData: BaseCellData) {
@@ -56,6 +57,10 @@ class NameTableViewCell: BaseTableViewCell {
             }
             nameLabel.text = cd.name
             phoneLabel.text = cd.phone
+
+            if !cd.phone.contains("+") {
+                phoneLabel.text = "+" + cd.phone
+            }
             editProfileHandler = cd.editProfile
         }
     }

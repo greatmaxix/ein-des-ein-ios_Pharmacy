@@ -11,12 +11,11 @@ import UIKit
 protocol EditProfileOutput: class {
 }
 
-final class EditProfileViewController: UIViewController {
-
-    @IBOutlet private weak var headerView: UIView!
-    @IBOutlet private weak var titleLable: UILabel!
-    @IBOutlet private weak var backButton: UIButton!
-    @IBOutlet private weak var saveButton: UIButton!
+final class EditProfileViewController: UIViewController, SimpleNavigationBarDelegate {
+//    @IBOutlet private weak var headerView: UIView!
+//    @IBOutlet private weak var titleLable: UILabel!
+//    @IBOutlet private weak var backButton: UIButton!
+//    @IBOutlet private weak var saveButton: UIButton!
     @IBOutlet private weak var editPhotoButton: UIButton!
 
     @IBOutlet private weak var userImageView: UIImageView!
@@ -50,10 +49,6 @@ final class EditProfileViewController: UIViewController {
             emailInputView.placeholder = user.email
         }
         
-        headerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        headerView.layer.cornerRadius = 10
-        
-        navigationController?.isNavigationBarHidden = true
         userImageView.layer.cornerRadius = userImageView.bounds.height / 2
         editPhotoButton.layer.cornerRadius = editPhotoButton.bounds.height / 2
         
@@ -62,22 +57,13 @@ final class EditProfileViewController: UIViewController {
     }
     
     private func setupLocalization() {
-        titleLable.text = R.string.localize.profileEdit()
-        backButton.setTitle(R.string.localize.profileProfile(), for: .normal)
-        saveButton.setTitle(R.string.localize.profileSaveChanges(), for: .normal)
-    }
-
-    @IBAction private func close() {
-        model.close()
-    }
-    
-    @IBAction private func saveChanges() {
-        
-        var validationSuccess = phoneInputView.validate()
-        validationSuccess = emailInputView.validate() && validationSuccess
-        validationSuccess = nameInputView.validate() && validationSuccess
-        if validationSuccess, let name: String = nameInputView.text, let email: String = emailInputView.text, let phone: String = phoneInputView.text {
-            model.saveProfile(name: name, email: email)
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            
+            bar.isRightItemHidden = false
+            bar.isRightItemHidden = false
+            bar.title = R.string.localize.profileEdit()
+            bar.leftItemTitle = R.string.localize.profileProfile()
+            bar.rightItemTitle = R.string.localize.profileSaveChanges()
         }
     }
     
@@ -113,6 +99,19 @@ final class EditProfileViewController: UIViewController {
         emailInputView.endEditing(true)
         nameInputView.endEditing(true)
     }
+    
+    func leftBarItemAction() {
+        model.close()
+    }
+    
+    func rightBarItemAction() {
+        var validationSuccess = phoneInputView.validate()
+        validationSuccess = emailInputView.validate() && validationSuccess
+        validationSuccess = nameInputView.validate() && validationSuccess
+        if validationSuccess, let name: String = nameInputView.text, let email: String = emailInputView.text, let phone: String = phoneInputView.text {
+            model.saveProfile(name: name, email: email)
+        }
+    }
 }
 
 extension EditProfileViewController: EditProfileOutput {
@@ -125,8 +124,8 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
         
         if let image: UIImage = info[.originalImage] as? UIImage {
             
-            var mime = "image/"
-            if let url = info[.imageURL] as? URL {
+            var mime: String = "image/"
+            if let url: URL = info[.imageURL] as? URL {
                 
                 mime += url.lastPathComponent.components(separatedBy: ".").last ?? ""
                 model.saveImage(image: image, mime: mime, fileName: url.lastPathComponent)

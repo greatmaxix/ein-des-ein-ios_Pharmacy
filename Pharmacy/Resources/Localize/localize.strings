@@ -56,6 +56,7 @@
 "signup.link" = "Обработку персональных данных";
 
 // MARK: - Profile
+"profile.title" = "Профиль";
 "profile.orders" = "Заказы";
 "profile.receipes" = "Рецепты";
 "profile.selected" = "Избранное";
