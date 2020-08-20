@@ -68,6 +68,12 @@
 		39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDA6F249CF7F900A04831 /* SMSCodeValidator.swift */; };
 		39F0AD5E24EEBF9B00CD6CA4 /* EmptyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0AD5D24EEBF9B00CD6CA4 /* EmptyResultsView.swift */; };
 		39F0AD6024EEBFB000CD6CA4 /* EmptyResultsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F0AD5F24EEBFB000CD6CA4 /* EmptyResultsView.xib */; };
+		39F0AD6524EEC80200CD6CA4 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0AD6424EEC80200CD6CA4 /* OrdersViewController.swift */; };
+		39F0AD6724EEC81400CD6CA4 /* OrdersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0AD6624EEC81400CD6CA4 /* OrdersModel.swift */; };
+		39F0AD6924EEC83000CD6CA4 /* PrescriptionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0AD6824EEC83000CD6CA4 /* PrescriptionsModel.swift */; };
+		39F0AD6B24EEC84100CD6CA4 /* PrescriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0AD6A24EEC84100CD6CA4 /* PrescriptionsViewController.swift */; };
+		39F0AD6D24EEC85400CD6CA4 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0AD6C24EEC85400CD6CA4 /* WishlistViewController.swift */; };
+		39F0AD6F24EEC86200CD6CA4 /* WishlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0AD6E24EEC86200CD6CA4 /* WishlistModel.swift */; };
 		39F8B2F724CEFBBA00195AD8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2F624CEFBBA00195AD8 /* WelcomeViewController.swift */; };
 		39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2F824CEFBDA00195AD8 /* WelcomeModel.swift */; };
 		39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */; };
@@ -247,6 +253,12 @@
 		39CBDA6F249CF7F900A04831 /* SMSCodeValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCodeValidator.swift; sourceTree = "<group>"; };
 		39F0AD5D24EEBF9B00CD6CA4 /* EmptyResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultsView.swift; sourceTree = "<group>"; };
 		39F0AD5F24EEBFB000CD6CA4 /* EmptyResultsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyResultsView.xib; sourceTree = "<group>"; };
+		39F0AD6424EEC80200CD6CA4 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
+		39F0AD6624EEC81400CD6CA4 /* OrdersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersModel.swift; sourceTree = "<group>"; };
+		39F0AD6824EEC83000CD6CA4 /* PrescriptionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionsModel.swift; sourceTree = "<group>"; };
+		39F0AD6A24EEC84100CD6CA4 /* PrescriptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrescriptionsViewController.swift; sourceTree = "<group>"; };
+		39F0AD6C24EEC85400CD6CA4 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		39F0AD6E24EEC86200CD6CA4 /* WishlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistModel.swift; sourceTree = "<group>"; };
 		39F8B2F624CEFBBA00195AD8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		39F8B2F824CEFBDA00195AD8 /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
 		39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
@@ -702,6 +714,34 @@
 			path = EmptyResultsView;
 			sourceTree = "<group>";
 		};
+		39F0AD6124EEC72D00CD6CA4 /* WishlistViewController */ = {
+			isa = PBXGroup;
+			children = (
+				39F0AD6C24EEC85400CD6CA4 /* WishlistViewController.swift */,
+				39F0AD6E24EEC86200CD6CA4 /* WishlistModel.swift */,
+			);
+			name = WishlistViewController;
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		39F0AD6224EEC74600CD6CA4 /* OrdersViewController */ = {
+			isa = PBXGroup;
+			children = (
+				39F0AD6424EEC80200CD6CA4 /* OrdersViewController.swift */,
+				39F0AD6624EEC81400CD6CA4 /* OrdersModel.swift */,
+			);
+			path = OrdersViewController;
+			sourceTree = "<group>";
+		};
+		39F0AD6324EEC75F00CD6CA4 /* PrescriptionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				39F0AD6824EEC83000CD6CA4 /* PrescriptionsModel.swift */,
+				39F0AD6A24EEC84100CD6CA4 /* PrescriptionsViewController.swift */,
+			);
+			path = PrescriptionViewController;
+			sourceTree = "<group>";
+		};
 		39F8B2F424CEFB0C00195AD8 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -1056,6 +1096,9 @@
 			isa = PBXGroup;
 			children = (
 				3954D11F24D1B5DA00AB44BD /* EditProfile */,
+				39F0AD6224EEC74600CD6CA4 /* OrdersViewController */,
+				39F0AD6324EEC75F00CD6CA4 /* PrescriptionViewController */,
+				39F0AD6124EEC72D00CD6CA4 /* WishlistViewController */,
 				395A7FCA24A3A29600A7CFC6 /* ProfileViewController */,
 				395A7FCB24A3A2B700A7CFC6 /* ProfileCoordinator.swift */,
 				618C33A42498BE6200951D11 /* Profile.storyboard */,
@@ -1328,8 +1371,10 @@
 				395A7FC924A399B000A7CFC6 /* ProfileModel.swift in Sources */,
 				603D31AB24E3BFBE000E5A6C /* UIEdgeInsets.swift in Sources */,
 				395A7FCC24A3A2B700A7CFC6 /* ProfileCoordinator.swift in Sources */,
+				39F0AD6F24EEC86200CD6CA4 /* WishlistModel.swift in Sources */,
 				603D31C124E5789D000E5A6C /* ProductCoordinator.swift in Sources */,
 				39505F5624AC73620045EC02 /* TabBarModel.swift in Sources */,
+				39F0AD6D24EEC85400CD6CA4 /* WishlistViewController.swift in Sources */,
 				603D319124E3A7FD000E5A6C /* Receipt.swift in Sources */,
 				603D319B24E3B2B1000E5A6C /* CollectionCellSection.swift in Sources */,
 				603D31B624E3D323000E5A6C /* UIButton.swift in Sources */,
@@ -1337,6 +1382,7 @@
 				6075BD5A24DEB9EA00BC78BD /* UIView+Nib.swift in Sources */,
 				603D31F624E5AA09000E5A6C /* ProductQuestionsTableViewCell.swift in Sources */,
 				603D319D24E3B2EB000E5A6C /* CollectionDataSource.swift in Sources */,
+				39F0AD6B24EEC84100CD6CA4 /* PrescriptionsViewController.swift in Sources */,
 				6036EB0924DD27CC003336C2 /* SearchCoordinator.swift in Sources */,
 				619AAA432498ADFE00AB46ED /* DataManager.swift in Sources */,
 				39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */,
@@ -1352,6 +1398,7 @@
 				603D31A724E3B627000E5A6C /* CategoryCellSection.swift in Sources */,
 				603D31A424E3B608000E5A6C /* CategoryCollectionViewCell.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
+				39F0AD6524EEC80200CD6CA4 /* OrdersViewController.swift in Sources */,
 				603D31D724E5A3FE000E5A6C /* Product.swift in Sources */,
 				395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */,
 				618C33AA2498BFB400951D11 /* Coordinator.swift in Sources */,
@@ -1372,6 +1419,7 @@
 				618C33952498BD6700951D11 /* AppNavigation.swift in Sources */,
 				3961590824E6D35100A5EF85 /* UIImage+Blur.swift in Sources */,
 				60E1A70E24ECD6F400B3D205 /* SearchNavigationModel.swift in Sources */,
+				39F0AD6724EEC81400CD6CA4 /* OrdersModel.swift in Sources */,
 				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,
 				399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */,
 				396448E224ADE17A00E6D852 /* User.swift in Sources */,
@@ -1380,6 +1428,7 @@
 				603D320924E68442000E5A6C /* MedicineListCoordinator.swift in Sources */,
 				395A7FB824A34B5200A7CFC6 /* UIBlockerDelegate.swift in Sources */,
 				3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */,
+				39F0AD6924EEC83000CD6CA4 /* PrescriptionsModel.swift in Sources */,
 				603D319F24E3B492000E5A6C /* CollectionDataSourceViewController.swift in Sources */,
 				60E1A70C24ECD6E500B3D205 /* SearchNavigationController.swift in Sources */,
 				60E1A71724ECE0EA00B3D205 /* ScanModel.swift in Sources */,
