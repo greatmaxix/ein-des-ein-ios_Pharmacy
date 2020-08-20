@@ -16,11 +16,11 @@ class NameTableViewCellData: BaseCellData {
     var phone: String
     
     override var nibName: String? {
-        return String(describing: NameTableViewCell.self)
+        String(describing: NameTableViewCell.self)
     }
 
     override var cellHeight: CGFloat {
-        return 104
+        104
     }
     
     init(imageUrl: URL?, name: String, phone: String) {

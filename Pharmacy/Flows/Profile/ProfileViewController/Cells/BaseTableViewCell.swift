@@ -13,16 +13,16 @@ class BaseCellData {
     var selectHandler: (() -> Void)?
     
     var nibName: String? {
-        return nil
+         nil
     }
 
     var cellHeight: CGFloat {
-        return 40
+        40
     }
     
     var separatorStyle: UITableViewCell.SeparatorStyle {
         
-        return .none
+        .none
     }
 }
 

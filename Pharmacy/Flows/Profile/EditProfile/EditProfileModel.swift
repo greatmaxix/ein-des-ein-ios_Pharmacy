@@ -82,19 +82,19 @@ class EditProfileModel: EventNode {
 
 extension EditProfileModel: EditProfileInput {
     var name: String {
-        return user.name
+        user.name
     }
     
     var phone: String {
-        return user.phone
+        user.phone
     }
     
     var email: String? {
-        return user.email
+        user.email
     }
     
     var imageUrl: URL? {
-        return user.avatar?.url
+        user.avatar?.url
     }
     
     

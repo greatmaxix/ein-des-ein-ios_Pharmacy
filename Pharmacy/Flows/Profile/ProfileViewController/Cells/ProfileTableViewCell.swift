@@ -16,11 +16,11 @@ class ProfileTableViewCellData: BaseCellData {
     var style: ProfileTableViewCell.VisualStyle = .base
     
     override var nibName: String? {
-        return String(describing: ProfileTableViewCell.self)
+         String(describing: ProfileTableViewCell.self)
     }
     
     override var cellHeight: CGFloat {
-        return 61
+         61
     }
     
     init(title: String, additionalInfo: String? = nil, type: ProfileTableViewCell.VisualStyle = .base) {
