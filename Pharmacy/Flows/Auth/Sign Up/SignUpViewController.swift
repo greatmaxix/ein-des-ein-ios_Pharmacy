@@ -40,7 +40,7 @@ final class SignUpViewController: UIViewController {
 
         setupUI()
         setupLocalization()
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
     }
         
     deinit {
@@ -60,6 +60,10 @@ final class SignUpViewController: UIViewController {
     }
     
     @IBAction func skipSignUp(_ sender: UIButton) {
+    }
+    
+    @IBAction func back(_ sender: UIButton) {
+        model.close()
     }
     
     // MARK: - Setup
@@ -166,7 +170,7 @@ extension SignUpViewController: UITextFieldDelegate {
 
 // MARK: - SignUpOutput
 
-extension SignUpViewController: SignUpOutput {
+extension SignUpViewController: SignUpOutput {    
     
     func failedToSignUp(message: String) {
         showError(message: message)

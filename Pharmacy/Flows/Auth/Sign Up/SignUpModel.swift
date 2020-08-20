@@ -13,6 +13,7 @@ import Alamofire
 
 enum SignUpEvent: Event {
     case receiveCode(phone: String)
+    case close
 }
 
 protocol SignUpOutput: UIBlockerDelegate {
@@ -22,6 +23,7 @@ protocol SignUpOutput: UIBlockerDelegate {
 
 protocol SignUpInput {
     func signUp(name: String?, phone: String?, email: String?)
+    func close()
 }
 
 final class SignUpModel: Model {
@@ -62,5 +64,9 @@ extension SignUpModel: SignUpInput {
             phone = phone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
             makeSignUpRequest(name: name, phone: phone, email: email)
         }
+    }
+    
+    func close() {
+        raise(event: SignUpEvent.close)
     }
 }

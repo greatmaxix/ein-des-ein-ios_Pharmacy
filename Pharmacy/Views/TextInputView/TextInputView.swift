@@ -66,7 +66,7 @@ final class TextInputView: UIView {
             case .email, .name, .other:
                 return nil
             case .phone:
-                return "+7"
+                return nil
 
             }
         }

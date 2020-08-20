@@ -11,25 +11,28 @@ import EventsTree
 
 final class SignInViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var phoneInputView: TextInputView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var phoneInputView: TextInputView!
+    @IBOutlet private weak var scrollView: UIScrollView!
     
-    @IBOutlet weak var applyButton: UIButton!
-    @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var accountLabel: UILabel!
-    @IBOutlet weak var socialLabel: UILabel!
-    @IBOutlet weak var enterLabel: UILabel!
-    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet private weak var applyButton: UIButton!
+    @IBOutlet private weak var registerButton: UIButton!
+    @IBOutlet private weak var accountLabel: UILabel!
+    @IBOutlet private weak var socialLabel: UILabel!
+    @IBOutlet private weak var enterLabel: UILabel!
+    @IBOutlet private weak var skipButton: UIButton!
+    @IBOutlet private weak var applyLabel: UILabel!
+    @IBOutlet private weak var logoTopConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var facebookButton: UIButton!
-    @IBOutlet weak var googleButton: UIButton!
-    @IBOutlet weak var appleButton: UIButton!
-    @IBOutlet weak var faceIdButton: UIButton!
+    @IBOutlet private weak var facebookButton: UIButton!
+    @IBOutlet private weak var googleButton: UIButton!
+    @IBOutlet private weak var appleButton: UIButton!
+    @IBOutlet private weak var faceIdButton: UIButton!
     
     private var tapGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
+    
     var model: SignInInput!
     
     override func viewDidLoad() {
@@ -78,6 +81,10 @@ final class SignInViewController: UIViewController {
         googleButton.dropBlueShadow()
         appleButton.dropBlueShadow()
         faceIdButton.dropBlueShadow()
+        
+        let screenHeight = UIScreen.main.bounds.height
+        let heightCoef = (screenHeight - Const.minScreenHeight) / (Const.maxScreenHeight - Const.minScreenHeight)
+        logoTopConstraint.constant = heightCoef * Const.maxLogoTopSpace + (1 - heightCoef) * Const.minLogoTopSpace
     }
     
     // MARK: - Actions
@@ -92,6 +99,7 @@ final class SignInViewController: UIViewController {
 
             model.signIn(phone: phone)
             sender.isUserInteractionEnabled = false
+            applyLabel.textColor = R.color.textDarkBlue()
         }
         #endif
     }
@@ -117,6 +125,8 @@ final class SignInViewController: UIViewController {
     
     @objc private func hideKeyboard() {
         
+        applyLabel.textColor = phoneInputView.validate() ? R.color.textDarkBlue() : R.color.applyBlueGray()
+
         scrollView.contentInset = scrollViewInsets
         phoneInputView.endEditing(true)
     }
@@ -145,5 +155,16 @@ extension SignInViewController: SignInOutput {
     
     func failedToLogin(message: String) {
         showError(message: message)
+    }
+}
+
+// MARK: - Const
+
+fileprivate extension SignInViewController {
+    struct Const {
+        static let minLogoTopSpace: CGFloat = 36
+        static let maxLogoTopSpace: CGFloat = 158
+        static let minScreenHeight: CGFloat = 550
+        static let maxScreenHeight: CGFloat = 896
     }
 }

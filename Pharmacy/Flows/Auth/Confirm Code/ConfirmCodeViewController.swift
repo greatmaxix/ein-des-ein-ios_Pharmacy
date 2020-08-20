@@ -28,6 +28,7 @@ final class ConfirmCodeViewController: UIViewController {
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(stopInputCode))
         view.addGestureRecognizer(tapGesture)
         setupLocalization()
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,12 +42,31 @@ final class ConfirmCodeViewController: UIViewController {
         titleLabel.text = R.string.localize.confirmTitle()
         confirmTextLabel.text = R.string.localize.confirmDescription()
         resendCodeLabel.text = R.string.localize.confirmResendCode()
-        phoneLabel.text = model?.phoneNumber
+        phoneLabel.text = PhoneFormatter().formattedFinalNumber(number: model.phoneNumber)
         let attrs: [NSAttributedString.Key: Any] = [.font: R.font.notoSansJPBold(size: 12) ?? UIFont.systemFont(ofSize: 12, weight: .bold),
                                                     .underlineStyle: 1, .foregroundColor: R.color.textDarkBlue() ?? UIColor.black]
         
         let attrText: NSAttributedString = NSAttributedString(string: R.string.localize.confirmResendAgain(), attributes: attrs)
         resendButton.setAttributedTitle(attrText, for: .normal)
+    }
+    
+    func setupUI() {
+        
+        if let bar: SimpleNavigationBar = navigationController?.navigationBar as? SimpleNavigationBar {
+            
+            bar.isRightItemHidden = true
+            bar.isLeftItemHidden = false
+            bar.leftItemTitle = "   "
+            bar.title = R.string.localize.confirmScreenTitle()
+            bar.barDelegate = self
+            navigationController?.navigationBar.isHidden = false
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
     }
 
     @IBAction func resendCode(_ sender: UIButton) {
@@ -80,11 +100,20 @@ extension ConfirmCodeViewController: ConfirmCodeDelegate {
 extension ConfirmCodeViewController: ConfirmCodeOutput {
     
     func failedToConfirmCode(message: String) {
-        showError(message: message)
+        showError(title: "Error", message: message)
     }
     
     func unblockResendButton() {
         resendButton.isUserInteractionEnabled = true
         confirmCodeView.isUserInteractionEnabled = true
+    }
+}
+
+extension ConfirmCodeViewController: SimpleNavigationBarDelegate {
+    func leftBarItemAction() {
+        model.close()
+    }
+    
+    func rightBarItemAction() {
     }
 }

@@ -13,12 +13,13 @@ import Moya
 protocol ConfirmCodeInput {
     func sendCode(code: String)
     func resendCode()
-    
+    func close()
     var phoneNumber: String { get }
 }
 
 enum ConfirmCodeEvent: Event {
     case openMainScreen
+    case close
 }
 
 protocol ConfirmCodeOutput: class {
@@ -70,7 +71,7 @@ final class ConfirmCodeModel: Model {
     
     private func loginFail() {
         output.unblockResendButton()
-        output.failedToConfirmCode(message: "Failed to verify code.")
+        output.failedToConfirmCode(message: R.string.localize.confirmConfirm_fail())
     }
 }
 
@@ -89,5 +90,9 @@ extension ConfirmCodeModel: ConfirmCodeInput {
     func sendCode(code: String) {
         
         login(code: code)
+    }
+    
+    func close() {
+        raise(event: ConfirmCodeEvent.close)
     }
 }
