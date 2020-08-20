@@ -11,10 +11,10 @@ import UIKit
 class EmptyTableViewCellData: BaseCellData {
     
     override var nibName: String? {
-        return String(describing: EmptyTableViewCell.self)
+        String(describing: EmptyTableViewCell.self)
     }
     override var cellHeight: CGFloat {
-        return height
+        height
     }
     
     init(height: CGFloat = 0, color: UIColor? = nil) {

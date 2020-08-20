@@ -327,8 +327,8 @@ final class TextInputView: UIView {
     }
     
     private func setupFonts() {
-        inputTextField.font = R.font.notoSansJPRegular(size: Const.defaultFontSize)
-        errorLabel.font = R.font.notoSansJPRegular(size: Const.errorFontSize)
+        inputTextField.font = R.font.openSansRegular(size: Const.defaultFontSize)
+        errorLabel.font = R.font.openSansRegular(size: Const.errorFontSize)
         errorLabel.textColor = R.color.validationRed()
     }
     
@@ -338,7 +338,7 @@ final class TextInputView: UIView {
             
             let attrText = NSMutableAttributedString(attributedString: text)
             let asterisk: NSAttributedString = NSAttributedString(string: "*", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red,
-                    NSAttributedString.Key.font: R.font.notoSansJPRegular(size: 16) ?? UIFont.systemFont(ofSize: 16)])
+                    NSAttributedString.Key.font: R.font.openSansRegular(size: 16) ?? UIFont.systemFont(ofSize: 16)])
             attrText.append(asterisk)
             inputTextField!.attributedPlaceholder = attrText
         }

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SimpleNavigationBarView" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZX-GD-XdC">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lD-JQ-r9W">
+                            <rect key="frame" x="192" y="57" width="30" height="19"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUy-h4-mP0">
+                            <rect key="frame" x="19" y="52.5" width="77" height="28"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                            <state key="normal" title="Button" image="leftArrow">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-Z6-s0d">
+                            <rect key="frame" x="350" y="51" width="49" height="31"/>
+                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" name="welcomeBlue"/>
+                    <constraints>
+                        <constraint firstItem="2lD-JQ-r9W" firstAttribute="centerX" secondItem="lZX-GD-XdC" secondAttribute="centerX" id="2Rx-Cy-15K"/>
+                        <constraint firstAttribute="trailing" secondItem="HYE-Z6-s0d" secondAttribute="trailing" constant="15" id="TeV-fl-YI7"/>
+                        <constraint firstItem="gUy-h4-mP0" firstAttribute="centerY" secondItem="2lD-JQ-r9W" secondAttribute="centerY" id="cse-1b-t28"/>
+                        <constraint firstItem="HYE-Z6-s0d" firstAttribute="centerY" secondItem="2lD-JQ-r9W" secondAttribute="centerY" id="lyC-46-7A8"/>
+                        <constraint firstAttribute="bottom" secondItem="2lD-JQ-r9W" secondAttribute="bottom" constant="12" id="tWs-1z-ySs"/>
+                        <constraint firstItem="gUy-h4-mP0" firstAttribute="leading" secondItem="lZX-GD-XdC" secondAttribute="leading" constant="19" id="xVJ-be-Dy5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" name="backgroundGray"/>
+            <constraints>
+                <constraint firstAttribute="top" secondItem="lZX-GD-XdC" secondAttribute="top" id="ETI-7T-8CY"/>
+                <constraint firstItem="lZX-GD-XdC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OaH-lK-0X5"/>
+                <constraint firstAttribute="bottom" secondItem="lZX-GD-XdC" secondAttribute="bottom" id="moX-VM-Bjn"/>
+                <constraint firstAttribute="trailing" secondItem="lZX-GD-XdC" secondAttribute="trailing" id="o2O-GW-Y4l"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="frontView" destination="lZX-GD-XdC" id="LGS-Zr-Kwk"/>
+                <outlet property="leftButton" destination="gUy-h4-mP0" id="xO1-iU-oYV"/>
+                <outlet property="rightButton" destination="HYE-Z6-s0d" id="LGS-E5-D2K"/>
+                <outlet property="titleLabel" destination="2lD-JQ-r9W" id="lPQ-MS-Ek3"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="leftArrow" width="28" height="28"/>
+        <namedColor name="backgroundGray">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="welcomeBlue">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

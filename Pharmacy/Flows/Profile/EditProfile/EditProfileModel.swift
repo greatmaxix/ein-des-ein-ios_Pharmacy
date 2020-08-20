@@ -12,6 +12,7 @@ import EventsTree
 
 enum EditProfileEvent: Event {
     case close
+    case profileUpdated
     case openPhoto
 }
 
@@ -21,6 +22,11 @@ protocol EditProfileInput: class {
     func saveProfile(name: String, email: String)
     func close()
     func getUser() -> User?
+    
+    var name: String {get}
+    var phone: String {get}
+    var email: String? {get}
+    var imageUrl: URL? {get}
 }
 
 class EditProfileModel: EventNode {
@@ -42,11 +48,14 @@ class EditProfileModel: EventNode {
     private func updateUser(name: String, email: String, avatarUuid: String) {
         
         provider.load(target: .updateCustomer(name: name, email: email, avatarUuid: avatarUuid)) { [weak self] (result) in
+            
+            guard let self: EditProfileModel = self else {return}
             switch result {
             case .success(let response):
                 let newUser = response.user
                 UserSession.shared.save(user: newUser, token: nil)
-                self?.raise(event: EditProfileEvent.close)
+                self.raise(event: EditProfileEvent.profileUpdated)
+                self.raise(event: EditProfileEvent.close)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -72,6 +81,22 @@ class EditProfileModel: EventNode {
 }
 
 extension EditProfileModel: EditProfileInput {
+    var name: String {
+        user.name
+    }
+    
+    var phone: String {
+        user.phone
+    }
+    
+    var email: String? {
+        user.email
+    }
+    
+    var imageUrl: URL? {
+        user.avatar?.url
+    }
+    
     
     func saveImage(image: UIImage, mime: String, fileName: String) {
         self.profileImage = image

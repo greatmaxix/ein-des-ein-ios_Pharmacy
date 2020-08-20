@@ -11,11 +11,11 @@ import EventsTree
 
 class ProfileOptionsCellData: BaseCellData {
     override var nibName: String? {
-        return "ProfileOptionsCell"
+        "ProfileOptionsCell"
     }
         
     override var cellHeight: CGFloat {
-        return 90.0
+         90.0
     }
     
     var events: [ProfileEvent] = []

@@ -47,7 +47,9 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         profileVC.model = ProfileModel(parent: self)
         root = profileVC
         
-        let navigationVC: UINavigationController = UINavigationController(rootViewController: root)
+        let navigationVC: UINavigationController = UINavigationController(navigationBarClass: SimpleNavigationBar.self, toolbarClass: nil)
+        navigationVC.setViewControllers([root], animated: false)
+       
         navigationVC.isToolbarHidden = true
         return navigationVC
     }
