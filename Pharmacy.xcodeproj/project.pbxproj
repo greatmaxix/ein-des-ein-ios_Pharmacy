@@ -66,6 +66,8 @@
 		399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */; };
 		39CBDA6E249CF5BA00A04831 /* ConfirmCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDA6D249CF5BA00A04831 /* ConfirmCodeViewController.swift */; };
 		39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDA6F249CF7F900A04831 /* SMSCodeValidator.swift */; };
+		39F0AD5E24EEBF9B00CD6CA4 /* EmptyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0AD5D24EEBF9B00CD6CA4 /* EmptyResultsView.swift */; };
+		39F0AD6024EEBFB000CD6CA4 /* EmptyResultsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F0AD5F24EEBFB000CD6CA4 /* EmptyResultsView.xib */; };
 		39F8B2F724CEFBBA00195AD8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2F624CEFBBA00195AD8 /* WelcomeViewController.swift */; };
 		39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2F824CEFBDA00195AD8 /* WelcomeModel.swift */; };
 		39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */; };
@@ -243,6 +245,8 @@
 		399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeView.swift; sourceTree = "<group>"; };
 		39CBDA6D249CF5BA00A04831 /* ConfirmCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewController.swift; sourceTree = "<group>"; };
 		39CBDA6F249CF7F900A04831 /* SMSCodeValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCodeValidator.swift; sourceTree = "<group>"; };
+		39F0AD5D24EEBF9B00CD6CA4 /* EmptyResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultsView.swift; sourceTree = "<group>"; };
+		39F0AD5F24EEBFB000CD6CA4 /* EmptyResultsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyResultsView.xib; sourceTree = "<group>"; };
 		39F8B2F624CEFBBA00195AD8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		39F8B2F824CEFBDA00195AD8 /* WelcomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModel.swift; sourceTree = "<group>"; };
 		39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
@@ -621,6 +625,7 @@
 				6075BD5124DEB12F00BC78BD /* RoundedCornerNavigationBar */,
 				399F2426249CA118003BA7E1 /* ConfirmationCodeView */,
 				395D04F824D011F6007A278D /* ReadyOrderView */,
+				39F0AD5B24EEBF6300CD6CA4 /* EmptyResultsView */,
 				395C9D4C2498BDD6001EB6CD /* TextInputView */,
 			);
 			path = Views;
@@ -686,6 +691,15 @@
 				3915D60724A2466700A93627 /* ConfirmCodeModel.swift */,
 			);
 			path = "Confirm Code";
+			sourceTree = "<group>";
+		};
+		39F0AD5B24EEBF6300CD6CA4 /* EmptyResultsView */ = {
+			isa = PBXGroup;
+			children = (
+				39F0AD5D24EEBF9B00CD6CA4 /* EmptyResultsView.swift */,
+				39F0AD5F24EEBFB000CD6CA4 /* EmptyResultsView.xib */,
+			);
+			path = EmptyResultsView;
 			sourceTree = "<group>";
 		};
 		39F8B2F424CEFB0C00195AD8 /* Welcome */ = {
@@ -1172,6 +1186,7 @@
 				397541D524ED23CB0069F8DE /* SimpleNavigationBarView.xib in Resources */,
 				6075BD4724DEA7FB00BC78BD /* OpenSans-BoldItalic.ttf in Resources */,
 				6075BD4824DEA7FB00BC78BD /* OpenSans-ExtraBold.ttf in Resources */,
+				39F0AD6024EEBFB000CD6CA4 /* EmptyResultsView.xib in Resources */,
 				6075BD4924DEA7FB00BC78BD /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				6075BD4A24DEA7FB00BC78BD /* OpenSans-Italic.ttf in Resources */,
 				6075BD4B24DEA7FB00BC78BD /* OpenSans-Light.ttf in Resources */,
@@ -1406,6 +1421,7 @@
 				60E1A6FB24EBB20E00B3D205 /* UIViewController+Keyboard.swift in Sources */,
 				603D31E524E5A90C000E5A6C /* ProductTagsTableViewCell.swift in Sources */,
 				6075BD5C24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift in Sources */,
+				39F0AD5E24EEBF9B00CD6CA4 /* EmptyResultsView.swift in Sources */,
 				39F8B2F724CEFBBA00195AD8 /* WelcomeViewController.swift in Sources */,
 				3949851A24BC519B006A773D /* ProfileOptionsCell.swift in Sources */,
 				60E1A71F24ED12C200B3D205 /* UIViewController+ActionSheetView.swift in Sources */,
