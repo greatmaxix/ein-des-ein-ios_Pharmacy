@@ -20,7 +20,7 @@ class NameTableViewCellData: BaseCellData {
     }
 
     override var cellHeight: CGFloat {
-        return UITableView.automaticDimension
+        return 104
     }
     
     init(imageUrl: URL?, name: String, phone: String) {

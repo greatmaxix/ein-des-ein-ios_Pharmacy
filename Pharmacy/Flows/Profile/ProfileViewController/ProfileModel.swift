@@ -41,6 +41,15 @@ final class ProfileModel: Model {
         super.init(parent: parent)
         
         setupDataSource()
+        
+        addHandler { [weak self] (event: EditProfileEvent) in
+            switch event {
+            case .profileUpdated:
+                self?.setupDataSource()
+            default:
+                break
+            }
+        }
     }
 
     private func setupDataSource() {
@@ -119,7 +128,7 @@ final class ProfileModel: Model {
             cellsData.append(cellData)
         }
         do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 50)
+            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 38)
             cellsData.append(cellData)
         }
         do {
@@ -131,7 +140,7 @@ final class ProfileModel: Model {
             cellsData.append(cellData)
         }
         do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24.5)
+            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24)
             cellsData.append(cellData)
         }
     }

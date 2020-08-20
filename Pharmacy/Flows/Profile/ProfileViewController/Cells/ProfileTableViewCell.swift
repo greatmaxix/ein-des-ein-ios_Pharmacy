@@ -20,7 +20,7 @@ class ProfileTableViewCellData: BaseCellData {
     }
     
     override var cellHeight: CGFloat {
-        return 58
+        return 61
     }
     
     init(title: String, additionalInfo: String? = nil, type: ProfileTableViewCell.VisualStyle = .base) {
@@ -74,13 +74,17 @@ class ProfileTableViewCell: BaseTableViewCell {
         switch style {
         case .base:
             additionaInfoLabel.isHidden = true
+            titleLabel.textColor = R.color.textDarkBlue()
+            arrowView.isHidden = false
         case .exit:
             arrowView.isHidden = true
             additionaInfoLabel.isHidden = true
             titleLabel.textColor = .red
             typeImageView.tintColor = .red
         case .payment, .region:
-            break
+            titleLabel.textColor = R.color.textDarkBlue()
+            arrowView.isHidden = false
+            additionaInfoLabel.isHidden = false
         }
     }
 }

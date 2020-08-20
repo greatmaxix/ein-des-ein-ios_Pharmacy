@@ -10,8 +10,10 @@ import UIKit
 import Kingfisher
 
 extension UIImageView {
-    func loadImageBy(url: URL) {
+    func loadImageBy(url: URL, completion: EmptyClosure? = nil) {
         kf.indicatorType = .activity
-        kf.setImage(with: url)
+        kf.setImage(with: url, completionHandler: { response in
+            completion?()
+        })
     }
 }
