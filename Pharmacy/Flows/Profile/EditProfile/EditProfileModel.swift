@@ -29,7 +29,7 @@ protocol EditProfileInput: class {
     var imageUrl: URL? {get}
 }
 
-class EditProfileModel: EventNode {
+final class EditProfileModel: EventNode {
     
     unowned var output: EditProfileOutput!
     private var profileImage: UIImage?

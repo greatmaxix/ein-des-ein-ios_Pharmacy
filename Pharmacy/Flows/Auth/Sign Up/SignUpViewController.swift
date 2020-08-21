@@ -40,7 +40,7 @@ final class SignUpViewController: UIViewController {
 
         setupUI()
         setupLocalization()
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
     }
         
     deinit {
@@ -60,6 +60,10 @@ final class SignUpViewController: UIViewController {
     }
     
     @IBAction func skipSignUp(_ sender: UIButton) {
+    }
+    
+    @IBAction func back(_ sender: UIButton) {
+        model.close()
     }
     
     // MARK: - Setup
@@ -102,7 +106,7 @@ final class SignUpViewController: UIViewController {
         skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
         registrationLabel.text = R.string.localize.signupRegistration()
         
-        if let font: UIFont = R.font.notoSansJPRegular(size: 14) {
+        if let font: UIFont = R.font.openSansRegular(size: 14) {
             
             var attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: R.color.textDarkBlue() ??  UIColor.black]
             let attrText: NSMutableAttributedString = NSMutableAttributedString(string: R.string.localize.signupPrivacy(), attributes: attributes)
@@ -166,7 +170,7 @@ extension SignUpViewController: UITextFieldDelegate {
 
 // MARK: - SignUpOutput
 
-extension SignUpViewController: SignUpOutput {
+extension SignUpViewController: SignUpOutput {    
     
     func failedToSignUp(message: String) {
         showError(message: message)

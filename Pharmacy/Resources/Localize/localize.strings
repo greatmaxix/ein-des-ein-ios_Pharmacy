@@ -26,18 +26,18 @@
 "error.name" = "Is this your real name?";
 
 // MARK: - Confirm code
-
+"confirm.screenTitle" = "Верификация";
 "confirm.title" = "Подтверждение номера";
 "confirm.description" = "Пожалуйста, введите проверочный код, который мы отправили на";
 "confirm.resendCode" = "Не получили код ?";
 "confirm.resendAgain" = "Отправить снова";
 "confirm.resend_fail" = "Failed to resend code.";
-"confirm.confirm_fail" = "Failed to verify code.";
+"confirm.confirm_fail" = "The code you entered is incorrect. Please try again.";
 
 // MARK: - Log in
 
 "login.title" = "С возвращением!";
-"login.description" = "Пожалуйста, авторизируйтесь с помощью номер телефона";
+"login.description" = "Что бы войти в систему, введите зарегестрированный номер телефона";
 "login.social" = "Или войти с помощью";
 "login.enter" = "Войти";
 "login.account" = "Еще нет аккаунта ?";
@@ -112,7 +112,21 @@
 "medicine.sort" = "Сортировать";
 "medicine.found" = "Найдено";
 "medicine.found.product" = "продукт";
-"medicine.found.products" = "продукт(ов)";
+"medicine.found.products" = "товара(ов)";
+
+// MARK: - Product
+
+"product.bonus" = "БОНУСОВ";
+"product.analogs" = "Аналоги и основное действующее вещество";
+"product.tags" = "Теги: ";
+"product.produceForms" = "Формы выпуска :";
+"product.description" = "Описание :";
+"product.cunsumWarning" = "Перед употреблением рекомендуем проконсультироваться с врачом и изучить инструкцию.";
+"product.questions" = "Остались вопросы?";
+"product.askFarmacept" = "Спроси фармацевта!";
+"product.recommended" = "Рекомендуемое вам :";
+"product.watchAll" = "Смотреть все";
+"product.findIn" = "Найти в аптеках";
 
 // MARK: - Search
 
@@ -122,3 +136,31 @@
 //MARK: Scan
 
 "scan.title" = "Штрих код";
+
+//MARK: MyOrders
+
+"myOrders.emptyBarTitle" = "Заказы";
+"myOrders.emptyTitle" = "Вы еще не решились сделать заказ?";
+"myOrders.emptyDescription" = "Перейдите в корзину, чтобы продолжить оформление заказа";
+"myOrders.emptyButton" = "Оформить заказ?";
+
+//MARK: MyРrescriptions
+
+"prescriptions.emptyBarTitle" = "Рецепты";
+"prescriptions.emptyTitle" = "У вас пока нет подтвержденных рецептов";
+"prescriptions.emptyDescription" = "Обратитесь к вашему лечащему врачу, чтобы загрузить рецепт";
+"prescriptions.emptyButton" = "Записаться на прием";
+
+//MARK: Wish list
+
+"wishlist.emptyBarTitle" = "Избранное";
+"wishlist.emptyTitle" = "Оу, вы пока не добавили товар в избранное";
+"wishlist.emptyDescription" = "Начните поиск, чтобы добавить товар в корзину";
+"wishlist.emptyButton" = "Начать поиск";
+
+//MARK: Analizes list
+
+"analizes.emptyBarTitle" = "Анализы";
+"analizes.emptyTitle" = "У вас нет пока результатов анализов";
+"analizes.emptyDescription" = "Это просто исправить! Запишитесь на анализы через наше приложение";
+"analizes.emptyButton" = "Записаться на анализы";

@@ -38,6 +38,17 @@ class AuthFlowCoordinator: EventNode, Coordinator {
             switch event {
             case .receiveCode(let phone):
                 self?.presentConfirmSMS(phone: phone)
+            case .close:
+                self?.popController()
+            }
+        }
+        
+        addHandler { [weak self] (event: ConfirmCodeEvent) in
+            switch event {
+            case .close:
+                self?.popController()
+            default:
+                break
             }
         }
     }
@@ -53,7 +64,8 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         signInController.model = model
         
         root = signInController
-        let navigation = UINavigationController(rootViewController: root)
+        let navigation = UINavigationController(navigationBarClass: SimpleNavigationBar.self, toolbarClass: nil)
+        navigation.setViewControllers([root], animated: true)
         navigation.isToolbarHidden = true
 
         return navigation

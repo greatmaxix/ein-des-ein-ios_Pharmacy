@@ -17,6 +17,7 @@ final class ProductTagsTableViewCell: UITableViewCell {
         static let textFont = UIFont.systemFont(ofSize: 14)
     }
     
+    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var tagsView: TTGTextTagCollectionView!
     private let config = TTGTextTagConfig()
 
@@ -31,6 +32,8 @@ final class ProductTagsTableViewCell: UITableViewCell {
         config.textFont = GUI.textFont
         config.borderWidth = 0
         config.shadowColor = .clear
+        
+        titleLabel.text = R.string.localize.productTags()
     }
 
     func apply(product: Product) {

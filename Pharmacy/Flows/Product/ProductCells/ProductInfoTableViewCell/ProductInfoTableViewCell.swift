@@ -15,6 +15,12 @@ final class ProductInfoTableViewCell: UITableViewCell {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var fromPriceLabel: UILabel!
     @IBOutlet private weak var toPriceLabel: UILabel!
+    @IBOutlet weak var bonusButton: UIButton!
+    
+    override func awakeFromNib() {
+        let text = bonusButton.titleLabel?.text ?? ""
+        bonusButton.setTitle(text  + " 🤑 50 " + R.string.localize.productBonus(), for: .normal)
+    }
     
     func apply(product: Product) {
         titleLabel.text = product.title

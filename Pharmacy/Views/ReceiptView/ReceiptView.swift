@@ -18,7 +18,6 @@ final class ReceiptView: UIView {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
-    @IBOutlet private weak var actionButton: UIButton!
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var likeButton: UIButton!
     @IBOutlet private weak var receiptButton: UIButton!
@@ -36,19 +35,16 @@ final class ReceiptView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        actionButton.layer.cornerRadius = GUI.cornerRadius
         containerView.layer.cornerRadius = GUI.cornerRadius
         containerView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         containerView.dropBlueShadow()
     }
     
-    //MARK: - Actions
-    
-    @IBAction func priceAction(_ sender: UIButton) {
-        
-    }
+    // MARK: - Actions
     
     @IBAction func likeAction(_ sender: UIButton) {
         sender.isSelected.toggle()
+    }
+    @IBAction func addToBag(_ sender: UIButton) {
     }
 }

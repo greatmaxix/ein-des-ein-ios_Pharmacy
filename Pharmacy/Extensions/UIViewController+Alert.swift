@@ -10,14 +10,15 @@ import UIKit
 
 struct AlertAction {
     let title: String
-    let callback: ()->Void
+    let callback: () ->Void
 }
 
 extension UIViewController {
     
     func showError(title: String = "Error", message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action: UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
+        alertVC
+        let action: UIAlertAction = UIAlertAction(title: "Ok", style: .cancel, handler: { _ in
             alertVC.dismiss(animated: true, completion: nil)
         })
         alertVC.addAction(action)

@@ -16,12 +16,13 @@ extension UIView {
 
 extension UIView {
     class func fromNib<T: UIView>() -> T {
-        print(String(describing: T.self))
+        //print(String(describing: T.self))
+        // swiftlint:disable force_cast
         return Bundle(for: T.self).loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
     }
     
     @discardableResult
-    func configFromNib<T : UIView>() -> T? {
+    func configFromNib<T: UIView>() -> T? {
         guard let contentView = Bundle(for: type(of: self)).loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)?.first as? T else {
             return nil
         }
@@ -31,4 +32,3 @@ extension UIView {
         return contentView
     }
 }
-

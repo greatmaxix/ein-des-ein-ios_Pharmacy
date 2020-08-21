@@ -15,9 +15,11 @@ final class ProductAdviceTableViewCell: HighlightedTableViewCell, ContainerView 
     }
     
     @IBOutlet internal weak var containerView: UIView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = GUI.cornerRadius
+        descriptionLabel.text = R.string.localize.productCunsumWarning()
     }
 }
