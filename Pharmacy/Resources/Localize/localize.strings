@@ -112,7 +112,21 @@
 "medicine.sort" = "Сортировать";
 "medicine.found" = "Найдено";
 "medicine.found.product" = "продукт";
-"medicine.found.products" = "продукт(ов)";
+"medicine.found.products" = "товара(ов)";
+
+// MARK: - Product
+
+"product.bonus" = "БОНУСОВ";
+"product.analogs" = "Аналоги и основное действующее вещество";
+"product.tags" = "Теги: ";
+"product.produceForms" = "Формы выпуска :";
+"product.description" = "Описание :";
+"product.cunsumWarning" = "Перед употреблением рекомендуем проконсультироваться с врачом и изучить инструкцию.";
+"product.questions" = "Остались вопросы?";
+"product.askFarmacept" = "Спроси фармацевта!";
+"product.recommended" = "Рекомендуемое вам :";
+"product.watchAll" = "Смотреть все";
+"product.findIn" = "Найти в аптеках";
 
 // MARK: - Search
 

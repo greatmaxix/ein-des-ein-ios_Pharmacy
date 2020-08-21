@@ -63,6 +63,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="containerView" destination="nO0-EY-1RS" id="CZf-C7-dhl"/>
+                <outlet property="descriptionLabel" destination="9cG-xn-a3a" id="PSY-II-Mpt"/>
+                <outlet property="textLabel" destination="9cG-xn-a3a" id="c5Z-rR-XV7"/>
             </connections>
             <point key="canvasLocation" x="204.34782608695653" y="134.93303571428569"/>
         </tableViewCell>

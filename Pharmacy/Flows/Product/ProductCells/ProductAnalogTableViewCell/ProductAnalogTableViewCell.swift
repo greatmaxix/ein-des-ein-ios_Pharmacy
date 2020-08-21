@@ -16,10 +16,13 @@ final class ProductAnalogTableViewCell: HighlightedTableViewCell, ContainerView 
     
     @IBOutlet internal weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet weak var analogsLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = GUI.cornerRadius
+        
+        analogsLabel.text = R.string.localize.productAnalogs()
     }
     
     func apply(product: Product) {

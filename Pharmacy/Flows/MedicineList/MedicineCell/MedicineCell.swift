@@ -13,15 +13,13 @@ final class MedicineCell: HighlightedTableViewCell {
     @IBOutlet private weak var farmacyImageView: UIImageView!
     @IBOutlet private weak var likedButton: UIButton!
     @IBOutlet private weak var buyButton: UIButton!
-    @IBOutlet private weak var receipeButton: UIButton!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var typeLabel: UILabel!
     @IBOutlet private weak var factoryLabel: UILabel!
     @IBOutlet private weak var costLabel: UILabel!
     
-    var addToFavoritesHandler: (() -> Void)?
-    var addToPurchesesHandler: (() -> Void)?
-    
+    var addToFavoritesHandler: EmptyClosure?
+    var addToPurchesesHandler: EmptyClosure?
     
     func apply(medicine: Medicine) {
         titleLabel.text = medicine.tittle
@@ -30,6 +28,7 @@ final class MedicineCell: HighlightedTableViewCell {
         
         if let url = medicine.imageURL {
             farmacyImageView.loadImageBy(url: url)
+            farmacyImageView.layer.cornerRadius = 8
         }
     }
     
