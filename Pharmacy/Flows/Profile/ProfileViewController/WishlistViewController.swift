@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WishlistViewController: UIViewController {
+final class WishlistViewController: UIViewController {
 
     var model: WishlistInput!
     private var emptyResultsView: EmptyResultsView?

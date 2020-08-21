@@ -106,7 +106,7 @@ final class SignUpViewController: UIViewController {
         skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
         registrationLabel.text = R.string.localize.signupRegistration()
         
-        if let font: UIFont = R.font.notoSansJPRegular(size: 14) {
+        if let font: UIFont = R.font.openSansRegular(size: 14) {
             
             var attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: R.color.textDarkBlue() ??  UIColor.black]
             let attrText: NSMutableAttributedString = NSMutableAttributedString(string: R.string.localize.signupPrivacy(), attributes: attributes)

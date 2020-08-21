@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PrescriptionsViewController: UIViewController {
+final class PrescriptionsViewController: UIViewController {
 
     var model: PrescriptionsInput!
     private var emptyResultsView: EmptyResultsView?

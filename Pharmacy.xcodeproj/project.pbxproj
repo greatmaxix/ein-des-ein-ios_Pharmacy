@@ -22,12 +22,6 @@
 		395085E924EC1C960076E1DF /* CustomerImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395085E824EC1C960076E1DF /* CustomerImageResponse.swift */; };
 		39520E8E24A5EFAC00C2B7D8 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */; };
 		39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */; };
-		39534EC224A4EB57009AA5BB /* NotoSansJP-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EBC24A4EB56009AA5BB /* NotoSansJP-Black.otf */; };
-		39534EC324A4EB57009AA5BB /* NotoSansJP-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EBD24A4EB56009AA5BB /* NotoSansJP-Thin.otf */; };
-		39534EC424A4EB57009AA5BB /* NotoSansJP-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EBE24A4EB57009AA5BB /* NotoSansJP-Medium.otf */; };
-		39534EC524A4EB57009AA5BB /* NotoSansJP-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EBF24A4EB57009AA5BB /* NotoSansJP-Light.otf */; };
-		39534EC624A4EB57009AA5BB /* NotoSansJP-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EC024A4EB57009AA5BB /* NotoSansJP-Bold.otf */; };
-		39534EC724A4EB57009AA5BB /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39534EC124A4EB57009AA5BB /* NotoSansJP-Regular.otf */; };
 		3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */; };
 		3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D12224D1BB7400AB44BD /* EditProfileModel.swift */; };
 		3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */; };
@@ -207,12 +201,6 @@
 		395085E824EC1C960076E1DF /* CustomerImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerImageResponse.swift; sourceTree = "<group>"; };
 		39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
-		39534EBC24A4EB56009AA5BB /* NotoSansJP-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Black.otf"; sourceTree = "<group>"; };
-		39534EBD24A4EB56009AA5BB /* NotoSansJP-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Thin.otf"; sourceTree = "<group>"; };
-		39534EBE24A4EB57009AA5BB /* NotoSansJP-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Medium.otf"; sourceTree = "<group>"; };
-		39534EBF24A4EB57009AA5BB /* NotoSansJP-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Light.otf"; sourceTree = "<group>"; };
-		39534EC024A4EB57009AA5BB /* NotoSansJP-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Bold.otf"; sourceTree = "<group>"; };
-		39534EC124A4EB57009AA5BB /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
 		3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3954D12224D1BB7400AB44BD /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
@@ -516,12 +504,6 @@
 			isa = PBXGroup;
 			children = (
 				6075BD2E24DEA3BE00BC78BD /* OpenSans */,
-				39534EBC24A4EB56009AA5BB /* NotoSansJP-Black.otf */,
-				39534EC024A4EB57009AA5BB /* NotoSansJP-Bold.otf */,
-				39534EBF24A4EB57009AA5BB /* NotoSansJP-Light.otf */,
-				39534EBE24A4EB57009AA5BB /* NotoSansJP-Medium.otf */,
-				39534EC124A4EB57009AA5BB /* NotoSansJP-Regular.otf */,
-				39534EBD24A4EB56009AA5BB /* NotoSansJP-Thin.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1256,7 +1238,6 @@
 				6075BD4F24DEA7FB00BC78BD /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				395D050624D05206007A278D /* MedicineCell.xib in Resources */,
 				618C33A52498BE6200951D11 /* Profile.storyboard in Resources */,
-				39534EC424A4EB57009AA5BB /* NotoSansJP-Medium.otf in Resources */,
 				3949851B24BC519B006A773D /* ProfileOptionsCell.xib in Resources */,
 				603D31FB24E5AA31000E5A6C /* ProductDescriptionTableViewCell.xib in Resources */,
 				6036EB0324DD27A5003336C2 /* Search.storyboard in Resources */,
@@ -1268,19 +1249,14 @@
 				39F8B2FD24CF004900195AD8 /* Welcome.storyboard in Resources */,
 				603D31E624E5A90C000E5A6C /* ProductTagsTableViewCell.xib in Resources */,
 				603D31F324E5A9F7000E5A6C /* ProductAdviceTableViewCell.xib in Resources */,
-				39534EC724A4EB57009AA5BB /* NotoSansJP-Regular.otf in Resources */,
 				396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */,
-				39534EC224A4EB57009AA5BB /* NotoSansJP-Black.otf in Resources */,
 				6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */,
 				396C45C22497699900A569CE /* Assets.xcassets in Resources */,
 				60E1A71124ECE0C300B3D205 /* Scan.storyboard in Resources */,
-				39534EC624A4EB57009AA5BB /* NotoSansJP-Bold.otf in Resources */,
 				603D31EF24E5A9E5000E5A6C /* ProductInstructionTableViewCell.xib in Resources */,
 				603D31CE24E57E6B000E5A6C /* ProductPageViewController.xib in Resources */,
 				395C9D6A2498E2EA001EB6CD /* localize.strings in Resources */,
 				603D31E124E5A8E3000E5A6C /* ProductCategoryTableViewCell.xib in Resources */,
-				39534EC524A4EB57009AA5BB /* NotoSansJP-Light.otf in Resources */,
-				39534EC324A4EB57009AA5BB /* NotoSansJP-Thin.otf in Resources */,
 				395A7FC624A3980D00A7CFC6 /* NameTableViewCell.xib in Resources */,
 				603D31DC24E5A88C000E5A6C /* ProductAnalogTableViewCell.xib in Resources */,
 				6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */,

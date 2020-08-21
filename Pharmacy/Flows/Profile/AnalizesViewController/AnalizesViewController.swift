@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnalizesViewController: UIViewController {
+final class AnalizesViewController: UIViewController {
 
     var model: AnalizesInput!
         private var emptyResultsView: EmptyResultsView?
