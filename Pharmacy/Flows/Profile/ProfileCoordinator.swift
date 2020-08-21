@@ -26,6 +26,14 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
             switch event {
             case .editProfile(let profile):
                 self?.presentEditProfile(profile: profile)
+            case .openOrder:
+                self?.presentMyOrders()
+            case .openPrescriptions:
+                self?.presentPrescriptions()
+            case .openWishlist:
+                self?.presentWishlist()
+            case .close:
+                self?.popController()
             default:
                 break
             }
@@ -43,7 +51,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     
     func createFlow() -> UIViewController {
         // swiftlint:disable force_cast
-        let profileVC: ProfileViewController = R.storyboard.profile().instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+        let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
         profileVC.model = ProfileModel(parent: self)
         root = profileVC
         
@@ -64,6 +72,36 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         model.output = editProfileVC
         editProfileVC.model = model
         root.navigationController?.pushViewController(editProfileVC, animated: true)
+    }
+    
+    func presentWishlist() {
+        guard let wishlistVC: WishlistViewController = storyboard.instantiateViewController(withIdentifier: "WishlistViewController") as? WishlistViewController else {
+                   return
+        }
+        
+        let model = WishlistModel(parent: self)
+        wishlistVC.model = model
+        root.navigationController?.pushViewController(wishlistVC, animated: true)
+    }
+    
+    func presentMyOrders() {
+        guard let ordersVC: OrdersViewController = storyboard.instantiateViewController(withIdentifier: "OrdersViewController") as? OrdersViewController else {
+                   return
+        }
+        
+        let model = OrdersModel(parent: self)
+        ordersVC.model = model
+        root.navigationController?.pushViewController(ordersVC, animated: true)
+    }
+    
+    func presentPrescriptions() {
+        guard let prescriptionsVC: PrescriptionsViewController = storyboard.instantiateViewController(withIdentifier: "PrescriptionsViewController") as? PrescriptionsViewController else {
+                   return
+        }
+        
+        let model = PrescriptionsModel(parent: self)
+        prescriptionsVC.model = model
+        root.navigationController?.pushViewController(prescriptionsVC, animated: true)
     }
     
     private func popController() {

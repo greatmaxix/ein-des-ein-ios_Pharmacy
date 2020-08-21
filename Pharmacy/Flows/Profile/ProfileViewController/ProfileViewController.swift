@@ -14,7 +14,7 @@ final class ProfileViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    var model: ProfileModel!
+    var model: ProfileInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()

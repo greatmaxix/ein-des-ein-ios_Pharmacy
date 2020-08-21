@@ -126,18 +126,21 @@
 
 //MARK: MyOrders
 
+"myOrders.emptyBarTitle" = "Заказы";
 "myOrders.emptyTitle" = "Вы еще не решились сделать заказ?";
 "myOrders.emptyDescription" = "Перейдите в корзину, чтобы продолжить оформление заказа";
 "myOrders.emptyButton" = "Оформить заказ?";
 
-//MARK: MyOrders
+//MARK: MyРrescriptions
 
+"prescriptions.emptyBarTitle" = "Рецепты";
 "prescriptions.emptyTitle" = "У вас пока нет подтвержденных рецептов";
 "prescriptions.emptyDescription" = "Обратитесь к вашему лечащему врачу, чтобы загрузить рецепт";
 "prescriptions.emptyButton" = "Записаться на прием";
 
 //MARK: Wish list
 
+"wishlist.emptyBarTitle" = "Избранное";
 "wishlist.emptyTitle" = "Оу, вы пока не добавили товар в избранное";
 "wishlist.emptyDescription" = "Начните поиск, чтобы добавить товар в корзину";
 "wishlist.emptyButton" = "Начать поиск";

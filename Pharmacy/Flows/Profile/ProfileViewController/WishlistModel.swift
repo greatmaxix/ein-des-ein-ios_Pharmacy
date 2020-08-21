@@ -10,8 +10,15 @@ import UIKit
 import EventsTree
 
 protocol WishlistInput {
+    func close()
 }
 
 final class WishlistModel: EventNode {
     
+}
+
+extension WishlistModel: WishlistInput {
+    func close() {
+        raise(event: ProfileEvent.close)
+    }
 }

@@ -10,8 +10,16 @@ import UIKit
 import EventsTree
 
 protocol OrdersInput {
+    func close()
 }
 
 final class OrdersModel: EventNode {
     
+}
+
+extension OrdersModel: OrdersInput {
+    
+    func close() {
+        raise(event: ProfileEvent.close)
+    }
 }

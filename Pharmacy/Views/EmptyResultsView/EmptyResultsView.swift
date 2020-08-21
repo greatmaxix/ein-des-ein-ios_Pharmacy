@@ -24,16 +24,16 @@ final class EmptyResultsView: UIView {
         imageViewTopConstr.constant = Const.topSpace()
     }
     
-    func setup(title: String, decription: String, buttonTitle: String) {
+    func setup(title: String, decriptionText: String, buttonTitle: String) {
         titleLabel.text = title
-        descriptionLabel.text = description
+        descriptionLabel.text = decriptionText
         confirmButton.setTitle(buttonTitle, for: .normal)
     }
 }
 
-fileprivate struct Const {
+private struct Const {
     
-    static func topSpace()-> CGFloat {
+    static func topSpace() -> CGFloat {
         
         let minLogoTopSpace: CGFloat = 30
         let maxLogoTopSpace: CGFloat = 131
@@ -41,7 +41,7 @@ fileprivate struct Const {
         let maxScreenHeight: CGFloat = 896
         
         let screenHeight = UIScreen.main.bounds.height
-        let coef = (screenHeight - maxScreenHeight) / (maxScreenHeight - minScreenHeight)
+        let coef = (screenHeight - minScreenHeight) / (maxScreenHeight - minScreenHeight)
         return coef * maxLogoTopSpace + (1 - coef) * minLogoTopSpace
     }
 }

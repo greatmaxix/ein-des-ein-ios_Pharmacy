@@ -12,16 +12,17 @@ import Moya
 
 enum ProfileEvent: Event {
     case editProfile(profile: User)
-    case openSelected
+    case openWishlist
     case openOrder
     case openAnalize
-    case openReceipe
+    case openPrescriptions
     case changeRegion
     case openPayment
     case openNotifications
     case openAbout
     case openHelp
     case logout
+    case close
 }
 
 protocol ProfileInput {
@@ -70,7 +71,7 @@ final class ProfileModel: Model {
         }
         do {
             let cd: ProfileOptionsCellData = ProfileOptionsCellData()
-            cd.events = [ProfileEvent.openSelected, ProfileEvent.openOrder, ProfileEvent.openAnalize, ProfileEvent.openReceipe]
+            cd.events = [ProfileEvent.openWishlist, ProfileEvent.openOrder, ProfileEvent.openAnalize, ProfileEvent.openPrescriptions]
             cd.openProfileOption = openOptionHandler
             cellsData.append(cd)
         }

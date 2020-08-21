@@ -10,8 +10,15 @@ import UIKit
 import EventsTree
 
 protocol PrescriptionsInput {
+    func close()
 }
 
 final class PrescriptionsModel: EventNode {
     
+}
+
+extension PrescriptionsModel: PrescriptionsInput {
+    func close() {
+        raise(event: ProfileEvent.close)
+    }
 }

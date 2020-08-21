@@ -135,7 +135,7 @@
         <!--Wishlist View Controller-->
         <scene sceneID="ycf-Gs-oom">
             <objects>
-                <viewController id="Vfo-D4-ebl" customClass="WishlistViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WishlistViewController" id="Vfo-D4-ebl" customClass="WishlistViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sQu-Oo-lGF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,7 +150,7 @@
         <!--Prescriptions View Controller-->
         <scene sceneID="Cmp-tX-2ai">
             <objects>
-                <viewController id="UfF-JI-8nO" customClass="PrescriptionsViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrescriptionsViewController" id="UfF-JI-8nO" customClass="PrescriptionsViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OEs-jn-hLG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,7 +165,7 @@
         <!--Orders View Controller-->
         <scene sceneID="hbH-Jv-dGe">
             <objects>
-                <viewController id="RZu-dP-eqD" customClass="OrdersViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrdersViewController" id="RZu-dP-eqD" customClass="OrdersViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zvJ-26-CSd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -10,21 +10,45 @@ import UIKit
 
 class WishlistViewController: UIViewController {
 
+    var model: WishlistInput!
+    private var emptyResultsView: EmptyResultsView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        applyEmptyStyle()
+        setupUI()
+    }
+
+    private func applyEmptyStyle() {
+        
+        let emptyView: EmptyResultsView = EmptyResultsView.fromNib()
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(emptyView)
+        emptyView.constraintsToSuperView()
+        
+        emptyView.setup(title: R.string.localize.wishlistEmptyTitle(), decriptionText: R.string.localize.wishlistEmptyDescription(), buttonTitle: R.string.localize.wishlistEmptyButton())
+        
+        emptyResultsView = emptyView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupUI() {
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            
+            bar.title = R.string.localize.wishlistEmptyBarTitle()
+            bar.isLeftItemHidden = false
+            bar.leftItemTitle = R.string.localize.profileTitle()
+            bar.isRightItemHidden = true
+            bar.barDelegate = self
+        }
     }
-    */
+}
 
+extension WishlistViewController: SimpleNavigationBarDelegate {
+    func leftBarItemAction() {
+        model.close()
+    }
+    
+    func rightBarItemAction() {
+    }
 }

@@ -8,12 +8,46 @@
 
 import UIKit
 
-class OrdersViewController: UIViewController {
+final class OrdersViewController: UIViewController {
 
+    var model: OrdersInput!
+    private var emptyResultsView: EmptyResultsView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        applyEmptyStyle()
+        setupUI()
     }
 
+    private func applyEmptyStyle() {
+        
+        let emptyView: EmptyResultsView = EmptyResultsView.fromNib()
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(emptyView)
+        emptyView.constraintsToSuperView()
+        
+        emptyView.setup(title: R.string.localize.myOrdersEmptyTitle(), decriptionText: R.string.localize.myOrdersEmptyDescription(), buttonTitle: R.string.localize.myOrdersEmptyButton())
+        
+        emptyResultsView = emptyView
+    }
+    
+    private func setupUI() {
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            bar.title = R.string.localize.myOrdersEmptyBarTitle()
+            bar.isLeftItemHidden = false
+            bar.isRightItemHidden = true
+            bar.barDelegate = self
+        }
+    }
+    
+}
+
+extension OrdersViewController: SimpleNavigationBarDelegate {
+    func leftBarItemAction() {
+        model.close()
+    }
+    
+    func rightBarItemAction() {
+    }
 }

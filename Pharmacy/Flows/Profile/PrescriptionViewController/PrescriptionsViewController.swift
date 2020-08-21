@@ -10,21 +10,43 @@ import UIKit
 
 class PrescriptionsViewController: UIViewController {
 
+    var model: PrescriptionsInput!
+    private var emptyResultsView: EmptyResultsView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        applyEmptyStyle()
+        setupUI()
+    }
+
+    private func applyEmptyStyle() {
+        
+        let emptyView: EmptyResultsView = EmptyResultsView.fromNib()
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(emptyView)
+        emptyView.constraintsToSuperView()
+        
+        emptyView.setup(title: R.string.localize.prescriptionsEmptyTitle(), decriptionText: R.string.localize.prescriptionsEmptyDescription(), buttonTitle: R.string.localize.prescriptionsEmptyButton())
+        
+        emptyResultsView = emptyView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupUI() {
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            bar.title = R.string.localize.myOrdersEmptyBarTitle()
+            bar.isLeftItemHidden = false
+            bar.isRightItemHidden = true
+            bar.barDelegate = self
+        }
     }
-    */
+}
 
+extension PrescriptionsViewController: SimpleNavigationBarDelegate {
+    func leftBarItemAction() {
+        model.close()
+    }
+    
+    func rightBarItemAction() {
+    }
 }
