@@ -36,6 +36,7 @@ final class OrdersViewController: UIViewController {
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.title = R.string.localize.myOrdersEmptyBarTitle()
             bar.isLeftItemHidden = false
+            bar.leftItemTitle = nil
             bar.isRightItemHidden = true
             bar.barDelegate = self
         }

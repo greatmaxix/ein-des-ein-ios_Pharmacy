@@ -32,6 +32,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 self?.presentPrescriptions()
             case .openWishlist:
                 self?.presentWishlist()
+            case .openAnalize:
+                self?.presentAnalizes()
             case .close:
                 self?.popController()
             default:
@@ -102,6 +104,16 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = PrescriptionsModel(parent: self)
         prescriptionsVC.model = model
         root.navigationController?.pushViewController(prescriptionsVC, animated: true)
+    }
+    
+    func presentAnalizes() {
+        guard let analizesVC: AnalizesViewController = storyboard.instantiateViewController(withIdentifier: "AnalizesViewController") as? AnalizesViewController else {
+                   return
+        }
+        
+        let model = AnalizesModel(parent: self)
+        analizesVC.model = model
+        root.navigationController?.pushViewController(analizesVC, animated: true)
     }
     
     private func popController() {

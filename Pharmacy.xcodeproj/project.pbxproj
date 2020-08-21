@@ -40,6 +40,8 @@
 		395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FC124A3980D00A7CFC6 /* ProfileTableViewCell.swift */; };
 		395A7FC924A399B000A7CFC6 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FC824A399B000A7CFC6 /* ProfileModel.swift */; };
 		395A7FCC24A3A2B700A7CFC6 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FCB24A3A2B700A7CFC6 /* ProfileCoordinator.swift */; };
+		395B9CCB24EFC6CA00254881 /* AnalizesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395B9CCA24EFC6CA00254881 /* AnalizesModel.swift */; };
+		395B9CCD24EFC6E000254881 /* AnalizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395B9CCC24EFC6E000254881 /* AnalizesViewController.swift */; };
 		395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D4D2498BDFD001EB6CD /* TextInputView.swift */; };
 		395C9D6A2498E2EA001EB6CD /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = 395C9D692498E2EA001EB6CD /* localize.strings */; };
 		395C9D762499FC14001EB6CD /* EmailValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395C9D732499FC14001EB6CD /* EmailValidator.swift */; };
@@ -223,6 +225,8 @@
 		395A7FC124A3980D00A7CFC6 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		395A7FC824A399B000A7CFC6 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		395A7FCB24A3A2B700A7CFC6 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		395B9CCA24EFC6CA00254881 /* AnalizesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalizesModel.swift; sourceTree = "<group>"; };
+		395B9CCC24EFC6E000254881 /* AnalizesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalizesViewController.swift; sourceTree = "<group>"; };
 		395C9D4D2498BDFD001EB6CD /* TextInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
 		395C9D692498E2EA001EB6CD /* localize.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = localize.strings; sourceTree = "<group>"; };
 		395C9D732499FC14001EB6CD /* EmailValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidator.swift; sourceTree = "<group>"; };
@@ -489,6 +493,15 @@
 				395A7FC824A399B000A7CFC6 /* ProfileModel.swift */,
 			);
 			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		395B9CC924EFC62200254881 /* AnalizesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				395B9CCA24EFC6CA00254881 /* AnalizesModel.swift */,
+				395B9CCC24EFC6E000254881 /* AnalizesViewController.swift */,
+			);
+			path = AnalizesViewController;
 			sourceTree = "<group>";
 		};
 		395C9D4C2498BDD6001EB6CD /* TextInputView */ = {
@@ -1098,6 +1111,7 @@
 				3954D11F24D1B5DA00AB44BD /* EditProfile */,
 				39F0AD6224EEC74600CD6CA4 /* OrdersViewController */,
 				39F0AD6324EEC75F00CD6CA4 /* PrescriptionViewController */,
+				395B9CC924EFC62200254881 /* AnalizesViewController */,
 				39F0AD6124EEC72D00CD6CA4 /* WishlistViewController */,
 				395A7FCA24A3A29600A7CFC6 /* ProfileViewController */,
 				395A7FCB24A3A2B700A7CFC6 /* ProfileCoordinator.swift */,
@@ -1363,6 +1377,7 @@
 				6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */,
 				60E1A71324ECE0D100B3D205 /* ScanViewController.swift in Sources */,
 				618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */,
+				395B9CCD24EFC6E000254881 /* AnalizesViewController.swift in Sources */,
 				3915D60824A2466700A93627 /* ConfirmCodeModel.swift in Sources */,
 				603D31B024E3C9E4000E5A6C /* MedicineListViewController.swift in Sources */,
 				603D31FA24E5AA31000E5A6C /* ProductDescriptionTableViewCell.swift in Sources */,
@@ -1446,6 +1461,7 @@
 				39505F5824AC73620045EC02 /* TabBarEmbedCoordinable.swift in Sources */,
 				60F2673B24E0566B00BFF296 /* NavigationTransitionAnimator.swift in Sources */,
 				6036EAF724DD1AB1003336C2 /* CatalogueModel.swift in Sources */,
+				395B9CCB24EFC6CA00254881 /* AnalizesModel.swift in Sources */,
 				6036EAFC24DD1C8F003336C2 /* BasketViewController.swift in Sources */,
 				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
 				6036EAF524DD1AA6003336C2 /* CatalogueViewController.swift in Sources */,

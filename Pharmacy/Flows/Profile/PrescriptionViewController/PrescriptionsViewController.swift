@@ -34,8 +34,10 @@ class PrescriptionsViewController: UIViewController {
     
     private func setupUI() {
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
-            bar.title = R.string.localize.myOrdersEmptyBarTitle()
+            
+            bar.title = R.string.localize.prescriptionsEmptyBarTitle()
             bar.isLeftItemHidden = false
+            bar.leftItemTitle = nil
             bar.isRightItemHidden = true
             bar.barDelegate = self
         }

@@ -37,7 +37,7 @@ class WishlistViewController: UIViewController {
             
             bar.title = R.string.localize.wishlistEmptyBarTitle()
             bar.isLeftItemHidden = false
-            bar.leftItemTitle = R.string.localize.profileTitle()
+            bar.leftItemTitle = nil
             bar.isRightItemHidden = true
             bar.barDelegate = self
         }

@@ -177,6 +177,21 @@
             </objects>
             <point key="canvasLocation" x="1754" y="850"/>
         </scene>
+        <!--Analizes View Controller-->
+        <scene sceneID="DS1-Zx-f88">
+            <objects>
+                <viewController storyboardIdentifier="AnalizesViewController" id="ocO-dp-34s" customClass="AnalizesViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="69N-la-dXs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="rlq-R6-lbf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hM7-9J-xqJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2562" y="850"/>
+        </scene>
     </scenes>
     <resources>
         <image name="confirmIcon" width="80" height="80"/>
