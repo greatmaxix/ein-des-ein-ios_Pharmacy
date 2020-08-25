@@ -8,20 +8,79 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Farmacy Selection View Controller-->
         <scene sceneID="j79-ED-zKl">
             <objects>
-                <viewController id="un9-vy-zei" sceneMemberID="viewController">
+                <viewController id="un9-vy-zei" customClass="FarmacySelectionViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bjz-MR-lJG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VzA-9K-3Jb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="112"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iD2-RF-r8o">
+                                        <rect key="frame" x="18" y="16" width="382" height="32"/>
+                                        <segments>
+                                            <segment title="Списком"/>
+                                            <segment title="На карте"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Yr-wg-Pjl" customClass="TTGTagCollectionView">
+                                        <rect key="frame" x="18" y="55" width="382" height="49"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="iD2-RF-r8o" firstAttribute="top" secondItem="VzA-9K-3Jb" secondAttribute="top" constant="16" id="1F4-99-cDh"/>
+                                    <constraint firstItem="3Yr-wg-Pjl" firstAttribute="trailing" secondItem="iD2-RF-r8o" secondAttribute="trailing" id="9Wd-yO-EQw"/>
+                                    <constraint firstItem="3Yr-wg-Pjl" firstAttribute="top" secondItem="iD2-RF-r8o" secondAttribute="bottom" constant="8" id="LS8-8y-zth"/>
+                                    <constraint firstItem="iD2-RF-r8o" firstAttribute="leading" secondItem="VzA-9K-3Jb" secondAttribute="leading" constant="18" id="Vc9-9w-N3A"/>
+                                    <constraint firstAttribute="height" constant="112" id="Xur-vh-UaI"/>
+                                    <constraint firstAttribute="trailing" secondItem="iD2-RF-r8o" secondAttribute="trailing" constant="14" id="cqk-vx-fWr"/>
+                                    <constraint firstItem="3Yr-wg-Pjl" firstAttribute="leading" secondItem="iD2-RF-r8o" secondAttribute="leading" id="mu8-et-22Q"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Yr-wg-Pjl" secondAttribute="bottom" constant="8" id="x0D-CY-63Z"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaA-3z-nt1">
+                                <rect key="frame" x="0.0" y="156" width="414" height="740"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UmW-jw-Rvd">
+                                <rect key="frame" x="0.0" y="896" width="414" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="SPn-jz-Q36"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BaA-3z-nt1" secondAttribute="trailing" id="4VE-CR-ZcB"/>
+                            <constraint firstItem="UmW-jw-Rvd" firstAttribute="bottom" secondItem="Bjz-MR-lJG" secondAttribute="bottom" id="9mk-xZ-QAH"/>
+                            <constraint firstItem="UmW-jw-Rvd" firstAttribute="top" secondItem="BaA-3z-nt1" secondAttribute="bottom" id="Gko-yQ-hkQ"/>
+                            <constraint firstAttribute="trailing" secondItem="UmW-jw-Rvd" secondAttribute="trailing" id="MxM-ga-3l7"/>
+                            <constraint firstItem="BaA-3z-nt1" firstAttribute="leading" secondItem="Bjz-MR-lJG" secondAttribute="leading" id="Uge-QS-22S"/>
+                            <constraint firstItem="UmW-jw-Rvd" firstAttribute="leading" secondItem="dhP-T5-kIx" secondAttribute="leading" id="XXv-46-uQl"/>
+                            <constraint firstAttribute="trailing" secondItem="VzA-9K-3Jb" secondAttribute="trailing" id="Yao-V7-DA6"/>
+                            <constraint firstItem="BaA-3z-nt1" firstAttribute="top" secondItem="VzA-9K-3Jb" secondAttribute="bottom" id="gVt-MO-9Id"/>
+                            <constraint firstItem="VzA-9K-3Jb" firstAttribute="leading" secondItem="Bjz-MR-lJG" secondAttribute="leading" id="sfx-J7-ovw"/>
+                            <constraint firstItem="VzA-9K-3Jb" firstAttribute="top" secondItem="dhP-T5-kIx" secondAttribute="top" id="xzb-Ja-zdT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dhP-T5-kIx"/>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="BaA-3z-nt1" id="53c-1B-Cl5"/>
+                        <outlet property="messageHeightConstraint" destination="SPn-jz-Q36" id="b8O-Jj-wvx"/>
+                        <outlet property="messageView" destination="UmW-jw-Rvd" id="39z-c1-z6L"/>
+                        <outlet property="segmentedControl" destination="iD2-RF-r8o" id="CX0-gz-V78"/>
+                        <outlet property="tagsView" destination="3Yr-wg-Pjl" id="0Qo-pf-ZMN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U0w-jF-3tT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-145" y="163"/>
+            <point key="canvasLocation" x="-146.37681159420291" y="162.72321428571428"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="C1m-fn-Xaw">
@@ -32,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YiK-eR-YH7">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKj-nq-dBa">
                                         <rect key="frame" x="358" y="100" width="40" height="40"/>
@@ -41,6 +100,9 @@
                                             <constraint firstAttribute="width" secondItem="LKj-nq-dBa" secondAttribute="height" multiplier="1:1" id="rDc-46-G2r"/>
                                         </constraints>
                                         <state key="normal" image="crosshair"/>
+                                        <connections>
+                                            <action selector="moveToCurrentLocation:" destination="z5B-sD-1RF" eventType="touchUpInside" id="5vf-E9-7K6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuY-lV-VJE">
                                         <rect key="frame" x="358" y="156" width="40" height="40"/>
@@ -49,6 +111,9 @@
                                             <constraint firstAttribute="width" constant="40" id="fit-ma-KwH"/>
                                         </constraints>
                                         <state key="normal" image="inscreaseMap"/>
+                                        <connections>
+                                            <action selector="zoomIn:" destination="z5B-sD-1RF" eventType="touchUpInside" id="xaG-lH-BYf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dk-uh-xaf">
                                         <rect key="frame" x="358" y="196" width="40" height="40"/>
@@ -57,6 +122,9 @@
                                             <constraint firstAttribute="width" secondItem="8dk-uh-xaf" secondAttribute="height" multiplier="1:1" id="ouj-gu-UmP"/>
                                         </constraints>
                                         <state key="normal" image="decreaseMap"/>
+                                        <connections>
+                                            <action selector="zoomOut:" destination="z5B-sD-1RF" eventType="touchUpInside" id="cZ4-ft-XR4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -74,35 +142,47 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="SEz-qx-R3l" firstAttribute="bottom" secondItem="YiK-eR-YH7" secondAttribute="bottom" id="Pls-G5-JGQ"/>
+                            <constraint firstAttribute="bottom" secondItem="YiK-eR-YH7" secondAttribute="bottom" id="Pls-G5-JGQ"/>
                             <constraint firstItem="YiK-eR-YH7" firstAttribute="top" secondItem="SEz-qx-R3l" secondAttribute="top" id="Xfk-GK-jWv"/>
                             <constraint firstItem="YiK-eR-YH7" firstAttribute="leading" secondItem="SEz-qx-R3l" secondAttribute="leading" id="ahE-Dh-DPt"/>
                             <constraint firstItem="SEz-qx-R3l" firstAttribute="trailing" secondItem="YiK-eR-YH7" secondAttribute="trailing" id="qdP-99-Eal"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SEz-qx-R3l"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="YiK-eR-YH7" id="NWO-ap-hg9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jl1-Ia-lIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="680" y="158"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Mhn-OK-zOS">
+        <!--Farmacy List View Controller-->
+        <scene sceneID="3PG-IH-Ds9">
             <objects>
-                <tableViewController id="jqg-Lm-rmP" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="399-5z-uXR">
+                <viewController id="r7w-mT-PlT" customClass="FarmacyListViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pfD-Bu-oRT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P4B-jY-DQi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="jqg-Lm-rmP" id="XA7-5p-k2q"/>
-                            <outlet property="delegate" destination="jqg-Lm-rmP" id="j96-Fj-bLh"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LME-4A-7jJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="P4B-jY-DQi" secondAttribute="trailing" id="7wP-fR-rdk"/>
+                            <constraint firstItem="P4B-jY-DQi" firstAttribute="leading" secondItem="pfD-Bu-oRT" secondAttribute="leading" id="AOb-Vp-0ab"/>
+                            <constraint firstItem="P4B-jY-DQi" firstAttribute="bottom" secondItem="MIC-H1-CuV" secondAttribute="bottom" id="B4B-V6-FD7"/>
+                            <constraint firstItem="P4B-jY-DQi" firstAttribute="top" secondItem="MIC-H1-CuV" secondAttribute="top" id="CT7-JP-xxC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MIC-H1-CuV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wZv-vo-gxu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1656" y="142"/>
+            <point key="canvasLocation" x="1614.4927536231885" y="157.36607142857142"/>
         </scene>
     </scenes>
     <resources>

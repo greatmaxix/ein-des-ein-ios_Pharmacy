@@ -17,9 +17,8 @@ final class MapCoordinator: EventNode, Coordinator {
     
     func createFlow() -> UIViewController {
         let root =  R.storyboard.map.instantiateInitialViewController()!
-        let model = BasketModel(parent: self)
+        let model: FarmacySelectionModel = FarmacySelectionModel(parent: self)
         root.model = model
-        model.output = root
         return root
     }
     

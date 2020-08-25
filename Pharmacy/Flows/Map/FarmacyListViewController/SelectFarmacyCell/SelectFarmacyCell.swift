@@ -8,17 +8,32 @@
 
 import UIKit
 
-class SelectFarmacyCell: UITableViewCell {
+final class SelectFarmacyCell: UITableViewCell {
 
+    @IBOutlet private weak var presenceLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet weak private var addressLabel: UILabel!
+    @IBOutlet weak private var phoneLabel: UILabel!
+    @IBOutlet weak private var workTimeLabel: UILabel!
+    @IBOutlet weak private var priceLabel: UILabel!
+    
+    @IBOutlet weak var separatorView: UIView!
+    @IBOutlet weak var medicineCountLabel: UILabel!
+    @IBOutlet weak var medicineStackView: UIStackView!
+    
+    @IBOutlet weak var noMedicineTopSpace: NSLayoutConstraint!
+    @IBOutlet weak var nonEmptyMedicineTopSpace: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        nonEmptyMedicineTopSpace.priority = UILayoutPriority(rawValue: 1000)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func openMap(_ sender: UIButton) {
     }
     
+    @IBAction func selectFarmacy(_ sender: UIButton) {
+    }    
 }

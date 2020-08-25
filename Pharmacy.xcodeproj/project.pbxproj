@@ -71,6 +71,10 @@
 		398B0DE724F51C410084EC54 /* FarmacyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DE624F51C410084EC54 /* FarmacyListModel.swift */; };
 		398B0DEB24F51C8F0084EC54 /* SelectFarmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DE924F51C8F0084EC54 /* SelectFarmacyCell.swift */; };
 		398B0DEC24F51C8F0084EC54 /* SelectFarmacyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398B0DEA24F51C8F0084EC54 /* SelectFarmacyCell.xib */; };
+		398B0DEF24F53AC50084EC54 /* FoundMedicineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DEE24F53AC50084EC54 /* FoundMedicineView.swift */; };
+		398B0DF124F53AD60084EC54 /* FoundMedicineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398B0DF024F53AD60084EC54 /* FoundMedicineView.xib */; };
+		398B0DF424F543F90084EC54 /* FarmacySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DF324F543F90084EC54 /* FarmacySelectionViewController.swift */; };
+		398B0DF624F5440D0084EC54 /* FarmacySelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DF524F5440D0084EC54 /* FarmacySelectionModel.swift */; };
 		399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */; };
 		39CBDA6E249CF5BA00A04831 /* ConfirmCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDA6D249CF5BA00A04831 /* ConfirmCodeViewController.swift */; };
 		39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDA6F249CF7F900A04831 /* SMSCodeValidator.swift */; };
@@ -264,6 +268,10 @@
 		398B0DE624F51C410084EC54 /* FarmacyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmacyListModel.swift; sourceTree = "<group>"; };
 		398B0DE924F51C8F0084EC54 /* SelectFarmacyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFarmacyCell.swift; sourceTree = "<group>"; };
 		398B0DEA24F51C8F0084EC54 /* SelectFarmacyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectFarmacyCell.xib; sourceTree = "<group>"; };
+		398B0DEE24F53AC50084EC54 /* FoundMedicineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundMedicineView.swift; sourceTree = "<group>"; };
+		398B0DF024F53AD60084EC54 /* FoundMedicineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundMedicineView.xib; sourceTree = "<group>"; };
+		398B0DF324F543F90084EC54 /* FarmacySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmacySelectionViewController.swift; sourceTree = "<group>"; };
+		398B0DF524F5440D0084EC54 /* FarmacySelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmacySelectionModel.swift; sourceTree = "<group>"; };
 		399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeView.swift; sourceTree = "<group>"; };
 		39CBDA6D249CF5BA00A04831 /* ConfirmCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewController.swift; sourceTree = "<group>"; };
 		39CBDA6F249CF7F900A04831 /* SMSCodeValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCodeValidator.swift; sourceTree = "<group>"; };
@@ -659,6 +667,7 @@
 				39F0AD5B24EEBF6300CD6CA4 /* EmptyResultsView */,
 				398B0DDA24F50A820084EC54 /* UserPinView */,
 				398B0DD524F50A230084EC54 /* FarmacyPin */,
+				398B0DED24F53A580084EC54 /* FoundMedicineView */,
 				395C9D4C2498BDD6001EB6CD /* TextInputView */,
 			);
 			path = Views;
@@ -713,6 +722,7 @@
 		398B0DCB24F503300084EC54 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				398B0DF224F543810084EC54 /* FarmacySelectionViewController */,
 				398B0DE324F51BFA0084EC54 /* FarmacyListViewController */,
 				398B0DD024F504880084EC54 /* MapViewController */,
 				398B0DCC24F5034F0084EC54 /* Map.storyboard */,
@@ -765,6 +775,24 @@
 				398B0DEA24F51C8F0084EC54 /* SelectFarmacyCell.xib */,
 			);
 			path = SelectFarmacyCell;
+			sourceTree = "<group>";
+		};
+		398B0DED24F53A580084EC54 /* FoundMedicineView */ = {
+			isa = PBXGroup;
+			children = (
+				398B0DEE24F53AC50084EC54 /* FoundMedicineView.swift */,
+				398B0DF024F53AD60084EC54 /* FoundMedicineView.xib */,
+			);
+			path = FoundMedicineView;
+			sourceTree = "<group>";
+		};
+		398B0DF224F543810084EC54 /* FarmacySelectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				398B0DF324F543F90084EC54 /* FarmacySelectionViewController.swift */,
+				398B0DF524F5440D0084EC54 /* FarmacySelectionModel.swift */,
+			);
+			path = FarmacySelectionViewController;
 			sourceTree = "<group>";
 		};
 		399F2426249CA118003BA7E1 /* ConfirmationCodeView */ = {
@@ -1314,6 +1342,7 @@
 				39F0AD6024EEBFB000CD6CA4 /* EmptyResultsView.xib in Resources */,
 				398B0DEC24F51C8F0084EC54 /* SelectFarmacyCell.xib in Resources */,
 				6075BD4924DEA7FB00BC78BD /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				398B0DF124F53AD60084EC54 /* FoundMedicineView.xib in Resources */,
 				398B0DCD24F5034F0084EC54 /* Map.storyboard in Resources */,
 				6075BD4A24DEA7FB00BC78BD /* OpenSans-Italic.ttf in Resources */,
 				6075BD4B24DEA7FB00BC78BD /* OpenSans-Light.ttf in Resources */,
@@ -1463,6 +1492,7 @@
 				3915D60824A2466700A93627 /* ConfirmCodeModel.swift in Sources */,
 				603D31B024E3C9E4000E5A6C /* MedicineListViewController.swift in Sources */,
 				603D31FA24E5AA31000E5A6C /* ProductDescriptionTableViewCell.swift in Sources */,
+				398B0DEF24F53AC50084EC54 /* FoundMedicineView.swift in Sources */,
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
 				39854D0224EAB4870070E0D1 /* ProfileAPI.swift in Sources */,
 				395A7FC924A399B000A7CFC6 /* ProfileModel.swift in Sources */,
@@ -1583,6 +1613,7 @@
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
 				39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */,
 				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,
+				398B0DF424F543F90084EC54 /* FarmacySelectionViewController.swift in Sources */,
 				6036EB0024DD1CAA003336C2 /* BasketCoordinator.swift in Sources */,
 				60E1A71D24ED079F00B3D205 /* ActionSheetView.swift in Sources */,
 				6036EAFE24DD1C9A003336C2 /* BasketModel.swift in Sources */,
@@ -1592,6 +1623,7 @@
 				395D04FA24D01230007A278D /* ReadyOrderView.swift in Sources */,
 				395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */,
 				6075BD5824DEB94F00BC78BD /* NavigationBar.swift in Sources */,
+				398B0DF624F5440D0084EC54 /* FarmacySelectionModel.swift in Sources */,
 				398B0DCF24F5043C0084EC54 /* MapCoordinator.swift in Sources */,
 				395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */,
 				39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */,
