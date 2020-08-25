@@ -14,5 +14,5 @@ target 'Pharmacy' do
   pod 'Moya', '~> 14.0'
   pod 'Kingfisher', '~> 5.0'
   pod "TTGTagCollectionView"
-
+  pod 'GoogleMaps'
 end
