@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="un9-vy-zei">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="un9-vy-zei">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaA-3z-nt1">
-                                <rect key="frame" x="0.0" y="96" width="414" height="800"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VzA-9K-3Jb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="64"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iD2-RF-r8o">
-                                        <rect key="frame" x="18" y="14.5" width="382" height="32"/>
+                                        <rect key="frame" x="18" y="16.5" width="382" height="32"/>
                                         <segments>
                                             <segment title="Списком"/>
                                             <segment title="На карте"/>
@@ -38,7 +38,7 @@
                                 <constraints>
                                     <constraint firstItem="iD2-RF-r8o" firstAttribute="centerY" secondItem="VzA-9K-3Jb" secondAttribute="centerY" id="Lhe-bP-gwV"/>
                                     <constraint firstItem="iD2-RF-r8o" firstAttribute="leading" secondItem="VzA-9K-3Jb" secondAttribute="leading" constant="18" id="Vc9-9w-N3A"/>
-                                    <constraint firstAttribute="height" constant="60" id="Xur-vh-UaI"/>
+                                    <constraint firstAttribute="height" constant="64" id="Xur-vh-UaI"/>
                                     <constraint firstAttribute="trailing" secondItem="iD2-RF-r8o" secondAttribute="trailing" constant="14" id="cqk-vx-fWr"/>
                                 </constraints>
                             </view>
@@ -85,7 +85,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YiK-eR-YH7" customClass="MKMapView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YiK-eR-YH7" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKj-nq-dBa">
@@ -148,6 +148,7 @@
                     </view>
                     <connections>
                         <outlet property="currentLocationButton" destination="LKj-nq-dBa" id="wk7-UD-TwJ"/>
+                        <outlet property="mapView" destination="YiK-eR-YH7" id="guw-fY-p4a"/>
                         <outlet property="zoomInButton" destination="PuY-lV-VJE" id="lAK-wn-REi"/>
                         <outlet property="zoomOutButton" destination="8dk-uh-xaf" id="fcV-Ka-d5F"/>
                     </connections>

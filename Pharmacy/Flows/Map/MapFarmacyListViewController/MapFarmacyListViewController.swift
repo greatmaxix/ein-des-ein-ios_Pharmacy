@@ -21,11 +21,13 @@ class MapFarmacyListViewController: UIViewController {
 
         model.dataSourse.assign(tableView: tableView)
         tableView.delegate = self
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
 }
 
 extension MapFarmacyListViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }

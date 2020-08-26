@@ -38,7 +38,7 @@ final class NavigationBar: UINavigationBar {
         static let textFiledNormalTextColor = UIColor.white
         static let textFiledDarkTextColor = R.color.textDarkBlue()!
         static let largeHeight: CGFloat = 150
-        static let smallHeight: CGFloat = 44
+        static let smallHeight: CGFloat = 16
         static let cornerRadius: CGFloat = 10
         static let scanButtonCornerRadius: CGFloat = 6
         static let searchViewBackgorundAlpha: CGFloat = 0.3
@@ -108,7 +108,7 @@ final class NavigationBar: UINavigationBar {
     override func layoutSubviews() {
         super.layoutSubviews()
         heightConstraint.constant = height
-        backButtonConstraint.constant = safeAreaHeight
+        backButtonConstraint.constant = GUI.smallHeight
     }
     
     func heightBy(style: NavigationBarStyle) -> CGFloat {

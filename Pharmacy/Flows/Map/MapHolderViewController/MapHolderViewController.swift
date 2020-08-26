@@ -52,6 +52,7 @@ final class MapHolderViewController: UIViewController {
         
         selectionBackground.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         selectionBackground.layer.cornerRadius = 8
+        segmentedControl.selectedSegmentIndex = 1
     }
     
     private func setupLocalization() {
@@ -81,9 +82,9 @@ extension MapHolderViewController: SegmentedControlDelegate {
     
     func selectedScreenChanged(index: Int) {
         if index == 0 {
-            model.openMap()
-        } else {
             model.openFarmacyList()
+        } else {
+            model.openMap()
         }
     }
     

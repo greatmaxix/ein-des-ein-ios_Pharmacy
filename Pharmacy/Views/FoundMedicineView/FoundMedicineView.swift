@@ -10,7 +10,12 @@ import UIKit
 
 class FoundMedicineView: UIView {
 
-    @IBOutlet weak var medicineImageView: UIButton!
+    @IBOutlet weak var medicineImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    
+    override func awakeFromNib() {
+        heightAnchor.constraint(equalToConstant: 56).isActive = true
+        medicineImageView.layer.cornerRadius = 8
+    }
 }

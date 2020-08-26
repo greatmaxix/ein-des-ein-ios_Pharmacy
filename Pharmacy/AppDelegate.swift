@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        //GMSServices.provideAPIKey("")
+        GMSServices.provideAPIKey("AIzaSyDJfvTblScxj6gZYw-Xtg1NJeHbHUcAURs")
         window = UIWindow(frame: UIScreen.main.bounds)
 
         appNavigationCoordinator = AppNavigation(window: window!)

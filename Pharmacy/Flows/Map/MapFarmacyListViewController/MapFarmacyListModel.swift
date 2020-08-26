@@ -32,7 +32,7 @@ extension MapFarmacyListModel: FarmacyListInput {
     }
     
     func load() {
-        let foundMedicines: [String] = ["medicine1", "medicine2", "medicine3"]
+        let foundMedicines: [String] = ["medicine1medicine1medicine1medicine1medicine1medicine1medicine1medicine1", "medicine2", "medicine3"]
         medicineDataSourse.cells = foundMedicines.map({MapFarmacyCellSection.common($0)})
     }
 }

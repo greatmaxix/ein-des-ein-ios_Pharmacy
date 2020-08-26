@@ -35,12 +35,23 @@ final class MapFarmacyCell: UITableViewCell {
     }
     
     private func setupUI() {
+        presenceLabel.text = "\(bounds.height)"
         selectButton.layer.cornerRadius = selectButton.bounds.height / 2
         cellBackgroundView.layer.cornerRadius = 8
+    }
+    
+    func addMedicines(titles: [String]) {
+        for title in titles {
+            let v: FoundMedicineView = FoundMedicineView.fromNib()
+            v.titleLabel.text = title
+            medicineStackView.addArrangedSubview(v)
+        }
     }
 
     func apply(title: String) {
         nameLabel.text = title
+        medicineStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
+        addMedicines(titles: ["medicine1", "medicine2"])
     }
     
     @IBAction func openMap(_ sender: UIButton) {
