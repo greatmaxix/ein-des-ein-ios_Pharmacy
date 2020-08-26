@@ -31,7 +31,7 @@ final class MedicineListViewController: UIViewController {
         model.load()
     }
     
-    //MARK: - Private
+    // MARK: - Private
     
     private func configUI() {
         title = model.title
@@ -42,14 +42,14 @@ final class MedicineListViewController: UIViewController {
         sortButton.setTrailingImageViewWith(padding: GUI.sortButtonImagePadding)
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func sortAction(_ sender: UIButton) {
         
     }
 }
 
-//MARK: - FarmacyListViewControllerInput
+// MARK: - FarmacyListViewControllerInput
 
 extension MedicineListViewController: MedicineListViewControllerInput {
     func didLoadList() {
@@ -58,7 +58,7 @@ extension MedicineListViewController: MedicineListViewControllerInput {
     }
 }
 
-//MARK: - UITableViewDelegate
+// MARK: - UITableViewDelegate
 
 extension MedicineListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

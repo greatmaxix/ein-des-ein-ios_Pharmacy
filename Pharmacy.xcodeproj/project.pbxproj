@@ -25,6 +25,7 @@
 		3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */; };
 		3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D12224D1BB7400AB44BD /* EditProfileModel.swift */; };
 		3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */; };
+		3959F40724F6558E00DB4065 /* MapFarmacyCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F40624F6558E00DB4065 /* MapFarmacyCellSection.swift */; };
 		395A7FB824A34B5200A7CFC6 /* UIBlockerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */; };
 		395A7FC224A3980D00A7CFC6 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395A7FBC24A3980C00A7CFC6 /* ProfileTableViewCell.xib */; };
 		395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FBD24A3980C00A7CFC6 /* EmptyTableViewCell.swift */; };
@@ -67,14 +68,14 @@
 		398B0DD924F50A630084EC54 /* FarmacyPinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398B0DD824F50A630084EC54 /* FarmacyPinView.xib */; };
 		398B0DE124F50AD60084EC54 /* UserMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398B0DDF24F50AD50084EC54 /* UserMarkerView.xib */; };
 		398B0DE224F50AD60084EC54 /* UserMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DE024F50AD60084EC54 /* UserMarkerView.swift */; };
-		398B0DE524F51C250084EC54 /* FarmacyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DE424F51C250084EC54 /* FarmacyListViewController.swift */; };
-		398B0DE724F51C410084EC54 /* FarmacyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DE624F51C410084EC54 /* FarmacyListModel.swift */; };
-		398B0DEB24F51C8F0084EC54 /* SelectFarmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DE924F51C8F0084EC54 /* SelectFarmacyCell.swift */; };
-		398B0DEC24F51C8F0084EC54 /* SelectFarmacyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398B0DEA24F51C8F0084EC54 /* SelectFarmacyCell.xib */; };
+		398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DE424F51C250084EC54 /* MapFarmacyListViewController.swift */; };
+		398B0DE724F51C410084EC54 /* MapFarmacyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DE624F51C410084EC54 /* MapFarmacyListModel.swift */; };
+		398B0DEB24F51C8F0084EC54 /* MapFarmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DE924F51C8F0084EC54 /* MapFarmacyCell.swift */; };
+		398B0DEC24F51C8F0084EC54 /* MapFarmacyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398B0DEA24F51C8F0084EC54 /* MapFarmacyCell.xib */; };
 		398B0DEF24F53AC50084EC54 /* FoundMedicineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DEE24F53AC50084EC54 /* FoundMedicineView.swift */; };
 		398B0DF124F53AD60084EC54 /* FoundMedicineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398B0DF024F53AD60084EC54 /* FoundMedicineView.xib */; };
-		398B0DF424F543F90084EC54 /* FarmacySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DF324F543F90084EC54 /* FarmacySelectionViewController.swift */; };
-		398B0DF624F5440D0084EC54 /* FarmacySelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DF524F5440D0084EC54 /* FarmacySelectionModel.swift */; };
+		398B0DF424F543F90084EC54 /* MapHolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DF324F543F90084EC54 /* MapHolderViewController.swift */; };
+		398B0DF624F5440D0084EC54 /* MapHolderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DF524F5440D0084EC54 /* MapHolderModel.swift */; };
 		399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */; };
 		39CBDA6E249CF5BA00A04831 /* ConfirmCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDA6D249CF5BA00A04831 /* ConfirmCodeViewController.swift */; };
 		39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDA6F249CF7F900A04831 /* SMSCodeValidator.swift */; };
@@ -220,6 +221,7 @@
 		3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3954D12224D1BB7400AB44BD /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
 		3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
+		3959F40624F6558E00DB4065 /* MapFarmacyCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFarmacyCellSection.swift; sourceTree = "<group>"; };
 		395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockerDelegate.swift; sourceTree = "<group>"; };
 		395A7FBC24A3980C00A7CFC6 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		395A7FBD24A3980C00A7CFC6 /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
@@ -264,14 +266,14 @@
 		398B0DD824F50A630084EC54 /* FarmacyPinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FarmacyPinView.xib; sourceTree = "<group>"; };
 		398B0DDF24F50AD50084EC54 /* UserMarkerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserMarkerView.xib; sourceTree = "<group>"; };
 		398B0DE024F50AD60084EC54 /* UserMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMarkerView.swift; sourceTree = "<group>"; };
-		398B0DE424F51C250084EC54 /* FarmacyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmacyListViewController.swift; sourceTree = "<group>"; };
-		398B0DE624F51C410084EC54 /* FarmacyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmacyListModel.swift; sourceTree = "<group>"; };
-		398B0DE924F51C8F0084EC54 /* SelectFarmacyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFarmacyCell.swift; sourceTree = "<group>"; };
-		398B0DEA24F51C8F0084EC54 /* SelectFarmacyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectFarmacyCell.xib; sourceTree = "<group>"; };
+		398B0DE424F51C250084EC54 /* MapFarmacyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFarmacyListViewController.swift; sourceTree = "<group>"; };
+		398B0DE624F51C410084EC54 /* MapFarmacyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFarmacyListModel.swift; sourceTree = "<group>"; };
+		398B0DE924F51C8F0084EC54 /* MapFarmacyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFarmacyCell.swift; sourceTree = "<group>"; };
+		398B0DEA24F51C8F0084EC54 /* MapFarmacyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapFarmacyCell.xib; sourceTree = "<group>"; };
 		398B0DEE24F53AC50084EC54 /* FoundMedicineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundMedicineView.swift; sourceTree = "<group>"; };
 		398B0DF024F53AD60084EC54 /* FoundMedicineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoundMedicineView.xib; sourceTree = "<group>"; };
-		398B0DF324F543F90084EC54 /* FarmacySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmacySelectionViewController.swift; sourceTree = "<group>"; };
-		398B0DF524F5440D0084EC54 /* FarmacySelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmacySelectionModel.swift; sourceTree = "<group>"; };
+		398B0DF324F543F90084EC54 /* MapHolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHolderViewController.swift; sourceTree = "<group>"; };
+		398B0DF524F5440D0084EC54 /* MapHolderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHolderModel.swift; sourceTree = "<group>"; };
 		399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeView.swift; sourceTree = "<group>"; };
 		39CBDA6D249CF5BA00A04831 /* ConfirmCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewController.swift; sourceTree = "<group>"; };
 		39CBDA6F249CF7F900A04831 /* SMSCodeValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCodeValidator.swift; sourceTree = "<group>"; };
@@ -722,8 +724,8 @@
 		398B0DCB24F503300084EC54 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				398B0DF224F543810084EC54 /* FarmacySelectionViewController */,
-				398B0DE324F51BFA0084EC54 /* FarmacyListViewController */,
+				398B0DF224F543810084EC54 /* MapHolderViewController */,
+				398B0DE324F51BFA0084EC54 /* MapFarmacyListViewController */,
 				398B0DD024F504880084EC54 /* MapViewController */,
 				398B0DCC24F5034F0084EC54 /* Map.storyboard */,
 				398B0DCE24F5043C0084EC54 /* MapCoordinator.swift */,
@@ -758,23 +760,24 @@
 			path = UserPinView;
 			sourceTree = "<group>";
 		};
-		398B0DE324F51BFA0084EC54 /* FarmacyListViewController */ = {
+		398B0DE324F51BFA0084EC54 /* MapFarmacyListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				398B0DE824F51C600084EC54 /* SelectFarmacyCell */,
-				398B0DE424F51C250084EC54 /* FarmacyListViewController.swift */,
-				398B0DE624F51C410084EC54 /* FarmacyListModel.swift */,
+				398B0DE824F51C600084EC54 /* MapFarmacyCell */,
+				398B0DE424F51C250084EC54 /* MapFarmacyListViewController.swift */,
+				398B0DE624F51C410084EC54 /* MapFarmacyListModel.swift */,
 			);
-			path = FarmacyListViewController;
+			path = MapFarmacyListViewController;
 			sourceTree = "<group>";
 		};
-		398B0DE824F51C600084EC54 /* SelectFarmacyCell */ = {
+		398B0DE824F51C600084EC54 /* MapFarmacyCell */ = {
 			isa = PBXGroup;
 			children = (
-				398B0DE924F51C8F0084EC54 /* SelectFarmacyCell.swift */,
-				398B0DEA24F51C8F0084EC54 /* SelectFarmacyCell.xib */,
+				3959F40624F6558E00DB4065 /* MapFarmacyCellSection.swift */,
+				398B0DE924F51C8F0084EC54 /* MapFarmacyCell.swift */,
+				398B0DEA24F51C8F0084EC54 /* MapFarmacyCell.xib */,
 			);
-			path = SelectFarmacyCell;
+			path = MapFarmacyCell;
 			sourceTree = "<group>";
 		};
 		398B0DED24F53A580084EC54 /* FoundMedicineView */ = {
@@ -786,13 +789,13 @@
 			path = FoundMedicineView;
 			sourceTree = "<group>";
 		};
-		398B0DF224F543810084EC54 /* FarmacySelectionViewController */ = {
+		398B0DF224F543810084EC54 /* MapHolderViewController */ = {
 			isa = PBXGroup;
 			children = (
-				398B0DF324F543F90084EC54 /* FarmacySelectionViewController.swift */,
-				398B0DF524F5440D0084EC54 /* FarmacySelectionModel.swift */,
+				398B0DF324F543F90084EC54 /* MapHolderViewController.swift */,
+				398B0DF524F5440D0084EC54 /* MapHolderModel.swift */,
 			);
-			path = FarmacySelectionViewController;
+			path = MapHolderViewController;
 			sourceTree = "<group>";
 		};
 		399F2426249CA118003BA7E1 /* ConfirmationCodeView */ = {
@@ -1340,7 +1343,7 @@
 				6075BD4724DEA7FB00BC78BD /* OpenSans-BoldItalic.ttf in Resources */,
 				6075BD4824DEA7FB00BC78BD /* OpenSans-ExtraBold.ttf in Resources */,
 				39F0AD6024EEBFB000CD6CA4 /* EmptyResultsView.xib in Resources */,
-				398B0DEC24F51C8F0084EC54 /* SelectFarmacyCell.xib in Resources */,
+				398B0DEC24F51C8F0084EC54 /* MapFarmacyCell.xib in Resources */,
 				6075BD4924DEA7FB00BC78BD /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				398B0DF124F53AD60084EC54 /* FoundMedicineView.xib in Resources */,
 				398B0DCD24F5034F0084EC54 /* Map.storyboard in Resources */,
@@ -1549,11 +1552,11 @@
 				3961590824E6D35100A5EF85 /* UIImage+Blur.swift in Sources */,
 				60E1A70E24ECD6F400B3D205 /* SearchNavigationModel.swift in Sources */,
 				39F0AD6724EEC81400CD6CA4 /* OrdersModel.swift in Sources */,
-				398B0DE524F51C250084EC54 /* FarmacyListViewController.swift in Sources */,
+				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
 				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,
 				398B0DD724F50A4C0084EC54 /* FarmacyPinView.swift in Sources */,
 				399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */,
-				398B0DEB24F51C8F0084EC54 /* SelectFarmacyCell.swift in Sources */,
+				398B0DEB24F51C8F0084EC54 /* MapFarmacyCell.swift in Sources */,
 				396448E224ADE17A00E6D852 /* User.swift in Sources */,
 				60E1A71A24ED025000B3D205 /* CustomIntensityVisualEffectView.swift in Sources */,
 				39273A0B24A0DFEC004A9909 /* Model.swift in Sources */,
@@ -1564,7 +1567,7 @@
 				603D319F24E3B492000E5A6C /* CollectionDataSourceViewController.swift in Sources */,
 				60E1A70C24ECD6E500B3D205 /* SearchNavigationController.swift in Sources */,
 				60E1A71724ECE0EA00B3D205 /* ScanModel.swift in Sources */,
-				398B0DE724F51C410084EC54 /* FarmacyListModel.swift in Sources */,
+				398B0DE724F51C410084EC54 /* MapFarmacyListModel.swift in Sources */,
 				603D319824E3B22A000E5A6C /* TableCellSection.swift in Sources */,
 				603D31D224E5A09F000E5A6C /* ProductInfoTableViewCell.swift in Sources */,
 				39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */,
@@ -1613,7 +1616,7 @@
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
 				39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */,
 				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,
-				398B0DF424F543F90084EC54 /* FarmacySelectionViewController.swift in Sources */,
+				398B0DF424F543F90084EC54 /* MapHolderViewController.swift in Sources */,
 				6036EB0024DD1CAA003336C2 /* BasketCoordinator.swift in Sources */,
 				60E1A71D24ED079F00B3D205 /* ActionSheetView.swift in Sources */,
 				6036EAFE24DD1C9A003336C2 /* BasketModel.swift in Sources */,
@@ -1623,7 +1626,8 @@
 				395D04FA24D01230007A278D /* ReadyOrderView.swift in Sources */,
 				395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */,
 				6075BD5824DEB94F00BC78BD /* NavigationBar.swift in Sources */,
-				398B0DF624F5440D0084EC54 /* FarmacySelectionModel.swift in Sources */,
+				3959F40724F6558E00DB4065 /* MapFarmacyCellSection.swift in Sources */,
+				398B0DF624F5440D0084EC54 /* MapHolderModel.swift in Sources */,
 				398B0DCF24F5043C0084EC54 /* MapCoordinator.swift in Sources */,
 				395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */,
 				39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */,

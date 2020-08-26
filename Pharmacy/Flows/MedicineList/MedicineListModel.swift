@@ -29,7 +29,7 @@ final class MedicineListModel: Model {
     let medicineDataSource = TableDataSource<MedicineCellSection>()
 }
 
-//MARK: - FarmacyListViewControllerOutput
+// MARK: - FarmacyListViewControllerOutput
 
 extension MedicineListModel: MedicineListViewControllerOutput {
     func didSelectProductBy(indexPath: IndexPath) {
@@ -52,4 +52,3 @@ extension MedicineListModel: MedicineListViewControllerOutput {
         output.didLoadList()
     }
 }
-

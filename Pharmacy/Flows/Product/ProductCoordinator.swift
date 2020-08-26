@@ -37,8 +37,19 @@ final class ProductCoordinator: EventNode, Coordinator {
             switch event {
             case .openAnalogsFor, .openCatalogsFor:
                 self?.openMedicineList()
+            case .openMap(let product):
+                self?.createMapFlow()
             }
         }
+    }
+    
+    func createMapFlow() {
+        let coordinator = MapCoordinator(configuration: .init(parent: self))
+        if let vc = coordinator.createFlow() as? MapHolderViewController {
+            vc.model = MapHolderModel(parent: coordinator)
+            navigation.pushViewController(vc, animated: true)
+        }
+        
     }
 }
 

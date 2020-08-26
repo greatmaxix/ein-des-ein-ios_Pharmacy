@@ -8,14 +8,16 @@
 
 import UIKit
 
-final class SelectFarmacyCell: UITableViewCell {
+final class MapFarmacyCell: UITableViewCell {
 
+    @IBOutlet weak var cellBackgroundView: UIView!
     @IBOutlet private weak var presenceLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet weak private var addressLabel: UILabel!
     @IBOutlet weak private var phoneLabel: UILabel!
     @IBOutlet weak private var workTimeLabel: UILabel!
     @IBOutlet weak private var priceLabel: UILabel!
+    @IBOutlet weak var selectButton: UIView!
     
     @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var medicineCountLabel: UILabel!
@@ -28,8 +30,18 @@ final class SelectFarmacyCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         nonEmptyMedicineTopSpace.priority = UILayoutPriority(rawValue: 1000)
+        
+        setupUI()
+    }
+    
+    private func setupUI() {
+        selectButton.layer.cornerRadius = selectButton.bounds.height / 2
+        cellBackgroundView.layer.cornerRadius = 8
     }
 
+    func apply(title: String) {
+        nameLabel.text = title
+    }
     
     @IBAction func openMap(_ sender: UIButton) {
     }

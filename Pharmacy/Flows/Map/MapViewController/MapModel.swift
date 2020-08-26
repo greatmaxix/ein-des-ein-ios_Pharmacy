@@ -7,3 +7,23 @@
 //
 
 import Foundation
+import EventsTree
+
+protocol MapInput: class {
+    
+}
+
+protocol MapOutput: class {
+    
+}
+
+final class MapModel: EventNode {
+    
+    weak var output: MapOutput!
+}
+
+extension MapModel: MapInput {
+    
+}
+
+

@@ -7,25 +7,40 @@
 //
 
 import UIKit
-import GoogleMaps
+//import GoogleMaps
 
 class MapViewController: UIViewController {
     
-    @IBOutlet weak var mapView: UIView!
-    
+    @IBOutlet private weak var mapView: UIView!
+    @IBOutlet private weak var currentLocationButton: UIButton!
+    @IBOutlet private weak var zoomInButton: UIButton!
+    @IBOutlet private weak var zoomOutButton: UIButton!
 
+    var model: MapInput!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupUI()
     }
     
-    @IBAction func moveToCurrentLocation(_ sender: UIButton) {
+    func setupUI() {
+        currentLocationButton.layer.cornerRadius = currentLocationButton.bounds.width / 2
+        zoomInButton.layer.cornerRadius = zoomInButton.bounds.width / 2
+        zoomOutButton.layer.cornerRadius = zoomOutButton.bounds.width / 2
+        zoomInButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        zoomOutButton.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
-    @IBAction func zoomIn(_ sender: UIButton) {
+    @IBAction private func moveToCurrentLocation(_ sender: UIButton) {
     }
     
-    @IBAction func zoomOut(_ sender: Any) {
+    @IBAction private func zoomIn(_ sender: UIButton) {
+    }
+    
+    @IBAction private func zoomOut(_ sender: Any) {
     }
     
 }
+
+extension MapViewController: MapOutput {}
