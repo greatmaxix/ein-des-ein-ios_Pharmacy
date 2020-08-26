@@ -8,22 +8,36 @@
 
 import Foundation
 import EventsTree
+import CoreLocation
 
 protocol MapInput: class {
     
-}
-
-protocol MapOutput: class {
+    var currentLocation: CLLocation? { get }
     
+    func startLocationTracking()
 }
 
 final class MapModel: EventNode {
     
     weak var output: MapOutput!
+    private var locationService = LocationService()
+    
+    override init(parent: EventNode?) {
+        super.init(parent: parent)
+        
+        locationService.firstLocationUpdate = { [weak self] currentLocation in
+            self?.output.locationUpdated(newCoordinate: currentLocation)
+        }
+    }
 }
 
 extension MapModel: MapInput {
     
+    var currentLocation: CLLocation? {
+        locationService.currentLocation
+    }
+    
+    func startLocationTracking() {
+        locationService.updateCurrentLocation()
+    }
 }
-
-
