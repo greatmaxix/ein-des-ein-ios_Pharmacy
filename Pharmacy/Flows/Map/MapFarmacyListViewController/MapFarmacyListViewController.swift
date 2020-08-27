@@ -23,7 +23,6 @@ class MapFarmacyListViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
     }
-    
 }
 
 extension MapFarmacyListViewController: UITableViewDelegate {

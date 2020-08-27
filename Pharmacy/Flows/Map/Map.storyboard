@@ -43,22 +43,12 @@
                                     <constraint firstAttribute="trailing" secondItem="iD2-RF-r8o" secondAttribute="trailing" constant="14" id="cqk-vx-fWr"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UmW-jw-Rvd">
-                                <rect key="frame" x="0.0" y="896" width="414" height="0.0"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" id="SPn-jz-Q36"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="BaA-3z-nt1" secondAttribute="trailing" id="4VE-CR-ZcB"/>
-                            <constraint firstItem="UmW-jw-Rvd" firstAttribute="bottom" secondItem="Bjz-MR-lJG" secondAttribute="bottom" id="9mk-xZ-QAH"/>
-                            <constraint firstItem="UmW-jw-Rvd" firstAttribute="top" secondItem="BaA-3z-nt1" secondAttribute="bottom" id="Gko-yQ-hkQ"/>
-                            <constraint firstAttribute="trailing" secondItem="UmW-jw-Rvd" secondAttribute="trailing" id="MxM-ga-3l7"/>
                             <constraint firstItem="BaA-3z-nt1" firstAttribute="leading" secondItem="Bjz-MR-lJG" secondAttribute="leading" id="Uge-QS-22S"/>
-                            <constraint firstItem="UmW-jw-Rvd" firstAttribute="leading" secondItem="dhP-T5-kIx" secondAttribute="leading" id="XXv-46-uQl"/>
+                            <constraint firstItem="BaA-3z-nt1" firstAttribute="bottom" secondItem="dhP-T5-kIx" secondAttribute="bottom" constant="34" id="V2O-qj-v0P"/>
                             <constraint firstAttribute="trailing" secondItem="VzA-9K-3Jb" secondAttribute="trailing" id="Yao-V7-DA6"/>
                             <constraint firstItem="BaA-3z-nt1" firstAttribute="top" secondItem="VzA-9K-3Jb" secondAttribute="bottom" constant="-8" id="gVt-MO-9Id"/>
                             <constraint firstItem="VzA-9K-3Jb" firstAttribute="leading" secondItem="Bjz-MR-lJG" secondAttribute="leading" id="sfx-J7-ovw"/>
@@ -68,8 +58,6 @@
                     </view>
                     <connections>
                         <outlet property="contentView" destination="BaA-3z-nt1" id="53c-1B-Cl5"/>
-                        <outlet property="messageHeightConstraint" destination="SPn-jz-Q36" id="b8O-Jj-wvx"/>
-                        <outlet property="messageView" destination="UmW-jw-Rvd" id="39z-c1-z6L"/>
                         <outlet property="segmentedControl" destination="iD2-RF-r8o" id="CX0-gz-V78"/>
                         <outlet property="selectionBackground" destination="VzA-9K-3Jb" id="Ku2-9X-Arh"/>
                     </connections>
@@ -132,19 +120,28 @@
                                     <action selector="zoomOut:" destination="z5B-sD-1RF" eventType="touchUpInside" id="cZ4-ft-XR4"/>
                                 </connections>
                             </button>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwV-gI-j5Z">
+                                <rect key="frame" x="0.0" y="896" width="414" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="aaN-dz-eDK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="PuY-lV-VJE" firstAttribute="top" secondItem="LKj-nq-dBa" secondAttribute="bottom" constant="16" id="0fp-10-2TL"/>
                             <constraint firstItem="PuY-lV-VJE" firstAttribute="centerX" secondItem="LKj-nq-dBa" secondAttribute="centerX" id="0wq-N5-o5f"/>
+                            <constraint firstAttribute="bottom" secondItem="XwV-gI-j5Z" secondAttribute="bottom" id="1ln-64-G9c"/>
                             <constraint firstItem="8dk-uh-xaf" firstAttribute="centerX" secondItem="LKj-nq-dBa" secondAttribute="centerX" id="BMP-I1-7H7"/>
                             <constraint firstItem="Rd6-jO-3Xs" firstAttribute="centerX" secondItem="PuY-lV-VJE" secondAttribute="centerX" id="Cnc-19-apn"/>
                             <constraint firstItem="8dk-uh-xaf" firstAttribute="top" secondItem="PuY-lV-VJE" secondAttribute="bottom" constant="1" id="F7h-lr-snc"/>
                             <constraint firstItem="LKj-nq-dBa" firstAttribute="top" secondItem="SEz-qx-R3l" secondAttribute="top" constant="16" id="J40-F4-rpU"/>
                             <constraint firstAttribute="bottom" secondItem="YiK-eR-YH7" secondAttribute="bottom" id="Pls-G5-JGQ"/>
                             <constraint firstItem="YiK-eR-YH7" firstAttribute="top" secondItem="SEz-qx-R3l" secondAttribute="top" id="Xfk-GK-jWv"/>
+                            <constraint firstItem="SEz-qx-R3l" firstAttribute="trailing" secondItem="XwV-gI-j5Z" secondAttribute="trailing" id="YRz-P7-QdR"/>
                             <constraint firstItem="YiK-eR-YH7" firstAttribute="leading" secondItem="SEz-qx-R3l" secondAttribute="leading" id="ahE-Dh-DPt"/>
                             <constraint firstItem="Rd6-jO-3Xs" firstAttribute="top" secondItem="PuY-lV-VJE" secondAttribute="bottom" id="lGY-tX-eSF"/>
+                            <constraint firstItem="XwV-gI-j5Z" firstAttribute="leading" secondItem="SEz-qx-R3l" secondAttribute="leading" id="q1Y-9c-nGd"/>
                             <constraint firstItem="SEz-qx-R3l" firstAttribute="trailing" secondItem="YiK-eR-YH7" secondAttribute="trailing" id="qdP-99-Eal"/>
                             <constraint firstItem="SEz-qx-R3l" firstAttribute="trailing" secondItem="LKj-nq-dBa" secondAttribute="trailing" constant="16" id="tJe-qJ-Q1t"/>
                             <constraint firstItem="Rd6-jO-3Xs" firstAttribute="width" secondItem="PuY-lV-VJE" secondAttribute="width" id="ugf-Dq-wxn"/>
@@ -154,6 +151,8 @@
                     <connections>
                         <outlet property="currentLocationButton" destination="LKj-nq-dBa" id="wk7-UD-TwJ"/>
                         <outlet property="mapView" destination="YiK-eR-YH7" id="guw-fY-p4a"/>
+                        <outlet property="messageHeightConstraint" destination="aaN-dz-eDK" id="bxb-mF-q97"/>
+                        <outlet property="messageView" destination="XwV-gI-j5Z" id="hX5-Vo-lHG"/>
                         <outlet property="zoomInButton" destination="PuY-lV-VJE" id="lAK-wn-REi"/>
                         <outlet property="zoomOutButton" destination="8dk-uh-xaf" id="fcV-Ka-d5F"/>
                     </connections>

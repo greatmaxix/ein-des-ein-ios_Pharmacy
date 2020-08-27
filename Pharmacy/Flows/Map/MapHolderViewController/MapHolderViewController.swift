@@ -8,6 +8,7 @@
 
 import UIKit
 import TTGTagCollectionView
+import GoogleMaps
 
 protocol SegmentedControlDelegate: AnyObject {
     
@@ -18,8 +19,6 @@ final class MapHolderViewController: UIViewController {
     
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet private weak var messageView: UIView!
-    @IBOutlet weak var messageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var selectionBackground: UIView!
     
     private var toMapButton: UIButton!
@@ -51,6 +50,7 @@ final class MapHolderViewController: UIViewController {
     }
     
     private func setupUI() {
+        
         model.openMap()
         segmentedControlDelegate = self
         selectionBackground.dropBlueShadow()
@@ -87,16 +87,17 @@ final class MapHolderViewController: UIViewController {
         
         segmentedControlDelegate?.selectedScreenChanged(index: sender.selectedSegmentIndex)
     }
-}
-
-extension MapHolderViewController: SegmentedControlDelegate {
     
-    func setSegmetsTitle(titles: [String]? = nil) {
+    fileprivate func setSegmetsTitle(titles: [String]? = nil) {
+        
         let newValue = titles ?? [R.string.localize.farmaciesListList(), R.string.localize.farmaciesListMap()]
         for i in 0..<newValue.count where i < segmentedControl.numberOfSegments {
             segmentedControl.setTitle(newValue[i], forSegmentAt: i)
         }
     }
+}
+
+extension MapHolderViewController: SegmentedControlDelegate {
     
     func selectedScreenChanged(index: Int) {
         

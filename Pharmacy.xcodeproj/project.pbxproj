@@ -80,6 +80,8 @@
 		399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */; };
 		39CBDA6E249CF5BA00A04831 /* ConfirmCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDA6D249CF5BA00A04831 /* ConfirmCodeViewController.swift */; };
 		39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CBDA6F249CF7F900A04831 /* SMSCodeValidator.swift */; };
+		39DBC18F24F7C2CC00CB82D5 /* MapMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DBC18E24F7C2CC00CB82D5 /* MapMessageView.swift */; };
+		39DBC19124F7C2DD00CB82D5 /* MapMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39DBC19024F7C2DD00CB82D5 /* MapMessageView.xib */; };
 		39F0AD5E24EEBF9B00CD6CA4 /* EmptyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0AD5D24EEBF9B00CD6CA4 /* EmptyResultsView.swift */; };
 		39F0AD6024EEBFB000CD6CA4 /* EmptyResultsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F0AD5F24EEBFB000CD6CA4 /* EmptyResultsView.xib */; };
 		39F0AD6524EEC80200CD6CA4 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F0AD6424EEC80200CD6CA4 /* OrdersViewController.swift */; };
@@ -279,6 +281,8 @@
 		399F2427249CA17A003BA7E1 /* ConfirmCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeView.swift; sourceTree = "<group>"; };
 		39CBDA6D249CF5BA00A04831 /* ConfirmCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeViewController.swift; sourceTree = "<group>"; };
 		39CBDA6F249CF7F900A04831 /* SMSCodeValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSCodeValidator.swift; sourceTree = "<group>"; };
+		39DBC18E24F7C2CC00CB82D5 /* MapMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMessageView.swift; sourceTree = "<group>"; };
+		39DBC19024F7C2DD00CB82D5 /* MapMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapMessageView.xib; sourceTree = "<group>"; };
 		39F0AD5D24EEBF9B00CD6CA4 /* EmptyResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultsView.swift; sourceTree = "<group>"; };
 		39F0AD5F24EEBFB000CD6CA4 /* EmptyResultsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyResultsView.xib; sourceTree = "<group>"; };
 		39F0AD6424EEC80200CD6CA4 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
@@ -680,6 +684,7 @@
 				398B0DDA24F50A820084EC54 /* UserPinView */,
 				398B0DD524F50A230084EC54 /* FarmacyPin */,
 				398B0DED24F53A580084EC54 /* FoundMedicineView */,
+				39DBC18D24F7C29D00CB82D5 /* MapMessageView */,
 				395C9D4C2498BDD6001EB6CD /* TextInputView */,
 			);
 			path = Views;
@@ -823,6 +828,15 @@
 				3915D60724A2466700A93627 /* ConfirmCodeModel.swift */,
 			);
 			path = "Confirm Code";
+			sourceTree = "<group>";
+		};
+		39DBC18D24F7C29D00CB82D5 /* MapMessageView */ = {
+			isa = PBXGroup;
+			children = (
+				39DBC18E24F7C2CC00CB82D5 /* MapMessageView.swift */,
+				39DBC19024F7C2DD00CB82D5 /* MapMessageView.xib */,
+			);
+			path = MapMessageView;
 			sourceTree = "<group>";
 		};
 		39F0AD5B24EEBF6300CD6CA4 /* EmptyResultsView */ = {
@@ -1370,6 +1384,7 @@
 				395D050624D05206007A278D /* MedicineCell.xib in Resources */,
 				618C33A52498BE6200951D11 /* Profile.storyboard in Resources */,
 				3949851B24BC519B006A773D /* ProfileOptionsCell.xib in Resources */,
+				39DBC19124F7C2DD00CB82D5 /* MapMessageView.xib in Resources */,
 				603D31FB24E5AA31000E5A6C /* ProductDescriptionTableViewCell.xib in Resources */,
 				6036EB0324DD27A5003336C2 /* Search.storyboard in Resources */,
 				603D31BD24E57871000E5A6C /* Product.storyboard in Resources */,
@@ -1541,6 +1556,7 @@
 				603D31A424E3B608000E5A6C /* CategoryCollectionViewCell.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
 				39F0AD6524EEC80200CD6CA4 /* OrdersViewController.swift in Sources */,
+				39DBC18F24F7C2CC00CB82D5 /* MapMessageView.swift in Sources */,
 				603D31D724E5A3FE000E5A6C /* Product.swift in Sources */,
 				395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */,
 				618C33AA2498BFB400951D11 /* Coordinator.swift in Sources */,
