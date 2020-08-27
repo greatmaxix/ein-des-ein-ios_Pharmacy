@@ -31,10 +31,10 @@ extension MapHolderModel: MapHolderDelegate {
     }
     
     func openMap() {
-        raise(event: FarmacySelectionEvent.openMap)
+//        raise(event: FarmacySelectionEvent.openMap)
     }
     
     func openFarmacyList() {
-        raise(event: FarmacySelectionEvent.openFarmacyList)
+  //      raise(event: FarmacySelectionEvent.openFarmacyList)
     }
 }

@@ -164,7 +164,7 @@
         <!--Map Farmacy List View Controller-->
         <scene sceneID="3PG-IH-Ds9">
             <objects>
-                <viewController storyboardIdentifier="FarmacyListViewController" id="r7w-mT-PlT" customClass="MapFarmacyListViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapFarmacyListViewController" id="r7w-mT-PlT" customClass="MapFarmacyListViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pfD-Bu-oRT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

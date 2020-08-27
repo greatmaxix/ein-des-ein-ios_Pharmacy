@@ -21,14 +21,12 @@ final class MapCoordinator: EventNode, Coordinator {
     private var mapViewController: MapViewController!
     
     func createFlow() -> UIViewController {
-        let model: MapHolderModel = MapHolderModel(parent: self)
-        root.model = model
         return root
     }
     
     init(configuration: MapFlowConfiguration) {
         super.init(parent: configuration.parent)
-        
+                
         addHandler { [weak self] (event: FarmacySelectionEvent) in
             switch event {
             case .openMap:
@@ -37,16 +35,23 @@ final class MapCoordinator: EventNode, Coordinator {
                 self?.addFarmaciesListAsChild()
             }
         }
+        
+        let mapHolderModel: MapHolderModel = MapHolderModel(parent: self)
+        root.model = mapHolderModel
+        
+        mapViewController = UIStoryboard(resource: R.storyboard.map).instantiateViewController(withIdentifier: "MapViewController") as? MapViewController
+        let model = MapModel(parent: mapHolderModel)
+        model.output = mapViewController
+        mapViewController.model = model
+        
+        farmacyListViewController = UIStoryboard(resource: R.storyboard.map).instantiateViewController(withIdentifier: "MapFarmacyListViewController") as? MapFarmacyListViewController
+        let farmacyModel = MapFarmacyListModel(parent: mapHolderModel)
+        farmacyModel.output = farmacyListViewController
+        farmacyListViewController.model = farmacyModel
     }
     
     func addMapAsChild() {
-        if mapViewController == nil {
-            mapViewController = UIStoryboard(resource: R.storyboard.map).instantiateViewController(withIdentifier: "MapViewController") as? MapViewController
-            let model = MapModel(parent: self)
-            model.output = mapViewController
-            mapViewController.model = model
-        }
-        
+
         root.contentView.addSubview(mapViewController.view)
         mapViewController.view.constraintsToSuperView()
         root.addChild(mapViewController)
@@ -54,13 +59,7 @@ final class MapCoordinator: EventNode, Coordinator {
     }
     
     func addFarmaciesListAsChild() {
-        if farmacyListViewController == nil {
-            farmacyListViewController = UIStoryboard(resource: R.storyboard.map).instantiateViewController(withIdentifier: "FarmacyListViewController") as? MapFarmacyListViewController
-            let model = MapFarmacyListModel(parent: self)
-            model.output = farmacyListViewController
-            farmacyListViewController.model = model
-        }
-        
+
         root.contentView.addSubview(farmacyListViewController.view)
         farmacyListViewController.view.constraintsToSuperView()
         root.addChild(farmacyListViewController)

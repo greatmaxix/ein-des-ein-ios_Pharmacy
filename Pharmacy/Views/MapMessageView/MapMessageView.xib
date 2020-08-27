@@ -35,22 +35,22 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2Z-ew-B41">
-                    <rect key="frame" x="28" y="154.5" width="305" height="1"/>
+                    <rect key="frame" x="16" y="154.5" width="343" height="1"/>
                     <color key="backgroundColor" white="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="LgA-pT-sWI"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeZ-Ea-U6i">
-                    <rect key="frame" x="32" y="163.5" width="24.5" height="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="there's no farmacies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeZ-Ea-U6i">
+                    <rect key="frame" x="32" y="163.5" width="91" height="12"/>
                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="10"/>
                     <color key="textColor" name="textDarkBlue"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3md-e0-g6n">
-                    <rect key="frame" x="88" y="31" width="24.5" height="12"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/4 farmacies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3md-e0-g6n">
+                    <rect key="frame" x="88" y="31" width="61" height="12"/>
                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="10"/>
-                    <color key="textColor" name="textDarkBlue"/>
+                    <color key="textColor" name="orange"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Eli-7A-uiI">
@@ -82,24 +82,24 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="450 $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2c-h3-wsZ">
-                    <rect key="frame" x="32" y="229.5" width="60.5" height="28"/>
+                    <rect key="frame" x="32" y="229.5" width="61.5" height="28"/>
                     <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
                     <color key="textColor" name="welcomeBlue"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iw6-2X-pag">
-                    <rect key="frame" x="101" y="227.5" width="228" height="40"/>
+                    <rect key="frame" x="102" y="227.5" width="235" height="40"/>
                     <color key="backgroundColor" name="welcomeBlue"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="fhe-YB-mfS"/>
-                        <constraint firstAttribute="width" constant="228" id="wnI-7a-4a4"/>
+                        <constraint firstAttribute="width" constant="235" id="wnI-7a-4a4"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                     <state key="normal" title="Select Farmacy">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqf-rN-zeo">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farmacy name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqf-rN-zeo">
                     <rect key="frame" x="88" y="43" width="231" height="19"/>
                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                     <color key="textColor" name="textDarkBlue"/>
@@ -119,7 +119,7 @@
             <constraints>
                 <constraint firstItem="aeZ-Ea-U6i" firstAttribute="top" secondItem="V2Z-ew-B41" secondAttribute="bottom" constant="8" id="1MY-78-XXP"/>
                 <constraint firstItem="Tqf-rN-zeo" firstAttribute="top" secondItem="3md-e0-g6n" secondAttribute="bottom" id="350-qy-SNK"/>
-                <constraint firstItem="V2Z-ew-B41" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="28" id="5qM-Ah-j4R"/>
+                <constraint firstItem="V2Z-ew-B41" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="5qM-Ah-j4R"/>
                 <constraint firstItem="Z6K-By-Oaw" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="64N-Mg-UUX"/>
                 <constraint firstItem="U2c-h3-wsZ" firstAttribute="leading" secondItem="K4o-LQ-XLn" secondAttribute="leading" id="8AO-is-erj"/>
                 <constraint firstItem="jSw-WB-VNB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="8qj-FB-pxc"/>
@@ -134,15 +134,16 @@
                 <constraint firstItem="yB4-Dv-dcB" firstAttribute="top" secondItem="L5m-ca-Sws" secondAttribute="bottom" constant="20" id="S6l-Th-xec"/>
                 <constraint firstItem="3md-e0-g6n" firstAttribute="leading" secondItem="jSw-WB-VNB" secondAttribute="trailing" constant="8" id="VDb-aq-S5c"/>
                 <constraint firstItem="U2c-h3-wsZ" firstAttribute="centerY" secondItem="iw6-2X-pag" secondAttribute="centerY" constant="-4" id="WNT-HX-onj"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="V2Z-ew-B41" secondAttribute="trailing" constant="42" id="Wrg-e9-lp0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="V2Z-ew-B41" secondAttribute="trailing" constant="16" id="Wrg-e9-lp0"/>
                 <constraint firstItem="3md-e0-g6n" firstAttribute="top" secondItem="Z6K-By-Oaw" secondAttribute="bottom" constant="20" id="XGk-Iy-KoW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Eli-7A-uiI" secondAttribute="trailing" constant="42" id="XmY-sP-b4h"/>
                 <constraint firstItem="L5m-ca-Sws" firstAttribute="leading" secondItem="Tqf-rN-zeo" secondAttribute="leading" id="ZOS-E7-FvU"/>
                 <constraint firstItem="K4o-LQ-XLn" firstAttribute="leading" secondItem="yB4-Dv-dcB" secondAttribute="leading" id="aHg-Vw-Mj3"/>
+                <constraint firstItem="iw6-2X-pag" firstAttribute="leading" secondItem="U2c-h3-wsZ" secondAttribute="trailing" constant="8.5" id="ad9-9g-43r"/>
                 <constraint firstItem="Eli-7A-uiI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="28" id="e3o-L1-nsX"/>
                 <constraint firstItem="jSw-WB-VNB" firstAttribute="width" secondItem="jSw-WB-VNB" secondAttribute="height" multiplier="1:1" id="fBG-eU-LwL"/>
                 <constraint firstAttribute="top" secondItem="QIF-vq-kcW" secondAttribute="top" constant="-31" id="fMH-Fi-OsG"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iw6-2X-pag" secondAttribute="trailing" constant="46" id="gBA-Xq-TM1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iw6-2X-pag" secondAttribute="trailing" constant="38" id="gBA-Xq-TM1"/>
                 <constraint firstItem="Eli-7A-uiI" firstAttribute="top" secondItem="aeZ-Ea-U6i" secondAttribute="bottom" constant="4" id="ho4-xg-LOO"/>
                 <constraint firstItem="QIF-vq-kcW" firstAttribute="leading" secondItem="Tqf-rN-zeo" secondAttribute="trailing" constant="8" id="mId-bT-moh"/>
                 <constraint firstItem="iw6-2X-pag" firstAttribute="top" secondItem="K4o-LQ-XLn" secondAttribute="bottom" priority="250" constant="12" id="mKc-mQ-a6g"/>
@@ -178,6 +179,9 @@
         <image name="toMap" width="32" height="32"/>
         <namedColor name="backgroundGray">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orange">
+            <color red="1" green="0.58039215686274515" blue="0.090196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textDarkBlue">
             <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

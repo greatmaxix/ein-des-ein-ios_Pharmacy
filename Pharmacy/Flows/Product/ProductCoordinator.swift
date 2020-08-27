@@ -32,7 +32,6 @@ final class ProductCoordinator: EventNode, Coordinator {
     init(configuration: ProductFlowConfiguration) {
         navigation = configuration.navigation
         super.init(parent: configuration.parent)
-        
         addHandler { [weak self] (event: ProductModelEvent) in
             switch event {
             case .openAnalogsFor, .openCatalogsFor:
@@ -42,20 +41,16 @@ final class ProductCoordinator: EventNode, Coordinator {
             }
         }
     }
-    
-    func createMapFlow() {
-        let coordinator = MapCoordinator(configuration: .init(parent: self))
-        if let vc = coordinator.createFlow() as? MapHolderViewController {
-            vc.model = MapHolderModel(parent: coordinator)
-            navigation.pushViewController(vc, animated: true)
-        }
-        
-    }
 }
 
 extension ProductCoordinator {
     fileprivate func openMedicineList() {
         let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
+        navigation.pushViewController(vc, animated: true)
+    }
+    
+    fileprivate func createMapFlow() {
+        let vc = MapCoordinator(configuration: MapFlowConfiguration(parent: self)).createFlow()
         navigation.pushViewController(vc, animated: true)
     }
 }

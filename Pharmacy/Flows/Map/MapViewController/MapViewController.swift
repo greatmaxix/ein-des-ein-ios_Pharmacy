@@ -77,16 +77,17 @@ class MapViewController: UIViewController {
     
     private func showMessage() {
         messageHeightConstraint.constant = GUI.messageHeight
-        UIView.animate(withDuration: 0.2) {
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
             self.view.layoutIfNeeded()
-        }
+        })
     }
     
     private func hideMessage() {
         messageHeightConstraint.constant = 0
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
             self.view.layoutIfNeeded()
-        }
+        })
     }
 }
 

@@ -34,14 +34,14 @@ final class MapHolderViewController: UIViewController {
         setupUI()
     }
     
-    override func addChild(_ childController: UIViewController) {
-
-        super.addChild(childController)
-
-        if let vc: MapFarmacyListViewController = childController as? MapFarmacyListViewController {
-            segmentedControlDelegate = vc
-        }
-    }
+//    override func addChild(_ childController: UIViewController) {
+//
+//        super.addChild(childController)
+//
+//        if let vc: MapFarmacyListViewController = childController as? MapFarmacyListViewController {
+//            segmentedControlDelegate = vc
+//        }
+//    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
