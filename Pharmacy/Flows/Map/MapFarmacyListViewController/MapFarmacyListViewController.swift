@@ -11,7 +11,8 @@ import UIKit
 class MapFarmacyListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var selectionBackground: UIView!
+
     var model: FarmacyListInput!
     
     override func viewDidLoad() {
@@ -22,6 +23,11 @@ class MapFarmacyListViewController: UIViewController {
         model.dataSourse.assign(tableView: tableView)
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
+        
+        selectionBackground.dropBlueShadow()
+               
+        selectionBackground.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        selectionBackground.layer.cornerRadius = 8
     }
 }
 
@@ -33,10 +39,3 @@ extension MapFarmacyListViewController: UITableViewDelegate {
 }
 
 extension MapFarmacyListViewController: FarmacyListOutput {}
-
-extension MapFarmacyListViewController: SegmentedControlDelegate {
-    
-    func selectedScreenChanged(index: Int) {
-        //
-    }
-}

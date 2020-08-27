@@ -19,12 +19,14 @@ class MapViewController: UIViewController {
         static let messageHeight: CGFloat = 375
     }
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet private weak var messageView: UIView!
     @IBOutlet weak var messageHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var mapView: GMSMapView!
     @IBOutlet private weak var currentLocationButton: UIButton!
     @IBOutlet private weak var zoomInButton: UIButton!
     @IBOutlet private weak var zoomOutButton: UIButton!
+    @IBOutlet weak var selectionBackground: UIView!
 
     var model: MapInput!
     
@@ -35,6 +37,13 @@ class MapViewController: UIViewController {
 
         setupUI()
         setupMap()
+        setupLocalization()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        segmentedControl.selectedSegmentIndex = 1
     }
     
     private func setupUI() {
@@ -51,6 +60,14 @@ class MapViewController: UIViewController {
         
         messageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         messageView.layer.cornerRadius = 18
+        segmentedControl.selectedSegmentIndex = 1
+        
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.welcomeBlue()!], for: .selected)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.gray()!], for: .normal)
+        
+        selectionBackground.dropBlueShadow()
+        selectionBackground.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        selectionBackground.layer.cornerRadius = 8
     }
     
     private func setupMap() {
@@ -75,6 +92,12 @@ class MapViewController: UIViewController {
         mapView.animate(toZoom: mapView.camera.zoom - 1)
     }
     
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            model.openFarmacyList()
+        }
+    }
+    
     private func showMessage() {
         messageHeightConstraint.constant = GUI.messageHeight
         
@@ -88,6 +111,15 @@ class MapViewController: UIViewController {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
             self.view.layoutIfNeeded()
         })
+    }
+    
+    private func setupLocalization() {
+        
+        let newValue = [R.string.localize.farmaciesListList(), R.string.localize.farmaciesListMap()]
+        for i in 0..<newValue.count where i < segmentedControl.numberOfSegments {
+            segmentedControl.setTitle(newValue[i], forSegmentAt: i)
+        }
+        title = R.string.localize.farmaciesListTitle()
     }
 }
 

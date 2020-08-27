@@ -15,54 +15,29 @@ struct MapFlowConfiguration {
 
 final class MapCoordinator: EventNode, Coordinator {
     
-    let root: MapHolderViewController =  R.storyboard.map.instantiateInitialViewController()!
-    
-    private var farmacyListViewController: MapFarmacyListViewController!
-    private var mapViewController: MapViewController!
+    let root: MapViewController = R.storyboard.map.instantiateInitialViewController()!
     
     func createFlow() -> UIViewController {
+        let model = MapModel(parent: self)
+        model.output = root
+        root.model = model
         return root
     }
     
     init(configuration: MapFlowConfiguration) {
         super.init(parent: configuration.parent)
                 
-        addHandler { [weak self] (event: FarmacySelectionEvent) in
+        addHandler { [weak self] (event: MapEvent) in
             switch event {
-            case .openMap:
-                self?.addMapAsChild()
             case .openFarmacyList:
-                self?.addFarmaciesListAsChild()
+                self?.presentFarmaciesList()
             }
         }
-        
-        let mapHolderModel: MapHolderModel = MapHolderModel(parent: self)
-        root.model = mapHolderModel
-        
-        mapViewController = UIStoryboard(resource: R.storyboard.map).instantiateViewController(withIdentifier: "MapViewController") as? MapViewController
-        let model = MapModel(parent: mapHolderModel)
-        model.output = mapViewController
-        mapViewController.model = model
-        
-        farmacyListViewController = UIStoryboard(resource: R.storyboard.map).instantiateViewController(withIdentifier: "MapFarmacyListViewController") as? MapFarmacyListViewController
-        let farmacyModel = MapFarmacyListModel(parent: mapHolderModel)
-        farmacyModel.output = farmacyListViewController
-        farmacyListViewController.model = farmacyModel
     }
     
-    func addMapAsChild() {
-
-        root.contentView.addSubview(mapViewController.view)
-        mapViewController.view.constraintsToSuperView()
-        root.addChild(mapViewController)
-        mapViewController.didMove(toParent: root)
-    }
-    
-    func addFarmaciesListAsChild() {
-
-        root.contentView.addSubview(farmacyListViewController.view)
-        farmacyListViewController.view.constraintsToSuperView()
-        root.addChild(farmacyListViewController)
-        farmacyListViewController.didMove(toParent: root)
+    func presentFarmaciesList() {
+        let vc = R.storyboard.map.mapFarmacyListViewController()!
+        vc.model = MapFarmacyListModel(parent: self)
+        root.navigationController?.pushViewController(vc, animated: true)
     }
 }

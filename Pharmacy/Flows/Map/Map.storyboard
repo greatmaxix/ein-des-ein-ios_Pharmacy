@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="un9-vy-zei">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z5B-sD-1RF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,63 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Map Holder View Controller-->
-        <scene sceneID="j79-ED-zKl">
-            <objects>
-                <viewController storyboardIdentifier="FarmacySelectionViewController" id="un9-vy-zei" customClass="MapHolderViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Bjz-MR-lJG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaA-3z-nt1">
-                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VzA-9K-3Jb">
-                                <rect key="frame" x="0.0" y="44" width="414" height="64"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iD2-RF-r8o">
-                                        <rect key="frame" x="18" y="16.5" width="382" height="32"/>
-                                        <segments>
-                                            <segment title="Списком"/>
-                                            <segment title="На карте"/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="screenChanged:" destination="un9-vy-zei" eventType="valueChanged" id="tDJ-nk-DlY"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="iD2-RF-r8o" firstAttribute="centerY" secondItem="VzA-9K-3Jb" secondAttribute="centerY" id="Lhe-bP-gwV"/>
-                                    <constraint firstItem="iD2-RF-r8o" firstAttribute="leading" secondItem="VzA-9K-3Jb" secondAttribute="leading" constant="18" id="Vc9-9w-N3A"/>
-                                    <constraint firstAttribute="height" constant="64" id="Xur-vh-UaI"/>
-                                    <constraint firstAttribute="trailing" secondItem="iD2-RF-r8o" secondAttribute="trailing" constant="14" id="cqk-vx-fWr"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="BaA-3z-nt1" secondAttribute="trailing" id="4VE-CR-ZcB"/>
-                            <constraint firstItem="BaA-3z-nt1" firstAttribute="leading" secondItem="Bjz-MR-lJG" secondAttribute="leading" id="Uge-QS-22S"/>
-                            <constraint firstItem="BaA-3z-nt1" firstAttribute="bottom" secondItem="dhP-T5-kIx" secondAttribute="bottom" constant="34" id="V2O-qj-v0P"/>
-                            <constraint firstAttribute="trailing" secondItem="VzA-9K-3Jb" secondAttribute="trailing" id="Yao-V7-DA6"/>
-                            <constraint firstItem="BaA-3z-nt1" firstAttribute="top" secondItem="VzA-9K-3Jb" secondAttribute="bottom" constant="-8" id="gVt-MO-9Id"/>
-                            <constraint firstItem="VzA-9K-3Jb" firstAttribute="leading" secondItem="Bjz-MR-lJG" secondAttribute="leading" id="sfx-J7-ovw"/>
-                            <constraint firstItem="VzA-9K-3Jb" firstAttribute="top" secondItem="dhP-T5-kIx" secondAttribute="top" id="xzb-Ja-zdT"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="dhP-T5-kIx"/>
-                    </view>
-                    <connections>
-                        <outlet property="contentView" destination="BaA-3z-nt1" id="53c-1B-Cl5"/>
-                        <outlet property="segmentedControl" destination="iD2-RF-r8o" id="CX0-gz-V78"/>
-                        <outlet property="selectionBackground" destination="VzA-9K-3Jb" id="Ku2-9X-Arh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U0w-jF-3tT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-146.37681159420291" y="162.72321428571428"/>
-        </scene>
         <!--Map View Controller-->
         <scene sceneID="C1m-fn-Xaw">
             <objects>
@@ -75,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YiK-eR-YH7" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                             </view>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKj-nq-dBa">
-                                <rect key="frame" x="358" y="60" width="40" height="40"/>
+                                <rect key="frame" x="358" y="144" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Zku-4D-b8Q"/>
@@ -90,7 +33,7 @@
                                 </connections>
                             </button>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PuY-lV-VJE">
-                                <rect key="frame" x="358" y="116" width="40" height="40"/>
+                                <rect key="frame" x="358" y="200" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="PuY-lV-VJE" secondAttribute="height" multiplier="1:1" id="0Ga-aL-b34"/>
@@ -102,14 +45,14 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rd6-jO-3Xs">
-                                <rect key="frame" x="358" y="156" width="40" height="1"/>
+                                <rect key="frame" x="358" y="240" width="40" height="1"/>
                                 <color key="backgroundColor" name="backgroundGray"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="lVP-xj-pEr"/>
                                 </constraints>
                             </view>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dk-uh-xaf">
-                                <rect key="frame" x="358" y="157" width="40" height="40"/>
+                                <rect key="frame" x="358" y="241" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="bfa-cU-Htg"/>
@@ -126,6 +69,28 @@
                                     <constraint firstAttribute="height" id="aaN-dz-eDK"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Qm-QY-Cwt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="64"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3jX-cX-0jw">
+                                        <rect key="frame" x="18" y="16.5" width="382" height="32"/>
+                                        <segments>
+                                            <segment title="Списком"/>
+                                            <segment title="На карте"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentChanged:" destination="z5B-sD-1RF" eventType="valueChanged" id="44f-5l-hnh"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="6kh-X3-Hkq"/>
+                                    <constraint firstItem="3jX-cX-0jw" firstAttribute="leading" secondItem="9Qm-QY-Cwt" secondAttribute="leading" constant="18" id="7Z1-pR-ed7"/>
+                                    <constraint firstItem="3jX-cX-0jw" firstAttribute="centerY" secondItem="9Qm-QY-Cwt" secondAttribute="centerY" id="Lib-Hp-Ic2"/>
+                                    <constraint firstAttribute="trailing" secondItem="3jX-cX-0jw" secondAttribute="trailing" constant="14" id="et2-tN-JQU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -134,17 +99,20 @@
                             <constraint firstAttribute="bottom" secondItem="XwV-gI-j5Z" secondAttribute="bottom" id="1ln-64-G9c"/>
                             <constraint firstItem="8dk-uh-xaf" firstAttribute="centerX" secondItem="LKj-nq-dBa" secondAttribute="centerX" id="BMP-I1-7H7"/>
                             <constraint firstItem="Rd6-jO-3Xs" firstAttribute="centerX" secondItem="PuY-lV-VJE" secondAttribute="centerX" id="Cnc-19-apn"/>
+                            <constraint firstItem="9Qm-QY-Cwt" firstAttribute="leading" secondItem="SEz-qx-R3l" secondAttribute="leading" id="Dlu-za-g1V"/>
                             <constraint firstItem="8dk-uh-xaf" firstAttribute="top" secondItem="PuY-lV-VJE" secondAttribute="bottom" constant="1" id="F7h-lr-snc"/>
-                            <constraint firstItem="LKj-nq-dBa" firstAttribute="top" secondItem="SEz-qx-R3l" secondAttribute="top" constant="16" id="J40-F4-rpU"/>
+                            <constraint firstItem="LKj-nq-dBa" firstAttribute="top" secondItem="SEz-qx-R3l" secondAttribute="top" constant="100" id="J40-F4-rpU"/>
                             <constraint firstAttribute="bottom" secondItem="YiK-eR-YH7" secondAttribute="bottom" id="Pls-G5-JGQ"/>
-                            <constraint firstItem="YiK-eR-YH7" firstAttribute="top" secondItem="SEz-qx-R3l" secondAttribute="top" id="Xfk-GK-jWv"/>
+                            <constraint firstItem="9Qm-QY-Cwt" firstAttribute="top" secondItem="SEz-qx-R3l" secondAttribute="top" id="Ppr-ZX-AGe"/>
                             <constraint firstItem="SEz-qx-R3l" firstAttribute="trailing" secondItem="XwV-gI-j5Z" secondAttribute="trailing" id="YRz-P7-QdR"/>
                             <constraint firstItem="YiK-eR-YH7" firstAttribute="leading" secondItem="SEz-qx-R3l" secondAttribute="leading" id="ahE-Dh-DPt"/>
                             <constraint firstItem="Rd6-jO-3Xs" firstAttribute="top" secondItem="PuY-lV-VJE" secondAttribute="bottom" id="lGY-tX-eSF"/>
+                            <constraint firstItem="SEz-qx-R3l" firstAttribute="trailing" secondItem="9Qm-QY-Cwt" secondAttribute="trailing" id="nlr-wl-hO3"/>
                             <constraint firstItem="XwV-gI-j5Z" firstAttribute="leading" secondItem="SEz-qx-R3l" secondAttribute="leading" id="q1Y-9c-nGd"/>
                             <constraint firstItem="SEz-qx-R3l" firstAttribute="trailing" secondItem="YiK-eR-YH7" secondAttribute="trailing" id="qdP-99-Eal"/>
                             <constraint firstItem="SEz-qx-R3l" firstAttribute="trailing" secondItem="LKj-nq-dBa" secondAttribute="trailing" constant="16" id="tJe-qJ-Q1t"/>
                             <constraint firstItem="Rd6-jO-3Xs" firstAttribute="width" secondItem="PuY-lV-VJE" secondAttribute="width" id="ugf-Dq-wxn"/>
+                            <constraint firstItem="YiK-eR-YH7" firstAttribute="top" secondItem="9Qm-QY-Cwt" secondAttribute="bottom" constant="-8" id="ywc-Q9-piD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SEz-qx-R3l"/>
                     </view>
@@ -153,13 +121,15 @@
                         <outlet property="mapView" destination="YiK-eR-YH7" id="guw-fY-p4a"/>
                         <outlet property="messageHeightConstraint" destination="aaN-dz-eDK" id="bxb-mF-q97"/>
                         <outlet property="messageView" destination="XwV-gI-j5Z" id="hX5-Vo-lHG"/>
+                        <outlet property="segmentedControl" destination="3jX-cX-0jw" id="jCi-wO-HFR"/>
+                        <outlet property="selectionBackground" destination="9Qm-QY-Cwt" id="oe7-bi-kxn"/>
                         <outlet property="zoomInButton" destination="PuY-lV-VJE" id="lAK-wn-REi"/>
                         <outlet property="zoomOutButton" destination="8dk-uh-xaf" id="fcV-Ka-d5F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jl1-Ia-lIt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="680" y="158"/>
+            <point key="canvasLocation" x="679.71014492753625" y="157.36607142857142"/>
         </scene>
         <!--Map Farmacy List View Controller-->
         <scene sceneID="3PG-IH-Ds9">
@@ -170,20 +140,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P4B-jY-DQi">
-                                <rect key="frame" x="8" y="60" width="398" height="802"/>
+                                <rect key="frame" x="8" y="100" width="398" height="762"/>
                                 <color key="backgroundColor" name="backgroundGray"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8XM-7W-cpi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="64"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AHZ-f6-ZXa">
+                                        <rect key="frame" x="18" y="16.5" width="382" height="32"/>
+                                        <segments>
+                                            <segment title="Списком"/>
+                                            <segment title="На карте"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="CSY-2k-q0N"/>
+                                    <constraint firstItem="AHZ-f6-ZXa" firstAttribute="centerY" secondItem="8XM-7W-cpi" secondAttribute="centerY" id="dOR-ou-iGV"/>
+                                    <constraint firstAttribute="trailing" secondItem="AHZ-f6-ZXa" secondAttribute="trailing" constant="14" id="gj7-Td-hjf"/>
+                                    <constraint firstItem="AHZ-f6-ZXa" firstAttribute="leading" secondItem="8XM-7W-cpi" secondAttribute="leading" constant="18" id="lcD-Ev-bJ6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="P4B-jY-DQi" secondAttribute="trailing" constant="8" id="7wP-fR-rdk"/>
                             <constraint firstItem="P4B-jY-DQi" firstAttribute="leading" secondItem="pfD-Bu-oRT" secondAttribute="leading" constant="8" id="AOb-Vp-0ab"/>
                             <constraint firstItem="P4B-jY-DQi" firstAttribute="bottom" secondItem="MIC-H1-CuV" secondAttribute="bottom" id="B4B-V6-FD7"/>
-                            <constraint firstItem="P4B-jY-DQi" firstAttribute="top" secondItem="MIC-H1-CuV" secondAttribute="top" constant="16" id="CT7-JP-xxC"/>
+                            <constraint firstItem="MIC-H1-CuV" firstAttribute="trailing" secondItem="8XM-7W-cpi" secondAttribute="trailing" id="GGk-E9-PEw"/>
+                            <constraint firstItem="8XM-7W-cpi" firstAttribute="top" secondItem="MIC-H1-CuV" secondAttribute="top" id="JHj-Up-dIp"/>
+                            <constraint firstItem="8XM-7W-cpi" firstAttribute="leading" secondItem="MIC-H1-CuV" secondAttribute="leading" id="PqZ-jO-k3L"/>
+                            <constraint firstItem="P4B-jY-DQi" firstAttribute="top" secondItem="8XM-7W-cpi" secondAttribute="bottom" constant="-8" id="Xyv-SP-UBo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MIC-H1-CuV"/>
                     </view>
                     <connections>
+                        <outlet property="selectionBackground" destination="8XM-7W-cpi" id="Xc9-4a-ATh"/>
                         <outlet property="tableView" destination="P4B-jY-DQi" id="YuH-3K-Iky"/>
                     </connections>
                 </viewController>
