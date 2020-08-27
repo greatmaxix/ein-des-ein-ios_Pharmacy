@@ -17,7 +17,7 @@ final class MapFarmacyCell: UITableViewCell {
     @IBOutlet weak private var phoneLabel: UILabel!
     @IBOutlet weak private var workTimeLabel: UILabel!
     @IBOutlet weak private var priceLabel: UILabel!
-    @IBOutlet weak var selectButton: UIView!
+    @IBOutlet weak var selectButton: UIButton!
     
     @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var medicineCountLabel: UILabel!
@@ -38,6 +38,7 @@ final class MapFarmacyCell: UITableViewCell {
         presenceLabel.text = "\(bounds.height)"
         selectButton.layer.cornerRadius = selectButton.bounds.height / 2
         cellBackgroundView.layer.cornerRadius = 8
+        selectButton.setTitle(R.string.localize.farmaciesListFarmacySelect(), for: .normal)
     }
     
     func addMedicines(titles: [String]) {

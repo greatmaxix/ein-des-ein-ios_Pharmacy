@@ -34,3 +34,10 @@ extension MapFarmacyListViewController: UITableViewDelegate {
 }
 
 extension MapFarmacyListViewController: FarmacyListOutput {}
+
+extension MapFarmacyListViewController: SegmentedControlDelegate {
+    
+    func selectedScreenChanged(index: Int) {
+        //
+    }
+}

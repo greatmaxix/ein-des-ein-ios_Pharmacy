@@ -14,7 +14,8 @@ enum FarmacySelectionEvent: Event {
     case openFarmacyList
 }
 
-protocol MapHolderDelegate {
+protocol MapHolderDelegate: class {
+    var title: String { get }
     func openMap()
     func openFarmacyList()
 }
@@ -24,6 +25,11 @@ final class MapHolderModel: EventNode {
 }
 
 extension MapHolderModel: MapHolderDelegate {
+    
+    var title: String {
+        R.string.localize.farmaciesListTitle()
+    }
+    
     func openMap() {
         raise(event: FarmacySelectionEvent.openMap)
     }

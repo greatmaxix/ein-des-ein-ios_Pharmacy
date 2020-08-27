@@ -165,10 +165,12 @@
 "analizes.emptyDescription" = "Это просто исправить! Запишитесь на анализы через наше приложение";
 "analizes.emptyButton" = "Записаться на анализы";
 
-//MARK: Farmacies list
+//MARK: Map farmacies list
 
 "farmaciesList.list" = "Списком";
 "farmaciesList.map" = "На карте";
 "farmaciesList.farmacySelect" = "Выбор аптеки";
 "farmaciesList.byPrice" = "По цене";
 "farmaciesList.byDistance" = "По расстоянию";
+"farmaciesList.selectFarmacy" = "Выбрать аптеку";
+"farmaciesList.title" = "Выбор аптеки";

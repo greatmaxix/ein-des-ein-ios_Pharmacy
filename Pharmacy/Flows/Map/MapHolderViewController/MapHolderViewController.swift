@@ -11,11 +11,6 @@ import TTGTagCollectionView
 
 protocol SegmentedControlDelegate: AnyObject {
     
-    var controlTitles: [String] {
-        get
-        set
-    }
-    
     func selectedScreenChanged(index: Int)
 }
 
@@ -27,8 +22,12 @@ final class MapHolderViewController: UIViewController {
     @IBOutlet weak var messageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var selectionBackground: UIView!
     
+    private var toMapButton: UIButton!
+    
     var model: MapHolderDelegate!
     weak var segmentedControlDelegate: SegmentedControlDelegate?
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +36,18 @@ final class MapHolderViewController: UIViewController {
     }
     
     override func addChild(_ childController: UIViewController) {
-        
+
         super.addChild(childController)
-        
-        if let vc: MapViewController = childController as? MapViewController {
-            
+
+        if let vc: MapFarmacyListViewController = childController as? MapFarmacyListViewController {
+            segmentedControlDelegate = vc
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        toMapButton.removeFromSuperview()
     }
     
     private func setupUI() {
@@ -56,10 +61,24 @@ final class MapHolderViewController: UIViewController {
         //swiftlint:disable force_cast
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.welcomeBlue()!], for: .selected)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.gray()!], for: .normal)
+        
+        title = model.title
+        
+        toMapButton = UIButton()
+        if let bar = navigationController?.navigationBar as? NavigationBar {
+            
+            toMapButton.translatesAutoresizingMaskIntoConstraints = false
+            bar.backButton.addSubview(toMapButton)
+            toMapButton.constraintsToSuperView()
+            toMapButton.isHidden = true
+            toMapButton.addTarget(self, action: #selector(switchToMap), for: .touchUpInside)
+        }
     }
     
-    private func setupLocalization() {
-        
+    @objc private func switchToMap() {
+        selectedScreenChanged(index: 1)
+        segmentedControl.selectedSegmentIndex = 1
+        segmentedControlDelegate = self
     }
     
     // MARK: - Actions
@@ -72,21 +91,22 @@ final class MapHolderViewController: UIViewController {
 
 extension MapHolderViewController: SegmentedControlDelegate {
     
-    var controlTitles: [String] {
-        get {
-            [R.string.localize.farmaciesListList(), R.string.localize.farmaciesListMap()]
-        }
-        set {
-            for i in 0..<newValue.count {
-                segmentedControl.setTitle(newValue[i], forSegmentAt: i)
-            }
+    func setSegmetsTitle(titles: [String]? = nil) {
+        let newValue = titles ?? [R.string.localize.farmaciesListList(), R.string.localize.farmaciesListMap()]
+        for i in 0..<newValue.count where i < segmentedControl.numberOfSegments {
+            segmentedControl.setTitle(newValue[i], forSegmentAt: i)
         }
     }
     
     func selectedScreenChanged(index: Int) {
+        
+        toMapButton.isHidden = index != 0
+        
         if index == 0 {
             model.openFarmacyList()
+            setSegmetsTitle(titles: [R.string.localize.farmaciesListByPrice(), R.string.localize.farmaciesListByDistance()])
         } else {
+            setSegmetsTitle()
             model.openMap()
         }
     }

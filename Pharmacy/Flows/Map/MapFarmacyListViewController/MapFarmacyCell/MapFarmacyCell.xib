@@ -171,7 +171,7 @@
                 <outlet property="phoneLabel" destination="dKx-1R-gE3" id="k1g-dc-1Ib"/>
                 <outlet property="presenceLabel" destination="b9t-Ua-vQv" id="Cf4-DM-srX"/>
                 <outlet property="priceLabel" destination="Uip-PQ-IIb" id="7gx-hB-vXh"/>
-                <outlet property="selectButton" destination="N4K-Z7-ZCd" id="DdJ-Tt-APq"/>
+                <outlet property="selectButton" destination="N4K-Z7-ZCd" id="Zjx-aK-yI7"/>
                 <outlet property="separatorView" destination="p1V-Sp-vXC" id="cly-eE-xQ3"/>
                 <outlet property="workTimeLabel" destination="9FZ-eT-eob" id="E1P-3M-tYC"/>
             </connections>
