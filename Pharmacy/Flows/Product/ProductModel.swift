@@ -40,7 +40,7 @@ final class ProductModel: Model {
     
 }
 
-//MARK: - ProductViewControllerOutput
+// MARK: - ProductViewControllerOutput
 
 extension ProductModel: ProductViewControllerOutput {
     

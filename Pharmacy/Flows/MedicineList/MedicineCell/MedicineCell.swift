@@ -32,7 +32,7 @@ final class MedicineCell: HighlightedTableViewCell {
         }
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction private func likeAction(sender: UIButton) {
         sender.isSelected.toggle()

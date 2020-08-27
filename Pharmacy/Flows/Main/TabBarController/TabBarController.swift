@@ -75,7 +75,7 @@ final class TabBarController: UITabBarController {
             roundedView.trailingAnchor.constraint(equalTo: tabBar.trailingAnchor),
             roundedView.leadingAnchor.constraint(equalTo: tabBar.leadingAnchor),
             roundedView.topAnchor.constraint(equalTo: tabBar.topAnchor),
-            roundedView.bottomAnchor.constraint(equalTo: tabBar.bottomAnchor),
+            roundedView.bottomAnchor.constraint(equalTo: tabBar.bottomAnchor)
         ])
     }
 }

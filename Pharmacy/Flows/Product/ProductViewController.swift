@@ -101,7 +101,6 @@ extension ProductViewController: ProductViewControllerInput {
     }
 }
 
-
 // MARK: - UITableViewDelegate
 
 extension ProductViewController: UITableViewDelegate {

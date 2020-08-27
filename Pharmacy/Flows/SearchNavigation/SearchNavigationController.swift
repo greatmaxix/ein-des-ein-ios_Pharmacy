@@ -91,13 +91,13 @@ final class SearchNavigationController: UINavigationController {
     }
 }
 
-//MARK: - SearchNavigationControllerInput
+// MARK: - SearchNavigationControllerInput
 
 extension SearchNavigationController: SearchNavigationControllerInput {
     
 }
 
-//MARK: - NavigationBarDelegate
+// MARK: - NavigationBarDelegate
 
 extension SearchNavigationController: NavigationBarDelegate {
     func navigationBarDidSelectScan() {

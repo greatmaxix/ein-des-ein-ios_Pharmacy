@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -112,6 +113,13 @@
                                     <action selector="zoomIn:" destination="z5B-sD-1RF" eventType="touchUpInside" id="xaG-lH-BYf"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rd6-jO-3Xs">
+                                <rect key="frame" x="358" y="156" width="40" height="1"/>
+                                <color key="backgroundColor" name="backgroundGray"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="lVP-xj-pEr"/>
+                                </constraints>
+                            </view>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dk-uh-xaf">
                                 <rect key="frame" x="358" y="157" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -130,13 +138,16 @@
                             <constraint firstItem="PuY-lV-VJE" firstAttribute="top" secondItem="LKj-nq-dBa" secondAttribute="bottom" constant="16" id="0fp-10-2TL"/>
                             <constraint firstItem="PuY-lV-VJE" firstAttribute="centerX" secondItem="LKj-nq-dBa" secondAttribute="centerX" id="0wq-N5-o5f"/>
                             <constraint firstItem="8dk-uh-xaf" firstAttribute="centerX" secondItem="LKj-nq-dBa" secondAttribute="centerX" id="BMP-I1-7H7"/>
+                            <constraint firstItem="Rd6-jO-3Xs" firstAttribute="centerX" secondItem="PuY-lV-VJE" secondAttribute="centerX" id="Cnc-19-apn"/>
                             <constraint firstItem="8dk-uh-xaf" firstAttribute="top" secondItem="PuY-lV-VJE" secondAttribute="bottom" constant="1" id="F7h-lr-snc"/>
                             <constraint firstItem="LKj-nq-dBa" firstAttribute="top" secondItem="SEz-qx-R3l" secondAttribute="top" constant="16" id="J40-F4-rpU"/>
                             <constraint firstAttribute="bottom" secondItem="YiK-eR-YH7" secondAttribute="bottom" id="Pls-G5-JGQ"/>
                             <constraint firstItem="YiK-eR-YH7" firstAttribute="top" secondItem="SEz-qx-R3l" secondAttribute="top" id="Xfk-GK-jWv"/>
                             <constraint firstItem="YiK-eR-YH7" firstAttribute="leading" secondItem="SEz-qx-R3l" secondAttribute="leading" id="ahE-Dh-DPt"/>
+                            <constraint firstItem="Rd6-jO-3Xs" firstAttribute="top" secondItem="PuY-lV-VJE" secondAttribute="bottom" id="lGY-tX-eSF"/>
                             <constraint firstItem="SEz-qx-R3l" firstAttribute="trailing" secondItem="YiK-eR-YH7" secondAttribute="trailing" id="qdP-99-Eal"/>
                             <constraint firstItem="SEz-qx-R3l" firstAttribute="trailing" secondItem="LKj-nq-dBa" secondAttribute="trailing" constant="16" id="tJe-qJ-Q1t"/>
+                            <constraint firstItem="Rd6-jO-3Xs" firstAttribute="width" secondItem="PuY-lV-VJE" secondAttribute="width" id="ugf-Dq-wxn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SEz-qx-R3l"/>
                     </view>
@@ -161,10 +172,10 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P4B-jY-DQi">
                                 <rect key="frame" x="8" y="60" width="398" height="802"/>
-                                <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="backgroundGray"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="P4B-jY-DQi" secondAttribute="trailing" constant="8" id="7wP-fR-rdk"/>
                             <constraint firstItem="P4B-jY-DQi" firstAttribute="leading" secondItem="pfD-Bu-oRT" secondAttribute="leading" constant="8" id="AOb-Vp-0ab"/>
@@ -186,5 +197,8 @@
         <image name="crosshair" width="24" height="24"/>
         <image name="decreaseMap" width="24" height="24"/>
         <image name="inscreaseMap" width="24" height="24"/>
+        <namedColor name="backgroundGray">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

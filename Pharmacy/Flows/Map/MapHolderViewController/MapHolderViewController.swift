@@ -53,6 +53,9 @@ final class MapHolderViewController: UIViewController {
         selectionBackground.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         selectionBackground.layer.cornerRadius = 8
         segmentedControl.selectedSegmentIndex = 1
+        //swiftlint:disable force_cast
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.welcomeBlue()!], for: .selected)
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.gray()!], for: .normal)
     }
     
     private func setupLocalization() {

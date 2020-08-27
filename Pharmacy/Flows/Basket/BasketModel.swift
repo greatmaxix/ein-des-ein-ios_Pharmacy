@@ -23,7 +23,7 @@ final class BasketModel: Model {
     
 }
 
-//MARK: - BasketViewControllerOutput
+// MARK: - BasketViewControllerOutput
 
 extension BasketModel: BasketViewControllerOutput {
     

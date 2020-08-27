@@ -27,7 +27,7 @@ final class SearchNavigationModel: Model {
     
 }
 
-//MARK: - SearchNavigationViewControllerOutput
+// MARK: - SearchNavigationViewControllerOutput
 
 extension SearchNavigationModel: SearchNavigationControllerOutput {
     func searchBy(text: String) {
@@ -38,4 +38,3 @@ extension SearchNavigationModel: SearchNavigationControllerOutput {
         raise(event: SearchNavigationModelEvent.openScan)
     }
 }
-

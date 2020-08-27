@@ -46,6 +46,7 @@ final class NavigationBar: UINavigationBar {
         static let searchViewHiddenBottomMargin: CGFloat = 8
         static let searchViewLargeLeftMargin: CGFloat = 16
         static let searchViewNormalBottomMargin: CGFloat = 8
+        static let titleCenterY: CGFloat = 4
     }
     
     var title: String? {
@@ -85,7 +86,7 @@ final class NavigationBar: UINavigationBar {
     
     weak var searchDelegate: NavigationBarDelegate?
     
-    //MARK: Lifecycle
+    // MARK: Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -120,7 +121,7 @@ final class NavigationBar: UINavigationBar {
         }
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func scanButtonAction(_ sender: UIButton) {
         searchDelegate?.navigationBarDidSelectScan()
@@ -142,7 +143,7 @@ extension NavigationBar {
     fileprivate func config() {
         clipsToBounds = false
         barStyle = .black
-        titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.clear]
+        titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.clear]
         tintColor = .clear
         barTintColor = R.color.welcomeBlue()
         isTranslucent = false
@@ -161,7 +162,7 @@ extension NavigationBar {
             contentView.topAnchor.constraint(equalTo: topAnchor),
             heightConstraint,
             contentView.leftAnchor.constraint(equalTo: leftAnchor),
-            contentView.rightAnchor.constraint(equalTo: rightAnchor),
+            contentView.rightAnchor.constraint(equalTo: rightAnchor)
         ])
         
         textField.delegate = self
@@ -183,7 +184,7 @@ extension NavigationBar {
         titleLeadingConstraint.isActive = isLarge
         titleCenterXConstraint.isActive = !isLarge
         titleCenterYConstraint.isActive = !isLarge
-        titleCenterYConstraint.constant = safeAreaHeight / 2 - titleLabel.font.pointSize / 2
+        titleCenterYConstraint.constant = GUI.titleCenterY
         
         configSearchTextFieldBy(style: style)
         
@@ -258,13 +259,13 @@ extension NavigationBar {
             self.searchView.backgroundColor = UIColor.white.withAlphaComponent(0)
             self.scanButton.alpha = 0
             self.layoutIfNeeded()
-        }) { (_) in
+        }, completion: { (_) in
             self.scanButton.isHidden = true
-        }
+        })
     }
 }
 
-//MARK: - UITextFieldDelegate
+// MARK: - UITextFieldDelegate
 
 extension NavigationBar: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

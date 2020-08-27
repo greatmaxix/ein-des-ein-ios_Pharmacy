@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 final class ProductInstructionTableViewCell: HighlightedTableViewCell, ContainerView {
     
     private enum GUI {

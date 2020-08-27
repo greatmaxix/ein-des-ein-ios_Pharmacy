@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ActionSheetView: UIView{
+final class ActionSheetView: UIView {
 
     private enum GUI {
         static let contentInset = UIEdgeInsets.only(top: 22, bottom: 17)

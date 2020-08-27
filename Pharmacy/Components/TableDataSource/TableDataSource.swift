@@ -38,7 +38,7 @@ final class TableDataSource<T: TableCellSection>: NSObject, TableDataSources {
         tableView.dataSource = self
     }
 
-    //MARK: - UITableViewDataSource
+    // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cells.count

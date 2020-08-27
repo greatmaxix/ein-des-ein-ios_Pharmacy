@@ -28,7 +28,6 @@ final class TransitionCoordinator: NSObject, UINavigationControllerDelegate {
     }
 }
 
-
 final class NavigationTransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     let presenting: Bool
@@ -78,11 +77,11 @@ final class NavigationTransitionAnimator: NSObject, UIViewControllerAnimatedTran
                             navigationBar.titleLabel.alpha = 0
                             navigationBar.title = toVC.title
                             navigationBar.titleLabel.alpha = 1
-        }) { finished in
+        }, completion: { _ in
             if transitionContext.transitionWasCancelled {
                 navigationBar.title = fromVC.title
             }
-        }
+        })
         
         UIView.animate(withDuration: duration, delay: 0,
                        options: .curveEaseInOut,
@@ -94,7 +93,7 @@ final class NavigationTransitionAnimator: NSObject, UIViewControllerAnimatedTran
                         
                         toView.frame = toViewFrame
                         fromView.frame = CGRect(x: self.presenting ? -fromView.frame.width : fromView.frame.width, y: fromView.frame.origin.y, width: fromView.frame.width, height: fromView.frame.height)
-        }) { finished in
+        }, completion: { _ in
             
             if transitionContext.transitionWasCancelled {
                 navigationBar.hideButtonsBy(style: fromStyle)
@@ -108,6 +107,6 @@ final class NavigationTransitionAnimator: NSObject, UIViewControllerAnimatedTran
             
             container.addSubview(toView)
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
-        }
+        })
     }
 }

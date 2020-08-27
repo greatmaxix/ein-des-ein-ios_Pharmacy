@@ -38,7 +38,7 @@ final class SearchCoordinator: EventNode, Coordinator, NaviagationEmbedCoordinab
     }
 }
 
-//MARK: - TabBarEmbedCoordinable
+// MARK: - TabBarEmbedCoordinable
 
 extension SearchCoordinator: TabBarEmbedCoordinable {
     var tabItemInfo: TabBarItemInfo {
@@ -48,8 +48,7 @@ extension SearchCoordinator: TabBarEmbedCoordinable {
     }
 }
 
-
-extension SearchCoordinator  {
+extension SearchCoordinator {
     fileprivate func openMedicineList() {
         let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
         navigation.pushViewController(vc, animated: true)

@@ -38,7 +38,7 @@ final class CollectionDataSource<T: CollectionCellSection>: NSObject, Collection
         collectionView.dataSource = self
     }
 
-    //MARK: - UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         cells.count
@@ -52,4 +52,3 @@ final class CollectionDataSource<T: CollectionCellSection>: NSObject, Collection
         return cell
     }
 }
-

@@ -15,7 +15,7 @@ final class CatalogueViewController: UIViewController {
     var model: CatalogueViewControllerOutput!
 }
 
-//MARK: - MapViewControllerInput
+// MARK: - MapViewControllerInput
 
 extension CatalogueViewController: CatalogueViewControllerInput {
     

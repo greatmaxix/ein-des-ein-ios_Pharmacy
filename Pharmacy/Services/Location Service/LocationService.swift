@@ -26,7 +26,7 @@ final class LocationService: NSObject {
     let defaultLocation = CLLocationCoordinate2D(latitude: 33.755708, longitude: -84.38836)
 
     private var wasFirstLocationUpdate: Bool = false
-    var firstLocationUpdate: ((_: CLLocationCoordinate2D)-> Void)?
+    var firstLocationUpdate: ((_: CLLocationCoordinate2D) -> Void)?
     
     var currentLocation: CLLocation? {
         

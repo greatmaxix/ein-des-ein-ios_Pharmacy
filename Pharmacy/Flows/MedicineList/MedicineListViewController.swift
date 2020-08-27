@@ -67,7 +67,7 @@ extension MedicineListViewController: UITableViewDelegate {
     }
 }
 
-//MARK: - Multiple attributes string
+// MARK: - Multiple attributes string
 
 extension MedicineListViewController {
     

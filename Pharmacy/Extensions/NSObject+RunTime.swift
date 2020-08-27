@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// swiftlint:disable vertical_parameter_alignment
 enum AssociationPolicy {
     case assign
     case retainNonatomic

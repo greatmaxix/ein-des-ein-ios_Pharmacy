@@ -97,7 +97,6 @@ extension EditProfileModel: EditProfileInput {
         user.avatar?.url
     }
     
-    
     func saveImage(image: UIImage, mime: String, fileName: String) {
         self.profileImage = image
         self.mime = mime
