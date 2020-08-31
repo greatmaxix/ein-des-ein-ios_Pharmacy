@@ -315,6 +315,33 @@
             </objects>
             <point key="canvasLocation" x="2765" y="-121"/>
         </scene>
+        <!--Checkout View Controller-->
+        <scene sceneID="cuH-px-o0K">
+            <objects>
+                <viewController id="LhO-I4-Rlm" customClass="CheckoutViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hJW-fl-rBN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cc5-Uz-5sy">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cc5-Uz-5sy" firstAttribute="leading" secondItem="hcz-1c-57p" secondAttribute="leading" id="FHo-GO-QCV"/>
+                            <constraint firstItem="hcz-1c-57p" firstAttribute="trailing" secondItem="cc5-Uz-5sy" secondAttribute="trailing" id="Idj-FG-Grh"/>
+                            <constraint firstItem="cc5-Uz-5sy" firstAttribute="top" secondItem="hcz-1c-57p" secondAttribute="top" id="Nz6-ff-epL"/>
+                            <constraint firstItem="cc5-Uz-5sy" firstAttribute="bottom" secondItem="hcz-1c-57p" secondAttribute="bottom" id="bH3-pl-SrA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hcz-1c-57p"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tfa-jF-eyM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3776.811594202899" y="-113.16964285714285"/>
+        </scene>
     </scenes>
     <resources>
         <image name="button_default_bg" width="280" height="48"/>

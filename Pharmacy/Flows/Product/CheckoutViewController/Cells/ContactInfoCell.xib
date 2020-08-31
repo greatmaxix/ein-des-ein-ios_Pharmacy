@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="206" id="KGk-i7-Jjw" customClass="ContactInfoCell" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="244"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="244"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgo-Ni-McU" customClass="TextInputView" customModule="Pharmacy" customModuleProvider="target">
+                        <rect key="frame" x="16" y="16" width="288" height="60"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="O2g-yS-Ott"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bmi-0n-XSQ" customClass="TextInputView" customModule="Pharmacy" customModuleProvider="target">
+                        <rect key="frame" x="16" y="92" width="288" height="60"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="wcL-bt-g5Z"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gp3-R7-lLd" customClass="TextInputView" customModule="Pharmacy" customModuleProvider="target">
+                        <rect key="frame" x="16" y="168" width="288" height="60"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="Um7-7D-kO4"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Qgo-Ni-McU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="2zo-Pn-4ih"/>
+                    <constraint firstItem="Bmi-0n-XSQ" firstAttribute="trailing" secondItem="Qgo-Ni-McU" secondAttribute="trailing" id="4u6-NC-iem"/>
+                    <constraint firstItem="Bmi-0n-XSQ" firstAttribute="top" secondItem="Qgo-Ni-McU" secondAttribute="bottom" constant="16" id="5yJ-pp-nYk"/>
+                    <constraint firstAttribute="trailing" secondItem="Qgo-Ni-McU" secondAttribute="trailing" constant="16" id="EFo-KA-ydJ"/>
+                    <constraint firstItem="Bmi-0n-XSQ" firstAttribute="leading" secondItem="Qgo-Ni-McU" secondAttribute="leading" id="LbQ-c5-stQ"/>
+                    <constraint firstItem="gp3-R7-lLd" firstAttribute="leading" secondItem="Bmi-0n-XSQ" secondAttribute="leading" id="aAp-uS-tR1"/>
+                    <constraint firstItem="gp3-R7-lLd" firstAttribute="trailing" secondItem="Bmi-0n-XSQ" secondAttribute="trailing" id="aMC-4f-PKe"/>
+                    <constraint firstAttribute="bottom" secondItem="gp3-R7-lLd" secondAttribute="bottom" constant="18" id="djK-VM-CWQ"/>
+                    <constraint firstItem="Qgo-Ni-McU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="oKq-Kx-sbO"/>
+                    <constraint firstItem="gp3-R7-lLd" firstAttribute="top" secondItem="Bmi-0n-XSQ" secondAttribute="bottom" constant="16" id="ri7-wd-scn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="emailInputView" destination="gp3-R7-lLd" id="bXA-L9-cud"/>
+                <outlet property="nameInputView" destination="Qgo-Ni-McU" id="X9T-PG-dAb"/>
+                <outlet property="phoneInputView" destination="Bmi-0n-XSQ" id="4Oc-Vq-LgH"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="172.76785714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="245" id="KGk-i7-Jjw" customClass="FilledDeliveryCell" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="245"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="245"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="30E-FJ-DrN">
+                        <rect key="frame" x="16" y="11" width="288" height="70"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏠 ул. Горная 23а, Харьков" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2D-C2-6VN">
+                                <rect key="frame" x="17" y="14" width="255" height="16.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🚪 подьезд 4г • кв. 56" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMb-1e-hfp">
+                                <rect key="frame" x="17" y="37.5" width="255" height="16.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UMb-1e-hfp" firstAttribute="top" secondItem="A2D-C2-6VN" secondAttribute="bottom" constant="7" id="2MP-iy-Ky7"/>
+                            <constraint firstItem="UMb-1e-hfp" firstAttribute="leading" secondItem="A2D-C2-6VN" secondAttribute="leading" id="4m3-x4-I4F"/>
+                            <constraint firstAttribute="trailing" secondItem="A2D-C2-6VN" secondAttribute="trailing" constant="16" id="I4W-qA-1UT"/>
+                            <constraint firstItem="UMb-1e-hfp" firstAttribute="trailing" secondItem="A2D-C2-6VN" secondAttribute="trailing" id="Jno-DJ-IhZ"/>
+                            <constraint firstItem="A2D-C2-6VN" firstAttribute="top" secondItem="30E-FJ-DrN" secondAttribute="top" constant="14" id="Ueq-S5-2FY"/>
+                            <constraint firstItem="A2D-C2-6VN" firstAttribute="leading" secondItem="30E-FJ-DrN" secondAttribute="leading" constant="17" id="fwm-Kr-R8G"/>
+                            <constraint firstAttribute="bottom" secondItem="UMb-1e-hfp" secondAttribute="bottom" constant="16" id="hp3-ly-4dY"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8r-LS-Rwo">
+                        <rect key="frame" x="16" y="91" width="288" height="130"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zlP-UA-R1J">
+                                <rect key="frame" x="8" y="8" width="272" height="114"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zlP-UA-R1J" secondAttribute="trailing" constant="8" id="OgM-bq-fGH"/>
+                            <constraint firstAttribute="bottom" secondItem="zlP-UA-R1J" secondAttribute="bottom" constant="8" id="egH-3H-0Gt"/>
+                            <constraint firstItem="zlP-UA-R1J" firstAttribute="top" secondItem="e8r-LS-Rwo" secondAttribute="top" constant="8" id="tco-Gk-WIw"/>
+                            <constraint firstItem="zlP-UA-R1J" firstAttribute="leading" secondItem="e8r-LS-Rwo" secondAttribute="leading" constant="8" id="yak-BE-pbN"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="e8r-LS-Rwo" secondAttribute="bottom" constant="24" id="9mo-M4-cdv"/>
+                    <constraint firstItem="e8r-LS-Rwo" firstAttribute="top" secondItem="30E-FJ-DrN" secondAttribute="bottom" constant="10" id="N2f-wC-nNF"/>
+                    <constraint firstItem="30E-FJ-DrN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="T21-DQ-oIr"/>
+                    <constraint firstAttribute="trailing" secondItem="30E-FJ-DrN" secondAttribute="trailing" constant="16" id="gHm-MU-NvU"/>
+                    <constraint firstAttribute="trailing" secondItem="e8r-LS-Rwo" secondAttribute="trailing" constant="16" id="raq-VZ-Vol"/>
+                    <constraint firstItem="30E-FJ-DrN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="yBM-GP-0Og"/>
+                    <constraint firstItem="e8r-LS-Rwo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="zwg-AJ-dGU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cityAddress" destination="A2D-C2-6VN" id="Qxo-Tf-ZPe"/>
+                <outlet property="houseAddress" destination="UMb-1e-hfp" id="Do8-Dc-XE4"/>
+                <outlet property="textView" destination="zlP-UA-R1J" id="ppX-ZG-cd7"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="185.15625"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

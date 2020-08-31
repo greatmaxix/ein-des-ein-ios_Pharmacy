@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="114" id="KGk-i7-Jjw" customClass="FilledContactInfoCell" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2O-7K-aWu">
+                        <rect key="frame" x="16" y="8" width="288" height="98"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="📱 +3809994824231" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2K-6d-rdh">
+                                <rect key="frame" x="16" y="38" width="256" height="19.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="📪 example@example.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ptU-Wu-67T">
+                                <rect key="frame" x="16" y="65.5" width="256" height="19.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsI-MT-wZN">
+                                <rect key="frame" x="16" y="8" width="256" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="r2K-6d-rdh" firstAttribute="top" secondItem="dsI-MT-wZN" secondAttribute="bottom" constant="8" id="0F0-et-SxF"/>
+                            <constraint firstAttribute="bottom" secondItem="ptU-Wu-67T" secondAttribute="bottom" constant="13" id="39x-9E-6Bq"/>
+                            <constraint firstItem="ptU-Wu-67T" firstAttribute="trailing" secondItem="r2K-6d-rdh" secondAttribute="trailing" id="41J-Xc-LjK"/>
+                            <constraint firstItem="dsI-MT-wZN" firstAttribute="top" secondItem="h2O-7K-aWu" secondAttribute="top" constant="8" id="7Yt-xe-yL5"/>
+                            <constraint firstItem="dsI-MT-wZN" firstAttribute="leading" secondItem="h2O-7K-aWu" secondAttribute="leading" constant="16" id="7zA-Zz-Akt"/>
+                            <constraint firstItem="r2K-6d-rdh" firstAttribute="leading" secondItem="dsI-MT-wZN" secondAttribute="leading" id="8G0-wQ-6wh"/>
+                            <constraint firstItem="ptU-Wu-67T" firstAttribute="leading" secondItem="r2K-6d-rdh" secondAttribute="leading" id="MwU-AZ-k8W"/>
+                            <constraint firstItem="r2K-6d-rdh" firstAttribute="trailing" secondItem="dsI-MT-wZN" secondAttribute="trailing" id="XVW-rN-s49"/>
+                            <constraint firstItem="ptU-Wu-67T" firstAttribute="top" secondItem="r2K-6d-rdh" secondAttribute="bottom" constant="8" id="Y3D-aR-YWa"/>
+                            <constraint firstAttribute="trailing" secondItem="dsI-MT-wZN" secondAttribute="trailing" constant="16" id="ZOP-rt-A67"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="h2O-7K-aWu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="J3S-zb-NrR"/>
+                <constraint firstItem="h2O-7K-aWu" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-8" id="acD-KN-yTZ"/>
+                <constraint firstItem="H2p-sc-9uM" firstAttribute="trailing" secondItem="h2O-7K-aWu" secondAttribute="trailing" constant="16" id="b0w-mp-3DQ"/>
+                <constraint firstItem="H2p-sc-9uM" firstAttribute="top" secondItem="h2O-7K-aWu" secondAttribute="top" constant="-8" id="igm-2p-Bzv"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="emailLabel" destination="ptU-Wu-67T" id="4b6-YV-Krs"/>
+                <outlet property="nameLabel" destination="dsI-MT-wZN" id="eUs-Tl-LQh"/>
+                <outlet property="phoneLabel" destination="r2K-6d-rdh" id="JCH-Rn-l1m"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="141.29464285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
