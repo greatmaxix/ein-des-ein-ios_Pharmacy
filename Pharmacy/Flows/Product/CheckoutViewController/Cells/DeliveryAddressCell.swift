@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeliveryAddressCell: UITableViewCell {
+final class DeliveryAddressCell: UITableViewCell {
 
     @IBOutlet private weak var cityInputView: TextInputView!
     @IBOutlet private weak var streetInputView: TextInputView!

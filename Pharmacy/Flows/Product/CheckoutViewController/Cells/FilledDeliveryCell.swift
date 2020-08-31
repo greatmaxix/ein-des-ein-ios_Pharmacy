@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilledDeliveryCell: UITableViewCell {
+final class FilledDeliveryCell: UITableViewCell {
 
     @IBOutlet private weak var cityAddress: UILabel!
     @IBOutlet private weak var houseAddress: UILabel!

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,15 +18,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zEG-WF-Xky">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
+                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zEG-WF-Xky">
+                        <rect key="frame" x="16" y="16" width="288" height="99"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" name="backgroundGray"/>
                 <constraints>
-                    <constraint firstItem="zEG-WF-Xky" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EoW-lC-as7"/>
-                    <constraint firstAttribute="bottom" secondItem="zEG-WF-Xky" secondAttribute="bottom" id="a3u-h2-h2u"/>
-                    <constraint firstAttribute="trailing" secondItem="zEG-WF-Xky" secondAttribute="trailing" id="n6T-1L-gTh"/>
-                    <constraint firstItem="zEG-WF-Xky" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="y3A-VP-Oyg"/>
+                    <constraint firstItem="zEG-WF-Xky" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="EoW-lC-as7"/>
+                    <constraint firstAttribute="bottom" secondItem="zEG-WF-Xky" secondAttribute="bottom" constant="16" id="a3u-h2-h2u"/>
+                    <constraint firstAttribute="trailing" secondItem="zEG-WF-Xky" secondAttribute="trailing" constant="16" id="n6T-1L-gTh"/>
+                    <constraint firstItem="zEG-WF-Xky" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="y3A-VP-Oyg"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -35,4 +38,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="147.65625"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="backgroundGray">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PaymentMethodsCell: UITableViewCell {
+final class PaymentMethodsCell: UITableViewCell {
 
-    @IBOutlet weak var paymentStackView: UIStackView!
+    @IBOutlet private weak var paymentStackView: UIStackView!
     
     private var paymentViews: [PaymentMethodView] = []
     
@@ -20,8 +20,8 @@ class PaymentMethodsCell: UITableViewCell {
         for _ in 0..<3 {
             if let paymentView = R.nib.paymentMethodView(owner: nil, options: nil) {
                 paymentViews.append(paymentView)
+                paymentStackView.addArrangedSubview(paymentView)
             }
         }
     }
-
 }
