@@ -15,7 +15,7 @@ final class BasketViewController: UIViewController {
     var model: BasketViewControllerOutput!
 }
 
-//MARK: - BasketViewControllerInput
+// MARK: - BasketViewControllerInput
 
 extension BasketViewController: BasketViewControllerInput {
     

@@ -19,7 +19,7 @@ extension UIViewController {
         ActionSheetView.hide(in: view)
     }
     
-    func hideActionByTap(){
+    func hideActionByTap() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(
             target: self,
             action: #selector(dismissActionSheet(gesture:)))
@@ -27,7 +27,7 @@ extension UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    @objc private func dismissActionSheet(gesture: UIGestureRecognizer){
+    @objc private func dismissActionSheet(gesture: UIGestureRecognizer) {
         view.removeGestureRecognizer(gesture)
         hideActionSheetView()
     }

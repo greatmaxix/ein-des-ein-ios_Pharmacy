@@ -23,7 +23,7 @@ final class CatalogueModel: Model {
     
 }
 
-//MARK: - MapViewControllerOutput
+// MARK: - MapViewControllerOutput
 
 extension CatalogueModel: CatalogueViewControllerOutput {
     

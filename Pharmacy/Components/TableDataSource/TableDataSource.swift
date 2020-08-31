@@ -30,7 +30,7 @@ final class TableDataSource<T: TableCellSection>: NSObject, TableDataSources {
     
     func assign(tableView: UITableView) {
         cells.forEach {
-            if let nib = $0.cellType()?.nib  {
+            if let nib = $0.cellType()?.nib {
                 tableView.register(nib, forCellReuseIdentifier: $0.reuseIdentifier())
             }
         }
@@ -38,7 +38,7 @@ final class TableDataSource<T: TableCellSection>: NSObject, TableDataSources {
         tableView.dataSource = self
     }
 
-    //MARK: - UITableViewDataSource
+    // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         cells.count

@@ -32,7 +32,7 @@ final class BasketCoordinator: EventNode, Coordinator {
     }
 }
 
-//MARK: - TabBarEmbedCoordinable
+// MARK: - TabBarEmbedCoordinable
 
 extension BasketCoordinator: TabBarEmbedCoordinable {
     var tabItemInfo: TabBarItemInfo {

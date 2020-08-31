@@ -32,7 +32,7 @@ final class CatalogueCoordinator: EventNode, Coordinator {
     }
 }
 
-//MARK: - TabBarEmbedCoordinable
+// MARK: - TabBarEmbedCoordinable
 
 extension CatalogueCoordinator: TabBarEmbedCoordinable {
     var tabItemInfo: TabBarItemInfo {

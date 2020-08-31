@@ -33,7 +33,7 @@ final class SearchModel: Model {
     
 }
 
-//MARK: - SearchViewControllerOutput
+// MARK: - SearchViewControllerOutput
 
 extension SearchModel: SearchViewControllerOutput {
     func didSelectCellAt(indexPath: IndexPath) {
@@ -61,4 +61,3 @@ extension SearchModel: SearchViewControllerOutput {
         output.didLoad(story: storyDataSource)
     }
 }
-

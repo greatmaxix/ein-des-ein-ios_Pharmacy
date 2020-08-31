@@ -26,7 +26,7 @@ final class CategoryCollectionViewCell: HighlightedCollectionViewCell, Container
         clipsToBounds = false
     }
     
-    func apply(category: Category){
+    func apply(category: Category) {
         titleLabel.text = category.title
         
         if let url = category.imageURL {

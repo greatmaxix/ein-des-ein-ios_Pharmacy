@@ -12,7 +12,7 @@ import Kingfisher
 extension UIImageView {
     func loadImageBy(url: URL, completion: EmptyClosure? = nil) {
         kf.indicatorType = .activity
-        kf.setImage(with: url, completionHandler: { response in
+        kf.setImage(with: url, completionHandler: { _ in
             completion?()
         })
     }

@@ -26,7 +26,6 @@ class HighlightedTableViewCell: UITableViewCell, AlphaHighlightedView {
     }
 }
 
-
 class HighlightedCollectionViewCell: UICollectionViewCell, AlphaHighlightedView {
 
     override var isHighlighted: Bool {

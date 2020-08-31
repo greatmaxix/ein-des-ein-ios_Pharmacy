@@ -53,17 +53,17 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
         tableView.delegate = self
     }
     
-    //MARK: - Actions
+// MARK: - Actions
     
     @IBAction private func cleanAction(_ sender: UIButton) {
         showAlert(title: R.string.localize.searchCleanTitle(),
                   message: R.string.localize.searchCleanMessage(),
                   action: AlertAction(title: R.string.localize.actionClean(), callback: model.cleanStory),
-                  cancelStyleAction: AlertAction(title: R.string.localize.actionCancel(), callback:{}))
+                  cancelStyleAction: AlertAction(title: R.string.localize.actionCancel(), callback: {}))
     }
 }
 
-//MARK: - SearchViewControllerInput
+// MARK: - SearchViewControllerInput
 
 extension SearchViewController: SearchViewControllerInput {
     func didLoad(story: TableDataSource<SearchCellSection>) {
@@ -79,8 +79,7 @@ extension SearchViewController: SearchViewControllerInput {
     }
 }
 
-
-//MARK: - UITableViewDelegate
+// MARK: - UITableViewDelegate
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

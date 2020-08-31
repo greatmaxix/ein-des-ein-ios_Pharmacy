@@ -12,6 +12,8 @@ import EventsTree
 enum ProductModelEvent: Event {
     case openAnalogsFor(Product)
     case openCatalogsFor(Product)
+    case openMap(Product?)
+    case openFarmacyList
 }
 
 protocol ProductModelInput: class {
@@ -19,6 +21,7 @@ protocol ProductModelInput: class {
     var title: String { get }
     func load()
     func didSelectCell(at indexPath: IndexPath)
+    func openMap()
 }
 
 protocol ProductModelOutput: class {
@@ -36,11 +39,9 @@ final class ProductModel: Model {
         super.init(parent: parent)
     }
     
-    
-    
 }
 
-//MARK: - ProductViewControllerOutput
+// MARK: - ProductViewControllerOutput
 
 extension ProductModel: ProductViewControllerOutput {
     
@@ -51,7 +52,6 @@ extension ProductModel: ProductViewControllerOutput {
         dataSource.cells = ProductCellSection.allSectionsFor(product: product)
         output.didLoad(product: product)
     }
-    
     
     func didSelectCell(at indexPath: IndexPath) {
         guard let cell = dataSource.cell(for: indexPath) else { return }
@@ -65,6 +65,8 @@ extension ProductModel: ProductViewControllerOutput {
             return
         }
     }
+    
+    func openMap() {
+        raise(event: ProductModelEvent.openMap(nil))
+    }
 }
-
-

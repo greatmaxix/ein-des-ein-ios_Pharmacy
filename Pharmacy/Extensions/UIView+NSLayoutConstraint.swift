@@ -17,7 +17,7 @@ extension UIView {
             trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: insets.right),
             leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: insets.left),
             topAnchor.constraint(equalTo: superview.topAnchor, constant: insets.top),
-            bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: insets.bottom),
+            bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: insets.bottom)
         ])
     }
 }

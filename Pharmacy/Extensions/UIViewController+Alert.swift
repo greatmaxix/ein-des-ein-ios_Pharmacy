@@ -10,7 +10,7 @@ import UIKit
 
 struct AlertAction {
     let title: String
-    let callback: () ->Void
+    let callback: () -> Void
 }
 
 extension UIViewController {

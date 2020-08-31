@@ -26,7 +26,7 @@ final class ScanModel: Model {
     
 }
 
-//MARK: - ScanViewControllerOutput
+// MARK: - ScanViewControllerOutput
 
 extension ScanModel: ScanViewControllerOutput {
     var isShouldShowPreview: Bool {
@@ -37,4 +37,3 @@ extension ScanModel: ScanViewControllerOutput {
         output.didFoundItem(item: code)
     }
 }
-

@@ -46,12 +46,12 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if captureSession.isRunning{
+        if captureSession.isRunning {
             captureSession.stopRunning()
         }
     }
     
-    //MARK: - Private
+    // MARK: - Private
     
     private func configUI() {
         blurView = CustomIntensityVisualEffectView(effect: UIBlurEffect(style: .light), intensity: GUI.blurIntensity)
@@ -118,7 +118,7 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
     
     private func failed() {
         showError(title: "Scanning not supported",
-                  message:  "Your device does not support scanning a code from an item. Please use a device with a camera.")
+                  message: "Your device does not support scanning a code from an item. Please use a device with a camera.")
     }
     
     private func found(code: String) {
@@ -130,19 +130,19 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
     private func hidePreview() {
         UIView.animate(withDuration: GUI.animateionDuration, animations: { [weak preview] in
             preview?.alpha = 0
-        }) { [weak preview] isCompleted in
+        }, completion: { [weak preview] isCompleted in
             preview?.isHidden = isCompleted
-        }
+        })
     }
     
-    //MARK: - Actions
+// MARK: - Actions
     
     @IBAction func doneAction(_ sender: UIButton) {
         hidePreview()
     }
 }
 
-//MARK: - ScanViewControllerInput
+// MARK: - ScanViewControllerInput
 
 extension ScanViewController: ScanViewControllerInput {
     func didFoundItem(item: String?) {
@@ -153,7 +153,7 @@ extension ScanViewController: ScanViewControllerInput {
     }
 }
 
-//MARK: - AVCaptureMetadataOutputObjectsDelegate
+// MARK: - AVCaptureMetadataOutputObjectsDelegate
 
 extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -166,4 +166,3 @@ extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
         }
     }
 }
-

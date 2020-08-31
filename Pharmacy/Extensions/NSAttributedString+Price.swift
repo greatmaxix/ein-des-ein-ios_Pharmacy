@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 extension NSAttributedString {
     
     static func fromPriceAttributed(for price: String, currency: String ) -> NSAttributedString {

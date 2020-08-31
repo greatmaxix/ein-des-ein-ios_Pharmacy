@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol SimpleNavigationBarDelegate {
+protocol SimpleNavigationBarDelegate: class {
     func leftBarItemAction()
     func rightBarItemAction()
 }

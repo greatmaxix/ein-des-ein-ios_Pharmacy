@@ -13,9 +13,9 @@ protocol RoundedCornerNavigationBar {
     func addRoundedCornerTo(_ navigationBar: UINavigationBar, cornerRadius: CGFloat)
 }
 
-extension RoundedCornerNavigationBar where Self: UIViewController{
+extension RoundedCornerNavigationBar where Self: UIViewController {
     
-    func addRoundedCornerTo(_ navigationBar: UINavigationBar, cornerRadius: CGFloat){
+    func addRoundedCornerTo(_ navigationBar: UINavigationBar, cornerRadius: CGFloat) {
 //         navigationBar.isTranslucent = false
 //        navigationBar.setBackgroundImage(UIImage(), for: .default)
 //        navigationBar.backgroundColor = .white
@@ -35,10 +35,10 @@ extension RoundedCornerNavigationBar where Self: UIViewController{
 //
 //        let shapeLayer = CAShapeLayer()
 //        shapeLayer.path = UIBezierPath(roundedRect: customView.bounds, byRoundingCorners: [.bottomLeft,.bottomRight], cornerRadii: CGSize(width: cornerRadius, height: cornerRadius)).cgPath
-////        shapeLayer.shadowColor = UIColor.lightGray.cgColor
-////        shapeLayer.shadowOffset = CGSize(width: 0, height: 4.0)
-////        shapeLayer.shadowOpacity = 0.8
-////        shapeLayer.shadowRadius = 2
+//        shapeLayer.shadowColor = UIColor.lightGray.cgColor
+//        shapeLayer.shadowOffset = CGSize(width: 0, height: 4.0)
+//        shapeLayer.shadowOpacity = 0.8
+//        shapeLayer.shadowRadius = 2
 //        shapeLayer.fillColor = UIColor.white.cgColor
 //        customView.layer.insertSublayer(shapeLayer, at: 0)
     }

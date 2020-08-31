@@ -38,7 +38,7 @@ final class NavigationBar: UINavigationBar {
         static let textFiledNormalTextColor = UIColor.white
         static let textFiledDarkTextColor = R.color.textDarkBlue()!
         static let largeHeight: CGFloat = 150
-        static let smallHeight: CGFloat = 44
+        static let smallHeight: CGFloat = 16
         static let cornerRadius: CGFloat = 10
         static let scanButtonCornerRadius: CGFloat = 6
         static let searchViewBackgorundAlpha: CGFloat = 0.3
@@ -46,6 +46,7 @@ final class NavigationBar: UINavigationBar {
         static let searchViewHiddenBottomMargin: CGFloat = 8
         static let searchViewLargeLeftMargin: CGFloat = 16
         static let searchViewNormalBottomMargin: CGFloat = 8
+        static let titleCenterY: CGFloat = 4
     }
     
     var title: String? {
@@ -85,7 +86,7 @@ final class NavigationBar: UINavigationBar {
     
     weak var searchDelegate: NavigationBarDelegate?
     
-    //MARK: Lifecycle
+    // MARK: Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -108,7 +109,7 @@ final class NavigationBar: UINavigationBar {
     override func layoutSubviews() {
         super.layoutSubviews()
         heightConstraint.constant = height
-        backButtonConstraint.constant = safeAreaHeight
+        backButtonConstraint.constant = GUI.smallHeight
     }
     
     func heightBy(style: NavigationBarStyle) -> CGFloat {
@@ -120,7 +121,7 @@ final class NavigationBar: UINavigationBar {
         }
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func scanButtonAction(_ sender: UIButton) {
         searchDelegate?.navigationBarDidSelectScan()
@@ -142,7 +143,7 @@ extension NavigationBar {
     fileprivate func config() {
         clipsToBounds = false
         barStyle = .black
-        titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.clear]
+        titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.clear]
         tintColor = .clear
         barTintColor = R.color.welcomeBlue()
         isTranslucent = false
@@ -161,7 +162,7 @@ extension NavigationBar {
             contentView.topAnchor.constraint(equalTo: topAnchor),
             heightConstraint,
             contentView.leftAnchor.constraint(equalTo: leftAnchor),
-            contentView.rightAnchor.constraint(equalTo: rightAnchor),
+            contentView.rightAnchor.constraint(equalTo: rightAnchor)
         ])
         
         textField.delegate = self
@@ -183,7 +184,7 @@ extension NavigationBar {
         titleLeadingConstraint.isActive = isLarge
         titleCenterXConstraint.isActive = !isLarge
         titleCenterYConstraint.isActive = !isLarge
-        titleCenterYConstraint.constant = safeAreaHeight / 2 - titleLabel.font.pointSize / 2
+        titleCenterYConstraint.constant = GUI.titleCenterY
         
         configSearchTextFieldBy(style: style)
         
@@ -258,13 +259,13 @@ extension NavigationBar {
             self.searchView.backgroundColor = UIColor.white.withAlphaComponent(0)
             self.scanButton.alpha = 0
             self.layoutIfNeeded()
-        }) { (_) in
+        }, completion: { (_) in
             self.scanButton.isHidden = true
-        }
+        })
     }
 }
 
-//MARK: - UITextFieldDelegate
+// MARK: - UITextFieldDelegate
 
 extension NavigationBar: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

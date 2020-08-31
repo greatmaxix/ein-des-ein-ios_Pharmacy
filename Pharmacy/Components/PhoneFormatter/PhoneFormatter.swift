@@ -10,7 +10,7 @@ import Foundation
 
 //swiftlint:disable identifier_name
 
-fileprivate struct Const {
+private struct Const {
     static let kaz: String = "7"
     static let phoneNumberLength = 10
 }
@@ -48,7 +48,7 @@ class PhoneFormatter {
 
         let partOfMask = " (XXX) XXX-XXXX"
         let countryCodeLength: Int = number.count - Const.phoneNumberLength
-        let mask = "+" + String(repeating: "X", count: max(countryCodeLength,0)) + partOfMask
+        let mask = "+" + String(repeating: "X", count: max(countryCodeLength, 0)) + partOfMask
         var result = ""
         var index = cleanPhoneNumber.startIndex
         for ch in mask where index < cleanPhoneNumber.endIndex {

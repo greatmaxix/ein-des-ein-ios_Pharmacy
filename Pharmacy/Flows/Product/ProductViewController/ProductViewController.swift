@@ -52,7 +52,7 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
         model.load()
     }
     
-    //MARK: - Private
+    // MARK: - Private
     
     private func configUI() {
         title = model.title
@@ -82,24 +82,24 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
         tableView.tableHeaderView = productContainerView
     }
     
-    //MARK: - Actions
+    // MARK: - Actions
     
     @IBAction func wishListAction(_ sender: UIButton) {
         sender.isSelected.toggle()
     }
     
     @IBAction func findAction(_ sender: UIButton) {
+        model.openMap()
     }
 }
 
-//MARK: - ProductViewControllerInput
+// MARK: - ProductViewControllerInput
 
 extension ProductViewController: ProductViewControllerInput {
     func didLoad(product: Product) {
         model.dataSource.assign(tableView: tableView)
     }
 }
-
 
 // MARK: - UITableViewDelegate
 

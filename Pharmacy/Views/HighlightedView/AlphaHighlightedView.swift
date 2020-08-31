@@ -36,6 +36,3 @@ extension AlphaHighlightedView {
         })
     }
 }
-
-
-
