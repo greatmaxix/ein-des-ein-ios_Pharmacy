@@ -61,8 +61,6 @@
 		397541D724ED35EE0069F8DE /* SimpleNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397541D624ED35EE0069F8DE /* SimpleNavigationBarView.swift */; };
 		39818FA124AF69B0007D6D94 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39818FA024AF69B0007D6D94 /* UserSession.swift */; };
 		39854D0224EAB4870070E0D1 /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39854D0124EAB4870070E0D1 /* ProfileAPI.swift */; };
-		398B0DCD24F5034F0084EC54 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398B0DCC24F5034F0084EC54 /* Map.storyboard */; };
-		398B0DCF24F5043C0084EC54 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DCE24F5043C0084EC54 /* MapCoordinator.swift */; };
 		398B0DD224F5062C0084EC54 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DD124F5062C0084EC54 /* MapViewController.swift */; };
 		398B0DD424F506540084EC54 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DD324F506540084EC54 /* MapModel.swift */; };
 		398B0DD724F50A4C0084EC54 /* FarmacyPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DD624F50A4C0084EC54 /* FarmacyPinView.swift */; };
@@ -173,7 +171,6 @@
 		60E1A6F424EB8C5E00B3D205 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A6F224EB8C5E00B3D205 /* SearchTableViewCell.swift */; };
 		60E1A6F524EB8C5E00B3D205 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E1A6F324EB8C5E00B3D205 /* SearchTableViewCell.xib */; };
 		60E1A6F724EB8C7800B3D205 /* SearchCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A6F624EB8C7800B3D205 /* SearchCellSection.swift */; };
-		60E1A6F924EBB1DC00B3D205 /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A6F824EBB1DC00B3D205 /* UIImage+Blur.swift */; };
 		60E1A6FB24EBB20E00B3D205 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A6FA24EBB20E00B3D205 /* UIViewController+Keyboard.swift */; };
 		60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A6FC24EBB25B00B3D205 /* NSObject+RunTime.swift */; };
 		60E1A70A24ECD5F200B3D205 /* SearchNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A70924ECD5F200B3D205 /* SearchNavigationCoordinator.swift */; };
@@ -260,8 +257,6 @@
 		397541D624ED35EE0069F8DE /* SimpleNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNavigationBarView.swift; sourceTree = "<group>"; };
 		39818FA024AF69B0007D6D94 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		39854D0124EAB4870070E0D1 /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
-		398B0DCC24F5034F0084EC54 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
-		398B0DCE24F5043C0084EC54 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		398B0DD124F5062C0084EC54 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		398B0DD324F506540084EC54 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		398B0DD624F50A4C0084EC54 /* FarmacyPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmacyPinView.swift; sourceTree = "<group>"; };
@@ -373,7 +368,6 @@
 		60E1A6F224EB8C5E00B3D205 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		60E1A6F324EB8C5E00B3D205 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		60E1A6F624EB8C7800B3D205 /* SearchCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellSection.swift; sourceTree = "<group>"; };
-		60E1A6F824EBB1DC00B3D205 /* UIImage+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Blur.swift"; sourceTree = "<group>"; };
 		60E1A6FA24EBB20E00B3D205 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		60E1A6FC24EBB25B00B3D205 /* NSObject+RunTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+RunTime.swift"; sourceTree = "<group>"; };
 		60E1A70924ECD5F200B3D205 /* SearchNavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNavigationCoordinator.swift; sourceTree = "<group>"; };
@@ -447,7 +441,6 @@
 			isa = PBXGroup;
 			children = (
 				603D31FC24E64912000E5A6C /* UITableViewCell.swift */,
-				60E1A6F824EBB1DC00B3D205 /* UIImage+Blur.swift */,
 				60E1A6FA24EBB20E00B3D205 /* UIViewController+Keyboard.swift */,
 				60E1A71E24ED12C200B3D205 /* UIViewController+ActionSheetView.swift */,
 				39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */,
@@ -572,6 +565,16 @@
 			path = Validators;
 			sourceTree = "<group>";
 		};
+		395CB74124FCDAA5000A958F /* ProductViewController */ = {
+			isa = PBXGroup;
+			children = (
+				603D31C224E578BE000E5A6C /* ProductViewController.swift */,
+				603D31BE24E57884000E5A6C /* ProductModel.swift */,
+				603D31C424E57C8A000E5A6C /* ProductCells */,
+			);
+			path = ProductViewController;
+			sourceTree = "<group>";
+		};
 		395D04F824D011F6007A278D /* ReadyOrderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -694,7 +697,6 @@
 				603D31AE24E3C9AD000E5A6C /* MedicineList */,
 				603D31BB24E57856000E5A6C /* Product */,
 				6036EB0124DD2740003336C2 /* Search */,
-				398B0DCB24F503300084EC54 /* Map */,
 				6036EAF824DD1C2E003336C2 /* Basket */,
 				6036EAEF24DD1A6C003336C2 /* Catalogue */,
 				39F8B2F424CEFB0C00195AD8 /* Welcome */,
@@ -730,17 +732,6 @@
 				397541D424ED23CB0069F8DE /* SimpleNavigationBarView.xib */,
 			);
 			path = SimpleNavigationBar;
-			sourceTree = "<group>";
-		};
-		398B0DCB24F503300084EC54 /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				398B0DE324F51BFA0084EC54 /* MapFarmacyListViewController */,
-				398B0DD024F504880084EC54 /* MapViewController */,
-				398B0DCC24F5034F0084EC54 /* Map.storyboard */,
-				398B0DCE24F5043C0084EC54 /* MapCoordinator.swift */,
-			);
-			path = Map;
 			sourceTree = "<group>";
 		};
 		398B0DD024F504880084EC54 /* MapViewController */ = {
@@ -980,11 +971,11 @@
 			isa = PBXGroup;
 			children = (
 				603D31CA24E57E43000E5A6C /* ProductPageViewController */,
-				603D31C424E57C8A000E5A6C /* ProductCells */,
+				398B0DE324F51BFA0084EC54 /* MapFarmacyListViewController */,
+				398B0DD024F504880084EC54 /* MapViewController */,
+				395CB74124FCDAA5000A958F /* ProductViewController */,
 				603D31BC24E57871000E5A6C /* Product.storyboard */,
-				603D31BE24E57884000E5A6C /* ProductModel.swift */,
 				603D31C024E5789D000E5A6C /* ProductCoordinator.swift */,
-				603D31C224E578BE000E5A6C /* ProductViewController.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -1357,7 +1348,6 @@
 				398B0DEC24F51C8F0084EC54 /* MapFarmacyCell.xib in Resources */,
 				6075BD4924DEA7FB00BC78BD /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				398B0DF124F53AD60084EC54 /* FoundMedicineView.xib in Resources */,
-				398B0DCD24F5034F0084EC54 /* Map.storyboard in Resources */,
 				6075BD4A24DEA7FB00BC78BD /* OpenSans-Italic.ttf in Resources */,
 				6075BD4B24DEA7FB00BC78BD /* OpenSans-Light.ttf in Resources */,
 				6075BD4C24DEA7FB00BC78BD /* OpenSans-LightItalic.ttf in Resources */,
@@ -1530,7 +1520,6 @@
 				619AAA432498ADFE00AB46ED /* DataManager.swift in Sources */,
 				39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */,
 				603D320524E65874000E5A6C /* HighlightedTableViewCell.swift in Sources */,
-				60E1A6F924EBB1DC00B3D205 /* UIImage+Blur.swift in Sources */,
 				3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */,
 				603D31C324E578BE000E5A6C /* ProductViewController.swift in Sources */,
 				603D31F224E5A9F7000E5A6C /* ProductAdviceTableViewCell.swift in Sources */,
@@ -1640,7 +1629,6 @@
 				395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */,
 				6075BD5824DEB94F00BC78BD /* NavigationBar.swift in Sources */,
 				3959F40724F6558E00DB4065 /* MapFarmacyCellSection.swift in Sources */,
-				398B0DCF24F5043C0084EC54 /* MapCoordinator.swift in Sources */,
 				395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */,
 				39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */,
 				603D31BA24E3FA1F000E5A6C /* UIImageView+URL.swift in Sources */,

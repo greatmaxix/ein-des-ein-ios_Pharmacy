@@ -138,12 +138,12 @@ extension MapViewController: GMSMapViewDelegate {
 extension MapViewController: MapOutput {
     
     func locationUpdated(newCoordinate: CLLocationCoordinate2D) {
-        mapView.moveCamera(GMSCameraUpdate.setTarget(newCoordinate))
-        
-        mapView.clear()
-        let marker = GMSMarker(position: newCoordinate)
-        marker.iconView = UINib(resource: R.nib.userMarkerView).instantiate(withOwner: nil, options: nil)[0] as? UIView
-        marker.map = mapView
-        userMarker = marker
+//        mapView.moveCamera(GMSCameraUpdate.setTarget(newCoordinate))
+//        
+//        mapView.clear()
+//        let marker = GMSMarker(position: newCoordinate)
+//        marker.iconView = UINib(resource: R.nib.userMarkerView).instantiate(withOwner: nil, options: nil)[0] as? UIView
+//        marker.map = mapView
+//        userMarker = marker
     }
 }

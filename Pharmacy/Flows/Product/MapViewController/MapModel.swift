@@ -10,10 +10,6 @@ import Foundation
 import EventsTree
 import CoreLocation
 
-enum MapEvent: Event {
-    case openFarmacyList
-}
-
 protocol MapInput: class {
     
     var currentLocation: CLLocation? { get }
@@ -47,6 +43,6 @@ extension MapModel: MapInput {
     }
     
     func openFarmacyList() {
-        raise(event: MapEvent.openFarmacyList)
+        raise(event: ProductModelEvent.openFarmacyList)
     }
 }

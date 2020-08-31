@@ -38,19 +38,32 @@ final class ProductCoordinator: EventNode, Coordinator {
                 self?.openMedicineList()
             case .openMap(let product):
                 self?.createMapFlow()
+            case .openFarmacyList:
+                self?.openMapFarmacyList()
             }
         }
     }
 }
 
-extension ProductCoordinator {
-    fileprivate func openMedicineList() {
+fileprivate extension ProductCoordinator {
+     func openMedicineList() {
         let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
         navigation.pushViewController(vc, animated: true)
     }
     
-    fileprivate func createMapFlow() {
-        let vc = MapCoordinator(configuration: MapFlowConfiguration(parent: self)).createFlow()
+     func createMapFlow() {
+        guard let vc = R.storyboard.product.mapViewController() else { return }
+        let model = MapModel(parent: self)
+        model.output = vc
+        vc.model = model
+        navigation.pushViewController(vc, animated: true)
+    }
+    
+    func openMapFarmacyList() {
+        guard let vc = R.storyboard.product.mapFarmacyListViewController() else { return }
+        let model = MapFarmacyListModel(parent: self)
+        model.output = vc
+        vc.model = model
         navigation.pushViewController(vc, animated: true)
     }
 }

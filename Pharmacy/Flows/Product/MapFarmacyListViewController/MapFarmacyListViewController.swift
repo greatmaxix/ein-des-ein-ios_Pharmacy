@@ -10,9 +10,10 @@ import UIKit
 
 class MapFarmacyListViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var selectionBackground: UIView!
-
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var selectionBackground: UIView!
+    @IBOutlet private weak var filterControl: UISegmentedControl!
+    
     var model: FarmacyListInput!
     
     override func viewDidLoad() {
@@ -28,6 +29,13 @@ class MapFarmacyListViewController: UIViewController {
                
         selectionBackground.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         selectionBackground.layer.cornerRadius = 8
+        setupLocalization()
+    }
+    
+    func setupLocalization() {
+        title = R.string.localize.farmaciesListTitle()
+        filterControl.setTitle(R.string.localize.farmaciesListByPrice(), forSegmentAt: 0)
+        filterControl.setTitle(R.string.localize.farmaciesListByDistance(), forSegmentAt: 1)
     }
 }
 
