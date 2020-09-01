@@ -326,11 +326,11 @@
             <objects>
                 <viewController id="LhO-I4-Rlm" customClass="CheckoutViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hJW-fl-rBN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1870"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFC-oc-yLD">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1922"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1792"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMs-dO-l5T">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="405"/>
@@ -463,12 +463,8 @@
                                                     <constraint firstAttribute="width" constant="32" id="Hdf-F8-yF6"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z2-nX-zbT">
-                                                <rect key="frame" x="24" y="43" width="164" height="88"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="164" id="JvS-Ni-9LE"/>
-                                                    <constraint firstAttribute="height" constant="88" id="Yg3-iL-UwF"/>
-                                                </constraints>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nu-wM-rnx">
+                                                <rect key="frame" x="234" y="43" width="164" height="88"/>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="truck" translatesAutoresizingMaskIntoConstraints="NO" id="xac-kp-V91">
                                                 <rect key="frame" x="90" y="72" width="32" height="30"/>
@@ -485,8 +481,12 @@
                                                 <color key="textColor" name="textDarkBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nu-wM-rnx">
-                                                <rect key="frame" x="234" y="43" width="164" height="88"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z2-nX-zbT">
+                                                <rect key="frame" x="24" y="43" width="164" height="88"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="164" id="JvS-Ni-9LE"/>
+                                                    <constraint firstAttribute="height" constant="88" id="Yg3-iL-UwF"/>
+                                                </constraints>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -937,7 +937,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hcz-1c-57p"/>
                     </view>
-                    <size key="freeformSize" width="414" height="2000"/>
+                    <size key="freeformSize" width="414" height="1870"/>
                     <connections>
                         <outlet property="applyButton" destination="Svz-91-QMi" id="MGl-bb-3Jm"/>
                         <outlet property="cityAddress" destination="3t9-Ao-Ltq" id="SiH-4d-uKL"/>

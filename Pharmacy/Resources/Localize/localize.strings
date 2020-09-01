@@ -177,6 +177,14 @@
 
 // MARK: - Checkout
 
+"checkout.contactData" = "Контактные данные";
+"checkout.change" = "Изменить";
+"checkout.deliveryType" = "Способ доставки";
+"checkout.deliveryAddress" = "Адрес доставки";
+"checkout.farmacyAddress" = "Адрес аптеки";
+"checkout.paymentType" = "Выберите тип оплаты";
+"checkout.orderConsistence" = "Состав заказа";
+
 "checkout.name" = "Имя и фамилия";
 "checkout.phone" = "+7";
 "checkout.email" = "email";

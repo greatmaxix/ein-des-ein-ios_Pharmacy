@@ -66,7 +66,6 @@ final class CheckoutViewController: UIViewController {
     
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var priceTitleLabel: UILabel!
-    
     @IBOutlet private weak var promocodeButton: UIButton!
     @IBOutlet private weak var applyButton: UIButton!
     
@@ -80,11 +79,58 @@ final class CheckoutViewController: UIViewController {
     }
 
     func setupUI() {
+        deliveryButton.layer.borderWidth = 2
+        deliveryButton.layer.borderColor = R.color.welcomeBlue()?.cgColor
+        deliveryButton.layer.cornerRadius = 8
+         
+        pickupButton.layer.borderWidth = 2
+        pickupButton.layer.borderColor = R.color.textDarkBlue()?.cgColor
+        pickupButton.layer.cornerRadius = 8
         
+        promocodeButton.layer.cornerRadius = promocodeButton.bounds.height / 2
+        applyButton.layer.cornerRadius = applyButton.bounds.height / 2
+        
+        cityInputView.contentType = .other
+        streetInputView.contentType = .other
+        houseInputView.contentType = .other
+        flatNumberInputView.contentType = .other
     }
     
     func setupLocalization() {
         
+        contactInfoLabel.text = R.string.localize.checkoutContactData()
+        contactInfoButton.setTitle(R.string.localize.checkoutChange(), for: .normal)
+        
+        nameInputView.placeholder = R.string.localize.checkoutName()
+        phoneInputView.placeholder = R.string.localize.checkoutPhone()
+        emailInputView.placeholder = R.string.localize.checkoutEmail()
+        
+        cityInputView.placeholder = R.string.localize.checkoutCity()
+        streetInputView.placeholder = R.string.localize.checkoutStreet()
+        houseInputView.placeholder = R.string.localize.checkoutHouseNumber()
+        flatNumberInputView.placeholder = R.string.localize.checkoutFlatNumber()
+        
+        sumTitleLabel.text = R.string.localize.checkoutWhorePrice()
+        discountTitleLabel.text = R.string.localize.checkoutDiscount()
+        deliverySumTitleLabel.text = R.string.localize.checkoutDelivery()
+        priceTitleLabel.text = R.string.localize.checkoutFinalPrice()
+        promocodeButton.setTitle(R.string.localize.checkoutPromocode(), for: .normal)
+        applyButton.setTitle(R.string.localize.checkoutApplyPurchase(), for: .normal)
     }
+    
+    @IBAction private func selectDelivery(_ sender: UIButton) {
+         
+         let selectedDelivery: Bool = sender == deliveryButton
+         
+         deliveryButton.layer.borderColor = selectedDelivery ?  R.color.welcomeBlue()?.cgColor : R.color.textDarkBlue()?.cgColor
+         deliveryImageView.tintColor = selectedDelivery ?  R.color.welcomeBlue() : R.color.textDarkBlue()
+         deliveryLabel.textColor = selectedDelivery ?  R.color.welcomeBlue() : R.color.textDarkBlue()
+         deliveryLabel.font = selectedDelivery ? R.font.openSansSemiBold(size: 14) : R.font.openSansRegular(size: 14)
+         
+         pickupButton.layer.borderColor = !selectedDelivery ?  R.color.welcomeBlue()?.cgColor : R.color.textDarkBlue()?.cgColor
+         pickupImageView.tintColor = !selectedDelivery ?  R.color.welcomeBlue() : R.color.textDarkBlue()
+         pickupLabel.textColor = !selectedDelivery ?  R.color.welcomeBlue() : R.color.textDarkBlue()
+         pickupLabel.font = !selectedDelivery ? R.font.openSansSemiBold(size: 14) : R.font.openSansRegular(size: 14)
+     }
     
 }
