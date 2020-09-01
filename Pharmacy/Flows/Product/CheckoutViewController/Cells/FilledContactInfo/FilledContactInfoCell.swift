@@ -10,9 +10,9 @@ import UIKit
 
 final class FilledContactInfoCell: UITableViewCell {
     
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var phoneLabel: UILabel!
-    @IBOutlet private weak var emailLabel: UILabel!
+    @IBOutlet private weak var nameFilledLabel: UILabel!
+    @IBOutlet private weak var phoneFilledLabel: UILabel!
+    @IBOutlet private weak var emailFilledLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,9 +20,9 @@ final class FilledContactInfoCell: UITableViewCell {
     }
     
     func setup(name: String, email: String, phone: String) {
-        nameLabel.text = name
-        phoneLabel.text = "📱 " + phone
-        emailLabel.text = "📪 " + email
+        nameFilledLabel.text = name
+        phoneFilledLabel.text = "📱 " + phone
+        emailFilledLabel.text = "📪 " + email
     }
     
 }
