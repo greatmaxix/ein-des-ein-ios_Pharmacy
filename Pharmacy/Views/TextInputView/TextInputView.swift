@@ -124,7 +124,7 @@ final class TextInputView: UIView {
             case .editing, .successfulValidation, .unsuccessfulValidation:
                 return .clear
             case .standart:
-                return UIColor(red: 0.965, green: 0.973, blue: 0.98, alpha: 1)
+                return R.color.backgroundGray()
             }
         }
     }

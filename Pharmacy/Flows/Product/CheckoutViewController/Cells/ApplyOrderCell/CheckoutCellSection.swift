@@ -8,6 +8,6 @@
 
 import UIKit
 
-enum CheckoutCellSection: TableCellSection {
-
-}
+//enum CheckoutCellSection: TableCellSection {
+//
+//}

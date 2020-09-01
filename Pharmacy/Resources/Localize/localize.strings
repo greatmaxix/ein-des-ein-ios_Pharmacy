@@ -177,6 +177,7 @@
 
 // MARK: - Checkout
 
+"checkout.title" = "Оформление";
 "checkout.contactData" = "Контактные данные";
 "checkout.change" = "Изменить";
 "checkout.deliveryType" = "Способ доставки";
@@ -197,6 +198,7 @@
 "checkout.whorePrice" = "Общая сумма";
 "checkout.discount" = "Скидка";
 "checkout.delivery" = "Доставка";
+"checkout.pickup" = "Самовывоз";
 "checkout.finalPrice" = "Итого к оплате";
 
 "checkout.promocode" = "Промокод";

@@ -14,6 +14,7 @@ enum ProductModelEvent: Event {
     case openCatalogsFor(Product)
     case openMap(Product?)
     case openFarmacyList
+    case openCheckout
 }
 
 protocol ProductModelInput: class {
@@ -67,6 +68,7 @@ extension ProductModel: ProductViewControllerOutput {
     }
     
     func openMap() {
-        raise(event: ProductModelEvent.openMap(nil))
+        //raise(event: ProductModelEvent.openMap(nil))
+        raise(event: ProductModelEvent.openCheckout)
     }
 }
