@@ -185,3 +185,11 @@
 "checkout.houseNumber" = "№ Дома";
 "checkout.flatNumber" = "№ Квартиры";
 "checkout.description" = "Примечание к заказу";
+
+"checkout.whorePrice" = "Общая сумма";
+"checkout.discount" = "Скидка";
+"checkout.delivery" = "Доставка";
+"checkout.finalPrice" = "Итого к оплате";
+
+"checkout.promocode" = "Промокод";
+"checkout.applyPurchase" = "Оформить заказ";

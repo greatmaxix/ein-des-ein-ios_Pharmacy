@@ -57,6 +57,7 @@
                             <constraint firstItem="r2K-6d-rdh" firstAttribute="trailing" secondItem="dsI-MT-wZN" secondAttribute="trailing" id="XVW-rN-s49"/>
                             <constraint firstItem="ptU-Wu-67T" firstAttribute="top" secondItem="r2K-6d-rdh" secondAttribute="bottom" constant="8" id="Y3D-aR-YWa"/>
                             <constraint firstAttribute="trailing" secondItem="dsI-MT-wZN" secondAttribute="trailing" constant="16" id="ZOP-rt-A67"/>
+                            <constraint firstAttribute="height" constant="98" id="kCm-Jc-3Xx"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -35,6 +35,9 @@
 		39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */; };
 		3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */; };
 		3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D12224D1BB7400AB44BD /* EditProfileModel.swift */; };
+		3958E77024FE2B6200D9F976 /* OrderHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3958E76F24FE2B6200D9F976 /* OrderHeaderView.xib */; };
+		3958E77224FE2BD300D9F976 /* OrderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3958E77124FE2BD300D9F976 /* OrderHeaderView.swift */; };
+		3958E77C24FE35FB00D9F976 /* CheckoutCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3958E77B24FE35FB00D9F976 /* CheckoutCellSection.swift */; };
 		3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */; };
 		3959F40724F6558E00DB4065 /* MapFarmacyCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3959F40624F6558E00DB4065 /* MapFarmacyCellSection.swift */; };
 		395A7FB824A34B5200A7CFC6 /* UIBlockerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */; };
@@ -249,6 +252,9 @@
 		39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3954D12224D1BB7400AB44BD /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
+		3958E76F24FE2B6200D9F976 /* OrderHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderHeaderView.xib; sourceTree = "<group>"; };
+		3958E77124FE2BD300D9F976 /* OrderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHeaderView.swift; sourceTree = "<group>"; };
+		3958E77B24FE35FB00D9F976 /* CheckoutCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCellSection.swift; sourceTree = "<group>"; };
 		3959E9D6249A644E00FA1F74 /* PhoneFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatter.swift; sourceTree = "<group>"; };
 		3959F40624F6558E00DB4065 /* MapFarmacyCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFarmacyCellSection.swift; sourceTree = "<group>"; };
 		395A7FB724A34B5200A7CFC6 /* UIBlockerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockerDelegate.swift; sourceTree = "<group>"; };
@@ -516,6 +522,88 @@
 			path = EditProfile;
 			sourceTree = "<group>";
 		};
+		3958E76E24FE2B4300D9F976 /* OrderHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				3958E76F24FE2B6200D9F976 /* OrderHeaderView.xib */,
+				3958E77124FE2BD300D9F976 /* OrderHeaderView.swift */,
+			);
+			path = OrderHeaderView;
+			sourceTree = "<group>";
+		};
+		3958E77324FE351E00D9F976 /* ContactInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				395CB74824FCED7A000A958F /* ContactInfoCell.swift */,
+				395CB74924FCED7A000A958F /* ContactInfoCell.xib */,
+			);
+			path = ContactInfoCell;
+			sourceTree = "<group>";
+		};
+		3958E77424FE352F00D9F976 /* FilledContactInfo */ = {
+			isa = PBXGroup;
+			children = (
+				395CB74C24FCF111000A958F /* FilledContactInfoCell.swift */,
+				395CB74D24FCF111000A958F /* FilledContactInfoCell.xib */,
+			);
+			path = FilledContactInfo;
+			sourceTree = "<group>";
+		};
+		3958E77524FE353F00D9F976 /* DeliveryCell */ = {
+			isa = PBXGroup;
+			children = (
+				395CB75024FCF482000A958F /* DeliveryCell.swift */,
+				395CB75124FCF482000A958F /* DeliveryCell.xib */,
+			);
+			path = DeliveryCell;
+			sourceTree = "<group>";
+		};
+		3958E77624FE357000D9F976 /* DeliveryAddressCell */ = {
+			isa = PBXGroup;
+			children = (
+				395CB75424FD0681000A958F /* DeliveryAddressCell.swift */,
+				395CB75524FD0681000A958F /* DeliveryAddressCell.xib */,
+			);
+			path = DeliveryAddressCell;
+			sourceTree = "<group>";
+		};
+		3958E77724FE358400D9F976 /* FilledDeliveryCell */ = {
+			isa = PBXGroup;
+			children = (
+				393D3CD524FD311400E8181F /* FilledDeliveryCell.swift */,
+				393D3CD624FD311400E8181F /* FilledDeliveryCell.xib */,
+			);
+			path = FilledDeliveryCell;
+			sourceTree = "<group>";
+		};
+		3958E77824FE359100D9F976 /* PaymentMethodsCell */ = {
+			isa = PBXGroup;
+			children = (
+				393D3CDE24FD38D200E8181F /* PaymentMethodsCell.swift */,
+				393D3CDF24FD38D200E8181F /* PaymentMethodsCell.xib */,
+			);
+			path = PaymentMethodsCell;
+			sourceTree = "<group>";
+		};
+		3958E77924FE35A200D9F976 /* FarmacyAddressCell */ = {
+			isa = PBXGroup;
+			children = (
+				393D3CE224FD420500E8181F /* FarmacyAddressCell.swift */,
+				393D3CE324FD420500E8181F /* FarmacyAddressCell.xib */,
+			);
+			path = FarmacyAddressCell;
+			sourceTree = "<group>";
+		};
+		3958E77A24FE35AF00D9F976 /* ApplyOrderCell */ = {
+			isa = PBXGroup;
+			children = (
+				393D3CE624FD465C00E8181F /* ApplyOrderCell.swift */,
+				393D3CE724FD465C00E8181F /* ApplyOrderCell.xib */,
+				3958E77B24FE35FB00D9F976 /* CheckoutCellSection.swift */,
+			);
+			path = ApplyOrderCell;
+			sourceTree = "<group>";
+		};
 		3959E9D3249A63FA00FA1F74 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,22 +725,14 @@
 		395CB74724FCED44000A958F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				395CB74824FCED7A000A958F /* ContactInfoCell.swift */,
-				395CB74924FCED7A000A958F /* ContactInfoCell.xib */,
-				395CB74C24FCF111000A958F /* FilledContactInfoCell.swift */,
-				395CB74D24FCF111000A958F /* FilledContactInfoCell.xib */,
-				395CB75024FCF482000A958F /* DeliveryCell.swift */,
-				395CB75124FCF482000A958F /* DeliveryCell.xib */,
-				395CB75424FD0681000A958F /* DeliveryAddressCell.swift */,
-				395CB75524FD0681000A958F /* DeliveryAddressCell.xib */,
-				393D3CD524FD311400E8181F /* FilledDeliveryCell.swift */,
-				393D3CD624FD311400E8181F /* FilledDeliveryCell.xib */,
-				393D3CDE24FD38D200E8181F /* PaymentMethodsCell.swift */,
-				393D3CDF24FD38D200E8181F /* PaymentMethodsCell.xib */,
-				393D3CE224FD420500E8181F /* FarmacyAddressCell.swift */,
-				393D3CE324FD420500E8181F /* FarmacyAddressCell.xib */,
-				393D3CE624FD465C00E8181F /* ApplyOrderCell.swift */,
-				393D3CE724FD465C00E8181F /* ApplyOrderCell.xib */,
+				3958E77324FE351E00D9F976 /* ContactInfoCell */,
+				3958E77424FE352F00D9F976 /* FilledContactInfo */,
+				3958E77524FE353F00D9F976 /* DeliveryCell */,
+				3958E77624FE357000D9F976 /* DeliveryAddressCell */,
+				3958E77724FE358400D9F976 /* FilledDeliveryCell */,
+				3958E77824FE359100D9F976 /* PaymentMethodsCell */,
+				3958E77924FE35A200D9F976 /* FarmacyAddressCell */,
+				3958E77A24FE35AF00D9F976 /* ApplyOrderCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -767,6 +847,7 @@
 				398B0DED24F53A580084EC54 /* FoundMedicineView */,
 				39DBC18D24F7C29D00CB82D5 /* MapMessageView */,
 				393D3CD924FD339100E8181F /* PaymentMethodView */,
+				3958E76E24FE2B4300D9F976 /* OrderHeaderView */,
 				395C9D4C2498BDD6001EB6CD /* TextInputView */,
 			);
 			path = Views;
@@ -1447,6 +1528,7 @@
 				3949851B24BC519B006A773D /* ProfileOptionsCell.xib in Resources */,
 				393D3CE124FD38D200E8181F /* PaymentMethodsCell.xib in Resources */,
 				39DBC19124F7C2DD00CB82D5 /* MapMessageView.xib in Resources */,
+				3958E77024FE2B6200D9F976 /* OrderHeaderView.xib in Resources */,
 				603D31FB24E5AA31000E5A6C /* ProductDescriptionTableViewCell.xib in Resources */,
 				6036EB0324DD27A5003336C2 /* Search.storyboard in Resources */,
 				603D31BD24E57871000E5A6C /* Product.storyboard in Resources */,
@@ -1598,6 +1680,7 @@
 				395A7FCC24A3A2B700A7CFC6 /* ProfileCoordinator.swift in Sources */,
 				39F0AD6F24EEC86200CD6CA4 /* WishlistModel.swift in Sources */,
 				603D31C124E5789D000E5A6C /* ProductCoordinator.swift in Sources */,
+				3958E77C24FE35FB00D9F976 /* CheckoutCellSection.swift in Sources */,
 				39505F5624AC73620045EC02 /* TabBarModel.swift in Sources */,
 				39F0AD6D24EEC85400CD6CA4 /* WishlistViewController.swift in Sources */,
 				398B0DD424F506540084EC54 /* MapModel.swift in Sources */,
@@ -1709,6 +1792,7 @@
 				395D04FF24D04B19007A278D /* CatalogsViewController.swift in Sources */,
 				6075BD5324DEB16600BC78BD /* RoundedCornerNavigationBar.swift in Sources */,
 				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
+				3958E77224FE2BD300D9F976 /* OrderHeaderView.swift in Sources */,
 				60E1A6FB24EBB20E00B3D205 /* UIViewController+Keyboard.swift in Sources */,
 				603D31E524E5A90C000E5A6C /* ProductTagsTableViewCell.swift in Sources */,
 				6075BD5C24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift in Sources */,
