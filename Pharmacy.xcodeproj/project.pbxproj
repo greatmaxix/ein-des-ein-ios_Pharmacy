@@ -198,6 +198,8 @@
 		619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA472498B01900AB46ED /* KeychainManager.swift */; };
 		619AAA4A2498B09800AB46ED /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA492498B09800AB46ED /* Token.swift */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
+		8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */; };
+		8715DB8924FFC76F00BBF37C /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB8824FFC76F00BBF37C /* OnboardingContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -394,6 +396,8 @@
 		619AAA452498AEA700AB46ED /* SampleResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleResponseModel.swift; sourceTree = "<group>"; };
 		619AAA472498B01900AB46ED /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		619AAA492498B09800AB46ED /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Pharmacy/Services/Managers/Token.swift; sourceTree = SOURCE_ROOT; };
+		8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		8715DB8824FFC76F00BBF37C /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -692,6 +696,7 @@
 		396C45CF249774D200A569CE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				8715DB8424FFBFB900BBF37C /* Onboarding */,
 				60E1A70F24ECE0AB00B3D205 /* Scan */,
 				60E1A70824ECD5DE00B3D205 /* SearchNavigation */,
 				603D31AE24E3C9AD000E5A6C /* MedicineList */,
@@ -1260,6 +1265,23 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		8715DB8424FFBFB900BBF37C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				8715DB8724FFC73E00BBF37C /* Container */,
+				8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		8715DB8724FFC73E00BBF37C /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				8715DB8824FFC76F00BBF37C /* OnboardingContainerViewController.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
 		8C9DDD9B3FE3CF15F89405BA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1355,6 +1377,7 @@
 				6075BD4D24DEA7FB00BC78BD /* OpenSans-Regular.ttf in Resources */,
 				603D318D24E2A269000E5A6C /* ReceiptView.xib in Resources */,
 				6075BD4E24DEA7FB00BC78BD /* OpenSans-SemiBold.ttf in Resources */,
+				8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */,
 				603D31A524E3B608000E5A6C /* CategoryCollectionViewCell.xib in Resources */,
 				6075BD4F24DEA7FB00BC78BD /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				395D050624D05206007A278D /* MedicineCell.xib in Resources */,
@@ -1505,6 +1528,7 @@
 				395A7FCC24A3A2B700A7CFC6 /* ProfileCoordinator.swift in Sources */,
 				39F0AD6F24EEC86200CD6CA4 /* WishlistModel.swift in Sources */,
 				603D31C124E5789D000E5A6C /* ProductCoordinator.swift in Sources */,
+				8715DB8924FFC76F00BBF37C /* OnboardingContainerViewController.swift in Sources */,
 				39505F5624AC73620045EC02 /* TabBarModel.swift in Sources */,
 				39F0AD6D24EEC85400CD6CA4 /* WishlistViewController.swift in Sources */,
 				398B0DD424F506540084EC54 /* MapModel.swift in Sources */,
