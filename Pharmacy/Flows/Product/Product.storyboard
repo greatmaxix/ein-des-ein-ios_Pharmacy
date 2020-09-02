@@ -326,14 +326,14 @@
             <objects>
                 <viewController storyboardIdentifier="CheckoutViewController" id="LhO-I4-Rlm" customClass="CheckoutViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hJW-fl-rBN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="2100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFC-oc-yLD">
-                                <rect key="frame" x="0.0" y="44" width="414" height="2022"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="1722"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMs-dO-l5T">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="418.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="182.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP7-u8-r3M">
                                                 <rect key="frame" x="18" y="24" width="43.5" height="22"/>
@@ -347,14 +347,17 @@
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" name="welcomeBlue"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="editCustomerInfo:" destination="LhO-I4-Rlm" eventType="touchUpInside" id="jZM-Ov-Mej"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Wmc-66-3pD">
-                                                <rect key="frame" x="0.0" y="58" width="414" height="360.5"/>
+                                                <rect key="frame" x="0.0" y="58" width="414" height="124.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGp-FX-h43">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="124.5"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1q-rj-6gi">
+                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X1q-rj-6gi">
                                                                 <rect key="frame" x="16" y="8" width="382" height="108.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📱 +3809994824231" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9t-NH-sBu">
@@ -399,8 +402,8 @@
                                                             <constraint firstItem="X1q-rj-6gi" firstAttribute="leading" secondItem="LGp-FX-h43" secondAttribute="leading" constant="16" id="xWU-eT-4OK"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWO-fG-a4b">
-                                                        <rect key="frame" x="0.0" y="124.5" width="414" height="236"/>
+                                                    <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWO-fG-a4b">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="236"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaG-If-Sdd" customClass="TextInputView" customModule="Pharmacy" customModuleProvider="target">
                                                                 <rect key="frame" x="20" y="16" width="374" height="60"/>
@@ -454,7 +457,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quK-PQ-Y74">
-                                        <rect key="frame" x="0.0" y="418.5" width="414" height="150"/>
+                                        <rect key="frame" x="0.0" y="182.5" width="414" height="150"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тип доставки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaF-TD-baH">
                                                 <rect key="frame" x="16" y="16" width="114.5" height="22"/>
@@ -476,18 +479,22 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nu-wM-rnx">
                                                 <rect key="frame" x="215" y="45" width="183" height="88"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="textDarkBlue"/>
                                                 <state key="normal" image="shopping bag"/>
+                                                <connections>
+                                                    <action selector="selectDelivery:" destination="LhO-I4-Rlm" eventType="touchUpInside" id="5sZ-hV-azW"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Z2-nX-zbT">
                                                 <rect key="frame" x="16" y="45" width="183" height="88"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="88" id="Yg3-iL-UwF"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.094117647060000004" green="0.46666666670000001" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="truck"/>
+                                                <connections>
+                                                    <action selector="selectDelivery:" destination="LhO-I4-Rlm" eventType="touchUpInside" id="2nu-AG-66M"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="backgroundGray"/>
@@ -510,7 +517,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZRn-qp-hDq">
-                                        <rect key="frame" x="0.0" y="568.5" width="414" height="826"/>
+                                        <rect key="frame" x="0.0" y="332.5" width="414" height="711"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8u-BX-DVF">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
@@ -527,6 +534,9 @@
                                                         <state key="normal" title="Button">
                                                             <color key="titleColor" name="welcomeBlue"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="editFarmacyAddress:" destination="LhO-I4-Rlm" eventType="touchUpInside" id="BKP-eY-hUd"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="backgroundGray"/>
@@ -622,11 +632,23 @@
                                                         <color key="textColor" name="textDarkBlue"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xq8-kW-chZ">
+                                                        <rect key="frame" x="358" y="20.5" width="39" height="29"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                                        <state key="normal" title="Button">
+                                                            <color key="titleColor" name="welcomeBlue"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="editCustomerAddress:" destination="LhO-I4-Rlm" eventType="touchUpInside" id="lRv-b3-ek8"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="backgroundGray"/>
                                                 <constraints>
                                                     <constraint firstItem="7qJ-Fx-gaI" firstAttribute="leading" secondItem="X2m-oK-z0F" secondAttribute="leading" constant="16" id="6In-gx-whW"/>
+                                                    <constraint firstItem="Xq8-kW-chZ" firstAttribute="centerY" secondItem="7qJ-Fx-gaI" secondAttribute="centerY" id="ZF2-YS-RZL"/>
                                                     <constraint firstAttribute="bottom" secondItem="7qJ-Fx-gaI" secondAttribute="bottom" constant="17" id="lzP-dP-DBU"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Xq8-kW-chZ" secondAttribute="trailing" constant="17" id="ocm-Ks-Z1U"/>
                                                     <constraint firstItem="7qJ-Fx-gaI" firstAttribute="top" secondItem="X2m-oK-z0F" secondAttribute="top" constant="24" id="qQE-kr-9fq"/>
                                                 </constraints>
                                             </view>
@@ -679,20 +701,20 @@
                                                     <constraint firstAttribute="trailing" secondItem="5jS-tB-1Iw" secondAttribute="trailing" constant="16" id="yuv-Uy-k3l"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fha-lJ-B0s">
-                                                <rect key="frame" x="0.0" y="551" width="414" height="115"/>
+                                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fha-lJ-B0s">
+                                                <rect key="frame" x="0.0" y="551" width="414" height="64"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T48-JU-OeY">
-                                                        <rect key="frame" x="16" y="8" width="382" height="99"/>
+                                                        <rect key="frame" x="16" y="8" width="382" height="48"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🏠 ул. Горная 23а, Харьков" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t9-Ao-Ltq">
-                                                                <rect key="frame" x="16" y="24" width="350" height="19.5"/>
+                                                                <rect key="frame" x="16" y="24" width="350" height="0.0"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                                 <color key="textColor" name="textDarkBlue"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🚪 подьезд 4г • кв. 56" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHQ-ID-Q7p">
-                                                                <rect key="frame" x="16" y="51.5" width="350" height="31.5"/>
+                                                                <rect key="frame" x="16" y="32" width="350" height="0.0"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                                 <color key="textColor" name="textDarkBlue"/>
                                                                 <nil key="highlightedColor"/>
@@ -719,7 +741,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JfG-Sb-CDo">
-                                                <rect key="frame" x="0.0" y="666" width="414" height="160"/>
+                                                <rect key="frame" x="0.0" y="551" width="414" height="160"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMA-fy-KFs">
                                                         <rect key="frame" x="16" y="16" width="382" height="128"/>
@@ -727,16 +749,23 @@
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dTC-53-GYW">
                                                                 <rect key="frame" x="8" y="8" width="366" height="112"/>
                                                                 <color key="backgroundColor" name="backgroundGray"/>
-                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                                 <color key="textColor" name="textDarkBlue"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUR-cg-Hat">
+                                                                <rect key="frame" x="19" y="18" width="35.5" height="19.5"/>
+                                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                                                <color key="textColor" name="applyBlueGray"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" name="backgroundGray"/>
                                                         <constraints>
+                                                            <constraint firstItem="WUR-cg-Hat" firstAttribute="top" secondItem="IMA-fy-KFs" secondAttribute="top" constant="18" id="6cO-An-d47"/>
                                                             <constraint firstAttribute="trailing" secondItem="dTC-53-GYW" secondAttribute="trailing" constant="8" id="C76-tO-7ao"/>
                                                             <constraint firstItem="dTC-53-GYW" firstAttribute="top" secondItem="IMA-fy-KFs" secondAttribute="top" constant="8" id="Wxe-7A-qve"/>
+                                                            <constraint firstItem="WUR-cg-Hat" firstAttribute="leading" secondItem="IMA-fy-KFs" secondAttribute="leading" constant="19" id="dmS-kA-pQ3"/>
                                                             <constraint firstAttribute="bottom" secondItem="dTC-53-GYW" secondAttribute="bottom" constant="8" id="pWm-7q-s7T"/>
                                                             <constraint firstItem="dTC-53-GYW" firstAttribute="leading" secondItem="IMA-fy-KFs" secondAttribute="leading" constant="8" id="vzu-5r-LUo"/>
                                                         </constraints>
@@ -754,7 +783,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1p-QO-PTu">
-                                        <rect key="frame" x="0.0" y="1394.5" width="414" height="45"/>
+                                        <rect key="frame" x="0.0" y="1043.5" width="414" height="45"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="De0-ed-bhU">
                                                 <rect key="frame" x="15" y="8" width="43.5" height="22"/>
@@ -770,14 +799,8 @@
                                             <constraint firstItem="De0-ed-bhU" firstAttribute="top" secondItem="M1p-QO-PTu" secondAttribute="top" constant="8" id="jRc-LI-hxQ"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1O3-ek-Tno">
-                                        <rect key="frame" x="0.0" y="1439.5" width="414" height="72"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="72" id="8gs-mz-d68"/>
-                                        </constraints>
-                                    </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R1D-0v-tAK">
-                                        <rect key="frame" x="0.0" y="1511.5" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="1208.5" width="414" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Состав заказа" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFe-As-0Gx">
                                                 <rect key="frame" x="15" y="24" width="118" height="22"/>
@@ -791,6 +814,9 @@
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" name="welcomeBlue"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="editOrder" destination="LhO-I4-Rlm" eventType="touchUpInside" id="ONX-WY-6pM"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="backgroundGray"/>
@@ -802,14 +828,14 @@
                                             <constraint firstItem="ZFe-As-0Gx" firstAttribute="top" secondItem="R1D-0v-tAK" secondAttribute="top" constant="24" id="Xef-vD-9Cr"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lYw-3c-kTY">
-                                        <rect key="frame" x="0.0" y="1571.5" width="414" height="72"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lYw-3c-kTY">
+                                        <rect key="frame" x="16" y="1268.5" width="382" height="0.0"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="72" id="hJM-eB-L8J"/>
+                                            <constraint firstAttribute="height" id="jJu-eC-3Za"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNb-uL-1YR">
-                                        <rect key="frame" x="0.0" y="1642.5" width="414" height="344"/>
+                                        <rect key="frame" x="0.0" y="1268.5" width="414" height="344"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5C-mU-QKi">
                                                 <rect key="frame" x="16" y="48" width="382" height="40"/>
@@ -821,6 +847,9 @@
                                                 <state key="normal" title="Promo code">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="promoCode:" destination="LhO-I4-Rlm" eventType="touchUpInside" id="NYD-el-AO0"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9v-D3-IWM">
                                                 <rect key="frame" x="16" y="104" width="40.5" height="22"/>
@@ -874,6 +903,9 @@
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="applyOrder" destination="LhO-I4-Rlm" eventType="touchUpInside" id="NQM-uD-fbA"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C92-Ln-iB3">
                                                 <rect key="frame" x="354.5" y="164" width="43.5" height="22"/>
@@ -909,24 +941,40 @@
                                             <constraint firstItem="kU6-pu-f8z" firstAttribute="leading" secondItem="S9f-Nk-OUv" secondAttribute="leading" id="xv4-jN-7qn"/>
                                         </constraints>
                                     </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDB-GY-wNS">
+                                        <rect key="frame" x="16" y="1088.5" width="382" height="120"/>
+                                        <subviews>
+                                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1O3-ek-Tno">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="120"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="lightGray"/>
+                                        <constraints>
+                                            <constraint firstItem="1O3-ek-Tno" firstAttribute="top" secondItem="cDB-GY-wNS" secondAttribute="top" id="5ZN-wP-sIL"/>
+                                            <constraint firstAttribute="bottom" secondItem="1O3-ek-Tno" secondAttribute="bottom" id="9nl-NP-8XY"/>
+                                            <constraint firstItem="1O3-ek-Tno" firstAttribute="leading" secondItem="cDB-GY-wNS" secondAttribute="leading" id="DSo-Wd-6Gp"/>
+                                            <constraint firstAttribute="trailing" secondItem="1O3-ek-Tno" secondAttribute="trailing" id="NXC-Ws-1EM"/>
+                                            <constraint firstAttribute="height" constant="120" id="aZ1-L8-Gxe"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" name="backgroundGray"/>
                                 <constraints>
-                                    <constraint firstItem="1O3-ek-Tno" firstAttribute="top" secondItem="M1p-QO-PTu" secondAttribute="bottom" id="2ne-ep-xJS"/>
                                     <constraint firstItem="quK-PQ-Y74" firstAttribute="top" secondItem="EMs-dO-l5T" secondAttribute="bottom" id="AlF-e6-XH8"/>
-                                    <constraint firstAttribute="trailing" secondItem="lYw-3c-kTY" secondAttribute="trailing" id="BBW-iq-mng"/>
-                                    <constraint firstItem="SNb-uL-1YR" firstAttribute="top" secondItem="lYw-3c-kTY" secondAttribute="bottom" constant="-1" id="Bvo-gz-KDR"/>
-                                    <constraint firstItem="R1D-0v-tAK" firstAttribute="top" secondItem="1O3-ek-Tno" secondAttribute="bottom" id="HCn-Nr-309"/>
-                                    <constraint firstItem="lYw-3c-kTY" firstAttribute="leading" secondItem="sFC-oc-yLD" secondAttribute="leading" id="LSv-ar-YI0"/>
-                                    <constraint firstAttribute="trailing" secondItem="1O3-ek-Tno" secondAttribute="trailing" id="OxQ-w3-4PU"/>
-                                    <constraint firstItem="1O3-ek-Tno" firstAttribute="leading" secondItem="sFC-oc-yLD" secondAttribute="leading" id="UK8-Ab-vAy"/>
+                                    <constraint firstAttribute="trailing" secondItem="lYw-3c-kTY" secondAttribute="trailing" constant="16" id="BBW-iq-mng"/>
+                                    <constraint firstItem="SNb-uL-1YR" firstAttribute="top" secondItem="lYw-3c-kTY" secondAttribute="bottom" id="Bvo-gz-KDR"/>
+                                    <constraint firstItem="lYw-3c-kTY" firstAttribute="leading" secondItem="sFC-oc-yLD" secondAttribute="leading" constant="16" id="LSv-ar-YI0"/>
+                                    <constraint firstItem="R1D-0v-tAK" firstAttribute="top" secondItem="cDB-GY-wNS" secondAttribute="bottom" id="Sdp-aO-JGc"/>
                                     <constraint firstItem="M1p-QO-PTu" firstAttribute="top" secondItem="ZRn-qp-hDq" secondAttribute="bottom" id="Utu-KB-exx"/>
                                     <constraint firstItem="lYw-3c-kTY" firstAttribute="top" secondItem="R1D-0v-tAK" secondAttribute="bottom" id="VwI-4v-Rdn"/>
+                                    <constraint firstAttribute="trailing" secondItem="cDB-GY-wNS" secondAttribute="trailing" constant="16" id="Yld-Kt-4GZ"/>
+                                    <constraint firstItem="cDB-GY-wNS" firstAttribute="leading" secondItem="sFC-oc-yLD" secondAttribute="leading" constant="16" id="aYq-eA-Rp4"/>
                                     <constraint firstAttribute="trailing" secondItem="ZRn-qp-hDq" secondAttribute="trailing" id="dlj-p0-HO2"/>
                                     <constraint firstAttribute="trailing" secondItem="M1p-QO-PTu" secondAttribute="trailing" id="ePJ-ZR-GeX"/>
                                     <constraint firstItem="ZRn-qp-hDq" firstAttribute="top" secondItem="quK-PQ-Y74" secondAttribute="bottom" id="f7m-gs-rJH"/>
                                     <constraint firstItem="EMs-dO-l5T" firstAttribute="centerX" secondItem="sFC-oc-yLD" secondAttribute="centerX" id="fTL-CY-n6J"/>
                                     <constraint firstAttribute="trailing" secondItem="R1D-0v-tAK" secondAttribute="trailing" id="gUq-DI-2O3"/>
+                                    <constraint firstItem="cDB-GY-wNS" firstAttribute="top" secondItem="M1p-QO-PTu" secondAttribute="bottom" id="hm1-du-phP"/>
                                     <constraint firstItem="EMs-dO-l5T" firstAttribute="top" secondItem="sFC-oc-yLD" secondAttribute="top" id="hqI-hM-yZn"/>
                                     <constraint firstAttribute="trailing" secondItem="EMs-dO-l5T" secondAttribute="trailing" id="q50-l4-ySD"/>
                                     <constraint firstItem="EMs-dO-l5T" firstAttribute="leading" secondItem="sFC-oc-yLD" secondAttribute="leading" id="qhw-lg-mn8"/>
@@ -952,15 +1000,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hcz-1c-57p"/>
                     </view>
-                    <size key="freeformSize" width="414" height="2100"/>
+                    <size key="freeformSize" width="414" height="1800"/>
                     <connections>
                         <outlet property="applyButton" destination="Svz-91-QMi" id="MGl-bb-3Jm"/>
                         <outlet property="cityAddress" destination="3t9-Ao-Ltq" id="SiH-4d-uKL"/>
                         <outlet property="cityInputView" destination="5jS-tB-1Iw" id="hhs-24-Boc"/>
                         <outlet property="contactInfoButton" destination="dvJ-xr-Uu9" id="uPu-mL-8uK"/>
                         <outlet property="contactInfoLabel" destination="QP7-u8-r3M" id="EMS-ek-Pk1"/>
+                        <outlet property="customerAddresEditView" destination="FcA-MT-zZN" id="Yca-A0-FJ6"/>
                         <outlet property="customerAddressLabel" destination="7qJ-Fx-gaI" id="Kqe-kq-1fR"/>
-                        <outlet property="customerInfoView" destination="X1q-rj-6gi" id="2YQ-D4-IVu"/>
+                        <outlet property="customerAddressView" destination="fha-lJ-B0s" id="f2Z-4c-jet"/>
+                        <outlet property="customerInfoBackground" destination="X1q-rj-6gi" id="6YY-bd-bZR"/>
+                        <outlet property="customerInfoView" destination="LGp-FX-h43" id="1a7-lS-pT5"/>
+                        <outlet property="deliveryAddresHeader" destination="X2m-oK-z0F" id="8TW-v8-dck"/>
                         <outlet property="deliveryAddressLabel" destination="Zor-C3-DFD" id="lQr-U1-75B"/>
                         <outlet property="deliveryButton" destination="7Z2-nX-zbT" id="baz-2P-pte"/>
                         <outlet property="deliveryLabel" destination="soe-hv-TC9" id="Btz-v0-I5K"/>
@@ -968,9 +1020,11 @@
                         <outlet property="deliverySumTitleLabel" destination="kU6-pu-f8z" id="QiT-OR-UMI"/>
                         <outlet property="deliveryTitleLabel" destination="AaF-TD-baH" id="Dlh-X8-3br"/>
                         <outlet property="descriptionBackgroundView" destination="IMA-fy-KFs" id="l18-qz-I5F"/>
+                        <outlet property="descriptionPlaceholderLabel" destination="WUR-cg-Hat" id="mxK-Dz-Lri"/>
                         <outlet property="descriptionTextView" destination="dTC-53-GYW" id="wq8-0w-e2x"/>
                         <outlet property="discountLabel" destination="HjP-m1-PvR" id="wfQ-K8-yBF"/>
                         <outlet property="discountTitleLabel" destination="S9f-Nk-OUv" id="KF4-0J-eSA"/>
+                        <outlet property="editCustomerView" destination="VWO-fG-a4b" id="PGg-xh-neE"/>
                         <outlet property="emailFilledLabel" destination="fOh-36-VoD" id="Vgy-4T-h33"/>
                         <outlet property="emailInputView" destination="eQf-1T-1Yb" id="WRs-RR-qgR"/>
                         <outlet property="farmacyAddressLabel" destination="Ar6-Tg-m4D" id="HKe-wJ-Cx5"/>
@@ -983,11 +1037,14 @@
                         <outlet property="flatNumberInputView" destination="WYH-hU-C7E" id="AW2-Jg-tgI"/>
                         <outlet property="houseAddress" destination="OHQ-ID-Q7p" id="PGB-Qz-piR"/>
                         <outlet property="houseInputView" destination="UY0-un-8rT" id="cFc-sb-Cho"/>
+                        <outlet property="medicineHeightConstr" destination="jJu-eC-3Za" id="WJ4-P8-Jct"/>
                         <outlet property="medicineStackView" destination="lYw-3c-kTY" id="9Kr-oC-8e5"/>
                         <outlet property="nameFilledLabel" destination="9in-ba-L9e" id="Rhb-0G-Lm9"/>
                         <outlet property="nameInputView" destination="CaG-If-Sdd" id="yms-Hx-F5u"/>
                         <outlet property="orderButton" destination="dCp-cx-58b" id="gzg-bB-wOF"/>
                         <outlet property="orderLabel" destination="ZFe-As-0Gx" id="eS7-VT-ni2"/>
+                        <outlet property="paymentBackgroundView" destination="cDB-GY-wNS" id="dkj-6Y-YLp"/>
+                        <outlet property="paymentHeightConstr" destination="aZ1-L8-Gxe" id="3Dq-ry-rSZ"/>
                         <outlet property="paymentMethodLabel" destination="De0-ed-bhU" id="6Kf-LW-YsR"/>
                         <outlet property="paymentStackView" destination="1O3-ek-Tno" id="rck-UK-7wn"/>
                         <outlet property="phoneFilledLabel" destination="R9t-NH-sBu" id="Qs6-1H-Obz"/>
@@ -997,6 +1054,7 @@
                         <outlet property="priceLabel" destination="QG2-L2-kkD" id="FmR-Fb-Nta"/>
                         <outlet property="priceTitleLabel" destination="wZd-hR-x96" id="sE9-Ms-jjT"/>
                         <outlet property="promocodeButton" destination="U5C-mU-QKi" id="2et-Pk-7RJ"/>
+                        <outlet property="scrollView" destination="sFC-oc-yLD" id="z4b-ti-Sff"/>
                         <outlet property="showDeliveryButton" destination="S8N-Ib-WqO" id="vzt-oG-GIC"/>
                         <outlet property="streetInputView" destination="Wja-k1-Ixq" id="efx-Qi-2z9"/>
                         <outlet property="sumLabel" destination="pkF-0J-Uyz" id="ctD-Zy-tWd"/>
@@ -1020,6 +1078,9 @@
         <image name="truck" width="32" height="32"/>
         <image name="wishList" width="70" height="70"/>
         <image name="wishListSelected" width="70" height="70"/>
+        <namedColor name="applyBlueGray">
+            <color red="0.6470588235294118" green="0.70588235294117652" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="backgroundGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
