@@ -8,15 +8,16 @@
 
 import UIKit
 
-class OnboardingContainerViewController: UIViewController {
+final class OnboardingContainerViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var nextButton: UIButton!
     @IBOutlet private weak var skipButton: UIButton!
 
     // MARK: - Properties
-    private var pageViewController: UIPageViewController!
+    private var currentIndex: UInt = 0
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -26,58 +27,73 @@ class OnboardingContainerViewController: UIViewController {
     }
 }
 
-// MARK: - Private methods
-extension OnboardingContainerViewController {
-
-    private func setupContainerView() {
-        let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        pageViewController.dataSource = self
-        guard let pageView = pageViewController.view else {
-            return
-        }
-
-        view.addSubview(pageView)
-        pageView.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([pageView.topAnchor.constraint(equalTo: view.topAnchor),
-                                     pageView.leftAnchor.constraint(equalTo: view.leftAnchor),
-                                     pageView.rightAnchor.constraint(equalTo: view.rightAnchor),
-                                     pageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)])
-
-        self.pageViewController = pageViewController
-        addChild(pageViewController)
-        pageViewController.willMove(toParent: self)
-        
-        setFirstViewController()
-    }
-
-    private func setFirstViewController() {
-
-    }
-}
-
 // MARK: - Actions
 extension OnboardingContainerViewController {
 
     @IBAction private func onNextButtonTouchUp(_ sender: UIButton) {
-
+        routeToNextSlide()
     }
 
     @IBAction private func onSkipButtonTouchUp(_ sender: UIButton) {
 
     }
+
+    @IBAction private func onRightEdgeGesture(_ sender: UIGestureRecognizer) {
+        guard sender.state == .ended else {
+            return
+        }
+
+        routeToNextSlide()
+    }
 }
 
-// MARK: - UIPageViewControllerDataSource
-extension OnboardingContainerViewController: UIPageViewControllerDataSource {
+// MARK: - Private methods
+extension OnboardingContainerViewController {
 
-    func pageViewController(_ pageViewController: UIPageViewController,
-                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        return nil
+    private func setupContainerView() {
+
     }
 
-    func pageViewController(_ pageViewController: UIPageViewController,
-                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        return nil
+    private func setupContainerViewEdgeGesture() {
+        let rightGesture = UIScreenEdgePanGestureRecognizer(target: self,
+                                                            action: #selector(onRightEdgeGesture))
+        rightGesture.edges = .right
+        containerView.addGestureRecognizer(rightGesture)
+    }
+
+    private func routeToNextSlide() {
+        currentIndex += 1
+        selectSlide(at: currentIndex)
+    }
+
+    private func selectSlide(at index: UInt, animated: Bool = true) {
+        guard index < collectionView.numberOfItems(inSection: 0) else {
+            return
+        }
+
+        let indexPath = IndexPath(item: Int(index), section: 0)
+        collectionView.layoutIfNeeded()
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension OnboardingContainerViewController: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = UICollectionViewCell()
+        
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension OnboardingContainerViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.bounds.size
     }
 }
