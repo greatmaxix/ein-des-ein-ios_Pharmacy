@@ -40,12 +40,15 @@ final class ProductCoordinator: EventNode, Coordinator {
                 self?.createMapFlow()
             case .openFarmacyList:
                 self?.openMapFarmacyList()
+            case .openCheckout:
+                self?.openCheckout()
             }
         }
     }
 }
 
 fileprivate extension ProductCoordinator {
+    
      func openMedicineList() {
         let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
         navigation.pushViewController(vc, animated: true)
@@ -64,6 +67,14 @@ fileprivate extension ProductCoordinator {
         let model = MapFarmacyListModel(parent: self)
         model.output = vc
         vc.model = model
+        navigation.pushViewController(vc, animated: true)
+    }
+    
+    func openCheckout() {
+        guard let vc = R.storyboard.product.checkoutViewController() else { return }
+        let model = CheckoutModel(parent: self)
+        vc.model = model
+        model.output = vc
         navigation.pushViewController(vc, animated: true)
     }
 }

@@ -17,7 +17,7 @@ final class SimpleNavigationBar: UINavigationBar {
 
     private var contentView: SimpleNavigationBarView!
     
-    var barDelegate: SimpleNavigationBarDelegate?
+    weak var barDelegate: SimpleNavigationBarDelegate?
     var title: String? {
         get {
             contentView.titleLabel.text

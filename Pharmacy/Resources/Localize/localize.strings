@@ -174,3 +174,32 @@
 "farmaciesList.byDistance" = "По расстоянию";
 "farmaciesList.selectFarmacy" = "Выбрать аптеку";
 "farmaciesList.title" = "Выбор аптеки";
+
+// MARK: - Checkout
+
+"checkout.title" = "Оформление";
+"checkout.contactData" = "Контактные данные";
+"checkout.change" = "Изменить";
+"checkout.deliveryType" = "Способ доставки";
+"checkout.deliveryAddress" = "Адрес доставки";
+"checkout.farmacyAddress" = "Адрес аптеки";
+"checkout.paymentType" = "Выберите тип оплаты";
+"checkout.orderConsistence" = "Состав заказа";
+
+"checkout.name" = "Имя и фамилия";
+"checkout.phone" = "+7";
+"checkout.email" = "email";
+"checkout.city" = "Город";
+"checkout.street" = "Улица";
+"checkout.houseNumber" = "№ Дома";
+"checkout.flatNumber" = "№ Квартиры";
+"checkout.description" = "Примечание к заказу";
+
+"checkout.whorePrice" = "Общая сумма";
+"checkout.discount" = "Скидка";
+"checkout.delivery" = "Доставка";
+"checkout.pickup" = "Самовывоз";
+"checkout.finalPrice" = "Итого к оплате";
+
+"checkout.promocode" = "Промокод";
+"checkout.applyPurchase" = "Оформить заказ";
