@@ -26,14 +26,28 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onNextButtonTouchUp:" destination="sNA-cr-lPi" eventType="touchUpInside" id="Xqo-rF-LHs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlY-o4-FUV">
                                 <rect key="frame" x="16" y="822" width="382" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onSkipButtonTouchUp:" destination="sNA-cr-lPi" eventType="touchUpInside" id="dg3-NK-yEB"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhY-MM-RkA">
+                                <rect key="frame" x="0.0" y="44" width="414" height="694"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="mM8-lc-aTB" firstAttribute="top" secondItem="IhY-MM-RkA" secondAttribute="bottom" constant="8" id="AdI-0R-8TC"/>
+                            <constraint firstItem="IhY-MM-RkA" firstAttribute="top" secondItem="LHO-DW-sty" secondAttribute="top" id="DXp-tq-K20"/>
+                            <constraint firstItem="IhY-MM-RkA" firstAttribute="trailing" secondItem="LHO-DW-sty" secondAttribute="trailing" id="FSk-Hj-tGe"/>
+                            <constraint firstItem="IhY-MM-RkA" firstAttribute="leading" secondItem="LHO-DW-sty" secondAttribute="leading" id="Jws-8S-LYB"/>
                             <constraint firstItem="mM8-lc-aTB" firstAttribute="leading" secondItem="LHO-DW-sty" secondAttribute="leading" constant="16" id="LR3-50-etd"/>
                             <constraint firstItem="LHO-DW-sty" firstAttribute="bottom" secondItem="IlY-o4-FUV" secondAttribute="bottom" constant="10" id="Uf0-dP-fnm"/>
                             <constraint firstItem="IlY-o4-FUV" firstAttribute="top" secondItem="mM8-lc-aTB" secondAttribute="bottom" constant="32" id="d5c-qp-DsO"/>
@@ -43,10 +57,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LHO-DW-sty"/>
                     </view>
+                    <connections>
+                        <outlet property="containerView" destination="IhY-MM-RkA" id="Sf6-Re-E4t"/>
+                        <outlet property="nextButton" destination="mM8-lc-aTB" id="qlz-Kk-zZy"/>
+                        <outlet property="skipButton" destination="IlY-o4-FUV" id="1UT-yx-tKL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GQg-li-pj2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16" y="167"/>
+            <point key="canvasLocation" x="15.942028985507248" y="166.74107142857142"/>
         </scene>
     </scenes>
     <resources>
