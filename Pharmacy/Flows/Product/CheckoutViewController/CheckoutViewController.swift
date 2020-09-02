@@ -18,7 +18,6 @@ protocol CheckoutOutput: class {
 
 final class CheckoutViewController: UIViewController, NavigationBarStyled {
     
-    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var contactInfoLabel: UILabel!
     @IBOutlet private weak var contactInfoButton: UIButton!
     
@@ -28,7 +27,6 @@ final class CheckoutViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var nameFilledLabel: UILabel!
     @IBOutlet private weak var phoneFilledLabel: UILabel!
     @IBOutlet private weak var emailFilledLabel: UILabel!
-    @IBOutlet private weak var customerInfoBackground: UIView!
     
     @IBOutlet private weak var nameInputView: TextInputView!
     @IBOutlet private weak var phoneInputView: TextInputView!
@@ -45,7 +43,6 @@ final class CheckoutViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var deliveryAddresHeader: UIView!
     @IBOutlet private weak var deliveryAddressLabel: UILabel!
     @IBOutlet private weak var showDeliveryButton: UIButton!
-    @IBOutlet private weak var filledAddresView: UIView!
     
     @IBOutlet private weak var cityInputView: TextInputView!
     @IBOutlet private weak var streetInputView: TextInputView!
@@ -54,7 +51,6 @@ final class CheckoutViewController: UIViewController, NavigationBarStyled {
     
     @IBOutlet private weak var descriptionTextView: UITextView!
     @IBOutlet private weak var descriptionPlaceholderLabel: UILabel!
-    @IBOutlet private weak var farmacyInfoView: UIView!
     @IBOutlet private weak var descriptionBackgroundView: UIView!
     
     @IBOutlet private weak var cityAddress: UILabel!
@@ -65,7 +61,6 @@ final class CheckoutViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var farmacyPhoneLabel: UILabel!
     @IBOutlet private weak var farmacyWorkTimeLabel: UILabel!
     @IBOutlet private weak var farmacyMapButton: UIButton!
-    @IBOutlet private weak var paymentBackgroundView: UIView!
     @IBOutlet private weak var customerAddresEditView: UIView!
     @IBOutlet private weak var customerAddressView: UIView!
     
@@ -112,19 +107,12 @@ final class CheckoutViewController: UIViewController, NavigationBarStyled {
         deliveryButton.layer.borderWidth = 2
         deliveryButton.layer.borderColor = R.color.welcomeBlue()?.cgColor
         deliveryButton.layer.cornerRadius = GUI.smallCornerRadius
-        customerInfoBackground.layer.cornerRadius = GUI.cornerRadius
-        farmacyInfoView.layer.cornerRadius = GUI.cornerRadius
-        filledAddresView.layer.cornerRadius = GUI.cornerRadius
         
         pickupButton.layer.borderWidth = 2
         pickupButton.layer.borderColor = R.color.textDarkBlue()?.cgColor
         pickupButton.layer.cornerRadius = GUI.smallCornerRadius
         
-        descriptionBackgroundView.layer.cornerRadius = descriptionBackgroundView.bounds.height / 4
-        descriptionBackgroundView.layer.borderWidth = 1
         descriptionBackgroundView.layer.borderColor = R.color.validationGray()?.cgColor
-        
-        applyButton.layer.cornerRadius = applyButton.bounds.height / 2
         
         cityInputView.contentType = .other
         streetInputView.contentType = .other
@@ -134,10 +122,6 @@ final class CheckoutViewController: UIViewController, NavigationBarStyled {
         nameInputView.contentType = .name
         phoneInputView.contentType = .phone
         emailInputView.contentType = .email
-        
-        paymentBackgroundView.layer.cornerRadius = GUI.cornerRadius
-        
-        
     }
     
     func setupLocalization() {
