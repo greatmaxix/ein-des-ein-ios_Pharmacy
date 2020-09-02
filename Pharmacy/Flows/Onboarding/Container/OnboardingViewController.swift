@@ -1,5 +1,5 @@
 //
-//  OnboardingContainerViewController.swift
+//  OnboardingViewController.swift
 //  Pharmacy
 //
 //  Created by Sapa Denys on 02.09.2020.
