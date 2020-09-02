@@ -36,7 +36,7 @@ extension OnboardingViewController {
     }
 
     @IBAction private func onSkipButtonTouchUp(_ sender: UIButton) {
-
+        model.close()
     }
 
     @IBAction private func onRightEdgeGesture(_ sender: UIGestureRecognizer) {
@@ -52,7 +52,7 @@ extension OnboardingViewController {
 extension OnboardingViewController {
 
     private func setupContainerView() {
-        
+        collectionView.registerReusableCell(cellType: OnboardingSlideCollectionViewCell.self)
     }
 
     private func setupContainerViewEdgeGesture() {
@@ -82,11 +82,12 @@ extension OnboardingViewController {
 extension OnboardingViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return model.slideInfos.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCell()
+        let cell: OnboardingSlideCollectionViewCell = collectionView.dequeueReusableCell(at: indexPath)
+        cell.setupContent(with: model.slideInfos[indexPath.row])
         
         return cell
     }

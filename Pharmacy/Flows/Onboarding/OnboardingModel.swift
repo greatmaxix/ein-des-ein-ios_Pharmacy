@@ -12,6 +12,11 @@ protocol OnboardingModelInput {
 
 class OnboardingModel: Model {
 
+    private(set) var slideInfos: [SlideInfo] = {
+        [SlideInfo(),
+        SlideInfo(),
+        SlideInfo()]
+    }()
 }
 
 // MARK: - OnboardingModelInput
@@ -19,5 +24,12 @@ extension OnboardingModel: OnboardingModelInput {
 
     func close() {
 
+    }
+}
+
+extension OnboardingModel {
+    
+    struct SlideInfo {
+        
     }
 }

@@ -19,6 +19,9 @@ class OnboardingSlideCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-    func setupContent() {
+    func setupContent(with info: OnboardingModel.SlideInfo) {
+        
     }
 }
+
+extension OnboardingSlideCollectionViewCell: NibReusable {}

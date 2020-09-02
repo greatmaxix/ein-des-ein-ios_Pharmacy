@@ -19,7 +19,7 @@ class OnboardingCoordinator: EventNode, Coordinator {
     // MARK: - Properties
     private weak var root: UINavigationController!
 
-    init(configuration: ProfileFlowConfiguration) {
+    init(configuration: OnboardingFlowConfiguration) {
         super.init(parent: configuration.parent)
 
         addHandler { [weak self] (event: EditProfileEvent) in
@@ -42,6 +42,7 @@ class OnboardingCoordinator: EventNode, Coordinator {
                                                                      toolbarClass: nil)
         navigationViewController.setViewControllers([onboardingViewController], animated: false)
         navigationViewController.isToolbarHidden = true
+        navigationViewController.isNavigationBarHidden = true
 
         root = navigationViewController
 
