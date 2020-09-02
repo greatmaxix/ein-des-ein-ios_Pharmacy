@@ -200,6 +200,10 @@
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
 		8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */; };
 		8715DB8924FFC76F00BBF37C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */; };
+		8715DB9224FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB9024FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift */; };
+		8715DB9324FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8715DB9124FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib */; };
+		8715DB9524FFEA3900BBF37C /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB9424FFEA3900BBF37C /* OnboardingCoordinator.swift */; };
+		8715DB9724FFF97B00BBF37C /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB9624FFF97B00BBF37C /* OnboardingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -398,6 +402,10 @@
 		619AAA492498B09800AB46ED /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Pharmacy/Services/Managers/Token.swift; sourceTree = SOURCE_ROOT; };
 		8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		8715DB9024FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlideCollectionViewCell.swift; sourceTree = "<group>"; };
+		8715DB9124FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingSlideCollectionViewCell.xib; sourceTree = "<group>"; };
+		8715DB9424FFEA3900BBF37C /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		8715DB9624FFF97B00BBF37C /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1268,10 +1276,22 @@
 		8715DB8424FFBFB900BBF37C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				8715DB8F24FFE45800BBF37C /* SlideCell */,
 				8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */,
+				8715DB9424FFEA3900BBF37C /* OnboardingCoordinator.swift */,
 				8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */,
+				8715DB9624FFF97B00BBF37C /* OnboardingModel.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		8715DB8F24FFE45800BBF37C /* SlideCell */ = {
+			isa = PBXGroup;
+			children = (
+				8715DB9024FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift */,
+				8715DB9124FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib */,
+			);
+			path = SlideCell;
 			sourceTree = "<group>";
 		};
 		8C9DDD9B3FE3CF15F89405BA /* Pods */ = {
@@ -1391,6 +1411,7 @@
 				396C45C22497699900A569CE /* Assets.xcassets in Resources */,
 				60E1A71124ECE0C300B3D205 /* Scan.storyboard in Resources */,
 				603D31EF24E5A9E5000E5A6C /* ProductInstructionTableViewCell.xib in Resources */,
+				8715DB9324FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib in Resources */,
 				603D31CE24E57E6B000E5A6C /* ProductPageViewController.xib in Resources */,
 				395C9D6A2498E2EA001EB6CD /* localize.strings in Resources */,
 				603D31E124E5A8E3000E5A6C /* ProductCategoryTableViewCell.xib in Resources */,
@@ -1508,6 +1529,7 @@
 				6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */,
 				60E1A71324ECE0D100B3D205 /* ScanViewController.swift in Sources */,
 				618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */,
+				8715DB9724FFF97B00BBF37C /* OnboardingModel.swift in Sources */,
 				395B9CCD24EFC6E000254881 /* AnalizesViewController.swift in Sources */,
 				3915D60824A2466700A93627 /* ConfirmCodeModel.swift in Sources */,
 				603D31B024E3C9E4000E5A6C /* MedicineListViewController.swift in Sources */,
@@ -1565,6 +1587,7 @@
 				603D31D524E5A0C2000E5A6C /* ProductCellSection.swift in Sources */,
 				603D31A924E3B67B000E5A6C /* Category.swift in Sources */,
 				618C339F2498BE0200951D11 /* ProfileViewController.swift in Sources */,
+				8715DB9224FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift in Sources */,
 				60E1A6F424EB8C5E00B3D205 /* SearchTableViewCell.swift in Sources */,
 				619AAA462498AEA700AB46ED /* SampleResponseModel.swift in Sources */,
 				618C33952498BD6700951D11 /* AppNavigation.swift in Sources */,
@@ -1649,6 +1672,7 @@
 				39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */,
 				603D31BA24E3FA1F000E5A6C /* UIImageView+URL.swift in Sources */,
 				603D318F24E2A2D3000E5A6C /* ReceiptView.swift in Sources */,
+				8715DB9524FFEA3900BBF37C /* OnboardingCoordinator.swift in Sources */,
 				395C9D772499FC14001EB6CD /* PhoneValidator.swift in Sources */,
 				395D050524D05206007A278D /* MedicineCell.swift in Sources */,
 			);

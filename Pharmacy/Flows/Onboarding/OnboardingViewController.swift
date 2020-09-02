@@ -17,6 +17,7 @@ final class OnboardingViewController: UIViewController {
     @IBOutlet private weak var skipButton: UIButton!
 
     // MARK: - Properties
+    var model: OnboardingModel!
     private var currentIndex: UInt = 0
 
     // MARK: - Lifecycle
@@ -51,7 +52,7 @@ extension OnboardingViewController {
 extension OnboardingViewController {
 
     private func setupContainerView() {
-
+        
     }
 
     private func setupContainerViewEdgeGesture() {

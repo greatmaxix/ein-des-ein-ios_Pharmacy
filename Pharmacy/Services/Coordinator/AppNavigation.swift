@@ -51,6 +51,10 @@ extension AppNavigation {
         let coordinator = AuthFlowCoordinator(configuration: configuration)
         presentCoordinatorFlow(coordinator)
     }
+    
+    private func presentOnboardingFlow() {
+        
+    }
 
     private func presentCoordinatorFlow(_ coordinator: Coordinator) {
         let root = coordinator.createFlow()
