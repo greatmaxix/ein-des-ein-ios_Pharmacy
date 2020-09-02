@@ -650,7 +650,6 @@
 			isa = PBXGroup;
 			children = (
 				619AAA3C2498A98200AB46ED /* Services */,
-				396C45CD2497744800A569CE /* Resources */,
 				396448E024ADE16600E6D852 /* Models */,
 				396C45D02497754300A569CE /* Templates */,
 				3959E9D3249A63FA00FA1F74 /* Components */,
@@ -659,6 +658,7 @@
 				875223A425000416000759C8 /* Common */,
 				39534EA524A4D962009AA5BB /* Extensions */,
 				396C45CC2497741B00A569CE /* Responces */,
+				396C45CD2497744800A569CE /* Resources */,
 				396C45C62497699900A569CE /* Info.plist */,
 				396C45B82497699800A569CE /* AppDelegate.swift */,
 				396C45C32497699900A569CE /* LaunchScreen.storyboard */,

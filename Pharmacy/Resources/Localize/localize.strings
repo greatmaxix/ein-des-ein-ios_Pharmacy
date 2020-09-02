@@ -29,7 +29,7 @@
 "onboarding.button.next" = "Далее";
 "onboarding.button.skip" = "Пропустить";
 "onboarding.title" = "Преимущества";
-"onboarding.description" = "Разрешите дотсуп к геолокации для актульного отображения контента";
+"onboarding.description" = "Разрешите доступ к геолокации для актульного отображения контента";
 
 // MARK: - Confirm code
 "confirm.screenTitle" = "Верификация";
