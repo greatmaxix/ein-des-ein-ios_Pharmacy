@@ -25,6 +25,11 @@
 "error.phone" = "Ой, кажется это не похоже на номер телефона";
 "error.name" = "Is this your real name?";
 
+// MARK: - Onboarding
+
+"onboarding.title" = "Преимущества";
+"onboarding.description" = "Разрешите дотсуп к геолокации для актульного отображения контента";
+
 // MARK: - Confirm code
 "confirm.screenTitle" = "Верификация";
 "confirm.title" = "Подтверждение номера";
