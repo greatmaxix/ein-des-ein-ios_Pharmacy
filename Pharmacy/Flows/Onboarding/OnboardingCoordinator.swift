@@ -10,7 +10,7 @@ import UIKit
 import EventsTree
 
 struct OnboardingFlowConfiguration {
-    
+
     let parent: EventNode
 }
 
@@ -34,9 +34,11 @@ class OnboardingCoordinator: EventNode, Coordinator {
 
     // MARK: - Public methods
     func createFlow() -> UIViewController {
-
         let onboardingViewController: OnboardingViewController = R.storyboard.onboarding.onboardingContainerViewController()!
-        onboardingViewController.model = OnboardingModel(parent: self)
+        let model = OnboardingModel(parent: self)
+
+        onboardingViewController.model = model
+        model.output = onboardingViewController
 
         let navigationViewController: UINavigationController = .init(navigationBarClass: SimpleNavigationBar.self,
                                                                      toolbarClass: nil)

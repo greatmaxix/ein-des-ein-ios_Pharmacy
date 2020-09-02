@@ -1288,9 +1288,9 @@
 			children = (
 				8715DB8F24FFE45800BBF37C /* SlideCell */,
 				8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */,
+				8715DB9624FFF97B00BBF37C /* OnboardingModel.swift */,
 				8715DB9424FFEA3900BBF37C /* OnboardingCoordinator.swift */,
 				8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */,
-				8715DB9624FFF97B00BBF37C /* OnboardingModel.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";

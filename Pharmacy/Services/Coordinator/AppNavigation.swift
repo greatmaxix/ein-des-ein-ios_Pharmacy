@@ -24,6 +24,13 @@ final class AppNavigation: EventNode {
                 self?.startMainFlow()
             }
         }
+        
+        addHandler { [weak self] (event: OnboardingEvent) in
+            if case .close = event {
+                // TODO: open registration instead
+                self?.presentMainFlow()
+            }
+        }
     }
 
     func startFlow() {

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol OnboardingModelOutput: AnyObject {
+    func routeToSlide(at index: Int)
+}
+
 final class OnboardingViewController: UIViewController {
 
     // MARK: - Outlets
@@ -18,7 +22,6 @@ final class OnboardingViewController: UIViewController {
 
     // MARK: - Properties
     var model: OnboardingModel!
-    private var currentIndex: UInt = 0
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -34,20 +37,27 @@ final class OnboardingViewController: UIViewController {
 extension OnboardingViewController {
 
     @IBAction private func onNextButtonTouchUp(_ sender: UIButton) {
-        routeToNextSlide()
+        model.onNextAction()
     }
 
     @IBAction private func onSkipButtonTouchUp(_ sender: UIButton) {
-        model.close()
+        model.onSkipButtonAction()
     }
 
     @IBAction private func onRightEdgeGesture(_ sender: UIGestureRecognizer) {
-        guard sender.state == .ended,
-            currentIndex < model.slideInfos.count - 1 else {
+        guard sender.state == .ended else {
             return
         }
 
-        routeToNextSlide()
+        model.onNextAction()
+    }
+}
+
+// MARK: - OnboardingModelOutput
+extension OnboardingViewController: OnboardingModelOutput {
+
+    func routeToSlide(at index: Int) {
+        selectSlide(at: index)
     }
 }
 
@@ -64,7 +74,7 @@ extension OnboardingViewController {
         rightGesture.edges = .right
         containerView.addGestureRecognizer(rightGesture)
     }
-    
+
     private func setupButtons() {
         nextButton.layer.cornerRadius = nextButton.frame.height / 2
         nextButton.setTitle(R.string.localize.onboardingButtonNext(),
@@ -73,17 +83,12 @@ extension OnboardingViewController {
                             for: .normal)
     }
 
-    private func routeToNextSlide() {
-        currentIndex += 1
-        selectSlide(at: currentIndex)
-    }
-
-    private func selectSlide(at index: UInt, animated: Bool = true) {
+    private func selectSlide(at index: Int, animated: Bool = true) {
         guard index < collectionView.numberOfItems(inSection: 0) else {
             return
         }
 
-        let indexPath = IndexPath(item: Int(index), section: 0)
+        let indexPath = IndexPath(item: index, section: 0)
         collectionView.layoutIfNeeded()
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
     }
