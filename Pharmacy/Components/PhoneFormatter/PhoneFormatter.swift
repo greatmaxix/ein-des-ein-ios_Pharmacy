@@ -44,7 +44,7 @@ class PhoneFormatter {
     
     func formattedFinalNumber(number: String) -> String {
         
-        var cleanPhoneNumber: String = number
+        let cleanPhoneNumber: String = number
 
         let partOfMask = " (XXX) XXX-XXXX"
         let countryCodeLength: Int = number.count - Const.phoneNumberLength
