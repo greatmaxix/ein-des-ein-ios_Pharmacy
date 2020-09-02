@@ -20,7 +20,6 @@ extension NibLoadable {
     }
     
     static var nibView: UIView {
-        
         guard let view = nib.instantiate(withOwner: self, options: nil)[0] as? UIView else {
             fatalError("Can't instantiate a \(self)")
         }
