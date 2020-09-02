@@ -9,10 +9,14 @@
 import UIKit
 
 protocol CheckoutOutput: class {
-    
+    func setupCustomer(name: String, phone: String, email: String)
+    func setupMedicines()
+    func setupFarmacy()
+    func setupDeliveryAddress()
+    func setupOrderInfo()
 }
 
-final class CheckoutViewController: UIViewController {
+final class CheckoutViewController: UIViewController, NavigationBarStyled {
     
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var contactInfoLabel: UILabel!
@@ -75,18 +79,18 @@ final class CheckoutViewController: UIViewController {
     @IBOutlet private weak var medicineHeightConstr: NSLayoutConstraint!
     
     @IBOutlet private weak var sumTitleLabel: UILabel!
-    @IBOutlet private weak var discountTitleLabel: UILabel!
     @IBOutlet private weak var deliverySumTitleLabel: UILabel!
     @IBOutlet private weak var sumLabel: UILabel!
-    @IBOutlet private weak var discountLabel: UILabel!
     @IBOutlet private weak var deliverySumLabel: UILabel!
     
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var priceTitleLabel: UILabel!
-    @IBOutlet private weak var promocodeButton: UIButton!
     @IBOutlet private weak var applyButton: UIButton!
     
     var model: CheckoutInput!
+    var style: NavigationBarStyle {
+        .normalWithoutSearch
+    }
 
     // MARK: - Life cycle
     
@@ -97,6 +101,8 @@ final class CheckoutViewController: UIViewController {
         setupLocalization()
         setupOrder()
         descriptionTextView.delegate = self
+        
+        model.loadOrder()
     }
 
     func setupUI() {
@@ -105,20 +111,19 @@ final class CheckoutViewController: UIViewController {
         
         deliveryButton.layer.borderWidth = 2
         deliveryButton.layer.borderColor = R.color.welcomeBlue()?.cgColor
-        deliveryButton.layer.cornerRadius = 8
+        deliveryButton.layer.cornerRadius = GUI.smallCornerRadius
         customerInfoBackground.layer.cornerRadius = GUI.cornerRadius
         farmacyInfoView.layer.cornerRadius = GUI.cornerRadius
         filledAddresView.layer.cornerRadius = GUI.cornerRadius
         
         pickupButton.layer.borderWidth = 2
         pickupButton.layer.borderColor = R.color.textDarkBlue()?.cgColor
-        pickupButton.layer.cornerRadius = 8
+        pickupButton.layer.cornerRadius = GUI.smallCornerRadius
         
         descriptionBackgroundView.layer.cornerRadius = descriptionBackgroundView.bounds.height / 4
         descriptionBackgroundView.layer.borderWidth = 1
         descriptionBackgroundView.layer.borderColor = R.color.validationGray()?.cgColor
         
-        promocodeButton.layer.cornerRadius = promocodeButton.bounds.height / 2
         applyButton.layer.cornerRadius = applyButton.bounds.height / 2
         
         cityInputView.contentType = .other
@@ -131,6 +136,8 @@ final class CheckoutViewController: UIViewController {
         emailInputView.contentType = .email
         
         paymentBackgroundView.layer.cornerRadius = GUI.cornerRadius
+        
+        
     }
     
     func setupLocalization() {
@@ -146,6 +153,7 @@ final class CheckoutViewController: UIViewController {
         deliveryLabel.text = R.string.localize.checkoutDelivery()
         pickupLabel.text = R.string.localize.checkoutPickup()
         deliveryAddressLabel.text = R.string.localize.checkoutFarmacyAddress()
+        
         showDeliveryButton.setTitle(R.string.localize.checkoutChange(), for: .normal)
         cityInputView.placeholder = R.string.localize.checkoutCity()
         streetInputView.placeholder = R.string.localize.checkoutStreet()
@@ -159,10 +167,8 @@ final class CheckoutViewController: UIViewController {
         orderButton.setTitle(R.string.localize.checkoutChange(), for: .normal)
         
         sumTitleLabel.text = R.string.localize.checkoutWhorePrice()
-        discountTitleLabel.text = R.string.localize.checkoutDiscount()
         deliverySumTitleLabel.text = R.string.localize.checkoutDelivery()
         priceTitleLabel.text = R.string.localize.checkoutFinalPrice()
-        promocodeButton.setTitle(R.string.localize.checkoutPromocode(), for: .normal)
         applyButton.setTitle(R.string.localize.checkoutApplyPurchase(), for: .normal)
     }
     
@@ -184,7 +190,7 @@ final class CheckoutViewController: UIViewController {
                 medicineViewHeight = medicineView.frame.height
             }
         }
-        medicineHeightConstr.constant = 3 * medicineViewHeight + 2 * 10
+        medicineHeightConstr.constant = 3 * medicineViewHeight + 2 * medicineStackView.spacing
     }
     
     // MARK: - Outlets
@@ -224,8 +230,7 @@ final class CheckoutViewController: UIViewController {
     }
     @IBAction func editOrder() {
     }
-    @IBAction func promoCode() {
-    }
+
     @IBAction func applyOrder() {
     }
     
@@ -248,5 +253,35 @@ extension CheckoutViewController: UITextViewDelegate {
 fileprivate extension CheckoutViewController {
     struct GUI {
         static let cornerRadius: CGFloat = 10
+        static let smallCornerRadius: CGFloat = 8
+    }
+}
+
+extension CheckoutViewController: CheckoutOutput {
+    
+    func setupCustomer(name: String, phone: String, email: String) {
+        nameFilledLabel.text = name
+        phoneFilledLabel.text = "📱 " + phone
+        emailFilledLabel.text = "📪 " + email
+        
+        nameInputView.text = name
+        emailInputView.text = email
+        phoneInputView.text = phone
+    }
+    
+    func setupOrderInfo() {
+        //
+    }
+    
+    func setupMedicines() {
+        //
+    }
+    
+    func setupFarmacy() {
+        //
+    }
+    
+    func setupDeliveryAddress() {
+        //
     }
 }

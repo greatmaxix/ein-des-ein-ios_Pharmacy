@@ -176,10 +176,13 @@ final class TextInputView: UIView {
     }
     
     var text: String? {
-        
-        inputTextField.text
+        get {
+            inputTextField.text
+        }
+        set {
+            inputTextField.text = newValue
+        }
     }
-    
     var returnKeyType: UIReturnKeyType = .default {
         
         willSet {

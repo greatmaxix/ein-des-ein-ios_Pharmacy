@@ -74,6 +74,7 @@ fileprivate extension ProductCoordinator {
         guard let vc = R.storyboard.product.checkoutViewController() else { return }
         let model = CheckoutModel(parent: self)
         vc.model = model
+        model.output = vc
         navigation.pushViewController(vc, animated: true)
     }
 }

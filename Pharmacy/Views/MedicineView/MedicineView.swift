@@ -20,6 +20,7 @@ class MedicineView: UIView {
     
     override func awakeFromNib() {
         farmacyImageView.layer.cornerRadius = 8
+        layer.cornerRadius = 8
     }
     
     func setup() {

@@ -9,10 +9,25 @@
 import UIKit
 import EventsTree
 
-protocol CheckoutInput {}
+protocol CheckoutInput {
+    func loadOrder()
+}
 
 final class CheckoutModel: EventNode {
     
+    unowned var output: CheckoutOutput!
+    
+    func loadCustomer() {
+        if let customer = UserSession.shared.getUser() {
+            output.setupCustomer(name: customer.name, phone: customer.phone, email: customer.email ?? "")
+        }
+    }
+    
 }
 
-extension CheckoutModel: CheckoutInput {}
+extension CheckoutModel: CheckoutInput {
+    
+    func loadOrder() {
+        loadCustomer()
+    }
+}
