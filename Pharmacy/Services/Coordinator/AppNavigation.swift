@@ -27,8 +27,9 @@ final class AppNavigation: EventNode {
     }
 
     func startFlow() {
-        presentMainFlow()
+//        presentMainFlow()
        // presentAuthFlow()
+        presentOnboardingFlow()
     }
     
     func startMainFlow() {
@@ -53,7 +54,9 @@ extension AppNavigation {
     }
     
     private func presentOnboardingFlow() {
-        
+        let configuration = OnboardingFlowConfiguration(parent: self)
+        let coordinator = OnboardingCoordinator(configuration: configuration)
+        presentCoordinatorFlow(coordinator)
     }
 
     private func presentCoordinatorFlow(_ coordinator: Coordinator) {

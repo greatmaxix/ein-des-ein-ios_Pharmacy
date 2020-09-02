@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct SlideInfo {
+    let image: UIImage
+    let title: String
+    let description: String
+}
+
 class OnboardingSlideCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Outlets
@@ -19,8 +25,10 @@ class OnboardingSlideCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-    func setupContent(with info: OnboardingModel.SlideInfo) {
-        
+    func setupContent(with info: SlideInfo) {
+        imageView.image = info.image
+        titleLabel.text = info.title
+        descriptionLabel.text = info.description
     }
 }
 

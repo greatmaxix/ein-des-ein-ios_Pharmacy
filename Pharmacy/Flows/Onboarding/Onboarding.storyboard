@@ -41,10 +41,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhY-MM-RkA">
                                 <rect key="frame" x="0.0" y="44" width="414" height="710"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wZL-0F-gLc">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wZL-0F-gLc">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="710"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M5Q-VH-dd3">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sso-ta-uGQ">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -60,6 +60,10 @@
                                                 </collectionViewCellContentView>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="sNA-cr-lPi" id="RQJ-5R-pB6"/>
+                                            <outlet property="delegate" destination="sNA-cr-lPi" id="URk-RO-U0d"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -87,6 +91,7 @@
                         <viewLayoutGuide key="safeArea" id="LHO-DW-sty"/>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="wZL-0F-gLc" id="qt0-vW-1dM"/>
                         <outlet property="containerView" destination="IhY-MM-RkA" id="V7J-su-abV"/>
                         <outlet property="nextButton" destination="mM8-lc-aTB" id="qlz-Kk-zZy"/>
                         <outlet property="skipButton" destination="IlY-o4-FUV" id="1UT-yx-tKL"/>

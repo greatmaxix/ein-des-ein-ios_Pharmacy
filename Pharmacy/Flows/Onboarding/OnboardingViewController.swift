@@ -24,6 +24,7 @@ final class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupContainerViewEdgeGesture()
         setupContainerView()
     }
 }
@@ -40,7 +41,8 @@ extension OnboardingViewController {
     }
 
     @IBAction private func onRightEdgeGesture(_ sender: UIGestureRecognizer) {
-        guard sender.state == .ended else {
+        guard sender.state == .ended,
+            currentIndex < model.slideInfos.count - 1 else {
             return
         }
 
@@ -81,11 +83,13 @@ extension OnboardingViewController {
 // MARK: - UICollectionViewDataSource
 extension OnboardingViewController: UICollectionViewDataSource {
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         return model.slideInfos.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: OnboardingSlideCollectionViewCell = collectionView.dequeueReusableCell(at: indexPath)
         cell.setupContent(with: model.slideInfos[indexPath.row])
         
@@ -95,7 +99,9 @@ extension OnboardingViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension OnboardingViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.bounds.size
     }
 }

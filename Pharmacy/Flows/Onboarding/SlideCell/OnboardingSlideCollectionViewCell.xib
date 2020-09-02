@@ -28,15 +28,15 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qds-Pf-WdC">
                         <rect key="frame" x="0.0" y="0.0" width="397" height="517"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-Zf-JsV">
-                                <rect key="frame" x="68" y="108" width="261" height="261"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-Zf-JsV">
+                                <rect key="frame" x="68" y="110" width="261" height="261"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="261" id="MNk-e4-BKG"/>
                                     <constraint firstAttribute="width" constant="261" id="azY-g8-dra"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQK-zF-ujm">
-                                <rect key="frame" x="16" y="401" width="365" height="30"/>
+                                <rect key="frame" x="16" y="403" width="365" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8UZ-wM-z48"/>
                                 </constraints>
@@ -44,9 +44,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC3-II-0oH">
-                                <rect key="frame" x="16" y="439" width="365" height="24"/>
-                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC3-II-0oH">
+                                <rect key="frame" x="16" y="441" width="365" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -81,4 +81,7 @@
             <point key="canvasLocation" x="389.13043478260875" y="309.04017857142856"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="onboarding" width="261" height="261"/>
+    </resources>
 </document>

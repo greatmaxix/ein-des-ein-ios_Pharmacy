@@ -12,10 +12,17 @@ protocol OnboardingModelInput {
 
 class OnboardingModel: Model {
 
+    // MARK: - Properties
     private(set) var slideInfos: [SlideInfo] = {
-        [SlideInfo(),
-        SlideInfo(),
-        SlideInfo()]
+        [SlideInfo(image: R.image.onboarding()!,
+                   title: R.string.localize.onboardingTitle(),
+                   description: R.string.localize.onboardingDescription()),
+         SlideInfo(image: R.image.onboarding()!,
+                   title: R.string.localize.onboardingTitle(),
+                   description: R.string.localize.onboardingDescription()),
+         SlideInfo(image: R.image.onboarding()!,
+                   title: R.string.localize.onboardingTitle(),
+                   description: R.string.localize.onboardingDescription())]
     }()
 }
 
@@ -24,12 +31,5 @@ extension OnboardingModel: OnboardingModelInput {
 
     func close() {
 
-    }
-}
-
-extension OnboardingModel {
-    
-    struct SlideInfo {
-        
     }
 }
