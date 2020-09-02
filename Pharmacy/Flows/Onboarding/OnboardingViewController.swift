@@ -89,7 +89,6 @@ extension OnboardingViewController {
         }
 
         let indexPath = IndexPath(item: index, section: 0)
-        collectionView.layoutIfNeeded()
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
     }
 }

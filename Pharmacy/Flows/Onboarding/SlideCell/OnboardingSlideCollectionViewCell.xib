@@ -44,7 +44,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tC3-II-0oH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tC3-II-0oH">
                                 <rect key="frame" x="16" y="441" width="365" height="22"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -57,9 +57,10 @@
                             <constraint firstAttribute="trailing" secondItem="tC3-II-0oH" secondAttribute="trailing" constant="16" id="76E-6D-1hV"/>
                             <constraint firstAttribute="trailing" secondItem="fQK-zF-ujm" secondAttribute="trailing" constant="16" id="Dzf-Nk-wIP"/>
                             <constraint firstItem="fQK-zF-ujm" firstAttribute="leading" secondItem="Qds-Pf-WdC" secondAttribute="leading" constant="16" id="Npt-J0-Bg1"/>
-                            <constraint firstAttribute="bottom" secondItem="tC3-II-0oH" secondAttribute="bottom" constant="54" id="OOt-C6-UlS"/>
+                            <constraint firstAttribute="bottom" secondItem="tC3-II-0oH" secondAttribute="bottom" priority="250" constant="54" id="OOt-C6-UlS"/>
                             <constraint firstItem="fQK-zF-ujm" firstAttribute="top" secondItem="WgE-Zf-JsV" secondAttribute="bottom" constant="32" id="is2-cC-y6Q"/>
                             <constraint firstItem="WgE-Zf-JsV" firstAttribute="centerX" secondItem="Qds-Pf-WdC" secondAttribute="centerX" id="kQb-yy-QVr"/>
+                            <constraint firstItem="WgE-Zf-JsV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Qds-Pf-WdC" secondAttribute="top" constant="16" id="kY9-j9-cFl"/>
                             <constraint firstItem="tC3-II-0oH" firstAttribute="leading" secondItem="Qds-Pf-WdC" secondAttribute="leading" constant="16" id="oY7-Ar-Eo3"/>
                         </constraints>
                     </view>
