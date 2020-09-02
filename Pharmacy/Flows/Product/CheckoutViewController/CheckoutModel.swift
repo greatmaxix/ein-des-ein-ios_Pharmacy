@@ -22,10 +22,9 @@ final class CheckoutModel: EventNode {
             output.setupCustomer(name: customer.name, phone: customer.phone, email: customer.email ?? "")
         }
     }
-    
 }
 
-extension CheckoutModel: CheckoutInput {
+extension CheckoutModel: CheckoutViewControllerInput {
     
     func loadOrder() {
         loadCustomer()

@@ -8,6 +8,9 @@
 
 import UIKit
 
+protocol CheckoutViewControllerInput: CheckoutInput {}
+protocol CheckoutViewControllerOutput: CheckoutOutput { }
+
 protocol CheckoutOutput: class {
     func setupCustomer(name: String, phone: String, email: String)
     func setupMedicines()
@@ -104,14 +107,8 @@ final class CheckoutViewController: UIViewController, NavigationBarStyled {
         
         title = R.string.localize.checkoutTitle()
         
-        deliveryButton.layer.borderWidth = 2
         deliveryButton.layer.borderColor = R.color.welcomeBlue()?.cgColor
-        deliveryButton.layer.cornerRadius = GUI.smallCornerRadius
-        
-        pickupButton.layer.borderWidth = 2
         pickupButton.layer.borderColor = R.color.textDarkBlue()?.cgColor
-        pickupButton.layer.cornerRadius = GUI.smallCornerRadius
-        
         descriptionBackgroundView.layer.borderColor = R.color.validationGray()?.cgColor
         
         cityInputView.contentType = .other
@@ -182,17 +179,14 @@ final class CheckoutViewController: UIViewController, NavigationBarStyled {
     @IBAction private func selectDelivery(_ sender: UIButton) {
          
         let selectedDelivery: Bool = sender == deliveryButton
-         
-        deliveryButton.layer.borderColor = selectedDelivery ?  R.color.welcomeBlue()?.cgColor : R.color.textDarkBlue()?.cgColor
-        deliveryButton.tintColor = selectedDelivery ?  R.color.welcomeBlue() : R.color.textDarkBlue()
-        deliveryLabel.textColor = selectedDelivery ?  R.color.welcomeBlue() : R.color.textDarkBlue()
-        deliveryLabel.font = selectedDelivery ? R.font.openSansSemiBold(size: 14) : R.font.openSansRegular(size: 14)
-         
-        pickupButton.layer.borderColor = !selectedDelivery ?  R.color.welcomeBlue()?.cgColor : R.color.textDarkBlue()?.cgColor
-        pickupButton.tintColor = !selectedDelivery ?  R.color.welcomeBlue() : R.color.textDarkBlue()
-        pickupLabel.textColor = !selectedDelivery ?  R.color.welcomeBlue() : R.color.textDarkBlue()
-        pickupLabel.font = !selectedDelivery ? R.font.openSansSemiBold(size: 14) : R.font.openSansRegular(size: 14)
+        let deselectedButton: UIButton = selectedDelivery ? pickupButton : deliveryButton
         
+        let selectedLabel: UILabel = selectedDelivery ? deliveryLabel : pickupLabel
+        let deselectedLabel: UILabel = !selectedDelivery ? deliveryLabel : pickupLabel
+        
+        setDeliveryStyle(button: sender, label: selectedLabel, isSelected: true)
+        setDeliveryStyle(button: deselectedButton, label: deselectedLabel, isSelected: false)
+
         customerAddresEditView.isHidden = !selectedDelivery
         customerAddressView.isHidden = true
         deliveryAddresHeader.isHidden = !selectedDelivery
@@ -218,6 +212,14 @@ final class CheckoutViewController: UIViewController, NavigationBarStyled {
     @IBAction func applyOrder() {
     }
     
+    func setDeliveryStyle(button: UIButton, label: UILabel, isSelected: Bool) {
+        
+        button.layer.borderColor = isSelected ?  R.color.welcomeBlue()?.cgColor : R.color.textDarkBlue()?.cgColor
+        button.tintColor = isSelected ?  R.color.welcomeBlue() : R.color.textDarkBlue()
+        label.textColor = isSelected ?  R.color.welcomeBlue() : R.color.textDarkBlue()
+        label.font = isSelected ? R.font.openSansSemiBold(size: 14) : R.font.openSansRegular(size: 14)
+    }
+    
 }
 
 extension CheckoutViewController: UITextViewDelegate {
@@ -234,14 +236,7 @@ extension CheckoutViewController: UITextViewDelegate {
     }
 }
 
-fileprivate extension CheckoutViewController {
-    struct GUI {
-        static let cornerRadius: CGFloat = 10
-        static let smallCornerRadius: CGFloat = 8
-    }
-}
-
-extension CheckoutViewController: CheckoutOutput {
+extension CheckoutViewController: CheckoutViewControllerOutput {
     
     func setupCustomer(name: String, phone: String, email: String) {
         nameFilledLabel.text = name
