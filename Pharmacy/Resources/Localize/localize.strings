@@ -26,7 +26,8 @@
 "error.name" = "Is this your real name?";
 
 // MARK: - Onboarding
-
+"onboarding.button.next" = "Далее";
+"onboarding.button.skip" = "Пропустить";
 "onboarding.title" = "Преимущества";
 "onboarding.description" = "Разрешите дотсуп к геолокации для актульного отображения контента";
 

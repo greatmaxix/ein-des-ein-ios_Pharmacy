@@ -33,7 +33,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlY-o4-FUV">
                                 <rect key="frame" x="16" y="822" width="382" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" name="applyBlueGray"/>
+                                </state>
                                 <connections>
                                     <action selector="onSkipButtonTouchUp:" destination="sNA-cr-lPi" eventType="touchUpInside" id="dg3-NK-yEB"/>
                                 </connections>
@@ -103,6 +105,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="applyBlueGray">
+            <color red="0.6470588235294118" green="0.70588235294117652" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="welcomeBlue">
             <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
