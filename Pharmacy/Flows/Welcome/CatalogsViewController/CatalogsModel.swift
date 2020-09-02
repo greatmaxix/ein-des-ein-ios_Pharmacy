@@ -30,6 +30,7 @@ protocol CatalogsModelInput: class {
 class CatalogsModel: EventNode {
     unowned var output: CatalogsModelOutput!
     let categoryDataSource = CollectionDataSource<CategoryCellSection>()
+    let provider = DataManager<CategoryAPI, ProfileResponse>()
     
     let title: String
     
@@ -46,7 +47,12 @@ extension CatalogsModel: CatalogsModelInput {
     }
     
     internal func load() {
-        let category = Category(title: "Название категшории", imageURL: nil)
+        
+        provider.load(target: .getCategories(startCode: "", maxLevel: 1), completion: { [weak self] response in
+            
+        })
+        
+        let category = Category(title: "Название категории", imageURL: nil)
         let array = Array(repeating: category, count: 9)
         categoryDataSource.cells = array.map { CategoryCellSection.common(category: $0) }
         output.didLoadCategories()

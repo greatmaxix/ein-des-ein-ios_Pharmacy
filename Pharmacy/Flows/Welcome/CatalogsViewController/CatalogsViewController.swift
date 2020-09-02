@@ -14,6 +14,7 @@ final class CatalogsViewController: CollectionDataSourceViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        model.load()
         setupUI()
     }
     

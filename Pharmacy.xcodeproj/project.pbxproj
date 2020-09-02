@@ -12,6 +12,7 @@
 		39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0824A0DA5A004A9909 /* SignInModel.swift */; };
 		39273A0B24A0DFEC004A9909 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0A24A0DFEC004A9909 /* Model.swift */; };
 		39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0C24A0F09B004A9909 /* SignUpModel.swift */; };
+		392BD73A24FFE23000088002 /* CategoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392BD73924FFE23000088002 /* CategoryAPI.swift */; };
 		3939A6D524F6A3C90045FB71 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3939A6D424F6A3C90045FB71 /* LocationService.swift */; };
 		393D3CDB24FD33BD00E8181F /* PaymentMethodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393D3CDA24FD33BD00E8181F /* PaymentMethodView.xib */; };
 		393D3CDD24FD35A500E8181F /* PaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D3CDC24FD35A500E8181F /* PaymentMethodView.swift */; };
@@ -212,6 +213,7 @@
 		39273A0824A0DA5A004A9909 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		39273A0A24A0DFEC004A9909 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		39273A0C24A0F09B004A9909 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		392BD73924FFE23000088002 /* CategoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAPI.swift; sourceTree = "<group>"; };
 		3939A6D424F6A3C90045FB71 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		393D3CDA24FD33BD00E8181F /* PaymentMethodView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentMethodView.xib; sourceTree = "<group>"; };
 		393D3CDC24FD35A500E8181F /* PaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView.swift; sourceTree = "<group>"; };
@@ -1288,6 +1290,7 @@
 			children = (
 				619AAA3F2498A9AE00AB46ED /* AuthAPI.swift */,
 				39854D0124EAB4870070E0D1 /* ProfileAPI.swift */,
+				392BD73924FFE23000088002 /* CategoryAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1636,6 +1639,7 @@
 				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
 				6036EAF524DD1AA6003336C2 /* CatalogueViewController.swift in Sources */,
 				603D31CD24E57E6B000E5A6C /* ProductPageViewController.swift in Sources */,
+				392BD73A24FFE23000088002 /* CategoryAPI.swift in Sources */,
 				603D319624E3B22A000E5A6C /* TableDataSource.swift in Sources */,
 				603D31AD24E3C8F8000E5A6C /* MedicineCellSection.swift in Sources */,
 				395A7FC524A3980D00A7CFC6 /* NameTableViewCell.swift in Sources */,

@@ -68,7 +68,7 @@ extension ProductModel: ProductViewControllerOutput {
     }
     
     func openMap() {
-        raise(event: ProductModelEvent.openMap(nil))
-        //raise(event: ProductModelEvent.openCheckout)
+        //raise(event: ProductModelEvent.openMap(nil))
+        raise(event: ProductModelEvent.openCheckout)
     }
 }
