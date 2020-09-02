@@ -1268,18 +1268,10 @@
 		8715DB8424FFBFB900BBF37C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				8715DB8724FFC73E00BBF37C /* Container */,
+				8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */,
 				8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */,
 			);
 			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		8715DB8724FFC73E00BBF37C /* Container */ = {
-			isa = PBXGroup;
-			children = (
-				8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */,
-			);
-			path = Container;
 			sourceTree = "<group>";
 		};
 		8C9DDD9B3FE3CF15F89405BA /* Pods */ = {
