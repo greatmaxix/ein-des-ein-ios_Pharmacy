@@ -8,6 +8,14 @@
 
 import Foundation
 
+protocol Storable where ManagedObject: Managed {
+    associatedtype ManagedObject
+    
+    var entityType: ManagedObject.Type { get }
+    var identifier: NSObject { get }
+    func fillEntity(entity: ManagedObject)
+}
+
 struct User: Equatable, Codable, Identifiable {
     let id: UInt64
     let name: String
@@ -15,6 +23,21 @@ struct User: Equatable, Codable, Identifiable {
     let phone: String
     let uuid: String
     var avatar: Avatar?
+}
+
+extension User: Storable {
+    
+    var entityType: UserEntity.Type {
+        UserEntity.self
+    }
+    
+    var identifier: NSObject {
+        NSNumber(value: id)
+    }
+    
+    func fillEntity(entity: UserEntity) {
+        
+    }
 }
 
 struct Avatar: Equatable, Codable {

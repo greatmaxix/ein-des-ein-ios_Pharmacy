@@ -71,12 +71,12 @@ class UserSession {
     
     @discardableResult
     func save(user: User) throws -> UserDisplayable {
-        let userEntity: UserEntity = convertToEntity(user)
-        try CoreDataService.shared.save(userEntity)
+//        let userEntity: UserEntity = convertToEntity(user)
+        try CoreDataService.shared.save(user)
         userDefaultsAccessor.userId = user.id
         NotificationCenter.default.post(Notification.userSesionDidChanged)
         
-        return convertToDisplayable(userEntity)
+        return UserDisplayable(name: "", email: "", phone: "") //convertToDisplayable(userEntity)
     }
 }
 

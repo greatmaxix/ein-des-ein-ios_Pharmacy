@@ -8,15 +8,25 @@
 
 import CoreData
 
+typealias Managed = NSManagedObject & Entity
+
 public protocol Entity: AnyObject {
     static var primaryKey: String { get }
 }
 
 extension Entity where Self: NSManagedObject {
     
+    @discardableResult
+    static func createOrUpdate(in context: NSManagedObjectContext,
+                               matching predicate: NSPredicate,
+                               configure: (Self) -> Void) -> Self {
+        let object = findOrCreate(in: context, matching: predicate)
+        configure(object)
+        return object
+    }
+    
     static func findOrCreate(in context: NSManagedObjectContext,
-                             matching predicate: NSPredicate,
-                             configure: (Self) -> Void) -> Self {
+                             matching predicate: NSPredicate) -> Self {
         let fetchedObject = fetch(in: context) { request in
             request.predicate = predicate
             request.returnsObjectsAsFaults = false
@@ -24,7 +34,6 @@ extension Entity where Self: NSManagedObject {
         }.first
         guard let object = fetchedObject else {
             let newObject: Self = context.insertObject()
-            configure(newObject)
             return newObject
         }
         return object

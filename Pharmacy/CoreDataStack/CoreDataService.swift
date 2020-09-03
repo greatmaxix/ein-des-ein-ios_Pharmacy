@@ -30,7 +30,15 @@ final class CoreDataService {
         return object
     }
     
-    func save<E: Entity & NSManagedObject>(_ entity: E) {
+    func save<DTO: Storable>(_ dto: DTO) {
         
+        let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
+        
+        dto.entityType.createOrUpdate(in: viewContext,
+                                      matching: predicate) { entity in
+                                        dto.fillEntity(entity: entity)
+        }
+        
+        try? viewContext.saveIfNeeded()
     }
 }
