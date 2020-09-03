@@ -215,6 +215,9 @@
 		875223A925000462000759C8 /* CellReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223A825000462000759C8 /* CellReusable.swift */; };
 		875223AB25000482000759C8 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223AA25000482000759C8 /* NibLoadable.swift */; };
 		875223B22500EA2C000759C8 /* UserSessionDataAccessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223B12500EA2C000759C8 /* UserSessionDataAccessible.swift */; };
+		875223B72500ECCF000759C8 /* Accessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223B62500ECCF000759C8 /* Accessible.swift */; };
+		875223B92500ED29000759C8 /* UserDefaults+Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223B82500ED29000759C8 /* UserDefaults+Persistent.swift */; };
+		875223BB2500ED89000759C8 /* UserDefaultsAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223BA2500ED89000759C8 /* UserDefaultsAccessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -428,6 +431,9 @@
 		875223A825000462000759C8 /* CellReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellReusable.swift; sourceTree = "<group>"; };
 		875223AA25000482000759C8 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		875223B12500EA2C000759C8 /* UserSessionDataAccessible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionDataAccessible.swift; sourceTree = "<group>"; };
+		875223B62500ECCF000759C8 /* Accessible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessible.swift; sourceTree = "<group>"; };
+		875223B82500ED29000759C8 /* UserDefaults+Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Persistent.swift"; sourceTree = "<group>"; };
+		875223BA2500ED89000759C8 /* UserDefaultsAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAccessor.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1351,6 +1357,7 @@
 		875223A425000416000759C8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				875223B42500ECA4000759C8 /* UserDefaultsAccessor */,
 				875223A525000423000759C8 /* Protocols */,
 			);
 			path = Common;
@@ -1379,6 +1386,24 @@
 			isa = PBXGroup;
 			children = (
 				875223B12500EA2C000759C8 /* UserSessionDataAccessible.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		875223B42500ECA4000759C8 /* UserDefaultsAccessor */ = {
+			isa = PBXGroup;
+			children = (
+				875223BA2500ED89000759C8 /* UserDefaultsAccessor.swift */,
+				875223B82500ED29000759C8 /* UserDefaults+Persistent.swift */,
+				875223B52500ECBE000759C8 /* Protocols */,
+			);
+			path = UserDefaultsAccessor;
+			sourceTree = "<group>";
+		};
+		875223B52500ECBE000759C8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				875223B62500ECCF000759C8 /* Accessible.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1664,6 +1689,7 @@
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
 				39F0AD6524EEC80200CD6CA4 /* OrdersViewController.swift in Sources */,
 				39DBC18F24F7C2CC00CB82D5 /* MapMessageView.swift in Sources */,
+				875223BB2500ED89000759C8 /* UserDefaultsAccessor.swift in Sources */,
 				603D31D724E5A3FE000E5A6C /* Product.swift in Sources */,
 				395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */,
 				618C33AA2498BFB400951D11 /* Coordinator.swift in Sources */,
@@ -1721,8 +1747,10 @@
 				6036EAF724DD1AB1003336C2 /* CatalogueModel.swift in Sources */,
 				395B9CCB24EFC6CA00254881 /* AnalizesModel.swift in Sources */,
 				6036EAFC24DD1C8F003336C2 /* BasketViewController.swift in Sources */,
+				875223B72500ECCF000759C8 /* Accessible.swift in Sources */,
 				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
 				6036EAF524DD1AA6003336C2 /* CatalogueViewController.swift in Sources */,
+				875223B92500ED29000759C8 /* UserDefaults+Persistent.swift in Sources */,
 				603D31CD24E57E6B000E5A6C /* ProductPageViewController.swift in Sources */,
 				603D319624E3B22A000E5A6C /* TableDataSource.swift in Sources */,
 				603D31AD24E3C8F8000E5A6C /* MedicineCellSection.swift in Sources */,
