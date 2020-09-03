@@ -33,11 +33,19 @@ final class AppNavigation: EventNode {
                 break
             }
         }
+        addHandler { [weak self] (event: OnboardingEvent) in
+            if case .close = event {
+                // TODO: open registration instead
+                self?.presentMainFlow()
+            }
+        }
     }
 
     func startFlow() {
-        //presentMainFlow()
-        presentAuthFlow()
+        
+//        presentMainFlow()
+       // presentAuthFlow()
+        presentOnboardingFlow()
     }
     
     func startMainFlow() {
@@ -58,6 +66,12 @@ extension AppNavigation {
     fileprivate func presentAuthFlow() {
         let configuration = AuthFlowConfiguration(parent: self)
         let coordinator = AuthFlowCoordinator(configuration: configuration)
+        presentCoordinatorFlow(coordinator)
+    }
+    
+    private func presentOnboardingFlow() {
+        let configuration = OnboardingFlowConfiguration(parent: self)
+        let coordinator = OnboardingCoordinator(configuration: configuration)
         presentCoordinatorFlow(coordinator)
     }
 
