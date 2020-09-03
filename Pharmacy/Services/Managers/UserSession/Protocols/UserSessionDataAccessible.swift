@@ -7,10 +7,9 @@
 //
 
 protocol UserSessionDataAccessible {
-    
-    static var apiHost: String { get set }
+
     static var userId: Int { get set }
-    
+
     static func removeUserId()
     static func clear()
 }

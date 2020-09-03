@@ -218,6 +218,7 @@
 		875223B72500ECCF000759C8 /* Accessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223B62500ECCF000759C8 /* Accessible.swift */; };
 		875223B92500ED29000759C8 /* UserDefaults+Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223B82500ED29000759C8 /* UserDefaults+Persistent.swift */; };
 		875223BB2500ED89000759C8 /* UserDefaultsAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223BA2500ED89000759C8 /* UserDefaultsAccessor.swift */; };
+		875223BE2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223BD2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -434,6 +435,7 @@
 		875223B62500ECCF000759C8 /* Accessible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessible.swift; sourceTree = "<group>"; };
 		875223B82500ED29000759C8 /* UserDefaults+Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Persistent.swift"; sourceTree = "<group>"; };
 		875223BA2500ED89000759C8 /* UserDefaultsAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAccessor.swift; sourceTree = "<group>"; };
+		875223BD2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaultsAccessor+SessionData.swift"; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1377,6 +1379,7 @@
 			isa = PBXGroup;
 			children = (
 				39818FA024AF69B0007D6D94 /* UserSession.swift */,
+				875223BC2500EF43000759C8 /* Extensions */,
 				875223B02500E9F6000759C8 /* Protocols */,
 			);
 			path = UserSession;
@@ -1406,6 +1409,14 @@
 				875223B62500ECCF000759C8 /* Accessible.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		875223BC2500EF43000759C8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				875223BD2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		8C9DDD9B3FE3CF15F89405BA /* Pods */ = {
@@ -1642,6 +1653,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				875223BE2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift in Sources */,
 				6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */,
 				60E1A71324ECE0D100B3D205 /* ScanViewController.swift in Sources */,
 				618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */,

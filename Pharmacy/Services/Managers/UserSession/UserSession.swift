@@ -36,11 +36,12 @@ class UserSession {
         }
     }
     
-    // TODO: Fix ! when UserSessionDataAccessible will be implemented
-    private var userDefaultsAccessor: UserSessionDataAccessible.Type!
+    private var userDefaultsAccessor: UserSessionDataAccessible.Type
     
     // MARK: - Init / Deinit methods
-    init() {
+    init(with accessor: UserSessionDataAccessible.Type = UserDefaultsAccessor.self) {
+        self.userDefaultsAccessor = accessor
+        
         let userId = userDefaultsAccessor.userId
         if userId > 0 {
             authorizationStatus = .authorized(userId: userId)
