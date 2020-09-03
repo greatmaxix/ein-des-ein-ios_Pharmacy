@@ -36,15 +36,13 @@ class UserSession {
             fatalError("Set `authorizationStatus` as \(String(describing: AuthorizationStatus.authorized)) before")
         }
     }
-    var user: User? {
-        get {
-            switch authorizationStatus {
-            case .authorized(let userId):
-                return nil
-//                return try? CoreDataService.shared.get(by: userId)
-            case .notAuthorized:
-                return nil
-            }
+    var user: UserDisplayable? {
+        switch authorizationStatus {
+        case .authorized(let userId):
+            return nil
+//            let user: UserEntity = CoreDataService.shared.get(by: userId) as! UserEntity
+        case .notAuthorized:
+            return nil
         }
     }
     
@@ -71,7 +69,7 @@ class UserSession {
     }
     
     func save(user: User) throws {
-//        try CoreDataService.shared.save(user)
+        try CoreDataService.shared.save(convertToEntity(user))
         userDefaultsAccessor.userId = user.id
         NotificationCenter.default.post(Notification.userSesionDidChanged)
     }
@@ -79,6 +77,10 @@ class UserSession {
 
 // MARK: - Private methods
 extension UserSession {
+    
+    private func convertToEntity(_ userDTO: User) -> UserEntity {
+        return UserEntity()
+    }
     
     private func clearData() {
         UserDefaultsAccessor.clear()

@@ -225,6 +225,9 @@
 		875223CA2500FDEE000759C8 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223C92500FDEE000759C8 /* Entity.swift */; };
 		875223CC2500FE07000759C8 /* NSManagedObject+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223CB2500FE07000759C8 /* NSManagedObject+Name.swift */; };
 		875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 875223CD2500FECC000759C8 /* Pharmacy.xcdatamodeld */; };
+		875223D12501075D000759C8 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223D02501075D000759C8 /* CoreDataService.swift */; };
+		875223D42501152F000759C8 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223D32501152F000759C8 /* UserEntity.swift */; };
+		875223D625011588000759C8 /* UserDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223D525011588000759C8 /* UserDisplayable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -448,6 +451,9 @@
 		875223C92500FDEE000759C8 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		875223CB2500FE07000759C8 /* NSManagedObject+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Name.swift"; sourceTree = "<group>"; };
 		875223CE2500FECC000759C8 /* Pharmacy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pharmacy.xcdatamodel; sourceTree = "<group>"; };
+		875223D02501075D000759C8 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		875223D32501152F000759C8 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		875223D525011588000759C8 /* UserDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDisplayable.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -679,7 +685,6 @@
 		396448E024ADE16600E6D852 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				396448E124ADE17A00E6D852 /* User.swift */,
 				603D319024E3A7FD000E5A6C /* Receipt.swift */,
 				603D31A824E3B67B000E5A6C /* Category.swift */,
 				603D31B324E3CFEE000E5A6C /* Medicine.swift */,
@@ -1437,6 +1442,7 @@
 			isa = PBXGroup;
 			children = (
 				875223CD2500FECC000759C8 /* Pharmacy.xcdatamodeld */,
+				875223D02501075D000759C8 /* CoreDataService.swift */,
 				875223C22500FD28000759C8 /* Entities */,
 				875223C82500FDD8000759C8 /* Protocols */,
 				875223C32500FD39000759C8 /* Extensions */,
@@ -1447,6 +1453,7 @@
 		875223C22500FD28000759C8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				875223D2250114A7000759C8 /* User */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1467,6 +1474,16 @@
 				875223C92500FDEE000759C8 /* Entity.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		875223D2250114A7000759C8 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				396448E124ADE17A00E6D852 /* User.swift */,
+				875223D32501152F000759C8 /* UserEntity.swift */,
+				875223D525011588000759C8 /* UserDisplayable.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		8C9DDD9B3FE3CF15F89405BA /* Pods */ = {
@@ -1726,9 +1743,11 @@
 				603D31C124E5789D000E5A6C /* ProductCoordinator.swift in Sources */,
 				8715DB8924FFC76F00BBF37C /* OnboardingViewController.swift in Sources */,
 				39505F5624AC73620045EC02 /* TabBarModel.swift in Sources */,
+				875223D42501152F000759C8 /* UserEntity.swift in Sources */,
 				39F0AD6D24EEC85400CD6CA4 /* WishlistViewController.swift in Sources */,
 				398B0DD424F506540084EC54 /* MapModel.swift in Sources */,
 				603D319124E3A7FD000E5A6C /* Receipt.swift in Sources */,
+				875223D625011588000759C8 /* UserDisplayable.swift in Sources */,
 				603D319B24E3B2B1000E5A6C /* CollectionCellSection.swift in Sources */,
 				603D31B624E3D323000E5A6C /* UIButton.swift in Sources */,
 				395C9D762499FC14001EB6CD /* EmailValidator.swift in Sources */,
@@ -1782,6 +1801,7 @@
 				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
 				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,
 				398B0DD724F50A4C0084EC54 /* FarmacyPinView.swift in Sources */,
+				875223D12501075D000759C8 /* CoreDataService.swift in Sources */,
 				875223C52500FD60000759C8 /* NSManagedObjectContext.swift in Sources */,
 				399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */,
 				398B0DEB24F51C8F0084EC54 /* MapFarmacyCell.swift in Sources */,

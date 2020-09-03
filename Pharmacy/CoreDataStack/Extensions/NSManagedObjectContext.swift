@@ -37,7 +37,7 @@ extension NSManagedObjectContext {
         return try fetch(request).first
     }
 
-    public func first<ResultType: FetchResultObject & Entity>(withPrimaryKey key: Int64) throws -> ResultType? {
+    public func first<ResultType: FetchResultObject & Entity>(withPrimaryKey key: UInt64) throws -> ResultType? {
         return try first(withPrimaryKey: NSNumber(value: key))
     }
 

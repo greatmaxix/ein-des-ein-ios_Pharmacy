@@ -35,7 +35,7 @@ protocol ProfileInput {
 final class ProfileModel: Model {
     
     private var cellsData: [BaseCellData] = []
-    private var user: User? = UserSession.shared.user
+    private var user: UserDisplayable? = UserSession.shared.user
     private let provider = DataManager<ProfileAPI, ProfileResponse>()
 
     override init(parent: EventNode?) {
@@ -60,10 +60,10 @@ final class ProfileModel: Model {
         }
         cellsData = []
         do {
-            let cellData: NameTableViewCellData = NameTableViewCellData(imageUrl: user?.avatar?.url, name: user?.name ?? "Name Surname", phone: user?.phone ?? "+1111111111111")
+            let cellData: NameTableViewCellData = NameTableViewCellData(imageUrl: user?.avatarURL, name: user?.name ?? "Name Surname", phone: user?.phone ?? "+1111111111111")
             cellData.editProfile = { [weak self] in
-                if let user: User = self?.user {
-                    self?.raise(event: ProfileEvent.editProfile(profile: user))
+                if let user = self?.user {
+//                    self?.raise(event: ProfileEvent.editProfile(profile: user))
                 }
             }
             cellData.selectHandler = nil
@@ -171,7 +171,8 @@ extension ProfileModel: ProfileInput {
             switch response {
             case .success(let result):
                 try? UserSession.shared.save(user: result.user, token: nil)
-                self.user = result.user
+                self.user = UserSession.shared.user
+                    //result.user
                 self.setupDataSource()
                 completion?()
             case .failure(let error):
