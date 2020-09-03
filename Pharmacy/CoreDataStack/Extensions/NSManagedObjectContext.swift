@@ -49,6 +49,18 @@ extension NSManagedObjectContext {
     public func first<ResultType: FetchResultObject & Entity>(withPrimaryKey key: UInt64) throws -> ResultType? {
         return try first(withPrimaryKey: NSNumber(value: key))
     }
+    
+    public func filter<ResultType: NSFetchRequestResult & NSObject>(where predicate: NSPredicate, sortDescriptors: [NSSortDescriptor]? = nil) throws -> [ResultType] {
+        let request: NSFetchRequest<ResultType> = createRequest(where: predicate, sortDescriptors: sortDescriptors)
+        
+        return try fetch(request)
+    }
+    
+    public func all<ResultType: NSFetchRequestResult & NSObject>(sortDescriptors: [NSSortDescriptor]? = nil) throws -> [ResultType] {
+        let request: NSFetchRequest<ResultType> = createRequest(where: nil, sortDescriptors: sortDescriptors)
+        
+        return try fetch(request)
+    }
 
     // MARK: - Internal methods
     func performAndWait<T>(_ block: () throws -> T) rethrows -> T {

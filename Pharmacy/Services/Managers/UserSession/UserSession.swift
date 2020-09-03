@@ -39,8 +39,11 @@ class UserSession {
     var user: UserDisplayable? {
         switch authorizationStatus {
         case .authorized(let userId):
-            return nil
-//            let user: UserEntity = CoreDataService.shared.get(by: userId) as! UserEntity
+            guard let user: UserEntity = CoreDataService.shared.get(by: userId) else {
+                return nil
+            }
+            
+            return convertToDisplayable(userEntity: user)
         case .notAuthorized:
             return nil
         }
@@ -62,38 +65,35 @@ class UserSession {
     
     // MARK: - Public methods
     @discardableResult
-    func save(user: User, token: String?) throws -> UserDisplayable {
+    func save(user: User, token: String?) -> UserDisplayable {
         if let token = token {
             KeychainManager.shared.saveToken(token: token)
         }
-        return try save(user: user)
+        return save(user: user)
     }
     
     @discardableResult
-    func save(user: User) throws -> UserDisplayable {
-//        let userEntity: UserEntity = convertToEntity(user)
-        try CoreDataService.shared.save(user)
+    func save(user: User) -> UserDisplayable {
+        CoreDataService.shared.save(user)
         userDefaultsAccessor.userId = user.id
         NotificationCenter.default.post(Notification.userSesionDidChanged)
         
-        return UserDisplayable(name: "", email: "", phone: "") //convertToDisplayable(userEntity)
+        return UserDisplayable(name: user.name,
+                               email: user.email,
+                               phone: user.phone)
     }
 }
 
 // MARK: - Private methods
 extension UserSession {
     
-    private func convertToEntity(_ userDTO: User) -> UserEntity {
-        return UserEntity()
-    }
-    
-    private func convertToDisplayable(_ userEntity: UserEntity) -> UserDisplayable {
+    private func convertToDisplayable(userEntity: UserEntity) -> UserDisplayable {
         return UserDisplayable(name: userEntity.name,
                                email: userEntity.email,
                                phone: userEntity.phone,
                                avatarURL: URL(string: ""))
     }
-    
+
     private func clearData() {
         UserDefaultsAccessor.clear()
     }

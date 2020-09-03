@@ -36,7 +36,7 @@ extension User: Storable {
     }
     
     func fillEntity(entity: UserEntity) {
-        
+        entity.updateWith(self)
     }
 }
 
