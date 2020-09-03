@@ -24,16 +24,25 @@ final class AppNavigation: EventNode {
                 self?.startMainFlow()
             }
         }
+        
+        addHandler { [weak self] (event: ProfileEvent) in
+            switch event {
+            case .logout:
+                self?.startFlow()
+            default:
+                break
+            }
+        }
     }
 
     func startFlow() {
-        presentMainFlow()
-       // presentAuthFlow()
+        //presentMainFlow()
+        presentAuthFlow()
     }
     
     func startMainFlow() {
-        presentAuthFlow()
-        //presentMainFlow()
+        //presentAuthFlow()
+        presentMainFlow()
     }
 }
 

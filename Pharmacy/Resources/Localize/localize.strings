@@ -71,6 +71,11 @@
 "profile.questions" = "Нужна помощь?";
 "profile.exit" = "Выйти из аккаунта";
 
+"profile.exitQuestion" = "Вы уверены, что хотите выйти из приложения?";
+"profile.exitDescription" = "Это позволяет приложению\nподелиться информацией о вас.";
+"profile.exitYes" = "Выйти";
+"profile.exitNo" = "Отмена";
+
 // MARK: - Edit Profile
 
 "profile.edit" = "Редактировать";

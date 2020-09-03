@@ -30,10 +30,12 @@ protocol ProfileInput {
     func selectActionAt(index: Int) -> EmptyClosure?
     func cellDataAt(index: Int) -> BaseCellData
     func loadUser(completion: EmptyClosure?)
+    func logout()
 }
 
 protocol ProfileOutput: class {
     func showLogoutError()
+    func presentLogoutView()
 }
 
 final class ProfileModel: Model {
@@ -142,7 +144,7 @@ final class ProfileModel: Model {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileExit(), type: .exit)
             cellData.image = R.image.profileQuit()
             cellData.selectHandler = { [weak self] in
-                self?.logout()
+                self?.output.presentLogoutView()
             }
             cellsData.append(cellData)
         }
@@ -150,21 +152,6 @@ final class ProfileModel: Model {
             let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24)
             cellsData.append(cellData)
         }
-    }
-    
-    func logout() {
-        guard let token = KeychainManager.shared.getToken() else { return }
-        
-        MoyaProvider<AuthAPI>().request(.logout(refreshToken: token), completion: { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case.success:
-                self.raise(event: ProfileEvent.logout)
-            case .failure:
-                self.output.showLogoutError()
-                break
-            }
-        })
     }
 }
 
@@ -199,5 +186,19 @@ extension ProfileModel: ProfileInput {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func logout() {
+        guard let token = KeychainManager.shared.getToken() else { return }
+        
+        MoyaProvider<AuthAPI>().request(.logout(refreshToken: token), completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case.success:
+                self.raise(event: ProfileEvent.logout)
+            case .failure:
+                self.output.showLogoutError()
+            }
+        })
     }
 }

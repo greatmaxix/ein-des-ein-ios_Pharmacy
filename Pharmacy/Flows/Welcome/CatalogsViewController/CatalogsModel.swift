@@ -34,11 +34,10 @@ class CatalogsModel: EventNode {
     let provider = DataManager<CategoryAPI, CategoriesResponse>()
     private var categories: [Category]
     
-    
     let title: String
     
     init(category: Category?, parent: EventNode?) {
-        self.title = category?.title ?? R.string.localize.welcomeCategories()
+        self.title = category?.shortTitle ?? R.string.localize.welcomeCategories()
         categories = category?.subCategories ?? []
         super.init(parent: parent)
     }

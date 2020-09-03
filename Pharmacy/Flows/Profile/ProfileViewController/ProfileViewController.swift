@@ -77,6 +77,18 @@ extension ProfileViewController: UITableViewDelegate {
 extension ProfileViewController: ProfileOutput {
     
     func showLogoutError() {
-        showError(message: "Failed to log out")
+        showError(message: "Failed to log out.")
+    }
+    
+    func presentLogoutView() {
+        let logoutVC = UIAlertController(title: R.string.localize.profileExitQuestion(), message: R.string.localize.profileExitDescription(), preferredStyle: .alert)
+        logoutVC.addAction(UIAlertAction(title: R.string.localize.profileExitNo(), style: .default, handler: nil))
+        logoutVC.addAction(UIAlertAction(title: R.string.localize.profileExitYes(), style: .destructive, handler: { [weak self] _ in
+            self?.model.logout()
+        }))
+        
+        DispatchQueue.main.async {
+            self.present(logoutVC, animated: true, completion: nil)
+        }
     }
 }

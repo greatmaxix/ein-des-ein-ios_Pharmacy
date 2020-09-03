@@ -28,7 +28,14 @@ final class Category: Decodable {
     let imageURL: URL? = nil
     let code: String
     let subCategories: [Category]?
-    
+    var shortTitle: String {
+        let maxLength = 20
+        if title.count - maxLength > 0 {
+            return String(title.dropLast(title.count - maxLength)) + "..."
+        }
+        return title
+    }
+
     enum Keys: String, CodingKey {
         case rusName
         case nodes
