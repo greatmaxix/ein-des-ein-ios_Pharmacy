@@ -30,6 +30,15 @@ extension NSManagedObjectContext {
             throw savingError
         }
     }
+    
+    func insertObject<EntityType: NSManagedObject>() -> EntityType where EntityType: Entity {
+        guard let obj = NSEntityDescription.insertNewObject(forEntityName: EntityType.entityName,
+                                                            into: self) as? EntityType else {
+                                                                fatalError("Wrong object type")
+        }
+        
+        return obj
+    }
 
     public func first<ResultType: FetchResultObject>(where predicate: NSPredicate) throws -> ResultType? {
         let request: NSFetchRequest<ResultType> = createRequest(where: predicate)

@@ -30,7 +30,7 @@ final class CoreDataService {
         return object
     }
     
-    func save<E: Entity>(_ entity: E) {
+    func save<E: Entity & NSManagedObject>(_ entity: E) {
         
     }
 }

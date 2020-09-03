@@ -61,17 +61,22 @@ class UserSession {
     }
     
     // MARK: - Public methods
-    func save(user: User, token: String?) throws {
-        try save(user: user)
+    @discardableResult
+    func save(user: User, token: String?) throws -> UserDisplayable {
         if let token = token {
             KeychainManager.shared.saveToken(token: token)
         }
+        return try save(user: user)
     }
     
-    func save(user: User) throws {
-        try CoreDataService.shared.save(convertToEntity(user))
+    @discardableResult
+    func save(user: User) throws -> UserDisplayable {
+        let userEntity: UserEntity = convertToEntity(user)
+        try CoreDataService.shared.save(userEntity)
         userDefaultsAccessor.userId = user.id
         NotificationCenter.default.post(Notification.userSesionDidChanged)
+        
+        return convertToDisplayable(userEntity)
     }
 }
 
@@ -80,6 +85,13 @@ extension UserSession {
     
     private func convertToEntity(_ userDTO: User) -> UserEntity {
         return UserEntity()
+    }
+    
+    private func convertToDisplayable(_ userEntity: UserEntity) -> UserDisplayable {
+        return UserDisplayable(name: userEntity.name,
+                               email: userEntity.email,
+                               phone: userEntity.phone,
+                               avatarURL: URL(string: ""))
     }
     
     private func clearData() {
