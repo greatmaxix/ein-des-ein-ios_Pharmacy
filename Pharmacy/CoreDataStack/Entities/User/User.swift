@@ -8,21 +8,13 @@
 
 import Foundation
 
-protocol Storable where ManagedObject: Managed {
-    associatedtype ManagedObject
-    
-    var entityType: ManagedObject.Type { get }
-    var identifier: NSObject { get }
-    func fillEntity(entity: ManagedObject)
-}
-
 struct User: Equatable, Codable, Identifiable {
     let id: UInt64
     let name: String
     let email: String?
     let phone: String
     let uuid: String
-    var avatar: Avatar?
+    var avatar: AvatarDTO?
 }
 
 extension User: Storable {
@@ -38,9 +30,4 @@ extension User: Storable {
     func fillEntity(entity: UserEntity) {
         entity.updateWith(self)
     }
-}
-
-struct Avatar: Equatable, Codable {
-    let url: URL
-    let uuid: String?
 }

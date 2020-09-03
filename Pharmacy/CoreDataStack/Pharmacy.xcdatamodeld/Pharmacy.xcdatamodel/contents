@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AvatarEntity" representedClassName="AvatarEntity" syncable="YES">
+        <attribute name="url" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="identifier" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -8,5 +12,6 @@
     </entity>
     <elements>
         <element name="UserEntity" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="AvatarEntity" positionX="-63" positionY="9" width="128" height="73"/>
     </elements>
 </model>
