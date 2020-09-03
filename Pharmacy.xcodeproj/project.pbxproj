@@ -220,6 +220,11 @@
 		875223BB2500ED89000759C8 /* UserDefaultsAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223BA2500ED89000759C8 /* UserDefaultsAccessor.swift */; };
 		875223BE2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223BD2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift */; };
 		875223C02500F7A4000759C8 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223BF2500F7A4000759C8 /* Typealiases.swift */; };
+		875223C52500FD60000759C8 /* NSManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223C42500FD60000759C8 /* NSManagedObjectContext.swift */; };
+		875223C72500FD90000759C8 /* NSPersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223C62500FD90000759C8 /* NSPersistentContainer.swift */; };
+		875223CA2500FDEE000759C8 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223C92500FDEE000759C8 /* Entity.swift */; };
+		875223CC2500FE07000759C8 /* NSManagedObject+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223CB2500FE07000759C8 /* NSManagedObject+Name.swift */; };
+		875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 875223CD2500FECC000759C8 /* Pharmacy.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -438,6 +443,11 @@
 		875223BA2500ED89000759C8 /* UserDefaultsAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAccessor.swift; sourceTree = "<group>"; };
 		875223BD2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaultsAccessor+SessionData.swift"; sourceTree = "<group>"; };
 		875223BF2500F7A4000759C8 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		875223C42500FD60000759C8 /* NSManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectContext.swift; sourceTree = "<group>"; };
+		875223C62500FD90000759C8 /* NSPersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPersistentContainer.swift; sourceTree = "<group>"; };
+		875223C92500FDEE000759C8 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		875223CB2500FE07000759C8 /* NSManagedObject+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Name.swift"; sourceTree = "<group>"; };
+		875223CE2500FECC000759C8 /* Pharmacy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pharmacy.xcdatamodel; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -709,6 +719,7 @@
 				875223A425000416000759C8 /* Common */,
 				39534EA524A4D962009AA5BB /* Extensions */,
 				396C45CC2497741B00A569CE /* Responces */,
+				875223C12500FD17000759C8 /* CoreDataStack */,
 				396C45CD2497744800A569CE /* Resources */,
 				396C45C62497699900A569CE /* Info.plist */,
 				396C45B82497699800A569CE /* AppDelegate.swift */,
@@ -1422,6 +1433,42 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		875223C12500FD17000759C8 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				875223CD2500FECC000759C8 /* Pharmacy.xcdatamodeld */,
+				875223C22500FD28000759C8 /* Entities */,
+				875223C82500FDD8000759C8 /* Protocols */,
+				875223C32500FD39000759C8 /* Extensions */,
+			);
+			path = CoreDataStack;
+			sourceTree = "<group>";
+		};
+		875223C22500FD28000759C8 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		875223C32500FD39000759C8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				875223C62500FD90000759C8 /* NSPersistentContainer.swift */,
+				875223C42500FD60000759C8 /* NSManagedObjectContext.swift */,
+				875223CB2500FE07000759C8 /* NSManagedObject+Name.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		875223C82500FDD8000759C8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				875223C92500FDEE000759C8 /* Entity.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		8C9DDD9B3FE3CF15F89405BA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1657,6 +1704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				875223BE2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift in Sources */,
+				875223C72500FD90000759C8 /* NSPersistentContainer.swift in Sources */,
 				6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */,
 				60E1A71324ECE0D100B3D205 /* ScanViewController.swift in Sources */,
 				618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */,
@@ -1667,6 +1715,7 @@
 				603D31B024E3C9E4000E5A6C /* MedicineListViewController.swift in Sources */,
 				603D31FA24E5AA31000E5A6C /* ProductDescriptionTableViewCell.swift in Sources */,
 				398B0DEF24F53AC50084EC54 /* FoundMedicineView.swift in Sources */,
+				875223CA2500FDEE000759C8 /* Entity.swift in Sources */,
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
 				39854D0224EAB4870070E0D1 /* ProfileAPI.swift in Sources */,
 				875223C02500F7A4000759C8 /* Typealiases.swift in Sources */,
@@ -1733,6 +1782,7 @@
 				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
 				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,
 				398B0DD724F50A4C0084EC54 /* FarmacyPinView.swift in Sources */,
+				875223C52500FD60000759C8 /* NSManagedObjectContext.swift in Sources */,
 				399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */,
 				398B0DEB24F51C8F0084EC54 /* MapFarmacyCell.swift in Sources */,
 				396448E224ADE17A00E6D852 /* User.swift in Sources */,
@@ -1743,6 +1793,7 @@
 				3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */,
 				39F0AD6924EEC83000CD6CA4 /* PrescriptionsModel.swift in Sources */,
 				603D319F24E3B492000E5A6C /* CollectionDataSourceViewController.swift in Sources */,
+				875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */,
 				395CB74424FCE9BF000A958F /* CheckoutViewController.swift in Sources */,
 				60E1A70C24ECD6E500B3D205 /* SearchNavigationController.swift in Sources */,
 				60E1A71724ECE0EA00B3D205 /* ScanModel.swift in Sources */,
@@ -1799,6 +1850,7 @@
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
 				39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */,
+				875223CC2500FE07000759C8 /* NSManagedObject+Name.swift in Sources */,
 				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,
 				6036EB0024DD1CAA003336C2 /* BasketCoordinator.swift in Sources */,
 				60E1A71D24ED079F00B3D205 /* ActionSheetView.swift in Sources */,
@@ -2012,6 +2064,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		875223CD2500FECC000759C8 /* Pharmacy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				875223CE2500FECC000759C8 /* Pharmacy.xcdatamodel */,
+			);
+			currentVersion = 875223CE2500FECC000759C8 /* Pharmacy.xcdatamodel */;
+			path = Pharmacy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 396C45AD2497699800A569CE /* Project object */;
 }
