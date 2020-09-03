@@ -36,6 +36,10 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 self?.presentAnalizes()
             case .close:
                 self?.popController()
+            case .logout:
+                let appNavigation = AppNavigation(window: UIApplication.shared.keyWindow!)
+                appNavigation.startMainFlow()
+                break
             default:
                 break
             }

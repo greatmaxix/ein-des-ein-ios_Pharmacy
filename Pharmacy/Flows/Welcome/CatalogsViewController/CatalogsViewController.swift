@@ -10,6 +10,8 @@ import UIKit
 
 final class CatalogsViewController: CollectionDataSourceViewController {
     
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
     var model: CatalogsModel!
     
     override func viewDidLoad() {
@@ -21,6 +23,8 @@ final class CatalogsViewController: CollectionDataSourceViewController {
     private func setupUI() {
         title = model.title
         collectionView.backgroundColor = view.backgroundColor
+        view.bringSubviewToFront(indicatorView)
+        indicatorView.startAnimating()
         model.load()
         collectionView.delegate = self
     }
@@ -31,6 +35,7 @@ final class CatalogsViewController: CollectionDataSourceViewController {
 extension CatalogsViewController: CatalogsModelOutput {
     func didLoadCategories() {
         model.categoryDataSource.assign(collectionView: collectionView)
+        indicatorView.stopAnimating()
     }
 }
 

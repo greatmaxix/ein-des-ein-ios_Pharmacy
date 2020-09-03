@@ -32,12 +32,14 @@ class CatalogsModel: EventNode {
     unowned var output: CatalogsModelOutput!
     let categoryDataSource = CollectionDataSource<CategoryCellSection>()
     let provider = DataManager<CategoryAPI, CategoriesResponse>()
-    private var categories: [Category] = []
+    private var categories: [Category]
+    
     
     let title: String
     
-    init(title: String, parent: EventNode?) {
-        self.title = R.string.localize.welcomeCategories()
+    init(category: Category?, parent: EventNode?) {
+        self.title = category?.title ?? R.string.localize.welcomeCategories()
+        categories = category?.subCategories ?? []
         super.init(parent: parent)
     }
     
@@ -59,15 +61,6 @@ extension CatalogsModel: CatalogsModelInput {
             reloadCategories()
             return
         }
-//        MoyaProvider<CategoryAPI>().request(.getCategories(startCode: nil, maxLevel: nil), completion: {[weak self] result in
-//            switch result {
-//            case .success(let response):
-//                let arr = try? JSONSerialization.jsonObject(with: response.data, options: .allowFragments) as? [String: Any]
-//                print(322)
-//            case .failure(let error):
-//                print(322)
-//            }
-//        })
         
         provider.load(target: .getCategories(startCode: nil, maxLevel: nil), completion: { [weak self] result in
             guard let self = self else { return }
@@ -76,29 +69,31 @@ extension CatalogsModel: CatalogsModelInput {
             case .success(let response):
                 var secondLevelCategories: [Category] = []
                 
-                response.categories.forEach({
-                    if let subCategories = $0.subCategories {
+                for category in response.categories {
+                    if let subCategories = category.subCategories {
                         secondLevelCategories.append(contentsOf: subCategories)
                     }
-                })
+                    if category.code != "H" {
+                        break
+                    }
+                }
                 self.categories = secondLevelCategories
                 self.reloadCategories()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         })
-        
-//        let category = Category(title: "Название категории", imageURL: nil)
-//        let array = Array(repeating: category, count: 9)
-//        categoryDataSource.cells = array.map { CategoryCellSection.common(category: $0) }
-//        output.didLoadCategories()
     }
     
     func didSelectCategoryBy(indexPath: IndexPath) {
         guard let cell = categoryDataSource.cell(for: indexPath) else { return }
         switch cell {
         case .common(let category):
-            raise(event: CatalogsEvent.openMedicineListFor(category: category))
+            if let count = category.subCategories?.count, count > 0 {
+                raise(event: WelcomeEvent.openCategories(category: category))
+            } else {
+                raise(event: CatalogsEvent.openMedicineListFor(category: category))
+            }
         }
     }
 }

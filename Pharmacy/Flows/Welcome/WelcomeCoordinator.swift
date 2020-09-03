@@ -25,8 +25,8 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
         
         addHandler { [weak self] (event: WelcomeEvent) in
             switch event {
-            case .openCategories(let categoryName):
-                self?.openCategories(categoryName: categoryName)
+            case .openCategories(let category):
+                self?.openCategories(category: category)
             default:
                 break
             }
@@ -77,9 +77,9 @@ extension WelcomeCoordinator {
         navigation.popViewController(animated: true)
     }
     
-    fileprivate func openCategories(categoryName: String) {
+    fileprivate func openCategories(category: Category?) {
         let vc = R.storyboard.welcome.catalogsViewController()!
-        let model = CatalogsModel(title: categoryName, parent: self)
+        let model = CatalogsModel(category: category, parent: self)
         model.output = vc
         vc.model = model
         navigation.pushViewController(vc, animated: true)

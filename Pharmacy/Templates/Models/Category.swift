@@ -26,7 +26,7 @@ final class Category: Decodable {
     
     let title: String
     let imageURL: URL? = nil
-    private let code: String
+    let code: String
     let subCategories: [Category]?
     
     enum Keys: String, CodingKey {

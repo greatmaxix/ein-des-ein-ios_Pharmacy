@@ -32,11 +32,17 @@ protocol ProfileInput {
     func loadUser(completion: EmptyClosure?)
 }
 
+protocol ProfileOutput: class {
+    func showLogoutError()
+}
+
 final class ProfileModel: Model {
     
     private var cellsData: [BaseCellData] = []
     private var user: User? = UserSession.shared.getUser()
     private let provider = DataManager<ProfileAPI, ProfileResponse>()
+    
+    unowned var output: ProfileOutput!
 
     override init(parent: EventNode?) {
         super.init(parent: parent)
@@ -136,7 +142,7 @@ final class ProfileModel: Model {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileExit(), type: .exit)
             cellData.image = R.image.profileQuit()
             cellData.selectHandler = { [weak self] in
-                self?.raise(event: ProfileEvent.logout)
+                self?.logout()
             }
             cellsData.append(cellData)
         }
@@ -144,6 +150,21 @@ final class ProfileModel: Model {
             let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24)
             cellsData.append(cellData)
         }
+    }
+    
+    func logout() {
+        guard let token = KeychainManager.shared.getToken() else { return }
+        
+        MoyaProvider<AuthAPI>().request(.logout(refreshToken: token), completion: { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case.success:
+                self.raise(event: ProfileEvent.logout)
+            case .failure:
+                self.output.showLogoutError()
+                break
+            }
+        })
     }
 }
 
