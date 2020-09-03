@@ -219,6 +219,7 @@
 		875223B92500ED29000759C8 /* UserDefaults+Persistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223B82500ED29000759C8 /* UserDefaults+Persistent.swift */; };
 		875223BB2500ED89000759C8 /* UserDefaultsAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223BA2500ED89000759C8 /* UserDefaultsAccessor.swift */; };
 		875223BE2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223BD2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift */; };
+		875223C02500F7A4000759C8 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223BF2500F7A4000759C8 /* Typealiases.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -436,6 +437,7 @@
 		875223B82500ED29000759C8 /* UserDefaults+Persistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Persistent.swift"; sourceTree = "<group>"; };
 		875223BA2500ED89000759C8 /* UserDefaultsAccessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsAccessor.swift; sourceTree = "<group>"; };
 		875223BD2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaultsAccessor+SessionData.swift"; sourceTree = "<group>"; };
+		875223BF2500F7A4000759C8 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1361,6 +1363,7 @@
 			children = (
 				875223B42500ECA4000759C8 /* UserDefaultsAccessor */,
 				875223A525000423000759C8 /* Protocols */,
+				875223BF2500F7A4000759C8 /* Typealiases.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1666,6 +1669,7 @@
 				398B0DEF24F53AC50084EC54 /* FoundMedicineView.swift in Sources */,
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
 				39854D0224EAB4870070E0D1 /* ProfileAPI.swift in Sources */,
+				875223C02500F7A4000759C8 /* Typealiases.swift in Sources */,
 				395A7FC924A399B000A7CFC6 /* ProfileModel.swift in Sources */,
 				603D31AB24E3BFBE000E5A6C /* UIEdgeInsets.swift in Sources */,
 				395A7FCC24A3A2B700A7CFC6 /* ProfileCoordinator.swift in Sources */,

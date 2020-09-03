@@ -8,7 +8,9 @@
 
 import Foundation
 
-typealias EmptyClosure = () -> Void
+extension Notification {
+    static let userSesionDidChanged = Notification(name: Notification.Name(rawValue: "userSesionDidChanged"))
+}
 
 class UserSession {
     
@@ -20,19 +22,29 @@ class UserSession {
         didSet {
             switch authorizationStatus {
             case .notAuthorized:
-                userDefaultsAccessor.removeUserId()
+                clearData()
             case .authorized(let userId):
                 userDefaultsAccessor.userId = userId
-                
             }
         }
     }
-    var userIdentifier: Int {
+    var userIdentifier: UInt64 {
         switch authorizationStatus {
         case .authorized(let userId):
             return userId
         case .notAuthorized:
             fatalError("Set `authorizationStatus` as \(String(describing: AuthorizationStatus.authorized)) before")
+        }
+    }
+    var user: User? {
+        get {
+            switch authorizationStatus {
+            case .authorized(let userId):
+                return nil
+//                return try? CoreDataService.shared.get(by: userId)
+            case .notAuthorized:
+                return nil
+            }
         }
     }
     
@@ -51,16 +63,25 @@ class UserSession {
     }
     
     // MARK: - Public methods
-    func save(user: User, token: String?) {
-        
-        UserDefaults.standard.saveUser(user: user)
+    func save(user: User, token: String?) throws {
+        try save(user: user)
         if let token = token {
             KeychainManager.shared.saveToken(token: token)
         }
     }
     
-    func getUser() -> User? {
-        return UserDefaults.standard.getCurrentUser()
+    func save(user: User) throws {
+//        try CoreDataService.shared.save(user)
+        userDefaultsAccessor.userId = user.id
+        NotificationCenter.default.post(Notification.userSesionDidChanged)
+    }
+}
+
+// MARK: - Private methods
+extension UserSession {
+    
+    private func clearData() {
+        UserDefaultsAccessor.clear()
     }
 }
 
@@ -69,6 +90,6 @@ extension UserSession {
     
     enum AuthorizationStatus {
         case notAuthorized
-        case authorized(userId: Int)
+        case authorized(userId: UInt64)
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 extension UserDefaultsAccessor: UserSessionDataAccessible {
     
-    static var userId: Int {
+    static var userId: UInt64 {
         get {
             UserDefaultsAccessor.value(for: \.userIdentifier)
         }

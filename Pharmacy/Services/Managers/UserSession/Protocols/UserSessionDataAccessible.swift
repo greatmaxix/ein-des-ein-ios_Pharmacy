@@ -8,7 +8,7 @@
 
 protocol UserSessionDataAccessible {
 
-    static var userId: Int { get set }
+    static var userId: UInt64 { get set }
 
     static func removeUserId()
     static func clear()

@@ -52,7 +52,7 @@ extension UserDefaultsAccessor {
     struct StoredValue {
         
         // MARK: - Properties represents key and value type
-        let userIdentifier: Int
+        let userIdentifier: UInt64
         
         // MARK: - Init / Deinit methods
         private init() {

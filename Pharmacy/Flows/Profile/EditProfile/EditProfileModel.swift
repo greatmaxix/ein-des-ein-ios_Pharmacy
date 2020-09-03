@@ -53,7 +53,7 @@ final class EditProfileModel: EventNode {
             switch result {
             case .success(let response):
                 let newUser = response.user
-                UserSession.shared.save(user: newUser, token: nil)
+                try? UserSession.shared.save(user: newUser, token: nil)
                 self.raise(event: EditProfileEvent.profileUpdated)
                 self.raise(event: EditProfileEvent.close)
             case .failure(let error):
@@ -71,7 +71,7 @@ final class EditProfileModel: EventNode {
                 switch result {
                 case .success(let response):
                     self.user.avatar = response.avatar
-                    UserSession.shared.save(user: self.user, token: nil)
+                    try? UserSession.shared.save(user: self.user, token: nil)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

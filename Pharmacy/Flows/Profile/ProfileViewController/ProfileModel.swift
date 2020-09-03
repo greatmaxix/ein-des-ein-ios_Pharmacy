@@ -35,7 +35,7 @@ protocol ProfileInput {
 final class ProfileModel: Model {
     
     private var cellsData: [BaseCellData] = []
-    private var user: User? = UserSession.shared.getUser()
+    private var user: User? = UserSession.shared.user
     private let provider = DataManager<ProfileAPI, ProfileResponse>()
 
     override init(parent: EventNode?) {
@@ -170,7 +170,7 @@ extension ProfileModel: ProfileInput {
 
             switch response {
             case .success(let result):
-                UserSession.shared.save(user: result.user, token: nil)
+                try? UserSession.shared.save(user: result.user, token: nil)
                 self.user = result.user
                 self.setupDataSource()
                 completion?()

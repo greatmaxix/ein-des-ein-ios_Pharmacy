@@ -18,7 +18,7 @@ final class CheckoutModel: EventNode {
     unowned var output: CheckoutOutput!
     
     func loadCustomer() {
-        if let customer = UserSession.shared.getUser() {
+        if let customer = UserSession.shared.user {
             output.setupCustomer(name: customer.name, phone: customer.phone, email: customer.email ?? "")
         }
     }
