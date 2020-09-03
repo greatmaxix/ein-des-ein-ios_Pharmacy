@@ -54,7 +54,9 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     func createFlow() -> UIViewController {
         // swiftlint:disable force_cast
         let profileVC: ProfileViewController = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-        profileVC.model = ProfileModel(parent: self)
+        let model = ProfileModel(parent: self)
+        profileVC.model = model
+        model.output = profileVC
         root = profileVC
         
         let navigationVC: UINavigationController = UINavigationController(navigationBarClass: SimpleNavigationBar.self, toolbarClass: nil)

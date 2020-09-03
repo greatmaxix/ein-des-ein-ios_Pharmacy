@@ -25,6 +25,14 @@ final class AppNavigation: EventNode {
             }
         }
         
+        addHandler { [weak self] (event: ProfileEvent) in
+            switch event {
+            case .logout:
+                self?.startFlow()
+            default:
+                break
+            }
+        }
         addHandler { [weak self] (event: OnboardingEvent) in
             if case .close = event {
                 // TODO: open registration instead
@@ -34,14 +42,15 @@ final class AppNavigation: EventNode {
     }
 
     func startFlow() {
+        
 //        presentMainFlow()
        // presentAuthFlow()
         presentOnboardingFlow()
     }
     
     func startMainFlow() {
-        presentAuthFlow()
-        //presentMainFlow()
+        //presentAuthFlow()
+        presentMainFlow()
     }
 }
 

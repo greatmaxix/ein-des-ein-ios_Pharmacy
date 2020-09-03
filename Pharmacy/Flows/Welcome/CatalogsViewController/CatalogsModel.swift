@@ -8,6 +8,7 @@
 
 import Foundation
 import EventsTree
+import Moya
 
 enum CatalogsEvent: Event {
     
@@ -30,12 +31,20 @@ protocol CatalogsModelInput: class {
 class CatalogsModel: EventNode {
     unowned var output: CatalogsModelOutput!
     let categoryDataSource = CollectionDataSource<CategoryCellSection>()
+    let provider = DataManager<CategoryAPI, CategoriesResponse>()
+    private var categories: [Category]
     
     let title: String
     
-    init(title: String, parent: EventNode?) {
-        self.title = R.string.localize.welcomeCategories()
+    init(category: Category?, parent: EventNode?) {
+        self.title = category?.shortTitle ?? R.string.localize.welcomeCategories()
+        categories = category?.subCategories ?? []
         super.init(parent: parent)
+    }
+    
+    func reloadCategories() {
+        categoryDataSource.cells = categories.map({CategoryCellSection.common(category: $0)})
+        output.didLoadCategories()
     }
 }
 
@@ -46,17 +55,44 @@ extension CatalogsModel: CatalogsModelInput {
     }
     
     internal func load() {
-        let category = Category(title: "Название категшории", imageURL: nil)
-        let array = Array(repeating: category, count: 9)
-        categoryDataSource.cells = array.map { CategoryCellSection.common(category: $0) }
-        output.didLoadCategories()
+        
+        if categories.count > 0 {
+            reloadCategories()
+            return
+        }
+        
+        provider.load(target: .getCategories(startCode: nil, maxLevel: nil), completion: { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let response):
+                var secondLevelCategories: [Category] = []
+                
+                for category in response.categories {
+                    if let subCategories = category.subCategories {
+                        secondLevelCategories.append(contentsOf: subCategories)
+                    }
+                    if category.code != "H" {
+                        break
+                    }
+                }
+                self.categories = secondLevelCategories
+                self.reloadCategories()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
     }
     
     func didSelectCategoryBy(indexPath: IndexPath) {
         guard let cell = categoryDataSource.cell(for: indexPath) else { return }
         switch cell {
         case .common(let category):
-            raise(event: CatalogsEvent.openMedicineListFor(category: category))
+            if let count = category.subCategories?.count, count > 0 {
+                raise(event: WelcomeEvent.openCategories(category: category))
+            } else {
+                raise(event: CatalogsEvent.openMedicineListFor(category: category))
+            }
         }
     }
 }
