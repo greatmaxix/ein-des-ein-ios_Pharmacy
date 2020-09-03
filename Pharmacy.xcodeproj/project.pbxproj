@@ -27,6 +27,7 @@
 		395085E724EBC3650076E1DF /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395085E624EBC3650076E1DF /* ProfileResponse.swift */; };
 		395085E924EC1C960076E1DF /* CustomerImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395085E824EC1C960076E1DF /* CustomerImageResponse.swift */; };
 		39520E8E24A5EFAC00C2B7D8 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */; };
+		3952FA252500FE9B00E5EF1D /* WishListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3952FA242500FE9B00E5EF1D /* WishListAPI.swift */; };
 		39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */; };
 		3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */; };
 		3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D12224D1BB7400AB44BD /* EditProfileModel.swift */; };
@@ -228,6 +229,7 @@
 		395085E624EBC3650076E1DF /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
 		395085E824EC1C960076E1DF /* CustomerImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerImageResponse.swift; sourceTree = "<group>"; };
 		39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		3952FA242500FE9B00E5EF1D /* WishListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListAPI.swift; sourceTree = "<group>"; };
 		39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3954D12224D1BB7400AB44BD /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
@@ -1291,6 +1293,7 @@
 				619AAA3F2498A9AE00AB46ED /* AuthAPI.swift */,
 				39854D0124EAB4870070E0D1 /* ProfileAPI.swift */,
 				392BD73924FFE23000088002 /* CategoryAPI.swift */,
+				3952FA242500FE9B00E5EF1D /* WishListAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1653,6 +1656,7 @@
 				395085E924EC1C960076E1DF /* CustomerImageResponse.swift in Sources */,
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
+				3952FA252500FE9B00E5EF1D /* WishListAPI.swift in Sources */,
 				393D3CDD24FD35A500E8181F /* PaymentMethodView.swift in Sources */,
 				603D320024E657E9000E5A6C /* AlphaHighlightedView.swift in Sources */,
 				603D31BF24E57884000E5A6C /* ProductModel.swift in Sources */,
@@ -1834,7 +1838,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pharmacy.Pharmacy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1854,7 +1858,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pharmacy.Pharmacy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
