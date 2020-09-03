@@ -214,6 +214,7 @@
 		875223A72500043D000759C8 /* NibReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223A62500043D000759C8 /* NibReusable.swift */; };
 		875223A925000462000759C8 /* CellReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223A825000462000759C8 /* CellReusable.swift */; };
 		875223AB25000482000759C8 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223AA25000482000759C8 /* NibLoadable.swift */; };
+		875223B22500EA2C000759C8 /* UserSessionDataAccessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223B12500EA2C000759C8 /* UserSessionDataAccessible.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -426,6 +427,7 @@
 		875223A62500043D000759C8 /* NibReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibReusable.swift; sourceTree = "<group>"; };
 		875223A825000462000759C8 /* CellReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellReusable.swift; sourceTree = "<group>"; };
 		875223AA25000482000759C8 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		875223B12500EA2C000759C8 /* UserSessionDataAccessible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionDataAccessible.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1320,7 +1322,7 @@
 			children = (
 				619AAA422498ADFE00AB46ED /* DataManager.swift */,
 				619AAA472498B01900AB46ED /* KeychainManager.swift */,
-				39818FA024AF69B0007D6D94 /* UserSession.swift */,
+				875223AF2500E9E7000759C8 /* UserSession */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1360,6 +1362,23 @@
 				875223A62500043D000759C8 /* NibReusable.swift */,
 				875223A825000462000759C8 /* CellReusable.swift */,
 				875223AA25000482000759C8 /* NibLoadable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		875223AF2500E9E7000759C8 /* UserSession */ = {
+			isa = PBXGroup;
+			children = (
+				39818FA024AF69B0007D6D94 /* UserSession.swift */,
+				875223B02500E9F6000759C8 /* Protocols */,
+			);
+			path = UserSession;
+			sourceTree = "<group>";
+		};
+		875223B02500E9F6000759C8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				875223B12500EA2C000759C8 /* UserSessionDataAccessible.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1739,6 +1758,7 @@
 				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,
 				6036EB0024DD1CAA003336C2 /* BasketCoordinator.swift in Sources */,
 				60E1A71D24ED079F00B3D205 /* ActionSheetView.swift in Sources */,
+				875223B22500EA2C000759C8 /* UserSessionDataAccessible.swift in Sources */,
 				6036EAFE24DD1C9A003336C2 /* BasketModel.swift in Sources */,
 				60E1A70A24ECD5F200B3D205 /* SearchNavigationCoordinator.swift in Sources */,
 				3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */,
