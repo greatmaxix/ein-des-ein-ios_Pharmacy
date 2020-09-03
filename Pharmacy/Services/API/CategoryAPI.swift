@@ -11,7 +11,7 @@ import Moya
 
 enum CategoryAPI {
     
-    case getCategories(startCode: String, maxLevel: Int)
+    case getCategories(startCode: String?, maxLevel: Int?)
 }
 
 extension CategoryAPI: TargetType, AccessTokenAuthorizable {
@@ -25,7 +25,7 @@ extension CategoryAPI: TargetType, AccessTokenAuthorizable {
     }
     
     var baseURL: URL {
-        return URL(string: "https://api.pharmacies.release.fmc-dev.com/api/v1")!
+        return URL(string: "https://api.pharmacies.fmc-dev.com/api/v1")!
     }
     
     var path: String {
@@ -45,10 +45,10 @@ extension CategoryAPI: TargetType, AccessTokenAuthorizable {
     var task: Task {
         switch self {
         case .getCategories(startCode: let startCode, maxLevel: let maxLevel):
-            if startCode != "" {
-                return .requestParameters(parameters: ["startCode": startCode, "maxLevelCount": maxLevel], encoding: JSONEncoding.default)
+            if let startCode = startCode, let maxLevel = maxLevel {
+                return .requestParameters(parameters: ["startCode": startCode, "maxLevelCount": maxLevel], encoding: URLEncoding.default)
             }
-            return .requestParameters(parameters: ["maxLevelCount": maxLevel], encoding: JSONEncoding.default)
+            return .requestPlain
         }
     }
     
