@@ -22,6 +22,7 @@
 		393DDFB92502821700652A01 /* MockStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 393DDFB82502821700652A01 /* MockStoryboard.storyboard */; };
 		393DDFBD250286C500652A01 /* RegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DDFBB250286C500652A01 /* RegionCell.swift */; };
 		393DDFBE250286C500652A01 /* RegionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393DDFBC250286C500652A01 /* RegionCell.xib */; };
+		393DDFC025028F3D00652A01 /* LocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DDFBF25028F3D00652A01 /* LocationAPI.swift */; };
 		3949851A24BC519B006A773D /* ProfileOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949851824BC519B006A773D /* ProfileOptionsCell.swift */; };
 		3949851B24BC519B006A773D /* ProfileOptionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3949851924BC519B006A773D /* ProfileOptionsCell.xib */; };
 		394EBEE724FF901600C89970 /* MedicineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394EBEE624FF901600C89970 /* MedicineView.swift */; };
@@ -240,6 +241,7 @@
 		393DDFB82502821700652A01 /* MockStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MockStoryboard.storyboard; sourceTree = "<group>"; };
 		393DDFBB250286C500652A01 /* RegionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionCell.swift; sourceTree = "<group>"; };
 		393DDFBC250286C500652A01 /* RegionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionCell.xib; sourceTree = "<group>"; };
+		393DDFBF25028F3D00652A01 /* LocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAPI.swift; sourceTree = "<group>"; };
 		3949851824BC519B006A773D /* ProfileOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionsCell.swift; sourceTree = "<group>"; };
 		3949851924BC519B006A773D /* ProfileOptionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileOptionsCell.xib; sourceTree = "<group>"; };
 		394EBEE624FF901600C89970 /* MedicineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineView.swift; sourceTree = "<group>"; };
@@ -1359,6 +1361,7 @@
 				39854D0124EAB4870070E0D1 /* ProfileAPI.swift */,
 				392BD73924FFE23000088002 /* CategoryAPI.swift */,
 				3952FA242500FE9B00E5EF1D /* WishListAPI.swift */,
+				393DDFBF25028F3D00652A01 /* LocationAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1675,6 +1678,7 @@
 				395C9D762499FC14001EB6CD /* EmailValidator.swift in Sources */,
 				6075BD5A24DEB9EA00BC78BD /* UIView+Nib.swift in Sources */,
 				603D31F624E5AA09000E5A6C /* ProductQuestionsTableViewCell.swift in Sources */,
+				393DDFC025028F3D00652A01 /* LocationAPI.swift in Sources */,
 				603D319D24E3B2EB000E5A6C /* CollectionDataSource.swift in Sources */,
 				39F0AD6B24EEC84100CD6CA4 /* PrescriptionsViewController.swift in Sources */,
 				6036EB0924DD27CC003336C2 /* SearchCoordinator.swift in Sources */,
