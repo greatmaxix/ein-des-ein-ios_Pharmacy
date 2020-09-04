@@ -12,10 +12,10 @@ struct CustomerImageResponse: Codable, Equatable {
     enum Keys: String, CodingKey {
         case item
     }
-    let avatar: Avatar
+    let avatar: AvatarDTO
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
-        avatar = try container.decode(Avatar.self, forKey: .item)
+        avatar = try container.decode(AvatarDTO.self, forKey: .item)
     }
 }

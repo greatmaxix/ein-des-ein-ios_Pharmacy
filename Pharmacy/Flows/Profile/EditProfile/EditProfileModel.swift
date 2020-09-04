@@ -36,13 +36,13 @@ final class EditProfileModel: EventNode {
     private let provider: DataManager<ProfileAPI, ProfileResponse> = DataManager<ProfileAPI, ProfileResponse>()
     private let imageProvider: DataManager<ProfileAPI, CustomerImageResponse> = DataManager<ProfileAPI, CustomerImageResponse>()
     
-    private var user: User!
+    private var user: UserDisplayable!
     private var mime: String = ""
     private var imageFileName: String = ""
     
-    init(parent: EventNode?, user: User) {
+    override init(parent: EventNode?) {
         super.init(parent: parent)
-        self.user = user
+        self.user = UserSession.shared.user
     }
     
     private func updateUser(name: String, email: String, avatarUuid: String) {
@@ -53,7 +53,7 @@ final class EditProfileModel: EventNode {
             switch result {
             case .success(let response):
                 let newUser = response.user
-                try? UserSession.shared.save(user: newUser, token: nil)
+                UserSession.shared.save(user: newUser, token: nil)
                 self.raise(event: EditProfileEvent.profileUpdated)
                 self.raise(event: EditProfileEvent.close)
             case .failure(let error):
@@ -70,8 +70,10 @@ final class EditProfileModel: EventNode {
                 guard let self = self else {return}
                 switch result {
                 case .success(let response):
-                    self.user.avatar = response.avatar
-                    try? UserSession.shared.save(user: self.user, token: nil)
+                    debugPrint("Save Avatar here")
+                    // TODO: Save Avatar to Core Data
+//                    self.user.avatar = response.avatar
+//                    try? UserSession.shared.save(user: self.user, token: nil)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -94,7 +96,7 @@ extension EditProfileModel: EditProfileInput {
     }
     
     var imageUrl: URL? {
-        user.avatar?.url
+        user.avatarURL
     }
     
     func saveImage(image: UIImage, mime: String, fileName: String) {
@@ -105,7 +107,9 @@ extension EditProfileModel: EditProfileInput {
     }
     
     func saveProfile(name: String, email: String) {
-        updateUser(name: name, email: email, avatarUuid: user.avatar?.uuid ?? "")
+        // TODO: Uncomment this
+//        updateUser(name: name, email: email, avatarUuid: user.avatar?.uuid ?? "")
+        
     }
     
     func getUser() -> User? {

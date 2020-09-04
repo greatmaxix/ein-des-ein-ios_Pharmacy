@@ -16,7 +16,10 @@ final class UserEntity: NSManagedObject {
     @NSManaged public private(set) var name: String
     @NSManaged public private(set) var email: String?
     @NSManaged public private(set) var phone: String
+    @NSManaged public private(set) var uuid: String
+    @NSManaged public private(set) var avatar: AvatarEntity?
     
+    // MARK: - Public methods
     func updateWith(_ dto: User) {
         identifier = Int64(dto.id)
         name = dto.name

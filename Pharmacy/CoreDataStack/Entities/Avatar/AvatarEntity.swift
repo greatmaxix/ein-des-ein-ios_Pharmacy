@@ -11,26 +11,41 @@ import CoreData
 @objc(AvatarEntity)
 final class AvatarEntity: NSManagedObject {
 
-    @NSManaged public private(set) var uuid: String?
-    @NSManaged private var primitiveUrl: String?
+    // MARK: - Properties
+    @NSManaged public private(set) var uuid: String
+    @NSManaged private var primitiveUrl: String
     
-    public private(set) var url: URL? {
+    public private(set) var url: URL {
         get {
             defer {
                 didAccessValue(forKey: "url")
             }
             willAccessValue(forKey: "url")
-
-            guard let stringURL = primitiveUrl else {
-                return nil
+            
+            guard let url = URL(string: primitiveUrl) else {
+                fatalError("Can not convert stored url: \(primitiveUrl) to \(URL.self)")
             }
             
-            return URL(string: stringURL)
+            return url
         }
         set {
             willChangeValue(forKey: "url")
-            primitiveUrl = newValue?.absoluteString
+            primitiveUrl = newValue.absoluteString
             didChangeValue(forKey: "url")
         }
+    }
+    
+    // MARK: - Public methods
+    func updateWith(_ dto: AvatarDTO) {
+        uuid = dto.uuid
+        url = dto.url
+    }
+}
+
+// MARK: - Entity
+extension AvatarEntity: Entity {
+
+    public static var primaryKey: String {
+        return #keyPath(uuid)
     }
 }

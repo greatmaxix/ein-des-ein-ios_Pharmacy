@@ -11,7 +11,7 @@ import EventsTree
 import Moya
 
 enum ProfileEvent: Event {
-    case editProfile(profile: User)
+    case editProfile
     case openWishlist
     case openOrder
     case openAnalize
@@ -62,9 +62,7 @@ final class ProfileModel: Model {
         do {
             let cellData: NameTableViewCellData = NameTableViewCellData(imageUrl: user?.avatarURL, name: user?.name ?? "Name Surname", phone: user?.phone ?? "+1111111111111")
             cellData.editProfile = { [weak self] in
-                if let user = self?.user {
-//                    self?.raise(event: ProfileEvent.editProfile(profile: user))
-                }
+                self?.raise(event: ProfileEvent.editProfile)
             }
             cellData.selectHandler = nil
             cellsData.append(cellData)
@@ -170,9 +168,7 @@ extension ProfileModel: ProfileInput {
 
             switch response {
             case .success(let result):
-                try? UserSession.shared.save(user: result.user, token: nil)
-                self.user = UserSession.shared.user
-                    //result.user
+                self.user = UserSession.shared.save(user: result.user, token: nil)
                 self.setupDataSource()
                 completion?()
             case .failure(let error):
