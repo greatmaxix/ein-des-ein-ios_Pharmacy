@@ -25,6 +25,7 @@ class UserSession {
                 clearData()
             case .authorized(let userId):
                 userDefaultsAccessor.userId = userId
+                userEntity = CoreDataService.shared.get(by: userId)
             }
         }
     }
@@ -36,20 +37,25 @@ class UserSession {
             fatalError("Set `authorizationStatus` as \(String(describing: AuthorizationStatus.authorized)) before")
         }
     }
+    var avatarUUID: String? {
+        switch authorizationStatus {
+        case .authorized(_):
+            return userEntity.avatar?.uuid
+        case .notAuthorized:
+            return nil
+        }
+    }
     var user: UserDisplayable? {
         switch authorizationStatus {
-        case .authorized(let userId):
-            guard let user: UserEntity = CoreDataService.shared.get(by: userId) else {
-                return nil
-            }
-            
-            return convertToDisplayable(userEntity: user)
+        case .authorized(_):
+            return convertToDisplayable(userEntity: userEntity)
         case .notAuthorized:
             return nil
         }
     }
     
     private var userDefaultsAccessor: UserSessionDataAccessible.Type
+    private var userEntity: UserEntity!
     
     // MARK: - Init / Deinit methods
     init(with accessor: UserSessionDataAccessible.Type = UserDefaultsAccessor.self) {
@@ -74,24 +80,36 @@ class UserSession {
     
     @discardableResult
     func save(user: User) -> UserDisplayable {
-        CoreDataService.shared.save(user)
+        CoreDataService.shared.save(user: user)
         userDefaultsAccessor.userId = user.id
-        NotificationCenter.default.post(Notification.userSesionDidChanged)
+        refetchUser()
         
         return UserDisplayable(name: user.name,
                                email: user.email,
-                               phone: user.phone)
+                               phone: user.phone,
+                               avatarURL: user.avatar?.url)
+    }
+    
+    func save(avatar: AvatarDTO) {
+        CoreDataService.shared.save(avatar: avatar, isNeedToSave: false)
+        CoreDataService.shared.bindAvatarToUser()
+        refetchUser()
     }
 }
 
 // MARK: - Private methods
 extension UserSession {
     
+    private func refetchUser() {
+        userEntity = CoreDataService.shared.get(by: userIdentifier)
+        NotificationCenter.default.post(Notification.userSesionDidChanged)
+    }
+    
     private func convertToDisplayable(userEntity: UserEntity) -> UserDisplayable {
         return UserDisplayable(name: userEntity.name,
                                email: userEntity.email,
                                phone: userEntity.phone,
-                               avatarURL: URL(string: ""))
+                               avatarURL: userEntity.avatar?.url)
     }
 
     private func clearData() {

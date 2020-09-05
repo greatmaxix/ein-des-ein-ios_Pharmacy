@@ -26,6 +26,10 @@ final class UserEntity: NSManagedObject {
         email = dto.email
         phone = dto.phone
     }
+    
+    func uppdate(avatar: AvatarEntity?) {
+        self.avatar = avatar
+    }
 }
 
 // MARK: - Entity

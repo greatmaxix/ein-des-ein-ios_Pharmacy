@@ -30,14 +30,57 @@ final class CoreDataService {
         return object
     }
     
-    func save<DTO: Storable>(_ dto: DTO) {
+    func save(user dto: User) {
         let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
         
         dto.entityType.createOrUpdate(in: viewContext,
-                                      matching: predicate) { entity in
+                                      matching: predicate) { [unowned self] entity in
                                         dto.fillEntity(entity: entity)
+                                        
+                                        guard let avatarDTO = dto.avatar else {
+                                            return
+                                        }
+                                        
+                                        self.save(avatar: avatarDTO, isNeedToSave: false)
+                                        
+                                        bindAvatarToUser(andSave: false)
+
         }
         
         try? viewContext.saveIfNeeded()
+    }
+    
+    func save(avatar dto: AvatarDTO, isNeedToSave: Bool = true) {
+        let avatars: [AvatarEntity] = (try? viewContext.all()) ?? []
+        avatars.forEach {
+            self.viewContext.delete($0)
+        }
+        
+        let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
+        dto.entityType.createOrUpdate(in: self.viewContext,
+                                            matching: predicate) {
+                                                dto.fillEntity(entity: $0)
+        }
+        
+        if isNeedToSave {
+            try? viewContext.saveIfNeeded()
+        }
+        
+    }
+    
+    func bindAvatarToUser(andSave isNeedToSave: Bool = true) {
+        let users: [UserEntity] = (try? viewContext.all()) ?? []
+        let avatars: [AvatarEntity] = (try? viewContext.all())  ?? []
+        
+        guard let user = users.first,
+            let avatar = avatars.first else {
+                return
+        }
+        
+        user.uppdate(avatar: avatar)
+        
+        if isNeedToSave {
+            try? viewContext.saveIfNeeded()
+        }
     }
 }

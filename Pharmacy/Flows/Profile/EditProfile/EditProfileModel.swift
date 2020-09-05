@@ -21,7 +21,7 @@ protocol EditProfileInput: class {
     func saveImage(image: UIImage, mime: String, fileName: String)
     func saveProfile(name: String, email: String)
     func close()
-    func getUser() -> User?
+    func getUser() -> UserDisplayable?
     
     var name: String {get}
     var phone: String {get}
@@ -70,10 +70,8 @@ final class EditProfileModel: EventNode {
                 guard let self = self else {return}
                 switch result {
                 case .success(let response):
-                    debugPrint("Save Avatar here")
-                    // TODO: Save Avatar to Core Data
-//                    self.user.avatar = response.avatar
-//                    try? UserSession.shared.save(user: self.user, token: nil)
+                    UserSession.shared.save(avatar: response.avatar)
+                    self.user = UserSession.shared.user
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -112,8 +110,8 @@ extension EditProfileModel: EditProfileInput {
         
     }
     
-    func getUser() -> User? {
-        return UserDefaults.standard.getCurrentUser()
+    func getUser() -> UserDisplayable? {
+        return UserSession.shared.user
     }
     
     func close() {

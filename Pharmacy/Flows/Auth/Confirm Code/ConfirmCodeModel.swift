@@ -60,7 +60,7 @@ final class ConfirmCodeModel: Model {
              guard let self: ConfirmCodeModel = self else { return }
              switch result {
              case .success(let response):
-                try? UserSession.shared.save(user: response.user, token: response.token)
+                UserSession.shared.save(user: response.user, token: response.token)
                 self.raise(event: ConfirmCodeEvent.openMainScreen)
              case .failure(let error):
                 print(error)
