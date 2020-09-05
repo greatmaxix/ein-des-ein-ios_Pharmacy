@@ -27,11 +27,6 @@ final class ProfileViewController: UIViewController {
         tableView.register(EmptyTableViewCell.self, forCellReuseIdentifier: String(describing: EmptyTableViewCell.self))
         tableView.register(UINib(nibName: String(describing: ProfileTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ProfileTableViewCell.self))
         tableView.register(UINib(nibName: String(describing: ProfileOptionsCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ProfileOptionsCell.self))
-        setupUI()
-    }
-    
-    func setupUI() {
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,5 +71,24 @@ extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         model.selectActionAt(index: indexPath.row)?()
+    }
+}
+
+extension ProfileViewController: ProfileOutput {
+    
+    func showLogoutError() {
+        showError(message: "Failed to log out.")
+    }
+    
+    func presentLogoutView() {
+        let logoutVC = UIAlertController(title: R.string.localize.profileExitQuestion(), message: R.string.localize.profileExitDescription(), preferredStyle: .alert)
+        logoutVC.addAction(UIAlertAction(title: R.string.localize.profileExitNo(), style: .default, handler: nil))
+        logoutVC.addAction(UIAlertAction(title: R.string.localize.profileExitYes(), style: .destructive, handler: { [weak self] _ in
+            self?.model.logout()
+        }))
+        
+        DispatchQueue.main.async {
+            self.present(logoutVC, animated: true, completion: nil)
+        }
     }
 }

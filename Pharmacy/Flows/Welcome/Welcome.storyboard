@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hc3-JO-2ok">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hc3-JO-2ok">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -28,9 +28,21 @@
                     <view key="view" contentMode="scaleToFill" id="P4U-ww-pwV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="w7b-wq-uh2">
+                                <rect key="frame" x="197" y="443" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" name="lightGray"/>
+                        <constraints>
+                            <constraint firstItem="w7b-wq-uh2" firstAttribute="centerX" secondItem="iFb-9R-g3B" secondAttribute="centerX" id="3Cf-yY-LxU"/>
+                            <constraint firstItem="w7b-wq-uh2" firstAttribute="centerY" secondItem="iFb-9R-g3B" secondAttribute="centerY" id="4R5-Wr-qF8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iFb-9R-g3B"/>
                     </view>
+                    <connections>
+                        <outlet property="indicatorView" destination="w7b-wq-uh2" id="cBb-9s-7uc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cU-Yj-GYl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -18,13 +18,21 @@ final class AppNavigation: EventNode {
         self.window = window
 
         super.init(parent: nil)
-        
+
         addHandler { [weak self] (event: ConfirmCodeEvent) in
             if event == .openMainScreen {
                 self?.startMainFlow()
             }
         }
-        
+
+        addHandler { [weak self] (event: ProfileEvent) in
+            switch event {
+            case .logout:
+                self?.startFlow()
+            default:
+                break
+            }
+        }
         addHandler { [weak self] (event: OnboardingEvent) in
             if case .close = event {
                 // TODO: open registration instead
@@ -34,11 +42,12 @@ final class AppNavigation: EventNode {
     }
 
     func startFlow() {
+
 //        presentMainFlow()
         presentAuthFlow()
 //        presentOnboardingFlow()
     }
-    
+
     func startMainFlow() {
 //        presentAuthFlow()
         presentMainFlow()
@@ -59,7 +68,7 @@ extension AppNavigation {
         let coordinator = AuthFlowCoordinator(configuration: configuration)
         presentCoordinatorFlow(coordinator)
     }
-    
+
     private func presentOnboardingFlow() {
         let configuration = OnboardingFlowConfiguration(parent: self)
         let coordinator = OnboardingCoordinator(configuration: configuration)

@@ -12,6 +12,7 @@
 		39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0824A0DA5A004A9909 /* SignInModel.swift */; };
 		39273A0B24A0DFEC004A9909 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0A24A0DFEC004A9909 /* Model.swift */; };
 		39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0C24A0F09B004A9909 /* SignUpModel.swift */; };
+		392BD73A24FFE23000088002 /* CategoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392BD73924FFE23000088002 /* CategoryAPI.swift */; };
 		3939A6D524F6A3C90045FB71 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3939A6D424F6A3C90045FB71 /* LocationService.swift */; };
 		393D3CDB24FD33BD00E8181F /* PaymentMethodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393D3CDA24FD33BD00E8181F /* PaymentMethodView.xib */; };
 		393D3CDD24FD35A500E8181F /* PaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393D3CDC24FD35A500E8181F /* PaymentMethodView.swift */; };
@@ -26,6 +27,7 @@
 		395085E724EBC3650076E1DF /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395085E624EBC3650076E1DF /* ProfileResponse.swift */; };
 		395085E924EC1C960076E1DF /* CustomerImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395085E824EC1C960076E1DF /* CustomerImageResponse.swift */; };
 		39520E8E24A5EFAC00C2B7D8 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */; };
+		3952FA252500FE9B00E5EF1D /* WishListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3952FA242500FE9B00E5EF1D /* WishListAPI.swift */; };
 		39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */; };
 		3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */; };
 		3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3954D12224D1BB7400AB44BD /* EditProfileModel.swift */; };
@@ -238,6 +240,7 @@
 		39273A0824A0DA5A004A9909 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		39273A0A24A0DFEC004A9909 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		39273A0C24A0F09B004A9909 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		392BD73924FFE23000088002 /* CategoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAPI.swift; sourceTree = "<group>"; };
 		3939A6D424F6A3C90045FB71 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		393D3CDA24FD33BD00E8181F /* PaymentMethodView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentMethodView.xib; sourceTree = "<group>"; };
 		393D3CDC24FD35A500E8181F /* PaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView.swift; sourceTree = "<group>"; };
@@ -252,6 +255,7 @@
 		395085E624EBC3650076E1DF /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
 		395085E824EC1C960076E1DF /* CustomerImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerImageResponse.swift; sourceTree = "<group>"; };
 		39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		3952FA242500FE9B00E5EF1D /* WishListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListAPI.swift; sourceTree = "<group>"; };
 		39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		3954D12024D1B60B00AB44BD /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3954D12224D1BB7400AB44BD /* EditProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileModel.swift; sourceTree = "<group>"; };
@@ -1342,6 +1346,8 @@
 			children = (
 				619AAA3F2498A9AE00AB46ED /* AuthAPI.swift */,
 				39854D0124EAB4870070E0D1 /* ProfileAPI.swift */,
+				392BD73924FFE23000088002 /* CategoryAPI.swift */,
+				3952FA242500FE9B00E5EF1D /* WishListAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1854,6 +1860,7 @@
 				6036EAF524DD1AA6003336C2 /* CatalogueViewController.swift in Sources */,
 				875223B92500ED29000759C8 /* UserDefaults+Persistent.swift in Sources */,
 				603D31CD24E57E6B000E5A6C /* ProductPageViewController.swift in Sources */,
+				392BD73A24FFE23000088002 /* CategoryAPI.swift in Sources */,
 				603D319624E3B22A000E5A6C /* TableDataSource.swift in Sources */,
 				603D31AD24E3C8F8000E5A6C /* MedicineCellSection.swift in Sources */,
 				395A7FC524A3980D00A7CFC6 /* NameTableViewCell.swift in Sources */,
@@ -1868,6 +1875,7 @@
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
 				871E71A32501606200C8489B /* AvatarDTO.swift in Sources */,
+				3952FA252500FE9B00E5EF1D /* WishListAPI.swift in Sources */,
 				393D3CDD24FD35A500E8181F /* PaymentMethodView.swift in Sources */,
 				603D320024E657E9000E5A6C /* AlphaHighlightedView.swift in Sources */,
 				603D31BF24E57884000E5A6C /* ProductModel.swift in Sources */,
@@ -2054,7 +2062,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pharmacy.Pharmacy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -2074,7 +2082,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pharmacy.Pharmacy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
