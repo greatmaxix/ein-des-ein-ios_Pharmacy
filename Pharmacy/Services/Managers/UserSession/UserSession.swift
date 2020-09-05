@@ -45,6 +45,14 @@ class UserSession {
             return nil
         }
     }
+    var userUUID: String? {
+        switch authorizationStatus {
+        case .authorized:
+            return userEntity.uuid
+        case .notAuthorized:
+            return nil
+        }
+    }
     var user: UserDisplayable? {
         switch authorizationStatus {
         case .authorized:
