@@ -105,8 +105,7 @@ extension EditProfileModel: EditProfileInput {
     }
     
     func saveProfile(name: String, email: String) {
-        // TODO: Uncomment this
-//        updateUser(name: name, email: email, avatarUuid: user.avatar?.uuid ?? "")
+        updateUser(name: name, email: email, avatarUuid: UserSession.shared.avatarUUID ?? "")
         
     }
     

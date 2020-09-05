@@ -39,7 +39,7 @@ class UserSession {
     }
     var avatarUUID: String? {
         switch authorizationStatus {
-        case .authorized(_):
+        case .authorized:
             return userEntity.avatar?.uuid
         case .notAuthorized:
             return nil
@@ -47,7 +47,7 @@ class UserSession {
     }
     var user: UserDisplayable? {
         switch authorizationStatus {
-        case .authorized(_):
+        case .authorized:
             return convertToDisplayable(userEntity: userEntity)
         case .notAuthorized:
             return nil
