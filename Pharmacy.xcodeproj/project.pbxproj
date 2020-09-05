@@ -59,7 +59,7 @@
 		395D050524D05206007A278D /* MedicineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395D050324D05206007A278D /* MedicineCell.swift */; };
 		395D050624D05206007A278D /* MedicineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395D050424D05206007A278D /* MedicineCell.xib */; };
 		3961590824E6D35100A5EF85 /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3961590724E6D35100A5EF85 /* UIImage+Blur.swift */; };
-		396448E224ADE17A00E6D852 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396448E124ADE17A00E6D852 /* User.swift */; };
+		396448E224ADE17A00E6D852 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396448E124ADE17A00E6D852 /* UserDTO.swift */; };
 		396C45B92497699800A569CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396C45B82497699800A569CE /* AppDelegate.swift */; };
 		396C45C22497699900A569CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 396C45C12497699900A569CE /* Assets.xcassets */; };
 		396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 396C45C32497699900A569CE /* LaunchScreen.storyboard */; };
@@ -287,7 +287,7 @@
 		395D050324D05206007A278D /* MedicineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicineCell.swift; sourceTree = "<group>"; };
 		395D050424D05206007A278D /* MedicineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedicineCell.xib; sourceTree = "<group>"; };
 		3961590724E6D35100A5EF85 /* UIImage+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Blur.swift"; sourceTree = "<group>"; };
-		396448E124ADE17A00E6D852 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		396448E124ADE17A00E6D852 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		396C45B52497699800A569CE /* Pharmacy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pharmacy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		396C45B82497699800A569CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		396C45C12497699900A569CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1499,7 +1499,7 @@
 		875223D2250114A7000759C8 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				396448E124ADE17A00E6D852 /* User.swift */,
+				396448E124ADE17A00E6D852 /* UserDTO.swift */,
 				875223D32501152F000759C8 /* UserEntity.swift */,
 				875223D525011588000759C8 /* UserDisplayable.swift */,
 			);
@@ -1826,7 +1826,7 @@
 				875223C52500FD60000759C8 /* NSManagedObjectContext.swift in Sources */,
 				399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */,
 				398B0DEB24F51C8F0084EC54 /* MapFarmacyCell.swift in Sources */,
-				396448E224ADE17A00E6D852 /* User.swift in Sources */,
+				396448E224ADE17A00E6D852 /* UserDTO.swift in Sources */,
 				60E1A71A24ED025000B3D205 /* CustomIntensityVisualEffectView.swift in Sources */,
 				39273A0B24A0DFEC004A9909 /* Model.swift in Sources */,
 				603D320924E68442000E5A6C /* MedicineListCoordinator.swift in Sources */,

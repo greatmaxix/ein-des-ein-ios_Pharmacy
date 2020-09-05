@@ -79,7 +79,7 @@ class UserSession {
     
     // MARK: - Public methods
     @discardableResult
-    func save(user: User, token: String?) -> UserDisplayable {
+    func save(user: UserDTO, token: String?) -> UserDisplayable {
         if let token = token {
             KeychainManager.shared.saveToken(token: token)
         }
@@ -87,7 +87,7 @@ class UserSession {
     }
     
     @discardableResult
-    func save(user: User) -> UserDisplayable {
+    func save(user: UserDTO) -> UserDisplayable {
         CoreDataService.shared.save(user: user)
         userDefaultsAccessor.userId = user.id
         refetchUser()

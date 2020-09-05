@@ -30,7 +30,7 @@ final class CoreDataService {
         return object
     }
     
-    func save(user dto: User) {
+    func save(user dto: UserDTO) {
         let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
         
         dto.entityType.createOrUpdate(in: viewContext,

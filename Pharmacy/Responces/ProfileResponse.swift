@@ -12,10 +12,10 @@ struct ProfileResponse: Codable, Equatable {
     enum Keys: String, CodingKey {
         case item
     }
-    let user: User
+    let user: UserDTO
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
-        user = try container.decode(User.self, forKey: .item)
+        user = try container.decode(UserDTO.self, forKey: .item)
     }
 }

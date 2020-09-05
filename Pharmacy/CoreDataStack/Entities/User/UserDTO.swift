@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  UserDTO.swift
 //  Pharmacy
 //
 //  Created by CGI-Kite on 02.07.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User: Equatable, Codable, Identifiable {
+struct UserDTO: Equatable, Codable, Identifiable {
     let id: UInt64
     let name: String
     let email: String?
@@ -17,7 +17,7 @@ struct User: Equatable, Codable, Identifiable {
     var avatar: AvatarDTO?
 }
 
-extension User: Storable {
+extension UserDTO: Storable {
     
     var entityType: UserEntity.Type {
         UserEntity.self
