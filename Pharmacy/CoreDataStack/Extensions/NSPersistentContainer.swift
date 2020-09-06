@@ -15,19 +15,7 @@ extension NSPersistentContainer {
     private static let pharmacyContainer = NSPersistentContainer(name: dataModelName)
 
     public static let container: NSPersistentContainer = {
-        let semaphore = DispatchSemaphore(value: 0)
-        pharmacyContainer.loadPersistentStores { _, store in
-            if let existingStore = store {
-                fatalError("Failed to load store: \(existingStore)")
-            }
-            semaphore.signal()
-        }
-        semaphore.wait()
-
-        let path = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
-        print("SQLite file path: \(path)")
-
-        return pharmacyContainer
+        pharmacyContainer
     }()
 
     public static let backgroundContext: NSManagedObjectContext = {
@@ -46,5 +34,35 @@ extension NSPersistentContainer {
         context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
 
         return context
+    }
+    
+    public static func loadPersistentStores() {
+        let semaphore = DispatchSemaphore(value: 0)
+        pharmacyContainer.loadPersistentStores { _, store in
+            if let existingStore = store {
+                fatalError("Failed to load store: \(existingStore)")
+            }
+            semaphore.signal()
+        }
+        semaphore.wait()
+
+        let path = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
+        print("SQLite file path: \(path)")
+    }
+    
+    public static func deletePersistentStores() {
+        let stringPathes = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory,
+                                                               .userDomainMask,
+                                                               true)
+        guard let stringPath = stringPathes.first,
+            let path = URL(string: stringPath) else {
+                return
+        }
+        
+        try? pharmacyContainer
+            .persistentStoreCoordinator
+            .destroyPersistentStore(at: path,
+                                    ofType: NSSQLiteStoreType,
+                                    options: nil)
     }
 }

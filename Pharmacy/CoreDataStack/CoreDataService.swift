@@ -18,8 +18,13 @@ final class CoreDataService {
     
     // MARK: - Public methods
     func setup() {
-        let container = NSPersistentContainer.container
-        viewContext = container.viewContext
+        NSPersistentContainer.loadPersistentStores()
+        viewContext = NSPersistentContainer.container.viewContext
+    }
+    
+    func renewingCoreData() {
+        NSPersistentContainer.deletePersistentStores()
+        setup()
     }
     
     func get<ResultType: FetchResultObject & Entity>(by id: Int) -> ResultType? {
@@ -51,10 +56,10 @@ final class CoreDataService {
     }
     
     func save(avatar dto: AvatarDTO, isNeedToSave: Bool = true) {
-        let avatars: [AvatarEntity] = (try? viewContext.all()) ?? []
-        avatars.forEach {
-            self.viewContext.delete($0)
-        }
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: dto.entityType.entityName)
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        _ = try? viewContext.execute(batchDeleteRequest)
         
         let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
         dto.entityType.createOrUpdate(in: self.viewContext,

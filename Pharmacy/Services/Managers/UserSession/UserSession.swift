@@ -103,6 +103,12 @@ class UserSession {
         CoreDataService.shared.bindAvatarToUser()
         refetchUser()
     }
+    
+    func logout() {
+        authorizationStatus = .notAuthorized
+        userDefaultsAccessor.clear()
+        CoreDataService.shared.renewingCoreData()
+    }
 }
 
 // MARK: - Private methods
