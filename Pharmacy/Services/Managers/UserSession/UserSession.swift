@@ -29,7 +29,7 @@ class UserSession {
             }
         }
     }
-    var userIdentifier: UInt64 {
+    var userIdentifier: Int {
         switch authorizationStatus {
         case .authorized(let userId):
             return userId
@@ -130,6 +130,6 @@ extension UserSession {
     
     enum AuthorizationStatus {
         case notAuthorized
-        case authorized(userId: UInt64)
+        case authorized(userId: Int)
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 struct UserDTO: Equatable, Codable, Identifiable {
-    let id: UInt64
+    let id: Int
     let name: String
     let email: String?
     let phone: String

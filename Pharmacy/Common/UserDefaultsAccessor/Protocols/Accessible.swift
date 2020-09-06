@@ -55,23 +55,6 @@ extension Int: Accessible {
     }
 }
 
-// MARK: - UInt64 + Accessible
-extension UInt64: Accessible {
-    
-    static func readValue(for key: String, from storage: UserDefaults) -> Self {
-        guard let value = storage.value(forKey: key) as? Self else {
-            return 0
-            //fatalError("Can not find value of type \(Self.self) by key: \(key) in store \(storage)")
-        }
-        
-        return value
-    }
-    
-    static func write(value: Self, for key: String, into storage: UserDefaults) {
-        storage.set(value, forKey: key)
-    }
-}
-
 // MARK: - Float + Accessible
 extension Float: Accessible {
     

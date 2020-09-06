@@ -22,8 +22,8 @@ final class CoreDataService {
         viewContext = container.viewContext
     }
     
-    func get<ResultType: FetchResultObject & Entity>(by id: UInt64) -> ResultType? {
-        guard let object: ResultType = try? viewContext.first(withPrimaryKey: id) else {
+    func get<ResultType: FetchResultObject & Entity>(by id: Int) -> ResultType? {
+        guard let object: ResultType = try? viewContext.first(withPrimaryKey: Int64(id)) else {
             return nil
         }
         
