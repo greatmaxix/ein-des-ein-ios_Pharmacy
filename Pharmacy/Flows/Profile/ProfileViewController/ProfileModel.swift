@@ -192,6 +192,7 @@ extension ProfileModel: ProfileInput {
             guard let self = self else { return }
             switch result {
             case.success:
+                UserSession.shared.logout()
                 self.raise(event: ProfileEvent.logout)
             case .failure:
                 self.output.showLogoutError()

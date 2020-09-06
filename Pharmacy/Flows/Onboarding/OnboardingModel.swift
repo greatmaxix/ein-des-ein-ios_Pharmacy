@@ -41,6 +41,7 @@ class OnboardingModel: Model {
 extension OnboardingModel {
 
     private func closeFlow() {
+        UserDefaultsAccessor.write(value: true, for: \.isPassedOnboarding)
         raise(event: OnboardingEvent.close)
     }
 }
