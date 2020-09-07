@@ -8,11 +8,6 @@
 
 import Foundation
 
-private struct Const {
-    static let kaz: String = "7"
-    static let phoneNumberLength = 10
-}
-
 protocol PhoneFormatePresentable {
     var countryCode: String { get }
     var phoneNumberLength: Int { get }
