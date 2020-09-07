@@ -11,7 +11,7 @@ import Moya
 
 enum LocationAPI {
     
-    case getRegions(regionId: String, maxLevelCount: String)
+    case getRegions(regionId: String, maxLevelCount: Int)
     case getCountries(page: Int, countriesPerPage: Int)
 }
 

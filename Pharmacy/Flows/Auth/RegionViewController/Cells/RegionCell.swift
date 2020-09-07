@@ -21,7 +21,11 @@ class RegionCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        selectImageView.isHidden = !selectImageView.isHidden
-        titleLabel.font = !selectImageView.isHidden ? R.font.openSansBold(size: 16) : R.font.openSansRegular(size: 16)
+        selectImageView.isHidden = !selected
+        titleLabel.font = selected ? R.font.openSansBold(size: 16) : R.font.openSansRegular(size: 16)
+    }
+    
+    func apply(region: Region) {
+        titleLabel.text = region.name
     }
 }

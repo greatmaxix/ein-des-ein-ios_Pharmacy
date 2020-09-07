@@ -9,13 +9,27 @@
 import UIKit
 
 class RegionViewController: UIViewController {
+    
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var alphabetView: AlphabetView!
 
-    var model: RegionModelInput!
+    var model: RegionInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        model.load()
+        title = model.title
     }
+    
+    @IBAction func useCurrentLocation(_ sender: UIButton) {
+    }
+    
+}
 
+extension RegionViewController: RegionOutput {
+    
+    func reloadRegions() {
+        model.dataSource.assign(tableView: tableView, alphabetView: alphabetView)
+    }
 }

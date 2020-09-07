@@ -12,21 +12,11 @@ final class AlphabetView: UIView {
 
     private var stackView: UIStackView!
     private var labels: [UILabel] = []
-    private var letters: [Character] = (97...122).map({Character(UnicodeScalar($0))})
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        setup()
-    }
+    private var letters: [Character]!// = (97...122).map({Character(UnicodeScalar($0))})
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    func setup(letters: [Character]) {
+        subviews.forEach({$0.removeFromSuperview()})
         
-        setup()
-    }
-    
-    func setup() {
         backgroundColor = .clear
         
         stackView = UIStackView()

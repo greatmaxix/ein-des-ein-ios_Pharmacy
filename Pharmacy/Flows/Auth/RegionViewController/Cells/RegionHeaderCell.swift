@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegionHeaderCell: UITableViewCell {
+class RegionHeaderCell: UITableViewHeaderFooterView {
     
     @IBOutlet private weak var titleLabel: UILabel!
     
@@ -17,7 +17,7 @@ class RegionHeaderCell: UITableViewCell {
         // Initialization code
     }
     
-    func setup(title: String) {
+    func apply(title: String) {
         titleLabel.text = title
     }
 }

@@ -74,6 +74,7 @@
 		396C45C22497699900A569CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 396C45C12497699900A569CE /* Assets.xcassets */; };
 		396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 396C45C32497699900A569CE /* LaunchScreen.storyboard */; };
 		396FE9D025063A460063E466 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396FE9CF25063A460063E466 /* Region.swift */; };
+		396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396FE9D325064C8A0063E466 /* RegionsDataSource.swift */; };
 		397541D324ED23B30069F8DE /* SimpleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397541D224ED23B30069F8DE /* SimpleNavigationBar.swift */; };
 		397541D524ED23CB0069F8DE /* SimpleNavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 397541D424ED23CB0069F8DE /* SimpleNavigationBarView.xib */; };
 		397541D724ED35EE0069F8DE /* SimpleNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397541D624ED35EE0069F8DE /* SimpleNavigationBarView.swift */; };
@@ -298,6 +299,7 @@
 		396C45C42497699900A569CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		396C45C62497699900A569CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		396FE9CF25063A460063E466 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		396FE9D325064C8A0063E466 /* RegionsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsDataSource.swift; sourceTree = "<group>"; };
 		397541D224ED23B30069F8DE /* SimpleNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNavigationBar.swift; sourceTree = "<group>"; };
 		397541D424ED23CB0069F8DE /* SimpleNavigationBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimpleNavigationBarView.xib; sourceTree = "<group>"; };
 		397541D624ED35EE0069F8DE /* SimpleNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNavigationBarView.swift; sourceTree = "<group>"; };
@@ -509,6 +511,7 @@
 				393DDFBC250286C500652A01 /* RegionCell.xib */,
 				393DDFC12502954200652A01 /* RegionHeaderCell.swift */,
 				393DDFC22502954200652A01 /* RegionHeaderCell.xib */,
+				396FE9D325064C8A0063E466 /* RegionsDataSource.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1737,6 +1740,7 @@
 				60E1A70E24ECD6F400B3D205 /* SearchNavigationModel.swift in Sources */,
 				39F0AD6724EEC81400CD6CA4 /* OrdersModel.swift in Sources */,
 				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
+				396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */,
 				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,
 				393DDFC32502954200652A01 /* RegionHeaderCell.swift in Sources */,
 				398B0DD724F50A4C0084EC54 /* FarmacyPinView.swift in Sources */,

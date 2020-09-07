@@ -12,7 +12,7 @@ final class CatalogsViewController: CollectionDataSourceViewController {
     
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
-    var model: CatalogsModel!
+    var model: CatalogsModelInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()

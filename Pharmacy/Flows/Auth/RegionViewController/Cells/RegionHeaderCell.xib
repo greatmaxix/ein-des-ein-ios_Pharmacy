@@ -30,6 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" name="backgroundGray"/>
                 <constraints>
                     <constraint firstItem="L2c-z7-nNJ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IDn-WD-nqn"/>
                     <constraint firstItem="L2c-z7-nNJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="kxj-OZ-e1I"/>
@@ -43,6 +44,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="backgroundGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="textDarkBlue">
             <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
