@@ -25,7 +25,6 @@ class UserSession {
                 clearData()
             case .authorized(let userId):
                 userDefaultsAccessor.userId = userId
-                userEntity = CoreDataService.shared.get(by: userId)
             }
         }
     }
@@ -72,6 +71,7 @@ class UserSession {
         let userId = userDefaultsAccessor.userId
         if userId > 0 {
             authorizationStatus = .authorized(userId: userId)
+            userEntity = CoreDataService.shared.get(by: userId)
         } else {
             authorizationStatus = .notAuthorized
         }
