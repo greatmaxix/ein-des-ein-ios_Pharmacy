@@ -27,7 +27,6 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         addHandler { [weak self] (event: SignInEvent) in
             switch event {
             case .signIn(let phone):
-                
                 self?.presentConfirmSMS(phone: phone)
             case .signUp:
                 self?.presentSignUp()
@@ -37,7 +36,8 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         addHandler { [weak self] (event: SignUpEvent) in
             switch event {
             case .receiveCode(let phone):
-                self?.presentConfirmSMS(phone: phone)
+                self?.presentConfirmSMS(phone: phone,
+                                        congratulationNeeded: true)
             case .close:
                 self?.popController()
             }
@@ -45,6 +45,8 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         
         addHandler { [weak self] (event: ConfirmCodeEvent) in
             switch event {
+            case .congratulation:
+                self?.presentCongratulation()
             case .close:
                 self?.popController()
             default:
@@ -71,7 +73,7 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         return navigation
     }
     
-    func presentSignUp() {
+    private func presentSignUp() {
         if let signUpVC: SignUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
             
             let model: SignUpModel = SignUpModel(parent: self)
@@ -81,14 +83,28 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         }
     }
     
-    func presentConfirmSMS(phone: String) {
+    private func presentConfirmSMS(phone: String, congratulationNeeded: Bool = false) {
         if let confirmVC: ConfirmCodeViewController = storyboard.instantiateViewController(withIdentifier: "ConfirmCodeViewController") as? ConfirmCodeViewController {
             
-            let model = ConfirmCodeModel(parent: self, phone: phone)
+            let model = ConfirmCodeModel(parent: self,
+                                         phone: phone,
+                                         congratulatioNeeded: congratulationNeeded)
             confirmVC.model = model
             model.output = confirmVC
             root.navigationController?.pushViewController(confirmVC, animated: true)
         }
+    }
+    
+    private func presentCongratulation() {
+        let congratulationViewController = R.storyboard.auth.successfulSignUpViewController()!
+        
+        let model = SuccessfulSignUpModel(parent: self)
+        congratulationViewController.model = model
+        if let simpleNavigationBar = root.navigationController?.navigationBar as? SimpleNavigationBar {
+            simpleNavigationBar.isLeftItemHidden = true
+        }
+        root.navigationController?.pushViewController(congratulationViewController,
+                                                      animated: true)
     }
   
     private func popController() {

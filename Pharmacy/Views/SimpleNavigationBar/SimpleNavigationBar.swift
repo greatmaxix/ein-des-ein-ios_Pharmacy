@@ -51,6 +51,8 @@ final class SimpleNavigationBar: UINavigationBar {
         }
         set {
             contentView.leftButton.isHidden = newValue
+            setNeedsDisplay()
+            
         }
     }
     var isRightItemHidden: Bool {
