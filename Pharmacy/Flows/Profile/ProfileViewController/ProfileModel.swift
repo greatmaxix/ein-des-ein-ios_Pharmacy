@@ -195,7 +195,6 @@ extension ProfileModel: ProfileInput {
             case.success:
                 UserSession.shared.logout()
                 self.raise(event: ProfileEvent.logout)
-                UserSession.shared.logout()
             case .failure:
                 self.output.showLogoutError()
             }

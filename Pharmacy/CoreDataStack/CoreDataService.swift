@@ -23,8 +23,9 @@ final class CoreDataService {
     }
     
     func renewingCoreData() {
-        NSPersistentContainer.deletePersistentStores()
-        setup()
+        NSPersistentContainer.deletePersistentStores { [weak self] in
+            self?.setup()
+        }
     }
     
     func get<ResultType: FetchResultObject & Entity>(by id: Int) -> ResultType? {
