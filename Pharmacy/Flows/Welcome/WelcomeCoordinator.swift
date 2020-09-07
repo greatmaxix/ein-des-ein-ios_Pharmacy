@@ -27,8 +27,6 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
             switch event {
             case .openCategories(let category):
                 self?.openCategories(category: category)
-            case .openRegions:
-                self?.openRegions()
             default:
                 break
             }
@@ -94,14 +92,6 @@ extension WelcomeCoordinator {
     
     fileprivate func openProductMedicineFor(medicine: Medicine) {
         let vc = ProductCoordinator(configuration: .init(parent: self, navigation: navigation)).createFlowFor(product: medicine)
-        navigation.pushViewController(vc, animated: true)
-    }
-    
-    fileprivate func openRegions() {
-        let vc = R.storyboard.mockStoryboard.regionViewController()!
-        let model = RegionModel(parent: self)
-        model.output = vc
-        vc.model = model
         navigation.pushViewController(vc, animated: true)
     }
 }

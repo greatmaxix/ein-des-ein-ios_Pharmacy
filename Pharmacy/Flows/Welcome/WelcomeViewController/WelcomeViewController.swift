@@ -82,7 +82,6 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     @IBAction private func selectCategory(_ sender: UIButton) {
         model.openCategories()
     }
-    
 }
 
 extension WelcomeViewController: WelcomeModelOutput {

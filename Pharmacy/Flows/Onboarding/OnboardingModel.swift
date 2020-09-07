@@ -10,6 +10,7 @@ import EventsTree
 
 enum OnboardingEvent: Event {
     case close
+    case openRegions
 }
 
 protocol OnboardingModelInput {
@@ -43,6 +44,10 @@ extension OnboardingModel {
     private func closeFlow() {
         raise(event: OnboardingEvent.close)
     }
+    
+    private func openRegions() {
+        raise(event: OnboardingEvent.openRegions)
+    }
 }
 
 // MARK: - OnboardingModelInput
@@ -53,7 +58,7 @@ extension OnboardingModel: OnboardingModelInput {
             currentIndex += 1
             output.routeToSlide(at: currentIndex)
         } else {
-            closeFlow()
+            openRegions()
         }
     }
 

@@ -19,7 +19,6 @@
 		393DDFB02502794E00652A01 /* AlphabetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DDFAF2502794E00652A01 /* AlphabetView.swift */; };
 		393DDFB4250280DB00652A01 /* RegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DDFB2250280DB00652A01 /* RegionViewController.swift */; };
 		393DDFB7250280F300652A01 /* RegionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DDFB6250280F300652A01 /* RegionModel.swift */; };
-		393DDFB92502821700652A01 /* MockStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 393DDFB82502821700652A01 /* MockStoryboard.storyboard */; };
 		393DDFBD250286C500652A01 /* RegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DDFBB250286C500652A01 /* RegionCell.swift */; };
 		393DDFBE250286C500652A01 /* RegionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393DDFBC250286C500652A01 /* RegionCell.xib */; };
 		393DDFC025028F3D00652A01 /* LocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393DDFBF25028F3D00652A01 /* LocationAPI.swift */; };
@@ -242,7 +241,6 @@
 		393DDFAF2502794E00652A01 /* AlphabetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetView.swift; sourceTree = "<group>"; };
 		393DDFB2250280DB00652A01 /* RegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionViewController.swift; sourceTree = "<group>"; };
 		393DDFB6250280F300652A01 /* RegionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionModel.swift; sourceTree = "<group>"; };
-		393DDFB82502821700652A01 /* MockStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MockStoryboard.storyboard; sourceTree = "<group>"; };
 		393DDFBB250286C500652A01 /* RegionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionCell.swift; sourceTree = "<group>"; };
 		393DDFBC250286C500652A01 /* RegionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionCell.xib; sourceTree = "<group>"; };
 		393DDFBF25028F3D00652A01 /* LocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAPI.swift; sourceTree = "<group>"; };
@@ -499,7 +497,6 @@
 				393DDFBA250286A400652A01 /* Cells */,
 				393DDFB2250280DB00652A01 /* RegionViewController.swift */,
 				393DDFB6250280F300652A01 /* RegionModel.swift */,
-				393DDFB82502821700652A01 /* MockStoryboard.storyboard */,
 			);
 			path = RegionViewController;
 			sourceTree = "<group>";
@@ -1345,7 +1342,6 @@
 		618C33A62498BF0B00951D11 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				393DDFB12502808400652A01 /* RegionViewController */,
 				39CBDA6C249CF59C00A04831 /* Confirm Code */,
 				618C33992498BDD500951D11 /* Sign Up */,
 				618C33962498BDA600951D11 /* Sign In */,
@@ -1391,6 +1387,7 @@
 		8715DB8424FFBFB900BBF37C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				393DDFB12502808400652A01 /* RegionViewController */,
 				8715DB8F24FFE45800BBF37C /* SlideCell */,
 				8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */,
 				8715DB9624FFF97B00BBF37C /* OnboardingModel.swift */,
@@ -1551,7 +1548,6 @@
 				603D31CE24E57E6B000E5A6C /* ProductPageViewController.xib in Resources */,
 				395C9D6A2498E2EA001EB6CD /* localize.strings in Resources */,
 				603D31E124E5A8E3000E5A6C /* ProductCategoryTableViewCell.xib in Resources */,
-				393DDFB92502821700652A01 /* MockStoryboard.storyboard in Resources */,
 				398B0DD924F50A630084EC54 /* FarmacyPinView.xib in Resources */,
 				395A7FC624A3980D00A7CFC6 /* NameTableViewCell.xib in Resources */,
 				603D31DC24E5A88C000E5A6C /* ProductAnalogTableViewCell.xib in Resources */,

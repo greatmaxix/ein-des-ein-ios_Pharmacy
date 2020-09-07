@@ -62,7 +62,8 @@ final class RegionsDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
         
         tableView.separatorStyle = .none
         tableView.rowHeight = 50
-        tableView.sectionHeaderHeight = 44
+        tableView.sectionHeaderHeight = 40
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -89,10 +90,6 @@ final class RegionsDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
             return header
         }
         return nil
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

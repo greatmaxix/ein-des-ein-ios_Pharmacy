@@ -8,11 +8,14 @@
 
 import UIKit
 
-class RegionViewController: UIViewController {
+final class RegionViewController: UIViewController, NavigationBarStyled {
     
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var alphabetView: AlphabetView!
-
+    
+    var style: NavigationBarStyle {
+        .normal
+    }
     var model: RegionInput!
     
     override func viewDidLoad() {
@@ -20,6 +23,11 @@ class RegionViewController: UIViewController {
 
         model.load()
         title = model.title
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func useCurrentLocation(_ sender: UIButton) {

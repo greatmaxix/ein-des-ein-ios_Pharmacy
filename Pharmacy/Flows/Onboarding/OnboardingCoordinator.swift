@@ -22,12 +22,12 @@ class OnboardingCoordinator: EventNode, Coordinator {
     init(configuration: OnboardingFlowConfiguration) {
         super.init(parent: configuration.parent)
 
-        addHandler { [weak self] (event: EditProfileEvent) in
+        addHandler { [weak self] (event: OnboardingEvent) in
             switch event {
             case .close:
                 self?.popController()
-            default:
-                break
+            case .openRegions:
+                self?.openRegions()
             }
         }
     }
@@ -57,5 +57,13 @@ extension OnboardingCoordinator {
 
     private func popController() {
         root.popViewController(animated: true)
+    }
+    
+    fileprivate func openRegions() {
+        let vc = R.storyboard.onboarding.regionViewController()!
+        let model = RegionModel(parent: self)
+        model.output = vc
+        vc.model = model
+        root.pushViewController(vc, animated: true)
     }
 }

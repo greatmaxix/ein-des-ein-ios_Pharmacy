@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -103,10 +103,74 @@
             </objects>
             <point key="canvasLocation" x="15.942028985507248" y="166.74107142857142"/>
         </scene>
+        <!--Region View Controller-->
+        <scene sceneID="xw4-pb-K3t">
+            <objects>
+                <viewController storyboardIdentifier="RegionViewController" id="prj-lU-ErG" customClass="RegionViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H4G-iN-9MQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nHW-xw-xgD">
+                                <rect key="frame" x="8" y="105" width="390" height="764"/>
+                                <color key="backgroundColor" name="backgroundGray"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOV-1x-5NG">
+                                <rect key="frame" x="20" y="55" width="378" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="zhn-qS-IFE"/>
+                                </constraints>
+                                <color key="tintColor" name="textDarkBlue"/>
+                                <state key="normal" title="   Use current location" image="crosshair">
+                                    <color key="titleColor" name="textDarkBlue"/>
+                                </state>
+                                <connections>
+                                    <action selector="useCurrentLocation:" destination="prj-lU-ErG" eventType="touchUpInside" id="Eva-5K-x8g"/>
+                                </connections>
+                            </button>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJ0-6i-s7Q" customClass="AlphabetView" customModule="Pharmacy" customModuleProvider="target">
+                                <rect key="frame" x="398" y="201" width="16" height="504"/>
+                                <color key="backgroundColor" name="backgroundGray"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="bA4-cR-mL3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="backgroundGray"/>
+                        <constraints>
+                            <constraint firstItem="MOV-1x-5NG" firstAttribute="top" secondItem="jSR-1b-wnD" secondAttribute="top" constant="11" id="6se-ff-hww"/>
+                            <constraint firstItem="jSR-1b-wnD" firstAttribute="trailing" secondItem="MOV-1x-5NG" secondAttribute="trailing" constant="16" id="EWY-Ws-1Im"/>
+                            <constraint firstItem="HJ0-6i-s7Q" firstAttribute="leading" secondItem="nHW-xw-xgD" secondAttribute="trailing" id="RyP-Yo-88k"/>
+                            <constraint firstItem="nHW-xw-xgD" firstAttribute="top" secondItem="MOV-1x-5NG" secondAttribute="bottom" id="VvV-Ts-A6w"/>
+                            <constraint firstItem="HJ0-6i-s7Q" firstAttribute="centerY" secondItem="jSR-1b-wnD" secondAttribute="centerY" id="eyq-hL-jE7"/>
+                            <constraint firstItem="HJ0-6i-s7Q" firstAttribute="trailing" secondItem="jSR-1b-wnD" secondAttribute="trailing" id="lAJ-NX-3R1"/>
+                            <constraint firstItem="MOV-1x-5NG" firstAttribute="leading" secondItem="jSR-1b-wnD" secondAttribute="leading" constant="20" id="svi-ue-q3w"/>
+                            <constraint firstItem="nHW-xw-xgD" firstAttribute="bottom" secondItem="jSR-1b-wnD" secondAttribute="bottom" constant="7" id="wHb-gF-Pf3"/>
+                            <constraint firstItem="HJ0-6i-s7Q" firstAttribute="height" secondItem="nHW-xw-xgD" secondAttribute="height" multiplier="0.66" id="xSK-bd-BZv"/>
+                            <constraint firstItem="nHW-xw-xgD" firstAttribute="leading" secondItem="jSR-1b-wnD" secondAttribute="leading" constant="8" id="zaE-5K-qR9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jSR-1b-wnD"/>
+                    </view>
+                    <connections>
+                        <outlet property="alphabetView" destination="HJ0-6i-s7Q" id="fdr-jL-qTR"/>
+                        <outlet property="tableView" destination="nHW-xw-xgD" id="oNa-81-N9x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x7z-As-EPr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="842" y="167"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="crosshair" width="24" height="24"/>
         <namedColor name="applyBlueGray">
             <color red="0.6470588235294118" green="0.70588235294117652" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="backgroundGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="welcomeBlue">
             <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

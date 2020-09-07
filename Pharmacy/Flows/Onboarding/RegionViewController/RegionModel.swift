@@ -19,7 +19,7 @@ protocol RegionOutput: class {
     func reloadRegions()
 }
 
-class RegionModel: EventNode {
+final class RegionModel: EventNode {
     fileprivate var regionDataSource: RegionsDataSource!
     fileprivate let provider = DataManager<LocationAPI, RegionResponse>()
     unowned var output: RegionOutput!
