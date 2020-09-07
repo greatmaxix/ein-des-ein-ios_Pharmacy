@@ -13,7 +13,6 @@ class RegionCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var selectImageView: UIImageView!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,5 +22,6 @@ class RegionCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         selectImageView.isHidden = !selectImageView.isHidden
+        titleLabel.font = !selectImageView.isHidden ? R.font.openSansBold(size: 16) : R.font.openSansRegular(size: 16)
     }
 }

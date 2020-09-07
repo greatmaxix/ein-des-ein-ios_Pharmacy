@@ -27,7 +27,7 @@
                         <rect key="frame" x="9" y="9" width="302" height="48"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJU-dr-XAK">
-                                <rect key="frame" x="7" y="13" width="40.5" height="22"/>
+                                <rect key="frame" x="7" y="14.5" width="39.5" height="19"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" name="textDarkBlue"/>
                                 <nil key="highlightedColor"/>

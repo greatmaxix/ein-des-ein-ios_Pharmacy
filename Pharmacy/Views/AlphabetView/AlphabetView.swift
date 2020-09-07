@@ -11,8 +11,8 @@ import UIKit
 final class AlphabetView: UIView {
 
     private var stackView: UIStackView!
-    private var labels: [UILabel]!
-    private var letters: [Character]!
+    private var labels: [UILabel] = []
+    private var letters: [Character] = (97...122).map({Character(UnicodeScalar($0))})
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +27,8 @@ final class AlphabetView: UIView {
     }
     
     func setup() {
+        backgroundColor = .clear
+        
         stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stackView)
@@ -44,8 +46,8 @@ final class AlphabetView: UIView {
         letters.forEach({
             let label = UILabel()
             label.text = String($0)
-            label.font = R.font.openSansBold(size: Int(bounds.height) / letters.count)
-            label.textColor = R.color.welcomeBlue()
+            label.font = R.font.openSansBold(size: bounds.height / CGFloat(letters.count) * 0.7)
+            label.textColor = R.color.lightBlue()
             labels.append(label)
             stackView.addArrangedSubview(label)
         })
