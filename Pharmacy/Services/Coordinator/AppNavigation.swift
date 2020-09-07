@@ -12,7 +12,7 @@ import EventsTree
 
 final class AppNavigation: EventNode {
 
-    fileprivate unowned let window: UIWindow
+    private unowned let window: UIWindow
 
     init(window: UIWindow) {
         self.window = window
@@ -21,7 +21,7 @@ final class AppNavigation: EventNode {
 
         addHandler { [weak self] (event: ConfirmCodeEvent) in
             if event == .openMainScreen {
-                self?.startMainFlow()
+                self?.presentMainFlow()
             }
         }
 
@@ -35,22 +35,23 @@ final class AppNavigation: EventNode {
         }
         addHandler { [weak self] (event: OnboardingEvent) in
             if case .close = event {
-                // TODO: open registration instead
-                self?.presentMainFlow()
+                self?.presentAuthFlow()
             }
         }
     }
 
     func startFlow() {
-
-//        presentMainFlow()
-        presentAuthFlow()
-//        presentOnboardingFlow()
-    }
-
-    func startMainFlow() {
-//        presentAuthFlow()
-        presentMainFlow()
+        guard UserDefaultsAccessor.value(for: \.isPassedOnboarding) else {
+            presentOnboardingFlow()
+            return
+        }
+        
+        switch UserSession.shared.authorizationStatus {
+        case .authorized:
+            presentMainFlow()
+        case .notAuthorized:
+            presentAuthFlow()
+        }
     }
 }
 
@@ -58,12 +59,12 @@ final class AppNavigation: EventNode {
 
 extension AppNavigation {
 
-    fileprivate func presentMainFlow() {
+    private func presentMainFlow() {
         let coordinator: TabBarCoordinator = TabBarCoordinator(parent: self)
         presentCoordinatorFlow(coordinator)
     }
 
-    fileprivate func presentAuthFlow() {
+    private func presentAuthFlow() {
         let configuration = AuthFlowConfiguration(parent: self)
         let coordinator = AuthFlowCoordinator(configuration: configuration)
         presentCoordinatorFlow(coordinator)

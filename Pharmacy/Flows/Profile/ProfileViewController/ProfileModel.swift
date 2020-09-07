@@ -41,7 +41,7 @@ protocol ProfileOutput: class {
 final class ProfileModel: Model {
     
     private var cellsData: [BaseCellData] = []
-    private var user: UserDisplayable? = UserSession.shared.user
+    private var user: UserDisplayable?
     private let provider = DataManager<ProfileAPI, ProfileResponse>()
     
     unowned var output: ProfileOutput!
@@ -49,6 +49,7 @@ final class ProfileModel: Model {
     override init(parent: EventNode?) {
         super.init(parent: parent)
         
+        self.user = UserSession.shared.user
         setupDataSource()
         
         addHandler { [weak self] (event: EditProfileEvent) in
@@ -192,6 +193,7 @@ extension ProfileModel: ProfileInput {
             guard let self = self else { return }
             switch result {
             case.success:
+                UserSession.shared.logout()
                 self.raise(event: ProfileEvent.logout)
                 UserSession.shared.logout()
             case .failure:

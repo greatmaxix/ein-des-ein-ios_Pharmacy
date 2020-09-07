@@ -60,6 +60,7 @@ final class ConfirmCodeModel: Model {
              guard let self: ConfirmCodeModel = self else { return }
              switch result {
              case .success(let response):
+                UserSession.shared.authorizationStatus = .authorized(userId: response.user.id)
                 UserSession.shared.save(user: response.user, token: response.token)
                 self.raise(event: ConfirmCodeEvent.openMainScreen)
              case .failure(let error):
