@@ -11,7 +11,7 @@ import Foundation
 struct LoginResponse: Equatable, Codable {
     var token: String
     var refreshToken: String
-    var user: User
+    var user: UserDTO
     
     enum CodingKeys: String, CodingKey {
         case user = "item"
