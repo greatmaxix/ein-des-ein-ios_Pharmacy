@@ -50,19 +50,22 @@ extension NSPersistentContainer {
         print("SQLite file path: \(path)")
     }
     
-    public static func deletePersistentStores() {
-        let stringPathes = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory,
-                                                               .userDomainMask,
-                                                               true)
-        guard let stringPath = stringPathes.first,
-            let path = URL(string: stringPath) else {
-                return
+    public static func deletePersistentStores(_ completion: () -> Void) {
+        let stringPathes = pharmacyContainer.persistentStoreDescriptions
+        
+        guard let path = stringPathes.first?.url else {
+            return
         }
         
-        try? pharmacyContainer
-            .persistentStoreCoordinator
-            .destroyPersistentStore(at: path,
-                                    ofType: NSSQLiteStoreType,
-                                    options: nil)
+        pharmacyContainer.persistentStoreCoordinator.performAndWait { [weak pharmacyContainer] in
+            try? pharmacyContainer?
+                .persistentStoreCoordinator
+                .destroyPersistentStore(at: path,
+                                        ofType: NSSQLiteStoreType,
+                                        options: nil)
+            
+            completion()
+        }
+
     }
 }

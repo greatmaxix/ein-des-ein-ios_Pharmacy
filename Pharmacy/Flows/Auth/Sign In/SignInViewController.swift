@@ -90,18 +90,11 @@ final class SignInViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func apply(_ sender: UIButton) {
-        
-        #if DEBUG
-        model.signIn(phone: "380930000005")
-        sender.isUserInteractionEnabled = false
-        #else
         if let phone: String = phoneInputView.text, phoneInputView.validate() {
-
             model.signIn(phone: phone)
             sender.isUserInteractionEnabled = false
             applyLabel.textColor = R.color.textDarkBlue()
         }
-        #endif
     }
     
     @IBAction func createAccount(_ sender: UIButton) {
