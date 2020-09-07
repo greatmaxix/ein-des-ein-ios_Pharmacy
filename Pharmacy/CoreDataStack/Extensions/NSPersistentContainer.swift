@@ -51,12 +51,10 @@ extension NSPersistentContainer {
     }
     
     public static func deletePersistentStores(_ completion: () -> Void) {
-        let stringPathes = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory,
-                                                               .userDomainMask,
-                                                               true)
-        guard let stringPath = stringPathes.first,
-            let path = URL(string: stringPath) else {
-                return
+        let stringPathes = pharmacyContainer.persistentStoreDescriptions
+        
+        guard let path = stringPathes.first?.url else {
+            return
         }
         
         pharmacyContainer.persistentStoreCoordinator.performAndWait { [weak pharmacyContainer] in
