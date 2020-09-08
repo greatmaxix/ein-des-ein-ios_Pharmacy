@@ -18,16 +18,7 @@ enum AuthAPI {
     case logout(refreshToken: String)
 }
 
-extension AuthAPI: TargetType, AccessTokenAuthorizable {
-
-    var authorizationType: AuthorizationType? {
-        return .bearer
-    }
-
-    // Change this for real one
-    var baseURL: URL {
-        return URL(string: "https://api.pharmacies.release.fmc-dev.com/api/v1/")!
-    }
+extension AuthAPI: RequestConvertible {
 
     var path: String {
         switch self {
@@ -55,10 +46,6 @@ extension AuthAPI: TargetType, AccessTokenAuthorizable {
         }
     }
 
-    var sampleData: Data {
-        return Data()
-    }
-
     var task: Task {
         switch self {
         case .requestCodeFor(let phone):
@@ -75,10 +62,6 @@ extension AuthAPI: TargetType, AccessTokenAuthorizable {
         case .logout(refreshToken: let refreshToken):
             return .requestParameters(parameters: ["refreshToken": refreshToken], encoding: JSONEncoding.default)
         }
-    }
-
-    var headers: [String: String]? {
-        return ["Content-type": "application/json"]
     }
 }
 

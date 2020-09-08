@@ -16,26 +16,14 @@ enum WishListAPI {
     case getWishList(pageNumber: Int, medicinesPerPage: Int)
 }
 
-extension WishListAPI: TargetType, AccessTokenAuthorizable {
-    
-    var sampleData: Data {
-        return Data()
-    }
-    
-    var authorizationType: AuthorizationType? {
-        return .bearer
-    }
-    
-    var baseURL: URL {
-        return URL(string: "https://api.pharmacies.fmc-dev.com/api/v1/customer")!
-    }
+extension WishListAPI: RequestConvertible {
     
     var path: String {
         switch self {
         case .addToWishList, .removeFromWishList:
-            return "wishlist/global-product"
+            return "customer/wishlist/global-product"
         case .getWishList:
-            return "wishlist"
+            return "customer/wishlist"
         }
     }
     
@@ -58,13 +46,6 @@ extension WishListAPI: TargetType, AccessTokenAuthorizable {
             return .requestParameters(parameters: ["id": id], encoding: JSONEncoding.default)
         case .getWishList(let pageNumber, let medicinesPerPage):
             return .requestParameters(parameters: ["page": pageNumber, "per_page": medicinesPerPage], encoding: URLEncoding.default)
-        }
-    }
-    
-    var headers: [String: String]? {
-        switch self {
-        default:
-            return ["Content-type": "application/json"]
         }
     }
 }

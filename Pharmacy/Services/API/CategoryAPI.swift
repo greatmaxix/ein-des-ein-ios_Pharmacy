@@ -14,19 +14,7 @@ enum CategoryAPI {
     case getCategories(startCode: String?, maxLevel: Int?)
 }
 
-extension CategoryAPI: TargetType, AccessTokenAuthorizable {
-    
-    var sampleData: Data {
-        return Data()
-    }
-    
-    var authorizationType: AuthorizationType? {
-        return .bearer
-    }
-    
-    var baseURL: URL {
-        return URL(string: "https://api.pharmacies.fmc-dev.com/api/v1")!
-    }
+extension CategoryAPI: RequestConvertible {
     
     var path: String {
         switch self {
@@ -49,13 +37,6 @@ extension CategoryAPI: TargetType, AccessTokenAuthorizable {
                 return .requestParameters(parameters: ["startCode": startCode, "maxLevelCount": maxLevel], encoding: URLEncoding.default)
             }
             return .requestPlain
-        }
-    }
-    
-    var headers: [String: String]? {
-        switch self {
-        default:
-            return ["Content-type": "application/json"]
         }
     }
 }

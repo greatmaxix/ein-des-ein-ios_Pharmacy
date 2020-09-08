@@ -211,6 +211,8 @@
 		8715DB9324FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8715DB9124FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib */; };
 		8715DB9524FFEA3900BBF37C /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB9424FFEA3900BBF37C /* OnboardingCoordinator.swift */; };
 		8715DB9724FFF97B00BBF37C /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB9624FFF97B00BBF37C /* OnboardingModel.swift */; };
+		8717E4DE2507744500546A55 /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717E4DD2507744500546A55 /* SearchAPI.swift */; };
+		8717E4E12507850800546A55 /* RequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717E4E02507850800546A55 /* RequestConvertible.swift */; };
 		8717E4DA2506977D00546A55 /* SuccessfulSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717E4D92506977D00546A55 /* SuccessfulSignUpViewController.swift */; };
 		8717E4DC2506979200546A55 /* SuccessfulSignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717E4DB2506979200546A55 /* SuccessfulSignUpModel.swift */; };
 		871E71A32501606200C8489B /* AvatarDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871E71A22501606200C8489B /* AvatarDTO.swift */; };
@@ -443,6 +445,8 @@
 		8715DB9124FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingSlideCollectionViewCell.xib; sourceTree = "<group>"; };
 		8715DB9424FFEA3900BBF37C /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		8715DB9624FFF97B00BBF37C /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
+		8717E4DD2507744500546A55 /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
+		8717E4E02507850800546A55 /* RequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConvertible.swift; sourceTree = "<group>"; };
 		8717E4D92506977D00546A55 /* SuccessfulSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulSignUpViewController.swift; sourceTree = "<group>"; };
 		8717E4DB2506979200546A55 /* SuccessfulSignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulSignUpModel.swift; sourceTree = "<group>"; };
 		871E71A22501606200C8489B /* AvatarDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDTO.swift; sourceTree = "<group>"; };
@@ -1349,10 +1353,12 @@
 		619AAA3E2498A99700AB46ED /* API */ = {
 			isa = PBXGroup;
 			children = (
+				8717E4DF2507848100546A55 /* Protocols */,
 				619AAA3F2498A9AE00AB46ED /* AuthAPI.swift */,
 				39854D0124EAB4870070E0D1 /* ProfileAPI.swift */,
 				392BD73924FFE23000088002 /* CategoryAPI.swift */,
 				3952FA242500FE9B00E5EF1D /* WishListAPI.swift */,
+				8717E4DD2507744500546A55 /* SearchAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1386,6 +1392,14 @@
 				8715DB9124FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib */,
 			);
 			path = SlideCell;
+			sourceTree = "<group>";
+		};
+		8717E4DF2507848100546A55 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8717E4E02507850800546A55 /* RequestConvertible.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		8717E4D825068AAA00546A55 /* SuccessfulSignUp */ = {
@@ -1764,6 +1778,7 @@
 				875223A72500043D000759C8 /* NibReusable.swift in Sources */,
 				3915D60824A2466700A93627 /* ConfirmCodeModel.swift in Sources */,
 				603D31B024E3C9E4000E5A6C /* MedicineListViewController.swift in Sources */,
+				8717E4E12507850800546A55 /* RequestConvertible.swift in Sources */,
 				603D31FA24E5AA31000E5A6C /* ProductDescriptionTableViewCell.swift in Sources */,
 				398B0DEF24F53AC50084EC54 /* FoundMedicineView.swift in Sources */,
 				875223CA2500FDEE000759C8 /* Entity.swift in Sources */,
@@ -1910,6 +1925,7 @@
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
 				39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */,
+				8717E4DE2507744500546A55 /* SearchAPI.swift in Sources */,
 				875223CC2500FE07000759C8 /* NSManagedObject+Name.swift in Sources */,
 				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,
 				6036EB0024DD1CAA003336C2 /* BasketCoordinator.swift in Sources */,
@@ -2066,6 +2082,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */;
 			buildSettings = {
+				API_HOST = "https://api.pharmacies.release.fmc-dev.com/api/v1/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DU5QL9C8C6;
@@ -2086,6 +2103,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 447B6BF7452CC91EDC27B562 /* Pods-Pharmacy.release.xcconfig */;
 			buildSettings = {
+				API_HOST = "https://api.pharmacies.release.fmc-dev.com/api/v1/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DU5QL9C8C6;
