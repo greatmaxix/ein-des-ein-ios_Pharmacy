@@ -62,12 +62,6 @@ final class ConfirmCodeViewController: UIViewController {
             navigationController?.navigationBar.isHidden = false
         }
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        navigationController?.navigationBar.isHidden = true
-    }
 
     @IBAction func resendCode(_ sender: UIButton) {
 
