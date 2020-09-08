@@ -21,7 +21,6 @@ class SuccessfulSignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = R.string.localize.confirmScreenTitle()
         setupView()
     }
     
@@ -38,5 +37,12 @@ extension SuccessfulSignUpViewController {
     private func setupView() {
         titleLabel.text = R.string.localize.successfulLoginTitle()
         descriptionLabel.text = R.string.localize.successfulLoginDescription()
+        
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            
+//            bar.isLeftItemHidden = true
+//            bar.isRightItemHidden = true
+            bar.title = R.string.localize.confirmScreenTitle()
+        }
     }
 }

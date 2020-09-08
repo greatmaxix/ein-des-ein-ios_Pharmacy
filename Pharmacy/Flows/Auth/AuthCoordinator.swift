@@ -100,9 +100,6 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         
         let model = SuccessfulSignUpModel(parent: self)
         congratulationViewController.model = model
-        if let simpleNavigationBar = root.navigationController?.navigationBar as? SimpleNavigationBar {
-            simpleNavigationBar.isLeftItemHidden = true
-        }
         root.navigationController?.pushViewController(congratulationViewController,
                                                       animated: true)
     }
