@@ -13,7 +13,6 @@ enum OnboardingEvent: Event {
     case openRegions
     case closeRegion
     case selectRegion
-    case toAuth
 }
 
 protocol OnboardingModelInput {
@@ -68,15 +67,12 @@ class OnboardingModel: Model {
 extension OnboardingModel {
 
     private func closeFlow() {
+        UserDefaultsAccessor.write(value: true, for: \.isPassedOnboarding)
         raise(event: OnboardingEvent.close)
     }
     
     private func openRegions() {
         raise(event: OnboardingEvent.openRegions)
-    }
-    
-    private func openAuth() {
-        raise(event: OnboardingEvent.toAuth)
     }
 }
 
@@ -90,7 +86,7 @@ extension OnboardingModel: OnboardingModelInput {
         } else if currentIndex == 3 {
             openRegions()
         } else {
-            openAuth()
+           closeFlow()
         }
     }
 

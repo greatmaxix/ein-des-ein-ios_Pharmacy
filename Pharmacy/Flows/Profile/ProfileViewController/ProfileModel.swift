@@ -11,7 +11,7 @@ import EventsTree
 import Moya
 
 enum ProfileEvent: Event {
-    case editProfile(profile: User)
+    case editProfile
     case openWishlist
     case openOrder
     case openAnalize
@@ -41,7 +41,7 @@ protocol ProfileOutput: class {
 final class ProfileModel: Model {
     
     private var cellsData: [BaseCellData] = []
-    private var user: User? = UserSession.shared.getUser()
+    private var user: UserDisplayable?
     private let provider = DataManager<ProfileAPI, ProfileResponse>()
     
     unowned var output: ProfileOutput!
@@ -49,6 +49,7 @@ final class ProfileModel: Model {
     override init(parent: EventNode?) {
         super.init(parent: parent)
         
+        self.user = UserSession.shared.user
         setupDataSource()
         
         addHandler { [weak self] (event: EditProfileEvent) in
@@ -69,11 +70,9 @@ final class ProfileModel: Model {
         KeychainManager.shared.getToken()
         cellsData = []
         do {
-            let cellData: NameTableViewCellData = NameTableViewCellData(imageUrl: user?.avatar?.url, name: user?.name ?? "Name Surname", phone: user?.phone ?? "+1111111111111")
+            let cellData: NameTableViewCellData = NameTableViewCellData(imageUrl: user?.avatarURL, name: user?.name ?? "Name Surname", phone: user?.phone ?? "+1111111111111")
             cellData.editProfile = { [weak self] in
-                if let user: User = self?.user {
-                    self?.raise(event: ProfileEvent.editProfile(profile: user))
-                }
+                self?.raise(event: ProfileEvent.editProfile)
             }
             cellData.selectHandler = nil
             cellsData.append(cellData)
@@ -179,8 +178,7 @@ extension ProfileModel: ProfileInput {
 
             switch response {
             case .success(let result):
-                UserSession.shared.save(user: result.user, token: nil)
-                self.user = result.user
+                self.user = UserSession.shared.save(user: result.user, token: nil)
                 self.setupDataSource()
                 completion?()
             case .failure(let error):
@@ -196,6 +194,7 @@ extension ProfileModel: ProfileInput {
             guard let self = self else { return }
             switch result {
             case.success:
+                UserSession.shared.logout()
                 self.raise(event: ProfileEvent.logout)
             case .failure:
                 self.output.showLogoutError()

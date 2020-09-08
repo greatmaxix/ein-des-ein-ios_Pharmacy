@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YLA-4e-cX8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YLA-4e-cX8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -586,6 +586,73 @@
             </objects>
             <point key="canvasLocation" x="58" y="-461"/>
         </scene>
+        <!--Successful Sign Up View Controller-->
+        <scene sceneID="gCI-Uw-Bfv">
+            <objects>
+                <viewController storyboardIdentifier="SuccessfulSignUpViewController" id="84C-kz-HZb" customClass="SuccessfulSignUpViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4fd-zO-s3S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjc-bR-Ji6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding" translatesAutoresizingMaskIntoConstraints="NO" id="P3B-gi-RYj">
+                                        <rect key="frame" x="76.5" y="264.5" width="261" height="261"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="261" id="YCF-nv-9sz"/>
+                                            <constraint firstAttribute="height" constant="261" id="dtB-sn-vKu"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhb-pg-6Bw">
+                                        <rect key="frame" x="16" y="557.5" width="382" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="DqP-gh-3cG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="25f-3z-eMR">
+                                        <rect key="frame" x="16" y="595.5" width="382" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="yhb-pg-6Bw" firstAttribute="leading" secondItem="cjc-bR-Ji6" secondAttribute="leading" constant="16" id="6Em-c0-2lp"/>
+                                    <constraint firstItem="25f-3z-eMR" firstAttribute="top" secondItem="yhb-pg-6Bw" secondAttribute="bottom" constant="8" id="G1C-V1-nI9"/>
+                                    <constraint firstAttribute="trailing" secondItem="25f-3z-eMR" secondAttribute="trailing" constant="16" id="IWX-OM-dvT"/>
+                                    <constraint firstItem="P3B-gi-RYj" firstAttribute="centerX" secondItem="cjc-bR-Ji6" secondAttribute="centerX" id="PF2-eH-hhz"/>
+                                    <constraint firstItem="25f-3z-eMR" firstAttribute="leading" secondItem="cjc-bR-Ji6" secondAttribute="leading" constant="16" id="QpL-8g-LgS"/>
+                                    <constraint firstItem="yhb-pg-6Bw" firstAttribute="top" secondItem="P3B-gi-RYj" secondAttribute="bottom" constant="32" id="bFx-Eb-d01"/>
+                                    <constraint firstAttribute="bottom" secondItem="25f-3z-eMR" secondAttribute="bottom" priority="250" constant="54" id="hiO-F6-lOW"/>
+                                    <constraint firstItem="P3B-gi-RYj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cjc-bR-Ji6" secondAttribute="top" constant="16" id="izm-ZD-0oa"/>
+                                    <constraint firstAttribute="trailing" secondItem="yhb-pg-6Bw" secondAttribute="trailing" constant="16" id="uma-FF-Bdf"/>
+                                    <constraint firstItem="P3B-gi-RYj" firstAttribute="centerY" secondItem="cjc-bR-Ji6" secondAttribute="centerY" constant="-36" id="wfb-f6-cew"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="abG-Ay-9KV" firstAttribute="trailing" secondItem="cjc-bR-Ji6" secondAttribute="trailing" id="F6a-ze-KCV"/>
+                            <constraint firstItem="cjc-bR-Ji6" firstAttribute="top" secondItem="4fd-zO-s3S" secondAttribute="top" id="MrG-ue-CkY"/>
+                            <constraint firstItem="abG-Ay-9KV" firstAttribute="bottom" secondItem="cjc-bR-Ji6" secondAttribute="bottom" id="Ruv-Lx-Twe"/>
+                            <constraint firstItem="cjc-bR-Ji6" firstAttribute="leading" secondItem="4fd-zO-s3S" secondAttribute="leading" id="f2D-Fe-fuv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="abG-Ay-9KV"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="25f-3z-eMR" id="cta-kZ-0Zn"/>
+                        <outlet property="titleLabel" destination="yhb-pg-6Bw" id="7cs-ZR-pcw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="klG-qq-rJO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="958" y="224"/>
+        </scene>
     </scenes>
     <resources>
         <image name="apple" width="24.5" height="30"/>
@@ -597,6 +664,7 @@
         <image name="google" width="30" height="30"/>
         <image name="leftArrowDark" width="28" height="28"/>
         <image name="logo" width="104" height="104"/>
+        <image name="onboarding" width="261" height="261"/>
         <namedColor name="appleBlack">
             <color red="0.13725490196078433" green="0.14117647058823529" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

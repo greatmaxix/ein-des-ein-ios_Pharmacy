@@ -18,6 +18,7 @@ protocol RegionInput: class {
     func load()
     func close()
     func startLocationTracking()
+    func toAuth()
 }
 
 protocol RegionOutput: class {
@@ -52,17 +53,22 @@ final class RegionModel: EventNode {
     }
     
     func saveRegion(region: Region) {
-        raise(event: OnboardingEvent.selectRegion)
+        UserDefaultsAccessor.write(value: region.regionId, for: \.regionId)
+        toAuth()
         close()
     }
     
     func saveRegion(coordinate: CLLocationCoordinate2D) {
-        raise(event: OnboardingEvent.selectRegion)
+        toAuth()
         close()
     }
 }
 
 extension RegionModel: RegionInput {
+    
+    func toAuth() {
+        raise(event: OnboardingEvent.selectRegion)
+    }
     
     var title: String {
         return R.string.localize.regionTitle()

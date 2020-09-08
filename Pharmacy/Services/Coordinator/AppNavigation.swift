@@ -12,19 +12,25 @@ import EventsTree
 
 final class AppNavigation: EventNode {
 
-    fileprivate unowned let window: UIWindow
+    private unowned let window: UIWindow
 
     init(window: UIWindow) {
         self.window = window
 
         super.init(parent: nil)
-        
+
         addHandler { [weak self] (event: ConfirmCodeEvent) in
             if event == .openMainScreen {
-                self?.startMainFlow()
+                self?.presentMainFlow()
             }
         }
         
+        addHandler { [weak self] (event: SuccessfulSignUpEvent) in
+            if event == SuccessfulSignUpEvent.openMainScreen {
+                self?.presentMainFlow()
+            }
+        }
+
         addHandler { [weak self] (event: ProfileEvent) in
             switch event {
             case .logout:
@@ -36,8 +42,6 @@ final class AppNavigation: EventNode {
         addHandler { [weak self] (event: OnboardingEvent) in
             switch event {
             case .close:
-                self?.presentMainFlow()
-            case .toAuth:
                 self?.presentAuthFlow()
             default:
                 break
@@ -46,15 +50,17 @@ final class AppNavigation: EventNode {
     }
 
     func startFlow() {
+        guard UserDefaultsAccessor.value(for: \.isPassedOnboarding) else {
+            presentOnboardingFlow()
+            return
+        }
         
-//        presentMainFlow()
-       // presentAuthFlow()
-        presentOnboardingFlow()
-    }
-    
-    func startMainFlow() {
-        //presentAuthFlow()
-        presentMainFlow()
+        switch UserSession.shared.authorizationStatus {
+        case .authorized:
+            presentMainFlow()
+        case .notAuthorized:
+            presentAuthFlow()
+        }
     }
 }
 
@@ -62,17 +68,17 @@ final class AppNavigation: EventNode {
 
 extension AppNavigation {
 
-    fileprivate func presentMainFlow() {
+    private func presentMainFlow() {
         let coordinator: TabBarCoordinator = TabBarCoordinator(parent: self)
         presentCoordinatorFlow(coordinator)
     }
 
-    fileprivate func presentAuthFlow() {
+    private func presentAuthFlow() {
         let configuration = AuthFlowConfiguration(parent: self)
         let coordinator = AuthFlowCoordinator(configuration: configuration)
         presentCoordinatorFlow(coordinator)
     }
-    
+
     private func presentOnboardingFlow() {
         let configuration = OnboardingFlowConfiguration(parent: self)
         let coordinator = OnboardingCoordinator(configuration: configuration)

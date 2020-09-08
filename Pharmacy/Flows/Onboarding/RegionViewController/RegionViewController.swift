@@ -41,10 +41,11 @@ final class RegionViewController: UIViewController {
     
     @IBAction func useCurrentLocation(_ sender: UIButton) {
         model.startLocationTracking()
-        back()
+        model.toAuth()
+        close()
     }
     
-    @objc private func back() {
+    @objc private func close() {
         model.close()
     }
 }
@@ -52,7 +53,7 @@ final class RegionViewController: UIViewController {
 extension RegionViewController: SimpleNavigationBarDelegate {
     
     func leftBarItemAction() {
-        back()
+        close()
     }
     
     func rightBarItemAction() {

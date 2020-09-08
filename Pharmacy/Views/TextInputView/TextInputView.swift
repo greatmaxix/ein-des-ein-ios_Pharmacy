@@ -163,7 +163,7 @@ final class TextInputView: UIView {
             backgroundView.layer.borderColor = newValue.borderColor
             backgroundView.backgroundColor = newValue.backgroundColor
             inputStatusButton.setBackgroundImage(newValue.image, for: .normal)
-             inputTextField.textColor = newValue.textColor
+            inputTextField.textColor = newValue.textColor
             errorLabel.isHidden = newValue != .unsuccessfulValidation
         }
     }

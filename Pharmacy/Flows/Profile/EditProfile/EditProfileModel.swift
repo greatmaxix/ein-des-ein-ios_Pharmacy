@@ -21,7 +21,7 @@ protocol EditProfileInput: class {
     func saveImage(image: UIImage, mime: String, fileName: String)
     func saveProfile(name: String, email: String)
     func close()
-    func getUser() -> User?
+    func getUser() -> UserDisplayable?
     
     var name: String {get}
     var phone: String {get}
@@ -36,13 +36,13 @@ final class EditProfileModel: EventNode {
     private let provider: DataManager<ProfileAPI, ProfileResponse> = DataManager<ProfileAPI, ProfileResponse>()
     private let imageProvider: DataManager<ProfileAPI, CustomerImageResponse> = DataManager<ProfileAPI, CustomerImageResponse>()
     
-    private var user: User!
+    private var user: UserDisplayable!
     private var mime: String = ""
     private var imageFileName: String = ""
     
-    init(parent: EventNode?, user: User) {
+    override init(parent: EventNode?) {
         super.init(parent: parent)
-        self.user = user
+        self.user = UserSession.shared.user
     }
     
     private func updateUser(name: String, email: String, avatarUuid: String) {
@@ -70,8 +70,8 @@ final class EditProfileModel: EventNode {
                 guard let self = self else {return}
                 switch result {
                 case .success(let response):
-                    self.user.avatar = response.avatar
-                    UserSession.shared.save(user: self.user, token: nil)
+                    UserSession.shared.save(avatar: response.avatar)
+                    self.user = UserSession.shared.user
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -94,7 +94,7 @@ extension EditProfileModel: EditProfileInput {
     }
     
     var imageUrl: URL? {
-        user.avatar?.url
+        user.avatarURL
     }
     
     func saveImage(image: UIImage, mime: String, fileName: String) {
@@ -105,11 +105,12 @@ extension EditProfileModel: EditProfileInput {
     }
     
     func saveProfile(name: String, email: String) {
-        updateUser(name: name, email: email, avatarUuid: user.avatar?.uuid ?? "")
+        updateUser(name: name, email: email, avatarUuid: UserSession.shared.avatarUUID ?? "")
+        
     }
     
-    func getUser() -> User? {
-        return UserDefaults.standard.getCurrentUser()
+    func getUser() -> UserDisplayable? {
+        return UserSession.shared.user
     }
     
     func close() {
