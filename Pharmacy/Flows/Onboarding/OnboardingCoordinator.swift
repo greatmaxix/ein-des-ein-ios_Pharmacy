@@ -63,7 +63,7 @@ extension OnboardingCoordinator {
         root.popViewController(animated: animated)
     }
     
-    fileprivate func openRegions() {
+    private func openRegions() {
         let vc = R.storyboard.onboarding.regionViewController()!
         let model = RegionModel(parent: self)
         model.output = vc

@@ -67,7 +67,7 @@ final class RegionModel: EventNode {
 extension RegionModel: RegionInput {
     
     func toAuth() {
-        raise(event: OnboardingEvent.selectRegion)
+        raise(event: OnboardingEvent.regionSelected)
     }
     
     var title: String {
