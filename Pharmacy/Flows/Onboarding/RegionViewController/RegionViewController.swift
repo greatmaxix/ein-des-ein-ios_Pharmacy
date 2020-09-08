@@ -59,7 +59,17 @@ extension RegionViewController: SimpleNavigationBarDelegate {
     }
     
     func search(returnText: String) {
-        model.filterRegions(text: returnText, tableView: tableView)
+        
+        if returnText != "" {
+            
+            if !(tableView.dataSource is FilterRegionsDataSource) {
+                model.filterDataSource.assign(tableView: tableView)
+            }
+            model.filterDataSource.filterRegions(searchText: returnText)
+            tableView.reloadData()
+        } else {
+            model.dataSource.assign(tableView: tableView)
+        }
     }
     
     func cancelSearch() {

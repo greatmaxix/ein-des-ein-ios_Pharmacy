@@ -14,7 +14,6 @@ protocol RegionInput: class {
     var dataSource: RegionsDataSource { get }
     var filterDataSource: FilterRegionsDataSource { get }
     var title: String { get }
-    func filterRegions(text: String, tableView: UITableView)
     func load()
     func close()
     func startLocationTracking()
@@ -78,18 +77,6 @@ extension RegionModel: RegionInput {
     
     var filterDataSource: FilterRegionsDataSource {
         return filterDataSourse
-    }
-    
-    func filterRegions(text: String, tableView: UITableView) {
-        if text != "" {
-            if !(tableView.dataSource is FilterRegionsDataSource) {
-                filterDataSourse.assign(tableView: tableView)
-            }
-            filterDataSourse.filterRegions(searchText: text)
-            tableView.reloadData()
-        } else {
-            dataSource.assign(tableView: tableView)
-        }
     }
 
     func load() {
