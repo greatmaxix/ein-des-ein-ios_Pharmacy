@@ -40,8 +40,8 @@ extension SuccessfulSignUpViewController {
         
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             
-//            bar.isLeftItemHidden = true
-//            bar.isRightItemHidden = true
+            bar.isLeftItemHidden = true
+            bar.isRightItemHidden = true
             bar.title = R.string.localize.confirmScreenTitle()
         }
     }

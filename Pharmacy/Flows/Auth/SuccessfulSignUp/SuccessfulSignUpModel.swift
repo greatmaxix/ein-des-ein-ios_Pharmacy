@@ -24,7 +24,7 @@ final class SuccessfulSignUpModel: Model {
 extension SuccessfulSignUpModel: SuccessfulSignUpModelInput {
     
     func onViewDidApearAction() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
             self?.raise(event: SuccessfulSignUpEvent.openMainScreen)
         }
     }
