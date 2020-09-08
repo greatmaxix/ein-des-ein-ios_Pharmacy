@@ -55,7 +55,7 @@ extension OnboardingViewController {
 
 // MARK: - OnboardingModelOutput
 extension OnboardingViewController: OnboardingModelOutput {
-
+    
     func routeToSlide(at index: Int) {
         selectSlide(at: index)
     }
@@ -89,6 +89,7 @@ extension OnboardingViewController {
         }
 
         let indexPath = IndexPath(item: index, section: 0)
+        setupButtons(nextTitle: model.slideInfos[index].applyButtonTitle, skipTitle: model.slideInfos[index].skipTitle)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
     }
 }
@@ -105,8 +106,6 @@ extension OnboardingViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: OnboardingSlideCollectionViewCell = collectionView.dequeueReusableCell(at: indexPath)
         cell.setupContent(with: model.slideInfos[indexPath.row])
-        setupButtons(nextTitle: model.slideInfos[indexPath.row].applyButtonTitle, skipTitle: model.slideInfos[indexPath.row].skipTitle)
-        
         return cell
     }
 }

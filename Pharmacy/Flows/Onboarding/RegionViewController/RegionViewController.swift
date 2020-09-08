@@ -12,14 +12,17 @@ final class RegionViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var alphabetView: AlphabetView!
+    @IBOutlet private weak var indicatorView: UIActivityIndicatorView!
     
     var model: RegionInput!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         model.load()
         setupNavigation()
+        indicatorView.hidesWhenStopped = true
+        indicatorView.startAnimating()
     }
     
     func setupNavigation() {
@@ -37,6 +40,8 @@ final class RegionViewController: UIViewController {
     }
     
     @IBAction func useCurrentLocation(_ sender: UIButton) {
+        model.startLocationTracking()
+        back()
     }
     
     @objc private func back() {
@@ -47,7 +52,7 @@ final class RegionViewController: UIViewController {
 extension RegionViewController: SimpleNavigationBarDelegate {
     
     func leftBarItemAction() {
-        model.close()
+        back()
     }
     
     func rightBarItemAction() {
@@ -66,5 +71,7 @@ extension RegionViewController: RegionOutput {
     
     func reloadRegions() {
         model.dataSource.assign(tableView: tableView, alphabetView: alphabetView)
+        tableView.isHidden = false
+        indicatorView.stopAnimating()
     }
 }

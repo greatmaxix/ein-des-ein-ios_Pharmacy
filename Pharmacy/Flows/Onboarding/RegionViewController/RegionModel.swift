@@ -8,6 +8,7 @@
 
 import UIKit
 import EventsTree
+import CoreLocation
 
 protocol RegionInput: class {
     var dataSource: RegionsDataSource { get }
@@ -16,6 +17,7 @@ protocol RegionInput: class {
     func filterRegions(text: String, tableView: UITableView)
     func load()
     func close()
+    func startLocationTracking()
 }
 
 protocol RegionOutput: class {
@@ -27,6 +29,7 @@ final class RegionModel: EventNode {
     fileprivate var regionDataSource: RegionsDataSource!
     fileprivate var filterDataSourse: FilterRegionsDataSource!
     fileprivate let provider = DataManager<LocationAPI, RegionResponse>()
+    private var locationService = LocationService()
     unowned var output: RegionOutput!
     
     func setupDataSource(regions: [Region]) {
@@ -35,19 +38,27 @@ final class RegionModel: EventNode {
             regionDataSource = RegionsDataSource(mainRegion: region)
             filterDataSourse = FilterRegionsDataSource(mainRegion: region)
             filterDataSourse.selectRegionClosure = { [weak self] selectedRegion in
-                self?.close()
                 self?.saveRegion(region: selectedRegion)
             }
             regionDataSource.selectRegionClosure = { [weak self] selectedRegion in
-                self?.close()
                 self?.saveRegion(region: selectedRegion)
             }
             output.reloadRegions()
+            
+            locationService.firstLocationUpdate = { [weak self] coordinate in
+                self?.saveRegion(coordinate: coordinate)
+            }
         }
     }
     
     func saveRegion(region: Region) {
-        
+        raise(event: OnboardingEvent.selectRegion)
+        close()
+    }
+    
+    func saveRegion(coordinate: CLLocationCoordinate2D) {
+        raise(event: OnboardingEvent.selectRegion)
+        close()
     }
 }
 
@@ -90,7 +101,11 @@ extension RegionModel: RegionInput {
         })
     }
     
+    func startLocationTracking() {
+        locationService.updateCurrentLocation()
+    }
+    
     func close() {
-        raise(event: OnboardingEvent.back)
+        raise(event: OnboardingEvent.closeRegion)
     }
 }

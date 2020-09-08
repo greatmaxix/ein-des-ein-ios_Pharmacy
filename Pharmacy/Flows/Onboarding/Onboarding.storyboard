@@ -111,7 +111,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nHW-xw-xgD">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nHW-xw-xgD">
                                 <rect key="frame" x="8" y="105" width="390" height="764"/>
                                 <color key="backgroundColor" name="backgroundGray"/>
                             </tableView>
@@ -135,15 +135,20 @@
                                     <constraint firstAttribute="width" constant="16" id="bA4-cR-mL3"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="6wK-XM-3ZC">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstItem="MOV-1x-5NG" firstAttribute="top" secondItem="jSR-1b-wnD" secondAttribute="top" constant="11" id="6se-ff-hww"/>
+                            <constraint firstItem="6wK-XM-3ZC" firstAttribute="centerX" secondItem="jSR-1b-wnD" secondAttribute="centerX" id="8g6-sl-WAq"/>
                             <constraint firstItem="jSR-1b-wnD" firstAttribute="trailing" secondItem="MOV-1x-5NG" secondAttribute="trailing" constant="16" id="EWY-Ws-1Im"/>
                             <constraint firstItem="HJ0-6i-s7Q" firstAttribute="leading" secondItem="nHW-xw-xgD" secondAttribute="trailing" id="RyP-Yo-88k"/>
                             <constraint firstItem="nHW-xw-xgD" firstAttribute="top" secondItem="MOV-1x-5NG" secondAttribute="bottom" id="VvV-Ts-A6w"/>
                             <constraint firstItem="HJ0-6i-s7Q" firstAttribute="centerY" secondItem="jSR-1b-wnD" secondAttribute="centerY" id="eyq-hL-jE7"/>
                             <constraint firstItem="HJ0-6i-s7Q" firstAttribute="trailing" secondItem="jSR-1b-wnD" secondAttribute="trailing" id="lAJ-NX-3R1"/>
+                            <constraint firstItem="6wK-XM-3ZC" firstAttribute="centerY" secondItem="jSR-1b-wnD" secondAttribute="centerY" id="oKA-qA-b7I"/>
                             <constraint firstItem="MOV-1x-5NG" firstAttribute="leading" secondItem="jSR-1b-wnD" secondAttribute="leading" constant="20" id="svi-ue-q3w"/>
                             <constraint firstItem="nHW-xw-xgD" firstAttribute="bottom" secondItem="jSR-1b-wnD" secondAttribute="bottom" constant="7" id="wHb-gF-Pf3"/>
                             <constraint firstItem="HJ0-6i-s7Q" firstAttribute="height" secondItem="nHW-xw-xgD" secondAttribute="height" multiplier="0.66" id="xSK-bd-BZv"/>
@@ -153,6 +158,7 @@
                     </view>
                     <connections>
                         <outlet property="alphabetView" destination="HJ0-6i-s7Q" id="fdr-jL-qTR"/>
+                        <outlet property="indicatorView" destination="6wK-XM-3ZC" id="Yrb-W3-ueT"/>
                         <outlet property="tableView" destination="nHW-xw-xgD" id="oNa-81-N9x"/>
                     </connections>
                 </viewController>

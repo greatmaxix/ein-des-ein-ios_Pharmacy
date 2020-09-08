@@ -11,7 +11,8 @@ import EventsTree
 enum OnboardingEvent: Event {
     case close
     case openRegions
-    case back
+    case closeRegion
+    case selectRegion
     case toAuth
 }
 
@@ -24,6 +25,18 @@ class OnboardingModel: Model {
 
     // MARK: - Properties
     weak var output: OnboardingModelOutput!
+    
+    override init(parent: EventNode?) {
+        super.init(parent: parent)
+        
+        addHandler { [weak self] (event: OnboardingEvent) in
+            if event == .selectRegion, let self = self {
+                
+                self.currentIndex += 1
+                self.output.routeToSlide(at: self.currentIndex)
+            }
+        }
+    }
 
     private(set) var slideInfos: [SlideInfo] = {
         var result = [SlideInfo(image: R.image.onboarding()!,
@@ -42,7 +55,7 @@ class OnboardingModel: Model {
         var lastSlide = SlideInfo(image: R.image.onboarding()!,
                                   title: R.string.localize.onboardingTitlePurchase(),
                                   description: R.string.localize.onboardingDescriptionPurchase())
-        lastSlide.skipTitle = R.string.localize.onboardingButtonSkip()
+        lastSlide.skipTitle = R.string.localize.onboardingButtonSkipPurchase()
         lastSlide.applyButtonTitle = R.string.localize.onboardingButtonNextPurchase()
         result.append(lastSlide)
         return result
@@ -76,8 +89,6 @@ extension OnboardingModel: OnboardingModelInput {
             output.routeToSlide(at: currentIndex)
         } else if currentIndex == 3 {
             openRegions()
-            currentIndex += 1
-            output.routeToSlide(at: currentIndex)
         } else {
             openAuth()
         }

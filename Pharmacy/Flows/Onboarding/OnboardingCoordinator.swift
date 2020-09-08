@@ -24,8 +24,10 @@ class OnboardingCoordinator: EventNode, Coordinator {
 
         addHandler { [weak self] (event: OnboardingEvent) in
             switch event {
-            case .close, .back:
+            case .close:
                 self?.popController()
+            case .closeRegion:
+                self?.popController(animated: false)
             case .openRegions:
                 self?.openRegions()
             default:
@@ -57,8 +59,8 @@ class OnboardingCoordinator: EventNode, Coordinator {
 // MARK: - Private methods
 extension OnboardingCoordinator {
 
-    private func popController() {
-        root.popViewController(animated: true)
+    private func popController(animated: Bool = true) {
+        root.popViewController(animated: animated)
     }
     
     fileprivate func openRegions() {
