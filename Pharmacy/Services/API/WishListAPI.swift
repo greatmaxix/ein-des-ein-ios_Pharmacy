@@ -47,5 +47,5 @@ extension WishListAPI: RequestConvertible {
         case .getWishList(let pageNumber, let medicinesPerPage):
             return .requestParameters(parameters: ["page": pageNumber, "per_page": medicinesPerPage], encoding: URLEncoding.default)
         }
-    }'
+    }
 }
