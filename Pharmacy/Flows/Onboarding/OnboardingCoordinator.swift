@@ -28,6 +28,8 @@ class OnboardingCoordinator: EventNode, Coordinator {
                 self?.popController()
             case .openRegions:
                 self?.openRegions()
+            default:
+                break
             }
         }
     }

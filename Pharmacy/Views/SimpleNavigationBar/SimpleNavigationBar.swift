@@ -11,6 +11,13 @@ import UIKit
 protocol SimpleNavigationBarDelegate: class {
     func leftBarItemAction()
     func rightBarItemAction()
+    func search(returnText: String)
+    func cancelSearch()
+}
+
+extension SimpleNavigationBarDelegate {
+    func search(returnText: String) {}
+    func cancelSearch() {}
 }
 
 final class SimpleNavigationBar: UINavigationBar {
@@ -18,7 +25,6 @@ final class SimpleNavigationBar: UINavigationBar {
     private var contentView: SimpleNavigationBarView!
     
     weak var barDelegate: SimpleNavigationBarDelegate?
-    weak var searchDelegate: NavigationBarDelegate? 
 
     var title: String? {
         get {
@@ -110,6 +116,7 @@ final class SimpleNavigationBar: UINavigationBar {
         
         contentView.leftButton.addTarget(self, action: #selector(leftItemAction), for: .touchUpInside)
         contentView.rightButton.addTarget(self, action: #selector(rightItemAction), for: .touchUpInside)
+        contentView.searchButton.addTarget(self, action: #selector(cancelSearchAction), for: .touchUpInside)
         contentView.textField.delegate = self
     }
     
@@ -120,13 +127,18 @@ final class SimpleNavigationBar: UINavigationBar {
     @objc private func rightItemAction() {
         barDelegate?.rightBarItemAction()
     }
+    
+    @objc private func cancelSearchAction() {
+        barDelegate?.cancelSearch()
+    }
 }
 
 // MARK: - UITextFieldDelegate
 
 extension SimpleNavigationBar: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchDelegate?.navigationBar(didReturn: textField.text ?? "")
+        barDelegate?.search(returnText: textField.text ?? "")
         return textField.resignFirstResponder()
     }
 }

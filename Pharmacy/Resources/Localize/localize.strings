@@ -29,7 +29,13 @@
 "onboarding.button.next" = "Далее";
 "onboarding.button.skip" = "Пропустить";
 "onboarding.title" = "Преимущества";
+"onboarding.titleCity" = "Ваш город";
 "onboarding.description" = "Разрешите доступ к геолокации для актульного отображения контента";
+
+"onboarding.titlePurchase" = "Приступаем к покупкам";
+"onboarding.descriptionPurchase" = "Авторизируйтесь, чтобы совершать покупки и записи на анализы быстрее";
+"onboarding.button.nextPurchase" = "Авторизоваться";
+"onboarding.button.skipPurchase" = "Продолжить без регистрации";
 
 // MARK: - Confirm code
 "confirm.screenTitle" = "Верификация";

@@ -23,6 +23,7 @@ protocol RegionOutput: class {
 }
 
 final class RegionModel: EventNode {
+    
     fileprivate var regionDataSource: RegionsDataSource!
     fileprivate var filterDataSourse: FilterRegionsDataSource!
     fileprivate let provider = DataManager<LocationAPI, RegionResponse>()

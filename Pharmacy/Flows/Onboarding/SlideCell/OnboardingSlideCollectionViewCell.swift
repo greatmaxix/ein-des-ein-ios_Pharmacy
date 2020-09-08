@@ -12,6 +12,8 @@ struct SlideInfo {
     let image: UIImage
     let title: String
     let description: String
+    var skipTitle: String = R.string.localize.onboardingButtonSkip()
+    var applyButtonTitle: String = R.string.localize.onboardingButtonNext()
 }
 
 class OnboardingSlideCollectionViewCell: UICollectionViewCell {

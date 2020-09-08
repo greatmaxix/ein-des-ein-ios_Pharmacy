@@ -49,10 +49,10 @@
                             </state>
                         </button>
                         <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwr-aB-3WZ">
-                            <rect key="frame" x="300" y="37" width="98" height="43"/>
+                            <rect key="frame" x="300" y="42" width="98" height="38"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRJ-SY-pXS">
-                                    <rect key="frame" x="9" y="9.5" width="24" height="24"/>
+                                    <rect key="frame" x="9" y="7" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="Df6-1g-G5q"/>
                                         <constraint firstAttribute="width" constant="24" id="RUi-h2-slI"/>
@@ -64,7 +64,7 @@
                                     </connections>
                                 </button>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ношпа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o1K-6E-QqR">
-                                    <rect key="frame" x="46" y="9.5" width="10" height="24"/>
+                                    <rect key="frame" x="46" y="7" width="10" height="24"/>
                                     <color key="tintColor" name="welcomeBlue"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="7Be-mf-TFS"/>
@@ -74,7 +74,7 @@
                                     <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8d-xo-Gt3">
-                                    <rect key="frame" x="65" y="9.5" width="24" height="24"/>
+                                    <rect key="frame" x="65" y="7" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="24" id="541-Oq-3q8"/>
                                         <constraint firstAttribute="height" constant="24" id="mMW-da-KZv"/>
@@ -91,7 +91,7 @@
                                 <constraint firstItem="qRJ-SY-pXS" firstAttribute="centerY" secondItem="lwr-aB-3WZ" secondAttribute="centerY" id="FrF-Vm-nKO"/>
                                 <constraint firstItem="A8d-xo-Gt3" firstAttribute="leading" secondItem="o1K-6E-QqR" secondAttribute="trailing" constant="9" id="J8a-aY-odl"/>
                                 <constraint firstItem="qRJ-SY-pXS" firstAttribute="leading" secondItem="lwr-aB-3WZ" secondAttribute="leading" constant="9" id="NTy-Xo-lTb"/>
-                                <constraint firstAttribute="height" constant="43" id="ZR4-QD-A1v"/>
+                                <constraint firstAttribute="height" constant="38" id="ZR4-QD-A1v"/>
                                 <constraint firstItem="o1K-6E-QqR" firstAttribute="centerY" secondItem="lwr-aB-3WZ" secondAttribute="centerY" id="apJ-zA-55F"/>
                                 <constraint firstAttribute="trailing" secondItem="A8d-xo-Gt3" secondAttribute="trailing" constant="9" id="btu-Jj-qEN"/>
                                 <constraint firstItem="A8d-xo-Gt3" firstAttribute="centerY" secondItem="lwr-aB-3WZ" secondAttribute="centerY" id="yqO-Qq-gtF"/>
@@ -130,6 +130,7 @@
                 <outlet property="frontView" destination="lZX-GD-XdC" id="LGS-Zr-Kwk"/>
                 <outlet property="leftButton" destination="gUy-h4-mP0" id="xO1-iU-oYV"/>
                 <outlet property="rightButton" destination="HYE-Z6-s0d" id="LGS-E5-D2K"/>
+                <outlet property="searchButton" destination="qRJ-SY-pXS" id="b84-7U-yJo"/>
                 <outlet property="searchLeadingConstraint" destination="LgR-j7-Ghh" id="on0-B6-mjE"/>
                 <outlet property="searchView" destination="lwr-aB-3WZ" id="2Cd-bv-52P"/>
                 <outlet property="textField" destination="o1K-6E-QqR" id="aJh-Ia-yak"/>

@@ -27,7 +27,6 @@ final class RegionViewController: UIViewController {
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.barDelegate = self
             bar.title = model.title
-            bar.searchDelegate = self
             bar.style = .search
         }
     }
@@ -53,14 +52,13 @@ extension RegionViewController: SimpleNavigationBarDelegate {
     
     func rightBarItemAction() {
     }
-}
-
-extension RegionViewController: NavigationBarDelegate {
-    func navigationBarDidSelectScan() {
+    
+    func search(returnText: String) {
+        model.filterRegions(text: returnText, tableView: tableView)
     }
     
-    func navigationBar(didReturn text: String) {
-        model.filterRegions(text: text, tableView: tableView)
+    func cancelSearch() {
+        reloadRegions()
     }
 }
 

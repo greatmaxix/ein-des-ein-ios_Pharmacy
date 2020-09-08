@@ -34,9 +34,13 @@ final class AppNavigation: EventNode {
             }
         }
         addHandler { [weak self] (event: OnboardingEvent) in
-            if case .close = event {
-                // TODO: open registration instead
+            switch event {
+            case .close:
                 self?.presentMainFlow()
+            case .toAuth:
+                self?.presentAuthFlow()
+            default:
+                break
             }
         }
     }

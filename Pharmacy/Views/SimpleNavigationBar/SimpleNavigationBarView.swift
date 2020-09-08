@@ -15,6 +15,8 @@ class SimpleNavigationBarView: UIView {
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchButton: UIButton!
+
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var searchLeadingConstraint: NSLayoutConstraint!
     

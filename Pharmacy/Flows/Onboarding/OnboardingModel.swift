@@ -12,6 +12,7 @@ enum OnboardingEvent: Event {
     case close
     case openRegions
     case back
+    case toAuth
 }
 
 protocol OnboardingModelInput {
@@ -25,7 +26,7 @@ class OnboardingModel: Model {
     weak var output: OnboardingModelOutput!
 
     private(set) var slideInfos: [SlideInfo] = {
-        [SlideInfo(image: R.image.onboarding()!,
+        var result = [SlideInfo(image: R.image.onboarding()!,
                    title: R.string.localize.onboardingTitle(),
                    description: R.string.localize.onboardingDescription()),
          SlideInfo(image: R.image.onboarding()!,
@@ -33,7 +34,18 @@ class OnboardingModel: Model {
                    description: R.string.localize.onboardingDescription()),
          SlideInfo(image: R.image.onboarding()!,
                    title: R.string.localize.onboardingTitle(),
-                   description: R.string.localize.onboardingDescription())]
+                   description: R.string.localize.onboardingDescription()),
+         SlideInfo(image: R.image.onboarding()!,
+                   title: R.string.localize.onboardingTitleCity(),
+                   description: R.string.localize.onboardingDescription())
+         ]
+        var lastSlide = SlideInfo(image: R.image.onboarding()!,
+                                  title: R.string.localize.onboardingTitlePurchase(),
+                                  description: R.string.localize.onboardingDescriptionPurchase())
+        lastSlide.skipTitle = R.string.localize.onboardingButtonSkip()
+        lastSlide.applyButtonTitle = R.string.localize.onboardingButtonNextPurchase()
+        result.append(lastSlide)
+        return result
     }()
 
     private var currentIndex: Int = 0
@@ -49,17 +61,25 @@ extension OnboardingModel {
     private func openRegions() {
         raise(event: OnboardingEvent.openRegions)
     }
+    
+    private func openAuth() {
+        raise(event: OnboardingEvent.toAuth)
+    }
 }
 
 // MARK: - OnboardingModelInput
 extension OnboardingModel: OnboardingModelInput {
-
+    
     func onNextAction() {
-        if currentIndex < slideInfos.count - 1 {
+        if currentIndex < 3 {
+            currentIndex += 1
+            output.routeToSlide(at: currentIndex)
+        } else if currentIndex == 3 {
+            openRegions()
             currentIndex += 1
             output.routeToSlide(at: currentIndex)
         } else {
-            openRegions()
+            openAuth()
         }
     }
 

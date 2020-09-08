@@ -29,7 +29,7 @@ final class OnboardingViewController: UIViewController {
 
         setupContainerView()
         setupContainerViewEdgeGesture()
-        setupButtons()
+        setupButtons(nextTitle: R.string.localize.onboardingButtonNext(), skipTitle: R.string.localize.onboardingButtonSkip())
     }
 }
 
@@ -75,11 +75,11 @@ extension OnboardingViewController {
         containerView.addGestureRecognizer(rightGesture)
     }
 
-    private func setupButtons() {
+    private func setupButtons(nextTitle: String, skipTitle: String) {
         nextButton.layer.cornerRadius = nextButton.frame.height / 2
-        nextButton.setTitle(R.string.localize.onboardingButtonNext(),
+        nextButton.setTitle(nextTitle,
                             for: .normal)
-        skipButton.setTitle(R.string.localize.onboardingButtonSkip(),
+        skipButton.setTitle(skipTitle,
                             for: .normal)
     }
 
@@ -105,6 +105,7 @@ extension OnboardingViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: OnboardingSlideCollectionViewCell = collectionView.dequeueReusableCell(at: indexPath)
         cell.setupContent(with: model.slideInfos[indexPath.row])
+        setupButtons(nextTitle: model.slideInfos[indexPath.row].applyButtonTitle, skipTitle: model.slideInfos[indexPath.row].skipTitle)
         
         return cell
     }
