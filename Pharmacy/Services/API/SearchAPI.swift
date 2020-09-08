@@ -6,52 +6,58 @@
 //  Copyright © 2020 pharmacy. All rights reserved.
 //
 
-import Foundation
 import Moya
 
-enum SearchAPI: TargetType, AccessTokenAuthorizable {
-    case search
-}
-
-extension SearchAPI {
+enum SearchAPI: RequestConvertible {
     
-    var sampleData: Data {
-        return Data()
-    }
-    
-    var authorizationType: AuthorizationType? {
-        return .bearer
-    }
-    
-    var baseURL: URL {
-        return URL(string: "https://api.pharmacies.fmc-dev.com/api/v1/customer")!
-    }
+    case searchByName(name: String,
+        regionId: Int,
+        pageNumber: Int = 0,
+        itemsOnPage: Int = 10)
+    case searchByBarCode(barCode: String,
+        regionId: Int,
+        pageNumber: Int = 0,
+        itemsOnPage: Int = 10)
     
     var path: String {
         switch self {
-        case .search:
-            return "products/search"
+        case .searchByName,
+             .searchByBarCode:
+            return "public/products/search"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .search:
+        case .searchByName,
+             .searchByBarCode:
             return .get
         }
     }
     
     var task: Task {
         switch self {
-        case .search:
-            return .requestParameters(parameters: ["": ""], encoding: JSONEncoding.default)
+        case .searchByName(let name, let regionId, let pageNumber, let itemsOnPage):
+            return .requestParameters(parameters: [.nameKey: name,
+                                                   .regionIdKey: regionId,
+                                                   .pageKey: pageNumber,
+                                                   .perPageKey: itemsOnPage],
+                                      encoding: URLEncoding.queryString)
+        case .searchByBarCode(let barCode, let regionId, let pageNumber, let itemsOnPage):
+            return .requestParameters(parameters: [.barCodeKey: barCode,
+                                                   .regionIdKey: regionId,
+                                                   .pageKey: pageNumber,
+                                                   .perPageKey: itemsOnPage],
+                                      encoding: URLEncoding.queryString)
         }
     }
-    
-    var headers: [String: String]? {
-        switch self {
-        default:
-            return ["Content-type": "application/json"]
-        }
-    }
+}
+
+// MARK: - Query Keys
+private extension String {
+    static let nameKey: String = "name"
+    static let barCodeKey: String = "barCode"
+    static let regionIdKey: String = "regionId"
+    static let pageKey: String = "page"
+    static let perPageKey: String = "per_page"
 }

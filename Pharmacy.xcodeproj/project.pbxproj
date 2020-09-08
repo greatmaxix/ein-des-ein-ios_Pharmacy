@@ -2066,6 +2066,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */;
 			buildSettings = {
+				API_HOST = "https://api.pharmacies.release.fmc-dev.com/api/v1/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DU5QL9C8C6;
@@ -2086,6 +2087,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 447B6BF7452CC91EDC27B562 /* Pods-Pharmacy.release.xcconfig */;
 			buildSettings = {
+				API_HOST = "https://api.pharmacies.release.fmc-dev.com/api/v1/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DU5QL9C8C6;
