@@ -19,6 +19,7 @@ protocol ConfirmCodeInput {
 
 enum ConfirmCodeEvent: Event {
     case openMainScreen
+    case congratulation
     case close
 }
 
@@ -29,13 +30,16 @@ protocol ConfirmCodeOutput: class {
 
 final class ConfirmCodeModel: Model {
     
-    private var phone: String!
+    private var phone: String
+    private let congratulatioNeeded: Bool
     private let provider: DataManager<AuthAPI, LoginResponse> = DataManager<AuthAPI, LoginResponse>()
     weak var output: ConfirmCodeOutput!
     
-    init(parent: EventNode, phone: String) {
-        super.init(parent: parent)
+    init(parent: EventNode, phone: String, congratulatioNeeded: Bool = false) {
         self.phone = phone
+        self.congratulatioNeeded = congratulatioNeeded
+        
+        super.init(parent: parent)
     }
     
     private func sendCodeAgain() {
@@ -62,11 +66,19 @@ final class ConfirmCodeModel: Model {
              case .success(let response):
                 UserSession.shared.authorizationStatus = .authorized(userId: response.user.id)
                 UserSession.shared.save(user: response.user, token: response.token)
-                self.raise(event: ConfirmCodeEvent.openMainScreen)
+                self.successLogin()
              case .failure(let error):
                 print(error)
                 self.loginFail()
              }
+        }
+    }
+    
+    private func successLogin() {
+        if congratulatioNeeded {
+            self.raise(event: ConfirmCodeEvent.congratulation)
+        } else {
+            self.raise(event: ConfirmCodeEvent.openMainScreen)
         }
     }
     

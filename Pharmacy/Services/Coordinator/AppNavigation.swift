@@ -24,6 +24,12 @@ final class AppNavigation: EventNode {
                 self?.presentMainFlow()
             }
         }
+        
+        addHandler { [weak self] (event: SuccessfulSignUpEvent) in
+            if event == SuccessfulSignUpEvent.openMainScreen {
+                self?.presentMainFlow()
+            }
+        }
 
         addHandler { [weak self] (event: ProfileEvent) in
             switch event {

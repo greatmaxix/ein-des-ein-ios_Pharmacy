@@ -40,6 +40,10 @@
 "confirm.resend_fail" = "Failed to resend code.";
 "confirm.confirm_fail" = "The code you entered is incorrect. Please try again.";
 
+// MARK: - Successful LogIn
+"successfulLogin.title" = "Верификация успешна!";
+"successfulLogin.description" = "Добро пожаловатьв мир заботы о своем здоровье с помощью КАптеки!";
+
 // MARK: - Log in
 
 "login.title" = "С возвращением!";
