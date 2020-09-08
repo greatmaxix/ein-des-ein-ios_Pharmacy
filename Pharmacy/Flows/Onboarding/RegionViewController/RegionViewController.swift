@@ -11,7 +11,6 @@ import UIKit
 final class RegionViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
-    @IBOutlet private var alphabetView: AlphabetView!
     @IBOutlet private weak var indicatorView: UIActivityIndicatorView!
     
     var model: RegionInput!
@@ -41,7 +40,7 @@ final class RegionViewController: UIViewController {
     
     @IBAction func useCurrentLocation(_ sender: UIButton) {
         model.startLocationTracking()
-        model.toAuth()
+        model.openAuthSlide()
         close()
     }
     
@@ -71,7 +70,7 @@ extension RegionViewController: SimpleNavigationBarDelegate {
 extension RegionViewController: RegionOutput {
     
     func reloadRegions() {
-        model.dataSource.assign(tableView: tableView, alphabetView: alphabetView)
+        model.dataSource.assign(tableView: tableView)
         tableView.isHidden = false
         indicatorView.stopAnimating()
     }

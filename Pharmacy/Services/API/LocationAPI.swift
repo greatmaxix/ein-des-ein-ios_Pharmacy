@@ -15,7 +15,7 @@ enum LocationAPI {
     case getCountries(page: Int, countriesPerPage: Int)
 }
 
-extension LocationAPI: TargetType, AccessTokenAuthorizable {
+extension LocationAPI: RequestConvertible {
     
     var sampleData: Data {
         return Data()

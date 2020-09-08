@@ -24,7 +24,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z7W-7D-OST">
-                        <rect key="frame" x="9" y="4" width="302" height="60"/>
+                        <rect key="frame" x="8" y="4" width="308" height="60"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJU-dr-XAK">
                                 <rect key="frame" x="7" y="20.5" width="39.5" height="19"/>
@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applyRegion" translatesAutoresizingMaskIntoConstraints="NO" id="J7L-0Q-e7R">
-                                <rect key="frame" x="263" y="14" width="32" height="32"/>
+                                <rect key="frame" x="269" y="14" width="32" height="32"/>
                                 <color key="backgroundColor" name="validationGreen"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="1Lv-Um-9By"/>
@@ -61,9 +61,9 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Z7W-7D-OST" secondAttribute="trailing" constant="9" id="4os-MU-16p"/>
+                    <constraint firstAttribute="trailing" secondItem="Z7W-7D-OST" secondAttribute="trailing" constant="4" id="4os-MU-16p"/>
                     <constraint firstItem="Z7W-7D-OST" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="5P2-o4-5gq"/>
-                    <constraint firstItem="Z7W-7D-OST" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="KbX-Hd-Phs"/>
+                    <constraint firstItem="Z7W-7D-OST" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="KbX-Hd-Phs"/>
                     <constraint firstAttribute="bottom" secondItem="Z7W-7D-OST" secondAttribute="bottom" constant="4" id="Wb8-VY-Ppz"/>
                 </constraints>
             </tableViewCellContentView>

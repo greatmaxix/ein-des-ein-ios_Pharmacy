@@ -51,10 +51,8 @@ final class RegionsDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
         }
     }
     
-    func assign(tableView: UITableView, alphabetView: AlphabetView?) {
-        
-        alphabetView?.setup(letters: alphabetCharacters)
-        
+    func assign(tableView: UITableView) {
+                
         tableView.register(UINib(resource: R.nib.regionCell), forCellReuseIdentifier: String(describing: RegionCell.self))
         tableView.register(UINib(resource: R.nib.regionHeaderCell), forHeaderFooterViewReuseIdentifier: String(describing: RegionHeaderCell.self))
         tableView.delegate = self
@@ -94,5 +92,9 @@ final class RegionsDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectRegionClosure?(sections[indexPath.section].regions[indexPath.row])
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return alphabetCharacters.map({String($0)})
     }
 }

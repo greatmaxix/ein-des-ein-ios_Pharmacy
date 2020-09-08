@@ -18,7 +18,7 @@ protocol RegionInput: class {
     func load()
     func close()
     func startLocationTracking()
-    func toAuth()
+    func openAuthSlide()
 }
 
 protocol RegionOutput: class {
@@ -54,19 +54,17 @@ final class RegionModel: EventNode {
     
     func saveRegion(region: Region) {
         UserDefaultsAccessor.write(value: region.regionId, for: \.regionId)
-        toAuth()
-        close()
+        openAuthSlide()
     }
     
     func saveRegion(coordinate: CLLocationCoordinate2D) {
-        toAuth()
-        close()
+        openAuthSlide()
     }
 }
 
 extension RegionModel: RegionInput {
     
-    func toAuth() {
+    func openAuthSlide() {
         raise(event: OnboardingEvent.regionSelected)
     }
     
@@ -90,7 +88,7 @@ extension RegionModel: RegionInput {
             filterDataSourse.filterRegions(searchText: text)
             tableView.reloadData()
         } else {
-            dataSource.assign(tableView: tableView, alphabetView: nil)
+            dataSource.assign(tableView: tableView)
         }
     }
 

@@ -26,7 +26,7 @@ class OnboardingCoordinator: EventNode, Coordinator {
             switch event {
             case .close:
                 self?.popController()
-            case .closeRegion:
+            case .closeRegion, .regionSelected:
                 self?.popController(animated: false)
             case .openRegions:
                 self?.openRegions()
