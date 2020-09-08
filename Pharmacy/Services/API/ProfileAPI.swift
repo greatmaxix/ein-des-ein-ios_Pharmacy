@@ -16,19 +16,7 @@ enum ProfileAPI {
     case sendImage(imageData: Data, mime: String, fileName: String)
 }
 
-extension ProfileAPI: TargetType, AccessTokenAuthorizable {
-    
-    var sampleData: Data {
-        return Data()
-    }
-    
-    var authorizationType: AuthorizationType? {
-        return .bearer
-    }
-    
-    var baseURL: URL {
-        return URL(string: "https://api.pharmacies.release.fmc-dev.com/api/v1")!
-    }
+extension ProfileAPI: RequestConvertible {
     
     var path: String {
         switch self {
