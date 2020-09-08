@@ -18,8 +18,8 @@ final class RegionsDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
     }
     
     private var sections: [RegionSection] = []
-    var selectedRegion: Region?
     var alphabetCharacters: [Character] = []
+    var selectRegionClosure: ((_: Region) -> Void)?
     
     init(mainRegion: Region) {
         
@@ -51,9 +51,9 @@ final class RegionsDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
         }
     }
     
-    func assign(tableView: UITableView, alphabetView: AlphabetView) {
+    func assign(tableView: UITableView, alphabetView: AlphabetView?) {
         
-        alphabetView.setup(letters: alphabetCharacters)
+        alphabetView?.setup(letters: alphabetCharacters)
         
         tableView.register(UINib(resource: R.nib.regionCell), forCellReuseIdentifier: String(describing: RegionCell.self))
         tableView.register(UINib(resource: R.nib.regionHeaderCell), forHeaderFooterViewReuseIdentifier: String(describing: RegionHeaderCell.self))
@@ -93,6 +93,6 @@ final class RegionsDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRegion = sections[indexPath.section].regions[indexPath.row]
+        selectRegionClosure?(sections[indexPath.section].regions[indexPath.row])
     }
 }

@@ -18,6 +18,8 @@ final class SimpleNavigationBar: UINavigationBar {
     private var contentView: SimpleNavigationBarView!
     
     weak var barDelegate: SimpleNavigationBarDelegate?
+    weak var searchDelegate: NavigationBarDelegate? 
+
     var title: String? {
         get {
             contentView.titleLabel.text
@@ -62,6 +64,15 @@ final class SimpleNavigationBar: UINavigationBar {
         }
     }
     
+    var style: NavigationBarStyle {
+        get {
+            return contentView.style
+        }
+        set {
+            contentView.setupStyle(style: newValue)
+        }
+    }
+    
     // MARK: - setup
     
     override init(frame: CGRect) {
@@ -99,6 +110,7 @@ final class SimpleNavigationBar: UINavigationBar {
         
         contentView.leftButton.addTarget(self, action: #selector(leftItemAction), for: .touchUpInside)
         contentView.rightButton.addTarget(self, action: #selector(rightItemAction), for: .touchUpInside)
+        contentView.textField.delegate = self
     }
     
     @objc private func leftItemAction() {
@@ -107,6 +119,15 @@ final class SimpleNavigationBar: UINavigationBar {
     
     @objc private func rightItemAction() {
         barDelegate?.rightBarItemAction()
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension SimpleNavigationBar: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchDelegate?.navigationBar(didReturn: textField.text ?? "")
+        return textField.resignFirstResponder()
     }
 }
 

@@ -11,6 +11,7 @@ import EventsTree
 enum OnboardingEvent: Event {
     case close
     case openRegions
+    case back
 }
 
 protocol OnboardingModelInput {

@@ -24,7 +24,7 @@ class OnboardingCoordinator: EventNode, Coordinator {
 
         addHandler { [weak self] (event: OnboardingEvent) in
             switch event {
-            case .close:
+            case .close, .back:
                 self?.popController()
             case .openRegions:
                 self?.openRegions()
