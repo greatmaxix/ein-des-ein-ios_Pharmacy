@@ -32,9 +32,9 @@ extension LocationAPI: RequestConvertible {
     var path: String {
         switch self {
         case .getCountries:
-            return "countries"
+            return Keys.countries
         case .getRegions:
-            return "regions"
+            return Keys.regions
         }
     }
     
@@ -46,13 +46,13 @@ extension LocationAPI: RequestConvertible {
         switch self {
 
         case .getCountries(page: let page, countriesPerPage: let countriesPerPage):
-            return .requestParameters(parameters: ["page": page, "per_page": countriesPerPage], encoding: URLEncoding.default)
+            return .requestParameters(parameters: [Keys.page: page, Keys.perPage: countriesPerPage], encoding: URLEncoding.default)
         case .getRegions(regionId: let id, maxLevelCount: let count):
             let defaultKazCode = "1"
             let regionId = id ?? defaultKazCode
-            var params: [String: Any] =  ["id": regionId]
+            var params: [String: Any] =  [Keys.id: regionId]
             if let count = count {
-                params["maxLevelCount"] = count
+                params[Keys.level] = count
             }
             
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
@@ -64,5 +64,14 @@ extension LocationAPI: RequestConvertible {
         default:
             return ["Content-type": "application/json"]
         }
+    }
+    
+    private struct Keys {
+        static let countries: String = "countries"
+        static let regions: String = "regions"
+        static let id: String = "id"
+        static let page: String = "page"
+        static let perPage: String = "page"
+        static let level: String = "maxLevelCount"
     }
 }

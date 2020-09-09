@@ -29,7 +29,9 @@ class OnboardingModel: Model {
         super.init(parent: parent)
         
         addHandler { [weak self] (event: OnboardingEvent) in
-            if event == .regionSelected, let self = self {
+            
+            guard let self = self else { return }
+            if OnboardingEvent.regionSelected == event {
                 
                 self.currentIndex += 1
                 self.output.routeToSlide(at: self.currentIndex)

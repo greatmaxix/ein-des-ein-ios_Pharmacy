@@ -143,7 +143,7 @@ extension SimpleNavigationBar: UITextFieldDelegate {
     }
 }
 
-fileprivate extension SimpleNavigationBar {
+private extension SimpleNavigationBar {
     
     struct Const {
         static let cornerRadius: CGFloat = 12.0
