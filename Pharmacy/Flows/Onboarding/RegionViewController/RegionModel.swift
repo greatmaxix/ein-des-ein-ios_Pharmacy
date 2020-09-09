@@ -61,7 +61,7 @@ final class RegionModel: EventNode {
     
     private func updateSections(searchText: String) {
         
-        var alphabetCharacters: [Character] = []
+        var alphabetCharacters: [String] = []
         var sections: [RegionSection] = []
         var section: RegionSection = RegionSection()
 
@@ -72,7 +72,7 @@ final class RegionModel: EventNode {
                 } else {
                     section.title = String(firstCharacter)
                     sections.append(section)
-                    alphabetCharacters.append(firstCharacter)
+                    alphabetCharacters.append(section.title)
                     section = RegionSection()
                     section.regions.append(region)
                     firstCharacter = region.name.first ?? firstCharacter

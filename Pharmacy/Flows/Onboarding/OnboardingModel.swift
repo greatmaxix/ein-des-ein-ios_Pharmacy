@@ -16,6 +16,8 @@ enum OnboardingEvent: Event {
 }
 
 protocol OnboardingModelInput {
+    
+    var startSlide: SlideInfo? { get }
     func onSkipButtonAction()
     func onNextAction()
 }
@@ -31,7 +33,7 @@ class OnboardingModel: Model {
         addHandler { [weak self] (event: OnboardingEvent) in
             
             guard let self = self else { return }
-            if OnboardingEvent.regionSelected == event {
+            if case OnboardingEvent.regionSelected = event {
                 
                 self.currentIndex += 1
                 self.output.routeToSlide(at: self.currentIndex)
@@ -79,6 +81,10 @@ extension OnboardingModel {
 
 // MARK: - OnboardingModelInput
 extension OnboardingModel: OnboardingModelInput {
+    
+    var startSlide: SlideInfo? {
+        slideInfos.first
+    }
     
     func onNextAction() {
         switch slideInfos[currentIndex].slideOption {

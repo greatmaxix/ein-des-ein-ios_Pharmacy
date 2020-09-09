@@ -18,10 +18,10 @@ struct RegionSection {
 final class RegionsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     private var sections: [RegionSection] = []
-    private var alphabetCharacters: [Character] = []
+    private var alphabetCharacters: [String] = []
     var selectRegionClosure: ((_: Region) -> Void)?
     
-    func update(sections: [RegionSection], alphabetCharacters: [Character]) {
+    func update(sections: [RegionSection], alphabetCharacters: [String]) {
         
         self.sections = sections
         self.alphabetCharacters = alphabetCharacters
@@ -71,6 +71,6 @@ final class RegionsDataSource: NSObject, UITableViewDataSource, UITableViewDeleg
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return alphabetCharacters.map({String($0)})
+        return alphabetCharacters
     }
 }

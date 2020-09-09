@@ -29,7 +29,7 @@ final class OnboardingViewController: UIViewController {
 
         setupContainerView()
         setupContainerViewEdgeGesture()
-        setupButtons(nextTitle: R.string.localize.onboardingButtonNext(), skipTitle: R.string.localize.onboardingButtonSkip())
+        setupButtons(nextTitle: model.startSlide?.applyButtonTitle, skipTitle: model.startSlide?.skipTitle)
     }
 }
 
@@ -75,7 +75,7 @@ extension OnboardingViewController {
         containerView.addGestureRecognizer(rightGesture)
     }
 
-    private func setupButtons(nextTitle: String, skipTitle: String) {
+    private func setupButtons(nextTitle: String?, skipTitle: String?) {
         nextButton.layer.cornerRadius = nextButton.frame.height / 2
         nextButton.setTitle(nextTitle,
                             for: .normal)
