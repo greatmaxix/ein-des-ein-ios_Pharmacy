@@ -43,6 +43,8 @@ final class WishlistViewController: UIViewController {
             bar.isRightItemHidden = true
             bar.barDelegate = self
         }
+        
+        tableView.delegate = self
     }
 }
 
@@ -52,5 +54,20 @@ extension WishlistViewController: SimpleNavigationBarDelegate {
     }
     
     func rightBarItemAction() {
+    }
+}
+
+extension WishlistViewController: WishlistOutput {
+    
+    func didLoadList() {
+        model.dataSource.assign(tableView: tableView)
+    }
+}
+
+extension WishlistViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        model.reloadIfNeeded(lastMedicineIndex: indexPath.row)
     }
 }
