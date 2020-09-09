@@ -9,15 +9,30 @@
 import UIKit
 import EventsTree
 
-protocol WishlistInput {
+protocol WishlistInput: class {
     func close()
+}
+
+protocol WishlistOutput: class {
+    func didLoadList()
+    func load()
 }
 
 final class WishlistModel: EventNode {
     
+    let medicineDataSource = TableDataSource<MedicineCellSection>()
+    let provider = DataManager<WishListAPI, WishlistResponse>()
+    unowned var output: WishlistOutput!
 }
 
 extension WishlistModel: WishlistInput {
+    
+    func load() {
+
+        
+        output.didLoadList()
+    }
+    
     func close() {
         raise(event: ProfileEvent.close)
     }

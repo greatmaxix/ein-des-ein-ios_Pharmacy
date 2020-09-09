@@ -10,6 +10,8 @@ import UIKit
 
 final class WishlistViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     var model: WishlistInput!
     private var emptyResultsView: EmptyResultsView?
     

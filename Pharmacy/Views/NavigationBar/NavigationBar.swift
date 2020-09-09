@@ -234,6 +234,7 @@ extension NavigationBar {
     }
     
     fileprivate func showSearchTextFieldAnimated() {
+        backButton.isHidden = true
         searchButton.isSelected = true
         cancelSearchButton.isHidden = false
         scanButton.isHidden = false
@@ -249,6 +250,8 @@ extension NavigationBar {
     }
     
     fileprivate func hideSearchTextFieldAnimated() {
+        backButton.isHidden = false
+
         searchButton.isSelected = false
         cancelSearchButton.isHidden = true
         
