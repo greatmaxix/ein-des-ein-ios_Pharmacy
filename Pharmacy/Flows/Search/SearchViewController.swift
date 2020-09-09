@@ -33,11 +33,14 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configUI()
+        setupNavigationBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         model.load()
     }
     
@@ -60,6 +63,36 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
                   message: R.string.localize.searchCleanMessage(),
                   action: AlertAction(title: R.string.localize.actionClean(), callback: model.cleanStory),
                   cancelStyleAction: AlertAction(title: R.string.localize.actionCancel(), callback: {}))
+    }
+}
+
+// MARK: - Private methods
+extension SearchViewController {
+    
+    func setupNavigationBar() {
+        guard let navigationBar = navigationController?.navigationBar else {
+            return
+        }
+        
+        navigationBar.tintColor = .white
+        navigationBar.backgroundColor = .clear
+        navigationBar.setBackgroundImage(R.image.navigationBar()?.stretchableImage(withLeftCapWidth: 15,
+                                                                                   topCapHeight: 15),
+                                         for: .default)
+        navigationBar.shadowImage = UIImage()
+        
+        let searchBar = UISearchBar()
+        searchBar.searchBarStyle = .minimal
+        
+        searchBar.textField?.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        
+        let attributes: [NSAttributedString.Key: Any] = [
+                        .foregroundColor: UIColor.white]
+        
+        searchBar.textField?.attributedPlaceholder = NSAttributedString(string: "Foo Bar",
+                                                                        attributes: attributes)
+        
+        navigationItem.titleView = searchBar
     }
 }
 

@@ -13,17 +13,20 @@ struct SearchFlowConfiguration {
     let parent: EventNode
 }
 
-final class SearchCoordinator: EventNode, Coordinator, NaviagationEmbedCoordinable {
+final class SearchCoordinator: EventNode, Coordinator {
     
-    lazy private(set) var navigationCoordinator: NavigationCoordinator = SearchNavigationCoordinator(configuration: .init(parent: self))
+//    lazy private(set) var navigationCoordinator: NavigationCoordinator = SearchNavigationCoordinator(configuration: .init(parent: self))
+    
+    private var root: UINavigationController!
     
     func createFlow() -> UIViewController {
-        let root =  R.storyboard.search.instantiateInitialViewController()!
+        let viewController =  R.storyboard.search.instantiateInitialViewController()!
         let model = SearchModel(parent: self)
-        root.model = model
-        model.output = root
-        navigation.setViewControllers([root], animated: false)
-        return navigation
+        viewController.model = model
+        model.output = viewController
+        root = UINavigationController(rootViewController: viewController)
+        
+        return root
     }
     
     init(configuration: SearchFlowConfiguration) {
@@ -49,8 +52,9 @@ extension SearchCoordinator: TabBarEmbedCoordinable {
 }
 
 extension SearchCoordinator {
-    fileprivate func openMedicineList() {
+    
+    private func openMedicineList() {
         let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
-        navigation.pushViewController(vc, animated: true)
+        root.pushViewController(vc, animated: true)
     }
 }

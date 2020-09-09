@@ -205,16 +205,17 @@
 		619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA472498B01900AB46ED /* KeychainManager.swift */; };
 		619AAA4A2498B09800AB46ED /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA492498B09800AB46ED /* Token.swift */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
+		87131D25250913A70050B8F2 /* UISearchBar+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */; };
 		8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */; };
 		8715DB8924FFC76F00BBF37C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */; };
 		8715DB9224FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB9024FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift */; };
 		8715DB9324FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8715DB9124FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib */; };
 		8715DB9524FFEA3900BBF37C /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB9424FFEA3900BBF37C /* OnboardingCoordinator.swift */; };
 		8715DB9724FFF97B00BBF37C /* OnboardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB9624FFF97B00BBF37C /* OnboardingModel.swift */; };
-		8717E4DE2507744500546A55 /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717E4DD2507744500546A55 /* SearchAPI.swift */; };
-		8717E4E12507850800546A55 /* RequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717E4E02507850800546A55 /* RequestConvertible.swift */; };
 		8717E4DA2506977D00546A55 /* SuccessfulSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717E4D92506977D00546A55 /* SuccessfulSignUpViewController.swift */; };
 		8717E4DC2506979200546A55 /* SuccessfulSignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717E4DB2506979200546A55 /* SuccessfulSignUpModel.swift */; };
+		8717E4DE2507744500546A55 /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717E4DD2507744500546A55 /* SearchAPI.swift */; };
+		8717E4E12507850800546A55 /* RequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717E4E02507850800546A55 /* RequestConvertible.swift */; };
 		871E71A32501606200C8489B /* AvatarDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871E71A22501606200C8489B /* AvatarDTO.swift */; };
 		871E71A5250160A000C8489B /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871E71A4250160A000C8489B /* Storable.swift */; };
 		871E71A7250160EE00C8489B /* AvatarEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871E71A6250160EE00C8489B /* AvatarEntity.swift */; };
@@ -439,16 +440,17 @@
 		619AAA452498AEA700AB46ED /* SampleResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleResponseModel.swift; sourceTree = "<group>"; };
 		619AAA472498B01900AB46ED /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		619AAA492498B09800AB46ED /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Pharmacy/Services/Managers/Token.swift; sourceTree = SOURCE_ROOT; };
+		87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+TextField.swift"; sourceTree = "<group>"; };
 		8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8715DB9024FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlideCollectionViewCell.swift; sourceTree = "<group>"; };
 		8715DB9124FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingSlideCollectionViewCell.xib; sourceTree = "<group>"; };
 		8715DB9424FFEA3900BBF37C /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		8715DB9624FFF97B00BBF37C /* OnboardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingModel.swift; sourceTree = "<group>"; };
-		8717E4DD2507744500546A55 /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
-		8717E4E02507850800546A55 /* RequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConvertible.swift; sourceTree = "<group>"; };
 		8717E4D92506977D00546A55 /* SuccessfulSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulSignUpViewController.swift; sourceTree = "<group>"; };
 		8717E4DB2506979200546A55 /* SuccessfulSignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulSignUpModel.swift; sourceTree = "<group>"; };
+		8717E4DD2507744500546A55 /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
+		8717E4E02507850800546A55 /* RequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConvertible.swift; sourceTree = "<group>"; };
 		871E71A22501606200C8489B /* AvatarDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarDTO.swift; sourceTree = "<group>"; };
 		871E71A4250160A000C8489B /* Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
 		871E71A6250160EE00C8489B /* AvatarEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarEntity.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				60E1A6FC24EBB25B00B3D205 /* NSObject+RunTime.swift */,
 				603D31B924E3FA1F000E5A6C /* UIImageView+URL.swift */,
 				875223A2250003E9000759C8 /* UICollectionView+Reusable.swift */,
+				87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1394,14 +1397,6 @@
 			path = SlideCell;
 			sourceTree = "<group>";
 		};
-		8717E4DF2507848100546A55 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				8717E4E02507850800546A55 /* RequestConvertible.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		8717E4D825068AAA00546A55 /* SuccessfulSignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -1409,6 +1404,14 @@
 				8717E4DB2506979200546A55 /* SuccessfulSignUpModel.swift */,
 			);
 			path = SuccessfulSignUp;
+			sourceTree = "<group>";
+		};
+		8717E4DF2507848100546A55 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8717E4E02507850800546A55 /* RequestConvertible.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		871E71A12501604200C8489B /* Avatar */ = {
@@ -1907,6 +1910,7 @@
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
 				871E71A32501606200C8489B /* AvatarDTO.swift in Sources */,
 				3952FA252500FE9B00E5EF1D /* WishListAPI.swift in Sources */,
+				87131D25250913A70050B8F2 /* UISearchBar+TextField.swift in Sources */,
 				393D3CDD24FD35A500E8181F /* PaymentMethodView.swift in Sources */,
 				603D320024E657E9000E5A6C /* AlphaHighlightedView.swift in Sources */,
 				603D31BF24E57884000E5A6C /* ProductModel.swift in Sources */,
