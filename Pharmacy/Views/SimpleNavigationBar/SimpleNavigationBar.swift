@@ -11,6 +11,13 @@ import UIKit
 protocol SimpleNavigationBarDelegate: class {
     func leftBarItemAction()
     func rightBarItemAction()
+    func search(returnText: String)
+    func cancelSearch()
+}
+
+extension SimpleNavigationBarDelegate {
+    func search(returnText: String) {}
+    func cancelSearch() {}
 }
 
 final class SimpleNavigationBar: UINavigationBar {
@@ -18,6 +25,7 @@ final class SimpleNavigationBar: UINavigationBar {
     private var contentView: SimpleNavigationBarView!
     
     weak var barDelegate: SimpleNavigationBarDelegate?
+
     var title: String? {
         get {
             contentView.titleLabel.text
@@ -62,6 +70,15 @@ final class SimpleNavigationBar: UINavigationBar {
         }
     }
     
+    var style: NavigationBarStyle {
+        get {
+            return contentView.style
+        }
+        set {
+            contentView.setupStyle(style: newValue)
+        }
+    }
+    
     // MARK: - setup
     
     override init(frame: CGRect) {
@@ -99,6 +116,8 @@ final class SimpleNavigationBar: UINavigationBar {
         
         contentView.leftButton.addTarget(self, action: #selector(leftItemAction), for: .touchUpInside)
         contentView.rightButton.addTarget(self, action: #selector(rightItemAction), for: .touchUpInside)
+        contentView.searchButton.addTarget(self, action: #selector(cancelSearchAction), for: .touchUpInside)
+        contentView.textField.delegate = self
     }
     
     @objc private func leftItemAction() {
@@ -108,9 +127,23 @@ final class SimpleNavigationBar: UINavigationBar {
     @objc private func rightItemAction() {
         barDelegate?.rightBarItemAction()
     }
+    
+    @objc private func cancelSearchAction() {
+        barDelegate?.cancelSearch()
+    }
 }
 
-fileprivate extension SimpleNavigationBar {
+// MARK: - UITextFieldDelegate
+
+extension SimpleNavigationBar: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        barDelegate?.search(returnText: textField.text ?? "")
+        return textField.resignFirstResponder()
+    }
+}
+
+private extension SimpleNavigationBar {
     
     struct Const {
         static let cornerRadius: CGFloat = 12.0
