@@ -106,6 +106,7 @@ extension OnboardingViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: OnboardingSlideCollectionViewCell = collectionView.dequeueReusableCell(at: indexPath)
         cell.setupContent(with: model.slideInfos[indexPath.row])
+        
         return cell
     }
 }

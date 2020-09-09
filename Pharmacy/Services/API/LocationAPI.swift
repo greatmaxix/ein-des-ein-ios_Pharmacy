@@ -11,7 +11,7 @@ import Moya
 
 enum LocationAPI {
     
-    case getRegions(regionId: String, maxLevelCount: Int)
+    case getRegions(regionId: String?, maxLevelCount: Int?)
     case getCountries(page: Int, countriesPerPage: Int)
 }
 
@@ -48,7 +48,14 @@ extension LocationAPI: RequestConvertible {
         case .getCountries(page: let page, countriesPerPage: let countriesPerPage):
             return .requestParameters(parameters: ["page": page, "per_page": countriesPerPage], encoding: URLEncoding.default)
         case .getRegions(regionId: let id, maxLevelCount: let count):
-            return .requestParameters(parameters: ["id": id, "maxLevelCount": count], encoding: URLEncoding.default)
+            let defaultKazCode = "1"
+            let regionId = id ?? defaultKazCode
+            var params: [String: Any] =  ["id": regionId]
+            if let count = count {
+                params["maxLevelCount"] = count
+            }
+            
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         }
     }
     

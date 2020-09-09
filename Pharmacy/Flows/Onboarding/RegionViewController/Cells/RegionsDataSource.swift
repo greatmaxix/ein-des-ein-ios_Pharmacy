@@ -8,47 +8,23 @@
 
 import UIKit
 
+struct RegionSection {
+    var title: String = ""
+    var regions: [Region] = []
+    var cellId: String = String(describing: RegionCell.self)
+    var headerId: String = String(describing: RegionHeaderCell.self)
+}
+
 final class RegionsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    struct RegionSection {
-        var title: String = ""
-        var regions: [Region] = []
-        var cellId: String = String(describing: RegionCell.self)
-        var headerId: String = String(describing: RegionHeaderCell.self)
-    }
-    
     private var sections: [RegionSection] = []
-    var alphabetCharacters: [Character] = []
+    private var alphabetCharacters: [Character] = []
     var selectRegionClosure: ((_: Region) -> Void)?
     
-    init(mainRegion: Region) {
+    func update(sections: [RegionSection], alphabetCharacters: [Character]) {
         
-        let subRegions = mainRegion.subRegions ?? [mainRegion]
-        var allRegions: [Region] = []
-        subRegions.forEach({
-            if let regions = $0.subRegions {
-                allRegions.append(contentsOf: regions)
-            }
-        })
-        let regions = allRegions.sorted(by: { reg1, reg2 in
-            reg1.name < reg2.name
-        })
-        
-        if var firstCharacter: Character = regions[0].name.first {
-            var section: RegionSection = RegionSection()
-            for region in regions {
-                if region.name.first == firstCharacter {
-                    section.regions.append(region)
-                } else {
-                    section.title = String(firstCharacter)
-                    sections.append(section)
-                    alphabetCharacters.append(firstCharacter)
-                    section = RegionSection()
-                    section.regions.append(region)
-                    firstCharacter = region.name.first ?? firstCharacter
-                }
-            }
-        }
+        self.sections = sections
+        self.alphabetCharacters = alphabetCharacters
     }
     
     func assign(tableView: UITableView) {

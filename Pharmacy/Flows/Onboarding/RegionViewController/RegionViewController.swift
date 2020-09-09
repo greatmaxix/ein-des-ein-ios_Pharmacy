@@ -19,12 +19,13 @@ final class RegionViewController: UIViewController {
         super.viewDidLoad()
         
         model.load()
+        model.dataSource.assign(tableView: tableView)
         setupNavigation()
         indicatorView.hidesWhenStopped = true
         indicatorView.startAnimating()
     }
     
-    func setupNavigation() {
+    private func setupNavigation() {
         navigationController?.isNavigationBarHidden = false
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.barDelegate = self
@@ -34,8 +35,9 @@ final class RegionViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
         super.viewWillDisappear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func useCurrentLocation(_ sender: UIButton) {
@@ -60,20 +62,13 @@ extension RegionViewController: SimpleNavigationBarDelegate {
     
     func search(returnText: String) {
         
-        if returnText != "" {
-            
-            if !(tableView.dataSource is FilterRegionsDataSource) {
-                model.filterDataSource.assign(tableView: tableView)
-            }
-            model.filterDataSource.filterRegions(searchText: returnText)
-            tableView.reloadData()
-        } else {
-            model.dataSource.assign(tableView: tableView)
-        }
+        model.filterRegions(searchText: returnText)
+        tableView.reloadData()
     }
     
     func cancelSearch() {
-        reloadRegions()
+        model.filterRegions(searchText: "")
+        tableView.reloadData()
     }
 }
 

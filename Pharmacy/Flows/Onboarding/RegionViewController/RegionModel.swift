@@ -12,12 +12,12 @@ import CoreLocation
 
 protocol RegionInput: class {
     var dataSource: RegionsDataSource { get }
-    var filterDataSource: FilterRegionsDataSource { get }
     var title: String { get }
     func load()
     func close()
     func startLocationTracking()
     func openAuthSlide()
+    func filterRegions(searchText: String)
 }
 
 protocol RegionOutput: class {
@@ -26,20 +26,28 @@ protocol RegionOutput: class {
 
 final class RegionModel: EventNode {
     
-    fileprivate var regionDataSource: RegionsDataSource!
-    fileprivate var filterDataSourse: FilterRegionsDataSource!
-    fileprivate let provider = DataManager<LocationAPI, RegionResponse>()
+    private var regionDataSource: RegionsDataSource = RegionsDataSource()
+    private let provider = DataManager<LocationAPI, RegionResponse>()
     private var locationService = LocationService()
+    private var allRegions: [Region] = []
     unowned var output: RegionOutput!
     
-    func setupDataSource(regions: [Region]) {
+    private func setupDataSource(regions: [Region]) {
         
-        if let region: Region = regions.first {
-            regionDataSource = RegionsDataSource(mainRegion: region)
-            filterDataSourse = FilterRegionsDataSource(mainRegion: region)
-            filterDataSourse.selectRegionClosure = { [weak self] selectedRegion in
-                self?.saveRegion(region: selectedRegion)
-            }
+        if let subRegions: [Region] = regions.first?.subRegions {
+            allRegions = []
+            subRegions.forEach({
+                if let regions = $0.subRegions {
+                    allRegions.append(contentsOf: regions)
+                }
+            })
+            
+            allRegions.sort(by: { reg1, reg2 in
+                reg1.name < reg2.name
+            })
+            
+            updateSections(searchText: "")
+
             regionDataSource.selectRegionClosure = { [weak self] selectedRegion in
                 self?.saveRegion(region: selectedRegion)
             }
@@ -49,6 +57,36 @@ final class RegionModel: EventNode {
                 self?.saveRegion(coordinate: coordinate)
             }
         }
+    }
+    
+    private func updateSections(searchText: String) {
+        
+        var alphabetCharacters: [Character] = []
+        var sections: [RegionSection] = []
+        var section: RegionSection = RegionSection()
+
+        if var firstCharacter: Character = allRegions[0].name.first, searchText == "" {
+            for region in allRegions {
+                if region.name.first == firstCharacter {
+                    section.regions.append(region)
+                } else {
+                    section.title = String(firstCharacter)
+                    sections.append(section)
+                    alphabetCharacters.append(firstCharacter)
+                    section = RegionSection()
+                    section.regions.append(region)
+                    firstCharacter = region.name.first ?? firstCharacter
+                }
+            }
+        } else {
+            
+            let regions = allRegions.filter({$0.name.lowercased().contains(searchText)})
+            section.regions = regions
+            section.title = searchText
+            sections.append(section)
+        }
+        
+        regionDataSource.update(sections: sections, alphabetCharacters: alphabetCharacters)
     }
     
     func saveRegion(region: Region) {
@@ -63,10 +101,6 @@ final class RegionModel: EventNode {
 
 extension RegionModel: RegionInput {
     
-    func openAuthSlide() {
-        raise(event: OnboardingEvent.regionSelected)
-    }
-    
     var title: String {
         return R.string.localize.regionTitle()
     }
@@ -74,13 +108,9 @@ extension RegionModel: RegionInput {
     var dataSource: RegionsDataSource {
         return regionDataSource
     }
-    
-    var filterDataSource: FilterRegionsDataSource {
-        return filterDataSourse
-    }
 
     func load() {
-        provider.load(target: .getRegions(regionId: "1", maxLevelCount: 3), completion: { [weak self] result in
+        provider.load(target: .getRegions(regionId: nil, maxLevelCount: nil), completion: { [weak self] result in
             guard let self = self else { return }
             
             switch result {
@@ -90,6 +120,14 @@ extension RegionModel: RegionInput {
                 print(error.localizedDescription)
             }
         })
+    }
+    
+    func filterRegions(searchText: String) {
+        updateSections(searchText: searchText)
+    }
+    
+    func openAuthSlide() {
+        raise(event: OnboardingEvent.regionSelected)
     }
     
     func startLocationTracking() {
