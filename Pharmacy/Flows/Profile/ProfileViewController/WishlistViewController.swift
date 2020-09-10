@@ -28,6 +28,7 @@ final class WishlistViewController: UIViewController {
         
         let emptyView: EmptyResultsView = EmptyResultsView.fromNib()
         emptyView.translatesAutoresizingMaskIntoConstraints = false
+        emptyView.isHidden = true
         view.addSubview(emptyView)
         emptyView.constraintsToSuperView()
         
@@ -37,6 +38,9 @@ final class WishlistViewController: UIViewController {
     }
     
     private func setupUI() {
+        
+        tableView.delegate = self
+        
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             
             bar.title = R.string.localize.wishlistEmptyBarTitle()
@@ -45,8 +49,6 @@ final class WishlistViewController: UIViewController {
             bar.isRightItemHidden = true
             bar.barDelegate = self
         }
-        tableView.delegate = self
-        tableView.separatorStyle = .none
     }
 }
 
@@ -74,5 +76,9 @@ extension WishlistViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
         model.reloadIfNeeded(lastMedicineIndex: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
 }

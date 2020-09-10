@@ -15,11 +15,14 @@ extension UIViewController {
     
     func showActivityIndicator() {
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.startAnimating()
-        activityIndicator.center = view.center
         activityIndicator.tag = indicatorTag
         view.addSubview(activityIndicator)
-        view.bringSubviewToFront(activityIndicator)
+        NSLayoutConstraint.activate([
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
     
     func hideActivityIndicator() {

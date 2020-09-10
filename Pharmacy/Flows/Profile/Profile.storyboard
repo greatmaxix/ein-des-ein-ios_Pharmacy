@@ -140,17 +140,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Omz-zN-CuM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Omz-zN-CuM">
+                                <rect key="frame" x="8" y="68" width="398" height="794"/>
+                                <color key="backgroundColor" name="backgroundGray"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstItem="Omz-zN-CuM" firstAttribute="bottom" secondItem="ZL5-D3-lTK" secondAttribute="bottom" id="FAs-jK-Fso"/>
-                            <constraint firstItem="Omz-zN-CuM" firstAttribute="top" secondItem="ZL5-D3-lTK" secondAttribute="top" id="HsX-3x-B9C"/>
-                            <constraint firstItem="Omz-zN-CuM" firstAttribute="leading" secondItem="ZL5-D3-lTK" secondAttribute="leading" id="U14-8N-rxd"/>
-                            <constraint firstItem="ZL5-D3-lTK" firstAttribute="trailing" secondItem="Omz-zN-CuM" secondAttribute="trailing" id="oDn-dv-Vbs"/>
+                            <constraint firstItem="Omz-zN-CuM" firstAttribute="top" secondItem="ZL5-D3-lTK" secondAttribute="top" constant="24" id="HsX-3x-B9C"/>
+                            <constraint firstItem="Omz-zN-CuM" firstAttribute="leading" secondItem="ZL5-D3-lTK" secondAttribute="leading" constant="8" id="U14-8N-rxd"/>
+                            <constraint firstItem="ZL5-D3-lTK" firstAttribute="trailing" secondItem="Omz-zN-CuM" secondAttribute="trailing" constant="8" id="oDn-dv-Vbs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZL5-D3-lTK"/>
                     </view>

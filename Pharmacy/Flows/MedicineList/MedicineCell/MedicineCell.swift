@@ -22,11 +22,15 @@ final class MedicineCell: HighlightedTableViewCell {
     var addToPurchesesHandler: EmptyClosure?
     
     func apply(medicine: Medicine) {
+        
+        likedButton.isSelected = medicine.liked
         titleLabel.text = medicine.name
         costLabel.text = medicine.price
+        typeLabel.text = medicine.releaseForm
+        factoryLabel.text = medicine.manufacturerName
         costLabel.attributedText = NSAttributedString.fromPriceAttributed(for: medicine.price, currency: medicine.currency)
         
-        if let url = medicine.imageURL {
+        if let urlString = medicine.pictureUrls?.first, let url = URL(string: urlString) {
             farmacyImageView.loadImageBy(url: url)
             farmacyImageView.layer.cornerRadius = 8
         }
