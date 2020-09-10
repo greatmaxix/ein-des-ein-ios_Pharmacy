@@ -37,29 +37,40 @@ final class Executor {
     }
 }
 
+// Methods to create Executor instance
 // MARK: - External Declarations
 extension Executor {
     
+    /// Work item will be execute immediately
     public static func immediate() -> Self {
         return Self { $0.perform() }
     }
     
+    /// Work item will be execute on main queue
     public static func main() -> Self {
         return queue(.main)
     }
     
+    /// Static method to create Executor and pass concrette queue
+    /// - Parameter queue: pass DispatchQueue to execute work item on it
     public static func queue(_ queue: DispatchQueue) -> Self {
         return Self {
             queue.async(execute: $0)
         }
     }
     
+    /// Static method to create Executor
+    /// - Parameter queue: pass DispatchQueue to execute work item on it
+    /// - Parameter delay: Time interval between calling `execute()` method and execution work item
     public static func postpone(queue: DispatchQueue = .main, delay: TimeInterval) -> Self {
         return Self {
             queue.asyncAfter(deadline: .now() + delay, execute: $0)
         }
     }
     
+    /// Static method to create Executor with option to cancel previous work item execution
+    /// - Parameter queue: pass DispatchQueue to execute work item on it
+    /// - Parameter delay: Time interval between calling `execute()` method and execution work item
     public static func debounce(queue: DispatchQueue = .main, interval: TimeInterval) -> Self {
         return Self(cancelsPreviousExecution: true) {
             queue.asyncAfter(deadline: .now() + interval, execute: $0)
