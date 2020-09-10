@@ -13,7 +13,7 @@ import Moya
 protocol WishlistInput: class {
     
     var wishlistIsEmpty: Bool { get }
-    var dataSource: TableDataSource<MedicineCellSection> { get }
+    var dataSource: WishlistDataSource { get }
     func load()
     func reloadIfNeeded(lastMedicineIndex: Int)
     func close()
@@ -25,15 +25,20 @@ protocol WishlistOutput: class {
 
 final class WishlistModel: EventNode {
     
-    private let medicineDataSource = TableDataSource<MedicineCellSection>()
+    private let medicineDataSource = WishlistDataSource()
     private let provider = DataManager<WishListAPI, WishlistResponse>()
-    private var medicines: [Medicine] = []
     private var lastPage: Int = 1
     private let medicinesPerPage: Int = 10
     private var loadedAllMedicines: Bool = false
     private var medicinesAreLoading = false
     
     unowned var output: WishlistOutput!
+    
+    override init(parent: EventNode?) {
+        super.init(parent: parent)
+        
+        medicineDataSource.wishlistDelegate = self
+    }
     
     private func loadMedicines() {
         
@@ -47,8 +52,7 @@ final class WishlistModel: EventNode {
             case .success(let response):
                 self.loadedAllMedicines = self.lastPage == response.currentPage
                 self.lastPage = response.currentPage
-                self.medicines.append(contentsOf: response.medicines)
-                self.medicineDataSource.cells = self.medicines.map({MedicineCellSection.common($0)})
+                self.medicineDataSource.medicines.append(contentsOf: response.medicines)
                 self.output.didLoadList()
             case .failure(let error):
                 self.output.didLoadList()
@@ -60,7 +64,7 @@ final class WishlistModel: EventNode {
     func loadFarmacies() {
         let provider1 = MoyaProvider<WishListAPI>()
         for i in 756..<758 {
-            provider1.request(.addToWishList(medicineId: "\(i)"), completion: { result in
+            provider1.request(.addToWishList(medicineId: i), completion: { result in
                 switch result {
                 case .success(let res):
                     // swiftlint:disable all
@@ -75,11 +79,10 @@ final class WishlistModel: EventNode {
 
 extension WishlistModel: WishlistInput {
     var wishlistIsEmpty: Bool {
-        medicines.count == 0
+        medicineDataSource.medicines.count == 0
     }
     
-    
-    var dataSource: TableDataSource<MedicineCellSection> {
+    var dataSource: WishlistDataSource {
         medicineDataSource
     }
     
@@ -95,5 +98,26 @@ extension WishlistModel: WishlistInput {
         if !loadedAllMedicines, lastMedicineIndex > lastPage * medicinesPerPage - 2, !medicinesAreLoading {
             loadMedicines()
         }
+    }
+}
+
+extension WishlistModel: WishListEditDelegate {
+    
+    func selectMedicineAt(index: Int) {
+        //
+    }
+    
+    func deleteMedicine(id: Int) {
+        provider.delete(target: .removeFromWishList(medicineId: id), completion: { [weak self] result in
+            guard let self = self else {return}
+            switch result {
+            case .success:
+                if self.dataSource.medicines.count == 0 {
+                    self.output.didLoadList()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
     }
 }
