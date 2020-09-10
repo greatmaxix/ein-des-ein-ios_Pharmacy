@@ -19,7 +19,9 @@ final class WishlistViewController: UIViewController {
         super.viewDidLoad()
 
         applyEmptyStyle()
+        model.load()
         setupUI()
+        showActivityIndicator()
     }
 
     private func applyEmptyStyle() {
@@ -43,8 +45,8 @@ final class WishlistViewController: UIViewController {
             bar.isRightItemHidden = true
             bar.barDelegate = self
         }
-        
         tableView.delegate = self
+        tableView.separatorStyle = .none
     }
 }
 
@@ -60,7 +62,10 @@ extension WishlistViewController: SimpleNavigationBarDelegate {
 extension WishlistViewController: WishlistOutput {
     
     func didLoadList() {
+        emptyResultsView?.isHidden = !model.wishlistIsEmpty
+        hideActivityIndicator()
         model.dataSource.assign(tableView: tableView)
+        tableView.reloadData()
     }
 }
 

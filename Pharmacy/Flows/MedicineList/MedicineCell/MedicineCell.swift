@@ -22,7 +22,7 @@ final class MedicineCell: HighlightedTableViewCell {
     var addToPurchesesHandler: EmptyClosure?
     
     func apply(medicine: Medicine) {
-        titleLabel.text = medicine.tittle
+        titleLabel.text = medicine.name
         costLabel.text = medicine.price
         costLabel.attributedText = NSAttributedString.fromPriceAttributed(for: medicine.price, currency: medicine.currency)
         

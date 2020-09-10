@@ -14,10 +14,10 @@ struct Medicine: Codable {
     let releaseForm: String
     let manufacturerName: String
     let manufacturerCountryCode: String
-    let minPrice: Double
-    let maxPrice: Double
+    let minPrice: Double?
+    let maxPrice: Double?
     let liked: Bool
-    let pictureUrls: [String]?
+    var pictureUrls: [String]?
     
     enum Keys: String, CodingKey {
         case globalProductId
@@ -27,7 +27,7 @@ struct Medicine: Codable {
         case url
         case manufacturerData
         case localName
-        case iso3CountryCountryCode
+        case iso3CountryCode
         case pharmacyProductsAggregationData
         case minPrice
         case maxPrice
@@ -41,16 +41,19 @@ struct Medicine: Codable {
         name = try container.decode(String.self, forKey: .rusName)
         releaseForm = try container.decode(String.self, forKey: .releaseForm)
         
-        let picturesContainer = try container.nestedContainer(keyedBy: Keys.self, forKey: .pictures)
-        pictureUrls = try? picturesContainer.decode([String].self, forKey: .url)
+        var picturesUnkeyedContainer = try? container.nestedUnkeyedContainer(forKey: .pictures)
+        let urlContainer = try? picturesUnkeyedContainer?.nestedContainer(keyedBy: Keys.self)
+        if let pictureUrl = try? urlContainer?.decode(String.self, forKey: .url) {
+            pictureUrls = [pictureUrl]
+        }
         
         let manufactureContainer = try container.nestedContainer(keyedBy: Keys.self, forKey: .manufacturerData)
-        manufacturerName = try container.decode(String.self, forKey: .localName)
-        manufacturerCountryCode = try container.decode(String.self, forKey: .iso3CountryCountryCode)
+        manufacturerName = try manufactureContainer.decode(String.self, forKey: .localName)
+        manufacturerCountryCode = try manufactureContainer.decode(String.self, forKey: .iso3CountryCode)
         
-        let priceContainer = try container.nestedContainer(keyedBy: Keys.self, forKey: .pharmacyProductsAggregationData)
-        minPrice = try container.decode(Double.self, forKey: .minPrice)
-        maxPrice = try container.decode(Double.self, forKey: .maxPrice)
+        let priceContainer = try? container.nestedContainer(keyedBy: Keys.self, forKey: .pharmacyProductsAggregationData)
+        minPrice = try? priceContainer?.decode(Double.self, forKey: .minPrice)
+        maxPrice = try? priceContainer?.decode(Double.self, forKey: .maxPrice)
         liked = try container.decode(Bool.self, forKey: .liked)
     }
     
@@ -72,7 +75,7 @@ struct Medicine: Codable {
         return name
     }
     var price: String {
-        return "\(minPrice)"
+        return "\(minPrice ?? 0)"
     }
     var imageURL: URL? {
         return nil
