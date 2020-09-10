@@ -218,6 +218,7 @@
 		619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA472498B01900AB46ED /* KeychainManager.swift */; };
 		619AAA4A2498B09800AB46ED /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA492498B09800AB46ED /* Token.swift */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
+		87131D232507B9890050B8F2 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D222507B9890050B8F2 /* Executor.swift */; };
 		8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */; };
 		8715DB8924FFC76F00BBF37C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */; };
 		8715DB9224FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB9024FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift */; };
@@ -465,6 +466,7 @@
 		619AAA452498AEA700AB46ED /* SampleResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleResponseModel.swift; sourceTree = "<group>"; };
 		619AAA472498B01900AB46ED /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		619AAA492498B09800AB46ED /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Pharmacy/Services/Managers/Token.swift; sourceTree = SOURCE_ROOT; };
+		87131D222507B9890050B8F2 /* Executor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
 		8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8715DB9024FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlideCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1505,6 +1507,7 @@
 				875223B42500ECA4000759C8 /* UserDefaultsAccessor */,
 				875223A525000423000759C8 /* Protocols */,
 				875223BF2500F7A4000759C8 /* Typealiases.swift */,
+				87131D222507B9890050B8F2 /* Executor.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1994,6 +1997,7 @@
 				394EBEE724FF901600C89970 /* MedicineView.swift in Sources */,
 				395085E924EC1C960076E1DF /* CustomerImageResponse.swift in Sources */,
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
+				87131D232507B9890050B8F2 /* Executor.swift in Sources */,
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
 				871E71A32501606200C8489B /* AvatarDTO.swift in Sources */,
 				3952FA252500FE9B00E5EF1D /* WishListAPI.swift in Sources */,
