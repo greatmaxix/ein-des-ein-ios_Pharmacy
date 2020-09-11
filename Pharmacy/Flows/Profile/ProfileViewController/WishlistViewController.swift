@@ -2,15 +2,16 @@
 //  WishlistViewController.swift
 //  Pharmacy
 //
-//  Created by CGI-Kite on 20.08.2020.
+//  Created by Mishko on 20.08.2020.
 //  Copyright © 2020 pharmacy. All rights reserved.
 //
 
 import UIKit
 
-final class WishlistViewController: UIViewController {
+final class WishlistViewController: UIViewController, ActivityIndicatorDelegate {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
+    private var indicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     var model: WishlistInput!
     private var emptyResultsView: EmptyResultsView?
@@ -21,7 +22,7 @@ final class WishlistViewController: UIViewController {
         applyEmptyStyle()
         model.load()
         setupUI()
-        showActivityIndicator()
+        showActivityIndicator(activityIndicator: indicator)
     }
 
     private func applyEmptyStyle() {
@@ -65,7 +66,7 @@ extension WishlistViewController: WishlistOutput {
     
     func didLoadList() {
         emptyResultsView?.isHidden = !model.wishlistIsEmpty
-        hideActivityIndicator()
+        hideActivityIndicator(activityIndicator: indicator)
         model.dataSource.assign(tableView: tableView)
         tableView.reloadData()
     }
@@ -75,7 +76,7 @@ extension WishlistViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        model.reloadIfNeeded(lastMedicineIndex: indexPath.row)
+        model.loadNextPages(lastMedicineIndex: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

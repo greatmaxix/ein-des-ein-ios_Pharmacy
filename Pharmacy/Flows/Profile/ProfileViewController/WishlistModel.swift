@@ -2,7 +2,7 @@
 //  WishlistModel.swift
 //  Pharmacy
 //
-//  Created by CGI-Kite on 20.08.2020.
+//  Created by Mishko on 20.08.2020.
 //  Copyright © 2020 pharmacy. All rights reserved.
 //
 
@@ -15,7 +15,7 @@ protocol WishlistInput: class {
     var wishlistIsEmpty: Bool { get }
     var dataSource: WishlistDataSource { get }
     func load()
-    func reloadIfNeeded(lastMedicineIndex: Int)
+    func loadNextPages(lastMedicineIndex: Int)
     func close()
 }
 
@@ -60,21 +60,6 @@ final class WishlistModel: EventNode {
             }
         })
     }
-    
-    func loadFarmacies() {
-        let provider1 = MoyaProvider<WishListAPI>()
-        for i in 756..<758 {
-            provider1.request(.addToWishList(medicineId: i), completion: { result in
-                switch result {
-                case .success(let res):
-                    // swiftlint:disable all
-                    print(res.statusCode)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            })
-        }
-    }
 }
 
 extension WishlistModel: WishlistInput {
@@ -94,7 +79,7 @@ extension WishlistModel: WishlistInput {
         raise(event: ProfileEvent.close)
     }
     
-    func reloadIfNeeded(lastMedicineIndex: Int) {
+    func loadNextPages(lastMedicineIndex: Int) {
         if !loadedAllMedicines, lastMedicineIndex > lastPage * medicinesPerPage - 2, !medicinesAreLoading {
             loadMedicines()
         }
@@ -108,6 +93,7 @@ extension WishlistModel: WishListEditDelegate {
     }
     
     func deleteMedicine(id: Int) {
+        
         provider.delete(target: .removeFromWishList(medicineId: id), completion: { [weak self] result in
             guard let self = self else {return}
             switch result {

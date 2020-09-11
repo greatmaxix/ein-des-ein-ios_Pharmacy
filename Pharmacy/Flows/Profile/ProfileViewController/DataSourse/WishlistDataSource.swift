@@ -31,11 +31,11 @@ final class WishlistDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? MedicineCell {
-            cell.apply(medicine: medicines[indexPath.row])
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? MedicineCell else {
+            return UITableViewCell()
         }
-        return UITableViewCell()
+        cell.apply(medicine: medicines[indexPath.row])
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

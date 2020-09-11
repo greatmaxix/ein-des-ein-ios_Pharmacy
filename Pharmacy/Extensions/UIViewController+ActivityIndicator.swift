@@ -8,16 +8,17 @@
 
 import UIKit
 
-extension UIViewController {
-    private var indicatorTag: Int {
-        Int(1e07)
-    }
+protocol ActivityIndicatorDelegate: class {
+    func showActivityIndicator(activityIndicator: UIActivityIndicatorView)
+    func hideActivityIndicator(activityIndicator: UIActivityIndicatorView)
+}
+
+extension ActivityIndicatorDelegate where Self: UIViewController {
     
-    func showActivityIndicator() {
-        let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    func showActivityIndicator(activityIndicator: UIActivityIndicatorView) {
+        
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.startAnimating()
-        activityIndicator.tag = indicatorTag
         view.addSubview(activityIndicator)
         NSLayoutConstraint.activate([
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -25,7 +26,7 @@ extension UIViewController {
         ])
     }
     
-    func hideActivityIndicator() {
-        view.subviews.first(where: {$0.tag == indicatorTag})?.removeFromSuperview()
+    func hideActivityIndicator(activityIndicator: UIActivityIndicatorView) {
+        activityIndicator.removeFromSuperview()
     }
 }

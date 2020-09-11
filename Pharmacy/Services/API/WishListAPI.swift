@@ -20,7 +20,8 @@ extension WishListAPI: RequestConvertible {
     
     var path: String {
         switch self {
-        case .addToWishList(let id), .removeFromWishList(let id):
+        case .addToWishList(let id),
+             .removeFromWishList(let id):
             return "customer/wishlist/global-product/\(id)"
         case .getWishList:
             return "customer/wishlist"

@@ -14,10 +14,10 @@ struct Medicine: Codable {
     let releaseForm: String
     let manufacturerName: String
     let manufacturerCountryCode: String
-    let minPrice: Double?
-    let maxPrice: Double?
+    let minPrice: Decimal?
+    let maxPrice: Decimal?
     let liked: Bool
-    var pictureUrls: [String]?
+    var pictureUrls: [String]
     
     enum Keys: String, CodingKey {
         case globalProductId
@@ -43,6 +43,7 @@ struct Medicine: Codable {
         
         var picturesUnkeyedContainer = try? container.nestedUnkeyedContainer(forKey: .pictures)
         let urlContainer = try? picturesUnkeyedContainer?.nestedContainer(keyedBy: Keys.self)
+        pictureUrls = []
         if let pictureUrl = try? urlContainer?.decode(String.self, forKey: .url) {
             pictureUrls = [pictureUrl]
         }
@@ -52,8 +53,8 @@ struct Medicine: Codable {
         manufacturerCountryCode = try manufactureContainer.decode(String.self, forKey: .iso3CountryCode)
         
         let priceContainer = try? container.nestedContainer(keyedBy: Keys.self, forKey: .pharmacyProductsAggregationData)
-        minPrice = try? priceContainer?.decode(Double.self, forKey: .minPrice)
-        maxPrice = try? priceContainer?.decode(Double.self, forKey: .maxPrice)
+        minPrice = try? priceContainer?.decode(Decimal.self, forKey: .minPrice)
+        maxPrice = try? priceContainer?.decode(Decimal.self, forKey: .maxPrice)
         liked = try container.decode(Bool.self, forKey: .liked)
     }
     

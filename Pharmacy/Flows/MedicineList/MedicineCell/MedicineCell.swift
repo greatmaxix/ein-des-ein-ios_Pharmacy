@@ -30,7 +30,7 @@ final class MedicineCell: HighlightedTableViewCell {
         factoryLabel.text = medicine.manufacturerName
         costLabel.attributedText = NSAttributedString.fromPriceAttributed(for: medicine.price, currency: medicine.currency)
         
-        if let urlString = medicine.pictureUrls?.first, let url = URL(string: urlString) {
+        if let urlString = medicine.pictureUrls.first, let url = URL(string: urlString) {
             farmacyImageView.loadImageBy(url: url)
             farmacyImageView.layer.cornerRadius = 8
         }
