@@ -22,6 +22,7 @@ extension ActivityIndicatorDelegate where Self: UIViewController {
         activityIndicator.isHidden = true
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.startAnimating()
+        
         view.addSubview(activityIndicator)
         NSLayoutConstraint.activate([
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -29,12 +30,11 @@ extension ActivityIndicatorDelegate where Self: UIViewController {
         ])
     }
     
-    func showActivityIndicator() {
-        
-        activityIndicator.isHidden = false
+    func showActivityIndicator() {        
+        activityIndicator.startAnimating()
     }
     
     func hideActivityIndicator() {
-        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
     }
 }

@@ -11,12 +11,8 @@ import UIKit
 final class WishlistViewController: UIViewController, ActivityIndicatorDelegate {
 
     @IBOutlet private weak var tableView: UITableView!
-    private var indicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
-    var activityIndicator: UIActivityIndicatorView {
-        indicator
-    }
-    
+    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var model: WishlistInput!
     private var emptyResultsView: EmptyResultsView?
     
