@@ -9,14 +9,17 @@
 import UIKit
 
 protocol ActivityIndicatorDelegate: class {
-    func showActivityIndicator(activityIndicator: UIActivityIndicatorView)
-    func hideActivityIndicator(activityIndicator: UIActivityIndicatorView)
+    
+    var activityIndicator: UIActivityIndicatorView {get}
+    func showActivityIndicator()
+    func hideActivityIndicator()
+    func setupActivityIndicator()
 }
 
 extension ActivityIndicatorDelegate where Self: UIViewController {
     
-    func showActivityIndicator(activityIndicator: UIActivityIndicatorView) {
-        
+    func setupActivityIndicator() {
+        activityIndicator.isHidden = true
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
@@ -26,7 +29,12 @@ extension ActivityIndicatorDelegate where Self: UIViewController {
         ])
     }
     
-    func hideActivityIndicator(activityIndicator: UIActivityIndicatorView) {
-        activityIndicator.removeFromSuperview()
+    func showActivityIndicator() {
+        
+        activityIndicator.isHidden = false
+    }
+    
+    func hideActivityIndicator() {
+        activityIndicator.isHidden = true
     }
 }

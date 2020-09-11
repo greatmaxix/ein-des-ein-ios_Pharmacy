@@ -13,6 +13,10 @@ final class WishlistViewController: UIViewController, ActivityIndicatorDelegate 
     @IBOutlet private weak var tableView: UITableView!
     private var indicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
+    var activityIndicator: UIActivityIndicatorView {
+        indicator
+    }
+    
     var model: WishlistInput!
     private var emptyResultsView: EmptyResultsView?
     
@@ -22,7 +26,8 @@ final class WishlistViewController: UIViewController, ActivityIndicatorDelegate 
         applyEmptyStyle()
         model.load()
         setupUI()
-        showActivityIndicator(activityIndicator: indicator)
+        setupActivityIndicator()
+        showActivityIndicator()
     }
 
     private func applyEmptyStyle() {
@@ -54,6 +59,7 @@ final class WishlistViewController: UIViewController, ActivityIndicatorDelegate 
 }
 
 extension WishlistViewController: SimpleNavigationBarDelegate {
+    
     func leftBarItemAction() {
         model.close()
     }
@@ -71,7 +77,7 @@ extension WishlistViewController: WishlistOutput {
     func didLoadList() {
         
         emptyResultsView?.isHidden = !model.wishlistIsEmpty
-        hideActivityIndicator(activityIndicator: indicator)
+        hideActivityIndicator()
         model.dataSource.assign(tableView: tableView)
         tableView.reloadData()
     }

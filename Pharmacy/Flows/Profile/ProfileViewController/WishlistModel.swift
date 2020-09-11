@@ -26,7 +26,7 @@ protocol WishlistOutput: class {
 
 final class WishlistModel: EventNode {
     
-    private let medicineDataSource = WishlistDataSource()
+    let dataSource = WishlistDataSource()
     
     private var medicines: [Medicine] = []
     private let provider = DataManager<WishListAPI, WishlistResponse>()
@@ -40,7 +40,7 @@ final class WishlistModel: EventNode {
     override init(parent: EventNode?) {
         super.init(parent: parent)
         
-        medicineDataSource.wishlistDelegate = self
+        dataSource.wishlistDelegate = self
     }
     
     private func loadMedicines() {
@@ -66,12 +66,9 @@ final class WishlistModel: EventNode {
 }
 
 extension WishlistModel: WishlistInput {
-    var wishlistIsEmpty: Bool {
-        medicineDataSource.medicines.count == 0
-    }
     
-    var dataSource: WishlistDataSource {
-        medicineDataSource
+    var wishlistIsEmpty: Bool {
+        dataSource.medicines.count == 0
     }
     
     func load() {
