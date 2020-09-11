@@ -21,11 +21,14 @@ protocol WishlistInput: class {
 
 protocol WishlistOutput: class {
     func didLoadList()
+    func showDeletionError()
 }
 
 final class WishlistModel: EventNode {
     
     private let medicineDataSource = WishlistDataSource()
+    
+    private var medicines: [Medicine] = []
     private let provider = DataManager<WishListAPI, WishlistResponse>()
     private var lastPage: Int = 1
     private let medicinesPerPage: Int = 10
@@ -52,12 +55,12 @@ final class WishlistModel: EventNode {
             case .success(let response):
                 self.loadedAllMedicines = self.lastPage == response.currentPage
                 self.lastPage = response.currentPage
-                self.medicineDataSource.medicines.append(contentsOf: response.medicines)
-                self.output.didLoadList()
+                self.medicines.append(contentsOf: response.medicines)
+                self.dataSource.medicines = self.medicines
             case .failure(let error):
-                self.output.didLoadList()
                 print(error.localizedDescription)
             }
+            self.output.didLoadList()
         })
     }
 }
@@ -80,7 +83,10 @@ extension WishlistModel: WishlistInput {
     }
     
     func loadNextPages(lastMedicineIndex: Int) {
-        if !loadedAllMedicines, lastMedicineIndex > lastPage * medicinesPerPage - 2, !medicinesAreLoading {
+        if !loadedAllMedicines,
+            lastMedicineIndex > lastPage * medicinesPerPage - 2,
+            !medicinesAreLoading {
+            
             loadMedicines()
         }
     }
@@ -101,8 +107,10 @@ extension WishlistModel: WishListEditDelegate {
                 if self.dataSource.medicines.count == 0 {
                     self.output.didLoadList()
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
+            case .failure:
+                self.dataSource.medicines = self.medicines
+                self.output.didLoadList()
+                self.output.showDeletionError()
             }
         })
     }

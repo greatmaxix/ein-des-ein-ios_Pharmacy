@@ -64,7 +64,12 @@ extension WishlistViewController: SimpleNavigationBarDelegate {
 
 extension WishlistViewController: WishlistOutput {
     
+    func showDeletionError() {
+        showError(message: "Unable to remove medicine from wishlist")
+    }
+    
     func didLoadList() {
+        
         emptyResultsView?.isHidden = !model.wishlistIsEmpty
         hideActivityIndicator(activityIndicator: indicator)
         model.dataSource.assign(tableView: tableView)
