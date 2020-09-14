@@ -29,7 +29,7 @@ final class OnboardingViewController: UIViewController {
 
         setupContainerView()
         setupContainerViewEdgeGesture()
-        setupButtons()
+        setupButtons(nextTitle: model.startSlide?.applyButtonTitle, skipTitle: model.startSlide?.skipTitle)
     }
 }
 
@@ -55,7 +55,7 @@ extension OnboardingViewController {
 
 // MARK: - OnboardingModelOutput
 extension OnboardingViewController: OnboardingModelOutput {
-
+    
     func routeToSlide(at index: Int) {
         selectSlide(at: index)
     }
@@ -75,11 +75,11 @@ extension OnboardingViewController {
         containerView.addGestureRecognizer(rightGesture)
     }
 
-    private func setupButtons() {
+    private func setupButtons(nextTitle: String?, skipTitle: String?) {
         nextButton.layer.cornerRadius = nextButton.frame.height / 2
-        nextButton.setTitle(R.string.localize.onboardingButtonNext(),
+        nextButton.setTitle(nextTitle,
                             for: .normal)
-        skipButton.setTitle(R.string.localize.onboardingButtonSkip(),
+        skipButton.setTitle(skipTitle,
                             for: .normal)
     }
 
@@ -89,6 +89,7 @@ extension OnboardingViewController {
         }
 
         let indexPath = IndexPath(item: index, section: 0)
+        setupButtons(nextTitle: model.slideInfos[index].applyButtonTitle, skipTitle: model.slideInfos[index].skipTitle)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
     }
 }

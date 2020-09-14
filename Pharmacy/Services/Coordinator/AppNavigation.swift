@@ -40,8 +40,11 @@ final class AppNavigation: EventNode {
             }
         }
         addHandler { [weak self] (event: OnboardingEvent) in
-            if case .close = event {
+            switch event {
+            case .close:
                 self?.presentAuthFlow()
+            default:
+                break
             }
         }
     }

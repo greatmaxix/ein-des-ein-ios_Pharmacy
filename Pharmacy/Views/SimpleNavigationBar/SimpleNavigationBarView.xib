@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,9 +14,6 @@
         </array>
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans-Regular</string>
-        </array>
-        <array key="OpenSans-SemiBold.ttf">
-            <string>OpenSans-SemiBold</string>
         </array>
     </customFonts>
     <objects>
@@ -45,21 +42,77 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-Z6-s0d">
-                            <rect key="frame" x="368" y="51" width="30" height="31"/>
-                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-Z6-s0d">
+                            <rect key="frame" x="368" y="49.5" width="30" height="34"/>
                             <state key="normal">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
+                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwr-aB-3WZ">
+                            <rect key="frame" x="300" y="42" width="98" height="38"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRJ-SY-pXS">
+                                    <rect key="frame" x="9" y="7" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="24" id="Df6-1g-G5q"/>
+                                        <constraint firstAttribute="width" constant="24" id="RUi-h2-slI"/>
+                                    </constraints>
+                                    <state key="normal" image="welcomeSearch"/>
+                                    <state key="selected" image="backArrow"/>
+                                    <connections>
+                                        <action selector="hideSearch:" destination="iN0-l3-epB" eventType="touchUpInside" id="629-zq-yH7"/>
+                                    </connections>
+                                </button>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ношпа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o1K-6E-QqR">
+                                    <rect key="frame" x="46" y="7" width="10" height="24"/>
+                                    <color key="tintColor" name="welcomeBlue"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="24" id="7Be-mf-TFS"/>
+                                    </constraints>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8d-xo-Gt3">
+                                    <rect key="frame" x="65" y="7" width="24" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="24" id="541-Oq-3q8"/>
+                                        <constraint firstAttribute="height" constant="24" id="mMW-da-KZv"/>
+                                    </constraints>
+                                    <state key="normal" image="cancelSearch"/>
+                                    <connections>
+                                        <action selector="clearSearch:" destination="iN0-l3-epB" eventType="touchUpInside" id="9By-ww-euA"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="o1K-6E-QqR" firstAttribute="leading" secondItem="qRJ-SY-pXS" secondAttribute="trailing" priority="999" constant="13" id="3FF-Qw-Ddy"/>
+                                <constraint firstItem="qRJ-SY-pXS" firstAttribute="centerY" secondItem="lwr-aB-3WZ" secondAttribute="centerY" id="FrF-Vm-nKO"/>
+                                <constraint firstItem="A8d-xo-Gt3" firstAttribute="leading" secondItem="o1K-6E-QqR" secondAttribute="trailing" constant="9" id="J8a-aY-odl"/>
+                                <constraint firstItem="qRJ-SY-pXS" firstAttribute="leading" secondItem="lwr-aB-3WZ" secondAttribute="leading" constant="9" id="NTy-Xo-lTb"/>
+                                <constraint firstAttribute="height" constant="38" id="ZR4-QD-A1v"/>
+                                <constraint firstItem="o1K-6E-QqR" firstAttribute="centerY" secondItem="lwr-aB-3WZ" secondAttribute="centerY" id="apJ-zA-55F"/>
+                                <constraint firstAttribute="trailing" secondItem="A8d-xo-Gt3" secondAttribute="trailing" constant="9" id="btu-Jj-qEN"/>
+                                <constraint firstItem="A8d-xo-Gt3" firstAttribute="centerY" secondItem="lwr-aB-3WZ" secondAttribute="centerY" id="yqO-Qq-gtF"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="21"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" name="welcomeBlue"/>
                     <constraints>
                         <constraint firstItem="2lD-JQ-r9W" firstAttribute="centerX" secondItem="lZX-GD-XdC" secondAttribute="centerX" id="2Rx-Cy-15K"/>
+                        <constraint firstAttribute="bottom" secondItem="lwr-aB-3WZ" secondAttribute="bottom" constant="8" id="Fos-UB-OaB"/>
+                        <constraint firstItem="lwr-aB-3WZ" firstAttribute="leading" secondItem="lZX-GD-XdC" secondAttribute="leading" constant="300" id="LgR-j7-Ghh"/>
                         <constraint firstAttribute="trailing" secondItem="HYE-Z6-s0d" secondAttribute="trailing" constant="16" id="TeV-fl-YI7"/>
                         <constraint firstItem="gUy-h4-mP0" firstAttribute="centerY" secondItem="2lD-JQ-r9W" secondAttribute="centerY" id="cse-1b-t28"/>
                         <constraint firstItem="HYE-Z6-s0d" firstAttribute="centerY" secondItem="2lD-JQ-r9W" secondAttribute="centerY" id="lyC-46-7A8"/>
                         <constraint firstAttribute="bottom" secondItem="2lD-JQ-r9W" secondAttribute="bottom" constant="12" id="tWs-1z-ySs"/>
+                        <constraint firstItem="lwr-aB-3WZ" firstAttribute="trailing" secondItem="HYE-Z6-s0d" secondAttribute="trailing" id="tgJ-t7-WXr"/>
                         <constraint firstItem="gUy-h4-mP0" firstAttribute="leading" secondItem="lZX-GD-XdC" secondAttribute="leading" constant="16" id="xVJ-be-Dy5"/>
                     </constraints>
                 </view>
@@ -77,13 +130,20 @@
                 <outlet property="frontView" destination="lZX-GD-XdC" id="LGS-Zr-Kwk"/>
                 <outlet property="leftButton" destination="gUy-h4-mP0" id="xO1-iU-oYV"/>
                 <outlet property="rightButton" destination="HYE-Z6-s0d" id="LGS-E5-D2K"/>
+                <outlet property="searchButton" destination="qRJ-SY-pXS" id="b84-7U-yJo"/>
+                <outlet property="searchLeadingConstraint" destination="LgR-j7-Ghh" id="on0-B6-mjE"/>
+                <outlet property="searchView" destination="lwr-aB-3WZ" id="2Cd-bv-52P"/>
+                <outlet property="textField" destination="o1K-6E-QqR" id="aJh-Ia-yak"/>
                 <outlet property="titleLabel" destination="2lD-JQ-r9W" id="lPQ-MS-Ek3"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
         </view>
     </objects>
     <resources>
+        <image name="backArrow" width="24" height="24"/>
+        <image name="cancelSearch" width="24" height="24"/>
         <image name="leftArrow" width="28" height="28"/>
+        <image name="welcomeSearch" width="24" height="24"/>
         <namedColor name="backgroundGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

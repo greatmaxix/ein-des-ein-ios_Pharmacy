@@ -84,6 +84,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         }
         
         let model = WishlistModel(parent: self)
+        model.output = wishlistVC
         wishlistVC.model = model
         root.navigationController?.pushViewController(wishlistVC, animated: true)
     }

@@ -11,8 +11,8 @@ import Moya
 
 enum WishListAPI {
     
-    case addToWishList(medicineId: String)
-    case removeFromWishList(medicineId: String)
+    case addToWishList(medicineId: Int)
+    case removeFromWishList(medicineId: Int)
     case getWishList(pageNumber: Int, medicinesPerPage: Int)
 }
 
@@ -20,8 +20,9 @@ extension WishListAPI: RequestConvertible {
     
     var path: String {
         switch self {
-        case .addToWishList, .removeFromWishList:
-            return "customer/wishlist/global-product"
+        case .addToWishList(let id),
+             .removeFromWishList(let id):
+            return "customer/wishlist/global-product/\(id)"
         case .getWishList:
             return "customer/wishlist"
         }
@@ -40,12 +41,13 @@ extension WishListAPI: RequestConvertible {
     
     var task: Task {
         switch self {
-        case .addToWishList(let id):
-            return .requestParameters(parameters: ["id": id], encoding: JSONEncoding.default)
-        case .removeFromWishList(let id):
-            return .requestParameters(parameters: ["id": id], encoding: JSONEncoding.default)
+        case .addToWishList:
+            return .requestPlain
+        case .removeFromWishList:
+            return .requestPlain
         case .getWishList(let pageNumber, let medicinesPerPage):
             return .requestParameters(parameters: ["page": pageNumber, "per_page": medicinesPerPage], encoding: URLEncoding.default)
         }
     }
+    
 }

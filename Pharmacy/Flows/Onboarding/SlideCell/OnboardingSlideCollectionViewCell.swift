@@ -8,10 +8,26 @@
 
 import UIKit
 
+enum SlideOption {
+    case onNext
+    case toCategories
+    case toAuth
+}
+
 struct SlideInfo {
     let image: UIImage
     let title: String
     let description: String
+    var slideOption: SlideOption
+    var skipTitle: String = R.string.localize.onboardingButtonSkip()
+    var applyButtonTitle: String = R.string.localize.onboardingButtonNext()
+    
+    init(image: UIImage, title: String, description: String, skipTitle: String? = nil, applyTitle: String? = nil, option: SlideOption = .onNext) {
+        self.image = image
+        self.title = title
+        self.description = description
+        self.slideOption = option
+    }
 }
 
 class OnboardingSlideCollectionViewCell: UICollectionViewCell {
