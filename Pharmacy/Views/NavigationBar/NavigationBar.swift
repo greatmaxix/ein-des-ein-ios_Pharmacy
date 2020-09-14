@@ -67,11 +67,11 @@ final class NavigationBar: UINavigationBar {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet private weak var textField: UITextField!
-    @IBOutlet private weak var searchView: UIView!
+//    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var searchBar: SearchBar!
     @IBOutlet private weak var scanButton: UIButton!
-    @IBOutlet private weak var cancelSearchButton: UIButton!
-    @IBOutlet private weak var searchButton: UIButton!
+//    @IBOutlet private weak var cancelSearchButton: UIButton!
+//    @IBOutlet private weak var searchButton: UIButton!
     @IBOutlet private weak var stackView: UIStackView!
     
     var style: NavigationBarStyle = .normal
@@ -127,11 +127,11 @@ final class NavigationBar: UINavigationBar {
         searchDelegate?.navigationBarDidSelectScan()
     }
     
-    @IBAction func searchButtonAction(_ sender: UIButton) {
-        guard style == .normal else { return }
-        textField.becomeFirstResponder()
-        showSearchTextFieldAnimated()
-    }
+//    @IBAction func searchButtonAction(_ sender: UIButton) {
+//        guard style == .normal else { return }
+//        textField.becomeFirstResponder()
+//        showSearchTextFieldAnimated()
+//    }
     
     @IBAction func cancelSearchAction(_ sender: UIButton) {
         endEditing(true)
@@ -153,7 +153,7 @@ extension NavigationBar {
         contentView.layer.cornerRadius = GUI.cornerRadius
         contentView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         scanButton.layer.cornerRadius = GUI.scanButtonCornerRadius
-        searchView.layer.cornerRadius = searchView.bounds.height / 2
+        searchBar.layer.cornerRadius = searchBar.bounds.height / 2
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -165,7 +165,7 @@ extension NavigationBar {
             contentView.rightAnchor.constraint(equalTo: rightAnchor)
         ])
         
-        textField.delegate = self
+//        textField.delegate = self
         
         configUIBy(style: style)
     }
@@ -176,8 +176,8 @@ extension NavigationBar {
         let isSearch = style == .largeSearch || style == .search
         
         endEditing(true)
-        searchButton.isSelected = false
-        cancelSearchButton.isHidden = true
+//        searchButton.isSelected = false
+//        cancelSearchButton.isHidden = true
         
         titleLabel.font = isLarge ? GUI.largeTitleFont : GUI.normalTitleFont
         
@@ -188,8 +188,8 @@ extension NavigationBar {
         
         configSearchTextFieldBy(style: style)
         
-        let searchViewColor = searchView.backgroundColor
-        searchView.backgroundColor = searchViewColor?.withAlphaComponent(isSearch ? GUI.searchViewBackgorundAlpha : 0)
+        let searchViewColor = searchBar.backgroundColor
+        searchBar.backgroundColor = searchViewColor?.withAlphaComponent(isSearch ? GUI.searchViewBackgorundAlpha : 0)
         
         titleBottomConstraint.isActive = isLarge
         searchContainerViewBottomConstraint.constant = isSearch
@@ -212,7 +212,7 @@ extension NavigationBar {
     
     private func hideSearchIfNeeded() {
         let isHidden = style == .normalWithoutSearch
-        searchView.isHidden = isHidden
+        searchBar.isHidden = isHidden
 //        scanButton.isHidden = isHidden
          
         searchContainerViewBottomConstraint.constant = isHidden
@@ -221,7 +221,7 @@ extension NavigationBar {
     }
     
     func fillStackViewWith(additionalViews: [UIView]) {
-        let views = stackView.arrangedSubviews.compactMap {  $0 != scanButton && $0 != searchView ? $0 : nil }
+        let views = stackView.arrangedSubviews.compactMap {  $0 != scanButton && $0 != searchBar ? $0 : nil }
         views.forEach { stackView.removeArrangedSubview($0); $0.removeFromSuperview() }
         additionalViews.forEach { stackView.addArrangedSubview($0) }
     }
@@ -234,29 +234,29 @@ extension NavigationBar {
     }
     
     fileprivate func showSearchTextFieldAnimated() {
-        searchButton.isSelected = true
-        cancelSearchButton.isHidden = false
+//        searchButton.isSelected = true
+//        cancelSearchButton.isHidden = false
         scanButton.isHidden = false
         
-        textField.textColor = GUI.textFiledDarkTextColor
+//        textField.textColor = GUI.textFiledDarkTextColor
         configSearchTextFieldBy(style: .largeSearch)
         
         UIView.animate(withDuration: GUI.animationDurartion) {
-            self.searchView.backgroundColor = .white
+            self.searchBar.backgroundColor = .white
             self.scanButton.alpha = 1
             self.layoutIfNeeded()
         }
     }
     
     fileprivate func hideSearchTextFieldAnimated() {
-        searchButton.isSelected = false
-        cancelSearchButton.isHidden = true
+//        searchButton.isSelected = false
+//        cancelSearchButton.isHidden = true
         
-        textField.textColor = GUI.textFiledNormalTextColor
+//        textField.textColor = GUI.textFiledNormalTextColor
         configSearchTextFieldBy(style: style)
         
         UIView.animate(withDuration: GUI.animationDurartion, animations: {
-            self.searchView.backgroundColor = UIColor.white.withAlphaComponent(0)
+            self.searchBar.backgroundColor = UIColor.white.withAlphaComponent(0)
             self.scanButton.alpha = 0
             self.layoutIfNeeded()
         }, completion: { (_) in

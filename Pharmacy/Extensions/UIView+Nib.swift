@@ -27,6 +27,10 @@ extension UIView {
             return nil
         }
         
+//        contentView.frame = bounds
+//        contentView.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth,
+//                                 UIView.AutoresizingMask.flexibleHeight]
+        
         addSubview(contentView)
         
         return contentView

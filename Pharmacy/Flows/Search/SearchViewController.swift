@@ -76,29 +76,25 @@ extension SearchViewController {
         
         navigationBar.tintColor = .white
         navigationBar.backgroundColor = .clear
-        navigationBar.setBackgroundImage(R.image.navigationBar()?.stretchableImage(withLeftCapWidth: 15,
-                                                                                   topCapHeight: 15),
+        navigationBar.setBackgroundImage(R.image.navigationBar()?.stretchableImage(withLeftCapWidth: 20,
+                                                                                   topCapHeight: 20),
                                          for: .default)
         navigationBar.shadowImage = UIImage()
         
-        let searchBar = UISearchBar()
-        searchBar.searchBarStyle = .minimal
-        
-        searchBar.textField?.backgroundColor = UIColor.white.withAlphaComponent(0.3)
-        
-        let attributes: [NSAttributedString.Key: Any] = [
-                        .foregroundColor: UIColor.white]
-        
-        searchBar.textField?.attributedPlaceholder = NSAttributedString(string: "Foo Bar",
-                                                                        attributes: attributes)
+        let searchBar = SearchBar()
+        searchBar.delegate = self
+        searchBar.heightAnchor.constraint(equalToConstant: 36).isActive = true
         
         navigationItem.titleView = searchBar
+        searchBar.topAnchor.constraint(equalTo: searchBar.superview!.topAnchor).isActive = true
+        searchBar.bottomAnchor.constraint(equalTo: searchBar.superview!.bottomAnchor, constant: -8.0).isActive = true
     }
 }
 
 // MARK: - SearchViewControllerInput
-
 extension SearchViewController: SearchViewControllerInput {
+    
+    
     func didLoad(story: TableDataSource<SearchCellSection>) {
         story.assign(tableView: tableView)
         tableView.reloadData()
@@ -112,8 +108,21 @@ extension SearchViewController: SearchViewControllerInput {
     }
 }
 
-// MARK: - UITableViewDelegate
+extension SearchViewController: SearchBarDelegate {
+    
+    func searchBar(_ searchBar: SearchBar, textDidChange searchText: String) {
+        model.updateSearchTerm(searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: SearchBar) {
+        searchBar.endEditing(false)
+        model.processSearch
+    }
+    
+    
+}
 
+// MARK: - UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

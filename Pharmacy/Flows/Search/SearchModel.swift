@@ -16,6 +16,8 @@ enum SearchModelEvent: Event {
 protocol SearchModelInput: class {
     var storyDataSource: TableDataSource<SearchCellSection> { get }
     func load()
+    func updateSearchTerm(_ term: String)
+    func processSearch()
     func cleanStory()
     func didSelectCellAt(indexPath: IndexPath)
 }
@@ -30,12 +32,39 @@ final class SearchModel: Model {
     weak var output: SearchModelOutput!
     
     let storyDataSource = TableDataSource<SearchCellSection>()
+    private var searchTerm: String = ""
     
+//    private let searchDebouncer: Executor
+    
+    
+    override init(parent: EventNode?) {
+        super.init(parent: parent)
+        
+//        searchDebouncer = Executor.debounce(interval: 0.5)
+    }
 }
 
 // MARK: - SearchViewControllerOutput
 
 extension SearchModel: SearchViewControllerOutput {
+    func updateSearchTerm(_ term: String) {
+        let trimmedTerm = term.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        guard searchTerm != trimmedTerm else {
+            return
+        }
+        
+        searchTerm = trimmedTerm
+        
+        searchDebouncer.execute { [weak self] in
+            self?.view.searchTermUpdated()
+        }
+    }
+    
+    func processSearch() {
+        load()
+    }
+    
     func didSelectCellAt(indexPath: IndexPath) {
         guard let cell = storyDataSource.cell(for: indexPath) else { return }
         

@@ -206,6 +206,9 @@
 		619AAA4A2498B09800AB46ED /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA492498B09800AB46ED /* Token.swift */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
 		87131D25250913A70050B8F2 /* UISearchBar+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */; };
+		87131D28250A043D0050B8F2 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D27250A043D0050B8F2 /* SearchBar.swift */; };
+		87131D2A250A04490050B8F2 /* SearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87131D29250A04490050B8F2 /* SearchBar.xib */; };
+		87131D2C250A0C8E0050B8F2 /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D2B250A0C8E0050B8F2 /* NibView.swift */; };
 		8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */; };
 		8715DB8924FFC76F00BBF37C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */; };
 		8715DB9224FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB9024FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift */; };
@@ -441,6 +444,9 @@
 		619AAA472498B01900AB46ED /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		619AAA492498B09800AB46ED /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Pharmacy/Services/Managers/Token.swift; sourceTree = SOURCE_ROOT; };
 		87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+TextField.swift"; sourceTree = "<group>"; };
+		87131D27250A043D0050B8F2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		87131D29250A04490050B8F2 /* SearchBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBar.xib; sourceTree = "<group>"; };
+		87131D2B250A0C8E0050B8F2 /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		8715DB9024FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlideCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -776,6 +782,7 @@
 		396C45CE249774AC00A569CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				87131D262509FBA80050B8F2 /* SearchBar */,
 				60E1A71B24ED078600B3D205 /* ActionSheetView */,
 				60E1A71824ED024400B3D205 /* CustomIntensityVisualEffectView */,
 				603D320124E65852000E5A6C /* ContainerView */,
@@ -1376,6 +1383,15 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		87131D262509FBA80050B8F2 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				87131D27250A043D0050B8F2 /* SearchBar.swift */,
+				87131D29250A04490050B8F2 /* SearchBar.xib */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
 		8715DB8424FFBFB900BBF37C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -1439,6 +1455,7 @@
 				875223A62500043D000759C8 /* NibReusable.swift */,
 				875223A825000462000759C8 /* CellReusable.swift */,
 				875223AA25000482000759C8 /* NibLoadable.swift */,
+				87131D2B250A0C8E0050B8F2 /* NibView.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1652,6 +1669,7 @@
 				603D31F324E5A9F7000E5A6C /* ProductAdviceTableViewCell.xib in Resources */,
 				396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */,
 				394EBEE924FF904100C89970 /* MedicineView.xib in Resources */,
+				87131D2A250A04490050B8F2 /* SearchBar.xib in Resources */,
 				6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */,
 				396C45C22497699900A569CE /* Assets.xcassets in Resources */,
 				60E1A71124ECE0C300B3D205 /* Scan.storyboard in Resources */,
@@ -1833,6 +1851,7 @@
 				618C33AA2498BFB400951D11 /* Coordinator.swift in Sources */,
 				397541D324ED23B30069F8DE /* SimpleNavigationBar.swift in Sources */,
 				39CBDA6E249CF5BA00A04831 /* ConfirmCodeViewController.swift in Sources */,
+				87131D2C250A0C8E0050B8F2 /* NibView.swift in Sources */,
 				39818FA124AF69B0007D6D94 /* UserSession.swift in Sources */,
 				603D31E024E5A8E3000E5A6C /* ProductCategoryTableViewCell.swift in Sources */,
 				397541D724ED35EE0069F8DE /* SimpleNavigationBarView.swift in Sources */,
@@ -1944,6 +1963,7 @@
 				6075BD5824DEB94F00BC78BD /* NavigationBar.swift in Sources */,
 				875223A3250003E9000759C8 /* UICollectionView+Reusable.swift in Sources */,
 				3959F40724F6558E00DB4065 /* MapFarmacyCellSection.swift in Sources */,
+				87131D28250A043D0050B8F2 /* SearchBar.swift in Sources */,
 				395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */,
 				39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */,
 				603D31BA24E3FA1F000E5A6C /* UIImageView+URL.swift in Sources */,
