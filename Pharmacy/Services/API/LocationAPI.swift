@@ -21,10 +21,6 @@ extension LocationAPI: RequestConvertible {
         return Data()
     }
     
-    var authorizationType: AuthorizationType? {
-        return .bearer
-    }
-    
     var baseURL: URL {
         return URL(string: "https://api.pharmacies.fmc-dev.com/api/v1/public")!
     }

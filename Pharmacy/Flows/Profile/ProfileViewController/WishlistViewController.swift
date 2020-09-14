@@ -2,14 +2,17 @@
 //  WishlistViewController.swift
 //  Pharmacy
 //
-//  Created by CGI-Kite on 20.08.2020.
+//  Created by Mishko on 20.08.2020.
 //  Copyright © 2020 pharmacy. All rights reserved.
 //
 
 import UIKit
 
-final class WishlistViewController: UIViewController {
+final class WishlistViewController: UIViewController, ActivityIndicatorDelegate {
 
+    @IBOutlet private weak var tableView: UITableView!
+    
+    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var model: WishlistInput!
     private var emptyResultsView: EmptyResultsView?
     
@@ -17,13 +20,17 @@ final class WishlistViewController: UIViewController {
         super.viewDidLoad()
 
         applyEmptyStyle()
+        model.load()
         setupUI()
+        setupActivityIndicator()
+        showActivityIndicator()
     }
 
     private func applyEmptyStyle() {
         
         let emptyView: EmptyResultsView = EmptyResultsView.fromNib()
         emptyView.translatesAutoresizingMaskIntoConstraints = false
+        emptyView.isHidden = true
         view.addSubview(emptyView)
         emptyView.constraintsToSuperView()
         
@@ -33,6 +40,9 @@ final class WishlistViewController: UIViewController {
     }
     
     private func setupUI() {
+        
+        tableView.delegate = self
+        
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             
             bar.title = R.string.localize.wishlistEmptyBarTitle()
@@ -45,10 +55,42 @@ final class WishlistViewController: UIViewController {
 }
 
 extension WishlistViewController: SimpleNavigationBarDelegate {
+    
     func leftBarItemAction() {
         model.close()
     }
     
     func rightBarItemAction() {
+    }
+}
+
+extension WishlistViewController: WishlistOutput {
+    
+    func showDeletionError() {
+        showError(message: "Unable to remove medicine from wishlist")
+    }
+    
+    func didLoadList() {
+        
+        emptyResultsView?.isHidden = !model.wishlistIsEmpty
+        hideActivityIndicator()
+        model.dataSource.assign(tableView: tableView)
+        tableView.reloadData()
+    }
+}
+
+extension WishlistViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        model.loadNextPages(lastMedicineIndex: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
     }
 }
