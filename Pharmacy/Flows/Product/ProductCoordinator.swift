@@ -56,7 +56,7 @@ fileprivate extension ProductCoordinator {
     
      func createMapFlow() {
         guard let vc = R.storyboard.product.mapViewController() else { return }
-        let model = MapModel(parent: self)
+        let model = MapModel(parent: self, medicineId: 21)
         model.output = vc
         vc.model = model
         navigation.pushViewController(vc, animated: true)

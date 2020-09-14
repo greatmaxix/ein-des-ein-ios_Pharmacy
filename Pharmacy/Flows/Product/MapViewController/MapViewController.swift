@@ -11,6 +11,7 @@ import GoogleMaps
 
 protocol MapOutput: class {
     func locationUpdated(newCoordinate: CLLocationCoordinate2D)
+    func setMarkers(positions: [CLLocationCoordinate2D], prices: [Double])
 }
 
 class MapViewController: UIViewController {
@@ -38,6 +39,7 @@ class MapViewController: UIViewController {
         setupUI()
         setupMap()
         setupLocalization()
+        model.load()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -136,6 +138,19 @@ extension MapViewController: GMSMapViewDelegate {
 }
 
 extension MapViewController: MapOutput {
+    
+    func setMarkers(positions: [CLLocationCoordinate2D], prices: [Double]) {
+        mapView.clear()
+        
+        for i in 0..<positions.count {
+            
+            let marker = GMSMarker()
+            let pinView: FarmacyPinView? = R.nib.farmacyPinView(owner: nil)
+            marker.position = positions[i]
+            pinView?.price = prices[i]
+            marker.map = mapView
+        }
+    }
     
     func locationUpdated(newCoordinate: CLLocationCoordinate2D) {
 //        mapView.moveCamera(GMSCameraUpdate.setTarget(newCoordinate))
