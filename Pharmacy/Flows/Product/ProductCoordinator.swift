@@ -37,7 +37,7 @@ final class ProductCoordinator: EventNode, Coordinator {
             case .openAnalogsFor, .openCatalogsFor:
                 self?.openMedicineList()
             case .openMap(let product):
-                self?.createMapFlow()
+                self?.createMapFlow(medicineId: 764)
             case .openFarmacyList:
                 self?.openMapFarmacyList()
             case .openCheckout:
@@ -54,9 +54,9 @@ fileprivate extension ProductCoordinator {
         navigation.pushViewController(vc, animated: true)
     }
     
-     func createMapFlow() {
+    func createMapFlow(medicineId: Int) {
         guard let vc = R.storyboard.product.mapViewController() else { return }
-        let model = MapModel(parent: self, medicineId: 21)
+        let model = MapModel(parent: self, medicineId: medicineId)
         model.output = vc
         vc.model = model
         navigation.pushViewController(vc, animated: true)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Pharmacy: Codable {
+struct PharmacyModel: Codable {
     
     struct Geometry: Codable {
         let lat: Double
@@ -17,7 +17,7 @@ struct Pharmacy: Codable {
     }
 
     struct SimpleMedicine: Codable {
-        let pharmacyProductId: String
+        let pharmacyProductId: Int
         let price: Double
     }
     
@@ -48,7 +48,9 @@ struct Pharmacy: Codable {
         
         let nestedContainer = try container.nestedContainer(keyedBy: Keys.self, forKey: .logo)
         
-        imageURL = try? nestedContainer.decode(URL.self, forKey: .url)
+        if let stringURL: String = try? nestedContainer.decode(String.self, forKey: .url) {
+            imageURL = URL(string: stringURL)
+        }
         medicines = try container.decode([SimpleMedicine].self, forKey: .pharmacyProducts)
     }
 }

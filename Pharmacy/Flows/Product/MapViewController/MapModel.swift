@@ -18,6 +18,7 @@ protocol MapInput: class {
     func startLocationTracking()
     func openFarmacyList()
     func load()
+    func farmacyAt(index: Int) -> PharmacyModel?
 }
 
 final class MapModel: EventNode {
@@ -25,7 +26,7 @@ final class MapModel: EventNode {
     weak var output: MapOutput!
     private var locationService = LocationService()
     private var medicineId: Int?
-    private var pharmacies: [Pharmacy] = []
+    private var pharmacies: [PharmacyModel] = []
     private let provider = DataManager<MapAPI, PharmacyResponse>()
     
     init(parent: EventNode?, medicineId: Int) {
@@ -55,7 +56,7 @@ extension MapModel: MapInput {
     func load() {
         guard let medicineId = medicineId else { return }
         
-        provider.load(target: .getPharmacies(medicineId: medicineId, regionId: UserDefaultsAccessor.regionId, page: 0, pageCount: 10), completion: { [weak self] result in
+        provider.load(target: .getPharmacies(medicineId: medicineId, regionId: 21/*UserDefaultsAccessor.regionId*/, page: 1, pageCount: 10), completion: { [weak self] result in
             
             guard let self = self else { return }
             
@@ -71,5 +72,9 @@ extension MapModel: MapInput {
                 print(error.localizedDescription)
             }
         })
+    }
+    
+    func farmacyAt(index: Int) -> PharmacyModel? {
+        return pharmacies[index]
     }
 }

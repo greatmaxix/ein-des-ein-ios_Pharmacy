@@ -82,7 +82,7 @@
 		39818FA124AF69B0007D6D94 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39818FA024AF69B0007D6D94 /* UserSession.swift */; };
 		39854D0224EAB4870070E0D1 /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39854D0124EAB4870070E0D1 /* ProfileAPI.swift */; };
 		398880C0250F753200942D30 /* MapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398880BF250F753200942D30 /* MapAPI.swift */; };
-		398880C2250F798300942D30 /* Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398880C1250F798300942D30 /* Pharmacy.swift */; };
+		398880C2250F798300942D30 /* PharmacyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398880C1250F798300942D30 /* PharmacyModel.swift */; };
 		398880C4250F799400942D30 /* PharmacyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398880C3250F799400942D30 /* PharmacyResponse.swift */; };
 		398B0DD224F5062C0084EC54 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DD124F5062C0084EC54 /* MapViewController.swift */; };
 		398B0DD424F506540084EC54 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DD324F506540084EC54 /* MapModel.swift */; };
@@ -333,7 +333,7 @@
 		39818FA024AF69B0007D6D94 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		39854D0124EAB4870070E0D1 /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		398880BF250F753200942D30 /* MapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAPI.swift; sourceTree = "<group>"; };
-		398880C1250F798300942D30 /* Pharmacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pharmacy.swift; sourceTree = "<group>"; };
+		398880C1250F798300942D30 /* PharmacyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyModel.swift; sourceTree = "<group>"; };
 		398880C3250F799400942D30 /* PharmacyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyResponse.swift; sourceTree = "<group>"; };
 		398B0DD124F5062C0084EC54 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		398B0DD324F506540084EC54 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
@@ -781,7 +781,7 @@
 				603D31B324E3CFEE000E5A6C /* Medicine.swift */,
 				603D31D624E5A3FE000E5A6C /* Product.swift */,
 				396FE9CF25063A460063E466 /* Region.swift */,
-				398880C1250F798300942D30 /* Pharmacy.swift */,
+				398880C1250F798300942D30 /* PharmacyModel.swift */,
 			);
 			name = Models;
 			path = Templates/Models;
@@ -1904,7 +1904,7 @@
 				619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */,
 				603D31FD24E64912000E5A6C /* UITableViewCell.swift in Sources */,
 				6036EB0724DD27BB003336C2 /* SearchModel.swift in Sources */,
-				398880C2250F798300942D30 /* Pharmacy.swift in Sources */,
+				398880C2250F798300942D30 /* PharmacyModel.swift in Sources */,
 				60E1A6F724EB8C7800B3D205 /* SearchCellSection.swift in Sources */,
 				603D31A724E3B627000E5A6C /* CategoryCellSection.swift in Sources */,
 				603D31A424E3B608000E5A6C /* CategoryCollectionViewCell.swift in Sources */,

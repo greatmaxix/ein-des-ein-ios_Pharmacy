@@ -16,14 +16,14 @@ struct PharmacyResponse: Codable {
         case numItemsPerPage
     }
     
-    let pharmacies: [Pharmacy]
+    let pharmacies: [PharmacyModel]
     let pagesPerPage: Int
     let pageNumber: Int
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         
-        pharmacies = try container.decode([Pharmacy].self, forKey: .items)
+        pharmacies = try container.decode([PharmacyModel].self, forKey: .items)
         pagesPerPage = try container.decode(Int.self, forKey: .numItemsPerPage)
         pageNumber = try container.decode(Int.self, forKey: .currentPageNumber)
     }

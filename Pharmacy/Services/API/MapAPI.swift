@@ -18,8 +18,8 @@ extension MapAPI: RequestConvertible {
     
     var path: String {
         switch self {
-        case  .getPharmacies(medicineId: let id):
-            return "public/pharmacies/\(id)"
+        case  .getPharmacies(medicineId: let id, regionId: _, page: _, pageCount: _):
+            return "public/pharmacies/global-product/\(id)/pharmacy-products"
         }
     }
     
@@ -38,8 +38,8 @@ extension MapAPI: RequestConvertible {
     }
     
     private struct Keys {
-        static let region: String = ""
-        static let pageNumber: String = ""
-        static let pages: String = ""
+        static let region: String = "regionId"
+        static let pageNumber: String = "page"
+        static let pages: String = "per_page"
     }
 }
