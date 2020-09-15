@@ -23,9 +23,11 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var cleanButton: UIButton!
     @IBOutlet private weak var storyLabel: UILabel!
     @IBOutlet private weak var tagsCollectionView: TTGTextTagCollectionView!
+    @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var tableView: UITableView!
-
-    private let config = TTGTextTagConfig()
+    @IBOutlet private weak var emptyView: EmptySearchView!
+    
+    private let tagCloudConfig = TTGTextTagConfig()
     
     var style: NavigationBarStyle = .search
     
@@ -45,11 +47,11 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     }
     
     func configUI() {
-        config.backgroundColor = GUI.backgroundColor
-        config.textColor = GUI.textColor
-        config.textFont = GUI.textFont
-        config.borderWidth = 0
-        config.shadowColor = .clear
+        tagCloudConfig.backgroundColor = GUI.backgroundColor
+        tagCloudConfig.textColor = GUI.textColor
+        tagCloudConfig.textFont = GUI.textFont
+        tagCloudConfig.borderWidth = 0
+        tagCloudConfig.shadowColor = .clear
         
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
@@ -103,7 +105,7 @@ extension SearchViewController: SearchViewControllerInput {
     
     func didLoad(tags: [String]) {
         tagsCollectionView.removeAllTags()
-        tagsCollectionView.addTags(tags, with: config)
+        tagsCollectionView.addTags(tags, with: tagCloudConfig)
     }
 }
 

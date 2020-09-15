@@ -154,6 +154,9 @@
 "search.clean.title" = "Очистить историю поиска?";
 "search.clean.message" = "Ваши предыдущие запросы будут удалены из быстрого доступа";
 
+"search.emptyState.title" = "Ой, кажется такого товара нет в нашей базе";
+"search.emptyState.description" = "Повторите поиск или попробуйте найти другой препарат";
+
 //MARK: Scan
 
 "scan.title" = "Штрих код";
