@@ -37,7 +37,7 @@ final class MapFarmacyCell: UITableViewCell {
         //presenceLabel.text = "\(bounds.height)"
         selectButton.layer.cornerRadius = selectButton.bounds.height / 2
         cellBackgroundView.layer.cornerRadius = 8
-        selectButton.setTitle(R.string.localize.farmaciesListFarmacySelect(), for: .normal)
+        selectButton.setTitle(R.string.localize.farmaciesListAddToBag(), for: .normal)
     }
     
     private func addMedicines(medicines: [PharmacyModel.SimpleMedicine]) {

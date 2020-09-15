@@ -33,11 +33,11 @@ final class MapModel: EventNode {
         super.init(parent: parent)
         
         self.medicineId = medicineId
-        locationService.firstLocationUpdate = { [weak self] currentLocation in
-            self?.output.locationUpdated(newCoordinate: currentLocation)
-        }
+        locationService.locationDelegate = self
     }
 }
+
+// MARK: - MapInput
 
 extension MapModel: MapInput {
     
@@ -56,7 +56,7 @@ extension MapModel: MapInput {
     func load() {
         guard let medicineId = medicineId else { return }
         
-        provider.load(target: .getPharmacies(medicineId: medicineId, regionId: 21/*UserDefaultsAccessor.regionId*/, page: 1, pageCount: 10), completion: { [weak self] result in
+        provider.load(target: .getPharmacies(medicineId: medicineId, regionId: UserDefaultsAccessor.regionId, page: Const.startPage, pageCount: Const.pages), completion: { [weak self] result in
             
             guard let self = self else { return }
             
@@ -76,5 +76,21 @@ extension MapModel: MapInput {
     
     func farmacyAt(index: Int) -> PharmacyModel? {
         return pharmacies[index]
+    }
+}
+
+// MARK: - LocationServiceDelegate
+
+extension MapModel: LocationServiceDelegate {
+    
+    func locationUpdated(currentLocation: CLLocationCoordinate2D) {
+        output.locationUpdated(newCoordinate: currentLocation)
+    }
+}
+
+private extension MapModel {
+    struct Const {
+        static let startPage: Int = 1
+        static let pages: Int = 10
     }
 }

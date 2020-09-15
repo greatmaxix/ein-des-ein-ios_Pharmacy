@@ -16,17 +16,18 @@ enum LocationError: Error {
     case other
 }
 
+protocol LocationServiceDelegate: class {
+    func locationUpdated(currentLocation: CLLocationCoordinate2D)
+}
+
 final class LocationService: NSObject {
     
-    // MARK: - Private Properties
+// MARK: - Properties
     private let manager = CLLocationManager()
-    
-    // MARK: - Public Properties
+
+    weak var locationDelegate: LocationServiceDelegate?
     var locationResult: Result<CLLocationCoordinate2D, Error>?
     let defaultLocation = CLLocationCoordinate2D(latitude: 33.755708, longitude: -84.38836)
-
-    private var wasFirstLocationUpdate: Bool = false
-    var firstLocationUpdate: ((_: CLLocationCoordinate2D) -> Void)?
     
     var currentLocation: CLLocation? {
         
@@ -64,7 +65,8 @@ final class LocationService: NSObject {
         return locationResult
     }
     
-    // MARK: - Support Methods
+// MARK: - Support Methods
+    
     private func setup() {
         let status = CLLocationManager.authorizationStatus()
         if status == .denied || status == .restricted || !CLLocationManager.locationServicesEnabled() {
@@ -78,6 +80,7 @@ final class LocationService: NSObject {
 }
 
 // MARK: - CLLocationManagerDelegate
+
 extension LocationService: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -101,11 +104,7 @@ extension LocationService: CLLocationManagerDelegate {
         guard let location = locations.first else { return }
         locationResult = .success(location.coordinate)
         
-        if !wasFirstLocationUpdate {
-            
-            wasFirstLocationUpdate = true
-            firstLocationUpdate?(location.coordinate)
-        }
+        locationDelegate?.locationUpdated(currentLocation: location.coordinate)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

@@ -80,13 +80,13 @@ class MapViewController: UIViewController {
     }
     
     private func setupMap() {
-        mapView.camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 10.0)
         model.startLocationTracking()
         mapView.delegate = self
     }
     
     @IBAction private func moveToCurrentLocation(_ sender: UIButton) {
         if let marker = userMarker {
+            marker.map = mapView
             mapView.moveCamera(GMSCameraUpdate.setTarget(marker.position))
         } else {
             model.startLocationTracking()
@@ -138,6 +138,8 @@ class MapViewController: UIViewController {
     }
 }
 
+// MARK: - GMSMapViewDelegate
+
 extension MapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
@@ -151,15 +153,21 @@ extension MapViewController: GMSMapViewDelegate {
     }
 }
 
+// MARK: - MapOutput
+
 extension MapViewController: MapOutput {
     
     func setMarkers(positions: [CLLocationCoordinate2D], prices: [Double]) {
         mapView.clear()
         
-        let path = GMSMutablePath()
-        positions.forEach({path.add($0)})
-        let bounds = GMSCoordinateBounds(path: path)
-        mapView.animate(with: GMSCameraUpdate.fit(bounds))
+        if positions.count > 1 {
+            let path = GMSMutablePath()
+            positions.forEach({ path.add($0) })
+            let bounds = GMSCoordinateBounds(path: path)
+            mapView.animate(with: GMSCameraUpdate.fit(bounds))
+        } else if let coordinate = positions.first {
+            moveMap(toCoordinate: coordinate, zoom: Const.startZoom)
+        }
         
         for i in 0..<positions.count {
             
@@ -174,12 +182,22 @@ extension MapViewController: MapOutput {
     }
     
     func locationUpdated(newCoordinate: CLLocationCoordinate2D) {
-//        mapView.moveCamera(GMSCameraUpdate.setTarget(newCoordinate))
-//        
-//        mapView.clear()
-//        let marker = GMSMarker(position: newCoordinate)
-//        marker.iconView = UINib(resource: R.nib.userMarkerView).instantiate(withOwner: nil, options: nil)[0] as? UIView
-//        marker.map = mapView
-//        userMarker = marker
+        
+        if userMarker == nil {
+            let marker = GMSMarker(position: newCoordinate)
+            marker.iconView = R.nib.userMarkerView(owner: nil)
+            marker.map = mapView
+            userMarker = marker
+        } else {
+            userMarker?.position = newCoordinate
+            userMarker?.map = mapView
+        }
+    }
+}
+
+private extension MapViewController {
+    
+    struct Const {
+        static let startZoom: Float = 10
     }
 }
