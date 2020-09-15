@@ -15,7 +15,7 @@ enum SearchModelEvent: Event {
 
 protocol SearchModelInput: class {
     var storyDataSource: TableDataSource<SearchCellSection> { get }
-    func load()
+    func retreiveResentRequests()
     func updateSearchTerm(_ term: String)
     func processSearch()
     func cleanStory()
@@ -41,6 +41,8 @@ final class SearchModel: Model {
      
     override init(parent: EventNode?) {
         super.init(parent: parent)
+        
+        retreiveResentRequests()
     }
 }
 
@@ -80,8 +82,12 @@ extension SearchModel: SearchViewControllerOutput {
         storyDataSource.cells = []
         output.didLoad(story: storyDataSource)
     }
+}
+
+// MARK: - Retrievers
+extension SearchModel {
     
-    func load() {
+    func retreiveResentRequests() {
         let tags = ["Спазмы", "Головная боль", "Болит живот", "ОРВИ", "Дротаверин", "Ношпа", "Терафлю"]
         output.didLoad(tags: tags)
         
@@ -91,10 +97,6 @@ extension SearchModel: SearchViewControllerOutput {
         
         output.didLoad(story: storyDataSource)
     }
-}
-
-// MARK: - Retrievers
-extension SearchModel {
     
     func retreiveMoreMedecines() {
         retreiveMedecines(offset: 0 /*data.count*/) { [weak output] in

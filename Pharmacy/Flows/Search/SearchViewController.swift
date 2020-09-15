@@ -40,12 +40,6 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
         setupNavigationBar()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        model.load()
-    }
-    
     func configUI() {
         tagCloudConfig.backgroundColor = GUI.backgroundColor
         tagCloudConfig.textColor = GUI.textColor
@@ -97,6 +91,10 @@ extension SearchViewController {
 extension SearchViewController: SearchViewControllerInput {
     
     func didLoad(story: TableDataSource<SearchCellSection>) {
+        guard isViewLoaded else {
+            return
+        }
+        
         story.assign(tableView: tableView)
         tableView.reloadData()
         cleanButton.isHidden = story.cells.isEmpty
@@ -104,6 +102,10 @@ extension SearchViewController: SearchViewControllerInput {
     }
     
     func didLoad(tags: [String]) {
+        guard isViewLoaded else {
+            return
+        }
+        
         tagsCollectionView.removeAllTags()
         tagsCollectionView.addTags(tags, with: tagCloudConfig)
     }

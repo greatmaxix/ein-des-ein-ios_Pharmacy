@@ -32,7 +32,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="228"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Часто ищут" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhP-3g-etx">
-                                                <rect key="frame" x="16" y="32" width="98" height="32"/>
+                                                <rect key="frame" x="16" y="32" width="87" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="mHs-bv-v1h"/>
                                                 </constraints>
@@ -48,7 +48,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="История поиска" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoZ-go-xwQ">
-                                                <rect key="frame" x="16" y="184" width="135.5" height="32"/>
+                                                <rect key="frame" x="16" y="184" width="121.5" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="l7x-fZ-zzd"/>
                                                 </constraints>
@@ -57,7 +57,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdN-Ta-2k3">
-                                                <rect key="frame" x="342" y="185.5" width="56" height="29"/>
+                                                <rect key="frame" x="345" y="187" width="53" height="26"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                 <state key="normal" title="Очистить">
                                                     <color key="titleColor" name="welcomeBlue"/>
