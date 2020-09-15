@@ -21,6 +21,13 @@ protocol FarmacyListOutput: class {
 class MapFarmacyListModel: EventNode {
 
     let medicineDataSourse = TableDataSource<MapFarmacyCellSection>()
+    private var pharmacies: [PharmacyModel] = []
+    
+    init(parent: EventNode?, pharmacies: [PharmacyModel]) {
+        super.init(parent: parent)
+        
+        self.pharmacies = pharmacies
+    }
     
     unowned var output: FarmacyListOutput!
 }
@@ -32,7 +39,6 @@ extension MapFarmacyListModel: FarmacyListInput {
     }
     
     func load() {
-        let foundMedicines: [String] = ["medicine1medicine1medicine1medicine1medicine1medicine1medicine1medicine1", "medicine2", "medicine3"]
-        medicineDataSourse.cells = foundMedicines.map({MapFarmacyCellSection.common($0)})
+        medicineDataSourse.cells = pharmacies.map({MapFarmacyCellSection.common($0)})
     }
 }

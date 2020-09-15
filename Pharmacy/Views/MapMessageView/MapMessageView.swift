@@ -39,10 +39,20 @@ class MapMessageView: UIView {
         selectButton.setTitle(R.string.localize.farmaciesListFarmacySelect(), for: .normal)
     }
     
-    func addMedicines(titles: [String]) {
-        for title in titles {
+    func setup(pharmacy: PharmacyModel) {
+        nameLabel.text = pharmacy.name
+        addressLabel.text = pharmacy.geometry.address
+        phoneLabel.text = "📞️ " + (pharmacy.phone ?? "phone is unavailible")
+        //priceLabel.text = "\(medicine.maxPrice ?? 0) $"
+    }
+    
+    private func addMedicines(medicines: [PharmacyModel.SimpleMedicine]) {
+        
+        medicineStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
+        for medicine in medicines {
             let v: FoundMedicineView = FoundMedicineView.fromNib()
-            v.titleLabel.text = title
+            v.titleLabel.text = "medicine"
+            v.priceLabel.text = "\(medicine.price) $"
             medicineStackView.addArrangedSubview(v)
         }
     }
@@ -50,7 +60,6 @@ class MapMessageView: UIView {
     func apply(title: String) {
         nameLabel.text = title
         medicineStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
-        addMedicines(titles: ["medicine1", "medicine2"])
     }
     
     @IBAction func openMap(_ sender: UIButton) {

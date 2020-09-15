@@ -115,7 +115,7 @@ class MapViewController: UIViewController {
     private func showMessage(pharmacy: PharmacyModel) {
         messageHeightConstraint.constant = GUI.messageHeight
         
-        //messageView.addMedicines(titles: <#T##[String]#>)
+        messageView.setup(pharmacy: pharmacy)
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
             self.view.layoutIfNeeded()
         })

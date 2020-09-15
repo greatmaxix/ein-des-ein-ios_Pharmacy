@@ -13,7 +13,7 @@ enum ProductModelEvent: Event {
     case openAnalogsFor(Product)
     case openCatalogsFor(Product)
     case openMap(Product?)
-    case openFarmacyList(pharmacies: [PharmacyModel])
+    case openFarmacyList([PharmacyModel])
     case openCheckout
 }
 

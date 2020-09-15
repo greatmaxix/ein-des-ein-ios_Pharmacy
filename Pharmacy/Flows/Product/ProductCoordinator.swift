@@ -33,15 +33,18 @@ final class ProductCoordinator: EventNode, Coordinator {
         navigation = configuration.navigation
         super.init(parent: configuration.parent)
         addHandler { [weak self] (event: ProductModelEvent) in
+            
+            guard let self = self else { return }
+            
             switch event {
             case .openAnalogsFor, .openCatalogsFor:
-                self?.openMedicineList()
+                self.openMedicineList()
             case .openMap(let product):
-                self?.createMapFlow(medicineId: 764)
-            case .openFarmacyList:
-                self?.openMapFarmacyList()
+                self.createMapFlow(medicineId: 764)
+            case .openFarmacyList(let pharmacies):
+                self.openMapFarmacyList(pharmacies: pharmacies)
             case .openCheckout:
-                self?.openCheckout()
+                self.openCheckout()
             }
         }
     }
@@ -62,9 +65,9 @@ fileprivate extension ProductCoordinator {
         navigation.pushViewController(vc, animated: true)
     }
     
-    func openMapFarmacyList() {
+    func openMapFarmacyList(pharmacies: [PharmacyModel]) {
         guard let vc = R.storyboard.product.mapFarmacyListViewController() else { return }
-        let model = MapFarmacyListModel(parent: self)
+        let model = MapFarmacyListModel(parent: self, pharmacies: pharmacies)
         model.output = vc
         vc.model = model
         navigation.pushViewController(vc, animated: true)

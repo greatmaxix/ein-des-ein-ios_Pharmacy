@@ -50,7 +50,7 @@ extension MapModel: MapInput {
     }
     
     func openFarmacyList() {
-        raise(event: ProductModelEvent.openFarmacyList(pharmacies: pharmacies))
+        raise(event: ProductModelEvent.openFarmacyList(pharmacies))
     }
     
     func load() {
