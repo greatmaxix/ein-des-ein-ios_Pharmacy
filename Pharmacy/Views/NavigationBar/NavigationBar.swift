@@ -235,8 +235,8 @@ extension NavigationBar {
 
     fileprivate func showSearchTextFieldAnimated() {
         backButton.isHidden = true
-        searchButton.isSelected = true
-        cancelSearchButton.isHidden = false
+//        searchButton.isSelected = true
+//        cancelSearchButton.isHidden = false
         scanButton.isHidden = false
 
 //        textField.textColor = GUI.textFiledDarkTextColor
@@ -252,8 +252,8 @@ extension NavigationBar {
     fileprivate func hideSearchTextFieldAnimated() {
         backButton.isHidden = false
 
-        searchButton.isSelected = false
-        cancelSearchButton.isHidden = true
+//        searchButton.isSelected = false
+//        cancelSearchButton.isHidden = true
 
 //        textField.textColor = GUI.textFiledNormalTextColor
         configSearchTextFieldBy(style: style)

@@ -94,7 +94,6 @@ extension SearchViewController {
 // MARK: - SearchViewControllerInput
 extension SearchViewController: SearchViewControllerInput {
     
-    
     func didLoad(story: TableDataSource<SearchCellSection>) {
         story.assign(tableView: tableView)
         tableView.reloadData()
@@ -116,10 +115,8 @@ extension SearchViewController: SearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: SearchBar) {
         searchBar.endEditing(false)
-        model.processSearch
+        model.processSearch()
     }
-    
-    
 }
 
 // MARK: - UITableViewDelegate
