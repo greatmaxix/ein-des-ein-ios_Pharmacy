@@ -19,6 +19,7 @@ final class SearchTableViewCell: HighlightedTableViewCell, ContainerView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         containerView.layer.cornerRadius = GUI.cornerRadius
     }
     

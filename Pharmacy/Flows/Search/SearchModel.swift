@@ -29,7 +29,15 @@ protocol SearchModelOutput: class {
 
 final class SearchModel: Model {
     
+    // MARK: - Properties
     weak var output: SearchModelOutput!
+    var searchState: SearchState {
+        guard !searchTerm.isEmpty else {
+            return .recents
+        }
+        
+        return data.count > 0 ? .found : .empty
+    }
     
     let storyDataSource = TableDataSource<SearchCellSection>()
     private var searchTerm: String = ""
@@ -38,11 +46,17 @@ final class SearchModel: Model {
     private let searchDebouncer: Executor = .debounce(interval: 0.5)
     
     private var data: [Medicine] = []
-     
+    
+    private var pageNumber: Int = 1
+    
+    private lazy var userRegionId: Int = {
+        UserDefaultsAccessor.value(for: \.regionId)
+    }()
+    
     override init(parent: EventNode?) {
         super.init(parent: parent)
         
-        retreiveResentRequests()
+//        retreiveResentRequests()
     }
 }
 
@@ -88,10 +102,10 @@ extension SearchModel: SearchViewControllerOutput {
 extension SearchModel {
     
     func retreiveResentRequests() {
-        let tags = ["Спазмы", "Головная боль", "Болит живот", "ОРВИ", "Дротаверин", "Ношпа", "Терафлю"]
-        output.didLoad(tags: tags)
+//        let tags = ["Спазмы", "Головная боль", "Болит живот", "ОРВИ", "Дротаверин", "Ношпа", "Терафлю"]
+//        output.didLoad(tags: tags)
         
-        let stories = ["Дротаверин", "Анфльгин"]
+        let stories = ["Дротаверин", "Анальгин", "Адвантан"]
         
         storyDataSource.cells = stories.map { SearchCellSection.common($0) }
         
@@ -99,20 +113,22 @@ extension SearchModel {
     }
     
     func retreiveMoreMedecines() {
-        retreiveMedecines(offset: 0 /*data.count*/) { [weak output] in
-
+        pageNumber += 1
+        retreiveMedecines(on: pageNumber) { [weak output] in
+            
         }
     }
     
     private func retreiveMedecines() {
-        retreiveMedecines(offset: 0)
+        pageNumber = 1
+        retreiveMedecines(on: pageNumber)
     }
     
-    private func retreiveMedecines(offset: Int, completion: (() -> Void)? = nil) {
+    private func retreiveMedecines(on page: Int, completion: (() -> Void)? = nil) {
         provider.load(target: .searchByName(name: searchTerm,
-                                              regionId: 0,
-                                              pageNumber: 1,
-                                              itemsOnPage: 10)) { [weak self] response in
+                                              regionId: userRegionId,
+                                              pageNumber: page,
+                                              itemsOnPage: .pageSize)) { [weak self] response in
                                                 guard let self = self else {
                                                     return
                                                 }
@@ -127,4 +143,17 @@ extension SearchModel {
                                                 completion?()
         }
     }
+}
+
+extension SearchModel {
+    
+    enum SearchState {
+        case recents
+        case empty
+        case found
+    }
+}
+
+private extension Int {
+    static let pageSize: Int = 10
 }

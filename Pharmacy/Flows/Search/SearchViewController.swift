@@ -111,6 +111,21 @@ extension SearchViewController: SearchViewControllerInput {
     }
 }
 
+extension SearchViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        nil
+    }
+}
+
 extension SearchViewController: SearchBarDelegate {
     
     func searchBar(_ searchBar: SearchBar, textDidChange searchText: String) {

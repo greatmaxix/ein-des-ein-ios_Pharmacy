@@ -104,6 +104,11 @@
                             <constraint firstItem="mQt-9a-rxo" firstAttribute="top" secondItem="fy4-Ge-JJd" secondAttribute="top" id="uWY-d0-T6j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fy4-Ge-JJd"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="mQt-9a-rxo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
