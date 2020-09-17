@@ -37,7 +37,14 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
         super.viewDidLoad()
         
         configUI()
+        setupTableView()
         setupNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        model.retreiveResentRequests()
     }
     
     func configUI() {
@@ -54,7 +61,7 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     
 // MARK: - Actions
     
-    @IBAction private func cleanAction(_ sender: UIButton) {
+    private func cleanAction() {
         showAlert(title: R.string.localize.searchCleanTitle(),
                   message: R.string.localize.searchCleanMessage(),
                   action: AlertAction(title: R.string.localize.actionClean(), callback: model.cleanStory),
@@ -65,7 +72,7 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
 // MARK: - Private methods
 extension SearchViewController {
     
-    func setupNavigationBar() {
+    private func setupNavigationBar() {
         guard let navigationBar = navigationController?.navigationBar else {
             return
         }
@@ -85,20 +92,22 @@ extension SearchViewController {
         searchBar.topAnchor.constraint(equalTo: searchBar.superview!.topAnchor).isActive = true
         searchBar.bottomAnchor.constraint(equalTo: searchBar.superview!.bottomAnchor, constant: -8.0).isActive = true
     }
+    
+    private func setupTableView() {
+        tableView.register(viewType: RecentsHeaderView.self)
+        tableView.register(cellType: SearchTableViewCell.self)
+    }
 }
 
 // MARK: - SearchViewControllerInput
 extension SearchViewController: SearchViewControllerInput {
     
-    func didLoad(story: TableDataSource<SearchCellSection>) {
+    func didLoadRecentRequests() {
         guard isViewLoaded else {
             return
         }
         
-        story.assign(tableView: tableView)
         tableView.reloadData()
-        cleanButton.isHidden = story.cells.isEmpty
-        storyLabel.isHidden = story.cells.isEmpty
     }
     
     func didLoad(tags: [String]) {
@@ -114,15 +123,52 @@ extension SearchViewController: SearchViewControllerInput {
 extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        switch model.searchState {
+        case .recents:
+            return model.recentRequests.count
+        default:
+            return .zero
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        switch model.searchState {
+        case .recents:
+            let cell = tableView.dequeueReusableCell(at: indexPath, cellType: SearchTableViewCell.self)
+            cell.apply(title: model.recentRequests[indexPath.row])
+            
+            return cell
+        default:
+            return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch model.searchState {
+        case .recents:
+            return 44
+        default:
+            return .zero
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        nil
+        switch model.searchState {
+        case .recents:
+            guard model.recentRequests.count > 0 else {
+                return UIView()
+            }
+            
+            let headerView = tableView.dequeueReusableView(viewType: RecentsHeaderView.self)
+            headerView.clearActionHandler = { [unowned self] in
+                self.cleanAction()
+            }
+            
+            return headerView
+        default:
+            return UIView()
+        }
     }
 }
 

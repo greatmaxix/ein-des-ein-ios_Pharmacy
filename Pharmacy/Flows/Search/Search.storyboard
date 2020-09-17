@@ -62,9 +62,6 @@
                                                 <state key="normal" title="Очистить">
                                                     <color key="titleColor" name="welcomeBlue"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="cleanAction:" destination="2C1-VN-Cki" eventType="touchUpInside" id="7ud-Jx-CCa"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -84,6 +81,10 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vMT-iO-nOG">
                                         <rect key="frame" x="0.0" y="228" width="414" height="546"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="2C1-VN-Cki" id="lqy-VW-e6o"/>
+                                            <outlet property="delegate" destination="2C1-VN-Cki" id="A9i-Eh-qLE"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                             </stackView>

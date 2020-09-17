@@ -151,6 +151,7 @@
 
 // MARK: - Search
 
+"search.recents.header" = "История поиска";
 "search.clean.title" = "Очистить историю поиска?";
 "search.clean.message" = "Ваши предыдущие запросы будут удалены из быстрого доступа";
 

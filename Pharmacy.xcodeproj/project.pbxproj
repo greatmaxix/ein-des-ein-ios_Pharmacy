@@ -226,6 +226,8 @@
 		87131D30251146960050B8F2 /* EmptySearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D2F251146960050B8F2 /* EmptySearchView.swift */; };
 		87131D32251146C10050B8F2 /* EmptySearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87131D31251146C10050B8F2 /* EmptySearchView.xib */; };
 		87131D3425135E3E0050B8F2 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D3325135E3D0050B8F2 /* UITableView+Reusable.swift */; };
+		87131D3725137B6C0050B8F2 /* RecentsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D3625137B6C0050B8F2 /* RecentsHeaderView.swift */; };
+		87131D3A25137B910050B8F2 /* RecentsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87131D3925137B910050B8F2 /* RecentsHeaderView.xib */; };
 		87131D3C251392270050B8F2 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D3B251392260050B8F2 /* String+HTML.swift */; };
 		8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */; };
 		8715DB8924FFC76F00BBF37C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */; };
@@ -482,6 +484,8 @@
 		87131D2F251146960050B8F2 /* EmptySearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySearchView.swift; sourceTree = "<group>"; };
 		87131D31251146C10050B8F2 /* EmptySearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptySearchView.xib; sourceTree = "<group>"; };
 		87131D3325135E3D0050B8F2 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
+		87131D3625137B6C0050B8F2 /* RecentsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsHeaderView.swift; sourceTree = "<group>"; };
+		87131D3925137B910050B8F2 /* RecentsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentsHeaderView.xib; sourceTree = "<group>"; };
 		87131D3B251392260050B8F2 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 		8715DB8524FFBFF800BBF37C /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		8715DB8824FFC76F00BBF37C /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -1485,6 +1489,7 @@
 		87131D2D2511451E0050B8F2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				87131D3525137B360050B8F2 /* RecentsHeaderView */,
 				87131D2E2511452A0050B8F2 /* EmptySearchView */,
 				60E1A6F124EB8C3D00B3D205 /* SearchTableViewCell */,
 			);
@@ -1498,6 +1503,15 @@
 				87131D31251146C10050B8F2 /* EmptySearchView.xib */,
 			);
 			path = EmptySearchView;
+			sourceTree = "<group>";
+		};
+		87131D3525137B360050B8F2 /* RecentsHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				87131D3625137B6C0050B8F2 /* RecentsHeaderView.swift */,
+				87131D3925137B910050B8F2 /* RecentsHeaderView.xib */,
+			);
+			path = RecentsHeaderView;
 			sourceTree = "<group>";
 		};
 		8715DB8424FFBFB900BBF37C /* Onboarding */ = {
@@ -1758,6 +1772,7 @@
 				6075BD4C24DEA7FB00BC78BD /* OpenSans-LightItalic.ttf in Resources */,
 				603D31F724E5AA09000E5A6C /* ProductQuestionsTableViewCell.xib in Resources */,
 				6075BD4D24DEA7FB00BC78BD /* OpenSans-Regular.ttf in Resources */,
+				87131D3A25137B910050B8F2 /* RecentsHeaderView.xib in Resources */,
 				603D318D24E2A269000E5A6C /* ReceiptView.xib in Resources */,
 				6075BD4E24DEA7FB00BC78BD /* OpenSans-SemiBold.ttf in Resources */,
 				8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */,
@@ -2012,6 +2027,7 @@
 				875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */,
 				395CB74424FCE9BF000A958F /* CheckoutViewController.swift in Sources */,
 				60E1A70C24ECD6E500B3D205 /* SearchNavigationController.swift in Sources */,
+				87131D3725137B6C0050B8F2 /* RecentsHeaderView.swift in Sources */,
 				60E1A71724ECE0EA00B3D205 /* ScanModel.swift in Sources */,
 				398B0DE724F51C410084EC54 /* MapFarmacyListModel.swift in Sources */,
 				603D319824E3B22A000E5A6C /* TableCellSection.swift in Sources */,

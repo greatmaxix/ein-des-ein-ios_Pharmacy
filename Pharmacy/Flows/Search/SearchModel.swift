@@ -15,6 +15,10 @@ enum SearchModelEvent: Event {
 
 protocol SearchModelInput: class {
     var storyDataSource: TableDataSource<SearchCellSection> { get }
+    
+    var recentRequests: [String] { get }
+    var searchState: SearchModel.SearchState { get }
+    
     func retreiveResentRequests()
     func updateSearchTerm(_ term: String)
     func processSearch()
@@ -23,7 +27,8 @@ protocol SearchModelInput: class {
 }
 
 protocol SearchModelOutput: class {
-    func didLoad(story: TableDataSource<SearchCellSection>)
+    func didLoadRecentRequests()
+    func retreivingMoreMedicinesDidEnd()
     func didLoad(tags: [String])
 }
 
@@ -31,6 +36,7 @@ final class SearchModel: Model {
     
     // MARK: - Properties
     weak var output: SearchModelOutput!
+    private(set) var recentRequests: [String] = []
     var searchState: SearchState {
         guard !searchTerm.isEmpty else {
             return .recents
@@ -84,17 +90,26 @@ extension SearchModel: SearchViewControllerOutput {
     }
     
     func didSelectCellAt(indexPath: IndexPath) {
-        guard let cell = storyDataSource.cell(for: indexPath) else { return }
+//        guard let cell = storyDataSource.cell(for: indexPath) else { return }
         
-        switch cell {
-        case .common:
-            raise(event: SearchModelEvent.openList)
+//        switch cell {
+//        case .common:
+//            raise(event: SearchModelEvent.openList)
+//        }
+        switch searchState {
+        case .recents:
+            searchTerm = recentRequests[indexPath.row]
+            // output.searchTermUpdated(searchTerm)
+            retreiveMedecines()
+        default:
+            return
         }
     }
     
     func cleanStory() {
         storyDataSource.cells = []
-        output.didLoad(story: storyDataSource)
+        output.didLoadRecentRequests()
+//        output.didLoad(story: storyDataSource)
     }
 }
 
@@ -105,30 +120,32 @@ extension SearchModel {
 //        let tags = ["Спазмы", "Головная боль", "Болит живот", "ОРВИ", "Дротаверин", "Ношпа", "Терафлю"]
 //        output.didLoad(tags: tags)
         
-        let stories = ["Дротаверин", "Анальгин", "Адвантан"]
+        recentRequests = ["Дротаверин", "Анальгин", "Адвантан"]
         
-        storyDataSource.cells = stories.map { SearchCellSection.common($0) }
+//        storyDataSource.cells = stories.map { SearchCellSection.common($0) }
         
-        output.didLoad(story: storyDataSource)
+        output.didLoadRecentRequests()
+//        output.didLoad(story: storyDataSource)
     }
     
     func retreiveMoreMedecines() {
         pageNumber += 1
         retreiveMedecines(on: pageNumber) { [weak output] in
-            
+            output?.retreivingMoreMedicinesDidEnd()
         }
     }
     
     private func retreiveMedecines() {
         pageNumber = 1
+        data = []
         retreiveMedecines(on: pageNumber)
     }
     
     private func retreiveMedecines(on page: Int, completion: (() -> Void)? = nil) {
         provider.load(target: .searchByName(name: searchTerm,
-                                              regionId: userRegionId,
-                                              pageNumber: page,
-                                              itemsOnPage: .pageSize)) { [weak self] response in
+                                            regionId: userRegionId,
+                                            pageNumber: page,
+                                            itemsOnPage: .pageSize)) { [weak self] response in
                                                 guard let self = self else {
                                                     return
                                                 }
