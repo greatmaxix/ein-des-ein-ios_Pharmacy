@@ -25,6 +25,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQt-9a-rxo" customClass="EmptySearchView" customModule="Pharmacy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jcr-Lx-1rg">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
@@ -88,10 +92,6 @@
                                     </tableView>
                                 </subviews>
                             </stackView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQt-9a-rxo" customClass="EmptySearchView" customModule="Pharmacy" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
@@ -105,11 +105,6 @@
                             <constraint firstItem="mQt-9a-rxo" firstAttribute="top" secondItem="fy4-Ge-JJd" secondAttribute="top" id="uWY-d0-T6j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fy4-Ge-JJd"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="mQt-9a-rxo"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

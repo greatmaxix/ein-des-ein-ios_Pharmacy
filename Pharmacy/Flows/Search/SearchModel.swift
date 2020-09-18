@@ -14,9 +14,10 @@ enum SearchModelEvent: Event {
 }
 
 protocol SearchModelInput: class {
-    var storyDataSource: TableDataSource<SearchCellSection> { get }
     
     var recentRequests: [String] { get }
+    var medicines: [Medicine] { get }
+    
     var searchState: SearchModel.SearchState { get }
     
     func retreiveResentRequests()
@@ -28,8 +29,10 @@ protocol SearchModelInput: class {
 
 protocol SearchModelOutput: class {
     func didLoadRecentRequests()
+    func retrivesNewResults()
     func retreivingMoreMedicinesDidEnd()
-    func didLoad(tags: [String])
+    func needToInsertNewMedicines(at: [IndexPath]?)
+//    func didLoad(tags: [String])
 }
 
 final class SearchModel: Model {
@@ -37,33 +40,26 @@ final class SearchModel: Model {
     // MARK: - Properties
     weak var output: SearchModelOutput!
     private(set) var recentRequests: [String] = []
+    private(set) var medicines: [Medicine] = []
     var searchState: SearchState {
         guard !searchTerm.isEmpty else {
             return .recents
         }
         
-        return data.count > 0 ? .found : .empty
+        return medicines.count > 0 ? .found : .empty
     }
     
-    let storyDataSource = TableDataSource<SearchCellSection>()
     private var searchTerm: String = ""
     private let provider = DataManager<SearchAPI, WishlistResponse>()
     
     private let searchDebouncer: Executor = .debounce(interval: 0.5)
     
-    private var data: [Medicine] = []
     
     private var pageNumber: Int = 1
     
     private lazy var userRegionId: Int = {
         UserDefaultsAccessor.value(for: \.regionId)
     }()
-    
-    override init(parent: EventNode?) {
-        super.init(parent: parent)
-        
-//        retreiveResentRequests()
-    }
 }
 
 // MARK: - SearchViewControllerOutput
@@ -107,7 +103,6 @@ extension SearchModel: SearchViewControllerOutput {
     }
     
     func cleanStory() {
-        storyDataSource.cells = []
         output.didLoadRecentRequests()
 //        output.didLoad(story: storyDataSource)
     }
@@ -129,15 +124,14 @@ extension SearchModel {
     }
     
     func retreiveMoreMedecines() {
-        pageNumber += 1
-        retreiveMedecines(on: pageNumber) { [weak output] in
+        retreiveMedecines(on: pageNumber + 1) { [weak output] in
             output?.retreivingMoreMedicinesDidEnd()
         }
     }
     
     private func retreiveMedecines() {
         pageNumber = 1
-        data = []
+        medicines = []
         retreiveMedecines(on: pageNumber)
     }
     
@@ -152,7 +146,19 @@ extension SearchModel {
                                                 
                                                 switch response {
                                                 case .success(let result):
-                                                    self.data = result.medicines
+                                                    self.pageNumber = result.currentPage
+                                                    self.medicines.append(contentsOf: result.medicines)
+                                                    if self.pageNumber == 1 {
+                                                        self.output.retrivesNewResults()
+                                                    } else if self.pageNumber > 1 {
+                                                        let startIndex = self.medicines.count - result.medicines.count
+                                                        let endIndex = startIndex + result.medicines.count
+                                                        let indexPathesToInsert = (startIndex..<endIndex).map {
+                                                            IndexPath(row: $0, section: 0)
+                                                        }
+                                                        
+                                                        self.output.needToInsertNewMedicines(at: indexPathesToInsert)
+                                                    }
                                                 case .failure(let error):
                                                     print(error.localizedDescription)
                                                 }

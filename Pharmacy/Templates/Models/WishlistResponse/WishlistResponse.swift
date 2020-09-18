@@ -12,10 +12,12 @@ struct WishlistResponse: Codable {
     
     let medicines: [Medicine]
     let currentPage: Int
+    let totalNumberOfItems: Int
     
     enum Keys: String, CodingKey {
         case items
         case currentPageNumber
+        case totalCount
     }
 
     init(from decoder: Decoder) throws {
@@ -23,5 +25,6 @@ struct WishlistResponse: Codable {
         
         medicines = try container.decode([Medicine].self, forKey: .items)
         currentPage = try container.decode(Int.self, forKey: .currentPageNumber)
+        totalNumberOfItems = try container.decode(Int.self, forKey: .totalCount)
     }
 }

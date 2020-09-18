@@ -96,11 +96,21 @@ extension SearchViewController {
     private func setupTableView() {
         tableView.register(viewType: RecentsHeaderView.self)
         tableView.register(cellType: SearchTableViewCell.self)
+        tableView.register(cellType: MedicineCell.self)
     }
 }
 
 // MARK: - SearchViewControllerInput
 extension SearchViewController: SearchViewControllerInput {
+    
+    func retrivesNewResults() {
+        tableView.reloadData()
+    }
+    
+    func retreivingMoreMedicinesDidEnd() {
+
+    }
+    
     
     func didLoadRecentRequests() {
         guard isViewLoaded else {
@@ -110,13 +120,35 @@ extension SearchViewController: SearchViewControllerInput {
         tableView.reloadData()
     }
     
-    func didLoad(tags: [String]) {
-        guard isViewLoaded else {
-            return
-        }
+//    func didLoad(tags: [String]) {
+//        guard isViewLoaded else {
+//            return
+//        }
+//
+//        tagsCollectionView.removeAllTags()
+//        tagsCollectionView.addTags(tags, with: tagCloudConfig)
+//    }
+    
+    func needToInsertNewMedicines(at indexPathes: [IndexPath]?) {
         
-        tagsCollectionView.removeAllTags()
-        tagsCollectionView.addTags(tags, with: tagCloudConfig)
+        guard let indexPathes = indexPathes else {
+//          indicatorView.stopAnimating()
+          tableView.isHidden = false
+          tableView.reloadData()
+          return
+        }
+        // 2
+//        let indexPathsToReload = visibleIndexPathsToReload(intersecting: newIndexPathsToReload)
+        
+        
+        let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows ?? []
+        let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPathes)
+        let indexPathsToReload = Array(indexPathsIntersection)
+        
+        tableView.beginUpdates()
+        tableView.reloadRows(at: indexPathsToReload,
+                             with: .automatic)
+        tableView.endUpdates()
     }
 }
 
@@ -126,6 +158,8 @@ extension SearchViewController: UITableViewDataSource {
         switch model.searchState {
         case .recents:
             return model.recentRequests.count
+        case .found:
+            return model.medicines.count
         default:
             return .zero
         }
@@ -137,6 +171,11 @@ extension SearchViewController: UITableViewDataSource {
         case .recents:
             let cell = tableView.dequeueReusableCell(at: indexPath, cellType: SearchTableViewCell.self)
             cell.apply(title: model.recentRequests[indexPath.row])
+            
+            return cell
+        case .found:
+            let cell = tableView.dequeueReusableCell(at: indexPath, cellType: MedicineCell.self)
+            cell.apply(medicine: model.medicines[indexPath.row])
             
             return cell
         default:

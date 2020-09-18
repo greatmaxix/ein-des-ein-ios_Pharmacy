@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MedicineCell: HighlightedTableViewCell {
+final class MedicineCell: HighlightedTableViewCell, NibReusable {
     
     @IBOutlet private weak var farmacyImageView: UIImageView!
     @IBOutlet private weak var likedButton: UIButton!
