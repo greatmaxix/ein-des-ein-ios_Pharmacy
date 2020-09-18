@@ -60,7 +60,6 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     }
     
 // MARK: - Actions
-    
     private func cleanAction() {
         showAlert(title: R.string.localize.searchCleanTitle(),
                   message: R.string.localize.searchCleanMessage(),
@@ -120,11 +119,11 @@ extension SearchViewController: SearchViewControllerInput {
     }
     
     func needToInsertNewMedicines(at indexPathes: [IndexPath]?) {
-        
         guard let indexPathes = indexPathes else {
-          tableView.isHidden = false
-          tableView.reloadData()
-          return
+            tableView.isHidden = false
+            tableView.reloadData()
+            
+            return
         }
 
         let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows ?? []
@@ -152,7 +151,6 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         switch model.searchState {
         case .recents:
             let cell = tableView.dequeueReusableCell(at: indexPath, cellType: SearchTableViewCell.self)

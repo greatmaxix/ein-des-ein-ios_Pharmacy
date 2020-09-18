@@ -15,8 +15,6 @@ struct SearchFlowConfiguration {
 
 final class SearchCoordinator: EventNode, Coordinator {
     
-//    lazy private(set) var navigationCoordinator: NavigationCoordinator = SearchNavigationCoordinator(configuration: .init(parent: self))
-    
     private var root: UINavigationController!
     
     func createFlow() -> UIViewController {

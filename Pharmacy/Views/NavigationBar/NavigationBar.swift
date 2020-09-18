@@ -49,14 +49,6 @@ final class NavigationBar: UINavigationBar {
         static let titleCenterY: CGFloat = 4
     }
 
-    var title: String? {
-        set { titleLabel.text = newValue }
-        get { titleLabel.text }
-    }
-
-    private var contentView: UIView!
-    private var heightConstraint: NSLayoutConstraint!
-
     @IBOutlet private weak var backButtonConstraint: NSLayoutConstraint!
     @IBOutlet private weak var searchViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var searchContainerViewBottomConstraint: NSLayoutConstraint!
@@ -67,12 +59,14 @@ final class NavigationBar: UINavigationBar {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
-//    @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var searchBar: SearchBar!
     @IBOutlet private weak var scanButton: UIButton!
-//    @IBOutlet private weak var cancelSearchButton: UIButton!
-//    @IBOutlet private weak var searchButton: UIButton!
     @IBOutlet private weak var stackView: UIStackView!
+    
+    var title: String? {
+        set { titleLabel.text = newValue }
+        get { titleLabel.text }
+    }
 
     var style: NavigationBarStyle = .normal
 
@@ -85,6 +79,9 @@ final class NavigationBar: UINavigationBar {
     }
 
     weak var searchDelegate: NavigationBarDelegate?
+    
+    private var contentView: UIView!
+    private var heightConstraint: NSLayoutConstraint!
 
     // MARK: Lifecycle
 
@@ -127,12 +124,6 @@ final class NavigationBar: UINavigationBar {
         searchDelegate?.navigationBarDidSelectScan()
     }
 
-//    @IBAction func searchButtonAction(_ sender: UIButton) {
-//        guard style == .normal else { return }
-//        textField.becomeFirstResponder()
-//        showSearchTextFieldAnimated()
-//    }
-
     @IBAction func cancelSearchAction(_ sender: UIButton) {
         endEditing(true)
         hideSearchTextFieldAnimated()
@@ -165,8 +156,6 @@ extension NavigationBar {
             contentView.rightAnchor.constraint(equalTo: rightAnchor)
         ])
 
-//        textField.delegate = self
-
         configUIBy(style: style)
     }
 
@@ -176,8 +165,6 @@ extension NavigationBar {
         let isSearch = style == .largeSearch || style == .search
 
         endEditing(true)
-//        searchButton.isSelected = false
-//        cancelSearchButton.isHidden = true
 
         titleLabel.font = isLarge ? GUI.largeTitleFont : GUI.normalTitleFont
 
@@ -213,7 +200,6 @@ extension NavigationBar {
     private func hideSearchIfNeeded() {
         let isHidden = style == .normalWithoutSearch
         searchBar.isHidden = isHidden
-//        scanButton.isHidden = isHidden
 
         searchContainerViewBottomConstraint.constant = isHidden
                    ? GUI.searchViewHiddenBottomMargin
@@ -235,11 +221,8 @@ extension NavigationBar {
 
     fileprivate func showSearchTextFieldAnimated() {
         backButton.isHidden = true
-//        searchButton.isSelected = true
-//        cancelSearchButton.isHidden = false
         scanButton.isHidden = false
 
-//        textField.textColor = GUI.textFiledDarkTextColor
         configSearchTextFieldBy(style: .largeSearch)
 
         UIView.animate(withDuration: GUI.animationDurartion) {
@@ -251,11 +234,6 @@ extension NavigationBar {
 
     fileprivate func hideSearchTextFieldAnimated() {
         backButton.isHidden = false
-
-//        searchButton.isSelected = false
-//        cancelSearchButton.isHidden = true
-
-//        textField.textColor = GUI.textFiledNormalTextColor
         configSearchTextFieldBy(style: style)
 
         UIView.animate(withDuration: GUI.animationDurartion, animations: {
