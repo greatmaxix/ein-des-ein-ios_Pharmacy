@@ -111,7 +111,6 @@ extension SearchViewController: SearchViewControllerInput {
 
     }
     
-    
     func didLoadRecentRequests() {
         guard isViewLoaded else {
             return
@@ -120,27 +119,14 @@ extension SearchViewController: SearchViewControllerInput {
         tableView.reloadData()
     }
     
-//    func didLoad(tags: [String]) {
-//        guard isViewLoaded else {
-//            return
-//        }
-//
-//        tagsCollectionView.removeAllTags()
-//        tagsCollectionView.addTags(tags, with: tagCloudConfig)
-//    }
-    
     func needToInsertNewMedicines(at indexPathes: [IndexPath]?) {
         
         guard let indexPathes = indexPathes else {
-//          indicatorView.stopAnimating()
           tableView.isHidden = false
           tableView.reloadData()
           return
         }
-        // 2
-//        let indexPathsToReload = visibleIndexPathsToReload(intersecting: newIndexPathsToReload)
-        
-        
+
         let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows ?? []
         let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPathes)
         let indexPathsToReload = Array(indexPathsIntersection)

@@ -14,7 +14,6 @@ enum SearchModelEvent: Event {
 }
 
 protocol SearchModelInput: class {
-    
     var recentRequests: [String] { get }
     var medicines: [Medicine] { get }
     
@@ -32,7 +31,6 @@ protocol SearchModelOutput: class {
     func retrivesNewResults()
     func retreivingMoreMedicinesDidEnd()
     func needToInsertNewMedicines(at: [IndexPath]?)
-//    func didLoad(tags: [String])
 }
 
 final class SearchModel: Model {
@@ -53,8 +51,7 @@ final class SearchModel: Model {
     private let provider = DataManager<SearchAPI, WishlistResponse>()
     
     private let searchDebouncer: Executor = .debounce(interval: 0.5)
-    
-    
+
     private var pageNumber: Int = 1
     
     private lazy var userRegionId: Int = {
@@ -86,16 +83,9 @@ extension SearchModel: SearchViewControllerOutput {
     }
     
     func didSelectCellAt(indexPath: IndexPath) {
-//        guard let cell = storyDataSource.cell(for: indexPath) else { return }
-        
-//        switch cell {
-//        case .common:
-//            raise(event: SearchModelEvent.openList)
-//        }
         switch searchState {
         case .recents:
             searchTerm = recentRequests[indexPath.row]
-            // output.searchTermUpdated(searchTerm)
             retreiveMedecines()
         default:
             return
@@ -104,7 +94,6 @@ extension SearchModel: SearchViewControllerOutput {
     
     func cleanStory() {
         output.didLoadRecentRequests()
-//        output.didLoad(story: storyDataSource)
     }
 }
 
@@ -112,15 +101,9 @@ extension SearchModel: SearchViewControllerOutput {
 extension SearchModel {
     
     func retreiveResentRequests() {
-//        let tags = ["Спазмы", "Головная боль", "Болит живот", "ОРВИ", "Дротаверин", "Ношпа", "Терафлю"]
-//        output.didLoad(tags: tags)
-        
         recentRequests = ["Дротаверин", "Анальгин", "Адвантан"]
-        
-//        storyDataSource.cells = stories.map { SearchCellSection.common($0) }
-        
+
         output.didLoadRecentRequests()
-//        output.didLoad(story: storyDataSource)
     }
     
     func retreiveMoreMedecines() {
