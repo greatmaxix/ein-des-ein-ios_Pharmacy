@@ -60,9 +60,9 @@ struct Medicine: Codable {
     
     // TODO: - Remove after adding requests
     
-    init(tittle: String, price: String, imageURL: URL?) {
+    init(title: String, price: String, imageURL: URL?) {
         id = -1
-        name = tittle
+        name = title
         releaseForm = ""
         pictureUrls = []
         manufacturerName = ""
@@ -72,11 +72,15 @@ struct Medicine: Codable {
         liked = false
     }
     
-    var tittle: String {
-        return name
+    var title: String {
+        return name.htmlToString
     }
+    var releaseFormFormatted: String {
+        releaseForm.htmlToString
+    }
+    
     var price: String {
-        return "\(minPrice ?? 0)"
+        return  minPrice?.moneyString(with: currency) ?? "--"
     }
     var imageURL: URL? {
         return nil

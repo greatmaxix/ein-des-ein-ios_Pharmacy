@@ -260,6 +260,7 @@
 		875223D12501075D000759C8 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223D02501075D000759C8 /* CoreDataService.swift */; };
 		875223D42501152F000759C8 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223D32501152F000759C8 /* UserEntity.swift */; };
 		875223D625011588000759C8 /* UserDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223D525011588000759C8 /* UserDisplayable.swift */; };
+		878CFC0E2514CC1C00298139 /* Decimal+MoneyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CFC0D2514CC1C00298139 /* Decimal+MoneyFormat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -518,6 +519,7 @@
 		875223D02501075D000759C8 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		875223D32501152F000759C8 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		875223D525011588000759C8 /* UserDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDisplayable.swift; sourceTree = "<group>"; };
+		878CFC0D2514CC1C00298139 /* Decimal+MoneyFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+MoneyFormat.swift"; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -646,6 +648,7 @@
 				87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */,
 				87131D3325135E3D0050B8F2 /* UITableView+Reusable.swift */,
 				87131D3B251392260050B8F2 /* String+HTML.swift */,
+				878CFC0D2514CC1C00298139 /* Decimal+MoneyFormat.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2024,6 +2027,7 @@
 				3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */,
 				39F0AD6924EEC83000CD6CA4 /* PrescriptionsModel.swift in Sources */,
 				603D319F24E3B492000E5A6C /* CollectionDataSourceViewController.swift in Sources */,
+				878CFC0E2514CC1C00298139 /* Decimal+MoneyFormat.swift in Sources */,
 				875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */,
 				395CB74424FCE9BF000A958F /* CheckoutViewController.swift in Sources */,
 				60E1A70C24ECD6E500B3D205 /* SearchNavigationController.swift in Sources */,
