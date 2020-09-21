@@ -42,7 +42,6 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
         super.prepareForReuse()
         
         downloadTask?.cancel()
-        farmacyImageView.contentMode = .scaleAspectFill
     }
     
     // MARK: - Public methods
@@ -53,24 +52,26 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
         typeLabel.text = medicine.releaseFormFormatted
         factoryLabel.text = medicine.manufacturerName
         
+        let placeholder: UIImage?
         if medicine.minPrice != nil {
             setAvaliableStyle()
             costLabel.attributedText = NSAttributedString.fromPriceAttributed(for: medicine.price)
-            farmacyImageView.tintColor = R.color.greyText()
+            placeholder = R.image.medicineImagePlaceholder()
         } else {
             setUnavaliableStyle()
+            costLabel.text = R.string.localize.productTemporarilyUnavailable()
+            placeholder = R.image.medicineImageGrayscalePlaceholder()
         }
         
         guard let urlString = medicine.pictureUrls.first,
             let url = URL(string: urlString) else {
-                farmacyImageView.contentMode = .center
-//                farmacyImageView.image = R.image.medicineImagePlaceholder()?.withRenderingMode(.alwaysTemplate)
+                farmacyImageView.image = placeholder
                 
                 return
         }
         
         downloadTask = farmacyImageView.loadImageBy(url: url,
-                                     placeholder: R.image.medicineImagePlaceholder()) { [unowned self] result in
+                                     placeholder: placeholder) { [unowned self] result in
                                         switch result {
                                         case .success(let imageData):
                                             self.farmacyImageView.backgroundColor = .clear
@@ -78,7 +79,6 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
                                                 self.farmacyImageView.image = imageData.image.grayscaled()
                                             }
                                         case .failure:
-                                            self.farmacyImageView.contentMode = .center
                                             self.farmacyImageView.backgroundColor = R.color.mediumGrey()
                                         }
         }
@@ -115,6 +115,5 @@ extension MedicineCell {
         factoryLabel.textColor = R.color.greyText()
         
         costLabel.textColor = R.color.applyBlueGray()
-        costLabel.text = R.string.localize.productTemporarilyUnavailable()
     }
 }

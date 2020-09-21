@@ -143,7 +143,7 @@
     <resources>
         <image name="add_to_bag" width="40" height="40"/>
         <image name="liked" width="24" height="24"/>
-        <image name="medicineImagePlaceholder" width="65.5" height="75"/>
+        <image name="medicineImagePlaceholder" width="112" height="112"/>
         <image name="unliked" width="23" height="21"/>
         <namedColor name="backgroundGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
