@@ -71,16 +71,16 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
         }
         
         downloadTask = farmacyImageView.loadImageBy(url: url,
-                                     placeholder: placeholder) { [unowned self] result in
-                                        switch result {
-                                        case .success(let imageData):
-                                            self.farmacyImageView.backgroundColor = .clear
-                                            if medicine.minPrice == nil {
-                                                self.farmacyImageView.image = imageData.image.grayscaled()
-                                            }
-                                        case .failure:
-                                            self.farmacyImageView.backgroundColor = R.color.mediumGrey()
-                                        }
+                                                    placeholder: placeholder) { [unowned self] result in
+                                                        switch result {
+                                                        case .success(let imageData):
+                                                            self.farmacyImageView.backgroundColor = .clear
+                                                            if medicine.minPrice == nil {
+                                                                self.farmacyImageView.image = imageData.image.grayscaled()
+                                                            }
+                                                        case .failure:
+                                                            self.farmacyImageView.backgroundColor = R.color.mediumGrey()
+                                                        }
         }
     }
     
