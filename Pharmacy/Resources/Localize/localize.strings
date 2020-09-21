@@ -148,6 +148,7 @@
 "product.recommended" = "Рекомендуемое вам :";
 "product.watchAll" = "Смотреть все";
 "product.findIn" = "Найти в аптеках";
+"product.temporarilyUnavailable" = "Временно недоступен";
 
 // MARK: - Search
 

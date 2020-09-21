@@ -78,6 +78,9 @@ struct Medicine: Codable {
     var releaseFormFormatted: String {
         releaseForm.htmlToString
     }
+    var isAvaliable: Bool {
+        minPrice != nil
+    }
     
     var price: String {
         return  minPrice?.moneyString(with: currency) ?? "--"
