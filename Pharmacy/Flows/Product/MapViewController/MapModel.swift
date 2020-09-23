@@ -56,7 +56,11 @@ extension MapModel: MapInput {
     func load() {
         guard let medicineId = medicineId else { return }
         
-        provider.load(target: .getPharmacies(medicineId: medicineId, regionId: UserDefaultsAccessor.regionId, page: Const.startPage, pageCount: Const.pages), completion: { [weak self] result in
+        provider.load(target: .getPharmacies(medicineId: medicineId,
+            regionId: UserDefaultsAccessor.regionId,
+            page: Const.startPage,
+            pageCount: Const.itemsPerPage),
+            completion: { [weak self] result in
             
             guard let self = self else { return }
             
@@ -91,6 +95,6 @@ extension MapModel: LocationServiceDelegate {
 private extension MapModel {
     struct Const {
         static let startPage: Int = 1
-        static let pages: Int = 10
+        static let itemsPerPage: Int = 10
     }
 }

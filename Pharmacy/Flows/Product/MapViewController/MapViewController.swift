@@ -109,7 +109,8 @@ class MapViewController: UIViewController {
     
     private func moveMap(toCoordinate: CLLocationCoordinate2D, zoom: Float?) {
         
-        mapView.animate(to: GMSCameraPosition(latitude: toCoordinate.latitude, longitude: toCoordinate.longitude, zoom: zoom ?? mapView.camera.zoom))
+        mapView.animate(to: GMSCameraPosition(latitude: toCoordinate.latitude,
+            longitude: toCoordinate.longitude, zoom: zoom ?? mapView.camera.zoom))
     }
     
     private func showMessage(pharmacy: PharmacyModel) {

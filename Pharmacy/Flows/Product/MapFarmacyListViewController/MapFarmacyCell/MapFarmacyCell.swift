@@ -29,12 +29,10 @@ final class MapFarmacyCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        nonEmptyMedicineTopSpace.priority = UILayoutPriority(rawValue: 1000)
         setupUI()
     }
     
     private func setupUI() {
-        //presenceLabel.text = "\(bounds.height)"
         selectButton.layer.cornerRadius = selectButton.bounds.height / 2
         cellBackgroundView.layer.cornerRadius = 8
         selectButton.setTitle(R.string.localize.farmaciesListAddToBag(), for: .normal)
@@ -44,16 +42,16 @@ final class MapFarmacyCell: UITableViewCell {
         
         medicineStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
         for medicine in medicines {
-            let v: FoundMedicineView = FoundMedicineView.fromNib()
-            v.titleLabel.text = "medicine"
-            v.priceLabel.text = "\(medicine.price) $"
-            medicineStackView.addArrangedSubview(v)
+            let medicineView: FoundMedicineView = FoundMedicineView.fromNib()
+            medicineView.titleLabel.text = "medicine"
+            medicineView.priceLabel.text = "\(medicine.price) $"
+            medicineStackView.addArrangedSubview(medicineView)
         }
     }
 
     func apply(pharmacy: PharmacyModel) {
         nameLabel.text = pharmacy.name
-        phoneLabel.text = "📞️ " + (pharmacy.phone ?? "phone is not availible")
+        phoneLabel.text = Const.phoneTitle + (pharmacy.phone ?? Const.phoneErrorTitle)
         addressLabel.text = pharmacy.geometry.address
         medicineStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
         addMedicines(medicines: pharmacy.medicines)
@@ -64,4 +62,12 @@ final class MapFarmacyCell: UITableViewCell {
     
     @IBAction func selectFarmacy(_ sender: UIButton) {
     }    
+}
+
+fileprivate extension MapFarmacyCell {
+    
+    struct Const {
+        static let phoneTitle: String = "📞️ "
+        static let phoneErrorTitle: String = "phone is not availible"
+    }
 }
