@@ -67,7 +67,6 @@ final class ProfileModel: Model {
         let openOptionHandler: ((_: ProfileEvent) -> Void) = { [weak self] event in
             self?.raise(event: event)
         }
-        KeychainManager.shared.getToken()
         cellsData = []
         do {
             let cellData: NameTableViewCellData = NameTableViewCellData(imageUrl: user?.avatarURL, name: user?.name ?? "Name Surname", phone: user?.phone ?? "+1111111111111")
