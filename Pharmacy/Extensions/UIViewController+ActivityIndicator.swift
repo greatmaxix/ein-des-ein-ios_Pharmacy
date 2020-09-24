@@ -21,7 +21,6 @@ extension ActivityIndicatorDelegate where Self: UIViewController {
     func setupActivityIndicator() {
         activityIndicator.isHidden = true
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.startAnimating()
         
         view.addSubview(activityIndicator)
         NSLayoutConstraint.activate([
@@ -32,9 +31,11 @@ extension ActivityIndicatorDelegate where Self: UIViewController {
     
     func showActivityIndicator() {        
         activityIndicator.startAnimating()
+        view.isUserInteractionEnabled = false
     }
     
     func hideActivityIndicator() {
         activityIndicator.stopAnimating()
+        view.isUserInteractionEnabled = true
     }
 }

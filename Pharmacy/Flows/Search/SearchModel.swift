@@ -20,6 +20,7 @@ protocol SearchModelInput: class {
     var searchState: SearchModel.SearchState { get }
     
     func retreiveResentRequests()
+    func retreiveMoreMedecines()
     func updateSearchTerm(_ term: String)
     func processSearch()
     func cleanStory()
@@ -27,10 +28,12 @@ protocol SearchModelInput: class {
 }
 
 protocol SearchModelOutput: class {
+    func willSendRequest()
     func didLoadRecentRequests()
     func retrivesNewResults()
     func retreivingMoreMedicinesDidEnd()
     func needToInsertNewMedicines(at: [IndexPath]?)
+    func searchTermDidUpdated(_ term: String?)
 }
 
 final class SearchModel: Model {
@@ -50,7 +53,7 @@ final class SearchModel: Model {
     private var searchTerm: String = ""
     private let provider = DataManager<SearchAPI, WishlistResponse>()
     
-    private let searchDebouncer: Executor = .debounce(interval: 0.5)
+    private let searchDebouncer: Executor = .debounce(interval: 1.0)
 
     private var pageNumber: Int = 1
     
@@ -86,6 +89,7 @@ extension SearchModel: SearchViewControllerOutput {
         switch searchState {
         case .recents:
             searchTerm = recentRequests[indexPath.row]
+            output.searchTermDidUpdated(searchTerm)
             retreiveMedecines()
         default:
             return
@@ -115,14 +119,23 @@ extension SearchModel {
     private func retreiveMedecines() {
         pageNumber = 1
         medicines = []
-        retreiveMedecines(on: pageNumber)
+        guard searchTerm != "" else {
+            output.didLoadRecentRequests()
+            
+            return
+        }
+        
+        output.willSendRequest()
+        retreiveMedecines(on: pageNumber, pageSize: .firstPageSize)
     }
     
-    private func retreiveMedecines(on page: Int, completion: (() -> Void)? = nil) {
+    private func retreiveMedecines(on page: Int,
+                                   pageSize: Int = .pageSize,
+                                   completion: (() -> Void)? = nil) {
         provider.load(target: .searchByName(name: searchTerm,
                                             regionId: userRegionId,
                                             pageNumber: page,
-                                            itemsOnPage: .pageSize)) { [weak self] response in
+                                            itemsOnPage: pageSize)) { [weak self] response in
                                                 guard let self = self else {
                                                     return
                                                 }
@@ -161,5 +174,6 @@ extension SearchModel {
 }
 
 private extension Int {
+    static let firstPageSize: Int = 20
     static let pageSize: Int = 10
 }

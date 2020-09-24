@@ -16,7 +16,7 @@ protocol SearchBarDelegate: class {
 class SearchBar: UIView, NibView {
     
     // MARK: - Outlets
-    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private(set) weak var textField: UITextField!
     
     // MARK: - Properties
     weak var delegate: SearchBarDelegate?

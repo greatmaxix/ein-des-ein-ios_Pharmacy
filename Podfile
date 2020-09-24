@@ -15,4 +15,5 @@ target 'Pharmacy' do
   pod 'Kingfisher', '~> 5.0'
   pod "TTGTagCollectionView"
   pod 'GoogleMaps'
+  pod 'MBProgressHUD', '~> 1.2.0'
 end
