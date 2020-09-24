@@ -11,12 +11,14 @@ import UIKit
 protocol SearchBarDelegate: class {
     func searchBar(_ searchBar: SearchBar, textDidChange searchText: String)
     func searchBarSearchButtonClicked(_ searchBar: SearchBar)
+    func searchBarDidCancel()
 }
 
 class SearchBar: UIView, NibView {
     
     // MARK: - Outlets
     @IBOutlet private(set) weak var textField: UITextField!
+    @IBOutlet private(set) weak var cancelButton: UIButton!
     
     // MARK: - Properties
     weak var delegate: SearchBarDelegate?
@@ -48,11 +50,20 @@ class SearchBar: UIView, NibView {
 // MARK: - Actions
 extension SearchBar {
     
+    @IBAction private func onCancelButtonTouchUp(_ sender: UIButton) {
+        textField.text = nil
+        delegate?.searchBarDidCancel()
+    }
+    
     @objc private  func textFieldDidChange(_ textField: UITextField) {
-        delegate?.searchBar(self, textDidChange: textField.text ?? "")
+        let textContent = textField.text ?? ""
+        cancelButton.isHidden = textContent.count == 0
+        
+        delegate?.searchBar(self, textDidChange: textContent)
     }
 }
 
+// MARK: - Private methods
 extension SearchBar {
     
     private func initialize() {
@@ -62,6 +73,7 @@ extension SearchBar {
     }
 }
 
+// MARK: - UITextFieldDelegate
 extension SearchBar: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -77,7 +77,7 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     private func cleanAction() {
         showAlert(title: R.string.localize.searchCleanTitle(),
                   message: R.string.localize.searchCleanMessage(),
-                  action: AlertAction(title: R.string.localize.actionClean(), callback: model.cleanStory),
+                  action: AlertAction(title: R.string.localize.actionClean(), callback: model.cleanSearchTerm),
                   cancelStyleAction: AlertAction(title: R.string.localize.actionCancel(), callback: {}))
     }
 }
@@ -161,6 +161,7 @@ extension SearchViewController: SearchViewControllerInput {
     }
     
     func searchTermDidUpdated(_ term: String?) {
+        searchBar.endEditing(false)
         searchBar.textField.text = term
     }
 }
@@ -255,6 +256,10 @@ extension SearchViewController: SearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: SearchBar) {
         searchBar.endEditing(false)
         model.processSearch()
+    }
+    
+    func searchBarDidCancel() {
+        model.cleanSearchTerm()
     }
 }
 

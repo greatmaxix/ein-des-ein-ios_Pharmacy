@@ -23,7 +23,7 @@ protocol SearchModelInput: class {
     func retreiveMoreMedecines()
     func updateSearchTerm(_ term: String)
     func processSearch()
-    func cleanStory()
+    func cleanSearchTerm()
     func didSelectCellAt(indexPath: IndexPath)
 }
 
@@ -63,7 +63,6 @@ final class SearchModel: Model {
 }
 
 // MARK: - SearchViewControllerOutput
-
 extension SearchModel: SearchViewControllerOutput {
     
     func updateSearchTerm(_ term: String) {
@@ -96,8 +95,9 @@ extension SearchModel: SearchViewControllerOutput {
         }
     }
     
-    func cleanStory() {
-        output.didLoadRecentRequests()
+    func cleanSearchTerm() {
+        searchDebouncer.cancelExecution()
+        retreiveResentRequests()
     }
 }
 
@@ -106,6 +106,10 @@ extension SearchModel {
     
     func retreiveResentRequests() {
         recentRequests = ["Дротаверин", "Анальгин", "Адвантан"]
+        
+        pageNumber = 1
+        medicines = []
+        searchTerm = ""
 
         output.didLoadRecentRequests()
     }
