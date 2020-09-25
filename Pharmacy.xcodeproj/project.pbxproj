@@ -81,6 +81,9 @@
 		397541D724ED35EE0069F8DE /* SimpleNavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397541D624ED35EE0069F8DE /* SimpleNavigationBarView.swift */; };
 		39818FA124AF69B0007D6D94 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39818FA024AF69B0007D6D94 /* UserSession.swift */; };
 		39854D0224EAB4870070E0D1 /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39854D0124EAB4870070E0D1 /* ProfileAPI.swift */; };
+		398880C0250F753200942D30 /* MapAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398880BF250F753200942D30 /* MapAPI.swift */; };
+		398880C2250F798300942D30 /* PharmacyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398880C1250F798300942D30 /* PharmacyModel.swift */; };
+		398880C4250F799400942D30 /* PharmacyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398880C3250F799400942D30 /* PharmacyResponse.swift */; };
 		398B0DD224F5062C0084EC54 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DD124F5062C0084EC54 /* MapViewController.swift */; };
 		398B0DD424F506540084EC54 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DD324F506540084EC54 /* MapModel.swift */; };
 		398B0DD724F50A4C0084EC54 /* FarmacyPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398B0DD624F50A4C0084EC54 /* FarmacyPinView.swift */; };
@@ -341,6 +344,9 @@
 		397541D624ED35EE0069F8DE /* SimpleNavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNavigationBarView.swift; sourceTree = "<group>"; };
 		39818FA024AF69B0007D6D94 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		39854D0124EAB4870070E0D1 /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
+		398880BF250F753200942D30 /* MapAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAPI.swift; sourceTree = "<group>"; };
+		398880C1250F798300942D30 /* PharmacyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyModel.swift; sourceTree = "<group>"; };
+		398880C3250F799400942D30 /* PharmacyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyResponse.swift; sourceTree = "<group>"; };
 		398B0DD124F5062C0084EC54 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		398B0DD324F506540084EC54 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 		398B0DD624F50A4C0084EC54 /* FarmacyPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmacyPinView.swift; sourceTree = "<group>"; };
@@ -585,14 +591,6 @@
 			path = DataSourse;
 			sourceTree = "<group>";
 		};
-		394D59BA2507CFF000AA3729 /* WishlistResponse */ = {
-			isa = PBXGroup;
-			children = (
-				394D59BB2507D01200AA3729 /* WishlistResponse.swift */,
-			);
-			path = WishlistResponse;
-			sourceTree = "<group>";
-		};
 		394EBEE524FF8F9B00C89970 /* MedicineView */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +623,8 @@
 			isa = PBXGroup;
 			children = (
 				395324BB2508CE450038D2DC /* RegionResponse.swift */,
+				398880C3250F799400942D30 /* PharmacyResponse.swift */,
+				394D59BB2507D01200AA3729 /* WishlistResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -805,12 +805,12 @@
 			isa = PBXGroup;
 			children = (
 				395324BA2508CE270038D2DC /* Responses */,
-				394D59BA2507CFF000AA3729 /* WishlistResponse */,
 				603D319024E3A7FD000E5A6C /* Receipt.swift */,
 				603D31A824E3B67B000E5A6C /* Category.swift */,
 				603D31B324E3CFEE000E5A6C /* Medicine.swift */,
 				603D31D624E5A3FE000E5A6C /* Product.swift */,
 				396FE9CF25063A460063E466 /* Region.swift */,
+				398880C1250F798300942D30 /* PharmacyModel.swift */,
 			);
 			name = Models;
 			path = Templates/Models;
@@ -1469,6 +1469,7 @@
 				3952FA242500FE9B00E5EF1D /* WishListAPI.swift */,
 				393DDFBF25028F3D00652A01 /* LocationAPI.swift */,
 				8717E4DD2507744500546A55 /* SearchAPI.swift */,
+				398880BF250F753200942D30 /* MapAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1974,6 +1975,7 @@
 				619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */,
 				603D31FD24E64912000E5A6C /* UITableViewCell.swift in Sources */,
 				6036EB0724DD27BB003336C2 /* SearchModel.swift in Sources */,
+				398880C2250F798300942D30 /* PharmacyModel.swift in Sources */,
 				60E1A6F724EB8C7800B3D205 /* SearchCellSection.swift in Sources */,
 				603D31A724E3B627000E5A6C /* CategoryCellSection.swift in Sources */,
 				603D31A424E3B608000E5A6C /* CategoryCollectionViewCell.swift in Sources */,
@@ -1994,6 +1996,7 @@
 				397541D724ED35EE0069F8DE /* SimpleNavigationBarView.swift in Sources */,
 				3939A6D524F6A3C90045FB71 /* LocationService.swift in Sources */,
 				619AAA402498A9AE00AB46ED /* AuthAPI.swift in Sources */,
+				398880C4250F799400942D30 /* PharmacyResponse.swift in Sources */,
 				60E1A71524ECE0DD00B3D205 /* ScanCoordinator.swift in Sources */,
 				395D050124D04B3A007A278D /* CatalogsModel.swift in Sources */,
 				393DDFB7250280F300652A01 /* RegionModel.swift in Sources */,
@@ -2089,6 +2092,7 @@
 				87131D3425135E3E0050B8F2 /* UITableView+Reusable.swift in Sources */,
 				60E1A6FB24EBB20E00B3D205 /* UIViewController+Keyboard.swift in Sources */,
 				394D59BC2507D01200AA3729 /* WishlistResponse.swift in Sources */,
+				398880C0250F753200942D30 /* MapAPI.swift in Sources */,
 				603D31E524E5A90C000E5A6C /* ProductTagsTableViewCell.swift in Sources */,
 				6075BD5C24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift in Sources */,
 				39F0AD5E24EEBF9B00CD6CA4 /* EmptyResultsView.swift in Sources */,

@@ -12,8 +12,8 @@ import EventsTree
 enum ProductModelEvent: Event {
     case openAnalogsFor(Product)
     case openCatalogsFor(Product)
-    case openMap(Product?)
-    case openFarmacyList
+    case openMap(Product)
+    case openFarmacyList([PharmacyModel])
     case openCheckout
 }
 
@@ -32,11 +32,12 @@ protocol ProductModelOutput: class {
 final class ProductModel: Model {
     
     weak var output: ProductModelOutput!
-    let product: Medicine
+    private let medicine: Medicine
+    private var product: Product!
     let dataSource = TableDataSource<ProductCellSection>()
     
     init(product: Medicine, parent: EventNode?) {
-        self.product = product
+        self.medicine = product
         super.init(parent: parent)
     }
     
@@ -49,7 +50,8 @@ extension ProductModel: ProductViewControllerOutput {
     var title: String { "Ношпа" }
     
     func load() {
-        let product = Product(imageURLs: [], title: "АЛЛОПУРИНОЛ-ЭГИС, 40 мг", subtitle: "Таблетки шипучие, 24 шт", description: "Таблетки покрытые пленочной оболочкой от светло-серого до темно-серого цвета, капсуловидной формы, сгравировкой \"PRENATAL\" с одной стороны и \"FORTE\" с другой стороны, со специфическим запахом", fromPrice: "568", toPrice: "568", currency: "$", analog: "Дротаверин", category: "Противогрибковый", tags: ["Спазмы", "Язва", "Головная боль", "Гастрит", "Болит живот", "Дисменорея"], company: "Chinoin Pharmaceutical and Chemical Works Co. Венгрия")
+        
+        product = Product(imageURLs: [], title: "АЛЛОПУРИНОЛ-ЭГИС, 40 мг", subtitle: "Таблетки шипучие, 24 шт", description: "Таблетки покрытые пленочной оболочкой от светло-серого до темно-серого цвета, капсуловидной формы, сгравировкой \"PRENATAL\" с одной стороны и \"FORTE\" с другой стороны, со специфическим запахом", fromPrice: "568", toPrice: "568", currency: "$", analog: "Дротаверин", category: "Противогрибковый", tags: ["Спазмы", "Язва", "Головная боль", "Гастрит", "Болит живот", "Дисменорея"], company: "Chinoin Pharmaceutical and Chemical Works Co. Венгрия")
         dataSource.cells = ProductCellSection.allSectionsFor(product: product)
         output.didLoad(product: product)
     }
@@ -68,6 +70,6 @@ extension ProductModel: ProductViewControllerOutput {
     }
     
     func openMap() {
-        raise(event: ProductModelEvent.openMap(nil))
+        raise(event: ProductModelEvent.openMap(product))
     }
 }

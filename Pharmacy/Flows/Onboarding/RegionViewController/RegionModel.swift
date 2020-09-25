@@ -52,10 +52,7 @@ final class RegionModel: EventNode {
                 self?.saveRegion(region: selectedRegion)
             }
             output.reloadRegions()
-            
-            locationService.firstLocationUpdate = { [weak self] coordinate in
-                self?.saveRegion(coordinate: coordinate)
-            }
+            locationService.locationDelegate = self
         }
     }
     
@@ -136,5 +133,11 @@ extension RegionModel: RegionInput {
     
     func close() {
         raise(event: OnboardingEvent.closeRegion)
+    }
+}
+
+extension RegionModel: LocationServiceDelegate {
+    func locationUpdated(currentLocation: CLLocationCoordinate2D) {
+        saveRegion(coordinate: currentLocation)
     }
 }
