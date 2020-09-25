@@ -103,7 +103,14 @@ extension SearchViewController {
 extension SearchViewController: SearchViewControllerInput {
     
     func retrivesNewResults() {
-        tableView.reloadData()
+        if case .empty = model.searchState {
+            tableView.isHidden = true
+            emptyView.isHidden = false
+        } else {
+            tableView.isHidden = false
+            emptyView.isHidden = true
+            tableView.reloadData()
+        }
     }
     
     func retreivingMoreMedicinesDidEnd() {
