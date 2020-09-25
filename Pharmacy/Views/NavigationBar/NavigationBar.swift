@@ -64,8 +64,8 @@ final class NavigationBar: UINavigationBar {
     @IBOutlet private weak var stackView: UIStackView!
     
     var title: String? {
-        set { titleLabel.text = newValue }
         get { titleLabel.text }
+        set { titleLabel.text = newValue }
     }
 
     var style: NavigationBarStyle = .normal
