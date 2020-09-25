@@ -42,11 +42,6 @@ final class SignUpViewController: UIViewController {
         setupLocalization()
         navigationController?.navigationBar.isHidden = true
     }
-        
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-    }
     
     // MARK: - Actions
     

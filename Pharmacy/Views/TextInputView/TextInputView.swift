@@ -9,126 +9,6 @@
 import UIKit
 
 final class TextInputView: UIView {
-    
-    // MARK: - Enums
-    
-    enum ContentStyle {
-        
-        case email
-        case phone
-        case name
-        case other
-        
-        var placeHolder: String? {
-            
-            switch self {
-            case .email:
-                return R.string.localize.placeholderEmail()
-            case .phone:
-                return R.string.localize.placeholderPhone()
-            case .name:
-                return R.string.localize.placeholderName()
-            default:
-                return nil
-            }
-        }
-        
-        var keyboardType: UIKeyboardType {
-            
-            switch self {
-            case .email:
-                return .emailAddress
-            case .name:
-                return .default
-            case .phone:
-                return .phonePad
-            default:
-                return .default
-             }
-        }
-        
-        var validator: BaseTextValidator? {
-            
-            switch self {
-            case .email:
-                return EmailValidator()
-            case .name:
-                return NameValidator()
-            case .phone:
-                return PhoneValidator()
-            default:
-                return nil
-            }
-        }
-        
-        var startText: String? {
-            switch self {
-            case .email, .name, .other:
-                return nil
-            case .phone:
-                return nil
-
-            }
-        }
-    }
-
-    enum VisualStyle {
-        
-        case standart
-        case editing
-        case successfulValidation
-        case unsuccessfulValidation
-        
-        var borderColor: CGColor? {
-            
-            switch self {
-            case .standart:
-                return R.color.validationGray()?.cgColor
-            case .editing:
-                return R.color.validationBlue()?.cgColor
-            case .successfulValidation:
-                return R.color.validationGreen()?.cgColor
-            case .unsuccessfulValidation:
-                return R.color.validationRed()?.cgColor
-            }
-        }
-
-        var image: UIImage? {
-            
-            switch self {
-            case .standart:
-                return nil
-            case .editing:
-                return R.image.cancelSearch()
-            case .successfulValidation:
-                return R.image.validationSuccess()
-            case .unsuccessfulValidation:
-                return R.image.validationError()
-            }
-        }
-        
-        var textColor: UIColor? {
-            
-            switch self {
-            case .unsuccessfulValidation:
-                return R.color.validationRed()
-            case .editing:
-                return R.color.textDarkBlue()
-            case .standart, .successfulValidation:
-                return R.color.textDarkGray()
-            }
-        }
-        
-        var backgroundColor: UIColor? {
-            switch self {
-            case .editing, .successfulValidation, .unsuccessfulValidation:
-                return .clear
-            case .standart:
-                return R.color.backgroundGray()
-            }
-        }
-    }
-    
     // MARK: - Properties
 
     private var backgroundView: UIView!
@@ -268,48 +148,57 @@ final class TextInputView: UIView {
     // MARK: - Setup
     
     private func setup() {
-        
-        backgroundView = UIView()
         self.backgroundColor = .clear
-        backgroundView.backgroundColor = .white
 
+        setupBackgroundView()
+        setupInputStatusButton()
+        setupErrorLabel()
+        setupInputTextField()
+
+        visualStyle = .standart
+    }
+    
+    private func setupBackgroundView() {
+        backgroundView = UIView()
+        backgroundView.backgroundColor = .white
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.layer.cornerRadius = Const.backgroundViewHeight / 2
         backgroundView.layer.borderWidth = 1
         addSubview(backgroundView)
         
+        constraintBackgroundViewHeight = backgroundView
+            .heightAnchor
+            .constraint(equalToConstant: Const.backgroundViewHeight)
+        
+        NSLayoutConstraint.activate([
+            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            constraintBackgroundViewHeight,
+            backgroundView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+    
+    private func setupErrorLabel() {
+        errorLabel = UILabel()
+        addSubview(errorLabel)
+        errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            errorLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Const.lbErrorLeft),
+            errorLabel.trailingAnchor.constraint(equalTo: inputStatusButton.leadingAnchor),
+            errorLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            errorLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: min(Const.lbErrorMinHeight, frame.height)),
+            backgroundView.bottomAnchor.constraint(lessThanOrEqualTo: errorLabel.topAnchor,
+                                                   constant: Const.lbErrorTop)
+        ])
+    }
+    
+    private func setupInputStatusButton() {
         inputStatusButton = UIButton()
         inputStatusButton.addTarget(self, action: #selector(clearText), for: .touchUpInside)
         backgroundView.addSubview(inputStatusButton)
         inputStatusButton.translatesAutoresizingMaskIntoConstraints = false
         
-        errorLabel = UILabel()
-        addSubview(errorLabel)
-        errorLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        inputTextField = UITextField()
-        inputTextField.translatesAutoresizingMaskIntoConstraints = false
-        backgroundView.addSubview(inputTextField)
-        inputTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
-        inputTextField.addTarget(self, action: #selector(editingDidEnd), for: .editingDidEnd)
-        
-        constraintBackgroundViewHeight = backgroundView.heightAnchor.constraint(equalToConstant: Const.backgroundViewHeight)
-        
-        NSLayoutConstraint.activate([
-            backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            constraintBackgroundViewHeight,
-            backgroundView.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: 0),
-            backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            backgroundView.bottomAnchor.constraint(lessThanOrEqualTo: errorLabel.topAnchor, constant: Const.lbErrorTop)
-        ])
-        
-        NSLayoutConstraint.activate([
-            errorLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Const.lbErrorLeft),
-            errorLabel.trailingAnchor.constraint(equalTo: inputStatusButton.leadingAnchor, constant: 0),
-            errorLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            errorLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: min(Const.lbErrorMinHeight, frame.height))
-        ])
-
         NSLayoutConstraint.activate([
             inputStatusButton.widthAnchor.constraint(equalTo: backgroundView.heightAnchor,
                                                         multiplier: Const.ivMultiplier, constant: -Const.ivHeightOffset),
@@ -317,16 +206,26 @@ final class TextInputView: UIView {
             inputStatusButton.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: Const.ivTralling),
             inputStatusButton.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor, constant: 0)
         ])
+    }
+    
+    private func setupInputTextField() {
+        inputTextField = UITextField()
+        inputTextField.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.addSubview(inputTextField)
+        inputTextField.tag = tag
+        inputTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+        inputTextField.addTarget(self, action: #selector(editingDidEnd), for: .editingDidEnd)
         
         NSLayoutConstraint.activate([
-            inputTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: Const.textfieldLeading),
-            inputTextField.topAnchor.constraint(equalTo: backgroundView.topAnchor, constant: Const.textfieldSpace),
-            inputTextField.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -Const.textfieldSpace),
-            inputTextField.trailingAnchor.constraint(equalTo: inputStatusButton.leadingAnchor, constant: -Const.textfieldSpace)
+            inputTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
+                                                    constant: Const.textfieldLeading),
+            inputTextField.topAnchor.constraint(equalTo: backgroundView.topAnchor,
+                                                constant: Const.textfieldSpace),
+            inputTextField.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,
+                                                   constant: -Const.textfieldSpace),
+            inputTextField.trailingAnchor.constraint(equalTo: inputStatusButton.leadingAnchor,
+                                                     constant: -Const.textfieldSpace)
         ])
-        
-        visualStyle = .standart
-        inputTextField.tag = tag
     }
     
     private func setupFonts() {
@@ -368,5 +267,127 @@ fileprivate extension TextInputView {
         
         static let defaultFontSize: CGFloat = 16
         static let errorFontSize: CGFloat = 12
+    }
+}
+
+// MARK: - External declarations
+extension TextInputView {
+    // MARK: - Enums
+    
+    enum ContentStyle {
+        
+        case email
+        case phone
+        case name
+        case other
+        
+        var placeHolder: String? {
+            
+            switch self {
+            case .email:
+                return R.string.localize.placeholderEmail()
+            case .phone:
+                return R.string.localize.placeholderPhone()
+            case .name:
+                return R.string.localize.placeholderName()
+            default:
+                return nil
+            }
+        }
+        
+        var keyboardType: UIKeyboardType {
+            
+            switch self {
+            case .email:
+                return .emailAddress
+            case .name:
+                return .default
+            case .phone:
+                return .phonePad
+            default:
+                return .default
+             }
+        }
+        
+        var validator: BaseTextValidator? {
+            
+            switch self {
+            case .email:
+                return EmailValidator()
+            case .name:
+                return NameValidator()
+            case .phone:
+                return PhoneValidator()
+            default:
+                return nil
+            }
+        }
+        
+        var startText: String? {
+            switch self {
+            case .email, .name, .other:
+                return nil
+            case .phone:
+                return nil
+
+            }
+        }
+    }
+
+    enum VisualStyle {
+        
+        case standart
+        case editing
+        case successfulValidation
+        case unsuccessfulValidation
+        
+        var borderColor: CGColor? {
+            
+            switch self {
+            case .standart:
+                return R.color.validationGray()?.cgColor
+            case .editing:
+                return R.color.validationBlue()?.cgColor
+            case .successfulValidation:
+                return R.color.validationGreen()?.cgColor
+            case .unsuccessfulValidation:
+                return R.color.validationRed()?.cgColor
+            }
+        }
+
+        var image: UIImage? {
+            
+            switch self {
+            case .standart:
+                return nil
+            case .editing:
+                return R.image.cancelSearch()
+            case .successfulValidation:
+                return R.image.validationSuccess()
+            case .unsuccessfulValidation:
+                return R.image.validationError()
+            }
+        }
+        
+        var textColor: UIColor? {
+            
+            switch self {
+            case .unsuccessfulValidation:
+                return R.color.validationRed()
+            case .editing:
+                return R.color.textDarkBlue()
+            case .standart, .successfulValidation:
+                return R.color.textDarkGray()
+            }
+        }
+        
+        var backgroundColor: UIColor? {
+            switch self {
+            case .editing, .successfulValidation, .unsuccessfulValidation:
+                return .clear
+            case .standart:
+                return R.color.backgroundGray()
+            }
+        }
     }
 }
