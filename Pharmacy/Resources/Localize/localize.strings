@@ -195,7 +195,7 @@
 
 "farmaciesList.list" = "Списком";
 "farmaciesList.map" = "На карте";
-"farmaciesList.farmacySelect" = "Выбор аптеки";
+"farmaciesList.addToBag" = "Добавить в корзину";
 "farmaciesList.byPrice" = "По цене";
 "farmaciesList.byDistance" = "По расстоянию";
 "farmaciesList.selectFarmacy" = "Выбрать аптеку";
