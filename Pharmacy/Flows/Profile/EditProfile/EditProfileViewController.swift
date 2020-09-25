@@ -45,7 +45,7 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
         emailInputView.placeholder = model.email
         
         if let url: URL = model.imageUrl {
-            userImageView.loadImageBy(url: url, completion: { [weak self] in
+            userImageView.loadImageBy(url: url, completion: { [weak self] _ in
                 let image: UIImage? = self?.userImageView.image
                 self?.userImageView.image = image?.bluredImage(sigma: 5)
             })

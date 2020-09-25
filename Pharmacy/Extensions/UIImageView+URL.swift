@@ -10,10 +10,14 @@ import UIKit
 import Kingfisher
 
 extension UIImageView {
-    func loadImageBy(url: URL, completion: EmptyClosure? = nil) {
+    
+    @discardableResult
+    func loadImageBy(url: URL,
+                     placeholder: UIImage? = nil,
+                     completion: ((Result<RetrieveImageResult, KingfisherError>) -> Void)? = nil) -> DownloadTask? {
         kf.indicatorType = .activity
-        kf.setImage(with: url, completionHandler: { _ in
-            completion?()
-        })
+        return kf.setImage(with: url,
+                    placeholder: placeholder,
+                    completionHandler: completion)
     }
 }
