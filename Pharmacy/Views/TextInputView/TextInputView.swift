@@ -151,8 +151,8 @@ final class TextInputView: UIView {
         self.backgroundColor = .clear
 
         setupBackgroundView()
-        setupErrorLabel()
         setupInputStatusButton()
+        setupErrorLabel()
         setupInputTextField()
 
         visualStyle = .standart
@@ -166,16 +166,16 @@ final class TextInputView: UIView {
         backgroundView.layer.borderWidth = 1
         addSubview(backgroundView)
         
+        constraintBackgroundViewHeight = backgroundView
+            .heightAnchor
+            .constraint(equalToConstant: Const.backgroundViewHeight)
+        
         NSLayoutConstraint.activate([
             backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
             constraintBackgroundViewHeight,
             backgroundView.topAnchor.constraint(equalTo: backgroundView.topAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
-        
-        constraintBackgroundViewHeight = backgroundView
-            .heightAnchor
-            .constraint(equalToConstant: Const.backgroundViewHeight)
     }
     
     private func setupErrorLabel() {
