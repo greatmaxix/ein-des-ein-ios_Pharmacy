@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBar" customModule="Pharmacy" customModuleProvider="target">
             <connections>
+                <outlet property="cancelButton" destination="p2W-Uc-RLv" id="N8p-GZ-tTC"/>
                 <outlet property="textField" destination="XsP-gl-WVw" id="P5n-yg-4v7"/>
             </connections>
         </placeholder>
@@ -56,6 +57,9 @@
                                 <constraint firstAttribute="width" constant="24" id="kjF-t5-ypY"/>
                             </constraints>
                             <state key="normal" image="cancelSearch"/>
+                            <connections>
+                                <action selector="onCancelButtonTouchUp:" destination="-1" eventType="touchUpInside" id="Ocq-bK-l0e"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

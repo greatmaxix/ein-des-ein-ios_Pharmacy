@@ -8,6 +8,7 @@
 
 import UIKit
 import TTGTagCollectionView
+import MBProgressHUD
 
 protocol SearchViewControllerInput: SearchModelOutput {}
 protocol SearchViewControllerOutput: SearchModelInput {}
@@ -27,6 +28,18 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var emptyView: EmptySearchView!
     
+    private weak var searchBar: SearchBar!
+    
+    private lazy var activityIndicator: MBProgressHUD = {
+        let hud = MBProgressHUD(view: view)
+        hud.backgroundView.style = .solidColor
+        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
+        hud.removeFromSuperViewOnHide = false
+        view.addSubview(hud)
+        
+        return hud
+    }()
+    
     private let tagCloudConfig = TTGTextTagConfig()
     
     var style: NavigationBarStyle = .search
@@ -39,6 +52,7 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
         configUI()
         setupTableView()
         setupNavigationBar()
+//        setupActivityIndicator()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +77,7 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     private func cleanAction() {
         showAlert(title: R.string.localize.searchCleanTitle(),
                   message: R.string.localize.searchCleanMessage(),
-                  action: AlertAction(title: R.string.localize.actionClean(), callback: model.cleanStory),
+                  action: AlertAction(title: R.string.localize.actionClean(), callback: model.cleanSearchTerm),
                   cancelStyleAction: AlertAction(title: R.string.localize.actionCancel(), callback: {}))
     }
 }
@@ -85,6 +99,7 @@ extension SearchViewController {
         
         let searchBar = SearchBar()
         searchBar.delegate = self
+        self.searchBar = searchBar
         searchBar.heightAnchor.constraint(equalToConstant: 36).isActive = true
         
         navigationItem.titleView = searchBar
@@ -102,6 +117,10 @@ extension SearchViewController {
 // MARK: - SearchViewControllerInput
 extension SearchViewController: SearchViewControllerInput {
     
+    func willSendRequest() {
+        activityIndicator.show(animated: true)
+    }
+    
     func retrivesNewResults() {
         if case .empty = model.searchState {
             tableView.isHidden = true
@@ -111,10 +130,12 @@ extension SearchViewController: SearchViewControllerInput {
             emptyView.isHidden = true
             tableView.reloadData()
         }
+        
+        activityIndicator.hide(animated: true)
     }
     
     func retreivingMoreMedicinesDidEnd() {
-
+        activityIndicator.hide(animated: true)
     }
     
     func didLoadRecentRequests() {
@@ -133,14 +154,15 @@ extension SearchViewController: SearchViewControllerInput {
             return
         }
 
-        let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows ?? []
-        let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPathes)
-        let indexPathsToReload = Array(indexPathsIntersection)
-        
         tableView.beginUpdates()
-        tableView.reloadRows(at: indexPathsToReload,
+        tableView.insertRows(at: indexPathes,
                              with: .automatic)
         tableView.endUpdates()
+    }
+    
+    func searchTermDidUpdated(_ term: String?) {
+        searchBar.endEditing(false)
+        searchBar.textField.text = term
     }
 }
 
@@ -202,6 +224,29 @@ extension SearchViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDataSourcePrefetching
+extension SearchViewController: UITableViewDataSourcePrefetching {
+
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard case .found = model.searchState else {
+            return
+        }
+        
+        let isEndOfList = indexPaths.contains {
+            $0.row == model.medicines.count - 1
+        }
+        
+        guard isEndOfList else {
+            return
+        }
+        
+        activityIndicator.show(animated: true)
+        
+        model.retreiveMoreMedecines()
+    }
+}
+
+// MARK: - SearchBarDelegate
 extension SearchViewController: SearchBarDelegate {
     
     func searchBar(_ searchBar: SearchBar, textDidChange searchText: String) {
@@ -212,10 +257,15 @@ extension SearchViewController: SearchBarDelegate {
         searchBar.endEditing(false)
         model.processSearch()
     }
+    
+    func searchBarDidCancel() {
+        model.cleanSearchTerm()
+    }
 }
 
 // MARK: - UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         model.didSelectCellAt(indexPath: indexPath)
