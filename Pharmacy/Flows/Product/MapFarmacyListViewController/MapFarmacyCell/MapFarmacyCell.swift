@@ -28,31 +28,33 @@ final class MapFarmacyCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        nonEmptyMedicineTopSpace.priority = UILayoutPriority(rawValue: 1000)
         
         setupUI()
     }
     
     private func setupUI() {
-        presenceLabel.text = "\(bounds.height)"
         selectButton.layer.cornerRadius = selectButton.bounds.height / 2
         cellBackgroundView.layer.cornerRadius = 8
-        selectButton.setTitle(R.string.localize.farmaciesListFarmacySelect(), for: .normal)
+        selectButton.setTitle(R.string.localize.farmaciesListAddToBag(), for: .normal)
     }
     
-    func addMedicines(titles: [String]) {
-        for title in titles {
-            let v: FoundMedicineView = FoundMedicineView.fromNib()
-            v.titleLabel.text = title
-            medicineStackView.addArrangedSubview(v)
+    private func addMedicines(medicines: [PharmacyModel.SimpleMedicine]) {
+        
+        medicineStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
+        for medicine in medicines {
+            let medicineView: FoundMedicineView = FoundMedicineView.fromNib()
+            medicineView.titleLabel.text = "medicine"
+            medicineView.priceLabel.text = "\(medicine.price) $"
+            medicineStackView.addArrangedSubview(medicineView)
         }
     }
 
-    func apply(title: String) {
-        nameLabel.text = title
+    func apply(pharmacy: PharmacyModel) {
+        nameLabel.text = pharmacy.name
+        phoneLabel.text = Const.phoneTitle + (pharmacy.phone ?? Const.phoneErrorTitle)
+        addressLabel.text = pharmacy.geometry.address
         medicineStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
-        addMedicines(titles: ["medicine1", "medicine2"])
+        addMedicines(medicines: pharmacy.medicines)
     }
     
     @IBAction func openMap(_ sender: UIButton) {
@@ -60,4 +62,12 @@ final class MapFarmacyCell: UITableViewCell {
     
     @IBAction func selectFarmacy(_ sender: UIButton) {
     }    
+}
+
+fileprivate extension MapFarmacyCell {
+    
+    struct Const {
+        static let phoneTitle: String = "📞️ "
+        static let phoneErrorTitle: String = "phone is not availible"
+    }
 }

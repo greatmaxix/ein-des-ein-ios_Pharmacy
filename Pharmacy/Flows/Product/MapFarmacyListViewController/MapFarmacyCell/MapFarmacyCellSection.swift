@@ -10,7 +10,7 @@ import UIKit
 
 enum MapFarmacyCellSection: TableCellSection {
     
-    case common(String)
+    case common(PharmacyModel)
     
     func reuseIdentifier() -> String {
         String(describing: self)
@@ -22,8 +22,8 @@ enum MapFarmacyCellSection: TableCellSection {
     
     func apply(cell: UITableViewCell) {
         switch (self, cell) {
-        case let (.common(title), cell) as (MapFarmacyCellSection, MapFarmacyCell):
-            cell.apply(title: title)
+        case let (.common(pharmacy), cell) as (MapFarmacyCellSection, MapFarmacyCell):
+            cell.apply(pharmacy: pharmacy)
         default:
             return
         }
