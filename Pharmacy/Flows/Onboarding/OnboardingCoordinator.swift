@@ -17,6 +17,7 @@ struct OnboardingFlowConfiguration {
 class OnboardingCoordinator: EventNode, Coordinator {
 
     // MARK: - Properties
+    
     private weak var root: UINavigationController!
 
     init(configuration: OnboardingFlowConfiguration) {
@@ -30,13 +31,12 @@ class OnboardingCoordinator: EventNode, Coordinator {
                 self?.popController(animated: false)
             case .openRegions:
                 self?.openRegions()
-            default:
-                break
             }
         }
     }
 
     // MARK: - Public methods
+    
     func createFlow() -> UIViewController {
         let onboardingViewController: OnboardingViewController = R.storyboard.onboarding.onboardingContainerViewController()!
         let model = OnboardingModel(parent: self)
