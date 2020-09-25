@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SearchTableViewCell: HighlightedTableViewCell, ContainerView {
+final class SearchTableViewCell: HighlightedTableViewCell, ContainerView, NibReusable {
     
     private enum GUI {
         static let cornerRadius: CGFloat = 8
@@ -19,6 +19,7 @@ final class SearchTableViewCell: HighlightedTableViewCell, ContainerView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         containerView.layer.cornerRadius = GUI.cornerRadius
     }
     

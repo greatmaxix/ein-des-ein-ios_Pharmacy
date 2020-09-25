@@ -22,7 +22,7 @@ class HighlightedTableViewCell: UITableViewCell, AlphaHighlightedView {
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
-         highlight(highlighted, animated: animated)
+        highlight(highlighted, animated: animated)
     }
 }
 

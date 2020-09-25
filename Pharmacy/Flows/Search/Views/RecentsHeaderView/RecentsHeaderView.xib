@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RecentsHeaderView" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="urm-qE-7qW">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="История поиска" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSS-Ip-feR">
+                            <rect key="frame" x="16" y="6" width="121.5" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="08r-rf-8Md"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                            <color key="textColor" name="textDarkBlue"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reT-MK-Wdl">
+                            <rect key="frame" x="345" y="9" width="53" height="26"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                            <state key="normal" title="Очистить">
+                                <color key="titleColor" name="welcomeBlue"/>
+                            </state>
+                            <connections>
+                                <action selector="onClearButtonTouchUp:" destination="iN0-l3-epB" eventType="touchUpInside" id="tYj-W9-5Da"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="qSS-Ip-feR" firstAttribute="leading" secondItem="urm-qE-7qW" secondAttribute="leading" constant="16" id="4MO-am-Hze"/>
+                        <constraint firstItem="qSS-Ip-feR" firstAttribute="centerY" secondItem="urm-qE-7qW" secondAttribute="centerY" id="8FV-Xa-WvC"/>
+                        <constraint firstItem="reT-MK-Wdl" firstAttribute="centerY" secondItem="qSS-Ip-feR" secondAttribute="centerY" id="eHf-lc-VfX"/>
+                        <constraint firstAttribute="trailing" secondItem="reT-MK-Wdl" secondAttribute="trailing" constant="16" id="nan-y4-8Bq"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="urm-qE-7qW" secondAttribute="trailing" id="P4D-LR-pZx"/>
+                <constraint firstItem="urm-qE-7qW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="VdW-j6-QWS"/>
+                <constraint firstItem="urm-qE-7qW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eAK-rI-G1p"/>
+                <constraint firstAttribute="bottom" secondItem="urm-qE-7qW" secondAttribute="bottom" id="xOE-pa-N88"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="clearButton" destination="reT-MK-Wdl" id="2TC-7h-f2C"/>
+                <outlet property="titleLabel" destination="qSS-Ip-feR" id="LCC-4v-Tty"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="welcomeBlue">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

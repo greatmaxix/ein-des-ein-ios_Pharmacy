@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBar" customModule="Pharmacy" customModuleProvider="target">
+            <connections>
+                <outlet property="textField" destination="XsP-gl-WVw" id="P5n-yg-4v7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iFt-Kq-EL8">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GAK-rv-qnr">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbj-yt-F6y">
+                            <rect key="frame" x="9" y="6" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="iOe-M7-NBf"/>
+                                <constraint firstAttribute="width" constant="24" id="tFB-5t-rFx"/>
+                            </constraints>
+                            <state key="normal" image="welcomeSearch"/>
+                            <state key="selected" image="backArrow"/>
+                        </button>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ношпа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XsP-gl-WVw">
+                            <rect key="frame" x="46" y="6" width="326" height="24"/>
+                            <color key="tintColor" name="welcomeBlue"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="DPO-N1-3pG"/>
+                            </constraints>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="YjN-g7-N1S"/>
+                            </connections>
+                        </textField>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2W-Uc-RLv">
+                            <rect key="frame" x="381" y="6" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="RtE-fZ-amf"/>
+                                <constraint firstAttribute="width" constant="24" id="kjF-t5-ypY"/>
+                            </constraints>
+                            <state key="normal" image="cancelSearch"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="p2W-Uc-RLv" secondAttribute="trailing" constant="9" id="0dV-w5-rvy"/>
+                        <constraint firstItem="XsP-gl-WVw" firstAttribute="leading" secondItem="xbj-yt-F6y" secondAttribute="trailing" priority="999" constant="13" id="BCo-tG-Qx1"/>
+                        <constraint firstItem="xbj-yt-F6y" firstAttribute="centerY" secondItem="GAK-rv-qnr" secondAttribute="centerY" id="Gq5-hE-UrF"/>
+                        <constraint firstItem="XsP-gl-WVw" firstAttribute="centerY" secondItem="GAK-rv-qnr" secondAttribute="centerY" id="Nd9-zL-fqw"/>
+                        <constraint firstItem="p2W-Uc-RLv" firstAttribute="centerY" secondItem="GAK-rv-qnr" secondAttribute="centerY" id="Un7-AW-MQo"/>
+                        <constraint firstItem="xbj-yt-F6y" firstAttribute="leading" secondItem="GAK-rv-qnr" secondAttribute="leading" constant="9" id="WDi-f6-GCe"/>
+                        <constraint firstItem="p2W-Uc-RLv" firstAttribute="leading" secondItem="XsP-gl-WVw" secondAttribute="trailing" constant="9" id="f5k-jr-HBC"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="2Bv-dt-kzd"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="GAK-rv-qnr" firstAttribute="leading" secondItem="iFt-Kq-EL8" secondAttribute="leading" id="FHH-Tc-BjY"/>
+                <constraint firstItem="GAK-rv-qnr" firstAttribute="bottom" secondItem="iFt-Kq-EL8" secondAttribute="bottom" id="RGP-rd-86e"/>
+                <constraint firstItem="GAK-rv-qnr" firstAttribute="top" secondItem="iFt-Kq-EL8" secondAttribute="top" id="ohh-Tn-tYp"/>
+                <constraint firstAttribute="trailing" secondItem="GAK-rv-qnr" secondAttribute="trailing" id="rE3-lO-sQg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="YPi-b2-IwZ"/>
+            <point key="canvasLocation" x="-81" y="316"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backArrow" width="24" height="24"/>
+        <image name="cancelSearch" width="24" height="24"/>
+        <image name="welcomeSearch" width="24" height="24"/>
+        <namedColor name="welcomeBlue">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

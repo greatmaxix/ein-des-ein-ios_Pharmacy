@@ -10,19 +10,26 @@ import Foundation
 
 extension NSAttributedString {
     
-    static func fromPriceAttributed(for price: String, currency: String ) -> NSAttributedString {
-        priceAttributed(for: price, currency: currency, prefixText: R.string.localize.generalPriceFrom())
+    static func fromPriceAttributed(for price: String, currency: String? = nil) -> NSAttributedString {
+        priceAttributed(for: price,
+                        prefixText: R.string.localize.generalPriceFrom(),
+                        currency: currency)
     }
     
-    static func toPriceAttributed(for price: String, currency: String ) -> NSAttributedString {
-        priceAttributed(for: price, currency: currency, prefixText: R.string.localize.generalPriceTo())
+    static func toPriceAttributed(for price: String, currency: String? = nil) -> NSAttributedString {
+        priceAttributed(for: price,
+                        prefixText: R.string.localize.generalPriceTo(),
+                        currency: currency)
     }
     
-    static func priceAttributed(for price: String, currency: String, prefixText: String) -> NSAttributedString {
-        let text = "\(prefixText) \(price) \(currency)"
+    private static func priceAttributed(for price: String, prefixText: String, currency: String?) -> NSAttributedString {
+        var text = "\(prefixText) \(price)"
+        if let currency = currency {
+            text += "  \(currency)"
+        }
         
         let fromFont = R.font.openSansRegular(size: 12)!
-        let font =  R.font.openSansSemiBold(size: 24)!
+        let font =  R.font.openSansBold(size: 18)!
         let color = R.color.welcomeBlue()!
         
         let att = NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.font: font, .foregroundColor: color])

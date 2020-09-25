@@ -23,9 +23,11 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var cleanButton: UIButton!
     @IBOutlet private weak var storyLabel: UILabel!
     @IBOutlet private weak var tagsCollectionView: TTGTextTagCollectionView!
+    @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var tableView: UITableView!
-
-    private let config = TTGTextTagConfig()
+    @IBOutlet private weak var emptyView: EmptySearchView!
+    
+    private let tagCloudConfig = TTGTextTagConfig()
     
     var style: NavigationBarStyle = .search
     
@@ -33,20 +35,24 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configUI()
+        setupTableView()
+        setupNavigationBar()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        model.load()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        model.retreiveResentRequests()
     }
     
     func configUI() {
-        config.backgroundColor = GUI.backgroundColor
-        config.textColor = GUI.textColor
-        config.textFont = GUI.textFont
-        config.borderWidth = 0
-        config.shadowColor = .clear
+        tagCloudConfig.backgroundColor = GUI.backgroundColor
+        tagCloudConfig.textColor = GUI.textColor
+        tagCloudConfig.textFont = GUI.textFont
+        tagCloudConfig.borderWidth = 0
+        tagCloudConfig.shadowColor = .clear
         
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
@@ -54,8 +60,7 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     }
     
 // MARK: - Actions
-    
-    @IBAction private func cleanAction(_ sender: UIButton) {
+    private func cleanAction() {
         showAlert(title: R.string.localize.searchCleanTitle(),
                   message: R.string.localize.searchCleanMessage(),
                   action: AlertAction(title: R.string.localize.actionClean(), callback: model.cleanStory),
@@ -63,24 +68,146 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     }
 }
 
-// MARK: - SearchViewControllerInput
-
-extension SearchViewController: SearchViewControllerInput {
-    func didLoad(story: TableDataSource<SearchCellSection>) {
-        story.assign(tableView: tableView)
-        tableView.reloadData()
-        cleanButton.isHidden = story.cells.isEmpty
-        storyLabel.isHidden = story.cells.isEmpty
+// MARK: - Private methods
+extension SearchViewController {
+    
+    private func setupNavigationBar() {
+        guard let navigationBar = navigationController?.navigationBar else {
+            return
+        }
+        
+        navigationBar.tintColor = .white
+        navigationBar.backgroundColor = .clear
+        navigationBar.setBackgroundImage(R.image.navigationBar()?.stretchableImage(withLeftCapWidth: 20,
+                                                                                   topCapHeight: 20),
+                                         for: .default)
+        navigationBar.shadowImage = UIImage()
+        
+        let searchBar = SearchBar()
+        searchBar.delegate = self
+        searchBar.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        
+        navigationItem.titleView = searchBar
+        searchBar.topAnchor.constraint(equalTo: searchBar.superview!.topAnchor).isActive = true
+        searchBar.bottomAnchor.constraint(equalTo: searchBar.superview!.bottomAnchor, constant: -8.0).isActive = true
     }
     
-    func didLoad(tags: [String]) {
-        tagsCollectionView.removeAllTags()
-        tagsCollectionView.addTags(tags, with: config)
+    private func setupTableView() {
+        tableView.register(viewType: RecentsHeaderView.self)
+        tableView.register(cellType: SearchTableViewCell.self)
+        tableView.register(cellType: MedicineCell.self)
+    }
+}
+
+// MARK: - SearchViewControllerInput
+extension SearchViewController: SearchViewControllerInput {
+    
+    func retrivesNewResults() {
+        tableView.reloadData()
+    }
+    
+    func retreivingMoreMedicinesDidEnd() {
+
+    }
+    
+    func didLoadRecentRequests() {
+        guard isViewLoaded else {
+            return
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func needToInsertNewMedicines(at indexPathes: [IndexPath]?) {
+        guard let indexPathes = indexPathes else {
+            tableView.isHidden = false
+            tableView.reloadData()
+            
+            return
+        }
+
+        let indexPathsForVisibleRows = tableView.indexPathsForVisibleRows ?? []
+        let indexPathsIntersection = Set(indexPathsForVisibleRows).intersection(indexPathes)
+        let indexPathsToReload = Array(indexPathsIntersection)
+        
+        tableView.beginUpdates()
+        tableView.reloadRows(at: indexPathsToReload,
+                             with: .automatic)
+        tableView.endUpdates()
+    }
+}
+
+extension SearchViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch model.searchState {
+        case .recents:
+            return model.recentRequests.count
+        case .found:
+            return model.medicines.count
+        default:
+            return .zero
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch model.searchState {
+        case .recents:
+            let cell = tableView.dequeueReusableCell(at: indexPath, cellType: SearchTableViewCell.self)
+            cell.apply(title: model.recentRequests[indexPath.row])
+            
+            return cell
+        case .found:
+            let cell = tableView.dequeueReusableCell(at: indexPath, cellType: MedicineCell.self)
+            cell.apply(medicine: model.medicines[indexPath.row])
+            
+            return cell
+        default:
+            return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch model.searchState {
+        case .recents:
+            return 44
+        default:
+            return .zero
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch model.searchState {
+        case .recents:
+            guard model.recentRequests.count > 0 else {
+                return UIView()
+            }
+            
+            let headerView = tableView.dequeueReusableView(viewType: RecentsHeaderView.self)
+            headerView.clearActionHandler = { [unowned self] in
+                self.cleanAction()
+            }
+            
+            return headerView
+        default:
+            return UIView()
+        }
+    }
+}
+
+extension SearchViewController: SearchBarDelegate {
+    
+    func searchBar(_ searchBar: SearchBar, textDidChange searchText: String) {
+        model.updateSearchTerm(searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: SearchBar) {
+        searchBar.endEditing(false)
+        model.processSearch()
     }
 }
 
 // MARK: - UITableViewDelegate
-
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

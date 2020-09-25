@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class MedicineCell: HighlightedTableViewCell {
+final class MedicineCell: HighlightedTableViewCell, NibReusable {
     
     @IBOutlet private weak var farmacyImageView: UIImageView!
     @IBOutlet private weak var likedButton: UIButton!
@@ -24,13 +24,14 @@ final class MedicineCell: HighlightedTableViewCell {
     func apply(medicine: Medicine) {
         
         likedButton.isSelected = medicine.liked
-        titleLabel.text = medicine.name
+        titleLabel.text = medicine.title
         costLabel.text = medicine.price
-        typeLabel.text = medicine.releaseForm
+        typeLabel.text = medicine.releaseFormFormatted
         factoryLabel.text = medicine.manufacturerName
-        costLabel.attributedText = NSAttributedString.fromPriceAttributed(for: medicine.price, currency: medicine.currency)
+        costLabel.attributedText = NSAttributedString.fromPriceAttributed(for: medicine.price)
         
-        if let urlString = medicine.pictureUrls.first, let url = URL(string: urlString) {
+        if let urlString = medicine.pictureUrls.first,
+            let url = URL(string: urlString) {
             farmacyImageView.loadImageBy(url: url)
             farmacyImageView.layer.cornerRadius = 8
         }

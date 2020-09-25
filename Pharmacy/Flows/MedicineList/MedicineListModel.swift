@@ -46,7 +46,7 @@ extension MedicineListModel: MedicineListViewControllerOutput {
     }
     
     func load() {
-        let array = Array(repeating: Medicine(tittle: "Название товара", price: "568", imageURL: nil), count: 8)
+        let array = Array(repeating: Medicine(title: "Название товара", price: "568", imageURL: nil), count: 8)
         medicineDataSource.cells = array.map { MedicineCellSection.common($0) }
         
         output.didLoadList()

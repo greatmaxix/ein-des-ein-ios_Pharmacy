@@ -55,14 +55,14 @@ struct Medicine: Codable {
         let priceContainer = try? container.nestedContainer(keyedBy: Keys.self, forKey: .pharmacyProductsAggregationData)
         minPrice = try? priceContainer?.decode(Decimal.self, forKey: .minPrice)
         maxPrice = try? priceContainer?.decode(Decimal.self, forKey: .maxPrice)
-        liked = try container.decode(Bool.self, forKey: .liked)
+        liked = (try? container.decode(Bool.self, forKey: .liked)) ?? false
     }
     
     // TODO: - Remove after adding requests
     
-    init(tittle: String, price: String, imageURL: URL?) {
+    init(title: String, price: String, imageURL: URL?) {
         id = -1
-        name = tittle
+        name = title
         releaseForm = ""
         pictureUrls = []
         manufacturerName = ""
@@ -72,11 +72,15 @@ struct Medicine: Codable {
         liked = false
     }
     
-    var tittle: String {
-        return name
+    var title: String {
+        return name.htmlToString
     }
+    var releaseFormFormatted: String {
+        releaseForm.htmlToString
+    }
+    
     var price: String {
-        return "\(minPrice ?? 0)"
+        return  minPrice?.moneyString(with: currency) ?? "--"
     }
     var imageURL: URL? {
         return nil
