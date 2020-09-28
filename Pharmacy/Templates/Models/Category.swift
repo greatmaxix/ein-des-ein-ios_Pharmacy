@@ -37,7 +37,7 @@ final class Category: Decodable {
     }
 
     enum Keys: String, CodingKey {
-        case rusName
+        case name
         case nodes
         case code
     }
@@ -45,7 +45,7 @@ final class Category: Decodable {
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         
-        title = try container.decode(String.self, forKey: .rusName)
+        title = try container.decode(String.self, forKey: .name)
         code = try container.decode(String.self, forKey: .code)
         subCategories = try? container.decode([Category].self, forKey: .nodes)
     }
