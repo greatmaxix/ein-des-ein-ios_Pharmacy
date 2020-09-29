@@ -794,9 +794,6 @@
 		395D04FD24D04A9F007A278D /* CatalogsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				603D31A124E3B5DD000E5A6C /* CategoryCell */,
-				395D04FE24D04B19007A278D /* CatalogsViewController.swift */,
-				395D050024D04B3A007A278D /* CatalogsModel.swift */,
 			);
 			path = CatalogsViewController;
 			sourceTree = "<group>";
@@ -1096,6 +1093,9 @@
 				6036EAF224DD1A98003336C2 /* CatalogueCoordinator.swift */,
 				6036EAF424DD1AA6003336C2 /* CatalogueViewController.swift */,
 				6036EAF624DD1AB1003336C2 /* CatalogueModel.swift */,
+				603D31A124E3B5DD000E5A6C /* CategoryCell */,
+				395D04FE24D04B19007A278D /* CatalogsViewController.swift */,
+				395D050024D04B3A007A278D /* CatalogsModel.swift */,
 			);
 			path = Catalogue;
 			sourceTree = "<group>";
