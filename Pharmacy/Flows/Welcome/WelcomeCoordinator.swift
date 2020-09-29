@@ -23,14 +23,14 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
       
         super.init(parent: configuration.parent)
         
-        addHandler { [weak self] (event: WelcomeEvent) in
-            switch event {
-            case .openCategories(let category):
-                self?.openCategories(category: category)
-            default:
-                break
-            }
-        }
+//        addHandler { [weak self] (event: WelcomeEvent) in
+//            switch event {
+//            case .openCategories(let category):
+//                self?.openCategories(category: category)
+//            default:
+//                break
+//            }
+//        }
         
         addHandler { [weak self] (event: CatalogsEvent) in
             switch event {

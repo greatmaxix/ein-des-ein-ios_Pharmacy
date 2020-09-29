@@ -26,7 +26,7 @@ class TabBarCoordinator: EventNode, Coordinator {
         return tabBarController
     }
 
-    func addTabCoordinators(coordinators: [TabBarEmbedCoordinable]) {
+    private func addTabCoordinators(coordinators: [TabBarEmbedCoordinable]) {
         var controllers: [UIViewController] = []
         var tabItemMap: [(controller: UIViewController, tabItem: UITabBarItem)] = []
         for coordinator in coordinators {
