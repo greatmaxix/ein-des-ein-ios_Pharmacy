@@ -12,7 +12,7 @@ final class CatalogueViewController: CollectionDataSourceViewController {
     
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
-    var model: CatalogsModelInput!
+    var model: CatalogueModelInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ final class CatalogueViewController: CollectionDataSourceViewController {
 
 // MARK: - CatalogsModelOutput
 
-extension CatalogueViewController: CatalogsModelOutput {
+extension CatalogueViewController: CatalogueModelOutput {
     func didLoadCategories() {
         model.categoryDataSource.assign(collectionView: collectionView)
         indicatorView.stopAnimating()

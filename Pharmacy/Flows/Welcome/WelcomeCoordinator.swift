@@ -32,7 +32,7 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
             }
         }
         
-        addHandler(.onRaise) { [weak self] (event: CatalogsEvent) in
+        addHandler(.onRaise) { [weak self] (event: CatalogueEvent) in
             switch event {
             case .close:
                 self?.popController()

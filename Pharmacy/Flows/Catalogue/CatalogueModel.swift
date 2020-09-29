@@ -10,17 +10,17 @@ import Foundation
 import EventsTree
 import Moya
 
-enum CatalogsEvent: Event {
+enum CatalogueEvent: Event {
     
     case openMedicineListFor(category: Category)
     case close
 }
 
-protocol CatalogsModelOutput: class {
+protocol CatalogueModelOutput: class {
     func didLoadCategories()
 }
 
-protocol CatalogsModelInput: class {
+protocol CatalogueModelInput: class {
     var categoryDataSource: CollectionDataSource<CategoryCellSection> { get }
     var title: String { get }
     func load()
@@ -29,7 +29,7 @@ protocol CatalogsModelInput: class {
 }
 
 class CatalogueModel: Model {
-    unowned var output: CatalogsModelOutput!
+    unowned var output: CatalogueModelOutput!
     let categoryDataSource = CollectionDataSource<CategoryCellSection>()
     let provider = DataManager<CategoryAPI, CategoriesResponse>()
     private var categories: [Category]
@@ -48,10 +48,10 @@ class CatalogueModel: Model {
     }
 }
 
-extension CatalogueModel: CatalogsModelInput {
+extension CatalogueModel: CatalogueModelInput {
     
     func close() {
-        raise(event: CatalogsEvent.close)
+        raise(event: CatalogueEvent.close)
     }
     
     internal func load() {
@@ -89,7 +89,7 @@ extension CatalogueModel: CatalogsModelInput {
         switch cell {
         case .common(let category):
             if category.subCategories?.isEmpty ?? true {
-                raise(event: CatalogsEvent.openMedicineListFor(category: category))
+                raise(event: CatalogueEvent.openMedicineListFor(category: category))
             } else {
                 raise(event: WelcomeEvent.openCategories(category: category))
             }
