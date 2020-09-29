@@ -54,8 +54,11 @@ final class ProductCoordinator: EventNode, Coordinator {
 fileprivate extension ProductCoordinator {
     
      func openMedicineList() {
-        let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
-        navigation.pushViewController(vc, animated: true)
+        let viewController = R.storyboard.catalogue.medicineListViewController()!
+        let model = MedicineListModel(parent: self)
+        viewController.model = model
+        model.output = viewController
+        navigation.pushViewController(viewController, animated: true)
     }
     
     func createMapFlow(medicineId: Int) {

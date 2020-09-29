@@ -86,8 +86,11 @@ extension WelcomeCoordinator {
     }
     
     fileprivate func openMedicineListFor(category: Category) {
-        let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
-        navigation.pushViewController(vc, animated: true)
+        let viewController = R.storyboard.catalogue.medicineListViewController()!
+        let model = MedicineListModel(parent: self)
+        viewController.model = model
+        model.output = viewController
+        navigation.pushViewController(viewController, animated: true)
     }
     
     fileprivate func openProductMedicineFor(medicine: Medicine) {

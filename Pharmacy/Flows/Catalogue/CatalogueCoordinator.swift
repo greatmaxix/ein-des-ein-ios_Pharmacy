@@ -73,7 +73,10 @@ extension CatalogueCoordinator {
     }
     
     private func openMedicineListFor(category: Category) {
-        let viewController = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
+        let viewController = R.storyboard.catalogue.medicineListViewController()!
+        let model = MedicineListModel(parent: self)
+        viewController.model = model
+        model.output = viewController
         root.pushViewController(viewController, animated: true)
     }
 }

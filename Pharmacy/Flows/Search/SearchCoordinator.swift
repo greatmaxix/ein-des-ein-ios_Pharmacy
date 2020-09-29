@@ -52,7 +52,10 @@ extension SearchCoordinator: TabBarEmbedCoordinable {
 extension SearchCoordinator {
     
     private func openMedicineList() {
-        let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
-        root.pushViewController(vc, animated: true)
+        let viewController = R.storyboard.catalogue.medicineListViewController()!
+        let model = MedicineListModel(parent: self)
+        viewController.model = model
+        model.output = viewController
+        root.pushViewController(viewController, animated: true)
     }
 }

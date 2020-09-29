@@ -173,7 +173,6 @@
 		603D320024E657E9000E5A6C /* AlphaHighlightedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31FF24E657E9000E5A6C /* AlphaHighlightedView.swift */; };
 		603D320324E6585C000E5A6C /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D320224E6585C000E5A6C /* ContainerView.swift */; };
 		603D320524E65874000E5A6C /* HighlightedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D320424E65874000E5A6C /* HighlightedTableViewCell.swift */; };
-		603D320924E68442000E5A6C /* MedicineListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D320824E68442000E5A6C /* MedicineListCoordinator.swift */; };
 		6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */; };
 		6075BD4624DEA6FF00BC78BD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075BD4524DEA6FF00BC78BD /* R.generated.swift */; };
 		6075BD4724DEA7FB00BC78BD /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6075BD3324DEA3C800BC78BD /* OpenSans-BoldItalic.ttf */; };
@@ -435,7 +434,6 @@
 		603D31FF24E657E9000E5A6C /* AlphaHighlightedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaHighlightedView.swift; sourceTree = "<group>"; };
 		603D320224E6585C000E5A6C /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		603D320424E65874000E5A6C /* HighlightedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedTableViewCell.swift; sourceTree = "<group>"; };
-		603D320824E68442000E5A6C /* MedicineListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListCoordinator.swift; sourceTree = "<group>"; };
 		6075BD2F24DEA3C800BC78BD /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		6075BD3124DEA3C800BC78BD /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
@@ -1171,7 +1169,6 @@
 			children = (
 				603D31A024E3B5D2000E5A6C /* MedicineCell */,
 				603D31AF24E3C9E4000E5A6C /* MedicineListViewController.swift */,
-				603D320824E68442000E5A6C /* MedicineListCoordinator.swift */,
 				603D31B124E3CA1D000E5A6C /* MedicineListModel.swift */,
 			);
 			path = MedicineList;
@@ -2022,7 +2019,6 @@
 				396448E224ADE17A00E6D852 /* UserDTO.swift in Sources */,
 				60E1A71A24ED025000B3D205 /* CustomIntensityVisualEffectView.swift in Sources */,
 				39273A0B24A0DFEC004A9909 /* Model.swift in Sources */,
-				603D320924E68442000E5A6C /* MedicineListCoordinator.swift in Sources */,
 				395A7FB824A34B5200A7CFC6 /* UIBlockerDelegate.swift in Sources */,
 				3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */,
 				39F0AD6924EEC83000CD6CA4 /* PrescriptionsModel.swift in Sources */,
