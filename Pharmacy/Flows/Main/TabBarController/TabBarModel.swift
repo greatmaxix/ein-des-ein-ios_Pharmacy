@@ -42,15 +42,6 @@ class TabBarModel: Model {
                 self?.output.changeCurrentTab(tab)
             }
         }
-        
-//        addHandler { [weak self] (event: WelcomeEvent) in
-//            switch event {
-//            case .openCategories:
-//                self?.output.changeCurrentTab(.catalogue)
-//            default:
-//                break
-//            }
-//        }
     }
 }
 
