@@ -43,14 +43,14 @@ class TabBarModel: Model {
             }
         }
         
-        addHandler { [weak self] (event: WelcomeEvent) in
-            switch event {
-            case .openCategories(let category):
-                self?.output.changeCurrentTab(.catalogue)
-            default:
-                break
-            }
-        }
+//        addHandler { [weak self] (event: WelcomeEvent) in
+//            switch event {
+//            case .openCategories:
+//                self?.output.changeCurrentTab(.catalogue)
+//            default:
+//                break
+//            }
+//        }
     }
 }
 

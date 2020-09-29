@@ -2,21 +2,47 @@
 //  CatalogueViewController.swift
 //  Pharmacy
 //
-//  Created by Anton Bal’ on 07.08.2020.
+//  Created by CGI-Kite on 28.07.2020.
 //  Copyright © 2020 pharmacy. All rights reserved.
 //
 
 import UIKit
 
-protocol CatalogueViewControllerInput: CatalogueModelOutput {}
-protocol CatalogueViewControllerOutput: CatalogueModelInput {}
-
-final class CatalogueViewController: UIViewController {
-    var model: CatalogueViewControllerOutput!
+final class CatalogueViewController: CollectionDataSourceViewController {
+    
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
+    var model: CatalogsModelInput!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        model.load()
+        setupUI()
+    }
+    
+    private func setupUI() {
+        title = model.title
+        collectionView.backgroundColor = view.backgroundColor
+        view.bringSubviewToFront(indicatorView)
+        indicatorView.startAnimating()
+        model.load()
+        collectionView.delegate = self
+    }
 }
 
-// MARK: - MapViewControllerInput
+// MARK: - CatalogsModelOutput
 
-extension CatalogueViewController: CatalogueViewControllerInput {
-    
+extension CatalogueViewController: CatalogsModelOutput {
+    func didLoadCategories() {
+        model.categoryDataSource.assign(collectionView: collectionView)
+        indicatorView.stopAnimating()
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension CatalogueViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        model.didSelectCategoryBy(indexPath: indexPath)
+    }
 }

@@ -15,7 +15,7 @@ struct MedicineListFlowConfiguration {
 
 final class MedicineListCoordinator: EventNode, Coordinator {
     func createFlow() -> UIViewController {
-        let root =  R.storyboard.welcome.medicineListViewController()!
+        let root =  R.storyboard.catalogue.medicineListViewController()!
         let model = MedicineListModel(parent: self)
         root.model = model
         model.output = root
