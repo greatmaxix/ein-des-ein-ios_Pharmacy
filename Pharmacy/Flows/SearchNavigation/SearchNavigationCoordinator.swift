@@ -39,8 +39,11 @@ extension SearchNavigationCoordinator {
     fileprivate func openList() {
         guard model?.isActive == true else { return }
         
-        let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
-        navigation.pushViewController(vc, animated: true)
+        let viewController = R.storyboard.catalogue.medicineListViewController()!
+        let model = MedicineListModel(parent: self)
+        viewController.model = model
+        model.output = viewController
+        navigation.pushViewController(viewController, animated: true)
     }
     
     fileprivate func openScan() {

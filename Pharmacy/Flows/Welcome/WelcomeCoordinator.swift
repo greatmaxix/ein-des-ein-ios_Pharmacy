@@ -23,7 +23,7 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
       
         super.init(parent: configuration.parent)
         
-        addHandler { [weak self] (event: WelcomeEvent) in
+        addHandler(.onRaise) { [weak self] (event: WelcomeEvent) in
             switch event {
             case .openCategories(let category):
                 self?.openCategories(category: category)
@@ -32,7 +32,7 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
             }
         }
         
-        addHandler { [weak self] (event: CatalogsEvent) in
+        addHandler(.onRaise) { [weak self] (event: CatalogueEvent) in
             switch event {
             case .close:
                 self?.popController()
@@ -78,16 +78,19 @@ extension WelcomeCoordinator {
     }
     
     fileprivate func openCategories(category: Category?) {
-        let vc = R.storyboard.welcome.catalogsViewController()!
-        let model = CatalogsModel(category: category, parent: self)
+        let vc = R.storyboard.catalogue.catalogueViewController()!
+        let model = CatalogueModel(category: category, parent: self)
         model.output = vc
         vc.model = model
         navigation.pushViewController(vc, animated: true)
     }
     
     fileprivate func openMedicineListFor(category: Category) {
-        let vc = MedicineListCoordinator(configuration: .init(parent: self)).createFlow()
-        navigation.pushViewController(vc, animated: true)
+        let viewController = R.storyboard.catalogue.medicineListViewController()!
+        let model = MedicineListModel(parent: self)
+        viewController.model = model
+        model.output = viewController
+        navigation.pushViewController(viewController, animated: true)
     }
     
     fileprivate func openProductMedicineFor(medicine: Medicine) {

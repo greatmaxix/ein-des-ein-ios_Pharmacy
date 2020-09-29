@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hc3-JO-2ok">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hc3-JO-2ok">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -21,89 +20,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Catalogs View Controller-->
-        <scene sceneID="lrf-uJ-kzF">
-            <objects>
-                <viewController storyboardIdentifier="CatalogsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hzm-dD-NB6" customClass="CatalogsViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="P4U-ww-pwV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="w7b-wq-uh2">
-                                <rect key="frame" x="197" y="443" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" name="lightGray"/>
-                        <constraints>
-                            <constraint firstItem="w7b-wq-uh2" firstAttribute="centerX" secondItem="iFb-9R-g3B" secondAttribute="centerX" id="3Cf-yY-LxU"/>
-                            <constraint firstItem="w7b-wq-uh2" firstAttribute="centerY" secondItem="iFb-9R-g3B" secondAttribute="centerY" id="4R5-Wr-qF8"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="iFb-9R-g3B"/>
-                    </view>
-                    <connections>
-                        <outlet property="indicatorView" destination="w7b-wq-uh2" id="cBb-9s-7uc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6cU-Yj-GYl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-230" y="368"/>
-        </scene>
-        <!--Medicine List View Controller-->
-        <scene sceneID="G1Y-hX-3AK">
-            <objects>
-                <viewController storyboardIdentifier="MedicineListViewController" id="R7g-su-5Ii" customClass="MedicineListViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ui9-Os-5pD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UVm-z6-5dn">
-                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="drE-R8-1WJ">
-                                <rect key="frame" x="16" y="64" width="358" height="20"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wd8-qK-UcG">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
-                                        <color key="textColor" name="textDarkBlue"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hs-bd-iVq">
-                                        <rect key="frame" x="255" y="0.0" width="103" height="20"/>
-                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
-                                        <state key="normal" title="Сортировать" image="sort">
-                                            <color key="titleColor" name="textDarkBlue"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="sortAction:" destination="R7g-su-5Ii" eventType="touchUpInside" id="n2s-TV-XDH"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" name="lightGray"/>
-                        <constraints>
-                            <constraint firstItem="drE-R8-1WJ" firstAttribute="top" secondItem="4Kj-D2-qf5" secondAttribute="top" constant="20" id="D4x-rM-q8S"/>
-                            <constraint firstItem="drE-R8-1WJ" firstAttribute="leading" secondItem="4Kj-D2-qf5" secondAttribute="leading" constant="16" id="HKS-ub-jEV"/>
-                            <constraint firstItem="UVm-z6-5dn" firstAttribute="top" secondItem="drE-R8-1WJ" secondAttribute="bottom" constant="20" id="Ovc-GK-lCO"/>
-                            <constraint firstItem="4Kj-D2-qf5" firstAttribute="bottom" secondItem="UVm-z6-5dn" secondAttribute="bottom" id="Psl-kr-QCe"/>
-                            <constraint firstItem="4Kj-D2-qf5" firstAttribute="trailing" secondItem="UVm-z6-5dn" secondAttribute="trailing" id="QcY-lM-kFD"/>
-                            <constraint firstItem="UVm-z6-5dn" firstAttribute="leading" secondItem="4Kj-D2-qf5" secondAttribute="leading" id="WzQ-bh-6uj"/>
-                            <constraint firstItem="4Kj-D2-qf5" firstAttribute="trailing" secondItem="drE-R8-1WJ" secondAttribute="trailing" constant="40" id="r9r-iY-mxR"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="4Kj-D2-qf5"/>
-                    </view>
-                    <connections>
-                        <outlet property="productCountLabel" destination="wd8-qK-UcG" id="oG7-D6-E9I"/>
-                        <outlet property="sortButton" destination="1hs-bd-iVq" id="dm5-au-x7q"/>
-                        <outlet property="tableView" destination="UVm-z6-5dn" id="aPs-qo-eyu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mgh-Go-9bc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="542" y="374"/>
-        </scene>
         <!--Welcome View Controller-->
         <scene sceneID="R6X-tr-sGK">
             <objects>
@@ -462,16 +378,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="sort" width="16" height="16"/>
         <image name="welcomeCategory" width="64" height="64"/>
         <image name="welcomeDiagnostic" width="24" height="24"/>
         <image name="welcomeMap" width="24" height="26.5"/>
         <image name="welcomeMes" width="24" height="24"/>
         <image name="welcomeReceipe" width="24" height="24"/>
         <namedColor name="backgroundGray">
-            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="lightGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textDarkBlue">
