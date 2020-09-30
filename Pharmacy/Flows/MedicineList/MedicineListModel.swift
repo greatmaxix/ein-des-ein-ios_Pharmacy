@@ -73,6 +73,7 @@ extension MedicineListModel {
                                    completion: (() -> Void)? = nil) {
         provider.load(target: .searchByName(name: "",
                                             regionId: userRegionId,
+                                            categoryCode: category?.code,
                                             pageNumber: page,
                                             itemsOnPage: pageSize)) { [weak self] response in
                                                 guard let self = self else {

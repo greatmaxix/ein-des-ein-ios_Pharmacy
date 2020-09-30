@@ -12,11 +12,13 @@ enum SearchAPI: RequestConvertible {
     
     case searchByName(name: String,
         regionId: Int,
-        pageNumber: Int = 0,
+        categoryCode: String? = nil,
+        pageNumber: Int = 1,
         itemsOnPage: Int = 10)
     case searchByBarCode(barCode: String,
         regionId: Int,
-        pageNumber: Int = 0,
+        categoryCode: String? = nil,
+        pageNumber: Int = 1,
         itemsOnPage: Int = 10)
     
     var path: String {
@@ -36,20 +38,25 @@ enum SearchAPI: RequestConvertible {
     }
     
     var task: Task {
+        let params: [String: Any?]
         switch self {
-        case .searchByName(let name, let regionId, let pageNumber, let itemsOnPage):
-            return .requestParameters(parameters: [.nameKey: name,
-                                                   .regionIdKey: regionId,
-                                                   .pageKey: pageNumber,
-                                                   .perPageKey: itemsOnPage],
-                                      encoding: URLEncoding.queryString)
-        case .searchByBarCode(let barCode, let regionId, let pageNumber, let itemsOnPage):
-            return .requestParameters(parameters: [.barCodeKey: barCode,
-                                                   .regionIdKey: regionId,
-                                                   .pageKey: pageNumber,
-                                                   .perPageKey: itemsOnPage],
-                                      encoding: URLEncoding.queryString)
+        case .searchByName(let name, let regionId, let categoryCode, let pageNumber, let itemsOnPage):
+            params = [.nameKey: name,
+                      .regionIdKey: regionId,
+                      .categoryCode: categoryCode,
+                      .pageKey: pageNumber,
+                      .perPageKey: itemsOnPage]
+            
+        case .searchByBarCode(let barCode, let regionId, let categoryCode, let pageNumber, let itemsOnPage):
+            params = [.barCodeKey: barCode,
+                      .regionIdKey: regionId,
+                      .categoryCode: categoryCode,
+                      .pageKey: pageNumber,
+                      .perPageKey: itemsOnPage]
         }
+        
+        return .requestParameters(parameters: params.compactMapValues { $0 },
+                                  encoding: URLEncoding.queryString)
     }
 }
 
@@ -58,6 +65,7 @@ private extension String {
     static let nameKey: String = "name"
     static let barCodeKey: String = "barCode"
     static let regionIdKey: String = "regionId"
+    static let categoryCode: String = "categoryCode"
     static let pageKey: String = "page"
     static let perPageKey: String = "per_page"
 }
