@@ -50,17 +50,24 @@ final class MedicineListViewController: UIViewController {
 }
 
 // MARK: - FarmacyListViewControllerInput
-
 extension MedicineListViewController: MedicineListViewControllerInput {
-    func didLoadList() {
-        model.medicineDataSource.assign(tableView: tableView)
-        productCountLabel.attributedText = titleAttributed(count: model.medicineDataSource.cells.count)
+
+    func retrivesNewResults() {
+        productCountLabel.attributedText = titleAttributed(count: model.totalNumberOfItems)
+    }
+    
+    func retreivingMoreMedicinesDidEnd() {
+        
+    }
+    
+    func needToInsertNewMedicines(at: [IndexPath]?) {
+        
     }
 }
 
 // MARK: - UITableViewDelegate
-
 extension MedicineListViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         model.didSelectProductBy(indexPath: indexPath)
