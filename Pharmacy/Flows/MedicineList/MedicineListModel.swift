@@ -14,10 +14,11 @@ enum MedicineListModelEvent: Event {
 }
 
 protocol MedicineListModelInput: class {
-    var medicineDataSource: TableDataSource<MedicineCellSection> { get }
+    var medicines: [Medicine] { get }
     var title: String { get }
     var totalNumberOfItems: Int { get }
     func load()
+    func retreiveMoreMedecines()
     func didSelectProductBy(indexPath: IndexPath)
 }
 
@@ -32,7 +33,7 @@ final class MedicineListModel: Model {
     // MARK: - Properties
     weak var output: MedicineListModelOutput!
     
-    let medicineDataSource = TableDataSource<MedicineCellSection>()
+//    let medicineDataSource = TableDataSource<MedicineCellSection>()
     private(set) var medicines: [Medicine] = []
     private(set) var totalNumberOfItems: Int = 0
     var title: String {
@@ -56,6 +57,7 @@ final class MedicineListModel: Model {
 
 // MARK: - Private methods
 extension MedicineListModel {
+    
     func retreiveMoreMedecines() {
         retreiveMedecines(on: pageNumber + 1) { [weak output] in
             output?.retreivingMoreMedicinesDidEnd()
@@ -109,12 +111,11 @@ extension MedicineListModel {
 extension MedicineListModel: MedicineListViewControllerOutput {
     
     func didSelectProductBy(indexPath: IndexPath) {
-        guard let cell = medicineDataSource.cell(for: indexPath) else { return }
-        
-        switch cell {
-        case .common(let medicine):
-            raise(event: MedicineListModelEvent.openProduct(medicine))
+        guard indexPath.row <= medicines.endIndex else {
+            return
         }
+        
+        raise(event: MedicineListModelEvent.openProduct(medicines[indexPath.row]))
     }
     
     func load() {
