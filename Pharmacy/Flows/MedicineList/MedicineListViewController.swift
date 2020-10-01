@@ -7,62 +7,139 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 protocol MedicineListViewControllerInput: MedicineListModelOutput {}
 protocol MedicineListViewControllerOutput: MedicineListModelInput {}
 
 final class MedicineListViewController: UIViewController {
     
-    enum GUI {
-        static let sortButtonImagePadding: CGFloat = 9
-        static let separatorInset = UIEdgeInsets.only(left: 135)
-        static let separatorColor = R.color.applyBlueGray()?.withAlphaComponent(0.2)
-    }
-    
+    // MARK: - Outlets
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var productCountLabel: UILabel!
     @IBOutlet private weak var sortButton: UIButton!
     
+    // MARK: - Properties
     var model: MedicineListViewControllerOutput!
     
+    private lazy var activityIndicator: MBProgressHUD = {
+        let hud = MBProgressHUD(view: view)
+        hud.backgroundView.style = .solidColor
+        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
+        hud.removeFromSuperViewOnHide = false
+        view.addSubview(hud)
+        
+        return hud
+    }()
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configUI()
+        setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        activityIndicator.show(animated: true)
         model.load()
     }
-    
-    // MARK: - Private
-    
-    private func configUI() {
-        title = model.title
-        tableView.separatorInset = GUI.separatorInset
-        tableView.separatorColor = GUI.separatorColor
-        tableView.delegate = self
-        sortButton.setTitle(R.string.localize.medicineSort(), for: .normal)
-        sortButton.setTrailingImageViewWith(padding: GUI.sortButtonImagePadding)
-    }
-    
-    // MARK: - Actions
+}
+
+// MARK: - Actions
+extension MedicineListViewController {
     
     @IBAction func sortAction(_ sender: UIButton) {
         
     }
 }
 
-// MARK: - FarmacyListViewControllerInput
+// MARK: - Private
+extension MedicineListViewController {
+    
+    private func configUI() {
+        title = model.title
+        sortButton.setTitle(R.string.localize.medicineSort(), for: .normal)
+        sortButton.setTrailingImageViewWith(padding: GUI.sortButtonImagePadding)
+    }
+    
+    private func setupTableView() {
+        tableView.separatorInset = GUI.separatorInset
+        tableView.separatorColor = GUI.separatorColor
+        tableView.backgroundColor = R.color.lightGray()
+        tableView.register(cellType: MedicineCell.self)
+    }
+}
 
+// MARK: - FarmacyListViewControllerInput
 extension MedicineListViewController: MedicineListViewControllerInput {
-    func didLoadList() {
-        model.medicineDataSource.assign(tableView: tableView)
-        productCountLabel.attributedText = titleAttributed(count: model.medicineDataSource.cells.count)
+    
+    func retrivesNewResults() {
+        productCountLabel.attributedText = titleAttributed(count: model.totalNumberOfItems)
+        activityIndicator.hide(animated: true)
+        tableView.reloadData()
+    }
+    
+    func retreivingMoreMedicinesDidEnd() {
+        activityIndicator.hide(animated: true)
+    }
+    
+    func needToInsertNewMedicines(at indexPathes: [IndexPath]?) {
+        guard let indexPathes = indexPathes else {
+            tableView.isHidden = false
+            tableView.reloadData()
+            
+            return
+        }
+
+        tableView.beginUpdates()
+        tableView.insertRows(at: indexPathes,
+                             with: .automatic)
+        tableView.endUpdates()
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension MedicineListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.medicines.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(at: indexPath, cellType: MedicineCell.self)
+        cell.apply(medicine: model.medicines[indexPath.row])
+        
+        return cell
+    }
+}
+
+// MARK: - UITableViewDataSourcePrefetching
+extension MedicineListViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        let isEndOfList = indexPaths.contains {
+            $0.row == model.medicines.count - 1
+        }
+        
+        guard isEndOfList else {
+            return
+        }
+        
+        activityIndicator.show(animated: true)
+        
+        model.retreiveMoreMedecines()
     }
 }
 
 // MARK: - UITableViewDelegate
-
 extension MedicineListViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
         model.didSelectProductBy(indexPath: indexPath)
     }
 }
@@ -85,5 +162,15 @@ extension MedicineListViewController {
         att.addAttribute(.font, value: countFont, range: NSRange(location: foundText.count + 1, length: countText.count))
         
         return att
+    }
+}
+
+// MARK: - External declaration
+extension MedicineListViewController {
+    
+    enum GUI {
+        static let sortButtonImagePadding: CGFloat = 9
+        static let separatorInset = UIEdgeInsets.only(left: 135)
+        static let separatorColor = R.color.applyBlueGray()?.withAlphaComponent(0.2)
     }
 }
