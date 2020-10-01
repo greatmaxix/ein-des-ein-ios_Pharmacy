@@ -40,6 +40,13 @@ final class CatalogueCoordinator: EventNode, Coordinator {
             }
         }
         
+        addHandler(.onRaise) {  [weak self] (event: MedicineListModelEvent) in
+            switch event {
+            case .openProduct(let medicine):
+                self?.openProductMedicineFor(medicine: medicine)
+            }
+        }
+        
         addHandler { (event: BasketModelEvent) in
             
         }
@@ -75,6 +82,14 @@ extension CatalogueCoordinator {
     private func openMedicineListFor(category: Category) {
         let viewController = R.storyboard.catalogue.medicineListViewController()!
         let model = MedicineListModel(category: category, parent: self)
+        viewController.model = model
+        model.output = viewController
+        root.pushViewController(viewController, animated: true)
+    }
+    
+    private func openProductMedicineFor(medicine: Medicine) {
+        let viewController =  R.storyboard.product.instantiateInitialViewController()!
+        let model = ProductModel(product: medicine, parent: self)
         viewController.model = model
         model.output = viewController
         root.pushViewController(viewController, animated: true)
