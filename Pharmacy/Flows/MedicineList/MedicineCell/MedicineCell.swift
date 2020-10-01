@@ -42,6 +42,7 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
         super.prepareForReuse()
         
         downloadTask?.cancel()
+        self.farmacyImageView.backgroundColor = R.color.mediumGrey()
     }
     
     // MARK: - Public methods
@@ -71,15 +72,22 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
         }
         
         downloadTask = farmacyImageView.loadImageBy(url: url,
-                                                    placeholder: placeholder) { [unowned self] result in
+                                                    placeholder: placeholder) { [weak self] result in
+                                                        guard let self = self else {
+                                                            return
+                                                        }
+                                                        
                                                         switch result {
                                                         case .success(let imageData):
-                                                            self.farmacyImageView.backgroundColor = .clear
-                                                            if medicine.minPrice == nil {
+                                                            guard medicine.minPrice != nil else {
                                                                 self.farmacyImageView.image = imageData.image.grayscaled()
+                                                                
+                                                                return
                                                             }
+                                                            
+                                                            self.farmacyImageView.backgroundColor = .clear
                                                         case .failure:
-                                                            self.farmacyImageView.backgroundColor = R.color.mediumGrey()
+                                                            break
                                                         }
         }
     }

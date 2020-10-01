@@ -138,7 +138,6 @@
 		603D31A724E3B627000E5A6C /* CategoryCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31A624E3B627000E5A6C /* CategoryCellSection.swift */; };
 		603D31A924E3B67B000E5A6C /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31A824E3B67B000E5A6C /* Category.swift */; };
 		603D31AB24E3BFBE000E5A6C /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31AA24E3BFBE000E5A6C /* UIEdgeInsets.swift */; };
-		603D31AD24E3C8F8000E5A6C /* MedicineCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31AC24E3C8F8000E5A6C /* MedicineCellSection.swift */; };
 		603D31B024E3C9E4000E5A6C /* MedicineListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31AF24E3C9E4000E5A6C /* MedicineListViewController.swift */; };
 		603D31B224E3CA1D000E5A6C /* MedicineListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31B124E3CA1D000E5A6C /* MedicineListModel.swift */; };
 		603D31B424E3CFEE000E5A6C /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31B324E3CFEE000E5A6C /* Medicine.swift */; };
@@ -399,7 +398,6 @@
 		603D31A624E3B627000E5A6C /* CategoryCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellSection.swift; sourceTree = "<group>"; };
 		603D31A824E3B67B000E5A6C /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		603D31AA24E3BFBE000E5A6C /* UIEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
-		603D31AC24E3C8F8000E5A6C /* MedicineCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineCellSection.swift; sourceTree = "<group>"; };
 		603D31AF24E3C9E4000E5A6C /* MedicineListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListViewController.swift; sourceTree = "<group>"; };
 		603D31B124E3CA1D000E5A6C /* MedicineListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListModel.swift; sourceTree = "<group>"; };
 		603D31B324E3CFEE000E5A6C /* Medicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicine.swift; sourceTree = "<group>"; };
@@ -1148,7 +1146,6 @@
 			isa = PBXGroup;
 			children = (
 				395D050324D05206007A278D /* MedicineCell.swift */,
-				603D31AC24E3C8F8000E5A6C /* MedicineCellSection.swift */,
 				395D050424D05206007A278D /* MedicineCell.xib */,
 			);
 			path = MedicineCell;
@@ -2052,7 +2049,6 @@
 				603D31CD24E57E6B000E5A6C /* ProductPageViewController.swift in Sources */,
 				392BD73A24FFE23000088002 /* CategoryAPI.swift in Sources */,
 				603D319624E3B22A000E5A6C /* TableDataSource.swift in Sources */,
-				603D31AD24E3C8F8000E5A6C /* MedicineCellSection.swift in Sources */,
 				395A7FC524A3980D00A7CFC6 /* NameTableViewCell.swift in Sources */,
 				603D31DB24E5A88C000E5A6C /* ProductAnalogTableViewCell.swift in Sources */,
 				39520E8E24A5EFAC00C2B7D8 /* UIViewController+Alert.swift in Sources */,

@@ -33,7 +33,6 @@ final class MedicineListModel: Model {
     // MARK: - Properties
     weak var output: MedicineListModelOutput!
     
-//    let medicineDataSource = TableDataSource<MedicineCellSection>()
     private(set) var medicines: [Medicine] = []
     private(set) var totalNumberOfItems: Int = 0
     var title: String {

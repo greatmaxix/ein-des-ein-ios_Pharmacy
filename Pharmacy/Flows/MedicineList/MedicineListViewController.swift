@@ -43,6 +43,7 @@ final class MedicineListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        activityIndicator.show(animated: true)
         model.load()
     }
 }
@@ -77,6 +78,7 @@ extension MedicineListViewController: MedicineListViewControllerInput {
     
     func retrivesNewResults() {
         productCountLabel.attributedText = titleAttributed(count: model.totalNumberOfItems)
+        activityIndicator.hide(animated: true)
         tableView.reloadData()
     }
     
