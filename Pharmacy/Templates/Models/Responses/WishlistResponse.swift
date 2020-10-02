@@ -28,3 +28,24 @@ struct WishlistResponse: Codable {
         totalNumberOfItems = try container.decode(Int.self, forKey: .totalCount)
     }
 }
+
+struct ListContainerResponse<Entity: Decodable>: Decodable {
+    
+    let entities: [Entity]
+    let currentPage: Int
+    let totalNumberOfItems: Int
+    
+    enum Keys: String, CodingKey {
+        case items
+        case currentPageNumber
+        case totalCount
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+        
+        entities = try container.decode([Entity].self, forKey: .items)
+        currentPage = try container.decode(Int.self, forKey: .currentPageNumber)
+        totalNumberOfItems = try container.decode(Int.self, forKey: .totalCount)
+    }
+}

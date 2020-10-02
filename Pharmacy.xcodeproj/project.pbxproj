@@ -261,6 +261,10 @@
 		875223D42501152F000759C8 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223D32501152F000759C8 /* UserEntity.swift */; };
 		875223D625011588000759C8 /* UserDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223D525011588000759C8 /* UserDisplayable.swift */; };
 		878CFC0E2514CC1C00298139 /* Decimal+MoneyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CFC0D2514CC1C00298139 /* Decimal+MoneyFormat.swift */; };
+		87A50B6625261FEF00CF89CF /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6525261FEF00CF89CF /* Manufacturer.swift */; };
+		87A50B682526256800CF89CF /* ImageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B672526256800CF89CF /* ImageContainer.swift */; };
+		87A50B6A25262FAD00CF89CF /* PriceRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6925262FAD00CF89CF /* PriceRange.swift */; };
+		87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6D2527072800CF89CF /* ProductAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -520,6 +524,10 @@
 		875223D32501152F000759C8 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		875223D525011588000759C8 /* UserDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDisplayable.swift; sourceTree = "<group>"; };
 		878CFC0D2514CC1C00298139 /* Decimal+MoneyFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+MoneyFormat.swift"; sourceTree = "<group>"; };
+		87A50B6525261FEF00CF89CF /* Manufacturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manufacturer.swift; sourceTree = "<group>"; };
+		87A50B672526256800CF89CF /* ImageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageContainer.swift; sourceTree = "<group>"; };
+		87A50B6925262FAD00CF89CF /* PriceRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRange.swift; sourceTree = "<group>"; };
+		87A50B6D2527072800CF89CF /* ProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPI.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -793,6 +801,7 @@
 		396448E024ADE16600E6D852 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				87A50B6425261FD100CF89CF /* Subentities */,
 				395324BA2508CE270038D2DC /* Responses */,
 				603D319024E3A7FD000E5A6C /* Receipt.swift */,
 				603D31A824E3B67B000E5A6C /* Category.swift */,
@@ -1458,6 +1467,7 @@
 				393DDFBF25028F3D00652A01 /* LocationAPI.swift */,
 				8717E4DD2507744500546A55 /* SearchAPI.swift */,
 				398880BF250F753200942D30 /* MapAPI.swift */,
+				87A50B6D2527072800CF89CF /* ProductAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1671,6 +1681,16 @@
 				875223D525011588000759C8 /* UserDisplayable.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		87A50B6425261FD100CF89CF /* Subentities */ = {
+			isa = PBXGroup;
+			children = (
+				87A50B6525261FEF00CF89CF /* Manufacturer.swift */,
+				87A50B672526256800CF89CF /* ImageContainer.swift */,
+				87A50B6925262FAD00CF89CF /* PriceRange.swift */,
+			);
+			path = Subentities;
 			sourceTree = "<group>";
 		};
 		8C9DDD9B3FE3CF15F89405BA /* Pods */ = {
@@ -1985,6 +2005,7 @@
 				3939A6D524F6A3C90045FB71 /* LocationService.swift in Sources */,
 				619AAA402498A9AE00AB46ED /* AuthAPI.swift in Sources */,
 				398880C4250F799400942D30 /* PharmacyResponse.swift in Sources */,
+				87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */,
 				60E1A71524ECE0DD00B3D205 /* ScanCoordinator.swift in Sources */,
 				395D050124D04B3A007A278D /* CatalogueModel.swift in Sources */,
 				393DDFB7250280F300652A01 /* RegionModel.swift in Sources */,
@@ -2004,6 +2025,7 @@
 				39F0AD6724EEC81400CD6CA4 /* OrdersModel.swift in Sources */,
 				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
 				396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */,
+				87A50B682526256800CF89CF /* ImageContainer.swift in Sources */,
 				87131D30251146960050B8F2 /* EmptySearchView.swift in Sources */,
 				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,
 				393DDFC32502954200652A01 /* RegionHeaderCell.swift in Sources */,
@@ -2030,6 +2052,7 @@
 				603D319824E3B22A000E5A6C /* TableCellSection.swift in Sources */,
 				603D31D224E5A09F000E5A6C /* ProductInfoTableViewCell.swift in Sources */,
 				39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */,
+				87A50B6A25262FAD00CF89CF /* PriceRange.swift in Sources */,
 				6036EAF324DD1A98003336C2 /* CatalogueCoordinator.swift in Sources */,
 				395C9D782499FC14001EB6CD /* BaseTextValidator.swift in Sources */,
 				6036EB0524DD27B2003336C2 /* SearchViewController.swift in Sources */,
@@ -2098,6 +2121,7 @@
 				60E1A70A24ECD5F200B3D205 /* SearchNavigationCoordinator.swift in Sources */,
 				871E71A5250160A000C8489B /* Storable.swift in Sources */,
 				3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */,
+				87A50B6625261FEF00CF89CF /* Manufacturer.swift in Sources */,
 				395D04FA24D01230007A278D /* ReadyOrderView.swift in Sources */,
 				395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */,
 				6075BD5824DEB94F00BC78BD /* NavigationBar.swift in Sources */,

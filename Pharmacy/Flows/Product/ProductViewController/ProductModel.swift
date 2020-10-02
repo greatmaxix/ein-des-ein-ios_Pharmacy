@@ -40,7 +40,6 @@ final class ProductModel: Model {
         self.medicine = product
         super.init(parent: parent)
     }
-    
 }
 
 // MARK: - ProductViewControllerOutput
@@ -51,7 +50,7 @@ extension ProductModel: ProductViewControllerOutput {
     
     func load() {
         
-        product = Product(imageURLs: [], title: "АЛЛОПУРИНОЛ-ЭГИС, 40 мг", subtitle: "Таблетки шипучие, 24 шт", description: "Таблетки покрытые пленочной оболочкой от светло-серого до темно-серого цвета, капсуловидной формы, сгравировкой \"PRENATAL\" с одной стороны и \"FORTE\" с другой стороны, со специфическим запахом", fromPrice: "568", toPrice: "568", currency: "$", analog: "Дротаверин", category: "Противогрибковый", tags: ["Спазмы", "Язва", "Головная боль", "Гастрит", "Болит живот", "Дисменорея"], company: "Chinoin Pharmaceutical and Chemical Works Co. Венгрия")
+//        product = Product(imageURLs: [], title: "АЛЛОПУРИНОЛ-ЭГИС, 40 мг", subtitle: "Таблетки шипучие, 24 шт", description: "Таблетки покрытые пленочной оболочкой от светло-серого до темно-серого цвета, капсуловидной формы, сгравировкой \"PRENATAL\" с одной стороны и \"FORTE\" с другой стороны, со специфическим запахом", fromPrice: "568", toPrice: "568", currency: "$", analog: "Дротаверин", category: "Противогрибковый", tags: ["Спазмы", "Язва", "Головная боль", "Гастрит", "Болит живот", "Дисменорея"], company: "Chinoin Pharmaceutical and Chemical Works Co. Венгрия")
         dataSource.cells = ProductCellSection.allSectionsFor(product: product)
         output.didLoad(product: product)
     }

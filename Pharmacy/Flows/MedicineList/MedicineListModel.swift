@@ -40,7 +40,7 @@ final class MedicineListModel: Model {
     }
     
     private var category: Category?
-    private let provider = DataManager<SearchAPI, WishlistResponse>()
+    private let provider = DataManager<SearchAPI, ListContainerResponse<Medicine>>()
     private var pageNumber: Int = 1
     
     private lazy var userRegionId: Int = {
@@ -85,12 +85,12 @@ extension MedicineListModel {
                                                 case .success(let result):
                                                     self.pageNumber = result.currentPage
                                                     self.totalNumberOfItems = result.totalNumberOfItems
-                                                    self.medicines.append(contentsOf: result.medicines)
+                                                    self.medicines.append(contentsOf: result.entities)
                                                     if self.pageNumber == 1 {
                                                         self.output.retrivesNewResults()
                                                     } else if self.pageNumber > 1 {
-                                                        let startIndex = self.medicines.count - result.medicines.count
-                                                        let endIndex = startIndex + result.medicines.count
+                                                        let startIndex = self.medicines.count - result.entities.count
+                                                        let endIndex = startIndex + result.entities.count
                                                         let indexPathesToInsert = (startIndex..<endIndex).map {
                                                             IndexPath(row: $0, section: 0)
                                                         }

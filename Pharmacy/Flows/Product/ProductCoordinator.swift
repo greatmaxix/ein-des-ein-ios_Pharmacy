@@ -41,7 +41,7 @@ final class ProductCoordinator: EventNode, Coordinator {
                 self.openMedicineList()
             case .openMap(let product):
                 // TODO: Replace product by medicine after adding detail medicine request
-                self.createMapFlow(medicineId: product.id)
+                self.createMapFlow(medicineId: product.identifier)
             case .openFarmacyList(let pharmacies):
                 self.openMapFarmacyList(pharmacies: pharmacies)
             case .openCheckout:

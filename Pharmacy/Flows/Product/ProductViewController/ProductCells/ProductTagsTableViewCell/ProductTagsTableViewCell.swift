@@ -37,6 +37,6 @@ final class ProductTagsTableViewCell: UITableViewCell {
     }
 
     func apply(product: Product) {
-        tagsView.addTags(product.tags, with: config)
+//        tagsView.addTags(product.tags, with: config)
     }
 }

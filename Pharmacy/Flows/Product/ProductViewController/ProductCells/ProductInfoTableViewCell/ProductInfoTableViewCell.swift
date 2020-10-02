@@ -23,10 +23,10 @@ final class ProductInfoTableViewCell: UITableViewCell {
     }
     
     func apply(product: Product) {
-        titleLabel.text = product.title
-        subtitleLabel.text = product.subtitle
-        descriptionLabel.text = product.company
-        fromPriceLabel.attributedText = NSAttributedString.fromPriceAttributed(for: product.fromPrice, currency: product.currency)
-        toPriceLabel.attributedText = NSAttributedString.toPriceAttributed(for: product.fromPrice, currency: product.currency)
+//        titleLabel.text = product.title
+//        subtitleLabel.text = product.subtitle
+//        descriptionLabel.text = product.company
+//        fromPriceLabel.attributedText = NSAttributedString.fromPriceAttributed(for: product.fromPrice, currency: product.currency)
+//        toPriceLabel.attributedText = NSAttributedString.toPriceAttributed(for: product.fromPrice, currency: product.currency)
     }
 }
