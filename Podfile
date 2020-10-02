@@ -13,7 +13,6 @@ target 'Pharmacy' do
   pod 'EventsTree'
   pod 'Moya', '~> 14.0'
   pod 'Kingfisher', '~> 5.0'
-  pod "TTGTagCollectionView"
   pod 'GoogleMaps'
   pod 'MBProgressHUD', '~> 1.2.0'
 end
