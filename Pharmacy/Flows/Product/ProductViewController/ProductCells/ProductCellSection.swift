@@ -17,7 +17,6 @@ enum ProductCellSection: ProductCellSections {
     case info(Product)
     case analog(Product)
     case category(Product)
-    case tags(Product)
     case description(Product)
     case instruction(Product)
     case advice(Product)
@@ -28,7 +27,6 @@ enum ProductCellSection: ProductCellSections {
             .info(product),
             .analog(product),
             .category(product),
-            .tags(product),
             .description(product),
             .instruction(product),
             .advice(product),
@@ -41,7 +39,6 @@ enum ProductCellSection: ProductCellSections {
         case .info(let product),
              .analog(let product),
              .category(let product),
-             .tags(let product),
              .advice(let product),
              .description(let product),
              .instruction(let product),
@@ -62,8 +59,6 @@ enum ProductCellSection: ProductCellSections {
             return ProductAnalogTableViewCell.self
         case .category:
             return ProductCategoryTableViewCell.self
-        case .tags:
-            return ProductTagsTableViewCell.self
         case .description:
             return ProductDescriptionTableViewCell.self
         case .instruction:
@@ -82,8 +77,6 @@ enum ProductCellSection: ProductCellSections {
         case let cell as ProductAnalogTableViewCell:
             cell.apply(product: product)
         case let cell as ProductCategoryTableViewCell:
-            cell.apply(product: product)
-        case let cell as ProductTagsTableViewCell:
             cell.apply(product: product)
         case let cell as ProductDescriptionTableViewCell:
             cell.apply(product: product)
