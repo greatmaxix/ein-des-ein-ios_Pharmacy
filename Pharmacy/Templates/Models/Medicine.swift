@@ -88,5 +88,5 @@ struct Medicine: Codable {
     var imageURL: URL? {
         return nil
     }
-    var currency = "₽"
+    var currency = "₸"
 }

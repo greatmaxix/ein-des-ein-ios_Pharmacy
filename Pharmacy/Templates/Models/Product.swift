@@ -10,63 +10,33 @@ import Foundation
 import Moya
 
 struct Product: Decodable {
+    
+    // MARK: - Properties
     let identifier: Int
     let name: String
     let releaseForm: String
     let description: String
     let category: String
-    
     var imageURLs: [URL]
-    
     let activeSubstances: [String]
-    
     let manufacturer: Manufacturer
-    
-    let priceRange: PriceRange
     let isLiked: Bool
-
-//    let title: String
-//    let subtitle: String
-//
-//    let fromPrice: String
-//    let toPrice: String
-//    let currency: String
-//    let analog: String
-//    let tags: [String]
-//    let company: String
     
-    enum Keys: String, CodingKey {
-        case globalProductId
-        case rusName
-        case releaseForm
-        case description
-        case category
-        case pictures
-        case activeSubstances
-        
-        case manufacturerData
-//        case localName
-//        case iso3CountryCode
-        
-        case pharmacyProductsAggregationData
-//        case minPrice
-//        case maxPrice
-        
-        
-        
-        case liked
-        
-        case url
-//        case manufacturerData
-//        case localName
-//        case iso3CountryCode
+    var currency = "₸"
+    var minPrice: String {
+        return  priceRange?.minPrice.moneyString(with: currency) ?? "--"
     }
+    var maxPrice: String {
+        return  priceRange?.minPrice.moneyString(with: currency) ?? "--"
+    }
+    
+    private let priceRange: PriceRange?
 
+    // MARK: - Init / Deinit methods
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         
         identifier = try container.decode(Int.self, forKey: .globalProductId)
-        
         name = try container.decode(String.self, forKey: .rusName)
         releaseForm = try container.decode(String.self, forKey: .releaseForm)
         description = try container.decode(String.self, forKey: .description)
@@ -80,26 +50,26 @@ struct Product: Decodable {
         }
         
         activeSubstances = try container.decode([String].self, forKey: .activeSubstances)
-        
         manufacturer = try container.decode(Manufacturer.self, forKey: .manufacturerData)
-        
-        priceRange = try container.decode(PriceRange.self, forKey: .pharmacyProductsAggregationData)
+        priceRange = try container.decodeIfPresent(PriceRange.self, forKey: .pharmacyProductsAggregationData)
         isLiked = (try? container.decode(Bool.self, forKey: .liked)) ?? false
-//
-//        let manufactureContainer = try container.nestedContainer(keyedBy: Keys.self, forKey: .manufacturerData)
-//        manufacturerName = try manufactureContainer.decode(String.self, forKey: .localName)
-//        manufacturerCountryCode = try manufactureContainer.decode(String.self, forKey: .iso3CountryCode)
-//
-//        let priceContainer = try? container.nestedContainer(keyedBy: Keys.self, forKey: .pharmacyProductsAggregationData)
-//        minPrice = try? priceContainer?.decode(Decimal.self, forKey: .minPrice)
-//        maxPrice = try? priceContainer?.decode(Decimal.self, forKey: .maxPrice)
-        
     }
 }
 
-extension Product: ParseKeyPath {
+// MARK: - Coding Keys
+extension Product {
     
-    static var parseKeyPathExtension: String {
-        "item"
+    enum Keys: String, CodingKey {
+        case globalProductId
+        case rusName
+        case releaseForm
+        case description
+        case category
+        case pictures
+        case activeSubstances
+        case manufacturerData
+        case pharmacyProductsAggregationData
+        case liked
+        case url
     }
 }

@@ -26,6 +26,6 @@ final class ProductAnalogTableViewCell: HighlightedTableViewCell, ContainerView 
     }
     
     func apply(product: Product) {
-//        titleLabel.text = product.analog
+        titleLabel.text = product.activeSubstances.first
     }
 }

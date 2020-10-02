@@ -49,3 +49,8 @@ struct ListContainerResponse<Entity: Decodable>: Decodable {
         totalNumberOfItems = try container.decode(Int.self, forKey: .totalCount)
     }
 }
+
+struct SingleItemContainerResponse<Entity: Decodable>: Decodable {
+    
+    let item: Entity
+}
