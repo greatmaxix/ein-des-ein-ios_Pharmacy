@@ -2,10 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Access camera is needed to make user photo.</string>
+	<key>APIHost</key>
+	<string>$(API_HOST)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -26,12 +24,14 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSPhotoLibraryUsageDescription</key>
+	<key>NSCameraUsageDescription</key>
 	<string>Access camera is needed to make user photo.</string>
 	<key>NSLocationUsageDescription</key>
 	<string>Access to location is needed to find nearest farmacies</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Access to location is needed to find nearest farmacies</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Access camera is needed to make user photo.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>OpenSans-Bold.ttf</string>
@@ -70,7 +70,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>APIHost</key>
-	<string>$(API_HOST)</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>
