@@ -20,6 +20,8 @@ final class SignUpViewController: UIViewController {
     @IBOutlet weak var applyButton: UIButton!
     @IBOutlet weak var privacyLabel: UILabel!
     @IBOutlet weak var registrationLabel: UILabel!
+    @IBOutlet private weak var accountLabel: UILabel!
+    @IBOutlet private weak var loginButton: UIButton!
     
     private var tapGesture: UITapGestureRecognizer!
     private var privacyGesture: UITapGestureRecognizer!
@@ -86,6 +88,8 @@ final class SignUpViewController: UIViewController {
         descriptionLabel.text = R.string.localize.signupDescription()
         skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
         registrationLabel.text = R.string.localize.signupRegistration()
+        accountLabel.text = R.string.localize.loginAccount()
+        loginButton.titleLabel?.text = R.string.localize.loginEnter()
         
         if let font: UIFont = R.font.openSansRegular(size: 14) {
             
@@ -96,6 +100,11 @@ final class SignUpViewController: UIViewController {
             attrText.append(linkText)
             privacyLabel.attributedText = attrText
         }
+    }
+    
+    @IBAction func loginToAccount(_ sender: UIButton) {
+        //qwerty заглушка
+        //model.signUp()
     }
     
     // MARK: - Keyboard

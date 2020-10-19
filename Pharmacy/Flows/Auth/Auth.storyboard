@@ -66,7 +66,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L6I-Kh-fZe">
-                                        <rect key="frame" x="16" y="764.5" width="382" height="30"/>
+                                        <rect key="frame" x="16" y="649.5" width="382" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="DVL-ND-QJe"/>
                                         </constraints>
@@ -112,17 +112,43 @@
                                         <color key="textColor" name="textDarkBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ruh-r8-gCU">
+                                        <rect key="frame" x="162.5" y="612.5" width="89.5" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLn-c2-VlU">
+                                                <rect key="frame" x="0.0" y="0.0" width="34.5" height="30"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                                <color key="textColor" name="textDarkBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnq-qX-pJm">
+                                                <rect key="frame" x="46.5" y="0.0" width="43" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="UeQ-XY-H8T"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" name="welcomeBlue"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="createAccount:" destination="YLA-4e-cX8" eventType="touchUpInside" id="MCc-f0-vFg"/>
+                                                    <action selector="loginToAccount:" destination="miv-fQ-a94" eventType="touchUpInside" id="0UX-He-I7u"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="WQk-b3-Nxw" firstAttribute="leading" secondItem="Sjv-TE-D3z" secondAttribute="leading" id="2bz-7G-wep"/>
                                     <constraint firstItem="S2u-Vq-b7l" firstAttribute="width" secondItem="bTb-bJ-YBF" secondAttribute="width" constant="-32" id="3es-Uc-OyG"/>
+                                    <constraint firstItem="L6I-Kh-fZe" firstAttribute="top" secondItem="ruh-r8-gCU" secondAttribute="bottom" constant="7" id="7L0-4G-bzb"/>
                                     <constraint firstItem="S2u-Vq-b7l" firstAttribute="leading" secondItem="WQk-b3-Nxw" secondAttribute="leading" id="9O6-0Z-6VK"/>
                                     <constraint firstAttribute="trailing" secondItem="L6I-Kh-fZe" secondAttribute="trailing" constant="16" id="9pL-WW-QAt"/>
                                     <constraint firstItem="ht5-zh-5Uk" firstAttribute="top" secondItem="7rl-Lj-mcb" secondAttribute="bottom" constant="8" id="9po-yy-UIa"/>
                                     <constraint firstItem="LJ5-LA-nPg" firstAttribute="top" secondItem="m6B-89-TlH" secondAttribute="bottom" constant="52" id="Bsu-li-qBi"/>
                                     <constraint firstItem="gzs-Bg-4pR" firstAttribute="top" secondItem="S2u-Vq-b7l" secondAttribute="bottom" constant="12" id="DBc-ry-Qe5"/>
-                                    <constraint firstItem="L6I-Kh-fZe" firstAttribute="top" secondItem="ht5-zh-5Uk" secondAttribute="bottom" constant="225" id="DIg-bK-3b0"/>
+                                    <constraint firstItem="L6I-Kh-fZe" firstAttribute="top" secondItem="ht5-zh-5Uk" secondAttribute="bottom" constant="110" id="DIg-bK-3b0"/>
                                     <constraint firstItem="L6I-Kh-fZe" firstAttribute="leading" secondItem="bTb-bJ-YBF" secondAttribute="leading" constant="16" id="Idd-1f-ulY"/>
                                     <constraint firstItem="m6B-89-TlH" firstAttribute="top" secondItem="gzs-Bg-4pR" secondAttribute="bottom" constant="12" id="JZ2-Is-MDI"/>
                                     <constraint firstItem="ht5-zh-5Uk" firstAttribute="leading" secondItem="bTb-bJ-YBF" secondAttribute="leading" constant="21" id="K9Y-Ed-ZHn"/>
@@ -138,6 +164,7 @@
                                     <constraint firstItem="EhB-65-C0p" firstAttribute="top" secondItem="bTb-bJ-YBF" secondAttribute="top" constant="20" id="keh-tY-N6E"/>
                                     <constraint firstItem="EhB-65-C0p" firstAttribute="centerX" secondItem="bTb-bJ-YBF" secondAttribute="centerX" id="p2J-HH-9oq"/>
                                     <constraint firstAttribute="trailing" secondItem="ht5-zh-5Uk" secondAttribute="trailing" constant="21" id="qfz-gs-dD8"/>
+                                    <constraint firstItem="ruh-r8-gCU" firstAttribute="centerX" secondItem="bTb-bJ-YBF" secondAttribute="centerX" id="r0n-uE-rYh"/>
                                     <constraint firstItem="ht5-zh-5Uk" firstAttribute="centerX" secondItem="bTb-bJ-YBF" secondAttribute="centerX" id="rNK-o6-K9V"/>
                                     <constraint firstItem="LJ5-LA-nPg" firstAttribute="centerY" secondItem="7rl-Lj-mcb" secondAttribute="centerY" id="vEg-Wf-lrB"/>
                                     <constraint firstItem="gzs-Bg-4pR" firstAttribute="leading" secondItem="S2u-Vq-b7l" secondAttribute="leading" id="wGG-LV-dSg"/>
@@ -169,8 +196,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="tjC-Mg-Dga"/>
                     <connections>
+                        <outlet property="accountLabel" destination="wLn-c2-VlU" id="wrZ-sz-cS5"/>
                         <outlet property="applyButton" destination="7rl-Lj-mcb" id="wIB-Oa-4A6"/>
                         <outlet property="descriptionLabel" destination="WQk-b3-Nxw" id="Abb-2U-1uJ"/>
+                        <outlet property="loginButton" destination="Xnq-qX-pJm" id="ffR-G8-WZf"/>
                         <outlet property="privacyLabel" destination="ht5-zh-5Uk" id="yLQ-ij-Swh"/>
                         <outlet property="registrationLabel" destination="LJ5-LA-nPg" id="g0V-2f-BKa"/>
                         <outlet property="scrollView" destination="bTb-bJ-YBF" id="N5H-hf-Zvw"/>
