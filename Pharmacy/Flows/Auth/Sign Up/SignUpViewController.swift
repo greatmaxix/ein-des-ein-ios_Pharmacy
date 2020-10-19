@@ -88,8 +88,8 @@ final class SignUpViewController: UIViewController {
         descriptionLabel.text = R.string.localize.signupDescription()
         skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
         registrationLabel.text = R.string.localize.signupRegistration()
-        accountLabel.text = R.string.localize.loginAccount()
-        loginButton.titleLabel?.text = R.string.localize.loginEnter()
+        accountLabel.text = R.string.localize.signupAccount()
+        loginButton.setTitle(R.string.localize.loginSignin() , for: .normal)
         
         if let font: UIFont = R.font.openSansRegular(size: 14) {
             
@@ -104,7 +104,7 @@ final class SignUpViewController: UIViewController {
     
     @IBAction func loginToAccount(_ sender: UIButton) {
         //qwerty заглушка
-        //model.signUp()
+        model.signIn()
     }
     
     // MARK: - Keyboard

@@ -68,6 +68,8 @@
 "signup.skip" = "Пропустить";
 "signup.apply" = "Далее";
 "signup.privacy" = "Регистрируясь, я соглашаюсь на ";
+"signup.account" = "Уже есть аккаунт ?";
+"login.signin" = "Войдите";
 "signup.registration" = "Регистрация";
 "signup.link" = "Обработку персональных данных";
 
