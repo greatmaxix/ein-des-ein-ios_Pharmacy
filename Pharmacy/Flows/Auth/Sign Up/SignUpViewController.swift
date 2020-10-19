@@ -16,15 +16,10 @@ final class SignUpViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var socialNetworksLabel: UILabel!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var applyButton: UIButton!
     @IBOutlet weak var privacyLabel: UILabel!
     @IBOutlet weak var registrationLabel: UILabel!
-    
-    @IBOutlet weak var facebookButton: UIButton!
-    @IBOutlet weak var googleButton: UIButton!
-    @IBOutlet weak var appleButton: UIButton!
     
     private var tapGesture: UITapGestureRecognizer!
     private var privacyGesture: UITapGestureRecognizer!
@@ -44,7 +39,6 @@ final class SignUpViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
     @IBAction func apply(_ sender: UIButton) {
         
         if areFieldsValid {
@@ -84,20 +78,12 @@ final class SignUpViewController: UIViewController {
         privacyLabel.addGestureRecognizer(privacyGesture)
         
         applyButton.layer.cornerRadius = applyButton.frame.height / 2
-        facebookButton.layer.cornerRadius = facebookButton.frame.height / 2
-        googleButton.layer.cornerRadius = googleButton.frame.height / 2
-        appleButton.layer.cornerRadius = appleButton.frame.height / 2
-        
-        facebookButton.dropBlueShadow()
-        googleButton.dropBlueShadow()
-        appleButton.dropBlueShadow()
     }
     
     private func setupLocalization() {
         
         titleLabel.text = R.string.localize.signupTitle()
         descriptionLabel.text = R.string.localize.signupDescription()
-        socialNetworksLabel.text = R.string.localize.signupSocial()
         skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
         registrationLabel.text = R.string.localize.signupRegistration()
         
