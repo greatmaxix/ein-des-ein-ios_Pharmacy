@@ -30,6 +30,8 @@ class AuthFlowCoordinator: EventNode, Coordinator {
                 self?.presentConfirmSMS(phone: phone)
             case .signUp:
                 self?.presentSignUp()
+            case .back:
+                self?.popController()
             }
         }
         

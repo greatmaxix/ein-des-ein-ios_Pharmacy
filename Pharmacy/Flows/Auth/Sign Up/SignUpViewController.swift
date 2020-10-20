@@ -38,7 +38,6 @@ final class SignUpViewController: UIViewController {
 
         setupUI()
         setupLocalization()
-        navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - Actions
@@ -59,6 +58,18 @@ final class SignUpViewController: UIViewController {
     
     @IBAction func back(_ sender: UIButton) {
         model.close()
+    }
+    
+    private func setupNavigationBar(isRootVC: Bool?){
+        guard let state = isRootVC, state==false, let navVC = navigationController else {
+            navigationController?.navigationBar.isHidden = true
+            return
+        }
+        navigationController?.navigationBar.isHidden = false
+        if let bar = navVC.navigationBar as? SimpleNavigationBar{
+        bar.title = "SignUp"
+        bar.barDelegate = self
+        }
     }
     
     // MARK: - Setup
@@ -199,5 +210,16 @@ extension SignUpViewController: SignUpOutput {
     
     func unblockApplyButton() {
         applyButton.isUserInteractionEnabled = true
+    }
+}
+
+//MARK:- extension for SimpleNavigationBarDelegate
+extension SignUpViewController : SimpleNavigationBarDelegate {
+    func leftBarItemAction() {
+        model.close()
+    }
+    
+    func rightBarItemAction() {
+        //
     }
 }
