@@ -102,22 +102,22 @@ final class SignUpViewController: UIViewController {
             privacyLabel.attributedText = attrText
         }
     }
-    
+    // MARK: - AlertVC to skip registration
     private func skipRegistrationAlertVC() {
+        
         let blurEffect = UIBlurEffect(style: .light)
         let blurVisualEffectView = UIVisualEffectView(effect: blurEffect)
         blurVisualEffectView.frame = view.bounds
+        
         let alertController = UIAlertController.init(title: R.string.localize.signupAlert_title(), message: R.string.localize.signupAlert_body(), preferredStyle: .alert)
-        
-        let actionOK = UIAlertAction(title: R.string.localize.signupAlert_ok(), style: .default, handler: { action in
-        blurVisualEffectView.removeFromSuperview()
-        })
-        
+
+        let actionOK = UIAlertAction(title: R.string.localize.signupAlert_ok(), style: .default, handler: { action in blurVisualEffectView.removeFromSuperview()})
+
         let actionCancel = UIAlertAction(title: R.string.localize.signupAlert_cancel(), style: .default, handler: {[unowned self] action in
             self.model.startMainFlowWithOutRegistration()
             blurVisualEffectView.removeFromSuperview()
         })
-        
+
         alertController.addAction(actionOK)
         alertController.addAction(actionCancel)
         alertController.preferredAction = actionCancel
@@ -130,7 +130,6 @@ final class SignUpViewController: UIViewController {
     }
     
     // MARK: - Keyboard
-    
     @objc private func keyboardWillAppear(notification: NSNotification) {
         
         if let rect: CGRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
