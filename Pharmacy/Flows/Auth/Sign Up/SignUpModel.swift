@@ -23,7 +23,6 @@ protocol SignUpOutput: UIBlockerDelegate {
 
 protocol SignUpInput {
     func signUp(name: String?, phone: String?, email: String?)
-    func signIn()
     func startMainFlowWithOutRegistration()
     func close()
 }
@@ -62,11 +61,6 @@ extension SignUpModel: SignUpInput {
     
     func startMainFlowWithOutRegistration() {
         raise(event: SuccessfulSignUpEvent.openMainScreen)
-    }
-    
-    
-    func signIn() {
-        raise(event: SignUpEvent.close)
     }
     
     func signUp(name: String?, phone: String?, email: String?) {

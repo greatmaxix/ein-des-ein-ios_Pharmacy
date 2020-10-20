@@ -126,7 +126,7 @@ final class SignUpViewController: UIViewController {
     }
     
     @IBAction func loginToAccount(_ sender: UIButton) {
-        model.signIn()
+        model.close()
     }
     
     // MARK: - Keyboard
