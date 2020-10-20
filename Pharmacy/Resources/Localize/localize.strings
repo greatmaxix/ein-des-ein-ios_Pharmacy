@@ -72,6 +72,10 @@
 "login.signin" = "Войдите";
 "signup.registration" = "Регистрация";
 "signup.link" = "Обработку персональных данных";
+"signup.alert_title" = "Закончить без регистрации?";
+"signup.alert_body" = "Вам будет неободимо пройти этап регистрации заново";
+"signup.alert_ok" = "Отмена";
+"signup.alert_cancel" = "Закончить";
 
 // MARK: - Profile
 "profile.title" = "Профиль";
