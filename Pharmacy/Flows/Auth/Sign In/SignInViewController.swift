@@ -21,7 +21,6 @@ final class SignInViewController: UIViewController {
     @IBOutlet private weak var accountLabel: UILabel!
     @IBOutlet private weak var enterLabel: UILabel!
     @IBOutlet private weak var skipButton: UIButton!
-    @IBOutlet private weak var applyLabel: UILabel!
     @IBOutlet private weak var logoTopConstraint: NSLayoutConstraint!
     
     private var tapGesture: UITapGestureRecognizer!
@@ -76,7 +75,7 @@ final class SignInViewController: UIViewController {
         if let phone: String = phoneInputView.text, phoneInputView.validate() {
             model.signIn(phone: phone)
             sender.isUserInteractionEnabled = false
-            applyLabel.textColor = R.color.textDarkBlue()
+            enterLabel.textColor = R.color.textDarkBlue()
         }
     }
     
@@ -101,7 +100,7 @@ final class SignInViewController: UIViewController {
     
     @objc private func hideKeyboard() {
         
-        applyLabel.textColor = phoneInputView.validate() ? R.color.textDarkBlue() : R.color.applyBlueGray()
+        enterLabel.textColor = phoneInputView.validate() ? R.color.textDarkBlue() : R.color.applyBlueGray()
 
         scrollView.contentInset = scrollViewInsets
         phoneInputView.endEditing(true)

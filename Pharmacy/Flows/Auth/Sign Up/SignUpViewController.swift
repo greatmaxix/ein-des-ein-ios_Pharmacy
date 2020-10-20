@@ -10,16 +10,17 @@ import UIKit
 
 final class SignUpViewController: UIViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet private weak var scrollView: UIScrollView!
     
     @IBOutlet var inputViews: [TextInputView]!
+    @IBOutlet private weak var emailTextView: TextInputView!
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var skipButton: UIButton!
-    @IBOutlet weak var applyButton: UIButton!
-    @IBOutlet weak var privacyLabel: UILabel!
-    @IBOutlet weak var registrationLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var skipButton: UIButton!
+    @IBOutlet private weak var applyButton: UIButton!
+    @IBOutlet private weak var privacyLabel: UILabel!
+    @IBOutlet private weak var registrationLabel: UILabel!
     @IBOutlet private weak var accountLabel: UILabel!
     @IBOutlet private weak var loginButton: UIButton!
     
@@ -44,9 +45,11 @@ final class SignUpViewController: UIViewController {
     @IBAction func apply(_ sender: UIButton) {
         
         if areFieldsValid {
-            
             sender.isUserInteractionEnabled = false
-            model.signUp(name: inputViews[0].text, phone: inputViews[1].text, email: inputViews[2].text)
+            
+            emailTextView.validate() ?
+                model.signUp(name: inputViews[0].text, phone: inputViews[1].text, email: emailTextView.text) :
+                model.signUp(name: inputViews[0].text, phone: inputViews[1].text, email: "")
         }
     }
     
@@ -64,12 +67,13 @@ final class SignUpViewController: UIViewController {
         
         inputViews[0].contentType = .name
         inputViews[1].contentType = .phone
-        inputViews[2].contentType = .email
         inputViews.forEach({
             $0.textFieldDelegate = self
-            $0.returnKeyType = .next
         })
 
+        emailTextView.contentType = .email
+        emailTextView.textFieldDelegate = self
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardDidHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -145,6 +149,12 @@ final class SignUpViewController: UIViewController {
     @objc private func hideKeyboard() {
         scrollView.contentInset = scrollViewInsets
         inputViews.forEach({$0.endEditing(true)})
+        emailTextView.endEditing(true)
+        
+        guard inputViews.allSatisfy({$0.validate()}) else {
+            registrationLabel.textColor = R.color.applyBlueGray()
+            return}
+        registrationLabel.textColor = R.color.textDarkBlue()
     }
     
     @objc private func openPrivacyPolicy(sender: UIGestureRecognizer) {

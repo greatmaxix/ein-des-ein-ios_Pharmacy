@@ -137,6 +137,12 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxU-AW-xHk">
+                                        <rect key="frame" x="264.5" y="475" width="44.5" height="21"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                        <color key="textColor" name="applyBlueGray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -155,6 +161,7 @@
                                     <constraint firstItem="gzs-Bg-4pR" firstAttribute="trailing" secondItem="S2u-Vq-b7l" secondAttribute="trailing" id="Nas-Nf-tRA"/>
                                     <constraint firstAttribute="trailing" secondItem="Sjv-TE-D3z" secondAttribute="trailing" constant="16" id="P6k-Et-m7z"/>
                                     <constraint firstItem="m6B-89-TlH" firstAttribute="leading" secondItem="gzs-Bg-4pR" secondAttribute="leading" id="U8R-K9-628"/>
+                                    <constraint firstItem="KxU-AW-xHk" firstAttribute="centerY" secondItem="7rl-Lj-mcb" secondAttribute="centerY" id="VQ9-PT-ddT"/>
                                     <constraint firstItem="S2u-Vq-b7l" firstAttribute="trailing" secondItem="WQk-b3-Nxw" secondAttribute="trailing" id="Yoi-1H-rrZ"/>
                                     <constraint firstItem="7rl-Lj-mcb" firstAttribute="leading" secondItem="LJ5-LA-nPg" secondAttribute="trailing" constant="16" id="akg-Eh-hPC"/>
                                     <constraint firstAttribute="trailing" secondItem="7rl-Lj-mcb" secondAttribute="trailing" constant="25" id="cYE-hI-jun"/>
@@ -162,6 +169,7 @@
                                     <constraint firstItem="Sjv-TE-D3z" firstAttribute="top" secondItem="EhB-65-C0p" secondAttribute="bottom" constant="16" id="heQ-Ab-Hoc"/>
                                     <constraint firstItem="Sjv-TE-D3z" firstAttribute="leading" secondItem="bTb-bJ-YBF" secondAttribute="leading" constant="16" id="ipz-zZ-ZRa"/>
                                     <constraint firstItem="EhB-65-C0p" firstAttribute="top" secondItem="bTb-bJ-YBF" secondAttribute="top" constant="20" id="keh-tY-N6E"/>
+                                    <constraint firstItem="7rl-Lj-mcb" firstAttribute="leading" secondItem="KxU-AW-xHk" secondAttribute="trailing" constant="16" id="mkT-pU-iur"/>
                                     <constraint firstItem="EhB-65-C0p" firstAttribute="centerX" secondItem="bTb-bJ-YBF" secondAttribute="centerX" id="p2J-HH-9oq"/>
                                     <constraint firstAttribute="trailing" secondItem="ht5-zh-5Uk" secondAttribute="trailing" constant="21" id="qfz-gs-dD8"/>
                                     <constraint firstItem="ruh-r8-gCU" firstAttribute="centerX" secondItem="bTb-bJ-YBF" secondAttribute="centerX" id="r0n-uE-rYh"/>
@@ -199,15 +207,15 @@
                         <outlet property="accountLabel" destination="wLn-c2-VlU" id="wrZ-sz-cS5"/>
                         <outlet property="applyButton" destination="7rl-Lj-mcb" id="wIB-Oa-4A6"/>
                         <outlet property="descriptionLabel" destination="WQk-b3-Nxw" id="Abb-2U-1uJ"/>
+                        <outlet property="emailTextView" destination="m6B-89-TlH" id="RQh-MC-oqY"/>
                         <outlet property="loginButton" destination="Xnq-qX-pJm" id="ffR-G8-WZf"/>
                         <outlet property="privacyLabel" destination="ht5-zh-5Uk" id="yLQ-ij-Swh"/>
-                        <outlet property="registrationLabel" destination="LJ5-LA-nPg" id="g0V-2f-BKa"/>
+                        <outlet property="registrationLabel" destination="KxU-AW-xHk" id="Kdz-yg-Gc6"/>
                         <outlet property="scrollView" destination="bTb-bJ-YBF" id="N5H-hf-Zvw"/>
                         <outlet property="skipButton" destination="L6I-Kh-fZe" id="msH-1F-qkZ"/>
                         <outlet property="titleLabel" destination="Sjv-TE-D3z" id="aLT-kC-F9I"/>
                         <outletCollection property="inputViews" destination="S2u-Vq-b7l" collectionClass="NSMutableArray" id="D9T-3l-xfu"/>
                         <outletCollection property="inputViews" destination="gzs-Bg-4pR" collectionClass="NSMutableArray" id="jFS-Gr-0PI"/>
-                        <outletCollection property="inputViews" destination="m6B-89-TlH" collectionClass="NSMutableArray" id="IQc-hP-AhS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grI-C7-bCC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -460,9 +468,8 @@
                     <connections>
                         <outlet property="accountLabel" destination="YQm-8b-RLe" id="pL7-n3-lBe"/>
                         <outlet property="applyButton" destination="7yD-9h-ZPj" id="BGO-nx-5vJ"/>
-                        <outlet property="applyLabel" destination="Xbq-nj-LWw" id="rRY-j4-YRa"/>
                         <outlet property="descriptionLabel" destination="Byp-bM-C6T" id="jqL-bE-ZOf"/>
-                        <outlet property="enterLabel" destination="Xbq-nj-LWw" id="Ksy-53-pxQ"/>
+                        <outlet property="enterLabel" destination="Xbq-nj-LWw" id="jaL-ET-wlf"/>
                         <outlet property="logoTopConstraint" destination="Mug-f3-AvA" id="mpO-fm-lmV"/>
                         <outlet property="phoneInputView" destination="12K-OV-63Q" id="8qq-nU-p3w"/>
                         <outlet property="registerButton" destination="bhf-PW-fiI" id="YiF-LL-kpX"/>
