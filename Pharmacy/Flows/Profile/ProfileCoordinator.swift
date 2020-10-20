@@ -129,8 +129,14 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
 extension ProfileFlowCoordinator: TabBarEmbedCoordinable {
     
     var tabItemInfo: TabBarItemInfo {
+        if let user = UserSession.shared.user, let avatarURL = user.avatarURL {
+        let avatarView = UIImageView().loadImageBy(url: <#T##URL#>)
+        } else {
+        
         return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
-                              icon: R.image.profileProxy()?.withRenderingMode(.alwaysOriginal),
-                              highlightedIcon: R.image.profileProxy()?.withRenderingMode(.alwaysOriginal))
+                              icon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal),
+                              highlightedIcon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal))
+            
+        }
     }
 }
