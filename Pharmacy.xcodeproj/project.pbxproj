@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24E03A48253EFF8A004DC13D /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E03A47253EFF8A004DC13D /* UINavigationController.swift */; };
 		3915D60824A2466700A93627 /* ConfirmCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915D60724A2466700A93627 /* ConfirmCodeModel.swift */; };
 		3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915D60924A24DF500A93627 /* LoginResponse.swift */; };
 		39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0824A0DA5A004A9909 /* SignInModel.swift */; };
@@ -265,7 +264,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		24E03A47253EFF8A004DC13D /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		3915D60724A2466700A93627 /* ConfirmCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeModel.swift; sourceTree = "<group>"; };
 		3915D60924A24DF500A93627 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		39273A0824A0DA5A004A9909 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
@@ -628,7 +626,6 @@
 			children = (
 				603D31FC24E64912000E5A6C /* UITableViewCell.swift */,
 				60E1A6FA24EBB20E00B3D205 /* UIViewController+Keyboard.swift */,
-				24E03A47253EFF8A004DC13D /* UINavigationController.swift */,
 				60E1A71E24ED12C200B3D205 /* UIViewController+ActionSheetView.swift */,
 				39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */,
 				395284AE250A3C3900A6FFAB /* UIViewController+ActivityIndicator.swift */,
@@ -1916,7 +1913,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				875223BE2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift in Sources */,
-				24E03A48253EFF8A004DC13D /* UINavigationController.swift in Sources */,
 				875223C72500FD90000759C8 /* NSPersistentContainer.swift in Sources */,
 				6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */,
 				60E1A71324ECE0D100B3D205 /* ScanViewController.swift in Sources */,

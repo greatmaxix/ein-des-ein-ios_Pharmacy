@@ -71,9 +71,11 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         let navigation = UINavigationController(navigationBarClass: SimpleNavigationBar.self, toolbarClass: nil)
         navigation.setViewControllers([root], animated: true)
         navigation.isToolbarHidden = true
+        navigation.navigationBar.isHidden = true
 
         return navigation
     }
+    
     
     private func presentSignUp() {
         if let signUpVC: SignUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
@@ -81,6 +83,7 @@ class AuthFlowCoordinator: EventNode, Coordinator {
             let model: SignUpModel = SignUpModel(parent: self)
             model.output = signUpVC
             signUpVC.model = model
+            root.navigationController?.navigationBar.isHidden = true
             root.navigationController?.pushViewController(signUpVC, animated: true)
         }
     }

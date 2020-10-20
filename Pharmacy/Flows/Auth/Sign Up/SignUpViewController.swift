@@ -60,20 +60,7 @@ final class SignUpViewController: UIViewController {
         model.close()
     }
     
-    private func setupNavigationBar(isRootVC: Bool?){
-        guard let state = isRootVC, state==false, let navVC = navigationController else {
-            navigationController?.navigationBar.isHidden = true
-            return
-        }
-        navigationController?.navigationBar.isHidden = false
-        if let bar = navVC.navigationBar as? SimpleNavigationBar{
-        bar.title = "SignUp"
-        bar.barDelegate = self
-        }
-    }
-    
     // MARK: - Setup
-    
     private func setupUI() {
         
         inputViews[0].contentType = .name
@@ -210,16 +197,5 @@ extension SignUpViewController: SignUpOutput {
     
     func unblockApplyButton() {
         applyButton.isUserInteractionEnabled = true
-    }
-}
-
-//MARK:- extension for SimpleNavigationBarDelegate
-extension SignUpViewController : SimpleNavigationBarDelegate {
-    func leftBarItemAction() {
-        model.close()
-    }
-    
-    func rightBarItemAction() {
-        //
     }
 }

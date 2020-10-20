@@ -39,13 +39,10 @@ final class SignInViewController: UIViewController {
         scrollView.addGestureRecognizer(tapGesture)
         scrollViewInsets = scrollView.contentInset
         setupUI()
-        setupNavigationBar(isRootVC: navigationController?.isRootViewController())
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        navigationController?.navigationBar.isHidden = (navigationController?.isRootViewController() ?? true)
     }
     
     func setupLocalization() {
@@ -67,18 +64,6 @@ final class SignInViewController: UIViewController {
         let screenHeight = UIScreen.main.bounds.height
         let heightCoef = (screenHeight - Const.minScreenHeight) / (Const.maxScreenHeight - Const.minScreenHeight)
         logoTopConstraint.constant = heightCoef * Const.maxLogoTopSpace + (1 - heightCoef) * Const.minLogoTopSpace
-    }
-    
-    private func setupNavigationBar(isRootVC: Bool?){
-        guard let state = isRootVC, state==false, let navVC = navigationController else {
-            navigationController?.navigationBar.isHidden = true
-            return
-        }
-        navigationController?.navigationBar.isHidden = false
-        if let bar = navVC.navigationBar as? SimpleNavigationBar{
-        bar.title = "SignIn"
-        bar.barDelegate = self
-        }
     }
     
     // MARK: - Actions

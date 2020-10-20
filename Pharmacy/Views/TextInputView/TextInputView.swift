@@ -133,16 +133,18 @@ final class TextInputView: UIView {
     
     @discardableResult
     func validate() -> Bool {
-        
-        if let validator: BaseTextValidator = contentType.validator {
-            
-            let result: Bool = validator.validate(text: inputTextField.text)
-            visualStyle = result ? .successfulValidation : .unsuccessfulValidation
-            errorLabel.text = result ? "" : validator.errorText
-            return result
+        var result = true
+        let searchDebouncer: Executor = .debounce(interval: 1.0)
+        searchDebouncer.execute {[weak self] in
+            if let validator: BaseTextValidator = self?.contentType.validator {
+                
+                let res: Bool = validator.validate(text: self?.inputTextField.text)
+                self?.visualStyle = res ? .successfulValidation : .unsuccessfulValidation
+                self?.errorLabel.text = res ? "" : validator.errorText
+                result = res
+            }
         }
-        
-        return true
+        return result
     }
     
     // MARK: - Setup
