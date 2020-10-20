@@ -12,15 +12,14 @@ import UIKit
 public struct TabBarItemInfo {
 
   public let title: String?
-  public let icon: UIImage?
-  public let highlightedIcon: UIImage?
+  public var icon: UIImage?
+  public var highlightedIcon: UIImage?
 
   public init(title: String?, icon: UIImage?, highlightedIcon: UIImage?) {
     self.title = title
     self.icon = icon
     self.highlightedIcon = highlightedIcon
   }
-
 }
 
 public protocol TabBarEmbedCoordinable: Coordinator {
