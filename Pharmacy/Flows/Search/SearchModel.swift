@@ -27,6 +27,7 @@ protocol SearchModelInput: class {
     func cleanSearchTerm()
     func didSelectCellAt(indexPath: IndexPath)
     func addToWishList(productId: Int)
+    func removeFromWishList(productId: Int)
 }
 
 protocol SearchModelOutput: class {
@@ -54,6 +55,7 @@ final class SearchModel: Model {
     
     private var searchTerm: String = ""
     private let provider = DataManager<SearchAPI, WishlistResponse>()
+    private let wishListProvider = DataManager<WishListAPI, AddToWishListResponse>()
     
     private let searchDebouncer: Executor = .debounce(interval: 1.0)
 
@@ -66,17 +68,27 @@ final class SearchModel: Model {
 
 // MARK: - SearchViewControllerOutput
 extension SearchModel: SearchViewControllerOutput {
+    func removeFromWishList(productId: Int) {
+        wishListProvider.load(target: .removeFromWishList(medicineId: productId)) { (result) in
+            switch result {
+            case.success(_):
+                print("medicine productId- \(productId) was successfully removed from wish list")
+            case .failure(let error):
+                print("error is \(error)")
+                }
+        }
+    }
     
     //MARK:- Add to wishList
     func addToWishList(productId: Int) {
-        MoyaProvider<WishListAPI>().request(.addToWishList(medicineId: productId)) { (result) in
+        wishListProvider.load(target: .addToWishList(medicineId: productId)) { (result) in
             switch result {
-            case.success:
+            case.success(_):
                 print("medicine productId- \(productId) was successfully added to wish list")
-            case .failure:
-                print("error")
+            case .failure(let error):
+                print("error is \(error)")
                 }
-            }
+        }
     }
     
     func updateSearchTerm(_ term: String) {

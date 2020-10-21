@@ -192,6 +192,9 @@ extension SearchViewController: UITableViewDataSource {
             cell.addToFavoritesHandler = {[weak self] in
                 self?.model.addToWishList(productId: cell.medicineProductID)
             }
+            cell.removeFromFavoritesHandler = {[weak self] in
+                self?.model.removeFromWishList(productId: cell.medicineProductID)
+            }
             
             return cell
         default:
