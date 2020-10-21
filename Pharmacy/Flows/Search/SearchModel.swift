@@ -68,6 +68,7 @@ final class SearchModel: Model {
 
 // MARK: - SearchViewControllerOutput
 extension SearchModel: SearchViewControllerOutput {
+    
     func removeFromWishList(productId: Int) {
         wishListProvider.load(target: .removeFromWishList(medicineId: productId)) { (result) in
             switch result {
@@ -78,8 +79,7 @@ extension SearchModel: SearchViewControllerOutput {
                 }
         }
     }
-    
-    //MARK:- Add to wishList
+
     func addToWishList(productId: Int) {
         wishListProvider.load(target: .addToWishList(medicineId: productId)) { (result) in
             switch result {
