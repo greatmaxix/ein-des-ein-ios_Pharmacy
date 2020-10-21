@@ -24,6 +24,8 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
     var addToFavoritesHandler: EmptyClosure?
     var addToPurchesesHandler: EmptyClosure?
     
+    private(set) var medicineProductID: Int = 0
+    
     private var downloadTask: DownloadTask?
     
     // MARK: - Init / Deinit methods
@@ -52,6 +54,7 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
         costLabel.text = medicine.price
         typeLabel.text = medicine.releaseFormFormatted
         factoryLabel.text = medicine.manufacturerName
+        medicineProductID = medicine.id
         
         let placeholder: UIImage?
         if medicine.minPrice != nil {

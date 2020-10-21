@@ -8,6 +8,7 @@
 
 import Foundation
 import EventsTree
+import Moya
 
 enum SearchModelEvent: Event {
     case openList
@@ -25,6 +26,7 @@ protocol SearchModelInput: class {
     func processSearch()
     func cleanSearchTerm()
     func didSelectCellAt(indexPath: IndexPath)
+    func addToWishList(productId: Int)
 }
 
 protocol SearchModelOutput: class {
@@ -64,6 +66,18 @@ final class SearchModel: Model {
 
 // MARK: - SearchViewControllerOutput
 extension SearchModel: SearchViewControllerOutput {
+    
+    //MARK:- Add to wishList
+    func addToWishList(productId: Int) {
+        MoyaProvider<WishListAPI>().request(.addToWishList(medicineId: productId)) { (result) in
+            switch result {
+            case.success:
+                print("medicine productId- \(productId) was successfully added to wish list")
+            case .failure:
+                print("error")
+                }
+            }
+    }
     
     func updateSearchTerm(_ term: String) {
         let trimmedTerm = term.trimmingCharacters(in: .whitespacesAndNewlines)

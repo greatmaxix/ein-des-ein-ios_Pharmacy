@@ -189,6 +189,9 @@ extension SearchViewController: UITableViewDataSource {
         case .found:
             let cell = tableView.dequeueReusableCell(at: indexPath, cellType: MedicineCell.self)
             cell.apply(medicine: model.medicines[indexPath.row])
+            cell.addToFavoritesHandler = {[weak self] in
+                self?.model.addToWishList(productId: cell.medicineProductID)
+            }
             
             return cell
         default:
