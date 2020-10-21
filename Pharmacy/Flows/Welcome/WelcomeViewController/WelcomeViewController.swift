@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 final class WelcomeViewController: UIViewController, NavigationBarStyled {
 
@@ -19,6 +20,8 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var diagnosticLabel: UILabel!
     @IBOutlet private weak var mapLabel: UILabel!
     
+    @IBOutlet private var categorieLabels: [UILabel]!
+    
     @IBOutlet private var buttonsBackground: [UIView]!
     
     @IBOutlet private weak var loadReceipeButton: UIButton!
@@ -30,9 +33,20 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     
     var model: WelcomeModelInput!
     
+    private lazy var activityIndicator: MBProgressHUD = {
+        let hud = MBProgressHUD(view: view)
+        hud.contentColor = .gray
+        hud.backgroundView.style = .solidColor
+        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
+        hud.removeFromSuperViewOnHide = false
+        view.addSubview(hud)
+
+        return hud
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        activityIndicator.show(animated: true)
         setupUI()
         model.load()
     }
@@ -85,6 +99,13 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
 }
 
 extension WelcomeViewController: WelcomeModelOutput {
+    func modelIsLoaded() {
+        for index in 0...categorieLabels.count-1{
+            categorieLabels[index].text = model.categories[index].title
+        }
+        activityIndicator.hide(animated: true)
+    }
+    
     
     func showReadyOrders(orders: [String]) {
         ordersStackView.isHidden = orders.count == 0

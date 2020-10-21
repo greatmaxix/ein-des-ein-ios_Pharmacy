@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hc3-JO-2ok">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hc3-JO-2ok">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -145,7 +145,7 @@
                                                         <color key="textColor" name="textDarkBlue"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv0-cY-p6c">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv0-cY-p6c">
                                                         <rect key="frame" x="361" y="2" width="37" height="26"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                         <state key="normal" title="Button">
@@ -345,6 +345,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="gqU-PI-QCI"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="reA-gO-K7C"/>
                         <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstItem="XhS-nY-nVF" firstAttribute="top" secondItem="Tz5-m0-VsK" secondAttribute="top" constant="44" id="3uz-T2-yro"/>
@@ -353,7 +354,6 @@
                             <constraint firstItem="XhS-nY-nVF" firstAttribute="width" secondItem="Tz5-m0-VsK" secondAttribute="width" id="hYa-aZ-NDl"/>
                             <constraint firstAttribute="bottom" secondItem="XhS-nY-nVF" secondAttribute="bottom" id="qRB-LL-udo"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="reA-gO-K7C"/>
                     </view>
                     <connections>
                         <outlet property="askLabel" destination="Rec-if-piZ" id="una-N6-FL2"/>
@@ -370,6 +370,10 @@
                         <outletCollection property="buttonsBackground" destination="gXY-1h-oTi" collectionClass="NSMutableArray" id="okk-VB-9xp"/>
                         <outletCollection property="buttonsBackground" destination="eKJ-Ec-fxc" collectionClass="NSMutableArray" id="Pui-FY-Nja"/>
                         <outletCollection property="buttonsBackground" destination="b3G-aK-2GV" collectionClass="NSMutableArray" id="sdY-LC-twa"/>
+                        <outletCollection property="categorieLabels" destination="z4X-ej-3vP" collectionClass="NSMutableArray" id="jDt-63-0k9"/>
+                        <outletCollection property="categorieLabels" destination="tae-Q5-w4q" collectionClass="NSMutableArray" id="P7j-3b-DmQ"/>
+                        <outletCollection property="categorieLabels" destination="xav-V2-LA1" collectionClass="NSMutableArray" id="kB8-NM-I8Y"/>
+                        <outletCollection property="categorieLabels" destination="qOb-Hv-qdC" collectionClass="NSMutableArray" id="bVM-O0-efF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GdV-CK-XCC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

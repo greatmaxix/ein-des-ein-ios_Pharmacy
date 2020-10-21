@@ -19,21 +19,32 @@ enum WelcomeEvent: Event {
 protocol WelcomeModelOutput: class {
     func showReadyOrders(orders: [String])
     func showReceipts(_ receipts: [Receipt])
+    func modelIsLoaded()
 }
 protocol WelcomeModelInput: class {
     func load()
     func openCategories()
+    var categories: [Category] {get}
 }
 
 final class WelcomeModel: EventNode {
     
     unowned var output: WelcomeModelOutput!
+    private let provider = DataManager<CategoryAPI, CategoriesResponse>()
+    private var topCategory : [Category] = []
 }
 
 extension WelcomeModel: WelcomeModelInput {
+    var categories: [Category] {
+        get {
+            return topCategory
+        }
+    }
+    
     func load() {
         loadReadyOrders()
         loadReceipts()
+        loadCategoryData()
     }
     
     private func loadReadyOrders() {
@@ -48,6 +59,30 @@ extension WelcomeModel: WelcomeModelInput {
                                 subtitle: "Таблетки шипучие, 20 мг", imageURL: nil, price: "568")]
         
         output.showReceipts(receipts)
+    }
+    private func loadCategoryData() {
+        provider.load(target: .getCategories(startCode: nil, maxLevel: nil), completion: { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let response):
+                var secondLevelCategories: [Category] = []
+                
+                for category in response.categories[0...3] {
+                    if let subCategories = category.subCategories {
+                        secondLevelCategories.append(contentsOf: subCategories)
+                    }
+                    if category.code != "H" {
+                        break
+                    }
+                }
+                self.topCategory = secondLevelCategories
+                self.output.modelIsLoaded()
+                //self.reloadCategories()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
     }
     
     func openCategories() {

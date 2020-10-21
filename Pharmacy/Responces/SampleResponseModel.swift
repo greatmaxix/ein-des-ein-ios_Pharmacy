@@ -17,5 +17,4 @@ struct SampleResponseModel: Equatable, Codable {
         case name = "Name"
         case phone = "Phone"
     }
-
 }

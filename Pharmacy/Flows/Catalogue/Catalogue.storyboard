@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aOw-CT-Nq4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aOw-CT-Nq4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -27,12 +28,12 @@
                                 <rect key="frame" x="197" y="443" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="p7T-KY-2h2"/>
                         <color key="backgroundColor" name="lightGray"/>
                         <constraints>
                             <constraint firstItem="zFe-Ej-ztL" firstAttribute="centerY" secondItem="p7T-KY-2h2" secondAttribute="centerY" id="03p-cC-w4E"/>
                             <constraint firstItem="zFe-Ej-ztL" firstAttribute="centerX" secondItem="p7T-KY-2h2" secondAttribute="centerX" id="te6-vj-0kj"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="p7T-KY-2h2"/>
                     </view>
                     <connections>
                         <outlet property="indicatorView" destination="zFe-Ej-ztL" id="7Zu-bf-nii"/>
@@ -52,7 +53,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eHY-ft-uld">
                                 <rect key="frame" x="0.0" y="134" width="414" height="728"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="m5H-nj-DFx" id="Eun-8i-mMP"/>
                                     <outlet property="delegate" destination="m5H-nj-DFx" id="Fqs-Af-hvZ"/>
@@ -69,7 +70,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jnb-4F-PCr">
-                                        <rect key="frame" x="253" y="0.0" width="105" height="50"/>
+                                        <rect key="frame" x="255" y="0.0" width="103" height="50"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                         <state key="normal" title="Сортировать" image="sort">
                                             <color key="titleColor" name="textDarkBlue"/>
@@ -81,6 +82,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Jec-vp-RM8"/>
                         <color key="backgroundColor" name="lightGray"/>
                         <constraints>
                             <constraint firstItem="Jec-vp-RM8" firstAttribute="trailing" secondItem="PsE-Mx-yTM" secondAttribute="trailing" constant="40" id="CLA-Dh-0ZO"/>
@@ -91,7 +93,6 @@
                             <constraint firstItem="eHY-ft-uld" firstAttribute="leading" secondItem="Jec-vp-RM8" secondAttribute="leading" id="xRD-2Z-M9J"/>
                             <constraint firstItem="PsE-Mx-yTM" firstAttribute="top" secondItem="Jec-vp-RM8" secondAttribute="top" constant="20" id="xth-fJ-yvU"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Jec-vp-RM8"/>
                     </view>
                     <connections>
                         <outlet property="productCountLabel" destination="cOR-xg-iaM" id="DyW-Ox-Mv6"/>
@@ -112,5 +113,8 @@
         <namedColor name="textDarkBlue">
             <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
