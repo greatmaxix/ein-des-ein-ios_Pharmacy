@@ -374,6 +374,10 @@
                         <outletCollection property="categorieLabels" destination="tae-Q5-w4q" collectionClass="NSMutableArray" id="P7j-3b-DmQ"/>
                         <outletCollection property="categorieLabels" destination="xav-V2-LA1" collectionClass="NSMutableArray" id="kB8-NM-I8Y"/>
                         <outletCollection property="categorieLabels" destination="qOb-Hv-qdC" collectionClass="NSMutableArray" id="bVM-O0-efF"/>
+                        <outletCollection property="categoriesViews" destination="khB-qX-mRZ" collectionClass="NSMutableArray" id="69p-ya-m96"/>
+                        <outletCollection property="categoriesViews" destination="ccA-sF-HZZ" collectionClass="NSMutableArray" id="Tz2-vs-XrW"/>
+                        <outletCollection property="categoriesViews" destination="Ha4-pj-trF" collectionClass="NSMutableArray" id="7HX-iy-76z"/>
+                        <outletCollection property="categoriesViews" destination="5fK-Py-BV9" collectionClass="NSMutableArray" id="ivJ-TM-fXu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GdV-CK-XCC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

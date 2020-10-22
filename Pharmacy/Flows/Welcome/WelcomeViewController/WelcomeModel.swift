@@ -21,11 +21,13 @@ protocol WelcomeModelOutput: class {
     func showReceipts(_ receipts: [Receipt])
     func modelIsLoaded()
 }
+
 protocol WelcomeModelInput: class {
     func load()
-    func openCategories()
     func openSearchScreen()
     var categories: [Category] {get}
+    func didSelectProductBy(index: Int)
+    func openCategories(_ categoryIndex: Int?)
 }
 
 final class WelcomeModel: EventNode {
@@ -33,9 +35,28 @@ final class WelcomeModel: EventNode {
     unowned var output: WelcomeModelOutput!
     private let provider = DataManager<CategoryAPI, CategoriesResponse>()
     private var topCategory : [Category] = []
+    private(set) var medicines: [Medicine] = []
 }
 
 extension WelcomeModel: WelcomeModelInput {
+    
+    func openCategories(_ categoryIndex: Int?) {
+        if let index = categoryIndex {
+            let category = topCategory[index]
+            raise(event: WelcomeEvent.openCategories(category: category))
+        } else {
+            raise(event: WelcomeEvent.openCategories(category: nil))
+        }
+        
+    }
+    
+    func didSelectProductBy(index: Int) {
+        guard index <= topCategory.endIndex else {
+            return
+        }
+        raise(event: MedicineListModelEvent.openProduct(medicines[index]))
+    }
+    
     func openSearchScreen() {
         raise(event: TabBarEvent.userWantsToChangeTab(newTab: .search))
     }
@@ -88,9 +109,5 @@ extension WelcomeModel: WelcomeModelInput {
                 print(error.localizedDescription)
             }
         })
-    }
-    
-    func openCategories() {
-        raise(event: WelcomeEvent.openCategories(category: nil))
     }
 }
