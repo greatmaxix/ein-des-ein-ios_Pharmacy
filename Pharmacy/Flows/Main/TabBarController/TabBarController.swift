@@ -12,7 +12,7 @@ import UIKit
 protocol TabBarControllerOutput: TabBarModelInput {}
 protocol TabBarControllerInput: TabBarModelOutput {}
 
-final class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     var model: TabBarControllerOutput!
     
@@ -36,6 +36,10 @@ final class TabBarController: UITabBarController {
         model.controllerDidBecomeHidden()
     }
     
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        print("zxcxzczxczxczx")
+    }
+    
    private func setupTabBar() {
         
         tabBar.shadowImage = UIImage()
@@ -44,6 +48,7 @@ final class TabBarController: UITabBarController {
         let cornerRadius: CGFloat = 30
         
         let roundedView: UIView = UIView()
+        self.delegate = self
         
         roundedView.translatesAutoresizingMaskIntoConstraints = false
         roundedView.frame = CGRect(origin: .zero, size: CGSize(width: tabBar.frame.width, height: tabBar.frame.height * 2))
@@ -83,7 +88,7 @@ final class TabBarController: UITabBarController {
 extension TabBarController: TabBarControllerInput {
     
     func changeCurrentTab(_ tab: Tab) {
-        selectedIndex = tab.rawValue
+        //zxcv тут идет изменение индекса
+        self.selectedIndex = tab.rawValue;
     }
-    
 }

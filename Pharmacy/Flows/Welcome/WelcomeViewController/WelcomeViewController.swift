@@ -71,11 +71,13 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         if let nvc = navigationController,
-
             let navigationBar = nvc.navigationBar as? NavigationBar {
             navigationBar.title = R.string.localize.welcomeTitle()
+            navigationBar.searchBar.searchBarHandler = {
+                self.searchHandler()
+            }
         }
     }
     
@@ -95,6 +97,10 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     
     @IBAction private func selectCategory(_ sender: UIButton) {
         model.openCategories()
+    }
+    
+    private func searchHandler(){
+        model.openSearchScreen()
     }
 }
 

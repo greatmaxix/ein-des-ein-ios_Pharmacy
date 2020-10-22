@@ -59,7 +59,7 @@ final class NavigationBar: UINavigationBar {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet private weak var searchBar: SearchBar!
+    @IBOutlet private(set) weak var searchBar: SearchBar!
     @IBOutlet private weak var scanButton: UIButton!
     @IBOutlet private weak var stackView: UIStackView!
     
@@ -67,7 +67,7 @@ final class NavigationBar: UINavigationBar {
         get { titleLabel.text }
         set { titleLabel.text = newValue }
     }
-
+    
     var style: NavigationBarStyle = .normal
 
     var height: CGFloat { heightBy(style: style) }
@@ -249,6 +249,7 @@ extension NavigationBar {
 // MARK: - UITextFieldDelegate
 
 extension NavigationBar: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchDelegate?.navigationBar(didReturn: textField.text ?? "")
         return textField.resignFirstResponder()

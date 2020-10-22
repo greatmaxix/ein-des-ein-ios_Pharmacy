@@ -24,6 +24,7 @@ protocol WelcomeModelOutput: class {
 protocol WelcomeModelInput: class {
     func load()
     func openCategories()
+    func openSearchScreen()
     var categories: [Category] {get}
 }
 
@@ -35,6 +36,10 @@ final class WelcomeModel: EventNode {
 }
 
 extension WelcomeModel: WelcomeModelInput {
+    func openSearchScreen() {
+        raise(event: TabBarEvent.userWantsToChangeTab(newTab: .search))
+    }
+    
     var categories: [Category] {
         get {
             return topCategory
