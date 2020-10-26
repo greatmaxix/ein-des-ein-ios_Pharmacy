@@ -27,11 +27,8 @@ final class SignUpViewController: UIViewController {
     private var tapGesture: UITapGestureRecognizer!
     private var privacyGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
+    private let textViewDebouncer: Executor = .debounce(interval: 1.0)
     var model: SignUpInput!
-    
-    private var areFieldsValid: Bool {
-        return inputViews.allSatisfy({$0.validate()})
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,15 +39,16 @@ final class SignUpViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func apply(_ sender: UIButton) {
-        
-        if areFieldsValid {
+        textViewDebouncer.execute {[unowned self] in
+            if self.inputViews.allSatisfy({$0.validate()}) {
             sender.isUserInteractionEnabled = false
-            
+
             emailTextView.validate() ?
-                model.signUp(name: inputViews[0].text, phone: inputViews[1].text, email: emailTextView.text) :
-                model.signUp(name: inputViews[0].text, phone: inputViews[1].text, email: "")
+                model.signUp(name: self.inputViews[0].text, phone: self.inputViews[1].text, email: self.emailTextView.text) :
+                model.signUp(name: self.inputViews[0].text, phone: self.inputViews[1].text, email: "")
         }
     }
+}
     
     @IBAction func skipSignUp(_ sender: UIButton) {
         skipRegistrationAlertVC()
@@ -92,7 +90,7 @@ final class SignUpViewController: UIViewController {
         skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
         registrationLabel.text = R.string.localize.signupRegistration()
         accountLabel.text = R.string.localize.signupAccount()
-        loginButton.setTitle(R.string.localize.loginSignin() , for: .normal)
+        loginButton.setTitle(R.string.localize.loginSignin(), for: .normal)
         
         if let font: UIFont = R.font.openSansRegular(size: 14) {
             
@@ -104,7 +102,7 @@ final class SignUpViewController: UIViewController {
             privacyLabel.attributedText = attrText
         }
     }
-    // MARK: - AlertVC to skip registration
+    // MARK: - Alert ViewController to skip registration
     private func skipRegistrationAlertVC() {
         
         let blurEffect = UIBlurEffect(style: .light)
@@ -113,9 +111,9 @@ final class SignUpViewController: UIViewController {
         
         let alertController = UIAlertController.init(title: R.string.localize.signupAlert_title(), message: R.string.localize.signupAlert_body(), preferredStyle: .alert)
 
-        let actionOK = UIAlertAction(title: R.string.localize.signupAlert_ok(), style: .default, handler: { action in blurVisualEffectView.removeFromSuperview()})
+        let actionOK = UIAlertAction(title: R.string.localize.signupAlert_ok(), style: .default, handler: { _ in blurVisualEffectView.removeFromSuperview()})
 
-        let actionCancel = UIAlertAction(title: R.string.localize.signupAlert_cancel(), style: .default, handler: {[unowned self] action in
+        let actionCancel = UIAlertAction(title: R.string.localize.signupAlert_cancel(), style: .default, handler: {[unowned self] _ in
             self.model.startMainFlowWithOutRegistration()
             blurVisualEffectView.removeFromSuperview()
         })
@@ -127,7 +125,7 @@ final class SignUpViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func loginToAccount(_ sender: UIButton) {
+    @IBAction func onLoginButtonTouchUp(_ sender: UIButton) {
         model.close()
     }
     
@@ -145,14 +143,16 @@ final class SignUpViewController: UIViewController {
     }
     
     @objc private func hideKeyboard() {
-        scrollView.contentInset = scrollViewInsets
-        inputViews.forEach({$0.endEditing(true)})
-        emailTextView.endEditing(true)
         
-        guard inputViews.allSatisfy({$0.validate()}) else {
-            registrationLabel.textColor = R.color.applyBlueGray()
-            return}
-        registrationLabel.textColor = R.color.textDarkBlue()
+        textViewDebouncer.execute {[unowned self] in
+            scrollView.contentInset = scrollViewInsets
+            inputViews.forEach({$0.endEditing(true)})
+            emailTextView.endEditing(true)
+            guard inputViews.allSatisfy({$0.validate()}) else {
+                registrationLabel.textColor = R.color.applyBlueGray()
+                return}
+            registrationLabel.textColor = R.color.textDarkBlue()
+        }
     }
     
     @objc private func openPrivacyPolicy(sender: UIGestureRecognizer) {

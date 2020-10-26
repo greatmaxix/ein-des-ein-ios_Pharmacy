@@ -23,6 +23,8 @@ final class SignInViewController: UIViewController {
     @IBOutlet private weak var skipButton: UIButton!
     @IBOutlet private weak var logoTopConstraint: NSLayoutConstraint!
     
+    private let textViewDebouncer: Executor = .debounce(interval: 1.0)
+    
     private var tapGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
     
@@ -39,10 +41,6 @@ final class SignInViewController: UIViewController {
         scrollView.addGestureRecognizer(tapGesture)
         scrollViewInsets = scrollView.contentInset
         setupUI()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     func setupLocalization() {
@@ -69,10 +67,12 @@ final class SignInViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func apply(_ sender: UIButton) {
-        if let phone: String = phoneInputView.text, phoneInputView.validate() {
-            model.signIn(phone: phone)
+        textViewDebouncer.execute { [unowned self] in
+            if let phone: String = self.phoneInputView.text, phoneInputView.validate() {
+            self.model.signIn(phone: phone)
             sender.isUserInteractionEnabled = false
-            enterLabel.textColor = R.color.textDarkBlue()
+            self.enterLabel.textColor = R.color.textDarkBlue()
+            }
         }
     }
     
@@ -96,9 +96,9 @@ final class SignInViewController: UIViewController {
     }
     
     @objc private func hideKeyboard() {
-        
-        enterLabel.textColor = phoneInputView.validate() ? R.color.textDarkBlue() : R.color.applyBlueGray()
-
+        textViewDebouncer.execute {[unowned self] in
+            self.enterLabel.textColor = phoneInputView.validate() ? R.color.textDarkBlue() : R.color.applyBlueGray()
+        }
         scrollView.contentInset = scrollViewInsets
         phoneInputView.endEditing(true)
     }
@@ -142,12 +142,10 @@ fileprivate extension SignInViewController {
 }
 
 //MARK:- extension for SimpleNavigationBarDelegate
-extension SignInViewController : SimpleNavigationBarDelegate {
+extension SignInViewController: SimpleNavigationBarDelegate {
     func leftBarItemAction() {
         model.back()
     }
     
-    func rightBarItemAction() {
-        //
-    }
+    func rightBarItemAction() {}
 }
