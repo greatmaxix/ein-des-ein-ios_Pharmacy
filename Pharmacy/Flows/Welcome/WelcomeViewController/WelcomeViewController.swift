@@ -150,6 +150,12 @@ extension WelcomeViewController: WelcomeModelOutput {
         for receipt in receipts {
             if let receiptView: ReceiptView  = R.nib.receiptView(owner: self) {
                 receiptView.apply(receipt: receipt)
+                receiptView.likeActionHandler = {
+                    print("like")
+                }
+                receiptView.addToChartHandler = {
+                    print("Chart")
+                }
                 receiptStackView.addArrangedSubview(receiptView)
             }
         }

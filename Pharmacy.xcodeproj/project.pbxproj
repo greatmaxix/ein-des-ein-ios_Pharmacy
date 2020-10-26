@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		246A83B72546E26A0004ECEC /* ProductCartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83B62546E26A0004ECEC /* ProductCartAPI.swift */; };
+		246A83C62547070A0004ECEC /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83C52547070A0004ECEC /* PostResponse.swift */; };
 		3915D60824A2466700A93627 /* ConfirmCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915D60724A2466700A93627 /* ConfirmCodeModel.swift */; };
 		3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915D60924A24DF500A93627 /* LoginResponse.swift */; };
 		39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0824A0DA5A004A9909 /* SignInModel.swift */; };
@@ -266,6 +267,7 @@
 
 /* Begin PBXFileReference section */
 		246A83B62546E26A0004ECEC /* ProductCartAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartAPI.swift; sourceTree = "<group>"; };
+		246A83C52547070A0004ECEC /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
 		3915D60724A2466700A93627 /* ConfirmCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeModel.swift; sourceTree = "<group>"; };
 		3915D60924A24DF500A93627 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		39273A0824A0DA5A004A9909 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 				395324BB2508CE450038D2DC /* RegionResponse.swift */,
 				398880C3250F799400942D30 /* PharmacyResponse.swift */,
 				394D59BB2507D01200AA3729 /* WishlistResponse.swift */,
+				246A83C52547070A0004ECEC /* PostResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -2096,6 +2099,7 @@
 				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,
 				87131D3C251392270050B8F2 /* String+HTML.swift in Sources */,
 				6036EB0024DD1CAA003336C2 /* BasketCoordinator.swift in Sources */,
+				246A83C62547070A0004ECEC /* PostResponse.swift in Sources */,
 				60E1A71D24ED079F00B3D205 /* ActionSheetView.swift in Sources */,
 				875223B22500EA2C000759C8 /* UserSessionDataAccessible.swift in Sources */,
 				6036EAFE24DD1C9A003336C2 /* BasketModel.swift in Sources */,

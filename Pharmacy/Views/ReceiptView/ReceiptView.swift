@@ -22,6 +22,9 @@ final class ReceiptView: UIView {
     @IBOutlet private weak var likeButton: UIButton!
     @IBOutlet private weak var receiptButton: UIButton!
     
+    var likeActionHandler: EmptyClosure?
+    var addToChartHandler: EmptyClosure?
+    
     func apply(receipt: Receipt) {
         titleLabel.text = receipt.title
         subtitleLabel.text = receipt.subtitle
@@ -44,7 +47,9 @@ final class ReceiptView: UIView {
     
     @IBAction func likeAction(_ sender: UIButton) {
         sender.isSelected.toggle()
+        self.likeActionHandler?()
     }
     @IBAction func addToBag(_ sender: UIButton) {
+        self.addToChartHandler?()
     }
 }
