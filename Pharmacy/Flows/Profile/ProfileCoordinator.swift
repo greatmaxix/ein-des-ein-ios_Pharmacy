@@ -133,13 +133,13 @@ extension ProfileFlowCoordinator: TabBarEmbedCoordinable {
        let data = try? Data(contentsOf: avatarURL)
        let image = UIImage(data: data!)?.resizeImage(CGFloat.init(24), opaque: false).withRoundedCorners()
         
-       return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
-                              icon: image?.withRenderingMode(.alwaysOriginal),
-                              highlightedIcon: image?.withRenderingMode(.alwaysOriginal))
+    return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
+                          icon: image?.withRenderingMode(.alwaysOriginal),
+                          highlightedIcon: image?.withRenderingMode(.alwaysOriginal))
 } else {
-       return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
-                              icon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal),
-                              highlightedIcon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal))
+    return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
+                          icon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal),
+                          highlightedIcon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal))
             
         }
     }

@@ -12,8 +12,8 @@ import UIKit
 public struct TabBarItemInfo {
 
   public let title: String?
-  public var icon: UIImage?
-  public var highlightedIcon: UIImage?
+  public let icon: UIImage?
+  public let highlightedIcon: UIImage?
 
   public init(title: String?, icon: UIImage?, highlightedIcon: UIImage?) {
     self.title = title

@@ -54,28 +54,17 @@ extension UIImage {
                     fatalError("UIIMage.resizeToFit(): FATAL: Unimplemented ContentMode")
                 }
 
-                if #available(iOS 10.0, *) {
-                    let renderFormat = UIGraphicsImageRendererFormat.default()
-                    renderFormat.opaque = opaque
-                    let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height), format: renderFormat)
-                    
-                    newImage = renderer.image {
-                        (context) in
-                        self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
-                    }
-                } else {
-                    UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), opaque, 0)
-                        self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
-                        newImage = UIGraphicsGetImageFromCurrentImageContext()!
-                    UIGraphicsEndImageContext()
-                }
+                UIGraphicsBeginImageContextWithOptions(CGSize(width: width, height: height), opaque, 0)
+                self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+                newImage = UIGraphicsGetImageFromCurrentImageContext()!
+                UIGraphicsEndImageContext()
 
                 return newImage
             }
-    public func withRoundedCorners(radius: CGFloat? = nil) -> UIImage? {
+    public func withRoundedCorners(radius: CGFloat = 0) -> UIImage? {
                let maxRadius = min(size.width, size.height) / 2
                let cornerRadius: CGFloat
-               if let radius = radius, radius > 0 && radius <= maxRadius {
+               if radius > 0 && radius <= maxRadius {
                    cornerRadius = radius
                } else {
                    cornerRadius = maxRadius
