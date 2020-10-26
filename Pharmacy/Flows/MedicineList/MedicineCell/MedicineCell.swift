@@ -21,8 +21,7 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
     @IBOutlet private weak var costLabel: UILabel!
     
     // MARK: - Properties
-    var addToFavoritesHandler: EmptyClosure?
-    var removeFromFavoritesHandler: EmptyClosure?
+    var favoriteButtonHandler: ((_ state: Bool) -> Void)?
     var addToPurchesesHandler: EmptyClosure?
     
     private(set) var medicineProductID: Int = 0
@@ -98,13 +97,8 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
     
     // MARK: - Actions
     @IBAction private func likeAction(sender: UIButton) {
+        favoriteButtonHandler?(!sender.isSelected)
         sender.isSelected.toggle()
-        switch  sender.isSelected {
-        case true:
-            addToFavoritesHandler?()
-        case false:
-            removeFromFavoritesHandler?()
-        }
     }
     
     @IBAction private func buyAction(sender: UIButton) {

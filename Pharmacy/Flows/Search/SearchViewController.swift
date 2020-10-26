@@ -189,13 +189,13 @@ extension SearchViewController: UITableViewDataSource {
         case .found:
             let cell = tableView.dequeueReusableCell(at: indexPath, cellType: MedicineCell.self)
             cell.apply(medicine: model.medicines[indexPath.row])
-            cell.addToFavoritesHandler = {[weak self] in
-                self?.model.addToWishList(productId: cell.medicineProductID)
+            cell.favoriteButtonHandler = {[weak self] state in
+                if state {
+                    self?.model.addToWishList(productId: cell.medicineProductID)
+                } else {
+                    self?.model.removeFromWishList(productId: cell.medicineProductID)
+                }
             }
-            cell.removeFromFavoritesHandler = {[weak self] in
-                self?.model.removeFromWishList(productId: cell.medicineProductID)
-            }
-            
             return cell
         default:
             return UITableViewCell()

@@ -72,7 +72,7 @@ extension SearchModel: SearchViewControllerOutput {
     func removeFromWishList(productId: Int) {
         wishListProvider.load(target: .removeFromWishList(medicineId: productId)) { (result) in
             switch result {
-            case.success(_):
+            case.success:
                 print("medicine productId- \(productId) was successfully removed from wish list")
             case .failure(let error):
                 print("error is \(error)")
@@ -83,7 +83,7 @@ extension SearchModel: SearchViewControllerOutput {
     func addToWishList(productId: Int) {
         wishListProvider.load(target: .addToWishList(medicineId: productId)) { (result) in
             switch result {
-            case.success(_):
+            case.success:
                 print("medicine productId- \(productId) was successfully added to wish list")
             case .failure(let error):
                 print("error is \(error)")
