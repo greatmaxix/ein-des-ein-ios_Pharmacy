@@ -34,6 +34,7 @@ final class WelcomeModel: EventNode {
     
     unowned var output: WelcomeModelOutput!
     private let provider = DataManager<CategoryAPI, CategoriesResponse>()
+    private let cartProvider = DataManager<ProductCartAPI,CategoriesResponse>
     private var topCategory: [Category] = []
     private(set) var medicines: [Medicine] = []
 }

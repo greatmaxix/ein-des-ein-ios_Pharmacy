@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		246A83B72546E26A0004ECEC /* ProductCartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83B62546E26A0004ECEC /* ProductCartAPI.swift */; };
 		3915D60824A2466700A93627 /* ConfirmCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915D60724A2466700A93627 /* ConfirmCodeModel.swift */; };
 		3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915D60924A24DF500A93627 /* LoginResponse.swift */; };
 		39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0824A0DA5A004A9909 /* SignInModel.swift */; };
@@ -264,6 +265,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		246A83B62546E26A0004ECEC /* ProductCartAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartAPI.swift; sourceTree = "<group>"; };
 		3915D60724A2466700A93627 /* ConfirmCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeModel.swift; sourceTree = "<group>"; };
 		3915D60924A24DF500A93627 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		39273A0824A0DA5A004A9909 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
@@ -1454,6 +1456,7 @@
 				619AAA3F2498A9AE00AB46ED /* AuthAPI.swift */,
 				39854D0124EAB4870070E0D1 /* ProfileAPI.swift */,
 				392BD73924FFE23000088002 /* CategoryAPI.swift */,
+				246A83B62546E26A0004ECEC /* ProductCartAPI.swift */,
 				3952FA242500FE9B00E5EF1D /* WishListAPI.swift */,
 				393DDFBF25028F3D00652A01 /* LocationAPI.swift */,
 				8717E4DD2507744500546A55 /* SearchAPI.swift */,
@@ -2020,6 +2023,7 @@
 				3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */,
 				39F0AD6924EEC83000CD6CA4 /* PrescriptionsModel.swift in Sources */,
 				603D319F24E3B492000E5A6C /* CollectionDataSourceViewController.swift in Sources */,
+				246A83B72546E26A0004ECEC /* ProductCartAPI.swift in Sources */,
 				878CFC0E2514CC1C00298139 /* Decimal+MoneyFormat.swift in Sources */,
 				875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */,
 				395CB74424FCE9BF000A958F /* CheckoutViewController.swift in Sources */,
