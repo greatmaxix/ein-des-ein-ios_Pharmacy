@@ -118,7 +118,7 @@ extension WelcomeModel: WelcomeModelInput {
             
             switch result {
             case .success:
-                break
+                print("reciept \(productId) was successfully added to chart")
             case .failure(let error):
                 print(error.localizedDescription)
             }
