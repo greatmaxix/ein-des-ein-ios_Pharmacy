@@ -26,8 +26,8 @@ protocol SearchModelInput: class {
     func processSearch()
     func cleanSearchTerm()
     func didSelectCellAt(indexPath: IndexPath)
-    func addToWishList(productId: Int)
-    func removeFromWishList(productId: Int)
+    func addToWishList(productId: Int, indexPath: IndexPath)
+    func removeFromWishList(productId: Int, indexPath: IndexPath)
 }
 
 protocol SearchModelOutput: class {
@@ -37,6 +37,7 @@ protocol SearchModelOutput: class {
     func retreivingMoreMedicinesDidEnd()
     func needToInsertNewMedicines(at: [IndexPath]?)
     func searchTermDidUpdated(_ term: String?)
+    func addRemoveFromFavoriteError(indexPath: IndexPath)
 }
 
 final class SearchModel: Model {
@@ -69,24 +70,26 @@ final class SearchModel: Model {
 // MARK: - SearchViewControllerOutput
 extension SearchModel: SearchViewControllerOutput {
     
-    func removeFromWishList(productId: Int) {
+    func removeFromWishList(productId: Int, indexPath: IndexPath) {
         wishListProvider.load(target: .removeFromWishList(medicineId: productId)) { (result) in
             switch result {
             case.success:
                 print("medicine productId- \(productId) was successfully removed from wish list")
             case .failure(let error):
                 print("error is \(error)")
+                self.output.addRemoveFromFavoriteError(indexPath: indexPath)
                 }
         }
     }
 
-    func addToWishList(productId: Int) {
+    func addToWishList(productId: Int, indexPath: IndexPath) {
         wishListProvider.load(target: .addToWishList(medicineId: productId)) { (result) in
             switch result {
             case.success:
                 print("medicine productId- \(productId) was successfully added to wish list")
             case .failure(let error):
                 print("error is \(error)")
+                self.output.addRemoveFromFavoriteError(indexPath: indexPath)
                 }
         }
     }

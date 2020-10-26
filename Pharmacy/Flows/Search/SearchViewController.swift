@@ -117,6 +117,11 @@ extension SearchViewController {
 // MARK: - SearchViewControllerInput
 extension SearchViewController: SearchViewControllerInput {
     
+    func addRemoveFromFavoriteError(indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? MedicineCell else {return}
+        cell.setPreviousFavoriteButtonState()
+    }
+    
     func willSendRequest() {
         activityIndicator.show(animated: true)
     }
@@ -191,9 +196,9 @@ extension SearchViewController: UITableViewDataSource {
             cell.apply(medicine: model.medicines[indexPath.row])
             cell.favoriteButtonHandler = {[weak self] state in
                 if state {
-                    self?.model.addToWishList(productId: cell.medicineProductID)
+                    self?.model.addToWishList(productId: cell.medicineProductID, indexPath: indexPath)
                 } else {
-                    self?.model.removeFromWishList(productId: cell.medicineProductID)
+                    self?.model.removeFromWishList(productId: cell.medicineProductID, indexPath: indexPath)
                 }
             }
             return cell

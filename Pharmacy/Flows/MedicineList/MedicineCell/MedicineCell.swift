@@ -95,6 +95,10 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
         }
     }
     
+    func setPreviousFavoriteButtonState() {
+        self.likedButton.isSelected = !self.likedButton.isSelected
+    }
+    
     // MARK: - Actions
     @IBAction private func likeAction(sender: UIButton) {
         favoriteButtonHandler?(!sender.isSelected)
