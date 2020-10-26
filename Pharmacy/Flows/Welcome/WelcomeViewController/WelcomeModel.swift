@@ -28,6 +28,7 @@ protocol WelcomeModelInput: class {
     var categories: [Category] {get}
     func didSelectProductBy(index: Int)
     func openCategories(_ categoryIndex: Int?)
+    func addToCart(productId: Int)
 }
 
 final class WelcomeModel: EventNode {
@@ -85,6 +86,7 @@ extension WelcomeModel: WelcomeModelInput {
         
         output.showReceipts(receipts)
     }
+    
     private func loadCategoryData() {
         provider.load(target: .getCategories(startCode: nil, maxLevel: nil), completion: { [weak self] result in
             guard let self = self else { return }
@@ -109,4 +111,18 @@ extension WelcomeModel: WelcomeModelInput {
             }
         })
     }
+    
+    func addToCart(productId: Int) {
+        cartProvider.load(target: .addPharmacyToCart(productId: productId)) {[weak self] result in
+            guard self != nil else { return }
+            
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
 }

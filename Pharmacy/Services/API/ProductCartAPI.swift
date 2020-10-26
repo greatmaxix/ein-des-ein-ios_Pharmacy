@@ -11,7 +11,7 @@ import Moya
 
 enum ProductCartAPI {
     
-    case addPharmacyToCart(medicineId: Int)
+    case addPharmacyToCart(productId: Int)
 }
 
 extension ProductCartAPI: RequestConvertible {

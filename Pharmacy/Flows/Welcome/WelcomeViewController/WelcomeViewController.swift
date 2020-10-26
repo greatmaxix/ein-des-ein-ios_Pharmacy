@@ -154,7 +154,7 @@ extension WelcomeViewController: WelcomeModelOutput {
                     print("like")
                 }
                 receiptView.addToChartHandler = {
-                    print("Chart")
+                    //self.model.addToCart(productId: 0)
                 }
                 receiptStackView.addArrangedSubview(receiptView)
             }
