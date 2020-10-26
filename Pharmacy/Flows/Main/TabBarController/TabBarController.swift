@@ -36,10 +36,6 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
         model.controllerDidBecomeHidden()
     }
     
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        print("zxcxzczxczxczx")
-    }
-    
    private func setupTabBar() {
         
         tabBar.shadowImage = UIImage()
@@ -88,7 +84,6 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
 extension TabBarController: TabBarControllerInput {
     
     func changeCurrentTab(_ tab: Tab) {
-        //zxcv тут идет изменение индекса
-        self.selectedIndex = tab.rawValue;
+        self.selectedIndex = tab.rawValue
     }
 }

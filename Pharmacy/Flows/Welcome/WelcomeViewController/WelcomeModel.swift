@@ -34,7 +34,7 @@ final class WelcomeModel: EventNode {
     
     unowned var output: WelcomeModelOutput!
     private let provider = DataManager<CategoryAPI, CategoriesResponse>()
-    private var topCategory : [Category] = []
+    private var topCategory: [Category] = []
     private(set) var medicines: [Medicine] = []
 }
 
@@ -62,9 +62,7 @@ extension WelcomeModel: WelcomeModelInput {
     }
     
     var categories: [Category] {
-        get {
             return topCategory
-        }
     }
     
     func load() {

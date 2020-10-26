@@ -94,13 +94,12 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
         loadReceipeButton.dropBlueShadow()
         loadReceipeButton.layer.cornerRadius = loadReceipeButton.frame.height / 2
         
-        for (index,item) in categoriesViews.enumerated() {
+        for (index, item) in categoriesViews.enumerated() {
             item.tag = index
             let tap = UITapGestureRecognizer(target: self, action: #selector(categoryTapped(_:)))
             item.addGestureRecognizer(tap)
         }
     }
-    
     
     @objc func categoryTapped(_ sender: UITapGestureRecognizer) {
         guard let index = sender.view?.tag else {return}
@@ -113,19 +112,18 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
         model.openCategories(nil)
     }
     
-    private func searchHandler(){
+    private func searchHandler() {
         model.openSearchScreen()
     }
 }
 
 extension WelcomeViewController: WelcomeModelOutput {
     func modelIsLoaded() {
-        for index in 0...categorieLabels.count-1{
+        for index in 0...categorieLabels.count-1 {
             categorieLabels[index].text = model.categories[index].shortTitle
         }
         activityIndicator.hide(animated: true)
     }
-    
     
     func showReadyOrders(orders: [String]) {
         ordersStackView.isHidden = orders.count == 0
