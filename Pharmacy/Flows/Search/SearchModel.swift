@@ -75,6 +75,7 @@ extension SearchModel: SearchViewControllerOutput {
             switch result {
             case.success:
                 print("medicine productId- \(productId) was successfully removed from wish list")
+                self.medicines[indexPath.row].liked = false
             case .failure(let error):
                 print("error is \(error)")
                 self.output.addRemoveFromFavoriteError(indexPath: indexPath)
@@ -87,6 +88,7 @@ extension SearchModel: SearchViewControllerOutput {
             switch result {
             case.success:
                 print("medicine productId- \(productId) was successfully added to wish list")
+                self.medicines[indexPath.row].liked = true
             case .failure(let error):
                 print("error is \(error)")
                 self.output.addRemoveFromFavoriteError(indexPath: indexPath)
