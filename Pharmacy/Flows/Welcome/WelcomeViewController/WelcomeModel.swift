@@ -51,7 +51,6 @@ extension WelcomeModel: WelcomeModelInput {
         } else {
             raise(event: WelcomeEvent.openCategories(category: nil))
         }
-        
     }
     
     func didSelectProductBy(index: Int) {
