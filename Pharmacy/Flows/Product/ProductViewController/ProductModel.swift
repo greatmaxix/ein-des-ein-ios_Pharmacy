@@ -21,6 +21,7 @@ protocol ProductModelInput: class {
     var dataSource: TableDataSource<ProductCellSection> { get }
     var title: String { get }
     func load()
+    func saveToCoreData(medicine: Medicine)
     func didSelectCell(at indexPath: IndexPath)
     func openMap()
 }
@@ -39,6 +40,7 @@ final class ProductModel: Model {
     init(product: Medicine, parent: EventNode?) {
         self.medicine = product
         super.init(parent: parent)
+        saveToCoreData(medicine: product)
     }
     
 }
@@ -47,12 +49,23 @@ final class ProductModel: Model {
 
 extension ProductModel: ProductViewControllerOutput {
     
+    func saveToCoreData(medicine: Medicine) {
+        let data = RecentMedicineDTO.init(productId: medicine.id,
+                                          liked: medicine.liked,
+                                          minPrice: medicine.price,
+                                          name: medicine.name,
+                                          releaseForm: medicine.releaseForm,
+                                          picture: medicine.pictureUrls.first ?? "")
+        UserSession.shared.save(medicine: data)
+    }
+    
     var title: String { "Ношпа" }
     
     func load() {
         
         product = Product(imageURLs: [], title: "АЛЛОПУРИНОЛ-ЭГИС, 40 мг", subtitle: "Таблетки шипучие, 24 шт", description: "Таблетки покрытые пленочной оболочкой от светло-серого до темно-серого цвета, капсуловидной формы, сгравировкой \"PRENATAL\" с одной стороны и \"FORTE\" с другой стороны, со специфическим запахом", fromPrice: "568", toPrice: "568", currency: "$", analog: "Дротаверин", category: "Противогрибковый", tags: ["Спазмы", "Язва", "Головная боль", "Гастрит", "Болит живот", "Дисменорея"], company: "Chinoin Pharmaceutical and Chemical Works Co. Венгрия")
         dataSource.cells = ProductCellSection.allSectionsFor(product: product)
+        
         output.didLoad(product: product)
     }
     

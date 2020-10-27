@@ -61,8 +61,13 @@ class UserSession {
         }
     }
     
+    var recentMedicineViewd: [RecentMedicineDTO] {
+        return medicineViewed
+    }
+    
     private var userDefaultsAccessor: UserSessionDataAccessible.Type
     private var userEntity: UserEntity!
+    private var medicineViewed: [RecentMedicineDTO] = []
     
     // MARK: - Init / Deinit methods
     init(with accessor: UserSessionDataAccessible.Type = UserDefaultsAccessor.self) {
@@ -102,6 +107,13 @@ class UserSession {
         CoreDataService.shared.save(avatar: avatar, isNeedToSave: false)
         CoreDataService.shared.bindAvatarToUser()
         refetchUser()
+    }
+    
+    func save(medicine: RecentMedicineDTO) {
+        CoreDataService.shared.save(medicine: medicine)
+        
+        medicineViewed.append(medicine)
+        //refetchUser()
     }
     
     func logout() {

@@ -71,7 +71,23 @@ final class CoreDataService {
         if isNeedToSave {
             try? viewContext.saveIfNeeded()
         }
+    }
+    
+    func save(medicine dto: RecentMedicineDTO, isNeedToSave: Bool = true) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: dto.entityType.entityName)
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        _ = try? viewContext.execute(batchDeleteRequest)
         
+        let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
+        dto.entityType.createOrUpdate(in: self.viewContext,
+                                            matching: predicate) {
+                                                dto.fillEntity(entity: $0)
+        }
+        
+        if isNeedToSave {
+            try? viewContext.saveIfNeeded()
+        }
     }
     
     func bindAvatarToUser(andSave isNeedToSave: Bool = true) {

@@ -10,6 +10,19 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="subCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CategoryEntity"/>
     </entity>
+    <entity name="RecentMedicineEntity" representedClassName="RecentMedicineEntity" syncable="YES">
+        <attribute name="liked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="minPrice" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="picture" optional="YES" attributeType="String"/>
+        <attribute name="productId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="releaseForm" optional="YES" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="productId"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="identifier" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -25,7 +38,8 @@
     </entity>
     <elements>
         <element name="AvatarEntity" positionX="-63" positionY="9" width="128" height="73"/>
-        <element name="UserEntity" positionX="-63" positionY="-18" width="128" height="133"/>
-        <element name="CategoryEntity" positionX="232.52734375" positionY="-11.33984375" width="128" height="103"/>
+        <element name="CategoryEntity" positionX="180.328125" positionY="-66.81640625" width="128" height="103"/>
+        <element name="UserEntity" positionX="-63.88671875" positionY="-168.83203125" width="128" height="133"/>
+        <element name="RecentMedicineEntity" positionX="-63.41796875" positionY="162.6796875" width="128" height="133"/>
     </elements>
 </model>
