@@ -40,11 +40,10 @@ final class SignUpViewController: UIViewController {
     // MARK: - Actions
     @IBAction func apply(_ sender: UIButton) {
             if self.inputViews.allSatisfy({$0.validate()}) {
-            sender.isUserInteractionEnabled = false
+                sender.isUserInteractionEnabled = false
 
-            emailTextView.validate() ?
-                model.signUp(name: self.inputViews[0].text, phone: self.inputViews[1].text, email: self.emailTextView.text) :
-                model.signUp(name: self.inputViews[0].text, phone: self.inputViews[1].text, email: "")
+                let emailString: String? = emailTextView.validate() ? emailTextView.text : ""
+                model.signUp(name: self.inputViews[0].text, phone: self.inputViews[1].text, email: emailString)
         }
 }
     
