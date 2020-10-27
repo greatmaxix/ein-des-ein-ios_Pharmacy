@@ -82,6 +82,10 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     @IBAction private func selectCategory(_ sender: UIButton) {
         model.openCategories()
     }
+    @IBAction func uploadReceipt(_ sender: Any) {
+        model.openReceiptUpload()
+    }
+
 }
 
 extension WelcomeViewController: WelcomeModelOutput {

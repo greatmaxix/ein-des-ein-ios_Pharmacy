@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Onboarding View Controller-->
         <scene sceneID="aFZ-9z-reB">
@@ -17,12 +25,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mM8-lc-aTB">
-                                <rect key="frame" x="16" y="762" width="382" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mM8-lc-aTB">
+                                <rect key="frame" x="16" y="760" width="382" height="44"/>
                                 <color key="backgroundColor" name="welcomeBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ZSH-CV-hLh"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -30,21 +39,22 @@
                                     <action selector="onNextButtonTouchUp:" destination="sNA-cr-lPi" eventType="touchUpInside" id="Xqo-rF-LHs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlY-o4-FUV">
-                                <rect key="frame" x="16" y="822" width="382" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlY-o4-FUV">
+                                <rect key="frame" x="16" y="820" width="382" height="32"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" name="applyBlueGray"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="onSkipButtonTouchUp:" destination="sNA-cr-lPi" eventType="touchUpInside" id="dg3-NK-yEB"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhY-MM-RkA">
-                                <rect key="frame" x="0.0" y="44" width="414" height="710"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="708"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wZL-0F-gLc">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="710"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="708"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sso-ta-uGQ">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -58,7 +68,7 @@
                                         </connections>
                                     </collectionView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" name="textDarkBlue"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="wZL-0F-gLc" secondAttribute="bottom" id="Zsm-FR-SFt"/>
                                     <constraint firstItem="wZL-0F-gLc" firstAttribute="top" secondItem="IhY-MM-RkA" secondAttribute="top" id="gDT-a2-az6"/>
@@ -67,7 +77,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="LHO-DW-sty"/>
+                        <color key="backgroundColor" name="textDarkBlue"/>
                         <constraints>
                             <constraint firstItem="mM8-lc-aTB" firstAttribute="top" secondItem="IhY-MM-RkA" secondAttribute="bottom" constant="8" id="AdI-0R-8TC"/>
                             <constraint firstItem="IhY-MM-RkA" firstAttribute="top" secondItem="LHO-DW-sty" secondAttribute="top" id="DXp-tq-K20"/>
@@ -80,7 +91,6 @@
                             <constraint firstItem="IlY-o4-FUV" firstAttribute="leading" secondItem="LHO-DW-sty" secondAttribute="leading" constant="16" id="tyc-aQ-nwY"/>
                             <constraint firstItem="LHO-DW-sty" firstAttribute="trailing" secondItem="IlY-o4-FUV" secondAttribute="trailing" constant="16" id="xBm-IL-woS"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="LHO-DW-sty"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="wZL-0F-gLc" id="qt0-vW-1dM"/>
@@ -122,6 +132,7 @@
                                 <rect key="frame" x="197" y="443" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="jSR-1b-wnD"/>
                         <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstItem="MOV-1x-5NG" firstAttribute="top" secondItem="jSR-1b-wnD" secondAttribute="top" constant="11" id="6se-ff-hww"/>
@@ -134,7 +145,6 @@
                             <constraint firstItem="nHW-xw-xgD" firstAttribute="bottom" secondItem="jSR-1b-wnD" secondAttribute="bottom" constant="7" id="wHb-gF-Pf3"/>
                             <constraint firstItem="nHW-xw-xgD" firstAttribute="leading" secondItem="jSR-1b-wnD" secondAttribute="leading" constant="8" id="zaE-5K-qR9"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="jSR-1b-wnD"/>
                     </view>
                     <connections>
                         <outlet property="indicatorView" destination="6wK-XM-3ZC" id="Yrb-W3-ueT"/>
@@ -148,9 +158,6 @@
     </scenes>
     <resources>
         <image name="crosshair" width="24" height="24"/>
-        <namedColor name="applyBlueGray">
-            <color red="0.6470588235294118" green="0.70588235294117652" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="backgroundGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
