@@ -75,11 +75,10 @@ extension SearchModel: SearchViewControllerOutput {
         wishListProvider.load(target: .removeFromWishList(medicineId: productId)) { (result) in
             switch result {
             case .success:
-                print("medicine productId- \(productId) was successfully removed from wish list")
                 self.medicines[indexPath.row].liked = false
                 self.output.favoriteAciontReloadCell(cellAt: indexPath)
             case .failure(let error):
-                print("error is \(error)")
+                print("error is \(error.localizedDescription)")
                 self.output.addRemoveFromFavoriteError(indexPath: indexPath)
                 }
         }
@@ -89,11 +88,10 @@ extension SearchModel: SearchViewControllerOutput {
         wishListProvider.load(target: .addToWishList(medicineId: productId)) { (result) in
             switch result {
             case .success:
-                print("medicine productId- \(productId) was successfully added to wish list")
                 self.medicines[indexPath.row].liked = true
                 self.output.favoriteAciontReloadCell(cellAt: indexPath)
             case .failure(let error):
-                print("error is \(error)")
+                print("error is \(error.localizedDescription)")
                 self.output.addRemoveFromFavoriteError(indexPath: indexPath)
                 }
         }
