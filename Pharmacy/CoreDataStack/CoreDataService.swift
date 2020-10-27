@@ -36,6 +36,24 @@ final class CoreDataService {
         return object
     }
     
+    func getRecentMedicine() -> [RecentMedicineDTO]? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: RecentMedicineEntity.entityName)
+        guard let data = try? viewContext.fetch(fetchRequest) as? [RecentMedicineEntity] else {
+            return nil}
+        
+        var result: [RecentMedicineDTO] = []
+        data.forEach {result.append(RecentMedicineDTO.init(productId: $0.productId,
+                                                           liked: $0.liked,
+                                                           minPrice: $0.minPrice,
+                                                           name: $0.name,
+                                                           releaseForm: $0.releaseForm,
+                                                           picture: $0.picture))
+        }
+        
+        return result
+
+        }
+    
     func save(user dto: UserDTO) {
         let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
         
@@ -80,14 +98,13 @@ final class CoreDataService {
         _ = try? viewContext.execute(batchDeleteRequest)
         
         let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
+        
         dto.entityType.createOrUpdate(in: self.viewContext,
                                             matching: predicate) {
                                                 dto.fillEntity(entity: $0)
         }
         
-        if isNeedToSave {
-            try? viewContext.saveIfNeeded()
-        }
+        try? viewContext.save()
     }
     
     func bindAvatarToUser(andSave isNeedToSave: Bool = true) {

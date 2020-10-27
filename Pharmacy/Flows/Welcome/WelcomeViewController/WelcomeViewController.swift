@@ -52,11 +52,12 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
         setupUI()
         model.load()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("COREDATA \(UserSession.shared.recentMedicineViewd)")
+        model.load()
     }
+    
     // MARK: - Setup
     
     private func setupLocalization() {

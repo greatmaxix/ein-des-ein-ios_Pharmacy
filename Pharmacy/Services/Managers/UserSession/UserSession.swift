@@ -77,6 +77,7 @@ class UserSession {
         if userId > 0 {
             authorizationStatus = .authorized(userId: userId)
             userEntity = CoreDataService.shared.get(by: userId)
+            medicineViewed = CoreDataService.shared.getRecentMedicine()!
         } else {
             authorizationStatus = .notAuthorized
         }
@@ -111,9 +112,7 @@ class UserSession {
     
     func save(medicine: RecentMedicineDTO) {
         CoreDataService.shared.save(medicine: medicine)
-        
         medicineViewed.append(medicine)
-        //refetchUser()
     }
     
     func logout() {

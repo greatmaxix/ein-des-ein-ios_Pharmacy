@@ -81,13 +81,22 @@ extension WelcomeModel: WelcomeModelInput {
     }
     
     private func loadReceipts() {
-
-        let receipts = [Receipt(title: "Название товара",
-                                subtitle: "Таблетки шипучие, 20 мг", imageURL: nil, price: "568"),
-                        Receipt(title: "Название товара",
-                                subtitle: "Таблетки шипучие, 20 мг", imageURL: nil, price: "568")]
+        let data = UserSession.shared.recentMedicineViewd
+        var result: [Receipt] = []
         
-        output.showReceipts(receipts)
+        guard data.count >= 2 else {return}
+        
+        for index in 0...1 {
+            let medicine = data[index]
+            let receipt = Receipt(title: medicine.name, subtitle: medicine.releaseForm, imageURL: URL(string: medicine.picture), price: medicine.minPrice, productId: medicine.productId)
+            result.append(receipt)
+        }
+//        let receipts = [Receipt(title: "Название товара",
+//                                subtitle: "Таблетки шипучие, 20 мг", imageURL: nil, price: "568"),
+//                        Receipt(title: "Название товара",
+//                                subtitle: "Таблетки шипучие, 20 мг", imageURL: nil, price: "568")]
+        
+        output.showReceipts(result)
     }
     
     private func loadCategoryData() {
