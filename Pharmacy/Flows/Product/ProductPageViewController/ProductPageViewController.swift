@@ -21,4 +21,12 @@ final class ProductPageViewController: UIViewController {
         vc.tagButton.setTitle(title, for: .normal)
         return vc
     }
+    
+    static func createWith(url: URL, title: String) -> ProductPageViewController {
+        let vc = ProductPageViewController(nib: R.nib.productPageViewController)
+        vc.loadView()
+        vc.imageView.loadImageBy(url: url)
+        vc.tagButton.setTitle(title, for: .normal)
+        return vc
+    }
 }
