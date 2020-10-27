@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		246A83B72546E26A0004ECEC /* ProductCartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83B62546E26A0004ECEC /* ProductCartAPI.swift */; };
+		246A83C62547070A0004ECEC /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83C52547070A0004ECEC /* PostResponse.swift */; };
+		246A83F625472E260004ECEC /* CategoryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83F525472E260004ECEC /* CategoryDTO.swift */; };
+		246A83FD25472F1F0004ECEC /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83FC25472F1F0004ECEC /* CategoryEntity.swift */; };
+		24F5FC54254892CC00D28275 /* RecentMedicineDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5FC53254892CC00D28275 /* RecentMedicineDTO.swift */; };
+		24F5FC58254892D900D28275 /* RecentMedicineEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5FC57254892D900D28275 /* RecentMedicineEntity.swift */; };
 		3915D60824A2466700A93627 /* ConfirmCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915D60724A2466700A93627 /* ConfirmCodeModel.swift */; };
 		3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915D60924A24DF500A93627 /* LoginResponse.swift */; };
 		39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0824A0DA5A004A9909 /* SignInModel.swift */; };
@@ -268,6 +274,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		246A83B62546E26A0004ECEC /* ProductCartAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartAPI.swift; sourceTree = "<group>"; };
+		246A83C52547070A0004ECEC /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
+		246A83F525472E260004ECEC /* CategoryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDTO.swift; sourceTree = "<group>"; };
+		246A83FC25472F1F0004ECEC /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
+		24F5FC53254892CC00D28275 /* RecentMedicineDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentMedicineDTO.swift; sourceTree = "<group>"; };
+		24F5FC57254892D900D28275 /* RecentMedicineEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentMedicineEntity.swift; sourceTree = "<group>"; };
 		3915D60724A2466700A93627 /* ConfirmCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeModel.swift; sourceTree = "<group>"; };
 		3915D60924A24DF500A93627 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		39273A0824A0DA5A004A9909 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
@@ -544,6 +556,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		246A83EA25472CE90004ECEC /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				246A83F525472E260004ECEC /* CategoryDTO.swift */,
+				246A83FC25472F1F0004ECEC /* CategoryEntity.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		24F5FC52254892AB00D28275 /* RecentMedicine */ = {
+			isa = PBXGroup;
+			children = (
+				24F5FC53254892CC00D28275 /* RecentMedicineDTO.swift */,
+				24F5FC57254892D900D28275 /* RecentMedicineEntity.swift */,
+			);
+			path = RecentMedicine;
+			sourceTree = "<group>";
+		};
 		3939A6D324F6A39E0045FB71 /* Location Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +655,7 @@
 				395324BB2508CE450038D2DC /* RegionResponse.swift */,
 				398880C3250F799400942D30 /* PharmacyResponse.swift */,
 				394D59BB2507D01200AA3729 /* WishlistResponse.swift */,
+				246A83C52547070A0004ECEC /* PostResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -1463,6 +1494,7 @@
 				619AAA3F2498A9AE00AB46ED /* AuthAPI.swift */,
 				39854D0124EAB4870070E0D1 /* ProfileAPI.swift */,
 				392BD73924FFE23000088002 /* CategoryAPI.swift */,
+				246A83B62546E26A0004ECEC /* ProductCartAPI.swift */,
 				3952FA242500FE9B00E5EF1D /* WishListAPI.swift */,
 				393DDFBF25028F3D00652A01 /* LocationAPI.swift */,
 				8717E4DD2507744500546A55 /* SearchAPI.swift */,
@@ -1648,6 +1680,8 @@
 		875223C22500FD28000759C8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				24F5FC52254892AB00D28275 /* RecentMedicine */,
+				246A83EA25472CE90004ECEC /* Category */,
 				875223D2250114A7000759C8 /* User */,
 				871E71A12501604200C8489B /* Avatar */,
 			);
@@ -1742,7 +1776,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = pharmacy;
 				TargetAttributes = {
 					396C45B42497699800A569CE = {
@@ -1871,7 +1905,7 @@
 		};
 		396C45DF24978CD000A569CE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -1991,6 +2025,7 @@
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
 				39F0AD6524EEC80200CD6CA4 /* OrdersViewController.swift in Sources */,
 				39DBC18F24F7C2CC00CB82D5 /* MapMessageView.swift in Sources */,
+				246A83FD25472F1F0004ECEC /* CategoryEntity.swift in Sources */,
 				875223BB2500ED89000759C8 /* UserDefaultsAccessor.swift in Sources */,
 				603D31D724E5A3FE000E5A6C /* Product.swift in Sources */,
 				395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */,
@@ -2015,6 +2050,7 @@
 				395284AF250A3C3900A6FFAB /* UIViewController+ActivityIndicator.swift in Sources */,
 				603D31B424E3CFEE000E5A6C /* Medicine.swift in Sources */,
 				603D31D524E5A0C2000E5A6C /* ProductCellSection.swift in Sources */,
+				246A83F625472E260004ECEC /* CategoryDTO.swift in Sources */,
 				603D31A924E3B67B000E5A6C /* Category.swift in Sources */,
 				618C339F2498BE0200951D11 /* ProfileViewController.swift in Sources */,
 				8715DB9224FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift in Sources */,
@@ -2043,6 +2079,7 @@
 				3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */,
 				39F0AD6924EEC83000CD6CA4 /* PrescriptionsModel.swift in Sources */,
 				603D319F24E3B492000E5A6C /* CollectionDataSourceViewController.swift in Sources */,
+				246A83B72546E26A0004ECEC /* ProductCartAPI.swift in Sources */,
 				878CFC0E2514CC1C00298139 /* Decimal+MoneyFormat.swift in Sources */,
 				875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */,
 				395CB74424FCE9BF000A958F /* CheckoutViewController.swift in Sources */,
@@ -2107,14 +2144,17 @@
 				3949851A24BC519B006A773D /* ProfileOptionsCell.swift in Sources */,
 				60E1A71F24ED12C200B3D205 /* UIViewController+ActionSheetView.swift in Sources */,
 				398B0DE224F50AD60084EC54 /* UserMarkerView.swift in Sources */,
+				24F5FC58254892D900D28275 /* RecentMedicineEntity.swift in Sources */,
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
 				39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */,
 				8717E4DE2507744500546A55 /* SearchAPI.swift in Sources */,
 				875223CC2500FE07000759C8 /* NSManagedObject+Name.swift in Sources */,
+				24F5FC54254892CC00D28275 /* RecentMedicineDTO.swift in Sources */,
 				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,
 				87131D3C251392270050B8F2 /* String+HTML.swift in Sources */,
 				6036EB0024DD1CAA003336C2 /* BasketCoordinator.swift in Sources */,
+				246A83C62547070A0004ECEC /* PostResponse.swift in Sources */,
 				60E1A71D24ED079F00B3D205 /* ActionSheetView.swift in Sources */,
 				875223B22500EA2C000759C8 /* UserSessionDataAccessible.swift in Sources */,
 				6036EAFE24DD1C9A003336C2 /* BasketModel.swift in Sources */,
@@ -2178,6 +2218,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2238,6 +2279,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

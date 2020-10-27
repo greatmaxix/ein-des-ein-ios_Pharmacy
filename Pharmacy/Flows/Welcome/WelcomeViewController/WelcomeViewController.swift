@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 final class WelcomeViewController: UIViewController, NavigationBarStyled {
 
@@ -19,6 +20,10 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var diagnosticLabel: UILabel!
     @IBOutlet private weak var mapLabel: UILabel!
     
+    @IBOutlet private var categorieLabels: [UILabel]!
+    
+    @IBOutlet private var categoriesViews: [UIView]!
+    
     @IBOutlet private var buttonsBackground: [UIView]!
     
     @IBOutlet private weak var loadReceipeButton: UIButton!
@@ -30,11 +35,28 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     
     var model: WelcomeModelInput!
     
+    private lazy var activityIndicator: MBProgressHUD = {
+        let hud = MBProgressHUD(view: view)
+        hud.contentColor = .gray
+        hud.backgroundView.style = .solidColor
+        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
+        hud.removeFromSuperViewOnHide = false
+        view.addSubview(hud)
+
+        return hud
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        activityIndicator.show(animated: true)
         setupUI()
         model.load()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        model.load()
+        self.reloadInputViews()
     }
     
     // MARK: - Setup
@@ -57,11 +79,13 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         if let nvc = navigationController,
-
             let navigationBar = nvc.navigationBar as? NavigationBar {
             navigationBar.title = R.string.localize.welcomeTitle()
+            navigationBar.searchBar.searchBarHandler = {
+                self.searchHandler()
+            }
         }
     }
     
@@ -75,12 +99,27 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
         
         loadReceipeButton.dropBlueShadow()
         loadReceipeButton.layer.cornerRadius = loadReceipeButton.frame.height / 2
+        
+        for (index, item) in categoriesViews.enumerated() {
+            item.tag = index
+            let tap = UITapGestureRecognizer(target: self, action: #selector(categoryTapped(_:)))
+            item.addGestureRecognizer(tap)
+        }
+    }
+    
+    @objc func categoryTapped(_ sender: UITapGestureRecognizer) {
+        guard let index = sender.view?.tag else {return}
+        model.openCategories(index)
     }
     
     // MARK: Actions
     
     @IBAction private func selectCategory(_ sender: UIButton) {
-        model.openCategories()
+        model.openCategories(nil)
+    }
+    
+    private func searchHandler() {
+        model.openSearchScreen()
     }
     @IBAction func uploadReceipt(_ sender: Any) {
         model.openReceiptUpload()
@@ -89,6 +128,12 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
 }
 
 extension WelcomeViewController: WelcomeModelOutput {
+    func modelIsLoaded() {
+        for index in 0...categorieLabels.count-1 {
+            categorieLabels[index].text = model.categories[index].shortTitle
+        }
+        activityIndicator.hide(animated: true)
+    }
     
     func showReadyOrders(orders: [String]) {
         ordersStackView.isHidden = orders.count == 0
@@ -115,6 +160,14 @@ extension WelcomeViewController: WelcomeModelOutput {
         for receipt in receipts {
             if let receiptView: ReceiptView  = R.nib.receiptView(owner: self) {
                 receiptView.apply(receipt: receipt)
+                receiptView.likeActionHandler = {[unowned self] state in
+                    if state {
+                        self.model.addToWishList(productId: receiptView.productId)
+                    }
+                }
+                receiptView.addToChartHandler = {[unowned self] in
+                    self.model.addToCart(productId: receiptView.productId)
+                }
                 receiptStackView.addArrangedSubview(receiptView)
             }
         }

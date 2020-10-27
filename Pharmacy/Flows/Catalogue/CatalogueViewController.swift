@@ -25,7 +25,6 @@ final class CatalogueViewController: CollectionDataSourceViewController {
         collectionView.backgroundColor = view.backgroundColor
         view.bringSubviewToFront(indicatorView)
         indicatorView.startAnimating()
-        model.load()
         collectionView.delegate = self
     }
 }

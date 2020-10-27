@@ -21,6 +21,7 @@ protocol ProductModelInput: class {
     var dataSource: TableDataSource<ProductCellSection> { get }
     var title: String { get }
     func load()
+    func saveToCoreData(medicine: Medicine)
     func didSelectCell(at indexPath: IndexPath)
     func openMap()
 }
@@ -42,12 +43,24 @@ final class ProductModel: Model {
     init(product: Medicine, parent: EventNode?) {
         self.medicine = product
         super.init(parent: parent)
+        saveToCoreData(medicine: product)
     }
 }
 
 // MARK: - ProductViewControllerOutput
 
 extension ProductModel: ProductViewControllerOutput {
+    
+    func saveToCoreData(medicine: Medicine) {
+        let data = RecentMedicineDTO.init(productId: medicine.id,
+                                          liked: medicine.liked,
+                                          minPrice: medicine.price,
+                                          name: medicine.name,
+                                          releaseForm: medicine.releaseForm,
+                                          picture: medicine.pictureUrls.first ?? "")
+        
+        UserSession.shared.save(medicine: data)
+    }
     
     var title: String {
         medicine.title

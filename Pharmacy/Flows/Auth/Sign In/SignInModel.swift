@@ -21,6 +21,7 @@ protocol SignInInput {
     func signIn(phone: String)
     func signUp()
     func openProfile()
+    func startMainFlowWithOutRegistration()
     func back()
 }
 
@@ -58,6 +59,10 @@ final class SignInModel: Model {
 }
 
 extension SignInModel: SignInInput {
+    
+    func startMainFlowWithOutRegistration() {
+        raise(event: SuccessfulSignUpEvent.openMainScreen)
+    }
     
     func signIn(phone: String) {
         makeSignInRequest(phone: phone)

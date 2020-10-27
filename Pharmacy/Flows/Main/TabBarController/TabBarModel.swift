@@ -12,7 +12,7 @@ enum Tab: Int {
 
     case main = 0
     case catalogue
-    case cell
+    case search
     case favorites
     case profile
 }
