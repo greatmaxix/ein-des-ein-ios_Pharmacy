@@ -40,7 +40,7 @@ final class CatalogueCoordinator: EventNode, Coordinator {
             }
         }
         
-        addHandler { (event: BasketModelEvent) in
+        addHandler { (_: BasketModelEvent) in
             
         }
     }

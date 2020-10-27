@@ -25,7 +25,7 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
     var addToPurchesesHandler: EmptyClosure?
     
     private(set) var medicineProductID: Int = 0
-    
+    private var defaultLikedStatus: Bool = false
     private var downloadTask: DownloadTask?
     
     // MARK: - Init / Deinit methods
@@ -50,6 +50,7 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
     // MARK: - Public methods
     func apply(medicine: Medicine) {
         likedButton.isSelected = medicine.liked
+        defaultLikedStatus = medicine.liked
         titleLabel.text = medicine.title
         costLabel.text = medicine.price
         typeLabel.text = medicine.releaseFormFormatted
@@ -96,7 +97,7 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
     }
     
     func setPreviousFavoriteButtonState() {
-        self.likedButton.isSelected = !self.likedButton.isSelected
+        self.likedButton.isSelected = defaultLikedStatus
     }
     
     // MARK: - Actions
