@@ -23,8 +23,6 @@ final class SignInViewController: UIViewController {
     @IBOutlet private weak var skipButton: UIButton!
     @IBOutlet private weak var logoTopConstraint: NSLayoutConstraint!
     
-    private let textViewDebouncer: Executor = .debounce(interval: 1.0)
-    
     private var tapGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
     
@@ -67,13 +65,11 @@ final class SignInViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func apply(_ sender: UIButton) {
-        textViewDebouncer.execute { [unowned self] in
             if let phone: String = self.phoneInputView.text, phoneInputView.validate() {
             self.model.signIn(phone: phone)
             sender.isUserInteractionEnabled = false
             self.enterLabel.textColor = R.color.textDarkBlue()
             }
-        }
     }
     
     @IBAction func createAccount(_ sender: UIButton) {
@@ -96,9 +92,8 @@ final class SignInViewController: UIViewController {
     }
     
     @objc private func hideKeyboard() {
-        textViewDebouncer.execute {[unowned self] in
             self.enterLabel.textColor = phoneInputView.validate() ? R.color.textDarkBlue() : R.color.applyBlueGray()
-        }
+
         scrollView.contentInset = scrollViewInsets
         phoneInputView.endEditing(true)
     }
