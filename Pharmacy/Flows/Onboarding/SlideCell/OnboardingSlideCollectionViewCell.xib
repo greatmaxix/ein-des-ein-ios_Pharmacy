@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,51 +29,49 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qds-Pf-WdC">
                         <rect key="frame" x="0.0" y="0.0" width="397" height="517"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-Zf-JsV">
-                                <rect key="frame" x="68" y="110" width="261" height="261"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="261" id="MNk-e4-BKG"/>
-                                    <constraint firstAttribute="width" constant="261" id="azY-g8-dra"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="illustration_onboarding_1" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-Zf-JsV">
+                                <rect key="frame" x="0.0" y="0.0" width="397" height="445"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQK-zF-ujm">
-                                <rect key="frame" x="16" y="403" width="365" height="30"/>
+                                <rect key="frame" x="16" y="450" width="365" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8UZ-wM-z48"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tC3-II-0oH">
-                                <rect key="frame" x="16" y="441" width="365" height="22"/>
+                                <rect key="frame" x="16" y="488" width="365" height="19"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="textDarkBlue"/>
                         <constraints>
                             <constraint firstItem="tC3-II-0oH" firstAttribute="top" secondItem="fQK-zF-ujm" secondAttribute="bottom" constant="8" id="2Xk-5X-ELq"/>
+                            <constraint firstItem="fQK-zF-ujm" firstAttribute="top" secondItem="WgE-Zf-JsV" secondAttribute="bottom" constant="5" id="5tx-xm-BoO"/>
                             <constraint firstAttribute="trailing" secondItem="tC3-II-0oH" secondAttribute="trailing" constant="16" id="76E-6D-1hV"/>
                             <constraint firstAttribute="trailing" secondItem="fQK-zF-ujm" secondAttribute="trailing" constant="16" id="Dzf-Nk-wIP"/>
+                            <constraint firstAttribute="trailing" secondItem="WgE-Zf-JsV" secondAttribute="trailing" id="F6h-Uw-mHd"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tC3-II-0oH" secondAttribute="bottom" constant="10" id="Ixa-IG-b0z"/>
                             <constraint firstItem="fQK-zF-ujm" firstAttribute="leading" secondItem="Qds-Pf-WdC" secondAttribute="leading" constant="16" id="Npt-J0-Bg1"/>
                             <constraint firstAttribute="bottom" secondItem="tC3-II-0oH" secondAttribute="bottom" priority="250" constant="54" id="OOt-C6-UlS"/>
-                            <constraint firstItem="fQK-zF-ujm" firstAttribute="top" secondItem="WgE-Zf-JsV" secondAttribute="bottom" constant="32" id="is2-cC-y6Q"/>
-                            <constraint firstItem="WgE-Zf-JsV" firstAttribute="centerX" secondItem="Qds-Pf-WdC" secondAttribute="centerX" id="kQb-yy-QVr"/>
-                            <constraint firstItem="WgE-Zf-JsV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Qds-Pf-WdC" secondAttribute="top" constant="16" id="kY9-j9-cFl"/>
+                            <constraint firstItem="WgE-Zf-JsV" firstAttribute="top" secondItem="Qds-Pf-WdC" secondAttribute="top" id="SAR-k7-mwZ"/>
+                            <constraint firstItem="WgE-Zf-JsV" firstAttribute="leading" secondItem="Qds-Pf-WdC" secondAttribute="leading" id="nVK-Y4-XgJ"/>
                             <constraint firstItem="tC3-II-0oH" firstAttribute="leading" secondItem="Qds-Pf-WdC" secondAttribute="leading" constant="16" id="oY7-Ar-Eo3"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Qds-Pf-WdC" secondAttribute="trailing" id="7k6-HO-lX8"/>
                 <constraint firstItem="Qds-Pf-WdC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="d83-vl-GsF"/>
                 <constraint firstItem="Qds-Pf-WdC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="u9O-b5-WBB"/>
                 <constraint firstAttribute="bottom" secondItem="Qds-Pf-WdC" secondAttribute="bottom" id="wsY-9i-zCs"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="397" height="517"/>
             <connections>
                 <outlet property="descriptionLabel" destination="tC3-II-0oH" id="Jeu-7U-NTu"/>
@@ -83,6 +82,9 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="onboarding" width="261" height="261"/>
+        <image name="illustration_onboarding_1" width="1125" height="1800"/>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
