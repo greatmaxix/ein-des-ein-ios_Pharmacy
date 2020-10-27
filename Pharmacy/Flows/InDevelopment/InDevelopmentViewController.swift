@@ -14,9 +14,10 @@ class InDevelopmentViewController: UIViewController {
         super.viewDidLoad()
 
     }
-  
-  //MARK: - Actions
-  @IBAction func closePressed(_ sender: UIButton) {
-    
-  }
+
+    //MARK: - Actions
+    @IBAction func closePressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+
 }

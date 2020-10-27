@@ -23,6 +23,7 @@ protocol WelcomeModelOutput: class {
 protocol WelcomeModelInput: class {
     func load()
     func openCategories()
+    func openReceiptUpload()
 }
 
 final class WelcomeModel: EventNode {
@@ -52,5 +53,9 @@ extension WelcomeModel: WelcomeModelInput {
     
     func openCategories() {
         raise(event: WelcomeEvent.openCategories(category: nil))
+    }
+
+    func openReceiptUpload() {
+        raise(event: AppEvent.presentInDev)
     }
 }

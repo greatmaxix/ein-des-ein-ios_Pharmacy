@@ -13,8 +13,8 @@ class TabBarCoordinator: EventNode, Coordinator {
     
     private weak var root: TabBarController!
   
-    init() {
-        super.init(parent: )
+    override init(parent: EventNode?) {
+        super.init(parent: parent)
 
         addHandler { [weak self] (event: AppEvent) in
             switch event {
@@ -23,7 +23,7 @@ class TabBarCoordinator: EventNode, Coordinator {
             }
         }
     }
-  
+
     func createFlow() -> UIViewController {
         let tabBarController = TabBarController()
         let model = TabBarModel(parent: self)
@@ -42,7 +42,7 @@ class TabBarCoordinator: EventNode, Coordinator {
             return
         }
         
-        root.navigationController?.pushViewController(inDevVC, animated: true)
+        root.present(inDevVC, animated: true, completion: nil)
     }
 
     private func addTabCoordinators(coordinators: [TabBarEmbedCoordinable]) {

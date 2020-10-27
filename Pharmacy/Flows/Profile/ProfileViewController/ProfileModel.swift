@@ -89,13 +89,17 @@ final class ProfileModel: Model {
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileRegion(), additionalInfo: "Москва", type: .region)
             cellData.image = R.image.profilePin()
+            cellData.selectHandler = { [weak self] in
+                self?.raise(event: AppEvent.presentInDev)
+            }
             cellsData.append(cellData)
         }
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePayment(), additionalInfo: "1000", type: .payment)
             cellData.image = R.image.profilePayment()
             cellData.selectHandler = { [weak self] in
-                self?.raise(event: ProfileEvent.openPayment)
+//                self?.raise(event: ProfileEvent.openPayment)
+                self?.raise(event: AppEvent.presentInDev)
             }
             cellsData.append(cellData)
         }
@@ -103,7 +107,8 @@ final class ProfileModel: Model {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAddress())
             cellData.image = R.image.profileAddress()
             cellData.selectHandler = { [weak self] in
-                self?.raise(event: ProfileEvent.changeRegion)
+//                self?.raise(event: ProfileEvent.changeRegion)
+                self?.raise(event: AppEvent.presentInDev)
             }
             cellsData.append(cellData)
         }
@@ -111,7 +116,8 @@ final class ProfileModel: Model {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileNotifications())
             cellData.image = R.image.profileBellOn()
             cellData.selectHandler = { [weak self] in
-                self?.raise(event: ProfileEvent.openNotifications)
+//                self?.raise(event: ProfileEvent.openNotifications)
+                self?.raise(event: AppEvent.presentInDev)
             }
             cellsData.append(cellData)
         }
@@ -123,7 +129,8 @@ final class ProfileModel: Model {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAbout())
             cellData.image = R.image.profileAttension()
             cellData.selectHandler = { [weak self] in
-                self?.raise(event: ProfileEvent.openAbout)
+//                self?.raise(event: ProfileEvent.openAbout)
+                self?.raise(event: AppEvent.presentInDev)
             }
             cellsData.append(cellData)
         }
@@ -131,7 +138,8 @@ final class ProfileModel: Model {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileQuestions())
             cellData.image = R.image.profileQuestion()
             cellData.selectHandler = { [weak self] in
-                self?.raise(event: ProfileEvent.openHelp)
+//                self?.raise(event: ProfileEvent.openHelp)
+                self?.raise(event: AppEvent.presentInDev)
             }
             cellsData.append(cellData)
         }
