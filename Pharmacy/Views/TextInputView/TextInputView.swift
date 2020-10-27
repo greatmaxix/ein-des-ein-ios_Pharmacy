@@ -18,7 +18,7 @@ final class TextInputView: UIView {
     private var constraintBackgroundViewHeight: NSLayoutConstraint!
     
     private let formatter = PhoneFormatter()
-    private let textViewDebouncer: Executor = .debounce(interval: 1.0)
+    private lazy var textViewDebouncer: Executor = .debounce(interval: 1.0)
     
     var textFieldDelegate: UITextFieldDelegate? {
         
@@ -118,7 +118,7 @@ final class TextInputView: UIView {
             sender.text = formatter.formattedNumber(number: sender.text ?? "", needsCountryCode: needsCountryCode)
         }
         
-        textViewDebouncer.execute {
+        textViewDebouncer.execute { [unowned self] in
             self.validate()
         }
     }

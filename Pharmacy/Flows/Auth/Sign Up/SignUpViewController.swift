@@ -49,7 +49,7 @@ final class SignUpViewController: UIViewController {
 }
     
     @IBAction func skipSignUp(_ sender: UIButton) {
-        skipRegistrationAlertVC()
+        skipRegistrationAlertViewController()
     }
     
     @IBAction func back(_ sender: UIButton) {
@@ -102,7 +102,7 @@ final class SignUpViewController: UIViewController {
     }
     
     // MARK: - Alert ViewController to skip registration
-    private func skipRegistrationAlertVC() {
+    private func skipRegistrationAlertViewController() {
         
         let blurEffect = UIBlurEffect(style: .light)
         let blurVisualEffectView = UIVisualEffectView(effect: blurEffect)
