@@ -83,7 +83,7 @@ final class ProfileModel: Model {
             cellsData.append(cd)
         }
         do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24.5)
+          let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24.5, color: .clear)
             cellsData.append(cellData)
         }
         do {
@@ -116,7 +116,7 @@ final class ProfileModel: Model {
             cellsData.append(cellData)
         }
         do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 32)
+            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 32, color: .clear)
             cellsData.append(cellData)
         }
         do {
@@ -136,7 +136,7 @@ final class ProfileModel: Model {
             cellsData.append(cellData)
         }
         do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 38)
+            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 38, color: .clear)
             cellsData.append(cellData)
         }
         do {
@@ -148,7 +148,7 @@ final class ProfileModel: Model {
             cellsData.append(cellData)
         }
         do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24)
+            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24, color: .clear)
             cellsData.append(cellData)
         }
     }
