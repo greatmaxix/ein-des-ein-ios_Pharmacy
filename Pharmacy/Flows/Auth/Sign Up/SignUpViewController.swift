@@ -27,7 +27,7 @@ final class SignUpViewController: UIViewController {
     private var tapGesture: UITapGestureRecognizer!
     private var privacyGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
-    private let textViewDebouncer: Executor = .debounce(interval: 1.0)
+
     var model: SignUpInput!
     
     override func viewDidLoad() {
@@ -39,7 +39,6 @@ final class SignUpViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func apply(_ sender: UIButton) {
-        textViewDebouncer.execute {[unowned self] in
             if self.inputViews.allSatisfy({$0.validate()}) {
             sender.isUserInteractionEnabled = false
 
@@ -47,7 +46,6 @@ final class SignUpViewController: UIViewController {
                 model.signUp(name: self.inputViews[0].text, phone: self.inputViews[1].text, email: self.emailTextView.text) :
                 model.signUp(name: self.inputViews[0].text, phone: self.inputViews[1].text, email: "")
         }
-    }
 }
     
     @IBAction func skipSignUp(_ sender: UIButton) {
@@ -102,6 +100,7 @@ final class SignUpViewController: UIViewController {
             privacyLabel.attributedText = attrText
         }
     }
+    
     // MARK: - Alert ViewController to skip registration
     private func skipRegistrationAlertVC() {
         
@@ -143,8 +142,7 @@ final class SignUpViewController: UIViewController {
     }
     
     @objc private func hideKeyboard() {
-        
-        textViewDebouncer.execute {[unowned self] in
+
             scrollView.contentInset = scrollViewInsets
             inputViews.forEach({$0.endEditing(true)})
             emailTextView.endEditing(true)
@@ -152,7 +150,6 @@ final class SignUpViewController: UIViewController {
                 registrationLabel.textColor = R.color.applyBlueGray()
                 return}
             registrationLabel.textColor = R.color.textDarkBlue()
-        }
     }
     
     @objc private func openPrivacyPolicy(sender: UIGestureRecognizer) {

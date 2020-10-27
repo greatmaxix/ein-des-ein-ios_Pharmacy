@@ -76,7 +76,6 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         return navigation
     }
     
-    
     private func presentSignUp() {
         if let signUpVC: SignUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
             

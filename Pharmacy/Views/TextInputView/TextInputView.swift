@@ -18,6 +18,7 @@ final class TextInputView: UIView {
     private var constraintBackgroundViewHeight: NSLayoutConstraint!
     
     private let formatter = PhoneFormatter()
+    private let textViewDebouncer: Executor = .debounce(interval: 1.0)
     
     var textFieldDelegate: UITextFieldDelegate? {
         
@@ -109,7 +110,6 @@ final class TextInputView: UIView {
     }
     
     @objc private func editingChanged(sender: UITextField) {
-        
         if visualStyle != .editing {
             visualStyle = .editing
         }
@@ -117,10 +117,13 @@ final class TextInputView: UIView {
         if contentType == .phone {
             sender.text = formatter.formattedNumber(number: sender.text ?? "", needsCountryCode: needsCountryCode)
         }
+        
+        textViewDebouncer.execute {
+            self.validate()
+        }
     }
     
     @objc private func editingDidEnd(sender: UITextField) {
-        
         validate()
     }
     

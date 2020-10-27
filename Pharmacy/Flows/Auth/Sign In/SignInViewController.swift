@@ -141,7 +141,7 @@ fileprivate extension SignInViewController {
     }
 }
 
-//MARK:- extension for SimpleNavigationBarDelegate
+// MARK: - extension for SimpleNavigationBarDelegate
 extension SignInViewController: SimpleNavigationBarDelegate {
     func leftBarItemAction() {
         model.back()
