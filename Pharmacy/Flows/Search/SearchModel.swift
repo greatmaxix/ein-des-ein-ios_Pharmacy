@@ -57,7 +57,7 @@ final class SearchModel: Model {
     
     private var searchTerm: String = ""
     private let provider = DataManager<SearchAPI, WishlistResponse>()
-    private let wishListProvider = DataManager<WishListAPI, AddToWishListResponse>()
+    private let wishListProvider = DataManager<WishListAPI, PostResponse>()
     
     private let searchDebouncer: Executor = .debounce(interval: 1.0)
 
