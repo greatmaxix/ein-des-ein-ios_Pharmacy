@@ -23,6 +23,7 @@ protocol SignUpOutput: UIBlockerDelegate {
 
 protocol SignUpInput {
     func signUp(name: String?, phone: String?, email: String?)
+    func startMainFlowWithOutRegistration()
     func close()
 }
 
@@ -51,11 +52,16 @@ final class SignUpModel: Model {
             self.output.unblockApplyButton()
         }
     }
+    
 }
 
 // MARK: - SignUpInput
 
 extension SignUpModel: SignUpInput {
+    
+    func startMainFlowWithOutRegistration() {
+        raise(event: SuccessfulSignUpEvent.openMainScreen)
+    }
     
     func signUp(name: String?, phone: String?, email: String?) {
         

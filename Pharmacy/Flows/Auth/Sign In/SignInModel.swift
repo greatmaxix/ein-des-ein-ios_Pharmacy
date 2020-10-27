@@ -14,12 +14,14 @@ import Alamofire
 enum SignInEvent: Event {
     case signIn(phone: String)
     case signUp
+    case back
 }
 
 protocol SignInInput {
     func signIn(phone: String)
     func signUp()
     func openProfile()
+    func back()
 }
 
 protocol SignInOutput: UIBlockerDelegate {
@@ -59,6 +61,10 @@ extension SignInModel: SignInInput {
     
     func signIn(phone: String) {
         makeSignInRequest(phone: phone)
+    }
+    
+    func back(){
+        raise(event: SignInEvent.back)
     }
     
     func signUp() {

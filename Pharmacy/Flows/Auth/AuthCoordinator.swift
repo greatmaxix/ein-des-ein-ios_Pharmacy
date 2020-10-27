@@ -30,6 +30,8 @@ class AuthFlowCoordinator: EventNode, Coordinator {
                 self?.presentConfirmSMS(phone: phone)
             case .signUp:
                 self?.presentSignUp()
+            case .back:
+                self?.popController()
             }
         }
         
@@ -69,6 +71,7 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         let navigation = UINavigationController(navigationBarClass: SimpleNavigationBar.self, toolbarClass: nil)
         navigation.setViewControllers([root], animated: true)
         navigation.isToolbarHidden = true
+        navigation.navigationBar.isHidden = true
 
         return navigation
     }
@@ -79,6 +82,7 @@ class AuthFlowCoordinator: EventNode, Coordinator {
             let model: SignUpModel = SignUpModel(parent: self)
             model.output = signUpVC
             signUpVC.model = model
+            root.navigationController?.navigationBar.isHidden = true
             root.navigationController?.pushViewController(signUpVC, animated: true)
         }
     }
