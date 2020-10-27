@@ -18,6 +18,6 @@ final class ProductDescriptionTableViewCell: UITableViewCell {
     }
     
     func apply(product: Product) {
-        descriptionLabel.text = product.description
+        descriptionLabel.text = product.description.htmlToString
     }
 }

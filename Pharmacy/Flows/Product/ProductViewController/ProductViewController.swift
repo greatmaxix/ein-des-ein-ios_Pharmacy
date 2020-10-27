@@ -96,8 +96,10 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
 // MARK: - ProductViewControllerInput
 
 extension ProductViewController: ProductViewControllerInput {
+    
     func didLoad(product: Product) {
         model.dataSource.assign(tableView: tableView)
+        tableView.reloadData()
     }
 }
 
