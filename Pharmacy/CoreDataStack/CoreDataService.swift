@@ -48,10 +48,8 @@ final class CoreDataService {
                                                            name: $0.name,
                                                            releaseForm: $0.releaseForm,
                                                            picture: $0.picture))
-        }
-        
+            }
         return result
-
         }
     
     func save(user dto: UserDTO) {
