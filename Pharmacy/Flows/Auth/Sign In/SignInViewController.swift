@@ -76,6 +76,10 @@ final class SignInViewController: UIViewController {
         model.signUp()
     }
     
+    @IBAction func skipSignIn(_ sender: UIButton) {
+        skipRegistrationAlertViewController()
+    }
+    
     // MARK: - Keyboard
     
     @objc private func keyboardWillAppear(notification: NSNotification) {
@@ -98,6 +102,28 @@ final class SignInViewController: UIViewController {
         phoneInputView.endEditing(true)
     }
     
+    // MARK: - Alert ViewController to skip registration
+    private func skipRegistrationAlertViewController() {
+        
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurVisualEffectView = UIVisualEffectView(effect: blurEffect)
+        blurVisualEffectView.frame = view.bounds
+        
+        let alertController = UIAlertController.init(title: R.string.localize.signupAlert_title(), message: R.string.localize.signupAlert_body(), preferredStyle: .alert)
+
+        let actionOK = UIAlertAction(title: R.string.localize.signupAlert_ok(), style: .default, handler: { _ in blurVisualEffectView.removeFromSuperview()})
+
+        let actionCancel = UIAlertAction(title: R.string.localize.signupAlert_cancel(), style: .default, handler: {[unowned self] _ in
+            self.model.startMainFlowWithOutRegistration()
+            blurVisualEffectView.removeFromSuperview()
+        })
+
+        alertController.addAction(actionOK)
+        alertController.addAction(actionCancel)
+        alertController.preferredAction = actionCancel
+        self.view.addSubview(blurVisualEffectView)
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UITextFieldDelegate
