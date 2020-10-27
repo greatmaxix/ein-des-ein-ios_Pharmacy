@@ -49,6 +49,7 @@ final class CoreDataService {
                                                            releaseForm: $0.releaseForm,
                                                            picture: $0.picture))
             }
+
         return result
         }
     
@@ -89,17 +90,13 @@ final class CoreDataService {
         }
     }
     
-    func save(medicine dto: RecentMedicineDTO, isNeedToSave: Bool = true) {
+    func save(medicine dto: RecentMedicineDTO) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: dto.entityType.entityName)
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 
-        _ = try? viewContext.execute(batchDeleteRequest)
-        
         let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
         
         dto.entityType.createOrUpdate(in: self.viewContext,
                                             matching: predicate) {
-                                                print("entityID \($0)")
                                                 dto.fillEntity(entity: $0)
         }
         
