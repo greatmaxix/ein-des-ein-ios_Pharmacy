@@ -56,6 +56,7 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         model.load()
+        self.reloadInputViews()
     }
     
     // MARK: - Setup
@@ -159,15 +160,13 @@ extension WelcomeViewController: WelcomeModelOutput {
         for receipt in receipts {
             if let receiptView: ReceiptView  = R.nib.receiptView(owner: self) {
                 receiptView.apply(receipt: receipt)
-                receiptView.likeActionHandler = {
-                    print("LIKE")
-                    //qwerty заглушка так как мы не храним пока недавне просмотры лекарств
-                    //model.addToCart(productId: 0)
+                receiptView.likeActionHandler = {[unowned self] state in
+                    if state {
+                        self.model.addToWishList(productId: receiptView.productId)
+                    }
                 }
-                receiptView.addToChartHandler = {
-                    print("ADD TO CHART")
-                    //qwerty заглушка так как мы не храним пока недавне просмотры лекарств
-                    //self.model.addToCart(productId: 0)
+                receiptView.addToChartHandler = {[unowned self] in
+                    self.model.addToCart(productId: receiptView.productId)
                 }
                 receiptStackView.addArrangedSubview(receiptView)
             }

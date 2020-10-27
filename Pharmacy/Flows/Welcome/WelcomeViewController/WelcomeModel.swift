@@ -29,6 +29,7 @@ protocol WelcomeModelInput: class {
     func didSelectProductBy(index: Int)
     func openCategories(_ categoryIndex: Int?)
     func addToCart(productId: Int)
+    func addToWishList(productId: Int)
     func openReceiptUpload()
 }
 
@@ -36,13 +37,16 @@ final class WelcomeModel: EventNode {
     
     unowned var output: WelcomeModelOutput!
     private let provider = DataManager<CategoryAPI, CategoriesResponse>()
+    
     private let cartProvider = DataManager<ProductCartAPI, PostResponse>()
+    
     private let wishListProvider = DataManager<WishListAPI, PostResponse>()
+    
     private var topCategory: [Category] = []
     private(set) var medicines: [Medicine] = []
 }
 
-extension WelcomeModel: WelcomeModelInput {    
+extension WelcomeModel: WelcomeModelInput {
     func openCategories(_ categoryIndex: Int?) {
         if let index = categoryIndex {
             let category = topCategory[index]
@@ -80,14 +84,14 @@ extension WelcomeModel: WelcomeModelInput {
     }
     
     private func loadReceipts() {
-        let data = UserSession.shared.recentMedicineViewd
+        let data = UserSession.shared.recentMedicineViewed
         var result: [Receipt] = []
         
         guard data.count >= 2 else {return}
         
         for index in 0...1 {
             let medicine = data[index]
-            let receipt = Receipt(title: medicine.name, subtitle: medicine.releaseForm, imageURL: URL(string: medicine.picture), price: medicine.minPrice, productId: medicine.productId)
+            let receipt = Receipt(title: medicine.name, subtitle: medicine.releaseForm, imageURL: URL(string: medicine.picture), liked: medicine.liked, price: medicine.minPrice, productId: medicine.productId)
             result.append(receipt)
         }
         
@@ -122,7 +126,7 @@ extension WelcomeModel: WelcomeModelInput {
     func addToCart(productId: Int) {
         cartProvider.load(target: .addPharmacyToCart(productId: productId)) {[weak self] result in
             guard self != nil else { return }
-            
+            print("zzz \(productId)")
             switch result {
             case .success:
                 print("reciept \(productId) was successfully added to chart")

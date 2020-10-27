@@ -61,7 +61,7 @@ class UserSession {
         }
     }
     
-    var recentMedicineViewd: [RecentMedicineDTO] {
+    var recentMedicineViewed: [RecentMedicineDTO] {
         return medicineViewed
     }
     

@@ -19,7 +19,7 @@ extension ProductCartAPI: RequestConvertible {
     var path: String {
         switch self {
         case .addPharmacyToCart(let id):
-            return "/api/v1/customer/product-cart/pharmacy-product/\(id)"
+            return "customer/product-cart/pharmacy-product/\(id)"
         }
     }
     

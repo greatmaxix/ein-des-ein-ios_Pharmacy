@@ -22,13 +22,17 @@ final class ReceiptView: UIView {
     @IBOutlet private weak var likeButton: UIButton!
     @IBOutlet private weak var receiptButton: UIButton!
     
-    var likeActionHandler: EmptyClosure?
+    private(set) var productId: Int!
+    
+    var likeActionHandler: ((_ state: Bool) -> Void)?
     var addToChartHandler: EmptyClosure?
     
     func apply(receipt: Receipt) {
         titleLabel.text = receipt.title
+        likeButton.isSelected = receipt.liked
         subtitleLabel.text = receipt.subtitle
         priceLabel.text = receipt.price
+        productId = receipt.productId
         priceLabel.attributedText = NSAttributedString.fromPriceAttributed(for: receipt.price, currency: receipt.currency)
         
         if let url = receipt.imageURL {
@@ -46,8 +50,8 @@ final class ReceiptView: UIView {
     // MARK: - Actions
     
     @IBAction func likeAction(_ sender: UIButton) {
+        likeActionHandler?(!sender.isSelected)
         sender.isSelected.toggle()
-        self.likeActionHandler?()
     }
     @IBAction func addToBag(_ sender: UIButton) {
         self.addToChartHandler?()

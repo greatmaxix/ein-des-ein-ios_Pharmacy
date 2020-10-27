@@ -12,6 +12,7 @@ struct Receipt {
     let title: String
     let subtitle: String
     let imageURL: URL?
+    var liked: Bool
     let price: String
     var currency = "₽"
     let productId: Int
