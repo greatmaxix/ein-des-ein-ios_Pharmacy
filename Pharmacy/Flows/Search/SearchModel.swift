@@ -37,6 +37,7 @@ protocol SearchModelOutput: class {
     func retreivingMoreMedicinesDidEnd()
     func needToInsertNewMedicines(at: [IndexPath]?)
     func searchTermDidUpdated(_ term: String?)
+    func favoriteAciontReloadCell(cellAt: IndexPath)
     func addRemoveFromFavoriteError(indexPath: IndexPath)
 }
 
@@ -76,6 +77,7 @@ extension SearchModel: SearchViewControllerOutput {
             case .success:
                 print("medicine productId- \(productId) was successfully removed from wish list")
                 self.medicines[indexPath.row].liked = false
+                self.output.favoriteAciontReloadCell(cellAt: indexPath)
             case .failure(let error):
                 print("error is \(error)")
                 self.output.addRemoveFromFavoriteError(indexPath: indexPath)
@@ -89,6 +91,7 @@ extension SearchModel: SearchViewControllerOutput {
             case .success:
                 print("medicine productId- \(productId) was successfully added to wish list")
                 self.medicines[indexPath.row].liked = true
+                self.output.favoriteAciontReloadCell(cellAt: indexPath)
             case .failure(let error):
                 print("error is \(error)")
                 self.output.addRemoveFromFavoriteError(indexPath: indexPath)

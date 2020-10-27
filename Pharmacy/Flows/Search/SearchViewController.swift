@@ -117,6 +117,10 @@ extension SearchViewController {
 // MARK: - SearchViewControllerInput
 extension SearchViewController: SearchViewControllerInput {
     
+    func favoriteAciontReloadCell(cellAt indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
     func addRemoveFromFavoriteError(indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? MedicineCell else {return}
         cell.setPreviousFavoriteButtonState()
