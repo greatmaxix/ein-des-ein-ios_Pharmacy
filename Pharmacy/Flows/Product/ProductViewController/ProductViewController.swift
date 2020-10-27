@@ -29,6 +29,10 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
     
     var style: NavigationBarStyle { .normalWithoutSearch }
     
+    private var pageController: UIPageViewController? {
+        return children.first as? UIPageViewController
+    }
+    
     var additionalViews: [UIView] {
         let button = UIButton(type: .custom)
         button.setImage(R.image.share(), for: .normal)
@@ -37,15 +41,8 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
     
     var model: ProductViewControllerOutput!
     
-    var viewControllers: [UIViewController] = [
-        ProductPageViewController.createWith(image: R.image.farmacyExampleHorizontal()!,
-                                             title: "Рецепт ЛК 3467"),
-        ProductPageViewController.createWith(image: R.image.farmacyExampleHorizontal()!,
-                                             title: "Рецепт ЛК 3467"),
-        ProductPageViewController.createWith(image: R.image.farmacyExampleHorizontal()!,
-                                             title: "Рецепт ЛК 3467")
-    ]
-    
+    var viewControllers: [UIViewController] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -68,15 +65,9 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
         bottomView.bottomViewDropGrayShadow()
         findButton.buttonDropBlueShadow()
         
-        if let pageController = children.first as? UIPageViewController {
-            pageController.dataSource = self
-            pageController.delegate = self
-            pageController.setViewControllers([
-                viewControllers[0]
-            ], direction: .forward, animated: false, completion: nil)
-            
-            pageControl.numberOfPages = viewControllers.count
-        }
+        pageController?.dataSource = self
+        pageController?.delegate = self
+        pageControl.numberOfPages = viewControllers.count
         
         tableView.tableFooterView = nil
         tableView.tableHeaderView = productContainerView
@@ -98,6 +89,8 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
 extension ProductViewController: ProductViewControllerInput {
     
     func didLoad(product: Product) {
+        viewControllers = product.imageURLs.count == 0 ? [ProductPageViewController.createWith(image: R.image.medicineImagePlaceholder()!, title: "")] : product.imageURLs.map {ProductPageViewController.createWith(url: $0, title: "")}
+        pageController?.setViewControllers([viewControllers[0]], direction: .forward, animated: true, completion: nil)
         model.dataSource.assign(tableView: tableView)
         tableView.reloadData()
     }
