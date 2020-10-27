@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		246A83B72546E26A0004ECEC /* ProductCartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83B62546E26A0004ECEC /* ProductCartAPI.swift */; };
 		246A83C62547070A0004ECEC /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83C52547070A0004ECEC /* PostResponse.swift */; };
+		246A83F625472E260004ECEC /* CategoryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83F525472E260004ECEC /* CategoryDTO.swift */; };
+		246A83FD25472F1F0004ECEC /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83FC25472F1F0004ECEC /* CategoryEntity.swift */; };
 		3915D60824A2466700A93627 /* ConfirmCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915D60724A2466700A93627 /* ConfirmCodeModel.swift */; };
 		3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915D60924A24DF500A93627 /* LoginResponse.swift */; };
 		39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39273A0824A0DA5A004A9909 /* SignInModel.swift */; };
@@ -268,6 +270,8 @@
 /* Begin PBXFileReference section */
 		246A83B62546E26A0004ECEC /* ProductCartAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartAPI.swift; sourceTree = "<group>"; };
 		246A83C52547070A0004ECEC /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
+		246A83F525472E260004ECEC /* CategoryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDTO.swift; sourceTree = "<group>"; };
+		246A83FC25472F1F0004ECEC /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
 		3915D60724A2466700A93627 /* ConfirmCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCodeModel.swift; sourceTree = "<group>"; };
 		3915D60924A24DF500A93627 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		39273A0824A0DA5A004A9909 /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
@@ -540,6 +544,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		246A83EA25472CE90004ECEC /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				246A83F525472E260004ECEC /* CategoryDTO.swift */,
+				246A83FC25472F1F0004ECEC /* CategoryEntity.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		3939A6D324F6A39E0045FB71 /* Location Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -1644,6 +1657,7 @@
 		875223C22500FD28000759C8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				246A83EA25472CE90004ECEC /* Category */,
 				875223D2250114A7000759C8 /* User */,
 				871E71A12501604200C8489B /* Avatar */,
 			);
@@ -1976,6 +1990,7 @@
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
 				39F0AD6524EEC80200CD6CA4 /* OrdersViewController.swift in Sources */,
 				39DBC18F24F7C2CC00CB82D5 /* MapMessageView.swift in Sources */,
+				246A83FD25472F1F0004ECEC /* CategoryEntity.swift in Sources */,
 				875223BB2500ED89000759C8 /* UserDefaultsAccessor.swift in Sources */,
 				603D31D724E5A3FE000E5A6C /* Product.swift in Sources */,
 				395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */,
@@ -1999,6 +2014,7 @@
 				395284AF250A3C3900A6FFAB /* UIViewController+ActivityIndicator.swift in Sources */,
 				603D31B424E3CFEE000E5A6C /* Medicine.swift in Sources */,
 				603D31D524E5A0C2000E5A6C /* ProductCellSection.swift in Sources */,
+				246A83F625472E260004ECEC /* CategoryDTO.swift in Sources */,
 				603D31A924E3B67B000E5A6C /* Category.swift in Sources */,
 				618C339F2498BE0200951D11 /* ProfileViewController.swift in Sources */,
 				8715DB9224FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift in Sources */,

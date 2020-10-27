@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AvatarEntity" representedClassName="AvatarEntity" syncable="YES">
         <attribute name="url" attributeType="String"/>
         <attribute name="uuid" attributeType="String"/>
+    </entity>
+    <entity name="CategoryEntity" representedClassName="CategoryEntity" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="String"/>
+        <attribute name="imageURL" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="subCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CategoryEntity"/>
     </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String"/>
@@ -20,5 +26,6 @@
     <elements>
         <element name="AvatarEntity" positionX="-63" positionY="9" width="128" height="73"/>
         <element name="UserEntity" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="CategoryEntity" positionX="232.52734375" positionY="-11.33984375" width="128" height="103"/>
     </elements>
 </model>
