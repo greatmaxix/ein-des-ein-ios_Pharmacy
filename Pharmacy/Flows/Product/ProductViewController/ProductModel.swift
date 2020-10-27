@@ -56,6 +56,7 @@ extension ProductModel: ProductViewControllerOutput {
                                           name: medicine.name,
                                           releaseForm: medicine.releaseForm,
                                           picture: medicine.pictureUrls.first ?? "")
+        
         UserSession.shared.save(medicine: data)
     }
     

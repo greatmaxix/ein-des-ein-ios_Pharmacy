@@ -101,6 +101,7 @@ final class CoreDataService {
         
         dto.entityType.createOrUpdate(in: self.viewContext,
                                             matching: predicate) {
+                                                print("entityID \($0)")
                                                 dto.fillEntity(entity: $0)
         }
         
