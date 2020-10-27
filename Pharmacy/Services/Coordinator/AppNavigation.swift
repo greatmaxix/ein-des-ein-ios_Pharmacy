@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 import EventsTree
 
+enum AppEvent: Event {
+  case presentInDev
+}
+
 final class AppNavigation: EventNode {
 
     private unowned let window: UIWindow
