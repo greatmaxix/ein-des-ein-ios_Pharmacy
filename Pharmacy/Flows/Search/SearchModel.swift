@@ -8,6 +8,7 @@
 
 import Foundation
 import EventsTree
+import Moya
 
 enum SearchModelEvent: Event {
     case openList
@@ -25,6 +26,8 @@ protocol SearchModelInput: class {
     func processSearch()
     func cleanSearchTerm()
     func didSelectCellAt(indexPath: IndexPath)
+    func addToWishList(productId: Int, indexPath: IndexPath)
+    func removeFromWishList(productId: Int, indexPath: IndexPath)
 }
 
 protocol SearchModelOutput: class {
@@ -34,6 +37,8 @@ protocol SearchModelOutput: class {
     func retreivingMoreMedicinesDidEnd()
     func needToInsertNewMedicines(at: [IndexPath]?)
     func searchTermDidUpdated(_ term: String?)
+    func favoriteAciontReloadCell(cellAt: IndexPath)
+    func addRemoveFromFavoriteError(indexPath: IndexPath)
 }
 
 final class SearchModel: Model {
@@ -52,6 +57,7 @@ final class SearchModel: Model {
     
     private var searchTerm: String = ""
     private let provider = DataManager<SearchAPI, WishlistResponse>()
+    private let wishListProvider = DataManager<WishListAPI, AddToWishListResponse>()
     
     private let searchDebouncer: Executor = .debounce(interval: 1.0)
 
@@ -64,6 +70,32 @@ final class SearchModel: Model {
 
 // MARK: - SearchViewControllerOutput
 extension SearchModel: SearchViewControllerOutput {
+    
+    func removeFromWishList(productId: Int, indexPath: IndexPath) {
+        wishListProvider.load(target: .removeFromWishList(medicineId: productId)) { (result) in
+            switch result {
+            case .success:
+                self.medicines[indexPath.row].liked = false
+                self.output.favoriteAciontReloadCell(cellAt: indexPath)
+            case .failure(let error):
+                print("error is \(error.localizedDescription)")
+                self.output.addRemoveFromFavoriteError(indexPath: indexPath)
+                }
+        }
+    }
+
+    func addToWishList(productId: Int, indexPath: IndexPath) {
+        wishListProvider.load(target: .addToWishList(medicineId: productId)) { (result) in
+            switch result {
+            case .success:
+                self.medicines[indexPath.row].liked = true
+                self.output.favoriteAciontReloadCell(cellAt: indexPath)
+            case .failure(let error):
+                print("error is \(error.localizedDescription)")
+                self.output.addRemoveFromFavoriteError(indexPath: indexPath)
+                }
+        }
+    }
     
     func updateSearchTerm(_ term: String) {
         let trimmedTerm = term.trimmingCharacters(in: .whitespacesAndNewlines)

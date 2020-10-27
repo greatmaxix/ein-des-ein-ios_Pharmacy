@@ -192,7 +192,7 @@ extension ProfileModel: ProfileInput {
         MoyaProvider<AuthAPI>().request(.logout(refreshToken: token), completion: { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case.success:
+            case .success:
                 UserSession.shared.logout()
                 self.raise(event: ProfileEvent.logout)
             case .failure:
