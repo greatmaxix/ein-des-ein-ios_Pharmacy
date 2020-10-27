@@ -10,51 +10,45 @@ import UIKit
 
 final class SignUpViewController: UIViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet private weak var scrollView: UIScrollView!
     
     @IBOutlet var inputViews: [TextInputView]!
+    @IBOutlet private weak var emailTextView: TextInputView!
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var socialNetworksLabel: UILabel!
-    @IBOutlet weak var skipButton: UIButton!
-    @IBOutlet weak var applyButton: UIButton!
-    @IBOutlet weak var privacyLabel: UILabel!
-    @IBOutlet weak var registrationLabel: UILabel!
-    
-    @IBOutlet weak var facebookButton: UIButton!
-    @IBOutlet weak var googleButton: UIButton!
-    @IBOutlet weak var appleButton: UIButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var skipButton: UIButton!
+    @IBOutlet private weak var applyButton: UIButton!
+    @IBOutlet private weak var privacyLabel: UILabel!
+    @IBOutlet private weak var registrationLabel: UILabel!
+    @IBOutlet private weak var accountLabel: UILabel!
+    @IBOutlet private weak var loginButton: UIButton!
     
     private var tapGesture: UITapGestureRecognizer!
     private var privacyGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
+
     var model: SignUpInput!
-    
-    private var areFieldsValid: Bool {
-        return inputViews.allSatisfy({$0.validate()})
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
         setupLocalization()
-        navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - Actions
-    
     @IBAction func apply(_ sender: UIButton) {
-        
-        if areFieldsValid {
-            
-            sender.isUserInteractionEnabled = false
-            model.signUp(name: inputViews[0].text, phone: inputViews[1].text, email: inputViews[2].text)
+            if self.inputViews.allSatisfy({$0.validate()}) {
+                sender.isUserInteractionEnabled = false
+
+                let emailString: String? = emailTextView.validate() ? emailTextView.text : ""
+                model.signUp(name: self.inputViews[0].text, phone: self.inputViews[1].text, email: emailString)
         }
-    }
+}
     
     @IBAction func skipSignUp(_ sender: UIButton) {
+        skipRegistrationAlertViewController()
     }
     
     @IBAction func back(_ sender: UIButton) {
@@ -62,17 +56,17 @@ final class SignUpViewController: UIViewController {
     }
     
     // MARK: - Setup
-    
     private func setupUI() {
         
         inputViews[0].contentType = .name
         inputViews[1].contentType = .phone
-        inputViews[2].contentType = .email
         inputViews.forEach({
             $0.textFieldDelegate = self
-            $0.returnKeyType = .next
         })
 
+        emailTextView.contentType = .email
+        emailTextView.textFieldDelegate = self
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardDidHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -84,22 +78,16 @@ final class SignUpViewController: UIViewController {
         privacyLabel.addGestureRecognizer(privacyGesture)
         
         applyButton.layer.cornerRadius = applyButton.frame.height / 2
-        facebookButton.layer.cornerRadius = facebookButton.frame.height / 2
-        googleButton.layer.cornerRadius = googleButton.frame.height / 2
-        appleButton.layer.cornerRadius = appleButton.frame.height / 2
-        
-        facebookButton.dropBlueShadow()
-        googleButton.dropBlueShadow()
-        appleButton.dropBlueShadow()
     }
     
     private func setupLocalization() {
         
         titleLabel.text = R.string.localize.signupTitle()
         descriptionLabel.text = R.string.localize.signupDescription()
-        socialNetworksLabel.text = R.string.localize.signupSocial()
         skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
         registrationLabel.text = R.string.localize.signupRegistration()
+        accountLabel.text = R.string.localize.signupAccount()
+        loginButton.setTitle(R.string.localize.loginSignin(), for: .normal)
         
         if let font: UIFont = R.font.openSansRegular(size: 14) {
             
@@ -112,8 +100,34 @@ final class SignUpViewController: UIViewController {
         }
     }
     
-    // MARK: - Keyboard
+    // MARK: - Alert ViewController to skip registration
+    private func skipRegistrationAlertViewController() {
+        
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurVisualEffectView = UIVisualEffectView(effect: blurEffect)
+        blurVisualEffectView.frame = view.bounds
+        
+        let alertController = UIAlertController.init(title: R.string.localize.signupAlert_title(), message: R.string.localize.signupAlert_body(), preferredStyle: .alert)
+
+        let actionOK = UIAlertAction(title: R.string.localize.signupAlert_ok(), style: .default, handler: { _ in blurVisualEffectView.removeFromSuperview()})
+
+        let actionCancel = UIAlertAction(title: R.string.localize.signupAlert_cancel(), style: .default, handler: {[unowned self] _ in
+            self.model.startMainFlowWithOutRegistration()
+            blurVisualEffectView.removeFromSuperview()
+        })
+
+        alertController.addAction(actionOK)
+        alertController.addAction(actionCancel)
+        alertController.preferredAction = actionCancel
+        self.view.addSubview(blurVisualEffectView)
+        self.present(alertController, animated: true, completion: nil)
+    }
     
+    @IBAction func onLoginButtonTouchUp(_ sender: UIButton) {
+        model.close()
+    }
+    
+    // MARK: - Keyboard
     @objc private func keyboardWillAppear(notification: NSNotification) {
         
         if let rect: CGRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
@@ -127,8 +141,14 @@ final class SignUpViewController: UIViewController {
     }
     
     @objc private func hideKeyboard() {
-        scrollView.contentInset = scrollViewInsets
-        inputViews.forEach({$0.endEditing(true)})
+
+            scrollView.contentInset = scrollViewInsets
+            inputViews.forEach({$0.endEditing(true)})
+            emailTextView.endEditing(true)
+            guard inputViews.allSatisfy({$0.validate()}) else {
+                registrationLabel.textColor = R.color.applyBlueGray()
+                return}
+            registrationLabel.textColor = R.color.textDarkBlue()
     }
     
     @objc private func openPrivacyPolicy(sender: UIGestureRecognizer) {

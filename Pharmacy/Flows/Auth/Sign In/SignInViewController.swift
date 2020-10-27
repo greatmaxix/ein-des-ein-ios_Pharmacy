@@ -19,16 +19,9 @@ final class SignInViewController: UIViewController {
     @IBOutlet private weak var applyButton: UIButton!
     @IBOutlet private weak var registerButton: UIButton!
     @IBOutlet private weak var accountLabel: UILabel!
-    @IBOutlet private weak var socialLabel: UILabel!
     @IBOutlet private weak var enterLabel: UILabel!
     @IBOutlet private weak var skipButton: UIButton!
-    @IBOutlet private weak var applyLabel: UILabel!
     @IBOutlet private weak var logoTopConstraint: NSLayoutConstraint!
-    
-    @IBOutlet private weak var facebookButton: UIButton!
-    @IBOutlet private weak var googleButton: UIButton!
-    @IBOutlet private weak var appleButton: UIButton!
-    @IBOutlet private weak var faceIdButton: UIButton!
     
     private var tapGesture: UITapGestureRecognizer!
     private var scrollViewInsets: UIEdgeInsets!
@@ -42,17 +35,10 @@ final class SignInViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear), name: UIResponder.keyboardDidHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         scrollView.addGestureRecognizer(tapGesture)
         scrollViewInsets = scrollView.contentInset
         setupUI()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.navigationBar.isHidden = true
     }
     
     func setupLocalization() {
@@ -62,7 +48,6 @@ final class SignInViewController: UIViewController {
         registerButton.setTitle(R.string.localize.loginSignup(), for: .normal)
         enterLabel.text = R.string.localize.loginEnter()
         accountLabel.text = R.string.localize.loginAccount()
-        socialLabel.text = R.string.localize.loginSocial()
         skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
     }
     
@@ -72,16 +57,6 @@ final class SignInViewController: UIViewController {
         applyButton.layer.cornerRadius = applyButton.frame.height / 2
         applyButton.imageView?.contentMode = .scaleToFill
         
-        facebookButton.layer.cornerRadius = faceIdButton.frame.height / 2
-        googleButton.layer.cornerRadius = googleButton.frame.height / 2
-        appleButton.layer.cornerRadius = appleButton.frame.height / 2
-        faceIdButton.layer.cornerRadius = faceIdButton.frame.height / 2
-        
-        facebookButton.dropBlueShadow()
-        googleButton.dropBlueShadow()
-        appleButton.dropBlueShadow()
-        faceIdButton.dropBlueShadow()
-        
         let screenHeight = UIScreen.main.bounds.height
         let heightCoef = (screenHeight - Const.minScreenHeight) / (Const.maxScreenHeight - Const.minScreenHeight)
         logoTopConstraint.constant = heightCoef * Const.maxLogoTopSpace + (1 - heightCoef) * Const.minLogoTopSpace
@@ -90,11 +65,11 @@ final class SignInViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func apply(_ sender: UIButton) {
-        if let phone: String = phoneInputView.text, phoneInputView.validate() {
-            model.signIn(phone: phone)
+            if let phone: String = self.phoneInputView.text, phoneInputView.validate() {
+            self.model.signIn(phone: phone)
             sender.isUserInteractionEnabled = false
-            applyLabel.textColor = R.color.textDarkBlue()
-        }
+            self.enterLabel.textColor = R.color.textDarkBlue()
+            }
     }
     
     @IBAction func createAccount(_ sender: UIButton) {
@@ -117,8 +92,7 @@ final class SignInViewController: UIViewController {
     }
     
     @objc private func hideKeyboard() {
-        
-        applyLabel.textColor = phoneInputView.validate() ? R.color.textDarkBlue() : R.color.applyBlueGray()
+            self.enterLabel.textColor = phoneInputView.validate() ? R.color.textDarkBlue() : R.color.applyBlueGray()
 
         scrollView.contentInset = scrollViewInsets
         phoneInputView.endEditing(true)
@@ -160,4 +134,13 @@ fileprivate extension SignInViewController {
         static let minScreenHeight: CGFloat = 550
         static let maxScreenHeight: CGFloat = 896
     }
+}
+
+// MARK: - extension for SimpleNavigationBarDelegate
+extension SignInViewController: SimpleNavigationBarDelegate {
+    func leftBarItemAction() {
+        model.back()
+    }
+    
+    func rightBarItemAction() {}
 }

@@ -69,7 +69,6 @@ extension SearchBar {
     
     private func initialize() {
         self.clipsToBounds = true
-        
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
 }

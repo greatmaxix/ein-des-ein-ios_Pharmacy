@@ -20,7 +20,6 @@ public struct TabBarItemInfo {
     self.icon = icon
     self.highlightedIcon = highlightedIcon
   }
-
 }
 
 public protocol TabBarEmbedCoordinable: Coordinator {
