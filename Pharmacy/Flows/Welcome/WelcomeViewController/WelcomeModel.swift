@@ -29,6 +29,7 @@ protocol WelcomeModelInput: class {
     func didSelectProductBy(index: Int)
     func openCategories(_ categoryIndex: Int?)
     func addToCart(productId: Int)
+    func addToWishList(productId: Int)
 }
 
 final class WelcomeModel: EventNode {
@@ -36,6 +37,7 @@ final class WelcomeModel: EventNode {
     unowned var output: WelcomeModelOutput!
     private let provider = DataManager<CategoryAPI, CategoriesResponse>()
     private let cartProvider = DataManager<ProductCartAPI, PostResponse>()
+    private let wishListProvider = DataManager<WishListAPI, PostResponse>()
     private var topCategory: [Category] = []
     private(set) var medicines: [Medicine] = []
 }
@@ -116,6 +118,17 @@ extension WelcomeModel: WelcomeModelInput {
         cartProvider.load(target: .addPharmacyToCart(productId: productId)) {[weak self] result in
             guard self != nil else { return }
             
+            switch result {
+            case .success:
+                print("reciept \(productId) was successfully added to chart")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func addToWishList(productId: Int) {
+        wishListProvider.load(target: .addToWishList(medicineId: productId)) { result in
             switch result {
             case .success:
                 print("reciept \(productId) was successfully added to chart")

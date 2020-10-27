@@ -151,9 +151,13 @@ extension WelcomeViewController: WelcomeModelOutput {
             if let receiptView: ReceiptView  = R.nib.receiptView(owner: self) {
                 receiptView.apply(receipt: receipt)
                 receiptView.likeActionHandler = {
-                    print("like")
+                    print("LIKE")
+                    //qwerty заглушка так как мы не храним пока недавне просмотры лекарств
+                    //model.addToCart(productId: 0)
                 }
                 receiptView.addToChartHandler = {
+                    print("ADD TO CHART")
+                    //qwerty заглушка так как мы не храним пока недавне просмотры лекарств
                     //self.model.addToCart(productId: 0)
                 }
                 receiptStackView.addArrangedSubview(receiptView)
