@@ -27,7 +27,7 @@ final class ScanCoordinator: EventNode, Coordinator {
     init(configuration: ScanFlowConfiguration) {
         super.init(parent: configuration.parent)
         
-        addHandler { (event: ScanModelEvent) in
+        addHandler { (_: ScanModelEvent) in
             
         }
     }
