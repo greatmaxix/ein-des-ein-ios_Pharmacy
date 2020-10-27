@@ -26,7 +26,7 @@ final class BasketCoordinator: EventNode, Coordinator {
     init(configuration: BasketFlowConfiguration) {
         super.init(parent: configuration.parent)
         
-        addHandler { (event: BasketModelEvent) in
+        addHandler { (_: BasketModelEvent) in
             
         }
     }

@@ -21,9 +21,11 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
     @IBOutlet private weak var costLabel: UILabel!
     
     // MARK: - Properties
-    var addToFavoritesHandler: EmptyClosure?
+    var favoriteButtonHandler: ((_ state: Bool) -> Void)?
     var addToPurchesesHandler: EmptyClosure?
     
+    private(set) var medicineProductID: Int = 0
+    private var defaultLikedStatus: Bool = false
     private var downloadTask: DownloadTask?
     
     // MARK: - Init / Deinit methods
@@ -48,10 +50,12 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
     // MARK: - Public methods
     func apply(medicine: Medicine) {
         likedButton.isSelected = medicine.liked
+        defaultLikedStatus = medicine.liked
         titleLabel.text = medicine.title
         costLabel.text = medicine.price
         typeLabel.text = medicine.releaseFormFormatted
         factoryLabel.text = medicine.manufacturerName
+        medicineProductID = medicine.id
         
         let placeholder: UIImage?
         if medicine.minPrice != nil {
@@ -92,11 +96,14 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
         }
     }
     
+    func setPreviousFavoriteButtonState() {
+        self.likedButton.isSelected = defaultLikedStatus
+    }
+    
     // MARK: - Actions
     @IBAction private func likeAction(sender: UIButton) {
+        favoriteButtonHandler?(!sender.isSelected)
         sender.isSelected.toggle()
-        
-        addToFavoritesHandler?()
     }
     
     @IBAction private func buyAction(sender: UIButton) {

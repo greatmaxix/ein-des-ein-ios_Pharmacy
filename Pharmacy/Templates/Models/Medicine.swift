@@ -16,7 +16,7 @@ struct Medicine: Codable {
     let manufacturerCountryCode: String
     let minPrice: Decimal?
     let maxPrice: Decimal?
-    let liked: Bool
+    var liked: Bool
     var pictureUrls: [String]
     
     enum Keys: String, CodingKey {

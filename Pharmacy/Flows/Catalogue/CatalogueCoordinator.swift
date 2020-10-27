@@ -14,14 +14,14 @@ struct CatalogueFlowConfiguration {
 }
 
 final class CatalogueCoordinator: EventNode, Coordinator {
-    
+
     // MARK: - Properties
     private var root: UINavigationController!
-    
+
     // MARK: - Init / Deinit methods
     init(configuration: CatalogueFlowConfiguration) {
         super.init(parent: configuration.parent)
-        
+
         addHandler(.onRaise) { [weak self] (event: WelcomeEvent) in
             switch event {
             case .openCategories(let category):
@@ -30,7 +30,7 @@ final class CatalogueCoordinator: EventNode, Coordinator {
                 break
             }
         }
-        
+
         addHandler(.onRaise) { [weak self] (event: CatalogueEvent) in
             switch event {
             case .close:
@@ -39,19 +39,19 @@ final class CatalogueCoordinator: EventNode, Coordinator {
                 self?.openMedicineListFor(category: category)
             }
         }
-        
+
         addHandler(.onRaise) {  [weak self] (event: MedicineListModelEvent) in
             switch event {
             case .openProduct(let medicine):
                 self?.openProductMedicineFor(medicine: medicine)
             }
         }
-        
-        addHandler { (event: BasketModelEvent) in
-            
+
+        addHandler { (_: BasketModelEvent) in
+
         }
     }
-    
+
     // MARK: - Public methods
     func createFlow() -> UIViewController {
         let viewController = R.storyboard.catalogue.instantiateInitialViewController()!
@@ -59,14 +59,14 @@ final class CatalogueCoordinator: EventNode, Coordinator {
         viewController.model = model
         model.output = viewController
         root = UINavigationController(rootViewController: viewController)
-        
+
         return root
     }
 }
 
 // MARK: - Private methods
 extension CatalogueCoordinator {
-    
+
     private func openCategories(category: Category?) {
         let viewController = R.storyboard.catalogue.catalogueViewController()!
         let model = CatalogueModel(category: category, parent: self)
@@ -74,11 +74,11 @@ extension CatalogueCoordinator {
         viewController.model = model
         root.pushViewController(viewController, animated: true)
     }
-    
+
     private func popController() {
         root.popViewController(animated: true)
     }
-    
+
     private func openMedicineListFor(category: Category) {
         let viewController = R.storyboard.catalogue.medicineListViewController()!
         let model = MedicineListModel(category: category, parent: self)
@@ -86,7 +86,7 @@ extension CatalogueCoordinator {
         model.output = viewController
         root.pushViewController(viewController, animated: true)
     }
-    
+
     private func openProductMedicineFor(medicine: Medicine) {
         let viewController =  R.storyboard.product.instantiateInitialViewController()!
         let model = ProductModel(product: medicine, parent: self)
