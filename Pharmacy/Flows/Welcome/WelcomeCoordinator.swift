@@ -41,7 +41,7 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
             }
         }
         
-        addHandler {  [weak self] (event: MedicineListModelEvent) in
+        addHandler(.onRaise) {  [weak self] (event: MedicineListModelEvent) in
             switch event {
             case .openProduct(let medicine):
                 self?.openProductMedicineFor(medicine: medicine)

@@ -12,7 +12,18 @@ import EventsTree
 class TabBarCoordinator: EventNode, Coordinator {
     
     private weak var root: TabBarController!
-    
+  
+    override init(parent: EventNode?) {
+        super.init(parent: parent)
+
+        addHandler { [weak self] (event: AppEvent) in
+            switch event {
+            case .presentInDev:
+                self?.presentInDev()
+            }
+        }
+    }
+
     func createFlow() -> UIViewController {
         let tabBarController = TabBarController()
         let model = TabBarModel(parent: self)
@@ -24,6 +35,14 @@ class TabBarCoordinator: EventNode, Coordinator {
         setupTabBar()
         
         return tabBarController
+    }
+  
+    private func presentInDev() {
+        guard let inDevVC: InDevelopmentViewController = R.storyboard.inDevelopment.inDevelopmentViewController() else {
+            return
+        }
+        
+        root.present(inDevVC, animated: true, completion: nil)
     }
 
     private func addTabCoordinators(coordinators: [TabBarEmbedCoordinable]) {

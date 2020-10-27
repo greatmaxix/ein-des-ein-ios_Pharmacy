@@ -10,23 +10,19 @@ import UIKit
 
 final class ProductInfoTableViewCell: UITableViewCell {
     
+    // MARK: - Outlets
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var fromPriceLabel: UILabel!
     @IBOutlet private weak var toPriceLabel: UILabel!
-    @IBOutlet weak var bonusButton: UIButton!
     
-    override func awakeFromNib() {
-        let text = bonusButton.titleLabel?.text ?? ""
-        bonusButton.setTitle(text  + " 🤑 50 " + R.string.localize.productBonus(), for: .normal)
-    }
-    
+    // MARK: - Public methods
     func apply(product: Product) {
-        titleLabel.text = product.title
-        subtitleLabel.text = product.subtitle
-        descriptionLabel.text = product.company
-        fromPriceLabel.attributedText = NSAttributedString.fromPriceAttributed(for: product.fromPrice, currency: product.currency)
-        toPriceLabel.attributedText = NSAttributedString.toPriceAttributed(for: product.fromPrice, currency: product.currency)
+        titleLabel.text = product.name.htmlToString
+        subtitleLabel.text = product.releaseForm.htmlToString
+        descriptionLabel.text = product.manufacturer.name
+        fromPriceLabel.attributedText = NSAttributedString.fromPriceAttributed(for: product.minPrice)
+        toPriceLabel.attributedText = NSAttributedString.toPriceAttributed(for: product.maxPrice)
     }
 }

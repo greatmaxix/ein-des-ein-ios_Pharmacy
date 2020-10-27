@@ -35,6 +35,9 @@ final class ProductModel: Model {
     weak var output: ProductModelOutput!
     private let medicine: Medicine
     private var product: Product!
+    
+    private let provider = DataManager<ProductAPI, SingleItemContainerResponse<Product>>()
+    
     let dataSource = TableDataSource<ProductCellSection>()
     
     init(product: Medicine, parent: EventNode?) {
@@ -42,7 +45,6 @@ final class ProductModel: Model {
         super.init(parent: parent)
         saveToCoreData(medicine: product)
     }
-    
 }
 
 // MARK: - ProductViewControllerOutput
@@ -60,14 +62,25 @@ extension ProductModel: ProductViewControllerOutput {
         UserSession.shared.save(medicine: data)
     }
     
-    var title: String { "Ношпа" }
+    var title: String {
+        medicine.title
+    }
     
     func load() {
         
-        product = Product(imageURLs: [], title: "АЛЛОПУРИНОЛ-ЭГИС, 40 мг", subtitle: "Таблетки шипучие, 24 шт", description: "Таблетки покрытые пленочной оболочкой от светло-серого до темно-серого цвета, капсуловидной формы, сгравировкой \"PRENATAL\" с одной стороны и \"FORTE\" с другой стороны, со специфическим запахом", fromPrice: "568", toPrice: "568", currency: "$", analog: "Дротаверин", category: "Противогрибковый", tags: ["Спазмы", "Язва", "Головная боль", "Гастрит", "Болит живот", "Дисменорея"], company: "Chinoin Pharmaceutical and Chemical Works Co. Венгрия")
-        dataSource.cells = ProductCellSection.allSectionsFor(product: product)
-        
-        output.didLoad(product: product)
+        provider.load(target: .global(identifier: medicine.id)) { [weak self] result in
+            guard let self = self else {
+                return
+            }
+            switch result {
+            case .success(let product):
+                self.product = product.item
+                self.dataSource.cells = ProductCellSection.allSectionsFor(product: self.product)
+                self.output.didLoad(product: self.product)
+            case .failure(let error):
+                debugPrint(error.localizedDescription)
+            }
+        }
     }
     
     func didSelectCell(at indexPath: IndexPath) {

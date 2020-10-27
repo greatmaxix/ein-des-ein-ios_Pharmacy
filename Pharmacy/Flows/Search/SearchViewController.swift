@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TTGTagCollectionView
 import MBProgressHUD
 
 protocol SearchViewControllerInput: SearchModelOutput {}
@@ -23,7 +22,6 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     
     @IBOutlet private weak var cleanButton: UIButton!
     @IBOutlet private weak var storyLabel: UILabel!
-    @IBOutlet private weak var tagsCollectionView: TTGTextTagCollectionView!
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var emptyView: EmptySearchView!
@@ -40,8 +38,6 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
         return hud
     }()
     
-    private let tagCloudConfig = TTGTextTagConfig()
-    
     var style: NavigationBarStyle = .search
     
     var model: SearchViewControllerOutput!
@@ -52,7 +48,6 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
         configUI()
         setupTableView()
         setupNavigationBar()
-//        setupActivityIndicator()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,12 +57,6 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     }
     
     func configUI() {
-        tagCloudConfig.backgroundColor = GUI.backgroundColor
-        tagCloudConfig.textColor = GUI.textColor
-        tagCloudConfig.textFont = GUI.textFont
-        tagCloudConfig.borderWidth = 0
-        tagCloudConfig.shadowColor = .clear
-        
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.delegate = self

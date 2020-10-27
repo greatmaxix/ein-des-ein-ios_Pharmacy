@@ -119,6 +119,8 @@
 		39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2F824CEFBDA00195AD8 /* WelcomeModel.swift */; };
 		39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */; };
 		39F8B2FD24CF004900195AD8 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F8B2FC24CF004900195AD8 /* Welcome.storyboard */; };
+		4D8BCF6B254891A40094C43C /* InDevelopment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8BCF6A254891A40094C43C /* InDevelopment.storyboard */; };
+		4D8BCF6E2548932B0094C43C /* InDevelopmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BCF6D2548932B0094C43C /* InDevelopmentViewController.swift */; };
 		6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */ = {isa = PBXBuildFile; fileRef = 6010A10A24E2467A000D6AEE /* NavigationBar.xib */; };
 		6036EAF124DD1A81003336C2 /* Catalogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6036EAF024DD1A81003336C2 /* Catalogue.storyboard */; };
 		6036EAF324DD1A98003336C2 /* CatalogueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036EAF224DD1A98003336C2 /* CatalogueCoordinator.swift */; };
@@ -164,8 +166,6 @@
 		603D31DC24E5A88C000E5A6C /* ProductAnalogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603D31DA24E5A88C000E5A6C /* ProductAnalogTableViewCell.xib */; };
 		603D31E024E5A8E3000E5A6C /* ProductCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31DE24E5A8E3000E5A6C /* ProductCategoryTableViewCell.swift */; };
 		603D31E124E5A8E3000E5A6C /* ProductCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603D31DF24E5A8E3000E5A6C /* ProductCategoryTableViewCell.xib */; };
-		603D31E524E5A90C000E5A6C /* ProductTagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31E324E5A90C000E5A6C /* ProductTagsTableViewCell.swift */; };
-		603D31E624E5A90C000E5A6C /* ProductTagsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603D31E424E5A90C000E5A6C /* ProductTagsTableViewCell.xib */; };
 		603D31EE24E5A9E5000E5A6C /* ProductInstructionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31EC24E5A9E5000E5A6C /* ProductInstructionTableViewCell.swift */; };
 		603D31EF24E5A9E5000E5A6C /* ProductInstructionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603D31ED24E5A9E5000E5A6C /* ProductInstructionTableViewCell.xib */; };
 		603D31F224E5A9F7000E5A6C /* ProductAdviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D31F024E5A9F7000E5A6C /* ProductAdviceTableViewCell.swift */; };
@@ -267,6 +267,10 @@
 		875223D42501152F000759C8 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223D32501152F000759C8 /* UserEntity.swift */; };
 		875223D625011588000759C8 /* UserDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875223D525011588000759C8 /* UserDisplayable.swift */; };
 		878CFC0E2514CC1C00298139 /* Decimal+MoneyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878CFC0D2514CC1C00298139 /* Decimal+MoneyFormat.swift */; };
+		87A50B6625261FEF00CF89CF /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6525261FEF00CF89CF /* Manufacturer.swift */; };
+		87A50B682526256800CF89CF /* ImageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B672526256800CF89CF /* ImageContainer.swift */; };
+		87A50B6A25262FAD00CF89CF /* PriceRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6925262FAD00CF89CF /* PriceRange.swift */; };
+		87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6D2527072800CF89CF /* ProductAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -385,6 +389,8 @@
 		39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
 		39F8B2FC24CF004900195AD8 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		447B6BF7452CC91EDC27B562 /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
+		4D8BCF6A254891A40094C43C /* InDevelopment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InDevelopment.storyboard; sourceTree = "<group>"; };
+		4D8BCF6D2548932B0094C43C /* InDevelopmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InDevelopmentViewController.swift; sourceTree = "<group>"; };
 		6010A10A24E2467A000D6AEE /* NavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
 		6036EAF024DD1A81003336C2 /* Catalogue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalogue.storyboard; sourceTree = "<group>"; };
 		6036EAF224DD1A98003336C2 /* CatalogueCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCoordinator.swift; sourceTree = "<group>"; };
@@ -430,8 +436,6 @@
 		603D31DA24E5A88C000E5A6C /* ProductAnalogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductAnalogTableViewCell.xib; sourceTree = "<group>"; };
 		603D31DE24E5A8E3000E5A6C /* ProductCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		603D31DF24E5A8E3000E5A6C /* ProductCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCategoryTableViewCell.xib; sourceTree = "<group>"; };
-		603D31E324E5A90C000E5A6C /* ProductTagsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTagsTableViewCell.swift; sourceTree = "<group>"; };
-		603D31E424E5A90C000E5A6C /* ProductTagsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTagsTableViewCell.xib; sourceTree = "<group>"; };
 		603D31EC24E5A9E5000E5A6C /* ProductInstructionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInstructionTableViewCell.swift; sourceTree = "<group>"; };
 		603D31ED24E5A9E5000E5A6C /* ProductInstructionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductInstructionTableViewCell.xib; sourceTree = "<group>"; };
 		603D31F024E5A9F7000E5A6C /* ProductAdviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAdviceTableViewCell.swift; sourceTree = "<group>"; };
@@ -532,6 +536,10 @@
 		875223D32501152F000759C8 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		875223D525011588000759C8 /* UserDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDisplayable.swift; sourceTree = "<group>"; };
 		878CFC0D2514CC1C00298139 /* Decimal+MoneyFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+MoneyFormat.swift"; sourceTree = "<group>"; };
+		87A50B6525261FEF00CF89CF /* Manufacturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manufacturer.swift; sourceTree = "<group>"; };
+		87A50B672526256800CF89CF /* ImageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageContainer.swift; sourceTree = "<group>"; };
+		87A50B6925262FAD00CF89CF /* PriceRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRange.swift; sourceTree = "<group>"; };
+		87A50B6D2527072800CF89CF /* ProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPI.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -824,6 +832,7 @@
 		396448E024ADE16600E6D852 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				87A50B6425261FD100CF89CF /* Subentities */,
 				395324BA2508CE270038D2DC /* Responses */,
 				603D319024E3A7FD000E5A6C /* Receipt.swift */,
 				603D31A824E3B67B000E5A6C /* Category.swift */,
@@ -926,6 +935,7 @@
 		396C45CF249774D200A569CE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				4D8BCF69254891570094C43C /* InDevelopment */,
 				8715DB8424FFBFB900BBF37C /* Onboarding */,
 				60E1A70F24ECE0AB00B3D205 /* Scan */,
 				60E1A70824ECD5DE00B3D205 /* SearchNavigation */,
@@ -1109,6 +1119,15 @@
 			path = WelcomeViewController;
 			sourceTree = "<group>";
 		};
+		4D8BCF69254891570094C43C /* InDevelopment */ = {
+			isa = PBXGroup;
+			children = (
+				4D8BCF6A254891A40094C43C /* InDevelopment.storyboard */,
+				4D8BCF6D2548932B0094C43C /* InDevelopmentViewController.swift */,
+			);
+			path = InDevelopment;
+			sourceTree = "<group>";
+		};
 		6036EAEF24DD1A6C003336C2 /* Catalogue */ = {
 			isa = PBXGroup;
 			children = (
@@ -1223,7 +1242,6 @@
 				603D31E924E5A934000E5A6C /* ProductAdviceTableViewCell */,
 				603D31E824E5A92E000E5A6C /* ProductQuestionsTableViewCell */,
 				603D31E724E5A91E000E5A6C /* ProductDescriptionTableViewCell */,
-				603D31E224E5A8F8000E5A6C /* ProductTagsTableViewCell */,
 				603D31DD24E5A8BD000E5A6C /* ProductCategoryTableViewCell */,
 				603D31D824E5A86F000E5A6C /* ProductAnalogTableViewCell */,
 				603D31CF24E5A073000E5A6C /* ProductInfoTableViewCell */,
@@ -1266,15 +1284,6 @@
 				603D31DF24E5A8E3000E5A6C /* ProductCategoryTableViewCell.xib */,
 			);
 			path = ProductCategoryTableViewCell;
-			sourceTree = "<group>";
-		};
-		603D31E224E5A8F8000E5A6C /* ProductTagsTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				603D31E324E5A90C000E5A6C /* ProductTagsTableViewCell.swift */,
-				603D31E424E5A90C000E5A6C /* ProductTagsTableViewCell.xib */,
-			);
-			path = ProductTagsTableViewCell;
 			sourceTree = "<group>";
 		};
 		603D31E724E5A91E000E5A6C /* ProductDescriptionTableViewCell */ = {
@@ -1490,6 +1499,7 @@
 				393DDFBF25028F3D00652A01 /* LocationAPI.swift */,
 				8717E4DD2507744500546A55 /* SearchAPI.swift */,
 				398880BF250F753200942D30 /* MapAPI.swift */,
+				87A50B6D2527072800CF89CF /* ProductAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1707,6 +1717,16 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		87A50B6425261FD100CF89CF /* Subentities */ = {
+			isa = PBXGroup;
+			children = (
+				87A50B6525261FEF00CF89CF /* Manufacturer.swift */,
+				87A50B672526256800CF89CF /* ImageContainer.swift */,
+				87A50B6925262FAD00CF89CF /* PriceRange.swift */,
+			);
+			path = Subentities;
+			sourceTree = "<group>";
+		};
 		8C9DDD9B3FE3CF15F89405BA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1788,6 +1808,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				398B0DE124F50AD60084EC54 /* UserMarkerView.xib in Resources */,
+				4D8BCF6B254891A40094C43C /* InDevelopment.storyboard in Resources */,
 				397541D524ED23CB0069F8DE /* SimpleNavigationBarView.xib in Resources */,
 				6075BD4724DEA7FB00BC78BD /* OpenSans-BoldItalic.ttf in Resources */,
 				6075BD4824DEA7FB00BC78BD /* OpenSans-ExtraBold.ttf in Resources */,
@@ -1821,7 +1842,6 @@
 				395A7FC224A3980D00A7CFC6 /* ProfileTableViewCell.xib in Resources */,
 				603D31D324E5A09F000E5A6C /* ProductInfoTableViewCell.xib in Resources */,
 				39F8B2FD24CF004900195AD8 /* Welcome.storyboard in Resources */,
-				603D31E624E5A90C000E5A6C /* ProductTagsTableViewCell.xib in Resources */,
 				603D31F324E5A9F7000E5A6C /* ProductAdviceTableViewCell.xib in Resources */,
 				396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */,
 				394EBEE924FF904100C89970 /* MedicineView.xib in Resources */,
@@ -1963,6 +1983,7 @@
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
 				39854D0224EAB4870070E0D1 /* ProfileAPI.swift in Sources */,
 				875223C02500F7A4000759C8 /* Typealiases.swift in Sources */,
+				4D8BCF6E2548932B0094C43C /* InDevelopmentViewController.swift in Sources */,
 				395A7FC924A399B000A7CFC6 /* ProfileModel.swift in Sources */,
 				603D31AB24E3BFBE000E5A6C /* UIEdgeInsets.swift in Sources */,
 				395A7FCC24A3A2B700A7CFC6 /* ProfileCoordinator.swift in Sources */,
@@ -2020,6 +2041,7 @@
 				3939A6D524F6A3C90045FB71 /* LocationService.swift in Sources */,
 				619AAA402498A9AE00AB46ED /* AuthAPI.swift in Sources */,
 				398880C4250F799400942D30 /* PharmacyResponse.swift in Sources */,
+				87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */,
 				60E1A71524ECE0DD00B3D205 /* ScanCoordinator.swift in Sources */,
 				395D050124D04B3A007A278D /* CatalogueModel.swift in Sources */,
 				393DDFB7250280F300652A01 /* RegionModel.swift in Sources */,
@@ -2040,6 +2062,7 @@
 				39F0AD6724EEC81400CD6CA4 /* OrdersModel.swift in Sources */,
 				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
 				396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */,
+				87A50B682526256800CF89CF /* ImageContainer.swift in Sources */,
 				87131D30251146960050B8F2 /* EmptySearchView.swift in Sources */,
 				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,
 				393DDFC32502954200652A01 /* RegionHeaderCell.swift in Sources */,
@@ -2067,6 +2090,7 @@
 				603D319824E3B22A000E5A6C /* TableCellSection.swift in Sources */,
 				603D31D224E5A09F000E5A6C /* ProductInfoTableViewCell.swift in Sources */,
 				39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */,
+				87A50B6A25262FAD00CF89CF /* PriceRange.swift in Sources */,
 				6036EAF324DD1A98003336C2 /* CatalogueCoordinator.swift in Sources */,
 				395C9D782499FC14001EB6CD /* BaseTextValidator.swift in Sources */,
 				6036EB0524DD27B2003336C2 /* SearchViewController.swift in Sources */,
@@ -2114,7 +2138,6 @@
 				60E1A6FB24EBB20E00B3D205 /* UIViewController+Keyboard.swift in Sources */,
 				394D59BC2507D01200AA3729 /* WishlistResponse.swift in Sources */,
 				398880C0250F753200942D30 /* MapAPI.swift in Sources */,
-				603D31E524E5A90C000E5A6C /* ProductTagsTableViewCell.swift in Sources */,
 				6075BD5C24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift in Sources */,
 				39F0AD5E24EEBF9B00CD6CA4 /* EmptyResultsView.swift in Sources */,
 				39F8B2F724CEFBBA00195AD8 /* WelcomeViewController.swift in Sources */,
@@ -2138,6 +2161,7 @@
 				60E1A70A24ECD5F200B3D205 /* SearchNavigationCoordinator.swift in Sources */,
 				871E71A5250160A000C8489B /* Storable.swift in Sources */,
 				3915D60A24A24DF500A93627 /* LoginResponse.swift in Sources */,
+				87A50B6625261FEF00CF89CF /* Manufacturer.swift in Sources */,
 				395D04FA24D01230007A278D /* ReadyOrderView.swift in Sources */,
 				395C9D4E2498BDFD001EB6CD /* TextInputView.swift in Sources */,
 				6075BD5824DEB94F00BC78BD /* NavigationBar.swift in Sources */,
@@ -2292,7 +2316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8YM8U69AT5;
+				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2315,7 +2339,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8YM8U69AT5;
+				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (

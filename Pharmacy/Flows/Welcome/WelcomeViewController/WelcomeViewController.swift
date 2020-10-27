@@ -120,6 +120,10 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     private func searchHandler() {
         model.openSearchScreen()
     }
+    @IBAction func uploadReceipt(_ sender: Any) {
+        model.openReceiptUpload()
+    }
+
 }
 
 extension WelcomeViewController: WelcomeModelOutput {

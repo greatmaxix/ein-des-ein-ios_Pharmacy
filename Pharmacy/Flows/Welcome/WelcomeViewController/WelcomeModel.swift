@@ -29,7 +29,7 @@ protocol WelcomeModelInput: class {
     func didSelectProductBy(index: Int)
     func openCategories(_ categoryIndex: Int?)
     func addToCart(productId: Int)
-    func addToWishList(productId: Int)
+    func openReceiptUpload()
 }
 
 final class WelcomeModel: EventNode {
@@ -42,8 +42,7 @@ final class WelcomeModel: EventNode {
     private(set) var medicines: [Medicine] = []
 }
 
-extension WelcomeModel: WelcomeModelInput {
-    
+extension WelcomeModel: WelcomeModelInput {    
     func openCategories(_ categoryIndex: Int?) {
         if let index = categoryIndex {
             let category = topCategory[index]
@@ -91,10 +90,6 @@ extension WelcomeModel: WelcomeModelInput {
             let receipt = Receipt(title: medicine.name, subtitle: medicine.releaseForm, imageURL: URL(string: medicine.picture), price: medicine.minPrice, productId: medicine.productId)
             result.append(receipt)
         }
-//        let receipts = [Receipt(title: "Название товара",
-//                                subtitle: "Таблетки шипучие, 20 мг", imageURL: nil, price: "568"),
-//                        Receipt(title: "Название товара",
-//                                subtitle: "Таблетки шипучие, 20 мг", imageURL: nil, price: "568")]
         
         output.showReceipts(result)
     }
@@ -147,5 +142,8 @@ extension WelcomeModel: WelcomeModelInput {
             }
         }
     }
-    
+
+    func openReceiptUpload() {
+        raise(event: AppEvent.presentInDev)
+    }
 }

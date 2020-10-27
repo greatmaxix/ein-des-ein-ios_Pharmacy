@@ -28,7 +28,12 @@
 // MARK: - Onboarding
 "onboarding.button.next" = "Далее";
 "onboarding.button.skip" = "Пропустить";
-"onboarding.title" = "Преимущества";
+"onboarding.title1" = "Все в одном месте";
+"onboarding.title2" = "Доставка";
+"onboarding.title3" = "Чат с медиком";
+"onboarding.text1" = "Нужно обуболивающее, вата и бинт? Закажите все";
+"onboarding.text2" = "Впервые стала возможна доставка рецептурных препаратов";
+"onboarding.text3" = "Неуверенны какое лучше лекарство приобрести? Спросите в чате у медика!";
 "onboarding.titleCity" = "Ваш город";
 "onboarding.description" = "Разрешите доступ к геолокации для актульного отображения контента";
 
