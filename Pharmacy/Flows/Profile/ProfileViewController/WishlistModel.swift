@@ -22,6 +22,7 @@ protocol WishlistInput: class {
 protocol WishlistOutput: class {
     func didLoadList()
     func showDeletionError()
+    func deleteFarovireRow(index: IndexPath)
 }
 
 final class WishlistModel: EventNode {
@@ -90,19 +91,21 @@ extension WishlistModel: WishlistInput {
 }
 
 extension WishlistModel: WishListEditDelegate {
-    
     func selectMedicineAt(index: Int) {
         //
     }
     
-    func deleteMedicine(id: Int) {
-        
+    func deleteMedicine(id: Int, index: IndexPath) {
+
         provider.delete(target: .removeFromWishList(medicineId: id), completion: { [weak self] result in
             guard let self = self else {return}
             switch result {
             case .success:
                 if self.dataSource.medicines.count == 0 {
                     self.output.didLoadList()
+                } else {
+                    self.dataSource.medicines.remove(at: index.row)
+                    self.output.deleteFarovireRow(index: index)
                 }
             case .failure:
                 self.dataSource.medicines = self.medicines

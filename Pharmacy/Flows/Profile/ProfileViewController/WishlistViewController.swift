@@ -66,12 +66,16 @@ extension WishlistViewController: SimpleNavigationBarDelegate {
 
 extension WishlistViewController: WishlistOutput {
     
+    func deleteFarovireRow(index: IndexPath) {
+        tableView.deleteRows(at: [index], with: .fade)
+    }
+    
     func showDeletionError() {
         showError(message: "Unable to remove medicine from wishlist")
     }
     
     func didLoadList() {
-        
+    
         emptyResultsView?.isHidden = !model.wishlistIsEmpty
         hideActivityIndicator()
         model.dataSource.assign(tableView: tableView)
