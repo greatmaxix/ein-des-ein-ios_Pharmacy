@@ -3,9 +3,10 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -417,6 +418,36 @@
             </objects>
             <point key="canvasLocation" x="-978.26086956521749" y="367.63392857142856"/>
         </scene>
+        <!--Common Map View Controller-->
+        <scene sceneID="Yki-Aj-6DX">
+            <objects>
+                <viewController storyboardIdentifier="CommonMapViewController" id="qxE-3j-4rQ" customClass="CommonMapViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PYc-zi-H5P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LiX-6W-Jxx" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6KB-FO-TIT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LiX-6W-Jxx" firstAttribute="top" secondItem="PYc-zi-H5P" secondAttribute="top" id="6as-tb-1HG"/>
+                            <constraint firstItem="6KB-FO-TIT" firstAttribute="trailing" secondItem="LiX-6W-Jxx" secondAttribute="trailing" id="Ie3-OZ-gqo"/>
+                            <constraint firstAttribute="bottom" secondItem="LiX-6W-Jxx" secondAttribute="bottom" id="YWO-g6-kSf"/>
+                            <constraint firstItem="LiX-6W-Jxx" firstAttribute="leading" secondItem="6KB-FO-TIT" secondAttribute="leading" id="auk-0C-rUd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="LiX-6W-Jxx" id="D6c-SC-lww"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cjt-6A-997" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-114" y="363"/>
+        </scene>
     </scenes>
     <resources>
         <image name="welcomeCategory" width="64" height="64"/>
@@ -433,5 +464,8 @@
         <namedColor name="welcomeBlue">
             <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
