@@ -93,10 +93,15 @@ extension WelcomeModel: WelcomeModelInput {
     private func loadReceipts() {
         let data = UserSession.shared.recentMedicineViewed
         var recenvMedicineViewed: [Medicine] = []
+        
         guard data.count >= 2 else {return}
+
+        var arraySlice = data.suffix(2)
+        arraySlice.reverse()
+        let newArray = Array(arraySlice)
         
         for index in 0...1 {
-            let medicine = data[index]
+            let medicine = newArray[index]
             
             let receipt = Medicine(title: medicine.name, minPrice: medicine.minPrice, maxPrice: medicine.maxPrice, imageURL: URL(string: medicine.picture), releaseForm: medicine.releaseForm, liked: medicine.liked, productId: medicine.productId)
             recenvMedicineViewed.append(receipt)
