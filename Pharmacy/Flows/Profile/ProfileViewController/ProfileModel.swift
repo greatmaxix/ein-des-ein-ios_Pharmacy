@@ -91,6 +91,15 @@ final class ProfileModel: Model {
                 cellsData.append(cellData)
             }
 
+        } else {
+            do  {
+                let cellData = EmptyUserCellData()
+                cellData.authorize = { [weak self] in
+                    self?.raise(event: ProfileEvent.logout)
+                }
+                cellData.selectHandler = nil
+                cellsData.append(cellData)
+            }
         }
 
         do {
