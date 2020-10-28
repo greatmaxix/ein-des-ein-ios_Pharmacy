@@ -98,7 +98,7 @@ extension WelcomeModel: WelcomeModelInput {
         for index in 0...1 {
             let medicine = data[index]
             
-            let receipt = Medicine(title: medicine.name, minPrice: Decimal.init(medicine.minPrice   ), imageURL: URL(string: medicine.picture), releaseForm: medicine.releaseForm, liked: medicine.liked, productId: medicine.productId)
+            let receipt = Medicine(title: medicine.name, minPrice: medicine.minPrice, maxPrice: medicine.maxPrice, imageURL: URL(string: medicine.picture), releaseForm: medicine.releaseForm, liked: medicine.liked, productId: medicine.productId)
             recenvMedicineViewed.append(receipt)
         }
         
