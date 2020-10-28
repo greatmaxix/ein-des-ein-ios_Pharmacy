@@ -49,6 +49,15 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 break
             }
         }
+        
+        addHandler { [weak self] (event: MedicineListModelEvent) in
+            switch event {
+            case .openProduct(let medicine):
+                self?.openProductMedicineFor(medicine: medicine)
+            default:
+                break
+            }
+        }
     }
     
     func createFlow() -> UIViewController {
@@ -121,6 +130,14 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     
     private func popController() {
         root.navigationController?.popViewController(animated: true)
+    }
+    
+    private func openProductMedicineFor(medicine: Medicine) {
+        let viewController =  R.storyboard.product.instantiateInitialViewController()!
+        let model = ProductModel(product: medicine, parent: self)
+        viewController.model = model
+        model.output = viewController
+        root.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
