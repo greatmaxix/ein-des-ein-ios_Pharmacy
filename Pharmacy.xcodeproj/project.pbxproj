@@ -213,6 +213,12 @@
 		60E1A71D24ED079F00B3D205 /* ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A71C24ED079F00B3D205 /* ActionSheetView.swift */; };
 		60E1A71F24ED12C200B3D205 /* UIViewController+ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A71E24ED12C200B3D205 /* UIViewController+ActionSheetView.swift */; };
 		60F2673B24E0566B00BFF296 /* NavigationTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F2673A24E0566B00BFF296 /* NavigationTransitionAnimator.swift */; };
+		6184730125496E950062D8B9 /* CartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6184730025496E950062D8B9 /* CartResponse.swift */; };
+		618473072549A0B80062D8B9 /* CartSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618473062549A0B80062D8B9 /* CartSectionHeader.swift */; };
+		6184730A2549A0C80062D8B9 /* CartSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 618473092549A0C80062D8B9 /* CartSectionHeader.xib */; };
+		618473182549A5060062D8B9 /* CartSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618473172549A5060062D8B9 /* CartSectionFooterView.swift */; };
+		6184731B2549A5120062D8B9 /* CartSectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6184731A2549A5120062D8B9 /* CartSectionFooterView.xib */; };
+		6184731E2549ACFB0062D8B9 /* CartMedecineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6184731D2549ACFB0062D8B9 /* CartMedecineCell.swift */; };
 		618C33952498BD6700951D11 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33942498BD6700951D11 /* AppNavigation.swift */; };
 		618C33982498BDC200951D11 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33972498BDC200951D11 /* SignInViewController.swift */; };
 		618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C339B2498BDF000951D11 /* SignUpViewController.swift */; };
@@ -487,6 +493,12 @@
 		60E1A71C24ED079F00B3D205 /* ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetView.swift; sourceTree = "<group>"; };
 		60E1A71E24ED12C200B3D205 /* UIViewController+ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActionSheetView.swift"; sourceTree = "<group>"; };
 		60F2673A24E0566B00BFF296 /* NavigationTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTransitionAnimator.swift; sourceTree = "<group>"; };
+		6184730025496E950062D8B9 /* CartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponse.swift; sourceTree = "<group>"; };
+		618473062549A0B80062D8B9 /* CartSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSectionHeader.swift; sourceTree = "<group>"; };
+		618473092549A0C80062D8B9 /* CartSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartSectionHeader.xib; sourceTree = "<group>"; };
+		618473172549A5060062D8B9 /* CartSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSectionFooterView.swift; sourceTree = "<group>"; };
+		6184731A2549A5120062D8B9 /* CartSectionFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartSectionFooterView.xib; sourceTree = "<group>"; };
+		6184731D2549ACFB0062D8B9 /* CartMedecineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartMedecineCell.swift; sourceTree = "<group>"; };
 		618C33942498BD6700951D11 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		618C33972498BDC200951D11 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		618C339B2498BDF000951D11 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -664,6 +676,7 @@
 				398880C3250F799400942D30 /* PharmacyResponse.swift */,
 				394D59BB2507D01200AA3729 /* WishlistResponse.swift */,
 				246A83C52547070A0004ECEC /* PostResponse.swift */,
+				6184730025496E950062D8B9 /* CartResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -1170,6 +1183,7 @@
 		6036EAF824DD1C2E003336C2 /* Basket */ = {
 			isa = PBXGroup;
 			children = (
+				618473052549A05F0062D8B9 /* Cells */,
 				6036EAF924DD1C83003336C2 /* Basket.storyboard */,
 				6036EAFB24DD1C8F003336C2 /* BasketViewController.swift */,
 				6036EAFD24DD1C9A003336C2 /* BasketModel.swift */,
@@ -1446,6 +1460,18 @@
 				60E1A71C24ED079F00B3D205 /* ActionSheetView.swift */,
 			);
 			path = ActionSheetView;
+			sourceTree = "<group>";
+		};
+		618473052549A05F0062D8B9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				618473062549A0B80062D8B9 /* CartSectionHeader.swift */,
+				618473172549A5060062D8B9 /* CartSectionFooterView.swift */,
+				6184731A2549A5120062D8B9 /* CartSectionFooterView.xib */,
+				618473092549A0C80062D8B9 /* CartSectionHeader.xib */,
+				6184731D2549ACFB0062D8B9 /* CartMedecineCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		618C33932498BD1A00951D11 /* Coordinator */ = {
@@ -1847,6 +1873,7 @@
 				6075BD4924DEA7FB00BC78BD /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				398B0DF124F53AD60084EC54 /* FoundMedicineView.xib in Resources */,
 				6075BD4A24DEA7FB00BC78BD /* OpenSans-Italic.ttf in Resources */,
+				6184731B2549A5120062D8B9 /* CartSectionFooterView.xib in Resources */,
 				6075BD4B24DEA7FB00BC78BD /* OpenSans-Light.ttf in Resources */,
 				6075BD4C24DEA7FB00BC78BD /* OpenSans-LightItalic.ttf in Resources */,
 				603D31F724E5AA09000E5A6C /* ProductQuestionsTableViewCell.xib in Resources */,
@@ -1867,6 +1894,7 @@
 				603D31BD24E57871000E5A6C /* Product.storyboard in Resources */,
 				618C33A12498BE4A00951D11 /* Auth.storyboard in Resources */,
 				6036EAF124DD1A81003336C2 /* Catalogue.storyboard in Resources */,
+				6184730A2549A0C80062D8B9 /* CartSectionHeader.xib in Resources */,
 				393D3CDB24FD33BD00E8181F /* PaymentMethodView.xib in Resources */,
 				395A7FC224A3980D00A7CFC6 /* ProfileTableViewCell.xib in Resources */,
 				603D31D324E5A09F000E5A6C /* ProductInfoTableViewCell.xib in Resources */,
@@ -2045,10 +2073,12 @@
 				395CB74624FCE9D5000A958F /* CheckoutModel.swift in Sources */,
 				603D31F224E5A9F7000E5A6C /* ProductAdviceTableViewCell.swift in Sources */,
 				619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */,
+				618473072549A0B80062D8B9 /* CartSectionHeader.swift in Sources */,
 				603D31FD24E64912000E5A6C /* UITableViewCell.swift in Sources */,
 				6036EB0724DD27BB003336C2 /* SearchModel.swift in Sources */,
 				398880C2250F798300942D30 /* PharmacyModel.swift in Sources */,
 				60E1A6F724EB8C7800B3D205 /* SearchCellSection.swift in Sources */,
+				6184730125496E950062D8B9 /* CartResponse.swift in Sources */,
 				603D31A724E3B627000E5A6C /* CategoryCellSection.swift in Sources */,
 				603D31A424E3B608000E5A6C /* CategoryCollectionViewCell.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
@@ -2056,6 +2086,7 @@
 				39DBC18F24F7C2CC00CB82D5 /* MapMessageView.swift in Sources */,
 				246A83FD25472F1F0004ECEC /* CategoryEntity.swift in Sources */,
 				875223BB2500ED89000759C8 /* UserDefaultsAccessor.swift in Sources */,
+				618473182549A5060062D8B9 /* CartSectionFooterView.swift in Sources */,
 				603D31D724E5A3FE000E5A6C /* Product.swift in Sources */,
 				395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */,
 				618C33AA2498BFB400951D11 /* Coordinator.swift in Sources */,
@@ -2112,6 +2143,7 @@
 				603D319F24E3B492000E5A6C /* CollectionDataSourceViewController.swift in Sources */,
 				246A83B72546E26A0004ECEC /* ProductCartAPI.swift in Sources */,
 				878CFC0E2514CC1C00298139 /* Decimal+MoneyFormat.swift in Sources */,
+				6184731E2549ACFB0062D8B9 /* CartMedecineCell.swift in Sources */,
 				875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */,
 				395CB74424FCE9BF000A958F /* CheckoutViewController.swift in Sources */,
 				60E1A70C24ECD6E500B3D205 /* SearchNavigationController.swift in Sources */,
@@ -2344,7 +2376,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */;
 			buildSettings = {
-				API_HOST = "https://api.pharmacies.release.fmc-dev.com/api/v1/";
+				API_HOST = "https://api.pharmacies.fmc-dev.com/api/v1/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -2368,7 +2400,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 447B6BF7452CC91EDC27B562 /* Pods-Pharmacy.release.xcconfig */;
 			buildSettings = {
-				API_HOST = "https://api.pharmacies.release.fmc-dev.com/api/v1/";
+				API_HOST = "https://api.pharmacies.fmc-dev.com/api/v1/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;

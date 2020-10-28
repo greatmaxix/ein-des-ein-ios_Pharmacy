@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="CartSectionFooterView" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgs-Xe-fIk">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7y-zr-o19">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="12"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFt-Vg-sG5">
+                            <rect key="frame" x="219" y="16" width="179" height="48"/>
+                            <color key="backgroundColor" name="validationBlue"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="fi4-MV-1i6"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                            <state key="normal" title="Оформить заказ">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="24"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8r9-P1-Qwn">
+                            <rect key="frame" x="24" y="16" width="45.5" height="22"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                            <color key="textColor" name="validationBlue"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKP-oY-Vn3">
+                            <rect key="frame" x="24" y="38" width="37.5" height="19.5"/>
+                            <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                            <color key="textColor" name="textDarkBlue"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ доставка от 150 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spd-YA-ee2">
+                            <rect key="frame" x="24" y="57.5" width="96" height="14"/>
+                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="10"/>
+                            <color key="textColor" name="violet"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="DKP-oY-Vn3" firstAttribute="top" secondItem="8r9-P1-Qwn" secondAttribute="bottom" id="1OS-mg-6rH"/>
+                        <constraint firstItem="spd-YA-ee2" firstAttribute="leading" secondItem="DKP-oY-Vn3" secondAttribute="leading" id="2DI-ay-yTQ"/>
+                        <constraint firstAttribute="trailing" secondItem="L7y-zr-o19" secondAttribute="trailing" id="3GI-XJ-INP"/>
+                        <constraint firstItem="spd-YA-ee2" firstAttribute="top" secondItem="DKP-oY-Vn3" secondAttribute="bottom" id="3jY-8t-bBz"/>
+                        <constraint firstItem="MFt-Vg-sG5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8r9-P1-Qwn" secondAttribute="trailing" constant="10" id="7gi-Ym-T2g"/>
+                        <constraint firstItem="L7y-zr-o19" firstAttribute="leading" secondItem="hgs-Xe-fIk" secondAttribute="leading" id="9QI-Nx-gul"/>
+                        <constraint firstItem="8r9-P1-Qwn" firstAttribute="top" secondItem="hgs-Xe-fIk" secondAttribute="top" constant="16" id="Aei-dP-4QQ"/>
+                        <constraint firstItem="MFt-Vg-sG5" firstAttribute="top" secondItem="hgs-Xe-fIk" secondAttribute="top" constant="16" id="CKC-fL-A5i"/>
+                        <constraint firstAttribute="trailing" secondItem="MFt-Vg-sG5" secondAttribute="trailing" constant="16" id="HrQ-Un-LzO"/>
+                        <constraint firstItem="8r9-P1-Qwn" firstAttribute="leading" secondItem="hgs-Xe-fIk" secondAttribute="leading" constant="24" id="IpB-jA-Mgd"/>
+                        <constraint firstAttribute="bottom" secondItem="L7y-zr-o19" secondAttribute="bottom" constant="-12" id="cXZ-Ky-uLD"/>
+                        <constraint firstItem="DKP-oY-Vn3" firstAttribute="leading" secondItem="8r9-P1-Qwn" secondAttribute="leading" id="jHm-gC-m6Q"/>
+                        <constraint firstItem="L7y-zr-o19" firstAttribute="top" secondItem="hgs-Xe-fIk" secondAttribute="top" id="mDm-NF-d53"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="hgs-Xe-fIk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7v1-Uo-nW7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hgs-Xe-fIk" secondAttribute="trailing" id="c7k-XM-mEU"/>
+                <constraint firstItem="hgs-Xe-fIk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ktc-wt-h1c"/>
+                <constraint firstAttribute="bottom" secondItem="hgs-Xe-fIk" secondAttribute="bottom" id="kui-Ug-xqJ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="corneredView" destination="L7y-zr-o19" id="Ef8-1G-dwp"/>
+                <outlet property="totalCountLabel" destination="DKP-oY-Vn3" id="DFc-pg-rH7"/>
+                <outlet property="totalPriceLabel" destination="8r9-P1-Qwn" id="xWV-1n-Hc0"/>
+            </connections>
+            <point key="canvasLocation" x="118.84057971014494" y="51.897321428571423"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="validationBlue">
+            <color red="0.031372549019607843" green="0.34901960784313724" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="violet">
+            <color red="0.43137254901960786" green="0.49019607843137253" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

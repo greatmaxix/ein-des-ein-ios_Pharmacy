@@ -130,6 +130,18 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
         model.openReceiptUpload()
     }
 
+    @IBAction func chatTapped(_ sender: Any) {
+        model.openChat()
+    }
+
+    @IBAction func diagnosisTapped(_ sender: Any) {
+        model.openDiagnosis()
+    }
+
+    @IBAction func mapTapped(_ sender: Any) {
+        model.openMap()
+    }
+
 }
 
 extension WelcomeViewController: WelcomeModelOutput {

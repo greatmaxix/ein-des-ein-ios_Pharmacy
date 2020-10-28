@@ -14,6 +14,9 @@ enum WelcomeEvent: Event {
     case openMap
     case openBarCodeReader
     case openCategories(category: Category?)
+    case openChat
+    case openAnalizes
+    case openReceipts
 }
 
 protocol WelcomeModelOutput: class {
@@ -33,6 +36,9 @@ protocol WelcomeModelInput: class {
     func removeFromWishList(productId: Int)
     func openReceiptUpload()
     func openMedicineDetail(medicine: Medicine)
+    func openChat()
+    func openDiagnosis()
+    func openMap()
 }
 
 final class WelcomeModel: EventNode {
@@ -139,7 +145,7 @@ extension WelcomeModel: WelcomeModelInput {
     func addToCart(productId: Int) {
         cartProvider.load(target: .addPharmacyToCart(productId: productId)) {[weak self] result in
             guard self != nil else { return }
-            print("zzz \(productId)")
+            
             switch result {
             case .success:
                 print("reciept \(productId) was successfully added to chart")
@@ -173,6 +179,18 @@ extension WelcomeModel: WelcomeModelInput {
     }
 
     func openReceiptUpload() {
+        raise(event: WelcomeEvent.openReceipts)
+    }
+
+    func openMap() {
         raise(event: AppEvent.presentInDev)
+    }
+
+    func openChat() {
+        raise(event: AppEvent.presentInDev)
+    }
+
+    func openDiagnosis() {
+        raise(event: WelcomeEvent.openAnalizes)
     }
 }
