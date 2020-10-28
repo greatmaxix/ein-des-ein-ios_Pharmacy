@@ -18,10 +18,12 @@ final class WishlistViewController: UIViewController, ActivityIndicatorDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupTableView()
         applyEmptyStyle()
         model.load()
         setupUI()
+
         setupActivityIndicator()
         showActivityIndicator()
     }
@@ -37,6 +39,12 @@ final class WishlistViewController: UIViewController, ActivityIndicatorDelegate 
         emptyView.setup(title: R.string.localize.wishlistEmptyTitle(), decriptionText: R.string.localize.wishlistEmptyDescription(), buttonTitle: R.string.localize.wishlistEmptyButton())
         
         emptyResultsView = emptyView
+    }
+    
+// MARK: - setup Table view
+    private func setupTableView(){
+        tableView.register(UINib(resource: R.nib.medicineCell), forCellReuseIdentifier: String(describing: MedicineCell.self))
+        tableView.dataSource = self
     }
     
     private func setupUI() {
@@ -68,6 +76,7 @@ extension WishlistViewController: WishlistOutput {
     
     func deleteFarovireRow(index: IndexPath) {
         tableView.deleteRows(at: [index], with: .fade)
+        hideActivityIndicator()
     }
     
     func showDeletionError() {
@@ -75,15 +84,36 @@ extension WishlistViewController: WishlistOutput {
     }
     
     func didLoadList() {
-    
         emptyResultsView?.isHidden = !model.wishlistIsEmpty
         hideActivityIndicator()
-        model.dataSource.assign(tableView: tableView)
         tableView.reloadData()
     }
 }
 
-extension WishlistViewController: UITableViewDelegate {
+extension WishlistViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.favoriteMedicine.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MedicineCell.self)) as? MedicineCell else {return UITableViewCell()}
+        
+        cell.apply(medicine: model.favoriteMedicine[indexPath.row])
+        
+        cell.favoriteButtonHandler = {[weak self] state in
+            guard let self = self else {return}
+            self.showActivityIndicator()
+            self.model.deleteMedicine(id: self.model.favoriteMedicine[indexPath.row].id, index: indexPath)
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            model.selectMedicineAt(index: indexPath.row)
+    }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         

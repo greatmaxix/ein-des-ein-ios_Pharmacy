@@ -8,45 +8,23 @@
 
 import UIKit
 
-protocol WishListEditDelegate: class {
-    func selectMedicineAt(index: Int)
-    func deleteMedicine(id: Int, index: IndexPath)
-}
+//protocol WishListEditDelegate: class {
+//    func selectMedicineAt(index: Int)
+//    func deleteMedicine(id: Int, index: IndexPath)
+//}
 
-final class WishlistDataSource: NSObject, UITableViewDataSource {
+//final class WishlistDataSource: NSObject, UITableViewDataSource {
     
-    var medicines: [Medicine] = []
-    weak var wishlistDelegate: WishListEditDelegate?
-    private let cellId: String = String(describing: MedicineCell.self)
+//    var medicines: [Medicine] = []
+//    weak var wishlistDelegate: WishListEditDelegate?
+//    private let cellId: String = String(describing: MedicineCell.self)
     
-    func assign(tableView: UITableView) {
-        
-        tableView.register(UINib(resource: R.nib.medicineCell), forCellReuseIdentifier: cellId)
-        tableView.dataSource = self
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return medicines.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? MedicineCell else {
-            return UITableViewCell()
-        }
-        cell.apply(medicine: medicines[indexPath.row])
-        
-        cell.favoriteButtonHandler = { state in
-            self.wishlistDelegate?.deleteMedicine(id: self.medicines[indexPath.row].id, index: indexPath)
-        }
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        wishlistDelegate?.selectMedicineAt(index: indexPath.row)
-    }
-    
+//    func assign(tableView: UITableView) {
+//
+//        tableView.register(UINib(resource: R.nib.medicineCell), forCellReuseIdentifier: cellId)
+//        tableView.dataSource = self
+//    }
+  
 //    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 //        return true
 //    }
@@ -61,4 +39,4 @@ final class WishlistDataSource: NSObject, UITableViewDataSource {
 //            tableView.endUpdates()
 //        }
 //    }
-}
+//}
