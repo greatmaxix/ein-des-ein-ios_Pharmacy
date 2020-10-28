@@ -53,7 +53,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7W-BI-JoA">
-                                                    <rect key="frame" x="151" y="23" width="227" height="19"/>
+                                                    <rect key="frame" x="151" y="23" width="39.5" height="19"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" name="textDarkBlue"/>
                                                     <nil key="highlightedColor"/>
@@ -160,18 +160,24 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obW-E6-0ao">
+                                                    <rect key="frame" x="366" y="23" width="24" height="24"/>
+                                                    <state key="normal" image="button_remove"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="obW-E6-0ao" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v7W-BI-JoA" secondAttribute="trailing" constant="10" id="07V-iP-pnV"/>
                                                 <constraint firstItem="yFM-rb-AIq" firstAttribute="centerY" secondItem="Cyv-Vl-fWN" secondAttribute="centerY" id="5Rk-f5-IpD"/>
                                                 <constraint firstItem="QFX-vk-hlU" firstAttribute="top" secondItem="tZF-vw-kSO" secondAttribute="bottom" constant="16" id="6IO-90-nns"/>
                                                 <constraint firstItem="tZF-vw-kSO" firstAttribute="leading" secondItem="dbm-ZW-m04" secondAttribute="leading" id="A7J-US-LE9"/>
                                                 <constraint firstItem="dbm-ZW-m04" firstAttribute="top" secondItem="v7W-BI-JoA" secondAttribute="bottom" id="EJU-Ie-6Ab"/>
+                                                <constraint firstItem="obW-E6-0ao" firstAttribute="top" secondItem="Cyv-Vl-fWN" secondAttribute="topMargin" constant="12" id="Glr-2Y-Oi6"/>
                                                 <constraint firstItem="v7W-BI-JoA" firstAttribute="top" secondItem="Cyv-Vl-fWN" secondAttribute="topMargin" constant="12" id="JPH-5z-ouR"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="dbm-ZW-m04" secondAttribute="trailing" constant="16" id="JfE-js-N7f"/>
                                                 <constraint firstItem="QFX-vk-hlU" firstAttribute="leading" secondItem="tZF-vw-kSO" secondAttribute="leading" id="RqH-Sm-PLp"/>
                                                 <constraint firstItem="tZF-vw-kSO" firstAttribute="top" secondItem="dbm-ZW-m04" secondAttribute="bottom" id="X0E-gr-09C"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="v7W-BI-JoA" secondAttribute="trailing" constant="16" id="eac-Nl-MRV"/>
                                                 <constraint firstItem="v7W-BI-JoA" firstAttribute="leading" secondItem="yFM-rb-AIq" secondAttribute="trailing" constant="16" id="g89-4u-PWy"/>
+                                                <constraint firstAttribute="trailing" secondItem="obW-E6-0ao" secondAttribute="trailing" constant="24" id="gks-xg-I4G"/>
                                                 <constraint firstItem="dbm-ZW-m04" firstAttribute="leading" secondItem="v7W-BI-JoA" secondAttribute="leading" id="hJn-kH-ooB"/>
                                                 <constraint firstItem="yFM-rb-AIq" firstAttribute="leading" secondItem="Cyv-Vl-fWN" secondAttribute="leading" constant="23" id="pfn-lW-Dpy"/>
                                                 <constraint firstAttribute="trailing" secondItem="omX-12-rcf" secondAttribute="trailing" constant="23" id="w8R-h2-I5m"/>
@@ -241,6 +247,7 @@
     <resources>
         <image name="button_minus" width="16.333333969116211" height="2"/>
         <image name="button_plus" width="16.333333969116211" height="16"/>
+        <image name="button_remove" width="24" height="24"/>
         <image name="medicineImagePlaceholder" width="112" height="112"/>
         <namedColor name="lightGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
