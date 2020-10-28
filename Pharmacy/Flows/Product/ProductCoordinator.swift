@@ -21,7 +21,7 @@ final class ProductCoordinator: EventNode, Coordinator {
         fatalError()
     }
     
-    func createFlowFor(product: Medicine) -> UIViewController {
+    func createFlowFor(product: Medicine) -> ProductViewController {
         let root =  R.storyboard.product.instantiateInitialViewController()!
         let model = ProductModel(product: product, parent: self)
         root.model = model
