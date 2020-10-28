@@ -14,6 +14,7 @@ enum MedicineListModelEvent: Event {
 }
 
 protocol MedicineListModelInput: class {
+    var isEndOfList: Bool { get }
     var medicines: [Medicine] { get }
     var title: String { get }
     var totalNumberOfItems: Int { get }
@@ -43,6 +44,7 @@ final class MedicineListModel: Model {
     private var category: Category?
     private let provider = DataManager<SearchAPI, ListContainerResponse<Medicine>>()
     private var pageNumber: Int = 1
+    var isEndOfList = false
     
     private lazy var userRegionId: Int = {
         UserDefaultsAccessor.value(for: \.regionId)
@@ -73,6 +75,10 @@ extension MedicineListModel {
     private func retreiveMedecines(on page: Int,
                                    pageSize: Int = .pageSize,
                                    completion: (() -> Void)? = nil) {
+        
+        guard isEndOfList == false else {
+            return
+        }
         provider.load(target: .searchByName(name: "",
                                             regionId: userRegionId,
                                             categoryCode: category?.code,
@@ -84,6 +90,11 @@ extension MedicineListModel {
                                                 
                                                 switch response {
                                                 case .success(let result):
+                                                    
+                                                    if pageSize > result.entities.count {
+                                                        self.isEndOfList = true
+                                                    }
+                                                    
                                                     self.pageNumber = result.currentPage
                                                     self.totalNumberOfItems = result.totalNumberOfItems
                                                     self.medicines.append(contentsOf: result.entities)
