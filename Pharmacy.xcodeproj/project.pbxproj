@@ -232,6 +232,8 @@
 		619AAA462498AEA700AB46ED /* SampleResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA452498AEA700AB46ED /* SampleResponseModel.swift */; };
 		619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA472498B01900AB46ED /* KeychainManager.swift */; };
 		619AAA4A2498B09800AB46ED /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA492498B09800AB46ED /* Token.swift */; };
+		61CFAA552549EB7200569DEF /* EmptyUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA532549EB7200569DEF /* EmptyUserCell.swift */; };
+		61CFAA562549EB7200569DEF /* EmptyUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAA542549EB7200569DEF /* EmptyUserCell.xib */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
 		87131D232507B9890050B8F2 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D222507B9890050B8F2 /* Executor.swift */; };
 		87131D25250913A70050B8F2 /* UISearchBar+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */; };
@@ -512,6 +514,8 @@
 		619AAA452498AEA700AB46ED /* SampleResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleResponseModel.swift; sourceTree = "<group>"; };
 		619AAA472498B01900AB46ED /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		619AAA492498B09800AB46ED /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Pharmacy/Services/Managers/Token.swift; sourceTree = SOURCE_ROOT; };
+		61CFAA532549EB7200569DEF /* EmptyUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyUserCell.swift; sourceTree = "<group>"; };
+		61CFAA542549EB7200569DEF /* EmptyUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyUserCell.xib; sourceTree = "<group>"; };
 		87131D222507B9890050B8F2 /* Executor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
 		87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+TextField.swift"; sourceTree = "<group>"; };
 		87131D27250A043D0050B8F2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -756,6 +760,8 @@
 				395A7FBC24A3980C00A7CFC6 /* ProfileTableViewCell.xib */,
 				3949851824BC519B006A773D /* ProfileOptionsCell.swift */,
 				3949851924BC519B006A773D /* ProfileOptionsCell.xib */,
+				61CFAA532549EB7200569DEF /* EmptyUserCell.swift */,
+				61CFAA542549EB7200569DEF /* EmptyUserCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1913,6 +1919,7 @@
 				603D31E124E5A8E3000E5A6C /* ProductCategoryTableViewCell.xib in Resources */,
 				398B0DD924F50A630084EC54 /* FarmacyPinView.xib in Resources */,
 				395A7FC624A3980D00A7CFC6 /* NameTableViewCell.xib in Resources */,
+				61CFAA562549EB7200569DEF /* EmptyUserCell.xib in Resources */,
 				603D31DC24E5A88C000E5A6C /* ProductAnalogTableViewCell.xib in Resources */,
 				6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */,
 				395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */,
@@ -2196,6 +2203,7 @@
 				393DDFBD250286C500652A01 /* RegionCell.swift in Sources */,
 				395D04FF24D04B19007A278D /* CatalogueViewController.swift in Sources */,
 				875223AB25000482000759C8 /* NibLoadable.swift in Sources */,
+				61CFAA552549EB7200569DEF /* EmptyUserCell.swift in Sources */,
 				6075BD5324DEB16600BC78BD /* RoundedCornerNavigationBar.swift in Sources */,
 				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
 				87131D3425135E3E0050B8F2 /* UITableView+Reusable.swift in Sources */,

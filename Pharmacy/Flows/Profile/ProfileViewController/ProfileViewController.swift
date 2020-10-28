@@ -24,6 +24,7 @@ final class ProfileViewController: UIViewController {
         tableView.separatorStyle = .none
         
         tableView.register(UINib(nibName: String(describing: NameTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: NameTableViewCell.self))
+        tableView.register(UINib(nibName: String(describing: EmptyUserCell.self), bundle: nil), forCellReuseIdentifier: String(describing: EmptyUserCell.self))
         tableView.register(EmptyTableViewCell.self, forCellReuseIdentifier: String(describing: EmptyTableViewCell.self))
         tableView.register(UINib(nibName: String(describing: ProfileTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ProfileTableViewCell.self))
         tableView.register(UINib(nibName: String(describing: ProfileOptionsCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ProfileOptionsCell.self))
