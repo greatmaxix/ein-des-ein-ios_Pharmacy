@@ -161,8 +161,9 @@ extension WelcomeViewController: WelcomeModelOutput {
     
     func showReceipts(_ receipts: [Medicine]) {
         receiptStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
-        
+
         for receipt in receipts {
+            print("IMAGE \(receipt.imageURL)")
             if let receiptView: ReceiptView  = R.nib.receiptView(owner: self) {
                 receiptView.apply(receipt: receipt)
                 receiptView.likeActionHandler = {[unowned self] state in

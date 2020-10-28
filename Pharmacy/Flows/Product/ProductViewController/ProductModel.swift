@@ -61,7 +61,7 @@ extension ProductModel: ProductViewControllerOutput {
                                           maxPrice: max,
                                           name: medicine.name,
                                           releaseForm: medicine.releaseForm,
-                                          picture: medicine.pictureUrls.first ?? "")
+                                          imageURL: medicine.pictureUrls.first ?? "")
         
         UserSession.shared.save(medicine: data)
     }

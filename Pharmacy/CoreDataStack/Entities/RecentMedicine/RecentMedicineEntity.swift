@@ -18,7 +18,7 @@ final class RecentMedicineEntity: NSManagedObject {
     @NSManaged public private(set) var minPrice: Double
     @NSManaged public private(set) var maxPrice: Double
     @NSManaged public private(set) var releaseForm: String
-    @NSManaged public private(set) var picture: String
+    @NSManaged public private(set) var imageURL: String
     
 // MARK: - Public methods
     func updateWith(_ dto: RecentMedicineDTO) {
@@ -28,7 +28,7 @@ final class RecentMedicineEntity: NSManagedObject {
         minPrice = dto.minPrice
         maxPrice = dto.maxPrice
         releaseForm = dto.releaseForm
-        picture = dto.picture
+        imageURL = dto.imageURL
     }
 }
 

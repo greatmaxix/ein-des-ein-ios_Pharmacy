@@ -48,7 +48,7 @@ final class CoreDataService {
                                                            maxPrice: $0.maxPrice,
                                                            name: $0.name,
                                                            releaseForm: $0.releaseForm,
-                                                           picture: $0.picture))
+                                                           imageURL: $0.imageURL))
             }
 
         return result

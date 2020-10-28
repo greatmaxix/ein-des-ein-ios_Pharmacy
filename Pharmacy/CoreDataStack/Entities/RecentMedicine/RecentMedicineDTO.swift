@@ -15,7 +15,7 @@ struct RecentMedicineDTO: Equatable, Codable {
     let maxPrice: Double
     let name: String
     let releaseForm: String
-    let picture: String
+    let imageURL: String
 }
 
 extension RecentMedicineDTO: Storable {

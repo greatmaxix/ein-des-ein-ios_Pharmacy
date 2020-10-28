@@ -36,7 +36,7 @@ final class ReceiptView: UIView {
         priceLabel.text = receipt.maxPrice!.moneyString()
         productId = receipt.id
         priceLabel.attributedText = NSAttributedString.fromPriceAttributed(for: receipt.price, currency: receipt.currency)
-        
+    
         if let url = receipt.imageURL {
             imageView.loadImageBy(url: url)
         }
