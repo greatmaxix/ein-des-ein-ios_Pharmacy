@@ -121,6 +121,10 @@
 		39F8B2FD24CF004900195AD8 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F8B2FC24CF004900195AD8 /* Welcome.storyboard */; };
 		4D8BCF6B254891A40094C43C /* InDevelopment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8BCF6A254891A40094C43C /* InDevelopment.storyboard */; };
 		4D8BCF6E2548932B0094C43C /* InDevelopmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BCF6D2548932B0094C43C /* InDevelopmentViewController.swift */; };
+		4DE4D5352549810C00EE0E3A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4D5342549810C00EE0E3A /* AboutAppViewController.swift */; };
+		4DE4D5392549812000EE0E3A /* AboutAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4D5382549812000EE0E3A /* AboutAppModel.swift */; };
+		4DE4D53D25498E4100EE0E3A /* AboutAppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4D53C25498E4100EE0E3A /* AboutAppTableViewCell.swift */; };
+		4DE4D54025498E5A00EE0E3A /* AboutAppTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE4D53F25498E5A00EE0E3A /* AboutAppTableViewCell.xib */; };
 		6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */ = {isa = PBXBuildFile; fileRef = 6010A10A24E2467A000D6AEE /* NavigationBar.xib */; };
 		6036EAF124DD1A81003336C2 /* Catalogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6036EAF024DD1A81003336C2 /* Catalogue.storyboard */; };
 		6036EAF324DD1A98003336C2 /* CatalogueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036EAF224DD1A98003336C2 /* CatalogueCoordinator.swift */; };
@@ -397,6 +401,10 @@
 		447B6BF7452CC91EDC27B562 /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
 		4D8BCF6A254891A40094C43C /* InDevelopment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InDevelopment.storyboard; sourceTree = "<group>"; };
 		4D8BCF6D2548932B0094C43C /* InDevelopmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InDevelopmentViewController.swift; sourceTree = "<group>"; };
+		4DE4D5342549810C00EE0E3A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
+		4DE4D5382549812000EE0E3A /* AboutAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppModel.swift; sourceTree = "<group>"; };
+		4DE4D53C25498E4100EE0E3A /* AboutAppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppTableViewCell.swift; sourceTree = "<group>"; };
+		4DE4D53F25498E5A00EE0E3A /* AboutAppTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppTableViewCell.xib; sourceTree = "<group>"; };
 		6010A10A24E2467A000D6AEE /* NavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
 		6036EAF024DD1A81003336C2 /* Catalogue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalogue.storyboard; sourceTree = "<group>"; };
 		6036EAF224DD1A98003336C2 /* CatalogueCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCoordinator.swift; sourceTree = "<group>"; };
@@ -1141,6 +1149,25 @@
 			path = InDevelopment;
 			sourceTree = "<group>";
 		};
+		4DE4D533254980A400EE0E3A /* AboutApp */ = {
+			isa = PBXGroup;
+			children = (
+				4DE4D53B25498E0F00EE0E3A /* Cells */,
+				4DE4D5342549810C00EE0E3A /* AboutAppViewController.swift */,
+				4DE4D5382549812000EE0E3A /* AboutAppModel.swift */,
+			);
+			path = AboutApp;
+			sourceTree = "<group>";
+		};
+		4DE4D53B25498E0F00EE0E3A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4DE4D53C25498E4100EE0E3A /* AboutAppTableViewCell.swift */,
+				4DE4D53F25498E5A00EE0E3A /* AboutAppTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		6036EAEF24DD1A6C003336C2 /* Catalogue */ = {
 			isa = PBXGroup;
 			children = (
@@ -1477,6 +1504,7 @@
 		618C339D2498BDF600951D11 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				4DE4D533254980A400EE0E3A /* AboutApp */,
 				3954D11F24D1B5DA00AB44BD /* EditProfile */,
 				39F0AD6224EEC74600CD6CA4 /* OrdersViewController */,
 				39F0AD6324EEC75F00CD6CA4 /* PrescriptionViewController */,
@@ -1835,6 +1863,7 @@
 			files = (
 				398B0DE124F50AD60084EC54 /* UserMarkerView.xib in Resources */,
 				4D8BCF6B254891A40094C43C /* InDevelopment.storyboard in Resources */,
+				4DE4D54025498E5A00EE0E3A /* AboutAppTableViewCell.xib in Resources */,
 				397541D524ED23CB0069F8DE /* SimpleNavigationBarView.xib in Resources */,
 				6075BD4724DEA7FB00BC78BD /* OpenSans-BoldItalic.ttf in Resources */,
 				6075BD4824DEA7FB00BC78BD /* OpenSans-ExtraBold.ttf in Resources */,
@@ -2094,7 +2123,9 @@
 				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
 				396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */,
 				87A50B682526256800CF89CF /* ImageContainer.swift in Sources */,
+				4DE4D5392549812000EE0E3A /* AboutAppModel.swift in Sources */,
 				87131D30251146960050B8F2 /* EmptySearchView.swift in Sources */,
+				4DE4D5352549810C00EE0E3A /* AboutAppViewController.swift in Sources */,
 				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,
 				393DDFC32502954200652A01 /* RegionHeaderCell.swift in Sources */,
 				398B0DD724F50A4C0084EC54 /* FarmacyPinView.swift in Sources */,
@@ -2153,6 +2184,7 @@
 				394EBEE724FF901600C89970 /* MedicineView.swift in Sources */,
 				395085E924EC1C960076E1DF /* CustomerImageResponse.swift in Sources */,
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
+				4DE4D53D25498E4100EE0E3A /* AboutAppTableViewCell.swift in Sources */,
 				87131D232507B9890050B8F2 /* Executor.swift in Sources */,
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
 				871E71A32501606200C8489B /* AvatarDTO.swift in Sources */,

@@ -11,10 +11,11 @@ import Foundation
 struct RecentMedicineDTO: Equatable, Codable {
     let productId: Int
     let liked: Bool
-    let minPrice: String
+    let minPrice: Double
+    let maxPrice: Double
     let name: String
     let releaseForm: String
-    let picture: String
+    let imageURL: String
 }
 
 extension RecentMedicineDTO: Storable {

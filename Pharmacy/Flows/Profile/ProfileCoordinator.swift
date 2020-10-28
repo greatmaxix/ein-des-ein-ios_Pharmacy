@@ -34,6 +34,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 self?.presentWishlist()
             case .openAnalize:
                 self?.presentAnalizes()
+            case .openAbout:
+                self?.presentAbout()
             case .close:
                 self?.popController()
             default:
@@ -42,6 +44,24 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         }
         
         addHandler { [weak self] (event: EditProfileEvent) in
+            switch event {
+            case .close:
+                self?.popController()
+            default:
+                break
+            }
+        }
+        
+        addHandler { [weak self] (event: MedicineListModelEvent) in
+            switch event {
+            case .openProduct(let medicine):
+                self?.openProductMedicineFor(medicine: medicine)
+            default:
+                break
+            }
+        }
+      
+        addHandler { [weak self] (event: AboutAppEvent) in
             switch event {
             case .close:
                 self?.popController()
@@ -118,9 +138,25 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         analizesVC.model = model
         root.navigationController?.pushViewController(analizesVC, animated: true)
     }
+  
+    func presentAbout() {
+      guard let aboutVC: AboutAppViewController = storyboard.instantiateViewController(withIdentifier: "AboutAppViewController") as? AboutAppViewController else { return }
+      
+      let model = AboutAppModel(parent: self)
+      aboutVC.model = model
+      root.navigationController?.pushViewController(aboutVC, animated: true)
+    }
     
     private func popController() {
         root.navigationController?.popViewController(animated: true)
+    }
+    
+    private func openProductMedicineFor(medicine: Medicine) {
+        let viewController =  R.storyboard.product.instantiateInitialViewController()!
+        let model = ProductModel(product: medicine, parent: self)
+        viewController.model = model
+        model.output = viewController
+        root.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

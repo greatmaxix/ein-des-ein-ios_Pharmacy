@@ -18,7 +18,7 @@ enum WelcomeEvent: Event {
 
 protocol WelcomeModelOutput: class {
     func showReadyOrders(orders: [String])
-    func showReceipts(_ receipts: [Receipt])
+    func showReceipts(_ receipts: [Medicine])
     func modelIsLoaded()
 }
 
@@ -30,7 +30,9 @@ protocol WelcomeModelInput: class {
     func openCategories(_ categoryIndex: Int?)
     func addToCart(productId: Int)
     func addToWishList(productId: Int)
+    func removeFromWishList(productId: Int)
     func openReceiptUpload()
+    func openMedicineDetail(medicine: Medicine)
 }
 
 final class WelcomeModel: EventNode {
@@ -44,9 +46,14 @@ final class WelcomeModel: EventNode {
     
     private var topCategory: [Category] = []
     private(set) var medicines: [Medicine] = []
+    
 }
 
 extension WelcomeModel: WelcomeModelInput {
+    func openMedicineDetail(medicine: Medicine) {
+       raise(event: MedicineListModelEvent.openProduct(medicine))
+    }
+    
     func openCategories(_ categoryIndex: Int?) {
         if let index = categoryIndex {
             let category = topCategory[index]
@@ -85,17 +92,23 @@ extension WelcomeModel: WelcomeModelInput {
     
     private func loadReceipts() {
         let data = UserSession.shared.recentMedicineViewed
-        var result: [Receipt] = []
+        var recenvMedicineViewed: [Medicine] = []
         
         guard data.count >= 2 else {return}
+
+        var arraySlice = data.suffix(2)
+        arraySlice.reverse()
+        let newArray = Array(arraySlice)
         
         for index in 0...1 {
-            let medicine = data[index]
-            let receipt = Receipt(title: medicine.name, subtitle: medicine.releaseForm, imageURL: URL(string: medicine.picture), liked: medicine.liked, price: medicine.minPrice, productId: medicine.productId)
-            result.append(receipt)
+            let medicine = newArray[index]
+
+            let receipt = Medicine(title: medicine.name, minPrice: medicine.minPrice, maxPrice: medicine.maxPrice, imageURL: URL(string: medicine.imageURL), releaseForm: medicine.releaseForm, liked: medicine.liked, productId: medicine.productId)
+            recenvMedicineViewed.append(receipt)
+            
         }
         
-        output.showReceipts(result)
+        output.showReceipts(recenvMedicineViewed)
     }
     
     private func loadCategoryData() {
@@ -133,6 +146,18 @@ extension WelcomeModel: WelcomeModelInput {
             case .failure(let error):
                 print(error.localizedDescription)
             }
+        }
+    }
+    
+    func removeFromWishList(productId: Int) {
+        wishListProvider.load(target: .removeFromWishList(medicineId: productId)) { (result) in
+            switch result {
+            case .success:
+                break
+                //self.medicines[indexPath.row].liked = false
+            case .failure(let error):
+                print("error is \(error.localizedDescription)")
+                }
         }
     }
     
