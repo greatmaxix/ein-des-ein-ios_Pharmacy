@@ -52,9 +52,13 @@ final class ProductModel: Model {
 extension ProductModel: ProductViewControllerOutput {
     
     func saveToCoreData(medicine: Medicine) {
+        let min = NSDecimalNumber.init(decimal: medicine.minPrice!).doubleValue
+        let max = NSDecimalNumber.init(decimal: medicine.maxPrice!).doubleValue
+        
         let data = RecentMedicineDTO.init(productId: medicine.id,
                                           liked: medicine.liked,
-                                          minPrice: medicine.price,
+                                          minPrice: min,
+                                          maxPrice: max,
                                           name: medicine.name,
                                           releaseForm: medicine.releaseForm,
                                           picture: medicine.pictureUrls.first ?? "")

@@ -45,6 +45,7 @@ final class CoreDataService {
         data.forEach {result.append(RecentMedicineDTO.init(productId: $0.productId,
                                                            liked: $0.liked,
                                                            minPrice: $0.minPrice,
+                                                           maxPrice: $0.maxPrice,
                                                            name: $0.name,
                                                            releaseForm: $0.releaseForm,
                                                            picture: $0.picture))
