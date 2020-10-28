@@ -41,7 +41,7 @@ extension UIImage {
                 let aspectRatio =  size.width/size.height
 
                 switch contentMode {
-                    case .scaleAspectFit:
+                case .scaleAspectFit:
                         if aspectRatio > 1 {                            // Landscape image
                             width = dimension
                             height = dimension / aspectRatio

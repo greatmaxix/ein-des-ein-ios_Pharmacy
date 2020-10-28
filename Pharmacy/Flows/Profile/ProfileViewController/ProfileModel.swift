@@ -129,8 +129,7 @@ final class ProfileModel: Model {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAbout())
             cellData.image = R.image.profileAttension()
             cellData.selectHandler = { [weak self] in
-//                self?.raise(event: ProfileEvent.openAbout)
-                self?.raise(event: AppEvent.presentInDev)
+                self?.raise(event: ProfileEvent.openAbout)
             }
             cellsData.append(cellData)
         }

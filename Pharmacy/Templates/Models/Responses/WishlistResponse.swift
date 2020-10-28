@@ -54,5 +54,3 @@ struct SingleItemContainerResponse<Entity: Decodable>: Decodable {
 
     let item: Entity
 }
-
-

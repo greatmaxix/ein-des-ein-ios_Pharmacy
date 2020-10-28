@@ -21,7 +21,7 @@ final class ProductCoordinator: EventNode, Coordinator {
         fatalError()
     }
     
-    func createFlowFor(product: Medicine) -> UIViewController {
+    func createFlowFor(product: Medicine) -> ProductViewController {
         let root =  R.storyboard.product.instantiateInitialViewController()!
         let model = ProductModel(product: product, parent: self)
         root.model = model
@@ -32,7 +32,7 @@ final class ProductCoordinator: EventNode, Coordinator {
     init(configuration: ProductFlowConfiguration) {
         navigation = configuration.navigation
         super.init(parent: configuration.parent)
-        addHandler { [weak self] (event: ProductModelEvent) in
+        addHandler(.onRaise) { [weak self] (event: ProductModelEvent) in
             
             guard let self = self else { return }
             
