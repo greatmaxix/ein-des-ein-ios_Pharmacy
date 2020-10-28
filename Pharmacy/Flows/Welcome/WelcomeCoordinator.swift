@@ -31,6 +31,8 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
                 self?.presentAnalizes()
             case .openReceipts:
                 self?.presentPrescriptions()
+            case .openMap:
+                self?.openCommonMap()
             default:
                 break
             }
@@ -120,5 +122,13 @@ fileprivate extension WelcomeCoordinator {
         let model = PrescriptionsModel(parent: self)
         prescriptionsVC.model = model
         navigation.pushViewController(prescriptionsVC, animated: true)
+    }
+    
+    func openCommonMap() {
+        let vc = R.storyboard.welcome.commonMapViewController()!
+        let model = CommonMapModel(parent: self)
+        vc.model = model
+        model.output = vc
+        navigation.pushViewController(vc, animated: true)
     }
 }

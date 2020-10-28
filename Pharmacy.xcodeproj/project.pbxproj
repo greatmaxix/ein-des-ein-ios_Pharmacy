@@ -126,6 +126,9 @@
 		4DE4D53D25498E4100EE0E3A /* AboutAppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4D53C25498E4100EE0E3A /* AboutAppTableViewCell.swift */; };
 		4DE4D54025498E5A00EE0E3A /* AboutAppTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE4D53F25498E5A00EE0E3A /* AboutAppTableViewCell.xib */; };
 		6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */ = {isa = PBXBuildFile; fileRef = 6010A10A24E2467A000D6AEE /* NavigationBar.xib */; };
+		601E7EE52549EF1000C936BF /* CommonMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7EE42549EF1000C936BF /* CommonMapViewController.swift */; };
+		601E7EE82549EF8100C936BF /* CommonMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7EE72549EF8100C936BF /* CommonMapCoordinator.swift */; };
+		601E7EEB2549EF8F00C936BF /* CommonMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7EEA2549EF8F00C936BF /* CommonMapModel.swift */; };
 		6036EAF124DD1A81003336C2 /* Catalogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6036EAF024DD1A81003336C2 /* Catalogue.storyboard */; };
 		6036EAF324DD1A98003336C2 /* CatalogueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036EAF224DD1A98003336C2 /* CatalogueCoordinator.swift */; };
 		6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6036EAF924DD1C83003336C2 /* Basket.storyboard */; };
@@ -406,6 +409,9 @@
 		4DE4D53C25498E4100EE0E3A /* AboutAppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppTableViewCell.swift; sourceTree = "<group>"; };
 		4DE4D53F25498E5A00EE0E3A /* AboutAppTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppTableViewCell.xib; sourceTree = "<group>"; };
 		6010A10A24E2467A000D6AEE /* NavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
+		601E7EE42549EF1000C936BF /* CommonMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMapViewController.swift; sourceTree = "<group>"; };
+		601E7EE72549EF8100C936BF /* CommonMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMapCoordinator.swift; sourceTree = "<group>"; };
+		601E7EEA2549EF8F00C936BF /* CommonMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMapModel.swift; sourceTree = "<group>"; };
 		6036EAF024DD1A81003336C2 /* Catalogue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalogue.storyboard; sourceTree = "<group>"; };
 		6036EAF224DD1A98003336C2 /* CatalogueCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCoordinator.swift; sourceTree = "<group>"; };
 		6036EAF924DD1C83003336C2 /* Basket.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Basket.storyboard; sourceTree = "<group>"; };
@@ -1123,6 +1129,7 @@
 		39F8B2F424CEFB0C00195AD8 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				601E7EE32549EEEE00C936BF /* Map */,
 				395D04FD24D04A9F007A278D /* CatalogsViewController */,
 				39F8B2F524CEFB9100195AD8 /* WelcomeViewController */,
 				39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */,
@@ -1166,6 +1173,16 @@
 				4DE4D53F25498E5A00EE0E3A /* AboutAppTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		601E7EE32549EEEE00C936BF /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				601E7EE42549EF1000C936BF /* CommonMapViewController.swift */,
+				601E7EE72549EF8100C936BF /* CommonMapCoordinator.swift */,
+				601E7EEA2549EF8F00C936BF /* CommonMapModel.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		6036EAEF24DD1A6C003336C2 /* Catalogue */ = {
@@ -2039,6 +2056,7 @@
 				875223CA2500FDEE000759C8 /* Entity.swift in Sources */,
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
 				39854D0224EAB4870070E0D1 /* ProfileAPI.swift in Sources */,
+				601E7EEB2549EF8F00C936BF /* CommonMapModel.swift in Sources */,
 				875223C02500F7A4000759C8 /* Typealiases.swift in Sources */,
 				4D8BCF6E2548932B0094C43C /* InDevelopmentViewController.swift in Sources */,
 				395A7FC924A399B000A7CFC6 /* ProfileModel.swift in Sources */,
@@ -2077,6 +2095,7 @@
 				603D31FD24E64912000E5A6C /* UITableViewCell.swift in Sources */,
 				6036EB0724DD27BB003336C2 /* SearchModel.swift in Sources */,
 				398880C2250F798300942D30 /* PharmacyModel.swift in Sources */,
+				601E7EE82549EF8100C936BF /* CommonMapCoordinator.swift in Sources */,
 				60E1A6F724EB8C7800B3D205 /* SearchCellSection.swift in Sources */,
 				6184730125496E950062D8B9 /* CartResponse.swift in Sources */,
 				603D31A724E3B627000E5A6C /* CategoryCellSection.swift in Sources */,
@@ -2085,6 +2104,7 @@
 				39F0AD6524EEC80200CD6CA4 /* OrdersViewController.swift in Sources */,
 				39DBC18F24F7C2CC00CB82D5 /* MapMessageView.swift in Sources */,
 				246A83FD25472F1F0004ECEC /* CategoryEntity.swift in Sources */,
+				601E7EE52549EF1000C936BF /* CommonMapViewController.swift in Sources */,
 				875223BB2500ED89000759C8 /* UserDefaultsAccessor.swift in Sources */,
 				618473182549A5060062D8B9 /* CartSectionFooterView.swift in Sources */,
 				603D31D724E5A3FE000E5A6C /* Product.swift in Sources */,

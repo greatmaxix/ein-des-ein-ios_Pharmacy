@@ -183,7 +183,7 @@ extension WelcomeModel: WelcomeModelInput {
     }
 
     func openMap() {
-        raise(event: AppEvent.presentInDev)
+        raise(event: WelcomeEvent.openMap)
     }
 
     func openChat() {
