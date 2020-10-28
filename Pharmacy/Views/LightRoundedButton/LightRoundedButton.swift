@@ -8,12 +8,22 @@
 
 import UIKit
 
-final class LightRoundedButton: UIButton {
-    
-    override func layerWillDraw(_ layer: CALayer) {
-        super.layerWillDraw(layer)
-        layer.cornerRadius = layer.bounds.height / 2
-        layer.borderWidth = 1.0
-        layer.borderColor = UIColor.red.cgColor
-    }
+@IBDesignable class LightRoundedButton: UIButton {
+    @IBInspectable var borderColor: UIColor = UIColor.white {
+            didSet {
+                self.layer.borderColor = borderColor.cgColor
+            }
+        }
+
+        @IBInspectable var borderWidth: CGFloat = 2.0 {
+            didSet {
+                self.layer.borderWidth = borderWidth
+            }
+        }
+
+        @IBInspectable var cornerRadius: CGFloat = 0.0 {
+            didSet {
+                self.layer.cornerRadius = cornerRadius
+            }
+        }
 }

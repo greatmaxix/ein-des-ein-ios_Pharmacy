@@ -30,6 +30,12 @@ class MapMessageView: UIView {
     @IBOutlet weak var getDirectionsTopConstraints: NSLayoutConstraint!
     @IBOutlet weak var getDirectionsContainer: UIView!
    
+    private let openedStateConstraintValue: CGFloat = 20.0
+    private var isDirectionsOpened = false {
+        didSet {
+            isDirectionsOpened ? showDirections() : hideDirections()
+        }
+    }
     override func awakeFromNib() {
         swipeView.layer.cornerRadius = swipeView.bounds.height / 2
         setupUI()
@@ -39,10 +45,15 @@ class MapMessageView: UIView {
         presenceLabel.text = "\(bounds.height)"
         selectButton.layer.cornerRadius = selectButton.bounds.height / 2
         selectButton.setTitle(R.string.localize.farmaciesListAddToBag(), for: .normal)
-//        let v = MapGetDirections.fromNib()
-//        v.translatesAutoresizingMaskIntoConstraints = false
-//        getDirectionsContainer.addSubview(v)
-//        v.constraintsToSuperView()
+        let v: MapGetDirections = MapGetDirections.fromNib()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.isHidden = false
+        getDirectionsContainer.addSubview(v)
+        v.constraintsToSuperView()
+        isDirectionsOpened = false
+        v.closeAction = { [weak self] in
+            self?.isDirectionsOpened = false
+        }
     }
     
     func setup(pharmacy: PharmacyModel) {
@@ -68,15 +79,28 @@ class MapMessageView: UIView {
         medicineStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
     }
     
+    private func showDirections() {
+        getDirectionsTopConstraints.constant = openedStateConstraintValue
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    private func hideDirections() {
+        getDirectionsTopConstraints.constant = bounds.height
+        UIView.animate(withDuration: 0.3) {
+            self.layoutIfNeeded()
+        }
+    }
+    
     @IBAction func openMap(_ sender: UIButton) {
     }
     
     @IBAction func selectFarmacy(_ sender: UIButton) {
     }
 
-    
     @IBAction func getDirection(_ sender: Any) {
-        
+        isDirectionsOpened = !isDirectionsOpened
     }
-    
 }
+

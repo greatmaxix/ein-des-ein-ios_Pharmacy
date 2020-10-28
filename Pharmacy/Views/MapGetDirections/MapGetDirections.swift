@@ -13,5 +13,10 @@ class MapGetDirections: UIView {
     @IBOutlet weak var appleMapButton: UIButton!
     @IBOutlet weak var googleMapButton: UIButton!
     @IBOutlet weak var uberButton: UIButton!
+    @IBOutlet weak var close: LightRoundedButton!
+    var closeAction: (() -> Void)?
     
+    @IBAction func close(_ sender: Any) {
+        closeAction?()
+    }
 }
