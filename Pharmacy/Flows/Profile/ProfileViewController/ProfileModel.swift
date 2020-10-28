@@ -179,6 +179,10 @@ extension ProfileModel: ProfileInput {
     
     func loadUser(completion: EmptyClosure?) {
 
+        if UserSession.shared.user == nil {
+            return
+        }
+
         provider.load(target: .getCustomer) { [weak self] response in
             guard let self = self else {return}
 
