@@ -91,6 +91,7 @@ extension ProductViewController: ProductViewControllerInput {
     func didLoad(product: Product) {
         viewControllers = product.imageURLs.count == 0 ? [ProductPageViewController.createWith(image: R.image.medicineImagePlaceholder()!, title: "")] : product.imageURLs.map {ProductPageViewController.createWith(url: $0, title: "")}
         pageController?.setViewControllers([viewControllers[0]], direction: .forward, animated: true, completion: nil)
+        pageControl.numberOfPages = viewControllers.count
         model.dataSource.assign(tableView: tableView)
         tableView.reloadData()
     }

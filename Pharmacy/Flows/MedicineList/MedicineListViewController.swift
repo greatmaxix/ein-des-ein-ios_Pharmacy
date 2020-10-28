@@ -52,7 +52,7 @@ final class MedicineListViewController: UIViewController {
 extension MedicineListViewController {
     
     @IBAction func sortAction(_ sender: UIButton) {
-        
+        model.openFilter()
     }
 }
 

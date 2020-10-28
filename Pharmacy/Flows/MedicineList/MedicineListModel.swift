@@ -20,6 +20,7 @@ protocol MedicineListModelInput: class {
     func load()
     func retreiveMoreMedecines()
     func didSelectProductBy(indexPath: IndexPath)
+    func openFilter()
 }
 
 protocol MedicineListModelOutput: class {
@@ -119,6 +120,10 @@ extension MedicineListModel: MedicineListViewControllerOutput {
     
     func load() {
         retreiveMedecines()
+    }
+    
+    func openFilter() {
+        raise(event: AppEvent.presentInDev)
     }
 }
 
