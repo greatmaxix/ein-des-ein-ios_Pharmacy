@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 typealias MapRouteAction = ((MapMessageView.RouteEvent) -> Void)
 
@@ -34,7 +35,7 @@ class MapMessageView: UIView {
     enum RouteEvent {
         case appleMap, googleMap, uber
     }
-    
+    var coordinates: CLLocationCoordinate2D?
     var routeAction: MapRouteAction? {
         get {
             directionsView?.routeAction
@@ -72,10 +73,11 @@ class MapMessageView: UIView {
         }
     }
     
-    func setup(pharmacy: PharmacyModel) {
+    func setup(pharmacy: PharmacyModel, coordinates: CLLocationCoordinate2D) {
         nameLabel.text = pharmacy.name
         addressLabel.text = pharmacy.geometry.address
         phoneLabel.text = "📞️ " + (pharmacy.phone ?? "phone is unavailible")
+        self.coordinates = coordinates
     }
     
     private func addMedicines(medicines: [PharmacyModel.SimpleMedicine]) {
