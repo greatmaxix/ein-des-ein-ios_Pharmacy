@@ -38,11 +38,6 @@ final class MedicineListViewController: UIViewController {
         
         configUI()
         setupTableView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         activityIndicator.show(animated: true)
         model.load()
     }
