@@ -8,10 +8,11 @@
 
 import UIKit
 
+typealias MapRouteAction = ((MapMessageView.RouteEvent) -> Void)
+
 class MapMessageView: UIView {
 
     @IBOutlet private weak var swipeView: UIView!
-    
     @IBOutlet private weak var presenceLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet weak private var addressLabel: UILabel!
@@ -19,7 +20,7 @@ class MapMessageView: UIView {
     @IBOutlet weak private var workTimeLabel: UILabel!
     @IBOutlet weak private var priceLabel: UILabel!
     @IBOutlet weak var selectButton: UIButton!
-    
+
     @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var medicineCountLabel: UILabel!
     @IBOutlet weak var medicineStackView: UIStackView!
@@ -30,8 +31,22 @@ class MapMessageView: UIView {
     @IBOutlet weak var getDirectionsTopConstraints: NSLayoutConstraint!
     @IBOutlet weak var getDirectionsContainer: UIView!
    
+    enum RouteEvent {
+        case appleMap, googleMap, uber
+    }
+    
+    var routeAction: MapRouteAction? {
+        get {
+            directionsView?.routeAction
+        }
+        set {
+            directionsView?.routeAction = newValue
+        }
+    }
+    private weak var directionsView: MapGetDirections?
+    
     private let openedStateConstraintValue: CGFloat = 20.0
-    private var isDirectionsOpened = false {
+    var isDirectionsOpened = false {
         didSet {
             isDirectionsOpened ? showDirections() : hideDirections()
         }
@@ -46,6 +61,7 @@ class MapMessageView: UIView {
         selectButton.layer.cornerRadius = selectButton.bounds.height / 2
         selectButton.setTitle(R.string.localize.farmaciesListAddToBag(), for: .normal)
         let v: MapGetDirections = MapGetDirections.fromNib()
+        self.directionsView = v
         v.translatesAutoresizingMaskIntoConstraints = false
         v.isHidden = false
         getDirectionsContainer.addSubview(v)
@@ -60,7 +76,6 @@ class MapMessageView: UIView {
         nameLabel.text = pharmacy.name
         addressLabel.text = pharmacy.geometry.address
         phoneLabel.text = "📞️ " + (pharmacy.phone ?? "phone is unavailible")
-        //priceLabel.text = "\(medicine.maxPrice ?? 0) $"
     }
     
     private func addMedicines(medicines: [PharmacyModel.SimpleMedicine]) {
@@ -103,4 +118,3 @@ class MapMessageView: UIView {
         isDirectionsOpened = !isDirectionsOpened
     }
 }
-

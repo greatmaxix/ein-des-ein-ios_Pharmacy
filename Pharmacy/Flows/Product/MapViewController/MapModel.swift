@@ -19,6 +19,7 @@ protocol MapInput: class {
     func openFarmacyList()
     func load()
     func farmacyAt(index: Int) -> PharmacyModel?
+    func open(_ route: MapMessageView.RouteEvent)
 }
 
 final class MapModel: EventNode {
@@ -51,6 +52,10 @@ extension MapModel: MapInput {
     
     func openFarmacyList() {
         raise(event: ProductModelEvent.openFarmacyList(pharmacies))
+    }
+    
+    func open(_ route: MapMessageView.RouteEvent) {
+        raise(event: ProductModelEvent.route(route))
     }
     
     func load() {

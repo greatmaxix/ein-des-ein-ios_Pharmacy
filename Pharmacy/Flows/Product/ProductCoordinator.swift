@@ -46,6 +46,8 @@ final class ProductCoordinator: EventNode, Coordinator {
                 self.openMapFarmacyList(pharmacies: pharmacies)
             case .openCheckout:
                 self.openCheckout()
+            case .route(let route):
+                self.open(route)
             }
         }
     }
@@ -53,7 +55,7 @@ final class ProductCoordinator: EventNode, Coordinator {
 
 fileprivate extension ProductCoordinator {
     
-     func openMedicineList() {
+    func openMedicineList() {
         let viewController = R.storyboard.catalogue.medicineListViewController()!
         let model = MedicineListModel(parent: self)
         viewController.model = model
@@ -83,5 +85,14 @@ fileprivate extension ProductCoordinator {
         vc.model = model
         model.output = vc
         navigation.pushViewController(vc, animated: true)
+    }
+    
+    func open(_ route: MapMessageView.RouteEvent) {
+        switch route {
+        case .appleMap:
+            print("apple map")
+        case .googleMap: break
+        case .uber: break
+        }
     }
 }

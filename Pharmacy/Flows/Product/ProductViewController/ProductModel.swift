@@ -15,6 +15,7 @@ enum ProductModelEvent: Event {
     case openMap(Product)
     case openFarmacyList([PharmacyModel])
     case openCheckout
+    case route(MapMessageView.RouteEvent)
 }
 
 protocol ProductModelInput: class {

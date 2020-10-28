@@ -15,8 +15,25 @@ class MapGetDirections: UIView {
     @IBOutlet weak var uberButton: UIButton!
     @IBOutlet weak var close: LightRoundedButton!
     var closeAction: (() -> Void)?
+    var routeAction: MapRouteAction?
+    
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
     @IBAction func close(_ sender: Any) {
         closeAction?()
+    }
+    
+    @IBAction func appleMap(_ sender: Any) {
+        routeAction?(.appleMap)
+    }
+    
+    @IBAction func googleMap(_ sender: Any) {
+        routeAction?(.googleMap)
+    }
+    
+    @IBAction func uber(_ sender: Any) {
+        routeAction?(.uber)
     }
 }

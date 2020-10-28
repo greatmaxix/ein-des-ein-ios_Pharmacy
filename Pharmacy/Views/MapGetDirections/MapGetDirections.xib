@@ -25,13 +25,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проложить маршрут" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzh-HZ-suK">
-                    <rect key="frame" x="99" y="0.0" width="177.5" height="22"/>
+                    <rect key="frame" x="109" y="4" width="157" height="19"/>
                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="6WW-ST-7P4">
-                    <rect key="frame" x="55.5" y="42" width="264" height="56"/>
+                    <rect key="frame" x="55.5" y="43" width="264" height="56"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yn-UX-aju">
                             <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
@@ -44,6 +44,9 @@
                             <state key="normal" title="Карты" backgroundImage="AppleMaps">
                                 <color key="titleColor" name="appleBlack"/>
                             </state>
+                            <connections>
+                                <action selector="appleMap:" destination="iN0-l3-epB" eventType="touchUpInside" id="7vb-Q4-hdX"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eW-1v-0YC">
                             <rect key="frame" x="104" y="0.0" width="56" height="56"/>
@@ -56,6 +59,9 @@
                             <state key="normal" title="Google" backgroundImage="Google_Maps">
                                 <color key="titleColor" name="appleBlack"/>
                             </state>
+                            <connections>
+                                <action selector="googleMap:" destination="iN0-l3-epB" eventType="touchUpInside" id="F91-lS-9H1"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9h-jr-NkS">
                             <rect key="frame" x="208" y="0.0" width="56" height="56"/>
@@ -68,14 +74,17 @@
                             <state key="normal" title="Uber" backgroundImage="uber">
                                 <color key="titleColor" name="appleBlack"/>
                             </state>
+                            <connections>
+                                <action selector="uber:" destination="iN0-l3-epB" eventType="touchUpInside" id="TjU-Jx-1BQ"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Kd-TZ-0Dp">
-                    <rect key="frame" x="0.0" y="128" width="375" height="112"/>
+                    <rect key="frame" x="0.0" y="129" width="375" height="111"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgC-Bn-NXT" customClass="LightRoundedButton" customModule="Pharmacy" customModuleProvider="target">
-                            <rect key="frame" x="24" y="32" width="327" height="48"/>
+                            <rect key="frame" x="24" y="35.5" width="327" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="bPV-BY-n7i"/>
                             </constraints>
@@ -102,7 +111,7 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="SgC-Bn-NXT" secondAttribute="trailing" constant="24" id="k4m-Gh-cox"/>
                         <constraint firstItem="SgC-Bn-NXT" firstAttribute="leading" secondItem="5Kd-TZ-0Dp" secondAttribute="leading" constant="24" id="vEb-do-t4I"/>
-                        <constraint firstItem="SgC-Bn-NXT" firstAttribute="centerY" secondItem="5Kd-TZ-0Dp" secondAttribute="centerY" id="xtk-0E-avH"/>
+                        <constraint firstItem="SgC-Bn-NXT" firstAttribute="centerY" secondItem="5Kd-TZ-0Dp" secondAttribute="centerY" constant="4" id="xtk-0E-avH"/>
                     </constraints>
                 </view>
             </subviews>
@@ -113,7 +122,7 @@
                 <constraint firstItem="6WW-ST-7P4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5Fv-yK-E58"/>
                 <constraint firstItem="5Kd-TZ-0Dp" firstAttribute="top" secondItem="6WW-ST-7P4" secondAttribute="bottom" constant="30" id="73O-ra-z00"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5Kd-TZ-0Dp" secondAttribute="trailing" id="MuA-q4-sH3"/>
-                <constraint firstItem="bzh-HZ-suK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Zvg-u6-6Dr"/>
+                <constraint firstItem="bzh-HZ-suK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="Zvg-u6-6Dr"/>
                 <constraint firstItem="5Kd-TZ-0Dp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="d6f-zT-uyV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6WW-ST-7P4" secondAttribute="trailing" id="dzH-Gg-9A3"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="5Kd-TZ-0Dp" secondAttribute="bottom" id="efN-DF-2Cr"/>
@@ -134,7 +143,7 @@
     </objects>
     <designables>
         <designable name="SgC-Bn-NXT">
-            <size key="intrinsicContentSize" width="65" height="34"/>
+            <size key="intrinsicContentSize" width="57" height="31"/>
         </designable>
     </designables>
     <resources>

@@ -62,7 +62,10 @@ class MapViewController: UIViewController {
         messageViewHolder.addSubview(v)
         v.constraintsToSuperView()
         messageView = v
-        
+        v.routeAction = {[weak self] route in
+            v.isDirectionsOpened = false
+            self?.model.open(route)
+        }
         swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(hideMessage))
         swipeGesture.direction = .down
         v.addGestureRecognizer(swipeGesture)
