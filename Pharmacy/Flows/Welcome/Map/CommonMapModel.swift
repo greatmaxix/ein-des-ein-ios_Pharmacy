@@ -35,7 +35,7 @@ final class CommonMapModel: EventNode, CommonMapInput {
     }
     
     func stopLocationTracking() {
-        locationService
+        
     }
 }
 
