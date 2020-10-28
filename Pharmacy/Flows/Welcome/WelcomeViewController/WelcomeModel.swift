@@ -126,7 +126,7 @@ extension WelcomeModel: WelcomeModelInput {
     func addToCart(productId: Int) {
         cartProvider.load(target: .addPharmacyToCart(productId: productId)) {[weak self] result in
             guard self != nil else { return }
-            print("zzz \(productId)")
+            
             switch result {
             case .success:
                 print("reciept \(productId) was successfully added to chart")

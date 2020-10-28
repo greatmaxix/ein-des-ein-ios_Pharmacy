@@ -10,8 +10,8 @@ import Foundation
 import Moya
 
 enum ProductCartAPI {
-    
     case addPharmacyToCart(productId: Int)
+    case loadCart
 }
 
 extension ProductCartAPI: RequestConvertible {
@@ -20,6 +20,8 @@ extension ProductCartAPI: RequestConvertible {
         switch self {
         case .addPharmacyToCart(let id):
             return "customer/product-cart/pharmacy-product/\(id)"
+        case .loadCart:
+            return "customer/product-cart"
         }
     }
     
@@ -27,6 +29,8 @@ extension ProductCartAPI: RequestConvertible {
         switch self {
         case .addPharmacyToCart:
             return .post
+        case .loadCart:
+            return .get
         }
     }
     
@@ -34,6 +38,9 @@ extension ProductCartAPI: RequestConvertible {
         switch self {
         case .addPharmacyToCart:
             return .requestPlain
+        case .loadCart:
+            return .requestPlain
+        }
     }
- }
+
 }

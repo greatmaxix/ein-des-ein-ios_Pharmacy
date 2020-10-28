@@ -13,6 +13,16 @@ protocol BasketViewControllerOutput: BasketModelInput {}
 
 final class BasketViewController: UIViewController {
     var model: BasketViewControllerOutput!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        model.load()
+    }
 }
 
 // MARK: - BasketViewControllerInput
