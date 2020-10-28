@@ -126,6 +126,9 @@
 		4DE4D53D25498E4100EE0E3A /* AboutAppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4D53C25498E4100EE0E3A /* AboutAppTableViewCell.swift */; };
 		4DE4D54025498E5A00EE0E3A /* AboutAppTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE4D53F25498E5A00EE0E3A /* AboutAppTableViewCell.xib */; };
 		6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */ = {isa = PBXBuildFile; fileRef = 6010A10A24E2467A000D6AEE /* NavigationBar.xib */; };
+		601E7ECE2549C69300C936BF /* MapGetDirections.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601E7ECD2549C69300C936BF /* MapGetDirections.xib */; };
+		601E7ED12549CDB300C936BF /* MapGetDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7ED02549CDB300C936BF /* MapGetDirections.swift */; };
+		601E7ED52549D4B500C936BF /* LightRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7ED42549D4B500C936BF /* LightRoundedButton.swift */; };
 		6036EAF124DD1A81003336C2 /* Catalogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6036EAF024DD1A81003336C2 /* Catalogue.storyboard */; };
 		6036EAF324DD1A98003336C2 /* CatalogueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036EAF224DD1A98003336C2 /* CatalogueCoordinator.swift */; };
 		6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6036EAF924DD1C83003336C2 /* Basket.storyboard */; };
@@ -400,6 +403,9 @@
 		4DE4D53C25498E4100EE0E3A /* AboutAppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppTableViewCell.swift; sourceTree = "<group>"; };
 		4DE4D53F25498E5A00EE0E3A /* AboutAppTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppTableViewCell.xib; sourceTree = "<group>"; };
 		6010A10A24E2467A000D6AEE /* NavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
+		601E7ECD2549C69300C936BF /* MapGetDirections.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapGetDirections.xib; sourceTree = "<group>"; };
+		601E7ED02549CDB300C936BF /* MapGetDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGetDirections.swift; sourceTree = "<group>"; };
+		601E7ED42549D4B500C936BF /* LightRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightRoundedButton.swift; sourceTree = "<group>"; };
 		6036EAF024DD1A81003336C2 /* Catalogue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalogue.storyboard; sourceTree = "<group>"; };
 		6036EAF224DD1A98003336C2 /* CatalogueCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCoordinator.swift; sourceTree = "<group>"; };
 		6036EAF924DD1C83003336C2 /* Basket.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Basket.storyboard; sourceTree = "<group>"; };
@@ -917,6 +923,7 @@
 		396C45CE249774AC00A569CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				601E7ED32549D49700C936BF /* LightRoundedButton */,
 				87131D262509FBA80050B8F2 /* SearchBar */,
 				60E1A71B24ED078600B3D205 /* ActionSheetView */,
 				60E1A71824ED024400B3D205 /* CustomIntensityVisualEffectView */,
@@ -933,6 +940,7 @@
 				398B0DD524F50A230084EC54 /* FarmacyPin */,
 				398B0DED24F53A580084EC54 /* FoundMedicineView */,
 				39DBC18D24F7C29D00CB82D5 /* MapMessageView */,
+				601E7ECC2549C64E00C936BF /* MapGetDirections */,
 				393D3CD924FD339100E8181F /* PaymentMethodView */,
 				394EBEE524FF8F9B00C89970 /* MedicineView */,
 				395C9D4C2498BDD6001EB6CD /* TextInputView */,
@@ -1153,6 +1161,23 @@
 				4DE4D53F25498E5A00EE0E3A /* AboutAppTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		601E7ECC2549C64E00C936BF /* MapGetDirections */ = {
+			isa = PBXGroup;
+			children = (
+				601E7ED02549CDB300C936BF /* MapGetDirections.swift */,
+				601E7ECD2549C69300C936BF /* MapGetDirections.xib */,
+			);
+			path = MapGetDirections;
+			sourceTree = "<group>";
+		};
+		601E7ED32549D49700C936BF /* LightRoundedButton */ = {
+			isa = PBXGroup;
+			children = (
+				601E7ED42549D4B500C936BF /* LightRoundedButton.swift */,
+			);
+			path = LightRoundedButton;
 			sourceTree = "<group>";
 		};
 		6036EAEF24DD1A6C003336C2 /* Catalogue */ = {
@@ -1850,6 +1875,7 @@
 				6075BD4B24DEA7FB00BC78BD /* OpenSans-Light.ttf in Resources */,
 				6075BD4C24DEA7FB00BC78BD /* OpenSans-LightItalic.ttf in Resources */,
 				603D31F724E5AA09000E5A6C /* ProductQuestionsTableViewCell.xib in Resources */,
+				601E7ECE2549C69300C936BF /* MapGetDirections.xib in Resources */,
 				6075BD4D24DEA7FB00BC78BD /* OpenSans-Regular.ttf in Resources */,
 				87131D3A25137B910050B8F2 /* RecentsHeaderView.xib in Resources */,
 				603D318D24E2A269000E5A6C /* ReceiptView.xib in Resources */,
@@ -2072,6 +2098,7 @@
 				398880C4250F799400942D30 /* PharmacyResponse.swift in Sources */,
 				87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */,
 				60E1A71524ECE0DD00B3D205 /* ScanCoordinator.swift in Sources */,
+				601E7ED12549CDB300C936BF /* MapGetDirections.swift in Sources */,
 				395D050124D04B3A007A278D /* CatalogueModel.swift in Sources */,
 				393DDFB7250280F300652A01 /* RegionModel.swift in Sources */,
 				398B0DD224F5062C0084EC54 /* MapViewController.swift in Sources */,
@@ -2120,6 +2147,7 @@
 				398B0DE724F51C410084EC54 /* MapFarmacyListModel.swift in Sources */,
 				603D319824E3B22A000E5A6C /* TableCellSection.swift in Sources */,
 				603D31D224E5A09F000E5A6C /* ProductInfoTableViewCell.swift in Sources */,
+				601E7ED52549D4B500C936BF /* LightRoundedButton.swift in Sources */,
 				39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */,
 				87A50B6A25262FAD00CF89CF /* PriceRange.swift in Sources */,
 				6036EAF324DD1A98003336C2 /* CatalogueCoordinator.swift in Sources */,

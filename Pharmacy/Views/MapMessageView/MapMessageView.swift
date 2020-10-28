@@ -27,9 +27,11 @@ class MapMessageView: UIView {
     @IBOutlet weak var noMedicineTopSpace: NSLayoutConstraint!
     @IBOutlet weak var nonEmptyMedicineTopSpace: NSLayoutConstraint!
     
+    @IBOutlet weak var getDirectionsTopConstraints: NSLayoutConstraint!
+    @IBOutlet weak var getDirectionsContainer: UIView!
+   
     override func awakeFromNib() {
         swipeView.layer.cornerRadius = swipeView.bounds.height / 2
-
         setupUI()
     }
     
@@ -37,6 +39,10 @@ class MapMessageView: UIView {
         presenceLabel.text = "\(bounds.height)"
         selectButton.layer.cornerRadius = selectButton.bounds.height / 2
         selectButton.setTitle(R.string.localize.farmaciesListAddToBag(), for: .normal)
+//        let v = MapGetDirections.fromNib()
+//        v.translatesAutoresizingMaskIntoConstraints = false
+//        getDirectionsContainer.addSubview(v)
+//        v.constraintsToSuperView()
     }
     
     func setup(pharmacy: PharmacyModel) {
@@ -68,4 +74,9 @@ class MapMessageView: UIView {
     @IBAction func selectFarmacy(_ sender: UIButton) {
     }
 
+    
+    @IBAction func getDirection(_ sender: Any) {
+        
+    }
+    
 }
