@@ -32,7 +32,7 @@ final class ProductCoordinator: EventNode, Coordinator {
     init(configuration: ProductFlowConfiguration) {
         navigation = configuration.navigation
         super.init(parent: configuration.parent)
-        addHandler { [weak self] (event: ProductModelEvent) in
+        addHandler(.onRaise) { [weak self] (event: ProductModelEvent) in
             
             guard let self = self else { return }
             
