@@ -20,7 +20,7 @@ final class RecentMedicineEntity: NSManagedObject {
     @NSManaged public private(set) var releaseForm: String
     @NSManaged public private(set) var picture: String
     
-    // MARK:-Public methods
+// MARK: - Public methods
     func updateWith(_ dto: RecentMedicineDTO) {
         productId = dto.productId
         name = dto.name
@@ -32,7 +32,7 @@ final class RecentMedicineEntity: NSManagedObject {
     }
 }
 
-// MARK: -Entity
+// MARK: - Entity
 extension RecentMedicineEntity: Entity {
 
     public static var primaryKey: String {

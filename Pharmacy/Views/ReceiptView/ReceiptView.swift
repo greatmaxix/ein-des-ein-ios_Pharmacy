@@ -23,7 +23,7 @@ final class ReceiptView: UIView {
     @IBOutlet private weak var receiptButton: UIButton!
     
     private(set) var productId: Int!
-    private(set) var currentMedicineEntity : Medicine!
+    private(set) var currentMedicineEntity: Medicine!
     
     var likeActionHandler: ((_ state: Bool) -> Void)?
     var addToChartHandler: EmptyClosure?

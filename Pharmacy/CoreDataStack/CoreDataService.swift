@@ -92,8 +92,7 @@ final class CoreDataService {
     }
     
     func save(medicine dto: RecentMedicineDTO) {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: dto.entityType.entityName)
-
+        
         let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
         
         dto.entityType.createOrUpdate(in: self.viewContext,
