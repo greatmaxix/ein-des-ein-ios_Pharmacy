@@ -105,6 +105,21 @@ struct PharmCartOrder: Codable {
             imageURL = URL(string: stringURL)
         }
     }
+
+    var totalCost: Decimal {
+        var cost: Decimal = 0
+        for product in products {
+            cost += (product.price ?? 0) * Decimal(product.productCount)
+        }
+
+        return cost
+    }
+
+    var totalProducts: Int {
+        products.reduce(0) { (result, product) -> Int in
+            result + product.productCount
+        }
+    }
 }
 
 struct CartMedicine: Codable {
@@ -116,6 +131,7 @@ struct CartMedicine: Codable {
     var productCount: Int
     var pictureUrls: [String]
     var liked: Bool
+    var manufacturerName: String?
 
     enum Keys: String, CodingKey {
         case rusName
@@ -127,6 +143,8 @@ struct CartMedicine: Codable {
         case pictures
         case liked
         case url
+        case localName
+        case manufacturerData
     }
 
     init(from decoder: Decoder) throws {
@@ -142,6 +160,9 @@ struct CartMedicine: Codable {
         if let pictureUrl = try? urlContainer?.decode(String.self, forKey: .url) {
             pictureUrls = [pictureUrl]
         }
+
+        let manufactureContainer = try container.nestedContainer(keyedBy: Keys.self, forKey: .manufacturerData)
+        manufacturerName = try manufactureContainer.decode(String.self, forKey: .localName)
 
         liked = (try? container.decode(Bool.self, forKey: .liked)) ?? false
         productCount = try container.decode(Int.self, forKey: .productCount)

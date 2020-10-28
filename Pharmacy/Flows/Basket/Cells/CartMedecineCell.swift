@@ -10,6 +10,13 @@ import UIKit
 
 class CartMedecineCell: UITableViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var medTypeLabel: UILabel!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var priceLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +26,18 @@ class CartMedecineCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+
+    func apply(medecine: CartMedicine) {
+        nameLabel.text = medecine.name.htmlToString
+        medTypeLabel.text = medecine.releaseForm.htmlToString
+        infoLabel.text = medecine.manufacturerName
+        amountLabel.text = String(medecine.productCount)
+        priceLabel.text = "\(medecine.price ?? 0.0) ₸"
+
+        if let url = URL(string: medecine.pictureUrls.first ?? "") {
+            logoImageView.loadImageBy(url: url)
+        }
     }
 
 }

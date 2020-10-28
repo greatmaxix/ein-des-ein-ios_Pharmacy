@@ -65,6 +65,8 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
 
+        cell.apply(medecine: model.medecine(at: indexPath))
+
         return cell
     }
 
@@ -74,7 +76,7 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
             return nil
         }
 
-        view.apply()
+        view.apply(order: model.section(at: section))
 
         return view
     }
@@ -84,11 +86,18 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
                 withIdentifier: "CartSectionFooterView") as? CartSectionFooterView else {
             return nil
         }
+
+        view.apply(order: model.section(at: section))
+
         return view
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return model.numberOfSections
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

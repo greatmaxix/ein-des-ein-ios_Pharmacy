@@ -52,26 +52,26 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7W-BI-JoA">
-                                                    <rect key="frame" x="151" y="23" width="43.5" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7W-BI-JoA">
+                                                    <rect key="frame" x="151" y="23" width="227" height="19"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" name="textDarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbm-ZW-m04">
-                                                    <rect key="frame" x="151" y="45" width="227" height="19.5"/>
+                                                    <rect key="frame" x="151" y="42" width="227" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" name="textDarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZF-vw-kSO">
-                                                    <rect key="frame" x="151" y="64.5" width="227" height="16.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZF-vw-kSO">
+                                                    <rect key="frame" x="151" y="58.5" width="227" height="14"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" name="textDarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="568 ₸  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFX-vk-hlU">
-                                                    <rect key="frame" x="151" y="97" width="49" height="22"/>
+                                                    <rect key="frame" x="151" y="88.5" width="49" height="19"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" name="welcomeBlue"/>
                                                     <nil key="highlightedColor"/>
@@ -170,6 +170,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="dbm-ZW-m04" secondAttribute="trailing" constant="16" id="JfE-js-N7f"/>
                                                 <constraint firstItem="QFX-vk-hlU" firstAttribute="leading" secondItem="tZF-vw-kSO" secondAttribute="leading" id="RqH-Sm-PLp"/>
                                                 <constraint firstItem="tZF-vw-kSO" firstAttribute="top" secondItem="dbm-ZW-m04" secondAttribute="bottom" id="X0E-gr-09C"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="v7W-BI-JoA" secondAttribute="trailing" constant="16" id="eac-Nl-MRV"/>
                                                 <constraint firstItem="v7W-BI-JoA" firstAttribute="leading" secondItem="yFM-rb-AIq" secondAttribute="trailing" constant="16" id="g89-4u-PWy"/>
                                                 <constraint firstItem="dbm-ZW-m04" firstAttribute="leading" secondItem="v7W-BI-JoA" secondAttribute="leading" id="hJn-kH-ooB"/>
                                                 <constraint firstItem="yFM-rb-AIq" firstAttribute="leading" secondItem="Cyv-Vl-fWN" secondAttribute="leading" constant="23" id="pfn-lW-Dpy"/>
@@ -178,6 +179,14 @@
                                                 <constraint firstAttribute="bottom" secondItem="omX-12-rcf" secondAttribute="bottom" constant="15" id="xzI-AY-msO"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="KWI-37-iyc" id="DIc-yI-13q"/>
+                                            <outlet property="infoLabel" destination="tZF-vw-kSO" id="Vxe-uz-xhF"/>
+                                            <outlet property="logoImageView" destination="yFM-rb-AIq" id="znv-OB-i5O"/>
+                                            <outlet property="medTypeLabel" destination="dbm-ZW-m04" id="uaC-ef-cAr"/>
+                                            <outlet property="nameLabel" destination="v7W-BI-JoA" id="9ut-wE-xJA"/>
+                                            <outlet property="priceLabel" destination="QFX-vk-hlU" id="cey-ju-63z"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -189,7 +198,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Корзина" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpq-FL-E6a">
-                                        <rect key="frame" x="171.5" y="54" width="71.5" height="22"/>
+                                        <rect key="frame" x="175" y="57" width="64.5" height="19"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
