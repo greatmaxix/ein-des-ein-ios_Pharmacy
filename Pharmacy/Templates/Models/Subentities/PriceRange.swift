@@ -31,4 +31,3 @@ extension PriceRange {
         case maxPrice
     }
 }
-
