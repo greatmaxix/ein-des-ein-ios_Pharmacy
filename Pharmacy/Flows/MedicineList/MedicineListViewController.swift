@@ -38,11 +38,6 @@ final class MedicineListViewController: UIViewController {
         
         configUI()
         setupTableView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         activityIndicator.show(animated: true)
         model.load()
     }
@@ -52,7 +47,7 @@ final class MedicineListViewController: UIViewController {
 extension MedicineListViewController {
     
     @IBAction func sortAction(_ sender: UIButton) {
-        
+        model.openFilter()
     }
 }
 
@@ -112,25 +107,12 @@ extension MedicineListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: MedicineCell.self)
         cell.apply(medicine: model.medicines[indexPath.row])
         
+        if model.isEndOfList == false && indexPath.row == model.medicines.count - 1 {
+            activityIndicator.show(animated: true)
+            model.retreiveMoreMedecines()
+        }
+        
         return cell
-    }
-}
-
-// MARK: - UITableViewDataSourcePrefetching
-extension MedicineListViewController: UITableViewDataSourcePrefetching {
-    
-    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-        let isEndOfList = indexPaths.contains {
-            $0.row == model.medicines.count - 1
-        }
-        
-        guard isEndOfList else {
-            return
-        }
-        
-        activityIndicator.show(animated: true)
-        
-        model.retreiveMoreMedecines()
     }
 }
 

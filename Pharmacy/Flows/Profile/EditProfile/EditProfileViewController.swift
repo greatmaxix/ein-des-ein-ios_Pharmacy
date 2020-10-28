@@ -102,12 +102,26 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
         emailInputView.endEditing(true)
         nameInputView.endEditing(true)
     }
+  
+    func setInputText() {
+        if nameInputView.text == "" {
+            nameInputView.text = model.name
+        }
+        if phoneInputView.text == "" {
+            phoneInputView.text = "+\(model.phone.dropFirst(0).prefix(2)) (\(model.phone.dropFirst(2).prefix(3))) \(model.phone.dropFirst(5).prefix(3))-\(model.phone.dropFirst(8).prefix(4))"
+        }
+        if emailInputView.text == "" {
+            emailInputView.text = model.email
+        }
+    }
     
     func leftBarItemAction() {
         model.close()
     }
     
     func rightBarItemAction() {
+        setInputText()
+      
         var validationSuccess = phoneInputView.validate()
         validationSuccess = emailInputView.validate() && validationSuccess
         validationSuccess = nameInputView.validate() && validationSuccess
