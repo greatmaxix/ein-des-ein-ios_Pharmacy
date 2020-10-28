@@ -52,6 +52,15 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
             }
         }
         
+        addHandler { [weak self] (event: AppEvent) in
+            switch event {
+            case .chooseLocation:
+                self?.presentChooseLocation()
+            default:
+                break
+            }
+        }
+        
         addHandler { [weak self] (event: MedicineListModelEvent) in
             switch event {
             case .openProduct(let medicine):
@@ -156,6 +165,14 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = ProductModel(product: medicine, parent: self)
         viewController.model = model
         model.output = viewController
+        root.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func presentChooseLocation() {
+        guard let viewController = R.storyboard.chooseLocationViewController.chooseLocationViewController() else {return}
+        let model = ChooseLocationViewModel.init(parent: self)
+//        model.output = viewController
+//        viewController.model = model
         root.navigationController?.pushViewController(viewController, animated: true)
     }
 }
