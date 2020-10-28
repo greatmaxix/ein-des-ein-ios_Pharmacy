@@ -88,11 +88,8 @@ extension CatalogueCoordinator {
     }
 
     private func openProductMedicineFor(medicine: Medicine) {
-        let viewController =  R.storyboard.product.instantiateInitialViewController()!
-        let model = ProductModel(product: medicine, parent: self)
-        viewController.model = model
-        model.output = viewController
-        root.pushViewController(viewController, animated: true)
+        let vc = ProductCoordinator(configuration: .init(parent: self, navigation: root)).createFlowFor(product: medicine)
+        root.pushViewController(vc, animated: true)
     }
 }
 
