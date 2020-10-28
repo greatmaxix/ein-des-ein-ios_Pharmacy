@@ -52,6 +52,7 @@ class ProfileTableViewCell: BaseTableViewCell {
         
         selectionStyle = .none
         contentBackgroundView.layer.cornerRadius = 8
+        contentBackgroundView.cellLightBlueShadow()
     }
     
     override func setup(cellData: BaseCellData) {
