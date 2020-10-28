@@ -17,7 +17,6 @@ protocol WishlistInput: class {
     func load()
     func loadNextPages(lastMedicineIndex: Int)
     func close()
-    
     func selectMedicineAt(index: Int)
     func deleteMedicine(id: Int, index: IndexPath)
 }
@@ -44,9 +43,11 @@ final class WishlistModel: EventNode {
     private func loadMedicines() {
         
         medicinesAreLoading = true
+        
         provider.load(target: .getWishList(pageNumber: lastPage, medicinesPerPage: medicinesPerPage), completion: { [weak self] result in
 
             guard let self = self else { return }
+            
             self.medicinesAreLoading = false
 
             switch result {
@@ -63,6 +64,7 @@ final class WishlistModel: EventNode {
 }
 
 extension WishlistModel: WishlistInput {
+    
     var favoriteMedicine: [Medicine] {
         medicines
     }
@@ -89,13 +91,15 @@ extension WishlistModel: WishlistInput {
     }
     
     func selectMedicineAt(index: Int) {
-        //
+        raise(event: <#T##Event#>)
     }
     
     func deleteMedicine(id: Int, index: IndexPath) {
 
         provider.delete(target: .removeFromWishList(medicineId: id), completion: { [weak self] result in
+            
             guard let self = self else {return}
+            
             switch result {
             case .success:
                 if self.medicines.count == 0 {

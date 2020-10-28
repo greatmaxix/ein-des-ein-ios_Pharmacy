@@ -42,10 +42,14 @@ final class WishlistViewController: UIViewController, ActivityIndicatorDelegate 
     }
     
 // MARK: - setup Table view
-    private func setupTableView(){
+    
+    private func setupTableView() {
+        
         tableView.register(UINib(resource: R.nib.medicineCell), forCellReuseIdentifier: String(describing: MedicineCell.self))
         tableView.dataSource = self
     }
+
+// MARK: - setup UI
     
     private func setupUI() {
         
@@ -89,6 +93,8 @@ extension WishlistViewController: WishlistOutput {
         tableView.reloadData()
     }
 }
+
+// MARK: - setup TablViewDataSource & Delegate
 
 extension WishlistViewController: UITableViewDelegate, UITableViewDataSource {
     
