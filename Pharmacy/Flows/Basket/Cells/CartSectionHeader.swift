@@ -10,7 +10,17 @@ import UIKit
 
 class CartSectionHeader: UITableViewHeaderFooterView {
 
-//    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var corneredView: UIView!
+
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
+    func apply() {
+        corneredView.dropBlueShadow()
+    }
+
+    //    @IBOutlet weak var logoImageView: UIImageView!
 //    @IBOutlet weak var nameLabel: UILabel!
 //    @IBOutlet weak var locationLabel: UILabel!
 //    @IBOutlet weak var selectorButton: UIButton!

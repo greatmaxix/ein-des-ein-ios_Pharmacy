@@ -214,6 +214,7 @@
 		6184730A2549A0C80062D8B9 /* CartSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 618473092549A0C80062D8B9 /* CartSectionHeader.xib */; };
 		618473182549A5060062D8B9 /* CartSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618473172549A5060062D8B9 /* CartSectionFooterView.swift */; };
 		6184731B2549A5120062D8B9 /* CartSectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6184731A2549A5120062D8B9 /* CartSectionFooterView.xib */; };
+		6184731E2549ACFB0062D8B9 /* CartMedecineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6184731D2549ACFB0062D8B9 /* CartMedecineCell.swift */; };
 		618C33952498BD6700951D11 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33942498BD6700951D11 /* AppNavigation.swift */; };
 		618C33982498BDC200951D11 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33972498BDC200951D11 /* SignInViewController.swift */; };
 		618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C339B2498BDF000951D11 /* SignUpViewController.swift */; };
@@ -489,6 +490,7 @@
 		618473092549A0C80062D8B9 /* CartSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartSectionHeader.xib; sourceTree = "<group>"; };
 		618473172549A5060062D8B9 /* CartSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSectionFooterView.swift; sourceTree = "<group>"; };
 		6184731A2549A5120062D8B9 /* CartSectionFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartSectionFooterView.xib; sourceTree = "<group>"; };
+		6184731D2549ACFB0062D8B9 /* CartMedecineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartMedecineCell.swift; sourceTree = "<group>"; };
 		618C33942498BD6700951D11 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		618C33972498BDC200951D11 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		618C339B2498BDF000951D11 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -1440,6 +1442,7 @@
 				618473172549A5060062D8B9 /* CartSectionFooterView.swift */,
 				6184731A2549A5120062D8B9 /* CartSectionFooterView.xib */,
 				618473092549A0C80062D8B9 /* CartSectionHeader.xib */,
+				6184731D2549ACFB0062D8B9 /* CartMedecineCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2109,6 +2112,7 @@
 				603D319F24E3B492000E5A6C /* CollectionDataSourceViewController.swift in Sources */,
 				246A83B72546E26A0004ECEC /* ProductCartAPI.swift in Sources */,
 				878CFC0E2514CC1C00298139 /* Decimal+MoneyFormat.swift in Sources */,
+				6184731E2549ACFB0062D8B9 /* CartMedecineCell.swift in Sources */,
 				875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */,
 				395CB74424FCE9BF000A958F /* CheckoutViewController.swift in Sources */,
 				60E1A70C24ECD6E500B3D205 /* SearchNavigationController.swift in Sources */,

@@ -10,6 +10,9 @@ import UIKit
 
 class CartSectionFooterView: UITableViewHeaderFooterView {
 
+    override class func awakeFromNib() {
+        super.awakeFromNib()
 
+    }
 
 }
