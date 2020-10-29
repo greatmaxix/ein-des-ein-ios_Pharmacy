@@ -8,13 +8,14 @@
 
 import Foundation
 import EventsTree
-
+import CoreLocation
 enum ProductModelEvent: Event {
     case openAnalogsFor(Product)
     case openCatalogsFor(Product)
     case openMap(Product)
     case openFarmacyList([PharmacyModel])
     case openCheckout
+    case route(MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D)
 }
 
 protocol ProductModelInput: class {

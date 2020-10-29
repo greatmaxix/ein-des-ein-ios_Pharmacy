@@ -20,6 +20,7 @@ protocol MapInput: class {
     func load()
     func farmacyAt(index: Int) -> PharmacyModel?
     func addToCart(productId: Int)
+    func open(_ route: MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D)
 }
 
 final class MapModel: EventNode {
@@ -53,6 +54,10 @@ extension MapModel: MapInput {
     
     func openFarmacyList() {
         raise(event: ProductModelEvent.openFarmacyList(pharmacies))
+    }
+    
+    func open(_ route: MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D) {
+        raise(event: ProductModelEvent.route(route, coordinate: coordinate))
     }
     
     func load() {
