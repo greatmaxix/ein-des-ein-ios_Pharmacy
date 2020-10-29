@@ -23,6 +23,7 @@ enum ProfileEvent: Event {
     case openHelp
     case logout
     case close
+    case openProduct(Medicine)
 }
 
 protocol ProfileInput {

@@ -38,6 +38,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 self?.presentAbout()
             case .close:
                 self?.popController()
+            case .openProduct(let medicine):
+                self?.openProductMedicineFor(medicine: medicine)
             default:
                 break
             }
@@ -47,15 +49,6 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
             switch event {
             case .close:
                 self?.popController()
-            default:
-                break
-            }
-        }
-        
-        addHandler { [weak self] (event: MedicineListModelEvent) in
-            switch event {
-            case .openProduct(let medicine):
-                self?.openProductMedicineFor(medicine: medicine)
             default:
                 break
             }
