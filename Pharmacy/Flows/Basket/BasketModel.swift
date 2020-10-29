@@ -18,12 +18,16 @@ protocol BasketModelInput: class {
     func section(at index: Int) -> PharmCartOrder
     func medecine(at indexPath: IndexPath) -> CartMedicine
     func load()
+
     func sectionClosureChanged(at index: Int)
+    func increaseCount(at indexPath: IndexPath)
+    func decreaseCount(at indexPath: IndexPath)
 }
 
 protocol BasketModelOutput: class {
     func cartDidLoad()
-    func reloadSection(at index: Int)
+    func reloadSection(at index: Int, animated: Bool)
+    func reloadObject(at indexPath: IndexPath)
 }
 
 final class BasketModel: Model {
@@ -31,11 +35,7 @@ final class BasketModel: Model {
     weak var output: BasketModelOutput!
 
     private var loader = DataManager<ProductCartAPI, CartResponse>()
-    private var cartOrders: [PharmCartOrder] = [] {
-        didSet {
-            sectionClosureStates = Array(repeating: false, count: cartOrders.count)
-        }
-    }
+    private var cartOrders: [PharmCartOrder] = []
     private var sectionClosureStates: [Bool] = []
 }
 
@@ -65,7 +65,27 @@ extension BasketModel: BasketViewControllerOutput {
 
     func sectionClosureChanged(at index: Int) {
         sectionClosureStates[index] = !sectionClosureStates[index]
-        output.reloadSection(at: index)
+        output.reloadSection(at: index, animated: true)
+    }
+
+    func increaseCount(at indexPath: IndexPath) {
+        var object = cartOrders[indexPath.section].products[indexPath.row]
+
+        object.productCount += 1
+        cartOrders[indexPath.section].products[indexPath.row] = object
+
+        output.reloadSection(at: indexPath.section, animated: false)
+    }
+
+    func decreaseCount(at indexPath: IndexPath) {
+        var object = cartOrders[indexPath.section].products[indexPath.row]
+
+        if object.productCount != 1 {
+            object.productCount -= 1
+            cartOrders[indexPath.section].products[indexPath.row] = object
+
+            output.reloadSection(at: indexPath.section, animated: false)
+        }
     }
 
     func load() {
@@ -76,6 +96,7 @@ extension BasketModel: BasketViewControllerOutput {
             case .success(let response):
                 self.cartOrders.removeAll()
                 self.cartOrders.append(contentsOf: response.items)
+                self.sectionClosureStates = Array(repeating: false, count: self.cartOrders.count)
             case .failure(let error):
                 print(error.localizedDescription)
             }

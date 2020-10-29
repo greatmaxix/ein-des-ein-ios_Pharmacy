@@ -88,6 +88,9 @@
                                                                         <constraint firstAttribute="width" constant="30" id="Wzd-C1-lga"/>
                                                                     </constraints>
                                                                     <state key="normal" image="button_minus"/>
+                                                                    <connections>
+                                                                        <action selector="decrease:" destination="mW5-Hf-XJR" eventType="touchUpInside" id="51S-58-pwe"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zNP-is-TmH">
                                                                     <rect key="frame" x="30" y="0.0" width="1" height="28"/>
@@ -118,6 +121,9 @@
                                                                         <constraint firstAttribute="width" constant="30" id="X2I-aV-QGl"/>
                                                                     </constraints>
                                                                     <state key="normal" image="button_plus"/>
+                                                                    <connections>
+                                                                        <action selector="increase:" destination="mW5-Hf-XJR" eventType="touchUpInside" id="Edq-57-oaA"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>

@@ -17,6 +17,9 @@ class CartMedecineCell: UITableViewCell {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var priceLabel: UILabel!
 
+    var increaseHandler: EmptyClosure?
+    var decreaseHandler: EmptyClosure?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -40,4 +43,12 @@ class CartMedecineCell: UITableViewCell {
         }
     }
 
+    @IBAction func decrease(_ sender: Any) {
+        decreaseHandler?()
+    }
+
+    @IBAction func increase(_ sender: Any) {
+        increaseHandler?()
+    }
+    
 }

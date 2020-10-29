@@ -67,6 +67,14 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.apply(medecine: model.medecine(at: indexPath))
 
+        cell.increaseHandler = { [weak self] in
+            self?.model.increaseCount(at: indexPath)
+        }
+
+        cell.decreaseHandler = { [weak self] in
+            self?.model.decreaseCount(at: indexPath)
+        }
+
         return cell
     }
 
@@ -108,8 +116,12 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension BasketViewController: BasketViewControllerInput {
 
-    func reloadSection(at index: Int) {
-        tableView.reloadSections(IndexSet(integer: index), with: .automatic)
+    func reloadSection(at index: Int, animated: Bool) {
+        tableView.reloadSections(IndexSet(integer: index), with: (animated) ? .automatic : .none)
+    }
+
+    func reloadObject(at indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
     func cartDidLoad() {
