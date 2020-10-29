@@ -129,6 +129,9 @@
 		601E7ECE2549C69300C936BF /* MapGetDirections.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601E7ECD2549C69300C936BF /* MapGetDirections.xib */; };
 		601E7ED12549CDB300C936BF /* MapGetDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7ED02549CDB300C936BF /* MapGetDirections.swift */; };
 		601E7ED52549D4B500C936BF /* LightRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7ED42549D4B500C936BF /* LightRoundedButton.swift */; };
+		601E7EE52549EF1000C936BF /* CommonMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7EE42549EF1000C936BF /* CommonMapViewController.swift */; };
+		601E7EE82549EF8100C936BF /* CommonMapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7EE72549EF8100C936BF /* CommonMapCoordinator.swift */; };
+		601E7EEB2549EF8F00C936BF /* CommonMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7EEA2549EF8F00C936BF /* CommonMapModel.swift */; };
 		6036EAF124DD1A81003336C2 /* Catalogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6036EAF024DD1A81003336C2 /* Catalogue.storyboard */; };
 		6036EAF324DD1A98003336C2 /* CatalogueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036EAF224DD1A98003336C2 /* CatalogueCoordinator.swift */; };
 		6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6036EAF924DD1C83003336C2 /* Basket.storyboard */; };
@@ -216,6 +219,12 @@
 		60E1A71D24ED079F00B3D205 /* ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A71C24ED079F00B3D205 /* ActionSheetView.swift */; };
 		60E1A71F24ED12C200B3D205 /* UIViewController+ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A71E24ED12C200B3D205 /* UIViewController+ActionSheetView.swift */; };
 		60F2673B24E0566B00BFF296 /* NavigationTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F2673A24E0566B00BFF296 /* NavigationTransitionAnimator.swift */; };
+		6184730125496E950062D8B9 /* CartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6184730025496E950062D8B9 /* CartResponse.swift */; };
+		618473072549A0B80062D8B9 /* CartSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618473062549A0B80062D8B9 /* CartSectionHeader.swift */; };
+		6184730A2549A0C80062D8B9 /* CartSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 618473092549A0C80062D8B9 /* CartSectionHeader.xib */; };
+		618473182549A5060062D8B9 /* CartSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618473172549A5060062D8B9 /* CartSectionFooterView.swift */; };
+		6184731B2549A5120062D8B9 /* CartSectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6184731A2549A5120062D8B9 /* CartSectionFooterView.xib */; };
+		6184731E2549ACFB0062D8B9 /* CartMedecineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6184731D2549ACFB0062D8B9 /* CartMedecineCell.swift */; };
 		618C33952498BD6700951D11 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33942498BD6700951D11 /* AppNavigation.swift */; };
 		618C33982498BDC200951D11 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33972498BDC200951D11 /* SignInViewController.swift */; };
 		618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C339B2498BDF000951D11 /* SignUpViewController.swift */; };
@@ -229,6 +238,8 @@
 		619AAA462498AEA700AB46ED /* SampleResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA452498AEA700AB46ED /* SampleResponseModel.swift */; };
 		619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA472498B01900AB46ED /* KeychainManager.swift */; };
 		619AAA4A2498B09800AB46ED /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA492498B09800AB46ED /* Token.swift */; };
+		61CFAA552549EB7200569DEF /* EmptyUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA532549EB7200569DEF /* EmptyUserCell.swift */; };
+		61CFAA562549EB7200569DEF /* EmptyUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAA542549EB7200569DEF /* EmptyUserCell.xib */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
 		87131D232507B9890050B8F2 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D222507B9890050B8F2 /* Executor.swift */; };
 		87131D25250913A70050B8F2 /* UISearchBar+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */; };
@@ -406,6 +417,9 @@
 		601E7ECD2549C69300C936BF /* MapGetDirections.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapGetDirections.xib; sourceTree = "<group>"; };
 		601E7ED02549CDB300C936BF /* MapGetDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGetDirections.swift; sourceTree = "<group>"; };
 		601E7ED42549D4B500C936BF /* LightRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightRoundedButton.swift; sourceTree = "<group>"; };
+		601E7EE42549EF1000C936BF /* CommonMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMapViewController.swift; sourceTree = "<group>"; };
+		601E7EE72549EF8100C936BF /* CommonMapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMapCoordinator.swift; sourceTree = "<group>"; };
+		601E7EEA2549EF8F00C936BF /* CommonMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMapModel.swift; sourceTree = "<group>"; };
 		6036EAF024DD1A81003336C2 /* Catalogue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Catalogue.storyboard; sourceTree = "<group>"; };
 		6036EAF224DD1A98003336C2 /* CatalogueCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCoordinator.swift; sourceTree = "<group>"; };
 		6036EAF924DD1C83003336C2 /* Basket.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Basket.storyboard; sourceTree = "<group>"; };
@@ -493,6 +507,12 @@
 		60E1A71C24ED079F00B3D205 /* ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetView.swift; sourceTree = "<group>"; };
 		60E1A71E24ED12C200B3D205 /* UIViewController+ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActionSheetView.swift"; sourceTree = "<group>"; };
 		60F2673A24E0566B00BFF296 /* NavigationTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTransitionAnimator.swift; sourceTree = "<group>"; };
+		6184730025496E950062D8B9 /* CartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponse.swift; sourceTree = "<group>"; };
+		618473062549A0B80062D8B9 /* CartSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSectionHeader.swift; sourceTree = "<group>"; };
+		618473092549A0C80062D8B9 /* CartSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartSectionHeader.xib; sourceTree = "<group>"; };
+		618473172549A5060062D8B9 /* CartSectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSectionFooterView.swift; sourceTree = "<group>"; };
+		6184731A2549A5120062D8B9 /* CartSectionFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartSectionFooterView.xib; sourceTree = "<group>"; };
+		6184731D2549ACFB0062D8B9 /* CartMedecineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartMedecineCell.swift; sourceTree = "<group>"; };
 		618C33942498BD6700951D11 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		618C33972498BDC200951D11 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		618C339B2498BDF000951D11 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -506,6 +526,8 @@
 		619AAA452498AEA700AB46ED /* SampleResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleResponseModel.swift; sourceTree = "<group>"; };
 		619AAA472498B01900AB46ED /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		619AAA492498B09800AB46ED /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Pharmacy/Services/Managers/Token.swift; sourceTree = SOURCE_ROOT; };
+		61CFAA532549EB7200569DEF /* EmptyUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyUserCell.swift; sourceTree = "<group>"; };
+		61CFAA542549EB7200569DEF /* EmptyUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyUserCell.xib; sourceTree = "<group>"; };
 		87131D222507B9890050B8F2 /* Executor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
 		87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+TextField.swift"; sourceTree = "<group>"; };
 		87131D27250A043D0050B8F2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -670,6 +692,7 @@
 				398880C3250F799400942D30 /* PharmacyResponse.swift */,
 				394D59BB2507D01200AA3729 /* WishlistResponse.swift */,
 				246A83C52547070A0004ECEC /* PostResponse.swift */,
+				6184730025496E950062D8B9 /* CartResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -749,6 +772,8 @@
 				395A7FBC24A3980C00A7CFC6 /* ProfileTableViewCell.xib */,
 				3949851824BC519B006A773D /* ProfileOptionsCell.swift */,
 				3949851924BC519B006A773D /* ProfileOptionsCell.xib */,
+				61CFAA532549EB7200569DEF /* EmptyUserCell.swift */,
+				61CFAA542549EB7200569DEF /* EmptyUserCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1118,6 +1143,7 @@
 		39F8B2F424CEFB0C00195AD8 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				601E7EE32549EEEE00C936BF /* Map */,
 				395D04FD24D04A9F007A278D /* CatalogsViewController */,
 				39F8B2F524CEFB9100195AD8 /* WelcomeViewController */,
 				39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */,
@@ -1178,6 +1204,14 @@
 				601E7ED42549D4B500C936BF /* LightRoundedButton.swift */,
 			);
 			path = LightRoundedButton;
+		601E7EE32549EEEE00C936BF /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				601E7EE42549EF1000C936BF /* CommonMapViewController.swift */,
+				601E7EE72549EF8100C936BF /* CommonMapCoordinator.swift */,
+				601E7EEA2549EF8F00C936BF /* CommonMapModel.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		6036EAEF24DD1A6C003336C2 /* Catalogue */ = {
@@ -1195,6 +1229,7 @@
 		6036EAF824DD1C2E003336C2 /* Basket */ = {
 			isa = PBXGroup;
 			children = (
+				618473052549A05F0062D8B9 /* Cells */,
 				6036EAF924DD1C83003336C2 /* Basket.storyboard */,
 				6036EAFB24DD1C8F003336C2 /* BasketViewController.swift */,
 				6036EAFD24DD1C9A003336C2 /* BasketModel.swift */,
@@ -1471,6 +1506,18 @@
 				60E1A71C24ED079F00B3D205 /* ActionSheetView.swift */,
 			);
 			path = ActionSheetView;
+			sourceTree = "<group>";
+		};
+		618473052549A05F0062D8B9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				618473062549A0B80062D8B9 /* CartSectionHeader.swift */,
+				618473172549A5060062D8B9 /* CartSectionFooterView.swift */,
+				6184731A2549A5120062D8B9 /* CartSectionFooterView.xib */,
+				618473092549A0C80062D8B9 /* CartSectionHeader.xib */,
+				6184731D2549ACFB0062D8B9 /* CartMedecineCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		618C33932498BD1A00951D11 /* Coordinator */ = {
@@ -1872,6 +1919,7 @@
 				6075BD4924DEA7FB00BC78BD /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				398B0DF124F53AD60084EC54 /* FoundMedicineView.xib in Resources */,
 				6075BD4A24DEA7FB00BC78BD /* OpenSans-Italic.ttf in Resources */,
+				6184731B2549A5120062D8B9 /* CartSectionFooterView.xib in Resources */,
 				6075BD4B24DEA7FB00BC78BD /* OpenSans-Light.ttf in Resources */,
 				6075BD4C24DEA7FB00BC78BD /* OpenSans-LightItalic.ttf in Resources */,
 				603D31F724E5AA09000E5A6C /* ProductQuestionsTableViewCell.xib in Resources */,
@@ -1893,6 +1941,7 @@
 				603D31BD24E57871000E5A6C /* Product.storyboard in Resources */,
 				618C33A12498BE4A00951D11 /* Auth.storyboard in Resources */,
 				6036EAF124DD1A81003336C2 /* Catalogue.storyboard in Resources */,
+				6184730A2549A0C80062D8B9 /* CartSectionHeader.xib in Resources */,
 				393D3CDB24FD33BD00E8181F /* PaymentMethodView.xib in Resources */,
 				395A7FC224A3980D00A7CFC6 /* ProfileTableViewCell.xib in Resources */,
 				603D31D324E5A09F000E5A6C /* ProductInfoTableViewCell.xib in Resources */,
@@ -1911,6 +1960,7 @@
 				603D31E124E5A8E3000E5A6C /* ProductCategoryTableViewCell.xib in Resources */,
 				398B0DD924F50A630084EC54 /* FarmacyPinView.xib in Resources */,
 				395A7FC624A3980D00A7CFC6 /* NameTableViewCell.xib in Resources */,
+				61CFAA562549EB7200569DEF /* EmptyUserCell.xib in Resources */,
 				603D31DC24E5A88C000E5A6C /* ProductAnalogTableViewCell.xib in Resources */,
 				6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */,
 				395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */,
@@ -2037,6 +2087,7 @@
 				875223CA2500FDEE000759C8 /* Entity.swift in Sources */,
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
 				39854D0224EAB4870070E0D1 /* ProfileAPI.swift in Sources */,
+				601E7EEB2549EF8F00C936BF /* CommonMapModel.swift in Sources */,
 				875223C02500F7A4000759C8 /* Typealiases.swift in Sources */,
 				4D8BCF6E2548932B0094C43C /* InDevelopmentViewController.swift in Sources */,
 				395A7FC924A399B000A7CFC6 /* ProfileModel.swift in Sources */,
@@ -2071,17 +2122,22 @@
 				395CB74624FCE9D5000A958F /* CheckoutModel.swift in Sources */,
 				603D31F224E5A9F7000E5A6C /* ProductAdviceTableViewCell.swift in Sources */,
 				619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */,
+				618473072549A0B80062D8B9 /* CartSectionHeader.swift in Sources */,
 				603D31FD24E64912000E5A6C /* UITableViewCell.swift in Sources */,
 				6036EB0724DD27BB003336C2 /* SearchModel.swift in Sources */,
 				398880C2250F798300942D30 /* PharmacyModel.swift in Sources */,
+				601E7EE82549EF8100C936BF /* CommonMapCoordinator.swift in Sources */,
 				60E1A6F724EB8C7800B3D205 /* SearchCellSection.swift in Sources */,
+				6184730125496E950062D8B9 /* CartResponse.swift in Sources */,
 				603D31A724E3B627000E5A6C /* CategoryCellSection.swift in Sources */,
 				603D31A424E3B608000E5A6C /* CategoryCollectionViewCell.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
 				39F0AD6524EEC80200CD6CA4 /* OrdersViewController.swift in Sources */,
 				39DBC18F24F7C2CC00CB82D5 /* MapMessageView.swift in Sources */,
 				246A83FD25472F1F0004ECEC /* CategoryEntity.swift in Sources */,
+				601E7EE52549EF1000C936BF /* CommonMapViewController.swift in Sources */,
 				875223BB2500ED89000759C8 /* UserDefaultsAccessor.swift in Sources */,
+				618473182549A5060062D8B9 /* CartSectionFooterView.swift in Sources */,
 				603D31D724E5A3FE000E5A6C /* Product.swift in Sources */,
 				395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */,
 				618C33AA2498BFB400951D11 /* Coordinator.swift in Sources */,
@@ -2139,6 +2195,7 @@
 				603D319F24E3B492000E5A6C /* CollectionDataSourceViewController.swift in Sources */,
 				246A83B72546E26A0004ECEC /* ProductCartAPI.swift in Sources */,
 				878CFC0E2514CC1C00298139 /* Decimal+MoneyFormat.swift in Sources */,
+				6184731E2549ACFB0062D8B9 /* CartMedecineCell.swift in Sources */,
 				875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */,
 				395CB74424FCE9BF000A958F /* CheckoutViewController.swift in Sources */,
 				60E1A70C24ECD6E500B3D205 /* SearchNavigationController.swift in Sources */,
@@ -2192,6 +2249,7 @@
 				393DDFBD250286C500652A01 /* RegionCell.swift in Sources */,
 				395D04FF24D04B19007A278D /* CatalogueViewController.swift in Sources */,
 				875223AB25000482000759C8 /* NibLoadable.swift in Sources */,
+				61CFAA552549EB7200569DEF /* EmptyUserCell.swift in Sources */,
 				6075BD5324DEB16600BC78BD /* RoundedCornerNavigationBar.swift in Sources */,
 				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
 				87131D3425135E3E0050B8F2 /* UITableView+Reusable.swift in Sources */,
@@ -2372,11 +2430,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */;
 			buildSettings = {
-				API_HOST = "https://api.pharmacies.release.fmc-dev.com/api/v1/";
+				API_HOST = "https://api.pharmacies.fmc-dev.com/api/v1/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -2396,11 +2454,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 447B6BF7452CC91EDC27B562 /* Pods-Pharmacy.release.xcconfig */;
 			buildSettings = {
-				API_HOST = "https://api.pharmacies.release.fmc-dev.com/api/v1/";
+				API_HOST = "https://api.pharmacies.fmc-dev.com/api/v1/";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;

@@ -23,18 +23,20 @@ final class ReceiptView: UIView {
     @IBOutlet private weak var receiptButton: UIButton!
     
     private(set) var productId: Int!
+    private(set) var currentMedicineEntity: Medicine!
     
     var likeActionHandler: ((_ state: Bool) -> Void)?
     var addToChartHandler: EmptyClosure?
     
-    func apply(receipt: Receipt) {
+    func apply(receipt: Medicine) {
+        self.currentMedicineEntity = receipt
         titleLabel.text = receipt.title
         likeButton.isSelected = receipt.liked
-        subtitleLabel.text = receipt.subtitle
-        priceLabel.text = receipt.price
-        productId = receipt.productId
+        subtitleLabel.text = receipt.releaseForm
+        priceLabel.text = receipt.maxPrice!.moneyString()
+        productId = receipt.id
         priceLabel.attributedText = NSAttributedString.fromPriceAttributed(for: receipt.price, currency: receipt.currency)
-        
+    
         if let url = receipt.imageURL {
             imageView.loadImageBy(url: url)
         }

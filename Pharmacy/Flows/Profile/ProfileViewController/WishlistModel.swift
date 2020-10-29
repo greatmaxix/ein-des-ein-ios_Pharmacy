@@ -13,20 +13,23 @@ import Moya
 protocol WishlistInput: class {
     
     var wishlistIsEmpty: Bool { get }
-    var dataSource: WishlistDataSource { get }
+    var favoriteMedicine: [Medicine] { get }
     func load()
     func loadNextPages(lastMedicineIndex: Int)
     func close()
+    func selectMedicineAt(index: Int)
+    func deleteMedicine(id: Int, index: IndexPath)
 }
 
 protocol WishlistOutput: class {
     func didLoadList()
     func showDeletionError()
+    func deleteFarovireRow(index: IndexPath)
 }
 
 final class WishlistModel: EventNode {
     
-    let dataSource = WishlistDataSource()
+    let medicine: [Medicine] = []
     
     private var medicines: [Medicine] = []
     private let provider = DataManager<WishListAPI, WishlistResponse>()
@@ -37,18 +40,14 @@ final class WishlistModel: EventNode {
     
     unowned var output: WishlistOutput!
     
-    override init(parent: EventNode?) {
-        super.init(parent: parent)
-        
-        dataSource.wishlistDelegate = self
-    }
-    
     private func loadMedicines() {
         
         medicinesAreLoading = true
+        
         provider.load(target: .getWishList(pageNumber: lastPage, medicinesPerPage: medicinesPerPage), completion: { [weak self] result in
 
             guard let self = self else { return }
+            
             self.medicinesAreLoading = false
 
             switch result {
@@ -56,7 +55,6 @@ final class WishlistModel: EventNode {
                 self.loadedAllMedicines = self.lastPage == response.currentPage
                 self.lastPage = response.currentPage
                 self.medicines.append(contentsOf: response.medicines)
-                self.dataSource.medicines = self.medicines
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -67,8 +65,12 @@ final class WishlistModel: EventNode {
 
 extension WishlistModel: WishlistInput {
     
+    var favoriteMedicine: [Medicine] {
+        medicines
+    }
+    
     var wishlistIsEmpty: Bool {
-        dataSource.medicines.count == 0
+        medicines.count == 0
     }
     
     func load() {
@@ -87,25 +89,26 @@ extension WishlistModel: WishlistInput {
             loadMedicines()
         }
     }
-}
-
-extension WishlistModel: WishListEditDelegate {
     
     func selectMedicineAt(index: Int) {
-        //
+        raise(event: MedicineListModelEvent.openProduct(medicines[index]))
     }
     
-    func deleteMedicine(id: Int) {
-        
+    func deleteMedicine(id: Int, index: IndexPath) {
+
         provider.delete(target: .removeFromWishList(medicineId: id), completion: { [weak self] result in
+            
             guard let self = self else {return}
+            
             switch result {
             case .success:
-                if self.dataSource.medicines.count == 0 {
+                if self.medicines.count == 0 {
                     self.output.didLoadList()
+                } else {
+                    self.medicines.remove(at: index.row)
+                    self.output.deleteFarovireRow(index: index)
                 }
             case .failure:
-                self.dataSource.medicines = self.medicines
                 self.output.didLoadList()
                 self.output.showDeletionError()
             }

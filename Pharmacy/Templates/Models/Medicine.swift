@@ -11,11 +11,11 @@ import Foundation
 struct Medicine: Codable {
     let id: Int
     let name: String
-    let releaseForm: String
+    var releaseForm: String
     let manufacturerName: String
     let manufacturerCountryCode: String
-    let minPrice: Decimal?
-    let maxPrice: Decimal?
+    var minPrice: Decimal?
+    var maxPrice: Decimal?
     var liked: Bool
     var pictureUrls: [String]
     
@@ -70,6 +70,18 @@ struct Medicine: Codable {
         minPrice = 100
         maxPrice = 200
         liked = false
+    }
+    
+    init(title: String, minPrice: Double, maxPrice: Double, imageURL: URL?, releaseForm: String, liked: Bool, productId: Int) {
+        id = productId
+        name = title
+        self.releaseForm = releaseForm
+        pictureUrls = []
+        manufacturerName = ""
+        manufacturerCountryCode = ""
+        self.minPrice = Decimal.init(minPrice)
+        self.maxPrice = Decimal.init(maxPrice)
+        self.liked = liked
     }
     
     var title: String {

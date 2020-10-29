@@ -27,6 +27,12 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
             switch event {
             case .openCategories(let category):
                 self?.openCategories(category: category)
+            case .openAnalizes:
+                self?.presentAnalizes()
+            case .openReceipts:
+                self?.presentPrescriptions()
+            case .openMap:
+                self?.openCommonMap()
             default:
                 break
             }
@@ -95,6 +101,34 @@ fileprivate extension WelcomeCoordinator {
     
     func openProductMedicineFor(medicine: Medicine) {
         let vc = ProductCoordinator(configuration: .init(parent: self, navigation: navigation)).createFlowFor(product: medicine)
+        navigation.pushViewController(vc, animated: true)
+    }
+
+    func presentAnalizes() {
+        guard let analizesVC: AnalizesViewController = R.storyboard.profile().instantiateViewController(withIdentifier: "AnalizesViewController") as? AnalizesViewController else {
+                   return
+        }
+
+        let model = AnalizesModel(parent: self)
+        analizesVC.model = model
+        navigation.pushViewController(analizesVC, animated: true)
+    }
+
+    func presentPrescriptions() {
+        guard let prescriptionsVC: PrescriptionsViewController = R.storyboard.profile().instantiateViewController(withIdentifier: "PrescriptionsViewController") as? PrescriptionsViewController else {
+                   return
+        }
+
+        let model = PrescriptionsModel(parent: self)
+        prescriptionsVC.model = model
+        navigation.pushViewController(prescriptionsVC, animated: true)
+    }
+    
+    func openCommonMap() {
+        let vc = R.storyboard.welcome.commonMapViewController()!
+        let model = CommonMapModel(parent: self)
+        vc.model = model
+        model.output = vc
         navigation.pushViewController(vc, animated: true)
     }
 }

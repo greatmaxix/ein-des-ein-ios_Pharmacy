@@ -112,6 +112,11 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
         model.openCategories(index)
     }
     
+    @objc func recentMedicineTapped(_ sender: UITapGestureRecognizer) {
+        guard let view = sender.view as? ReceiptView else {return}
+        model.openMedicineDetail(medicine: view.currentMedicineEntity)
+    }
+    
     // MARK: Actions
     
     @IBAction private func selectCategory(_ sender: UIButton) {
@@ -123,6 +128,18 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     }
     @IBAction func uploadReceipt(_ sender: Any) {
         model.openReceiptUpload()
+    }
+
+    @IBAction func chatTapped(_ sender: Any) {
+        model.openChat()
+    }
+
+    @IBAction func diagnosisTapped(_ sender: Any) {
+        model.openDiagnosis()
+    }
+
+    @IBAction func mapTapped(_ sender: Any) {
+        model.openMap()
     }
 
 }
@@ -154,21 +171,26 @@ extension WelcomeViewController: WelcomeModelOutput {
         stackViewHeightConstr.constant = height + CGFloat(max(orders.count - 1, 0)) * 10
     }
     
-    func showReceipts(_ receipts: [Receipt]) {
+    func showReceipts(_ receipts: [Medicine]) {
         receiptStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
-        
+
         for receipt in receipts {
+            print("IMAGE \(receipt.imageURL)")
             if let receiptView: ReceiptView  = R.nib.receiptView(owner: self) {
                 receiptView.apply(receipt: receipt)
                 receiptView.likeActionHandler = {[unowned self] state in
                     if state {
                         self.model.addToWishList(productId: receiptView.productId)
+                    } else {
+                        self.model.removeFromWishList(productId: receiptView.productId)
                     }
                 }
                 receiptView.addToChartHandler = {[unowned self] in
                     self.model.addToCart(productId: receiptView.productId)
                 }
                 receiptStackView.addArrangedSubview(receiptView)
+                let tap = UITapGestureRecognizer(target: self, action: #selector(recentMedicineTapped(_:)))
+                receiptStackView.arrangedSubviews.forEach({$0.addGestureRecognizer(tap)})
             }
         }
     }

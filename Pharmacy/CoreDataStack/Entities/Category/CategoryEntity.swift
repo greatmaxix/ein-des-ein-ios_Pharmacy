@@ -35,4 +35,3 @@ extension CategoryEntity: Entity {
         return #keyPath(code)
     }
 }
-
