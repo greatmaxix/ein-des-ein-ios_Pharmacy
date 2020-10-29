@@ -49,14 +49,15 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
         let array =  Dictionary(grouping: cities!) {$0.name.prefix(1)}
             .sorted(by: { $0.0 < $1.0 })
         
-        array.forEach { (key, value) in
-                self.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
+        array.forEach {[weak self] (key, value) in
+                self?.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
         }
+        
         self.output.reloadTableViewData()
     }
     
     func load() {
-        countryProvider.load(target: .getRegions(nil, nil)) { (result) in
+        countryProvider.load(target: .getRegions(nil, nil)) {[unowned self] (result) in
             switch result {
             case .success(let response):
                 guard let region = response.regions.first else {return}
@@ -64,7 +65,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
                 let array =  Dictionary(grouping: self.countryResionsData) {$0.name.prefix(1)}
                     .sorted(by: { $0.0 < $1.0 })
                         
-                array.forEach { (key, value) in
+                array.forEach {[unowned self] (key, value) in
                         self.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
                 }
 
