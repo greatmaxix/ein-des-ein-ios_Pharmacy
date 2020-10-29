@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ChooseLocationViewModelOutput: class {
-    func reloadTableViewData()
+    func reloadTableViewData(state: Bool)
 }
 
 protocol ChooseLocationViewModelInput: class {
@@ -17,18 +17,21 @@ protocol ChooseLocationViewModelInput: class {
     func load()
     func close()
     func selected(indexPath: IndexPath)
+    var screenState:Bool {get}
 }
 
 class ChooseLocationViewModel: Model {
+    
     weak var output: ChooseLocationViewModelOutput!
     private(set) var sections: [TableViewSection] = []
     private var searchTerm: String = ""
+    
     private let cityProvider = DataManager<SearchAPI, WishlistResponse>()
     
     private let countryProvider = DataManager<LocationAPI, RegionResponse>()
-    private var pageNumber: Int = 1
     
     private var countryResionsData: [Region] = []
+    private var state: Bool = false
     
     private lazy var userRegionId: Int = {
         UserDefaultsAccessor.value(for: \.regionId)
@@ -43,17 +46,25 @@ extension ChooseLocationViewModel: ChooseLocationViewControllerOutput {
 // MARK: - ChooseLocationViewModelInput
 extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     
+    var screenState: Bool {
+            state
+        }
+    
     func selected(indexPath: IndexPath) {
-        let cities = countryResionsData[indexPath.row].subRegions
+        self.state = true
+        guard !countryResionsData.isEmpty,
+              let cities = countryResionsData[indexPath.row].subRegions else {return}
+        
+        countryResionsData.removeAll()
         self.sections.removeAll()
-        let array =  Dictionary(grouping: cities!) {$0.name.prefix(1)}
+        let array =  Dictionary(grouping: cities) {$0.name.prefix(1)}
             .sorted(by: { $0.0 < $1.0 })
         
         array.forEach {[weak self] (key, value) in
                 self?.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
         }
         
-        self.output.reloadTableViewData()
+        self.output.reloadTableViewData(state: false)
     }
     
     func load() {
@@ -61,6 +72,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
             switch result {
             case .success(let response):
                 guard let region = response.regions.first else {return}
+                
                 self.countryResionsData = region.subRegions!
                 let array =  Dictionary(grouping: self.countryResionsData) {$0.name.prefix(1)}
                     .sorted(by: { $0.0 < $1.0 })
@@ -69,7 +81,8 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
                         self.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
                 }
 
-                self.output.reloadTableViewData()
+                self.output.reloadTableViewData(state: state)
+                state = false
             case .failure(let error):
                 print("Was error \(error.localizedDescription)")
             }

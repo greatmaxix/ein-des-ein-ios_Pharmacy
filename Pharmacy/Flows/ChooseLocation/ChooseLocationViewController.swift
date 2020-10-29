@@ -108,17 +108,23 @@ extension ChooseLocationViewController: ChooseLocationViewModelOutput {}
 extension ChooseLocationViewController: SimpleNavigationBarDelegate {
     
     func leftBarItemAction() {
-        model.close()
+        if model.screenState {
+            activityIndicator.show(animated: true)
+            model.load()
+        } else {
+            model.close()
+        }
     }
     
-    func reloadTableViewData() {
-        activityIndicator.hide(animated: true, afterDelay: 0.2)
+    func reloadTableViewData(state: Bool) {
+        activityIndicator.hide(animated: true, afterDelay: 0.3)
         let transition = CATransition()
         transition.type = CATransitionType.push
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.fillMode = CAMediaTimingFillMode.removed
         transition.duration = 0.3
-        transition.subtype = CATransitionSubtype.fromRight
+        
+        transition.subtype = state ? CATransitionSubtype.fromLeft : CATransitionSubtype.fromRight 
         self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
 
         self.tableView.reloadData()
