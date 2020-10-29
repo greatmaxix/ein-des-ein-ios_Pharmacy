@@ -22,10 +22,14 @@ final class CatalogueCoordinator: EventNode, Coordinator {
     init(configuration: CatalogueFlowConfiguration) {
         super.init(parent: configuration.parent)
 
-        addHandler(.onRaise) { [weak self] (event: WelcomeEvent) in
+        addHandler(.onPropagate) { [weak self] (event: WelcomeEvent) in
             switch event {
             case .openCategories(let category):
-                self?.openCategories(category: category)
+                if let c = category {
+                    self?.openCategories(category: c)
+                } else {
+                    self?.popToRootController()
+                }
             default:
                 break
             }
@@ -68,8 +72,8 @@ final class CatalogueCoordinator: EventNode, Coordinator {
 extension CatalogueCoordinator {
 
     private func openCategories(category: Category?) {
-        let viewController = R.storyboard.catalogue.catalogueViewController()!
-        let model = CatalogueModel(category: category, parent: self)
+        let viewController = R.storyboard.catalogue.subcategoryViewController()!
+        let model = SubcategoryModel(category: category, parent: self)
         model.output = viewController
         viewController.model = model
         root.pushViewController(viewController, animated: true)
@@ -77,6 +81,10 @@ extension CatalogueCoordinator {
 
     private func popController() {
         root.popViewController(animated: true)
+    }
+    
+    private func popToRootController() {
+        root.popToRootViewController(animated: true)
     }
 
     private func openMedicineListFor(category: Category) {
