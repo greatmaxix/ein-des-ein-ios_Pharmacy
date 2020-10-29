@@ -101,7 +101,15 @@ extension ChooseLocationViewController: SimpleNavigationBarDelegate {
     }
     
     func reloadTableViewData() {
-        tableView.reloadData()
+        let transition = CATransition()
+        transition.type = CATransitionType.push
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.fillMode = CAMediaTimingFillMode.removed
+        transition.duration = 0.3
+        transition.subtype = CATransitionSubtype.fromRight
+        self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
+
+        self.tableView.reloadData()
     }
   
     func rightBarItemAction() {
