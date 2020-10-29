@@ -107,7 +107,7 @@ extension RegionModel: RegionInput {
     }
 
     func load() {
-        provider.load(target: .getRegions(regionId: nil, maxLevelCount: nil), completion: { [weak self] result in
+        provider.load(target: .getRegions(nil, nil), completion: { [weak self] result in
             guard let self = self else { return }
             
             switch result {

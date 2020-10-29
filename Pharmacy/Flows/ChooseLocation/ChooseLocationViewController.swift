@@ -13,6 +13,7 @@ protocol ChooseLocationViewControllerInput: ChooseLocationViewModelOutput {}
 protocol ChooseLocationViewControllerOutput: ChooseLocationViewModelInput {}
 
 class ChooseLocationViewController: UIViewController {
+    
     @IBOutlet private weak var tableView: UITableView!
     
     var model: ChooseLocationViewControllerOutput!
@@ -28,21 +29,19 @@ class ChooseLocationViewController: UIViewController {
 // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        configUI()
-//        setupTableView()
+
+        setupTableView()
         setupNavBar()
-    }
-    
-    private func configUI() {
-        tableView.backgroundColor = .clear
-        tableView.separatorStyle = .none
-        tableView.delegate = self
-        tableView.dataSource = self
+        model.load()
     }
     
     private func setupTableView() {
-        tableView.register(viewType: RecentsHeaderView.self)
+        tableView.backgroundColor = GUI.backgroundColor
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.register(UINib(nibName: String(describing: ChooseLocationTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ChooseLocationTableViewCell.self))
     }
     
     private func setupNavBar() {
@@ -54,33 +53,40 @@ class ChooseLocationViewController: UIViewController {
         bar.leftItemTitle = R.string.localize.profileProfile()
         bar.barDelegate = self
       }
-
     }
-    
 }
 
 // MARK: - TableViewDataSource & Delegate
 
 extension ChooseLocationViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        model.tableViewSections[section].items.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        3
+        return model.tableViewSections.count
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.backgroundColor = .clear
+        view.tintColor = .clear
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "zxcxzczxc"
+        let cell = tableView.dequeueReusableCell(at: indexPath, cellType: ChooseLocationTableViewCell.self)
+        cell.selectionStyle = .none
+        let item = model.tableViewSections[indexPath.section].items[indexPath.row] as? Region
+        cell.apply(title: item!.name, item: item!)
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "Header"
+        model.tableViewSections[section].header
     }
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        "Footer"
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        model.selected(indexPath: indexPath)
     }
 }
 
@@ -89,11 +95,16 @@ extension ChooseLocationViewController: ChooseLocationViewModelOutput {}
 // MARK: - SimpleNavigationBarDelegate
 
 extension ChooseLocationViewController: SimpleNavigationBarDelegate {
-  func leftBarItemAction() {
-    model.close()
-  }
-  
-  func rightBarItemAction() {
     
-  }
+    func leftBarItemAction() {
+        model.close()
+    }
+    
+    func reloadTableViewData() {
+        tableView.reloadData()
+    }
+  
+    func rightBarItemAction() {
+    
+    }
 }

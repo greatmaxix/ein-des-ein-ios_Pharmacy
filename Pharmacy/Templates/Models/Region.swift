@@ -19,7 +19,7 @@ final class Region: Decodable {
         case id
         case name
         case lvl
-        case children
+        case nodes
     }
     
     required init(from decoder: Decoder) throws {
@@ -27,7 +27,7 @@ final class Region: Decodable {
         
         regionId = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        subRegions = try? container.decode([Region].self, forKey: .children)
+        subRegions = try? container.decode([Region].self, forKey: .nodes)
         level = try container.decode(Int.self, forKey: .lvl)
     }
 }
