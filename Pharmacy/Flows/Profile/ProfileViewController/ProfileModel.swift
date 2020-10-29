@@ -93,7 +93,7 @@ final class ProfileModel: Model {
             }
 
         } else {
-            do  {
+            do {
                 let cellData = EmptyUserCellData()
                 cellData.authorize = { [weak self] in
                     self?.raise(event: ProfileEvent.logout)

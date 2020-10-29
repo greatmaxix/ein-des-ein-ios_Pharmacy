@@ -27,6 +27,8 @@ class MapMessageView: UIView {
     @IBOutlet weak var noMedicineTopSpace: NSLayoutConstraint!
     @IBOutlet weak var nonEmptyMedicineTopSpace: NSLayoutConstraint!
     
+    var addToPurchesesHandler: EmptyClosure?
+    
     override func awakeFromNib() {
         swipeView.layer.cornerRadius = swipeView.bounds.height / 2
 
@@ -66,6 +68,7 @@ class MapMessageView: UIView {
     }
     
     @IBAction func selectFarmacy(_ sender: UIButton) {
+        self.addToPurchesesHandler?()
     }
 
 }

@@ -79,7 +79,6 @@ extension ProductModel: ProductViewControllerOutput {
         }
     }
     
-    
     func saveToCoreData(medicine: Medicine) {
         let min = NSDecimalNumber.init(decimal: medicine.minPrice ?? 0).doubleValue
         let max = NSDecimalNumber.init(decimal: medicine.maxPrice ?? 0).doubleValue

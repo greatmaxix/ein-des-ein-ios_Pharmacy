@@ -152,7 +152,6 @@ extension MedicineListModel: MedicineListViewControllerOutput {
         }
     }
     
-    
     func didSelectProductBy(indexPath: IndexPath) {
         guard indexPath.row <= medicines.endIndex else {
             return

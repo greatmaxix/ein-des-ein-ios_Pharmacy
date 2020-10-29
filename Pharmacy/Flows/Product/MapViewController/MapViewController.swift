@@ -69,6 +69,7 @@ class MapViewController: UIViewController {
         
         messageViewHolder.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         messageViewHolder.layer.cornerRadius = 18
+        
         segmentedControl.selectedSegmentIndex = 1
         
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.welcomeBlue()!], for: .selected)
@@ -117,6 +118,10 @@ class MapViewController: UIViewController {
         messageHeightConstraint.constant = GUI.messageHeight
         
         messageView.setup(pharmacy: pharmacy)
+        messageView.addToPurchesesHandler = {[weak self] in
+            self?.model.addToCart(productId: pharmacy.medicines.first!.pharmacyProductId)
+        }
+        
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
             self.view.layoutIfNeeded()
         })

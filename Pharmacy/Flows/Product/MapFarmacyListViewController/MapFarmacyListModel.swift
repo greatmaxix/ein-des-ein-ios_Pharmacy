@@ -47,7 +47,6 @@ extension MapFarmacyListModel: FarmacyListInput {
             var cell = MapFarmacyCellSection.init(common: $0)
             cell.addToChartHandler = {
                 self?.addToCart(productId: product.medicines.first!.pharmacyProductId)
-                print("zzzz \(product)")
             }
             return cell
         })

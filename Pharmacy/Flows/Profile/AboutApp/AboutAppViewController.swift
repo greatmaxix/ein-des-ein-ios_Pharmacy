@@ -13,7 +13,7 @@ protocol AboutAppOutput: class {
 
 final class AboutAppViewController: UIViewController {
   
-  //MARK: - Outlets
+  // MARK: - Outlets
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var descriptionLabel: UILabel!
   @IBOutlet private weak var tableView: UITableView!
@@ -21,8 +21,7 @@ final class AboutAppViewController: UIViewController {
   
   var model: AboutAppInput!
   
-  
-  //MARK: - Lifecycle
+  // MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -34,7 +33,6 @@ final class AboutAppViewController: UIViewController {
     
     tableView.register(UINib(nibName: String(describing: AboutAppTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: AboutAppTableViewCell.self))
   }
-  
   
   //MARK: - Private functions
   private func setupUI() {
@@ -91,7 +89,6 @@ extension AboutAppViewController: SimpleNavigationBarDelegate {
   }
 }
 
-
 // MARK: - UITableViewDataSource
 extension AboutAppViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,7 +106,6 @@ extension AboutAppViewController: UITableViewDataSource {
   }
 }
 
-
 // MARK: - UITableViewDelegate
 extension AboutAppViewController: UITableViewDelegate {
   
@@ -117,11 +113,10 @@ extension AboutAppViewController: UITableViewDelegate {
     return model.cellDataAt(index: indexPath.row).cellHeight
   }
   
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     model.selectActionAt(index: indexPath.row)?()
   }
 }
-
 
 // MARK: - AboutAppOutput
 extension AboutAppViewController: AboutAppOutput {
