@@ -28,8 +28,6 @@ final class MapFarmacyCell: UITableViewCell {
     
     var addToPurchesesHandler: EmptyClosure?
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
