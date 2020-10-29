@@ -26,6 +26,10 @@ final class MapFarmacyCell: UITableViewCell {
     @IBOutlet weak var noMedicineTopSpace: NSLayoutConstraint!
     @IBOutlet weak var nonEmptyMedicineTopSpace: NSLayoutConstraint!
     
+    var addToPurchesesHandler: EmptyClosure?
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -61,6 +65,7 @@ final class MapFarmacyCell: UITableViewCell {
     }
     
     @IBAction func selectFarmacy(_ sender: UIButton) {
+        self.addToPurchesesHandler?()
     }    
 }
 
