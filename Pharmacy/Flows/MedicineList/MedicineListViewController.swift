@@ -71,6 +71,15 @@ extension MedicineListViewController {
 // MARK: - FarmacyListViewControllerInput
 extension MedicineListViewController: MedicineListViewControllerInput {
     
+    func addRemoveFromFavoriteError(indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? MedicineCell else {return}
+        cell.setPreviousFavoriteButtonState()
+    }
+    
+    func favoriteAciontReloadCell(cellAt indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
     func retrivesNewResults() {
         productCountLabel.attributedText = titleAttributed(count: model.totalNumberOfItems)
         activityIndicator.hide(animated: true)
@@ -106,6 +115,14 @@ extension MedicineListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: MedicineCell.self)
         cell.apply(medicine: model.medicines[indexPath.row])
+        
+        cell.favoriteButtonHandler = {[weak self] state in
+            if state {
+                self?.model.addToWishList(productId: cell.medicineProductID, indexPath: indexPath)
+            } else {
+                self?.model.removeFromWishList(productId: cell.medicineProductID, indexPath: indexPath)
+            }
+        }
         
         if model.isEndOfList == false && indexPath.row == model.medicines.count - 1 {
             activityIndicator.show(animated: true)

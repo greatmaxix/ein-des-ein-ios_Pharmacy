@@ -22,12 +22,16 @@ protocol MedicineListModelInput: class {
     func retreiveMoreMedecines()
     func didSelectProductBy(indexPath: IndexPath)
     func openFilter()
+    func addToWishList(productId: Int, indexPath: IndexPath)
+    func removeFromWishList(productId: Int, indexPath: IndexPath)
 }
 
 protocol MedicineListModelOutput: class {
     func retrivesNewResults()
     func retreivingMoreMedicinesDidEnd()
     func needToInsertNewMedicines(at: [IndexPath]?)
+    func favoriteAciontReloadCell(cellAt: IndexPath)
+    func addRemoveFromFavoriteError(indexPath: IndexPath)
 }
 
 final class MedicineListModel: Model {
@@ -43,6 +47,7 @@ final class MedicineListModel: Model {
     
     private var category: Category?
     private let provider = DataManager<SearchAPI, ListContainerResponse<Medicine>>()
+    private let wishListProvider = DataManager<WishListAPI, PostResponse>()
     private var pageNumber: Int = 1
     var isEndOfList = false
     
@@ -120,6 +125,33 @@ extension MedicineListModel {
 
 // MARK: - FarmacyListViewControllerOutput
 extension MedicineListModel: MedicineListViewControllerOutput {
+    
+    func removeFromWishList(productId: Int, indexPath: IndexPath) {
+        wishListProvider.load(target: .removeFromWishList(medicineId: productId)) { (result) in
+            switch result {
+            case .success:
+                self.medicines[indexPath.row].liked = false
+                self.output.favoriteAciontReloadCell(cellAt: indexPath)
+            case .failure(let error):
+                print("error is \(error.localizedDescription)")
+                self.output.addRemoveFromFavoriteError(indexPath: indexPath)
+                }
+        }
+    }
+
+    func addToWishList(productId: Int, indexPath: IndexPath) {
+        wishListProvider.load(target: .addToWishList(medicineId: productId)) { (result) in
+            switch result {
+            case .success:
+                self.medicines[indexPath.row].liked = true
+                self.output.favoriteAciontReloadCell(cellAt: indexPath)
+            case .failure(let error):
+                print("error is \(error.localizedDescription)")
+                self.output.addRemoveFromFavoriteError(indexPath: indexPath)
+                }
+        }
+    }
+    
     
     func didSelectProductBy(indexPath: IndexPath) {
         guard indexPath.row <= medicines.endIndex else {

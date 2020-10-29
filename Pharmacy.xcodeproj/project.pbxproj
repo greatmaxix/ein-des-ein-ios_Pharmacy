@@ -31,7 +31,6 @@
 		393DDFC42502954200652A01 /* RegionHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393DDFC22502954200652A01 /* RegionHeaderCell.xib */; };
 		3949851A24BC519B006A773D /* ProfileOptionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3949851824BC519B006A773D /* ProfileOptionsCell.swift */; };
 		3949851B24BC519B006A773D /* ProfileOptionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3949851924BC519B006A773D /* ProfileOptionsCell.xib */; };
-		394D59B92507CC7600AA3729 /* WishlistDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394D59B82507CC7600AA3729 /* WishlistDataSource.swift */; };
 		394D59BC2507D01200AA3729 /* WishlistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394D59BB2507D01200AA3729 /* WishlistResponse.swift */; };
 		394EBEE724FF901600C89970 /* MedicineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394EBEE624FF901600C89970 /* MedicineView.swift */; };
 		394EBEE924FF904100C89970 /* MedicineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394EBEE824FF904100C89970 /* MedicineView.xib */; };
@@ -313,7 +312,6 @@
 		393DDFC22502954200652A01 /* RegionHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionHeaderCell.xib; sourceTree = "<group>"; };
 		3949851824BC519B006A773D /* ProfileOptionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOptionsCell.swift; sourceTree = "<group>"; };
 		3949851924BC519B006A773D /* ProfileOptionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileOptionsCell.xib; sourceTree = "<group>"; };
-		394D59B82507CC7600AA3729 /* WishlistDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistDataSource.swift; sourceTree = "<group>"; };
 		394D59BB2507D01200AA3729 /* WishlistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistResponse.swift; sourceTree = "<group>"; };
 		394EBEE624FF901600C89970 /* MedicineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineView.swift; sourceTree = "<group>"; };
 		394EBEE824FF904100C89970 /* MedicineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineView.xib; sourceTree = "<group>"; };
@@ -641,14 +639,6 @@
 				396FE9D325064C8A0063E466 /* RegionsDataSource.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		394D59B72507CC0700AA3729 /* DataSourse */ = {
-			isa = PBXGroup;
-			children = (
-				394D59B82507CC7600AA3729 /* WishlistDataSource.swift */,
-			);
-			path = DataSourse;
 			sourceTree = "<group>";
 		};
 		394EBEE524FF8F9B00C89970 /* MedicineView */ = {
@@ -1106,7 +1096,6 @@
 		39F0AD6124EEC72D00CD6CA4 /* WishlistViewController */ = {
 			isa = PBXGroup;
 			children = (
-				394D59B72507CC0700AA3729 /* DataSourse */,
 				39F0AD6C24EEC85400CD6CA4 /* WishlistViewController.swift */,
 				39F0AD6E24EEC86200CD6CA4 /* WishlistModel.swift */,
 			);
@@ -2123,7 +2112,6 @@
 				87131D2C250A0C8E0050B8F2 /* NibView.swift in Sources */,
 				39818FA124AF69B0007D6D94 /* UserSession.swift in Sources */,
 				603D31E024E5A8E3000E5A6C /* ProductCategoryTableViewCell.swift in Sources */,
-				394D59B92507CC7600AA3729 /* WishlistDataSource.swift in Sources */,
 				397541D724ED35EE0069F8DE /* SimpleNavigationBarView.swift in Sources */,
 				3939A6D524F6A3C90045FB71 /* LocationService.swift in Sources */,
 				619AAA402498A9AE00AB46ED /* AuthAPI.swift in Sources */,
