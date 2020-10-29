@@ -19,6 +19,7 @@ class CartMedecineCell: UITableViewCell {
 
     var increaseHandler: EmptyClosure?
     var decreaseHandler: EmptyClosure?
+    var deleteHandler: EmptyClosure?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,4 +52,7 @@ class CartMedecineCell: UITableViewCell {
         increaseHandler?()
     }
     
+    @IBAction func deletePosition(_ sender: Any) {
+        deleteHandler?()
+    }
 }

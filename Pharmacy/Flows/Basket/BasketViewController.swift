@@ -75,6 +75,11 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
             self?.model.decreaseCount(at: indexPath)
         }
 
+        cell.deleteHandler = { [weak self] in
+            self?.activityIndicator.show(animated: true)
+            self?.model.deleteProduct(at: indexPath)
+        }
+
         return cell
     }
 
@@ -104,7 +109,11 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return model.numberOfSections
+        let amount = model.numberOfSections
+
+        tableView.isHidden = amount == 0 ? true : false
+
+        return amount
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -122,6 +131,18 @@ extension BasketViewController: BasketViewControllerInput {
 
     func reloadObject(at indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+
+    func deleteProduct(at indexPath: IndexPath) {
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+
+    func deleteOrder(at indexPath: IndexPath) {
+        tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
+    }
+
+    func requestCompleted() {
+        activityIndicator.hide(animated: true)
     }
 
     func cartDidLoad() {

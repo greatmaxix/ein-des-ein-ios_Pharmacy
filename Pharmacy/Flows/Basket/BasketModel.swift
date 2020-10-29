@@ -22,12 +22,15 @@ protocol BasketModelInput: class {
     func sectionClosureChanged(at index: Int)
     func increaseCount(at indexPath: IndexPath)
     func decreaseCount(at indexPath: IndexPath)
+    func deleteProduct(at indexPath: IndexPath)
 }
 
 protocol BasketModelOutput: class {
     func cartDidLoad()
     func reloadSection(at index: Int, animated: Bool)
-    func reloadObject(at indexPath: IndexPath)
+    func deleteProduct(at indexPath: IndexPath)
+    func deleteOrder(at indexPath: IndexPath)
+    func requestCompleted()
 }
 
 final class BasketModel: Model {
@@ -35,6 +38,8 @@ final class BasketModel: Model {
     weak var output: BasketModelOutput!
 
     private var loader = DataManager<ProductCartAPI, CartResponse>()
+    private var deleteAPI = DataManager<ProductCartAPI, PostResponse>()
+
     private var cartOrders: [PharmCartOrder] = []
     private var sectionClosureStates: [Bool] = []
 }
@@ -66,6 +71,31 @@ extension BasketModel: BasketViewControllerOutput {
     func sectionClosureChanged(at index: Int) {
         sectionClosureStates[index] = !sectionClosureStates[index]
         output.reloadSection(at: index, animated: true)
+    }
+
+    func deleteProduct(at indexPath: IndexPath) {
+        let id = cartOrders[indexPath.section].products[indexPath.row].pharmacyProductId
+
+        deleteAPI.load(target: .delete(productId: id), completion: { [weak self] result in
+            guard let self = self else { return }
+
+            switch result {
+            case .success:
+                self.cartOrders[indexPath.section].products.remove(at: indexPath.row)
+
+                if self.cartOrders[indexPath.section].products.count == 0 {
+                    self.cartOrders.remove(at: indexPath.section)
+                    self.output.deleteOrder(at: indexPath)
+                } else {
+                    self.output.reloadSection(at: indexPath.section, animated: true)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+
+            self.output.requestCompleted()
+        })
+
     }
 
     func increaseCount(at indexPath: IndexPath) {

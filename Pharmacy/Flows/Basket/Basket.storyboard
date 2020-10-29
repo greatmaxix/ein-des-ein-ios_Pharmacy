@@ -169,6 +169,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obW-E6-0ao">
                                                     <rect key="frame" x="366" y="23" width="24" height="24"/>
                                                     <state key="normal" image="button_remove"/>
+                                                    <connections>
+                                                        <action selector="deletePosition:" destination="mW5-Hf-XJR" eventType="touchUpInside" id="yfH-db-fk3"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
