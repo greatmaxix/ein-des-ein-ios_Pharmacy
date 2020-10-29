@@ -11,6 +11,7 @@ import Moya
 
 enum ProductCartAPI {
     case addPharmacyToCart(productId: Int)
+    case delete(productId: Int)
     case loadCart
 }
 
@@ -22,6 +23,8 @@ extension ProductCartAPI: RequestConvertible {
             return "customer/product-cart/pharmacy-product/\(id)"
         case .loadCart:
             return "customer/product-cart"
+        case .delete(let id):
+            return "customer/product-cart/pharmacy-product/\(id)"
         }
     }
     
@@ -31,6 +34,8 @@ extension ProductCartAPI: RequestConvertible {
             return .post
         case .loadCart:
             return .get
+        case .delete:
+            return .delete
         }
     }
     
@@ -39,6 +44,8 @@ extension ProductCartAPI: RequestConvertible {
         case .addPharmacyToCart:
             return .requestPlain
         case .loadCart:
+            return .requestPlain
+        case .delete:
             return .requestPlain
         }
     }
