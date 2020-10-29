@@ -8,6 +8,8 @@
 
 import Foundation
 import EventsTree
+import CoreLocation
+import MapKit
 
 struct ProductFlowConfiguration {
     let parent: EventNode
@@ -46,6 +48,8 @@ final class ProductCoordinator: EventNode, Coordinator {
                 self.openMapFarmacyList(pharmacies: pharmacies)
             case .openCheckout:
                 self.openCheckout()
+            case .route(let route, let coordinate):
+                self.open(route, coordinate: coordinate)
             }
         }
     }
@@ -53,7 +57,7 @@ final class ProductCoordinator: EventNode, Coordinator {
 
 fileprivate extension ProductCoordinator {
     
-     func openMedicineList() {
+    func openMedicineList() {
         let viewController = R.storyboard.catalogue.medicineListViewController()!
         let model = MedicineListModel(parent: self)
         viewController.model = model
@@ -83,5 +87,30 @@ fileprivate extension ProductCoordinator {
         vc.model = model
         model.output = vc
         navigation.pushViewController(vc, animated: true)
+    }
+    
+    func open(_ route: MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D) {
+        switch route {
+        case .appleMap:
+            let distance: CLLocationDistance = 1000
+            let regionSpan = MKCoordinateRegion(center: coordinate, latitudinalMeters: distance, longitudinalMeters: distance)
+            let placemakr = MKPlacemark(coordinate: coordinate)
+            let mapItem = MKMapItem(placemark: placemakr)
+            
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            ]
+            mapItem.openInMaps(launchOptions: options)
+        case .googleMap:
+            let request = "comgooglemaps://?saddr=&daddr=\(coordinate.latitude),\(coordinate.longitude)&directionsmode=driving"
+            let url = URL(string: request)!
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+            
+        case .uber:
+            raise(event: AppEvent.presentInDev)
+        }
     }
 }

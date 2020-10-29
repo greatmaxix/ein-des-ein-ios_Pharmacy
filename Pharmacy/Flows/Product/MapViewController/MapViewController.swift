@@ -62,7 +62,11 @@ class MapViewController: UIViewController {
         messageViewHolder.addSubview(v)
         v.constraintsToSuperView()
         messageView = v
-        
+        v.routeAction = {[weak self] route in
+            guard let c = self?.messageView.coordinates else { return }
+            v.isDirectionsOpened = false
+            self?.model.open(route, coordinate: c)
+        }
         swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(hideMessage))
         swipeGesture.direction = .down
         v.addGestureRecognizer(swipeGesture)
@@ -113,10 +117,10 @@ class MapViewController: UIViewController {
             longitude: toCoordinate.longitude, zoom: zoom ?? mapView.camera.zoom))
     }
     
-    private func showMessage(pharmacy: PharmacyModel) {
+    private func showMessage(pharmacy: PharmacyModel, coordinates: CLLocationCoordinate2D) {
         messageHeightConstraint.constant = GUI.messageHeight
         
-        messageView.setup(pharmacy: pharmacy)
+        messageView.setup(pharmacy: pharmacy, coordinates: coordinates)
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
             self.view.layoutIfNeeded()
         })
@@ -145,7 +149,7 @@ extension MapViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         guard let index = marker.iconView?.tag, let pharmacy = model.farmacyAt(index: index) else { return false }
-        showMessage(pharmacy: pharmacy)
+        showMessage(pharmacy: pharmacy, coordinates: marker.position)
         return true
     }
     
