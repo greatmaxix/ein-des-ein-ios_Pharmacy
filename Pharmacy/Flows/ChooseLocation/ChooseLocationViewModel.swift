@@ -44,8 +44,15 @@ extension ChooseLocationViewModel: ChooseLocationViewControllerOutput {
 extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     
     func selected(indexPath: IndexPath) {
-        let test = countryResionsData[indexPath.row].subRegions
-        test?.forEach({print("zxcv \($0.name)")})
+        let cities = countryResionsData[indexPath.row].subRegions
+        self.sections.removeAll()
+        let array =  Dictionary(grouping: cities!) {$0.name.prefix(1)}
+            .sorted(by: { $0.0 < $1.0 })
+        
+        array.forEach { (key, value) in
+                self.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
+        }
+        self.output.reloadTableViewData()
     }
     
     func load() {
