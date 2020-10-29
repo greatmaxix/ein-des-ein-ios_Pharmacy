@@ -1204,6 +1204,8 @@
 				601E7ED42549D4B500C936BF /* LightRoundedButton.swift */,
 			);
 			path = LightRoundedButton;
+            sourceTree = "<group>";
+		};
 		601E7EE32549EEEE00C936BF /* Map */ = {
 			isa = PBXGroup;
 			children = (
