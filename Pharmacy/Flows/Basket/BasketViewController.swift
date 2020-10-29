@@ -105,6 +105,10 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
 
         view.apply(order: model.section(at: section))
 
+        view.createOrderHandler = { [weak self] in
+            self?.model.createOrder(at: section)
+        }
+
         return view
     }
 

@@ -239,6 +239,8 @@
 		619AAA4A2498B09800AB46ED /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA492498B09800AB46ED /* Token.swift */; };
 		61CFAA552549EB7200569DEF /* EmptyUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA532549EB7200569DEF /* EmptyUserCell.swift */; };
 		61CFAA562549EB7200569DEF /* EmptyUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAA542549EB7200569DEF /* EmptyUserCell.xib */; };
+		61CFAA7A254AFFB300569DEF /* CreateOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA79254AFFB200569DEF /* CreateOrderViewController.swift */; };
+		61CFAA7E254B13E400569DEF /* CreateOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA7D254B13E400569DEF /* CreateOrderModel.swift */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
 		87131D232507B9890050B8F2 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D222507B9890050B8F2 /* Executor.swift */; };
 		87131D25250913A70050B8F2 /* UISearchBar+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */; };
@@ -526,6 +528,8 @@
 		619AAA492498B09800AB46ED /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Pharmacy/Services/Managers/Token.swift; sourceTree = SOURCE_ROOT; };
 		61CFAA532549EB7200569DEF /* EmptyUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyUserCell.swift; sourceTree = "<group>"; };
 		61CFAA542549EB7200569DEF /* EmptyUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyUserCell.xib; sourceTree = "<group>"; };
+		61CFAA79254AFFB200569DEF /* CreateOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderViewController.swift; sourceTree = "<group>"; };
+		61CFAA7D254B13E400569DEF /* CreateOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderModel.swift; sourceTree = "<group>"; };
 		87131D222507B9890050B8F2 /* Executor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
 		87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+TextField.swift"; sourceTree = "<group>"; };
 		87131D27250A043D0050B8F2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -1193,7 +1197,7 @@
 				601E7ED42549D4B500C936BF /* LightRoundedButton.swift */,
 			);
 			path = LightRoundedButton;
-            sourceTree = "<group>";
+			sourceTree = "<group>";
 		};
 		601E7EE32549EEEE00C936BF /* Map */ = {
 			isa = PBXGroup;
@@ -1220,6 +1224,7 @@
 		6036EAF824DD1C2E003336C2 /* Basket */ = {
 			isa = PBXGroup;
 			children = (
+				61CFAA78254AFF8300569DEF /* Order */,
 				618473052549A05F0062D8B9 /* Cells */,
 				6036EAF924DD1C83003336C2 /* Basket.storyboard */,
 				6036EAFB24DD1C8F003336C2 /* BasketViewController.swift */,
@@ -1603,6 +1608,15 @@
 				875223AF2500E9E7000759C8 /* UserSession */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		61CFAA78254AFF8300569DEF /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				61CFAA79254AFFB200569DEF /* CreateOrderViewController.swift */,
+				61CFAA7D254B13E400569DEF /* CreateOrderModel.swift */,
+			);
+			path = Order;
 			sourceTree = "<group>";
 		};
 		87131D262509FBA80050B8F2 /* SearchBar */ = {
@@ -2255,6 +2269,7 @@
 				24F5FC58254892D900D28275 /* RecentMedicineEntity.swift in Sources */,
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
+				61CFAA7E254B13E400569DEF /* CreateOrderModel.swift in Sources */,
 				39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */,
 				8717E4DE2507744500546A55 /* SearchAPI.swift in Sources */,
 				875223CC2500FE07000759C8 /* NSManagedObject+Name.swift in Sources */,
@@ -2279,6 +2294,7 @@
 				395A7FC424A3980D00A7CFC6 /* BaseTableViewCell.swift in Sources */,
 				39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */,
 				603D31BA24E3FA1F000E5A6C /* UIImageView+URL.swift in Sources */,
+				61CFAA7A254AFFB300569DEF /* CreateOrderViewController.swift in Sources */,
 				603D318F24E2A2D3000E5A6C /* ReceiptView.swift in Sources */,
 				8715DB9524FFEA3900BBF37C /* OnboardingCoordinator.swift in Sources */,
 				395C9D772499FC14001EB6CD /* PhoneValidator.swift in Sources */,
@@ -2424,7 +2440,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -2448,7 +2464,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
