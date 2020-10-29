@@ -67,6 +67,7 @@ extension WelcomeModel: WelcomeModelInput {
         } else {
             raise(event: WelcomeEvent.openCategories(category: nil))
         }
+        raise(event: TabBarEvent.userWantsToChangeTab(newTab: .catalogue))
     }
     
     func didSelectProductBy(index: Int) {
@@ -123,17 +124,7 @@ extension WelcomeModel: WelcomeModelInput {
             
             switch result {
             case .success(let response):
-                var secondLevelCategories: [Category] = []
-                
-                for category in response.categories[0...3] {
-                    if let subCategories = category.subCategories {
-                        secondLevelCategories.append(contentsOf: subCategories)
-                    }
-                    if category.code != "H" {
-                        break
-                    }
-                }
-                self.topCategory = secondLevelCategories
+                self.topCategory = response.categories
                 self.output.modelIsLoaded()
                 //self.reloadCategories()
             case .failure(let error):
