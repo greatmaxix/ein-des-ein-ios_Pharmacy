@@ -15,10 +15,13 @@ class CreateOrderViewController: UIViewController {
 
     var model: CreateOrderViewControllerOutput!
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.register(UINib(nibName: "CreateOrderContactInfoCell", bundle: nil), forCellReuseIdentifier: "CreateOrderContactInfoCell")
+
+        tableView.register(UINib(nibName: "OrderDeliveryCell", bundle: nil), forCellReuseIdentifier: "OrderDeliveryCell")
     }
 
 }
@@ -26,13 +29,32 @@ class CreateOrderViewController: UIViewController {
 extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        switch model.type(at: indexPath) {
+        case .contactInfo:
+            return contactInfoCell(at: indexPath)
+        case .delivery:
+            return deliveryTypeCell(at: indexPath)
+        default:
+            return UITableViewCell()
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        return model.numberOfRows
     }
 
+    private func contactInfoCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CreateOrderContactInfoCell", for: indexPath) as? CreateOrderContactInfoCell else { return UITableViewCell() }
+
+        return cell
+    }
+
+    private func deliveryTypeCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDeliveryCell", for: indexPath) as? OrderDeliveryCell else { return UITableViewCell() }
+
+        return cell
+    }
+    
 }
 
 extension CreateOrderViewController: CreateOrderViewControllerInput {
