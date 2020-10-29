@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -29,33 +30,43 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="apT-YQ-j1y">
                                 <rect key="frame" x="0.0" y="0.0" width="473" height="222"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtt-JQ-ids">
-                                <rect key="frame" x="8" y="194" width="24.5" height="12"/>
-                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="10"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wtt-JQ-ids">
+                                <rect key="frame" x="8" y="193" width="457" height="13"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="11"/>
                                 <color key="textColor" name="textDarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcomeCategory" translatesAutoresizingMaskIntoConstraints="NO" id="7fH-7I-ieM">
+                                <rect key="frame" x="413" y="12" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Yzv-x2-fbS"/>
+                                    <constraint firstAttribute="width" constant="48" id="pVv-XA-QXO"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Wtt-JQ-ids" firstAttribute="top" relation="greaterThanOrEqual" secondItem="7fH-7I-ieM" secondAttribute="bottom" constant="6" id="GPw-4o-KxT"/>
+                            <constraint firstItem="7fH-7I-ieM" firstAttribute="top" secondItem="Fgm-eZ-bwf" secondAttribute="top" constant="12" id="Gxs-tO-b0B"/>
                             <constraint firstAttribute="bottom" secondItem="Wtt-JQ-ids" secondAttribute="bottom" constant="16" id="NHB-sX-rb4"/>
                             <constraint firstItem="apT-YQ-j1y" firstAttribute="top" secondItem="Fgm-eZ-bwf" secondAttribute="top" id="SRt-UZ-QhW"/>
                             <constraint firstItem="Wtt-JQ-ids" firstAttribute="leading" secondItem="Fgm-eZ-bwf" secondAttribute="leading" constant="8" id="StD-js-4GJ"/>
                             <constraint firstItem="apT-YQ-j1y" firstAttribute="leading" secondItem="Fgm-eZ-bwf" secondAttribute="leading" id="UGL-fE-HQC"/>
+                            <constraint firstAttribute="trailing" secondItem="7fH-7I-ieM" secondAttribute="trailing" constant="12" id="cGi-Nm-VVw"/>
+                            <constraint firstAttribute="trailing" secondItem="Wtt-JQ-ids" secondAttribute="trailing" constant="8" id="hiB-so-UjK"/>
                             <constraint firstAttribute="bottom" secondItem="apT-YQ-j1y" secondAttribute="bottom" id="nXt-fo-qx0"/>
                             <constraint firstAttribute="trailing" secondItem="apT-YQ-j1y" secondAttribute="trailing" id="oXv-kD-UQe"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Wtt-JQ-ids" secondAttribute="trailing" constant="8" id="tCZ-xn-QXR"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="Fgm-eZ-bwf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="893-iL-U5S"/>
                 <constraint firstAttribute="bottom" secondItem="Fgm-eZ-bwf" secondAttribute="bottom" id="GGv-Xo-x4J"/>
                 <constraint firstItem="Fgm-eZ-bwf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Ya5-nJ-aoa"/>
                 <constraint firstAttribute="trailing" secondItem="Fgm-eZ-bwf" secondAttribute="trailing" id="zee-Zo-fJ4"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="473" height="222"/>
             <connections>
                 <outlet property="containerView" destination="Fgm-eZ-bwf" id="7k1-0y-Avm"/>
@@ -66,8 +77,12 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="welcomeCategory" width="64" height="64"/>
         <namedColor name="textDarkBlue">
             <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

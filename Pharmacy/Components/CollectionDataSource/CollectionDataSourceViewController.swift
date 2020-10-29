@@ -12,11 +12,12 @@ class CollectionDataSourceViewController: UIViewController {
     
     private enum GUI {
         static let defaultContentInset = UIEdgeInsets.all(16)
-        static let defaultLayout = FlowLayoutStyle.grid(count: 2, height: 116)
+        static let defaultLayout = FlowLayoutStyle.grid(count: 2, height: 136)
     }
     
     enum FlowLayoutStyle {
         case grid(count: Int, height: CGFloat)
+        case table
     }
     
     let constraintInsets: UIEdgeInsets
@@ -61,6 +62,8 @@ class CollectionDataSourceViewController: UIViewController {
             let width = (view.bounds.width / length) - spacing - layout.minimumInteritemSpacing
             layout.itemSize = CGSize(width: width, height: height)
             return layout
+        case .table:
+            return UICollectionViewFlowLayout()
         }
     }
 }

@@ -22,7 +22,7 @@ final class CategoryCollectionViewCell: HighlightedCollectionViewCell, Container
         super.awakeFromNib()
         containerView.layer.cornerRadius = GUI.cornerRadius
         imageView.layer.cornerRadius = GUI.cornerRadius
-        containerView.dropLightBlueShadow()
+        containerView.decorationBlackShadow()
         clipsToBounds = false
     }
     
