@@ -23,6 +23,7 @@ enum ProfileEvent: Event {
     case openHelp
     case logout
     case close
+    case openProduct(Medicine)
 }
 
 protocol ProfileInput {
@@ -92,7 +93,7 @@ final class ProfileModel: Model {
             }
 
         } else {
-            do  {
+            do {
                 let cellData = EmptyUserCellData()
                 cellData.authorize = { [weak self] in
                     self?.raise(event: ProfileEvent.logout)

@@ -36,7 +36,7 @@ final class AboutAppModel: EventNode {
     setupDataSource()
   }
   
-  //MARK: - Private functions
+  // MARK: - Private functions
   private func setupDataSource() {
     
     let openOptionHandler: ((_: AboutAppEvent) -> Void) = { [weak self] event in
@@ -85,7 +85,7 @@ final class AboutAppModel: EventNode {
 }
 
 
-//MARK: - AboutAppInput
+// MARK: - AboutAppInput
 extension AboutAppModel: AboutAppInput {
   var cellCount: Int {
       return cellsData.count

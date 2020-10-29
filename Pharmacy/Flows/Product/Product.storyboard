@@ -129,6 +129,7 @@
                     <connections>
                         <outlet property="bottomView" destination="uEj-fc-StZ" id="fSe-Dd-6oa"/>
                         <outlet property="findButton" destination="Wse-rH-8Di" id="RkJ-ER-qZH"/>
+                        <outlet property="likeButton" destination="4g8-gw-kOP" id="3qh-JG-KbT"/>
                         <outlet property="pageControl" destination="uDV-hc-Xps" id="2ly-AU-maL"/>
                         <outlet property="productContainerView" destination="MtX-mJ-Dn2" id="RKi-TN-Wog"/>
                         <outlet property="tableView" destination="Tob-sf-O0g" id="CiK-Kj-nAu"/>

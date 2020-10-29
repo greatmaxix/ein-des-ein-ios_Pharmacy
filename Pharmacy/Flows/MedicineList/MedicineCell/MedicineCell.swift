@@ -22,9 +22,11 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
     
     // MARK: - Properties
     var favoriteButtonHandler: ((_ state: Bool) -> Void)?
+    
     var addToPurchesesHandler: EmptyClosure?
     
     private(set) var medicineProductID: Int = 0
+    
     private var defaultLikedStatus: Bool = false
     private var downloadTask: DownloadTask?
     
