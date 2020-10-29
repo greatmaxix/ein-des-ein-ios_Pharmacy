@@ -77,6 +77,9 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         view.apply(order: model.section(at: section))
+        view.closureActionHandler = { [weak self] in
+            self?.model.sectionClosureChanged(at: section)
+        }
 
         return view
     }
@@ -104,6 +107,10 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - BasketViewControllerInput
 
 extension BasketViewController: BasketViewControllerInput {
+
+    func reloadSection(at index: Int) {
+        tableView.reloadSections(IndexSet(integer: index), with: .automatic)
+    }
 
     func cartDidLoad() {
         tableView.isHidden = false

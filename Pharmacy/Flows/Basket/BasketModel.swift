@@ -18,10 +18,12 @@ protocol BasketModelInput: class {
     func section(at index: Int) -> PharmCartOrder
     func medecine(at indexPath: IndexPath) -> CartMedicine
     func load()
+    func sectionClosureChanged(at index: Int)
 }
 
 protocol BasketModelOutput: class {
     func cartDidLoad()
+    func reloadSection(at index: Int)
 }
 
 final class BasketModel: Model {
@@ -29,7 +31,12 @@ final class BasketModel: Model {
     weak var output: BasketModelOutput!
 
     private var loader = DataManager<ProductCartAPI, CartResponse>()
-    private var cartOrders: [PharmCartOrder] = []
+    private var cartOrders: [PharmCartOrder] = [] {
+        didSet {
+            sectionClosureStates = Array(repeating: false, count: cartOrders.count)
+        }
+    }
+    private var sectionClosureStates: [Bool] = []
 }
 
 // MARK: - BasketViewControllerOutput
@@ -45,11 +52,20 @@ extension BasketModel: BasketViewControllerOutput {
     }
 
     func numberOfRows(in section: Int) -> Int {
+        if sectionClosureStates[section] == false {
+            return 0
+        }
+
         return cartOrders[section].products.count
     }
 
     func medecine(at indexPath: IndexPath) -> CartMedicine {
         return cartOrders[indexPath.section].products[indexPath.row]
+    }
+
+    func sectionClosureChanged(at index: Int) {
+        sectionClosureStates[index] = !sectionClosureStates[index]
+        output.reloadSection(at: index)
     }
 
     func load() {

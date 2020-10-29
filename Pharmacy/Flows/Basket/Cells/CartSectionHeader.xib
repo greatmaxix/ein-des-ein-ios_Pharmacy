@@ -59,6 +59,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pea-dN-p7z">
                     <rect key="frame" x="366" y="36" width="24" height="24"/>
                     <state key="normal" image="button_down"/>
+                    <connections>
+                        <action selector="styleTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ld1-yM-f9h"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nh-29-b4K">
                     <rect key="frame" x="16" y="95" width="382" height="1"/>
