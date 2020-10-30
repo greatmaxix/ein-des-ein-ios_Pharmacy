@@ -104,7 +104,7 @@ final class ProfileModel: Model {
         }
 
         do {
-            let location = user!.regionName
+            let location = user?.regionName
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileRegion(), additionalInfo: location, type: .region)
             cellData.image = R.image.profilePin()
             cellData.selectHandler = { [weak self] in
@@ -203,6 +203,7 @@ extension ProfileModel: ProfileInput {
     func loadUser(completion: EmptyClosure?) {
 
         if UserSession.shared.user == nil {
+            completion?()
             return
         }
 

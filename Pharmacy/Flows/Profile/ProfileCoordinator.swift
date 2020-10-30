@@ -62,15 +62,6 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 break
             }
         }
-        
-        addHandler { [weak self] (event: MedicineListModelEvent) in
-            switch event {
-            case .openProduct(let medicine):
-                self?.openProductMedicineFor(medicine: medicine)
-            default:
-                break
-            }
-        }
       
         addHandler { [weak self] (event: AboutAppEvent) in
             switch event {
@@ -80,6 +71,22 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 break
             }
         }
+        
+        addHandler(.onRaise) { [weak self] (event: ProductModelEvent) in
+            
+            guard let self = self else { return }
+            
+            switch event {
+            case .openMap(let product):
+                self.createMapFlow(medicineId: product.identifier)
+            case .openFarmacyList(let pharmacies):
+                self.openMapFarmacyList(pharmacies: pharmacies)
+                
+            default:
+                break
+            }
+        }
+        
     }
     
     func createFlow() -> UIViewController {
@@ -95,6 +102,14 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
        
         navigationVC.isToolbarHidden = true
         return navigationVC
+    }
+    
+    func createMapFlow(medicineId: Int) {
+        guard let vc = R.storyboard.product.mapViewController() else { return }
+        let model = MapModel(parent: self, medicineId: medicineId)
+        model.output = vc
+        vc.model = model
+        root.navigationController?.pushViewController(vc, animated: true)
     }
     
     func presentEditProfile() {
@@ -168,6 +183,14 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         viewController.model = model
         model.output = viewController
         root.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func openMapFarmacyList(pharmacies: [PharmacyModel]) {
+        guard let vc = R.storyboard.product.mapFarmacyListViewController() else { return }
+        let model = MapFarmacyListModel(parent: self, pharmacies: pharmacies)
+        model.output = vc
+        vc.model = model
+        root.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func presentChooseLocation() {
