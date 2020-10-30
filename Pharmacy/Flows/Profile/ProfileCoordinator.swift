@@ -62,15 +62,6 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 break
             }
         }
-        
-        addHandler { [weak self] (event: MedicineListModelEvent) in
-            switch event {
-            case .openProduct(let medicine):
-                self?.openProductMedicineFor(medicine: medicine)
-            default:
-                break
-            }
-        }
       
         addHandler { [weak self] (event: AboutAppEvent) in
             switch event {
