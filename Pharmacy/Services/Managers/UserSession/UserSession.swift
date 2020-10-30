@@ -101,7 +101,9 @@ class UserSession {
         return UserDisplayable(name: user.name,
                                email: user.email,
                                phone: user.phone,
-                               avatarURL: user.avatar?.url)
+                               avatarURL: user.avatar?.url,
+                               regionName: user.region?.name,
+                               regionId: user.region?.id)
     }
     
     func save(avatar: AvatarDTO) {
@@ -134,7 +136,9 @@ extension UserSession {
         return UserDisplayable(name: userEntity.name,
                                email: userEntity.email,
                                phone: userEntity.phone,
-                               avatarURL: userEntity.avatar?.url)
+                               avatarURL: userEntity.avatar?.url,
+                               regionName: userEntity.region?.name,
+                               regionId: userEntity.region?.id)
     }
 
     private func clearData() {

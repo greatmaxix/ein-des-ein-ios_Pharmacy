@@ -12,6 +12,7 @@ import EventsTree
 
 enum AppEvent: Event {
   case presentInDev
+  case chooseLocation
 }
 
 final class AppNavigation: EventNode {

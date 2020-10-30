@@ -176,6 +176,7 @@ extension WelcomeViewController: WelcomeModelOutput {
 
         for receipt in receipts {
             // TODO: Why imageURL allays nil
+
             if let receiptView: ReceiptView  = R.nib.receiptView(owner: self) {
                 receiptView.apply(receipt: receipt)
                 receiptView.likeActionHandler = {[unowned self] state in

@@ -104,10 +104,11 @@ final class ProfileModel: Model {
         }
 
         do {
-            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileRegion(), additionalInfo: "Москва", type: .region)
+            let location = user!.regionName
+            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileRegion(), additionalInfo: location, type: .region)
             cellData.image = R.image.profilePin()
             cellData.selectHandler = { [weak self] in
-                self?.raise(event: AppEvent.presentInDev)
+                self?.raise(event: AppEvent.chooseLocation)
             }
             cellsData.append(cellData)
         }

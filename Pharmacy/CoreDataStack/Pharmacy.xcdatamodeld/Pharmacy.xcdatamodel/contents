@@ -24,6 +24,10 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="RegionEntity" representedClassName="RegionEntity" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="identifier" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -31,6 +35,7 @@
         <attribute name="phone" attributeType="String"/>
         <attribute name="uuid" optional="YES" attributeType="String"/>
         <relationship name="avatar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AvatarEntity"/>
+        <relationship name="region" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RegionEntity"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="identifier"/>
@@ -41,6 +46,7 @@
         <element name="AvatarEntity" positionX="-63" positionY="9" width="128" height="73"/>
         <element name="CategoryEntity" positionX="180.328125" positionY="-66.81640625" width="128" height="103"/>
         <element name="RecentMedicineEntity" positionX="-63.41796875" positionY="162.6796875" width="128" height="148"/>
-        <element name="UserEntity" positionX="-63.88671875" positionY="-168.83203125" width="128" height="133"/>
+        <element name="UserEntity" positionX="-63.88671875" positionY="-168.83203125" width="128" height="148"/>
+        <element name="RegionEntity" positionX="72" positionY="-18" width="128" height="73"/>
     </elements>
 </model>

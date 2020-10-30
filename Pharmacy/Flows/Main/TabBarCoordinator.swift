@@ -20,6 +20,8 @@ class TabBarCoordinator: EventNode, Coordinator {
             switch event {
             case .presentInDev:
                 self?.presentInDev()
+            default:
+                break
             }
         }
     }

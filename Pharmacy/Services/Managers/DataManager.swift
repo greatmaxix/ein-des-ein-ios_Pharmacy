@@ -44,6 +44,7 @@ class DataManager<T, U> where T: TargetType, U: Decodable {
 
     // MARK: - Data Load
     public func load(target: T, completion: @escaping (_ result: Result<U, MoyaError>) -> Void) {
+        
         isLoading = true
         self.completion = completion
         provider.request(target, completion: requestCompletion)
