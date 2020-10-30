@@ -8,17 +8,29 @@
 
 import UIKit
 
+//protocol CellContactInforationProtocol {
+//    <#requirements#>
+//}
+
 class CreateOrderContactInfoCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet weak var nameTextView: TextInputView!
+    @IBOutlet weak var phoneTextView: TextInputView!
+    @IBOutlet weak var emailTextView: TextInputView!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func apply() {
+        let user = UserSession.shared.user
 
-        // Configure the view for the selected state
+        nameTextView.contentType = .name
+        nameTextView.placeholder = "Имя"
+        nameTextView.text = user?.name
+
+        phoneTextView.contentType = .phone
+        phoneTextView.placeholder = ""
+        phoneTextView.text = user?.phone
+
+        emailTextView.contentType = .email
+        emailTextView.placeholder = "Почта"
+        emailTextView.text = user?.email
     }
-    
 }

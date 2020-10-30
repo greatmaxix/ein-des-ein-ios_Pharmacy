@@ -69,6 +69,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="emailTextView" destination="GMb-s1-Blg" id="GVu-Pa-MZo"/>
+                <outlet property="nameTextView" destination="b5W-wM-G2K" id="v7n-be-N8e"/>
+                <outlet property="phoneTextView" destination="AFe-hx-Cg9" id="pgf-k7-3De"/>
+            </connections>
             <point key="canvasLocation" x="70" y="60"/>
         </tableViewCell>
     </objects>

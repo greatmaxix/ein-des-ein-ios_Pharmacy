@@ -62,8 +62,6 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
             return commentCell(at: indexPath)
         case .total:
             return totalInfoCell(at: indexPath)
-        default:
-            return UITableViewCell()
         }
     }
 
@@ -73,6 +71,8 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
 
     private func contactInfoCell(at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CreateOrderContactInfoCell", for: indexPath) as? CreateOrderContactInfoCell else { return UITableViewCell() }
+
+        cell.apply()
 
         return cell
     }
