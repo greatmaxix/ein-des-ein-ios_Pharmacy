@@ -8,8 +8,10 @@
 
 import UIKit
 
-final class CatalogueViewController: CollectionDataSourceViewController {
+final class CatalogueViewController: CollectionDataSourceViewController, NavigationBarStyled {
     
+    var style: NavigationBarStyle = .search
+        
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     var model: CatalogueModelInput!
