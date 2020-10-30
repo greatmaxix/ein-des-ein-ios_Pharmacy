@@ -29,6 +29,7 @@ final class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         activityIndicator.show(animated: true)
         tableView.dataSource = self
         tableView.delegate = self
@@ -49,10 +50,12 @@ final class ProfileViewController: UIViewController {
             bar.isLeftItemHidden = true
             bar.isRightItemHidden = true
         }
+
         model.loadUser { [weak self] in
             self?.tableView.reloadData()
             self?.activityIndicator.hide(animated: true)
         }
+        
     }
 }
 
