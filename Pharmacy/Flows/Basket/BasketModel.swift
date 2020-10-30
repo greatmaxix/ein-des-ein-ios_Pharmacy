@@ -9,7 +9,9 @@
 import Foundation
 import EventsTree
 
-enum BasketModelEvent: Event { }
+enum BasketModelEvent: Event {
+    case create(order: PharmCartOrder)
+}
 
 protocol BasketModelInput: class {
     var numberOfSections: Int { get }
@@ -18,6 +20,7 @@ protocol BasketModelInput: class {
     func section(at index: Int) -> PharmCartOrder
     func medecine(at indexPath: IndexPath) -> CartMedicine
     func load()
+    func createOrder(at section: Int)
 
     func sectionClosureChanged(at index: Int)
     func increaseCount(at indexPath: IndexPath)
@@ -62,6 +65,10 @@ extension BasketModel: BasketViewControllerOutput {
         }
 
         return cartOrders[section].products.count
+    }
+
+    func createOrder(at section: Int) {
+        raise(event: BasketModelEvent.create(order: cartOrders[section]))
     }
 
     func medecine(at indexPath: IndexPath) -> CartMedicine {

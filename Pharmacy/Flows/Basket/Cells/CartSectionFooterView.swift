@@ -14,16 +14,16 @@ class CartSectionFooterView: UITableViewHeaderFooterView {
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var totalCountLabel: UILabel!
 
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-
-    }
+    var createOrderHandler: EmptyClosure?
 
     func apply(order: PharmCartOrder) {
-        totalPriceLabel.text = "\(order.totalCost) ₸"
+        totalPriceLabel.text = order.totalCost.moneyString(with: "₸")
         totalCountLabel.text = "\(order.totalProducts) товара (ов)"
 
-        corneredView.dropShadow(color: .black, opacity: 0.3)
+        corneredView.dropShadow(color: .black, opacity: 0.6)
+    }
+    @IBAction func createOrder(_ sender: Any) {
+        createOrderHandler?()
     }
 
 }

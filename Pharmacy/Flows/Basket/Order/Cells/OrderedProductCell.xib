@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="144" id="KGk-i7-Jjw" customClass="OrderedProductCell" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CsA-ci-sH5">
+                        <rect key="frame" x="16" y="4" width="288" height="136"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medicineImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="oQe-DB-bf4">
+                                <rect key="frame" x="8" y="8" width="112" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="ngB-f9-9Ab"/>
+                                    <constraint firstAttribute="width" constant="112" id="sfk-lv-axS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3t-O3-8Zs">
+                                <rect key="frame" x="128" y="8" width="152" height="19"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoA-09-ST2">
+                                <rect key="frame" x="128" y="35" width="152" height="16.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="568 ₸  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfp-L8-Gbi">
+                                <rect key="frame" x="128" y="101" width="49" height="19"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" name="welcomeBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X 3" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gme-Vh-gRR">
+                                <rect key="frame" x="248.5" y="101" width="23.5" height="19"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="oQe-DB-bf4" secondAttribute="bottom" constant="16" id="3Kh-E4-deO"/>
+                            <constraint firstItem="oQe-DB-bf4" firstAttribute="leading" secondItem="CsA-ci-sH5" secondAttribute="leading" constant="8" id="98c-t2-6Zl"/>
+                            <constraint firstAttribute="trailing" secondItem="I3t-O3-8Zs" secondAttribute="trailing" constant="8" id="AKP-q4-MVd"/>
+                            <constraint firstAttribute="trailing" secondItem="DoA-09-ST2" secondAttribute="trailing" constant="8" id="AY6-4F-weF"/>
+                            <constraint firstItem="jfp-L8-Gbi" firstAttribute="leading" secondItem="oQe-DB-bf4" secondAttribute="trailing" constant="8" id="Bae-zB-LRl"/>
+                            <constraint firstItem="DoA-09-ST2" firstAttribute="leading" secondItem="oQe-DB-bf4" secondAttribute="trailing" constant="8" id="GVI-ok-9Vz"/>
+                            <constraint firstItem="gme-Vh-gRR" firstAttribute="firstBaseline" secondItem="jfp-L8-Gbi" secondAttribute="firstBaseline" id="H8p-O0-oLl"/>
+                            <constraint firstItem="gme-Vh-gRR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DoA-09-ST2" secondAttribute="bottom" constant="8" id="TWM-jx-EUY"/>
+                            <constraint firstItem="I3t-O3-8Zs" firstAttribute="top" secondItem="CsA-ci-sH5" secondAttribute="top" constant="8" id="ZOO-5J-KJv"/>
+                            <constraint firstItem="I3t-O3-8Zs" firstAttribute="leading" secondItem="oQe-DB-bf4" secondAttribute="trailing" constant="8" id="hpb-qS-eqB"/>
+                            <constraint firstAttribute="trailing" secondItem="gme-Vh-gRR" secondAttribute="trailing" constant="16" id="idy-X9-68r"/>
+                            <constraint firstItem="oQe-DB-bf4" firstAttribute="top" secondItem="CsA-ci-sH5" secondAttribute="top" constant="8" id="lvA-TZ-weM"/>
+                            <constraint firstItem="DoA-09-ST2" firstAttribute="top" secondItem="I3t-O3-8Zs" secondAttribute="bottom" constant="8" id="rNy-lm-2Sf"/>
+                            <constraint firstItem="jfp-L8-Gbi" firstAttribute="bottom" secondItem="oQe-DB-bf4" secondAttribute="bottom" id="vxQ-xT-CUg"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="backgroundGray"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="CsA-ci-sH5" secondAttribute="trailing" constant="16" id="HUk-st-pEO"/>
+                    <constraint firstAttribute="bottom" secondItem="CsA-ci-sH5" secondAttribute="bottom" constant="4" id="Nm4-d0-Y9W"/>
+                    <constraint firstItem="CsA-ci-sH5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="rqP-HM-Rxd"/>
+                    <constraint firstItem="CsA-ci-sH5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="vPC-Kc-bp8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="corneredView" destination="CsA-ci-sH5" id="FIJ-XI-IYl"/>
+                <outlet property="countLabel" destination="gme-Vh-gRR" id="IAL-ZJ-f60"/>
+                <outlet property="infoLabel" destination="DoA-09-ST2" id="aYN-7V-Efk"/>
+                <outlet property="logoImageView" destination="oQe-DB-bf4" id="gUX-qt-0Jg"/>
+                <outlet property="nameLabel" destination="I3t-O3-8Zs" id="weW-in-dP5"/>
+                <outlet property="priceLabel" destination="jfp-L8-Gbi" id="JAr-Wb-h5w"/>
+            </connections>
+            <point key="canvasLocation" x="69.565217391304358" y="59.598214285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="medicineImagePlaceholder" width="112" height="112"/>
+        <namedColor name="backgroundGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="welcomeBlue">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

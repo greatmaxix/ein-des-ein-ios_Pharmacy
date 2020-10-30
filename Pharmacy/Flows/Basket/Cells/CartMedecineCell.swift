@@ -37,7 +37,7 @@ class CartMedecineCell: UITableViewCell {
         medTypeLabel.text = medecine.releaseForm.htmlToString
         infoLabel.text = medecine.manufacturerName
         amountLabel.text = String(medecine.productCount)
-        priceLabel.text = "\(medecine.price ?? 0.0) ₸"
+        priceLabel.text = medecine.price?.moneyString(with: "₸")
 
         if let url = URL(string: medecine.pictureUrls.first ?? "") {
             logoImageView.loadImageBy(url: url)
