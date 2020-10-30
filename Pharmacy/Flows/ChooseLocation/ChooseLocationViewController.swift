@@ -88,7 +88,7 @@ extension ChooseLocationViewController: UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: ChooseLocationTableViewCell.self)
         cell.selectionStyle = .none
         let item = model.tableViewSections[indexPath.section].items[indexPath.row] as? Region
-        cell.apply(title: item!.name, item: item!)
+        cell.apply(title: item!.name)
         return cell
     }
     
@@ -101,9 +101,31 @@ extension ChooseLocationViewController: UITableViewDataSource, UITableViewDelega
     }
 }
 
-extension ChooseLocationViewController: ChooseLocationViewModelOutput {}
+extension ChooseLocationViewController: ChooseLocationViewModelOutput {
+    
+    func reloadTableViewData(state: Bool) {
+        activityIndicator.hide(animated: true, afterDelay: 0.3)
+        let transition = CATransition()
+        transition.type = CATransitionType.push
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.fillMode = CAMediaTimingFillMode.removed
+        transition.duration = 0.3
+        
+        transition.subtype = state ? CATransitionSubtype.fromLeft : CATransitionSubtype.fromRight
+        self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
 
-// MARK: - SimpleNavigationBarDelegate
+        self.tableView.reloadData()
+    }
+    
+    func applyTableViewCell(indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? ChooseLocationTableViewCell else {return}
+        cell.selectedCell()
+        let region = model.tableViewSections[indexPath.section].items[indexPath.row] as? Region
+        model.applyRegion(regionId: region!.regionId)
+    }
+}
+
+// MARK: - SimpleNavigationBarDelegate  
 
 extension ChooseLocationViewController: SimpleNavigationBarDelegate {
     
@@ -114,20 +136,6 @@ extension ChooseLocationViewController: SimpleNavigationBarDelegate {
         } else {
             model.close()
         }
-    }
-    
-    func reloadTableViewData(state: Bool) {
-        activityIndicator.hide(animated: true, afterDelay: 0.3)
-        let transition = CATransition()
-        transition.type = CATransitionType.push
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.fillMode = CAMediaTimingFillMode.removed
-        transition.duration = 0.3
-        
-        transition.subtype = state ? CATransitionSubtype.fromLeft : CATransitionSubtype.fromRight 
-        self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
-
-        self.tableView.reloadData()
     }
   
     func rightBarItemAction() {

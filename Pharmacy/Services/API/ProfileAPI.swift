@@ -14,6 +14,7 @@ enum ProfileAPI {
     case getCustomer
     case updateCustomer(name: String, email: String, avatarUuid: String)
     case sendImage(imageData: Data, mime: String, fileName: String)
+    case updateRegion(regionId: Int)
 }
 
 extension ProfileAPI: RequestConvertible {
@@ -26,6 +27,8 @@ extension ProfileAPI: RequestConvertible {
             return "customer/customer"
         case .sendImage:
             return "customer/image"
+        case .updateRegion:
+            return "customer/customer/region"
         }
     }
     
@@ -37,6 +40,8 @@ extension ProfileAPI: RequestConvertible {
             return .put
         case .sendImage:
             return .post
+        case .updateRegion:
+            return .patch
         }
     }
     
@@ -49,6 +54,9 @@ extension ProfileAPI: RequestConvertible {
         case .sendImage(imageData: let imageData, mime: let mime, fileName: let fileName):
             let multipart = MultipartFormData(provider: .data(imageData), name: "file", fileName: fileName, mimeType: mime)
             return .uploadMultipart([multipart])
+        case .updateRegion(let regionId):
+            return .requestParameters(parameters: ["regionId": regionId],
+                                      encoding: JSONEncoding.default)
         }
     }
     

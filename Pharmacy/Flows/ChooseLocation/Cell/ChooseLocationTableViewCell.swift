@@ -15,8 +15,6 @@ class ChooseLocationTableViewCell: UITableViewCell {
         static let cornerRadius: CGFloat = 8
     }
     
-    private var region: Region!
-    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var applyView: UIImageView!
     @IBOutlet internal weak var containerView: UIView!
@@ -27,8 +25,20 @@ class ChooseLocationTableViewCell: UITableViewCell {
         containerView.layer.cornerRadius = GUI.cornerRadius
     }
     
-    func apply(title: String, item: Region) {
+    override func prepareForReuse() {
+        self.applyView.isHidden = true
+    }
+    
+    func apply(title: String) {
         titleLabel.text = title
-        self.region = item
+    }
+    
+    func selectedCell() {
+        UIView.transition(with: applyView, duration: 0.3,
+                          options: .transitionCrossDissolve,
+                          animations: {[weak self] in
+                            self?.applyView.isHidden = false
+                      })
+        
     }
 }

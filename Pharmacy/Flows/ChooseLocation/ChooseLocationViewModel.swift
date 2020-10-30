@@ -10,6 +10,7 @@ import Foundation
 
 protocol ChooseLocationViewModelOutput: class {
     func reloadTableViewData(state: Bool)
+    func applyTableViewCell(indexPath: IndexPath)
 }
 
 protocol ChooseLocationViewModelInput: class {
@@ -17,7 +18,8 @@ protocol ChooseLocationViewModelInput: class {
     func load()
     func close()
     func selected(indexPath: IndexPath)
-    var screenState:Bool {get}
+    var screenState: Bool {get}
+    func applyRegion(regionId: Int)
 }
 
 class ChooseLocationViewModel: Model {
@@ -26,9 +28,8 @@ class ChooseLocationViewModel: Model {
     private(set) var sections: [TableViewSection] = []
     private var searchTerm: String = ""
     
-    private let cityProvider = DataManager<SearchAPI, WishlistResponse>()
-    
     private let countryProvider = DataManager<LocationAPI, RegionResponse>()
+    private let updateUserProvider = DataManager<ProfileAPI, ProfileResponse>()
     
     private var countryResionsData: [Region] = []
     private var state: Bool = false
@@ -39,12 +40,28 @@ class ChooseLocationViewModel: Model {
 }
 
 // MARK: - ChooseLocationViewModelOutput
-extension ChooseLocationViewModel: ChooseLocationViewControllerOutput {
-
-}
+extension ChooseLocationViewModel: ChooseLocationViewControllerOutput {}
 
 // MARK: - ChooseLocationViewModelInput
 extension ChooseLocationViewModel: ChooseLocationViewModelInput {
+    
+    func applyRegion(regionId: Int) {
+        updateUserProvider.load(target: .updateRegion(regionId: regionId)) { result in
+            switch result {
+            case .success(let user):
+                UserSession.shared.save(user: user.user)
+                self.successSaveRegion()
+            case .failure(let error):
+                print("Was error \(error.localizedDescription)")
+            }
+            
+        }
+    }
+    
+    func successSaveRegion() {
+        self.raise(event: EditProfileEvent.profileUpdated)
+        self.raise(event: EditProfileEvent.close)
+    }
     
     var screenState: Bool {
             state
@@ -53,10 +70,14 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     func selected(indexPath: IndexPath) {
         self.state = true
         guard !countryResionsData.isEmpty,
-              let cities = countryResionsData[indexPath.row].subRegions else {return}
+              let cities = countryResionsData[indexPath.row].subRegions else {
+            self.output.applyTableViewCell(indexPath: indexPath)
+            return
+        }
         
         countryResionsData.removeAll()
         self.sections.removeAll()
+        
         let array =  Dictionary(grouping: cities) {$0.name.prefix(1)}
             .sorted(by: { $0.0 < $1.0 })
         
