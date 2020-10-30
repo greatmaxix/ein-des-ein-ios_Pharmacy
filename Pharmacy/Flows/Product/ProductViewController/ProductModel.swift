@@ -8,13 +8,14 @@
 
 import Foundation
 import EventsTree
-
+import CoreLocation
 enum ProductModelEvent: Event {
     case openAnalogsFor(Product)
     case openCatalogsFor(Product)
     case openMap(Product)
     case openFarmacyList([PharmacyModel])
     case openCheckout
+    case route(MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D)
 }
 
 protocol ProductModelInput: class {
@@ -24,10 +25,13 @@ protocol ProductModelInput: class {
     func saveToCoreData(medicine: Medicine)
     func didSelectCell(at indexPath: IndexPath)
     func openMap()
+    func addToWishList()
+    func removeFromWishList()
 }
 
 protocol ProductModelOutput: class {
     func didLoad(product: Product)
+    func addRemoveFromFavoriteError()
 }
 
 final class ProductModel: Model {
@@ -37,6 +41,7 @@ final class ProductModel: Model {
     private var product: Product!
     
     private let provider = DataManager<ProductAPI, SingleItemContainerResponse<Product>>()
+    private let wishListProvider = DataManager<WishListAPI, PostResponse>()
     
     let dataSource = TableDataSource<ProductCellSection>()
     
@@ -50,6 +55,30 @@ final class ProductModel: Model {
 // MARK: - ProductViewControllerOutput
 
 extension ProductModel: ProductViewControllerOutput {
+    
+    func addToWishList() {
+        wishListProvider.load(target: .addToWishList(medicineId: self.product.identifier)) { (result) in
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                print("error is \(error.localizedDescription)")
+                self.output.addRemoveFromFavoriteError()
+            }
+        }
+    }
+    
+    func removeFromWishList() {
+        wishListProvider.load(target: .removeFromWishList(medicineId: self.product.identifier)) { (result) in
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                print("error is \(error.localizedDescription)")
+                self.output.addRemoveFromFavoriteError()
+                }
+        }
+    }
     
     func saveToCoreData(medicine: Medicine) {
         let min = NSDecimalNumber.init(decimal: medicine.minPrice ?? 0).doubleValue

@@ -91,7 +91,7 @@ extension WishlistModel: WishlistInput {
     }
     
     func selectMedicineAt(index: Int) {
-        raise(event: MedicineListModelEvent.openProduct(medicines[index]))
+        raise(event: ProfileEvent.openProduct(medicines[index]))
     }
     
     func deleteMedicine(id: Int, index: IndexPath) {

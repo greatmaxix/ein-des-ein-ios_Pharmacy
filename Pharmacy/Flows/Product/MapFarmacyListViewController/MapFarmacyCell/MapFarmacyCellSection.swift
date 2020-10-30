@@ -8,9 +8,10 @@
 
 import UIKit
 
-enum MapFarmacyCellSection: TableCellSection {
+struct MapFarmacyCellSection: TableCellSection {
     
-    case common(PharmacyModel)
+    var common: PharmacyModel!
+    var addToChartHandler: EmptyClosure?
     
     func reuseIdentifier() -> String {
         String(describing: self)
@@ -21,11 +22,8 @@ enum MapFarmacyCellSection: TableCellSection {
     }
     
     func apply(cell: UITableViewCell) {
-        switch (self, cell) {
-        case let (.common(pharmacy), cell) as (MapFarmacyCellSection, MapFarmacyCell):
-            cell.apply(pharmacy: pharmacy)
-        default:
-            return
-        }
+        guard let cell = cell as? MapFarmacyCell else {return}
+        cell.apply(pharmacy: self.common)
+        cell.addToPurchesesHandler = addToChartHandler
     }
 }

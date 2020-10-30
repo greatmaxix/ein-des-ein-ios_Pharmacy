@@ -10,52 +10,6 @@ import Foundation
 
 struct CartResponse: Codable {
 
-//    "message": "string",
-//      "status": "string",
-//      "data": {
-//        "items": [
-//          {
-//            "id": 0,
-//            "name": "string",
-//            "location": {
-//              "address": "string"
-//            },
-//            "logo": {
-//              "url": "string"
-//            },
-//            "pharmacyProducts": [
-//              {
-//                "pharmacyProductId": 0,
-//                "rusName": "string",
-//                "releaseForm": "string",
-//                "pictures": [
-//                  {
-//                    "url": "string"
-//                  }
-//                ],
-//                "manufacturerData": {
-//                  "localName": "string",
-//                  "iso3CountryCode": "string"
-//                },
-//                "productCartPharmacyProduct": {
-//                  "id": 0
-//                },
-//                "price": 0,
-//                "productCount": 0
-//              }
-//            ]
-//          }
-//        ],
-//        "currentPageNumber": 0,
-//        "numItemsPerPage": 0,
-//        "totalCount": "Unknown Type: inAdding pharmacy product to Customer product cartteger"
-//      }
-
-//    var data: CartData?
-//    var message: String?
-//    var status: String
-
-
     var items: [PharmCartOrder]
 
     enum Keys: String, CodingKey {

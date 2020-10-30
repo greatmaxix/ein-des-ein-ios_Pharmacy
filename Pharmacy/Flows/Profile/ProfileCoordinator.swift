@@ -38,6 +38,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 self?.presentAbout()
             case .close:
                 self?.popController()
+            case .openProduct(let medicine):
+                self?.openProductMedicineFor(medicine: medicine)
             default:
                 break
             }

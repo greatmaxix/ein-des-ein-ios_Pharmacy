@@ -20,6 +20,8 @@ class CartSectionHeader: UITableViewHeaderFooterView {
         super.awakeFromNib()
     }
 
+    var closureActionHandler: EmptyClosure?
+
     func apply(order: PharmCartOrder) {
 
         nameLabel.text = order.name
@@ -31,13 +33,8 @@ class CartSectionHeader: UITableViewHeaderFooterView {
         corneredView.dropBlueShadow()
     }
 
-    //    @IBOutlet weak var logoImageView: UIImageView!
-//    @IBOutlet weak var nameLabel: UILabel!
-//    @IBOutlet weak var locationLabel: UILabel!
-//    @IBOutlet weak var selectorButton: UIButton!
-//
-//    @IBAction func selectionTapped(_ sender: Any) {
-//
-//    }
+    @IBAction func styleTapped(_ sender: Any) {
+        closureActionHandler?()
+    }
 
 }

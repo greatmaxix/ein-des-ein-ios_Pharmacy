@@ -24,6 +24,7 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
     
     @IBOutlet private weak var productContainerView: UIView!
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var likeButton: UIButton!
     @IBOutlet private weak var pageControl: UIPageControl!
     @IBOutlet private weak var bottomView: UIView!
     
@@ -77,6 +78,12 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
     
     @IBAction func wishListAction(_ sender: UIButton) {
         sender.isSelected.toggle()
+        if sender.isSelected {
+            model.addToWishList()
+        } else {
+            model.removeFromWishList()
+        }
+        
     }
     
     @IBAction func findAction(_ sender: UIButton) {
@@ -87,6 +94,10 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
 // MARK: - ProductViewControllerInput
 
 extension ProductViewController: ProductViewControllerInput {
+    
+    func addRemoveFromFavoriteError() {
+        self.likeButton.isSelected.toggle()
+    }
     
     func didLoad(product: Product) {
         viewControllers = product.imageURLs.count == 0 ? [ProductPageViewController.createWith(image: R.image.medicineImagePlaceholder()!, title: "")] : product.imageURLs.map {ProductPageViewController.createWith(url: $0, title: "")}

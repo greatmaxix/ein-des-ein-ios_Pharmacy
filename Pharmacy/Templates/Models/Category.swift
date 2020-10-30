@@ -35,6 +35,10 @@ final class Category: Decodable {
         }
         return title
     }
+    
+    var isRootCategory: Bool {
+        return code == "A"
+    }
 
     enum Keys: String, CodingKey {
         case name

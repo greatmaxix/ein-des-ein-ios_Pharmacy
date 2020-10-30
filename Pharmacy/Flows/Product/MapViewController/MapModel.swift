@@ -19,6 +19,8 @@ protocol MapInput: class {
     func openFarmacyList()
     func load()
     func farmacyAt(index: Int) -> PharmacyModel?
+    func addToCart(productId: Int)
+    func open(_ route: MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D)
 }
 
 final class MapModel: EventNode {
@@ -28,6 +30,7 @@ final class MapModel: EventNode {
     private var medicineId: Int?
     private var pharmacies: [PharmacyModel] = []
     private let provider = DataManager<MapAPI, PharmacyResponse>()
+    private let cartAddingProvider = DataManager<ProductCartAPI, PostResponse>()
     
     init(parent: EventNode?, medicineId: Int) {
         super.init(parent: parent)
@@ -53,6 +56,10 @@ extension MapModel: MapInput {
         raise(event: ProductModelEvent.openFarmacyList(pharmacies))
     }
     
+    func open(_ route: MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D) {
+        raise(event: ProductModelEvent.route(route, coordinate: coordinate))
+    }
+    
     func load() {
         guard let medicineId = medicineId else { return }
         
@@ -76,6 +83,19 @@ extension MapModel: MapInput {
                 print(error.localizedDescription)
             }
         })
+    }
+    
+    func addToCart(productId: Int) {
+        cartAddingProvider.load(target: .addPharmacyToCart(productId: productId)) {[weak self] result in
+            guard self != nil else { return }
+            
+            switch result {
+            case .success:
+                print("reciept \(productId) was successfully added to chart")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func farmacyAt(index: Int) -> PharmacyModel? {

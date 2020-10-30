@@ -43,7 +43,7 @@ class CatalogueModel: Model {
     }
     
     func reloadCategories() {
-        categoryDataSource.cells = categories.map({CategoryCellSection.common(category: $0)})
+        categoryDataSource.cells = categories.map({ CategoryCellSection.common(category: $0) })
         output.didLoadCategories()
     }
 }
@@ -66,17 +66,7 @@ extension CatalogueModel: CatalogueModelInput {
             
             switch result {
             case .success(let response):
-                var secondLevelCategories: [Category] = []
-                
-                for category in response.categories {
-                    if let subCategories = category.subCategories {
-                        secondLevelCategories.append(contentsOf: subCategories)
-                    }
-                    if category.code != "H" {
-                        break
-                    }
-                }
-                self.categories = secondLevelCategories
+                self.categories = response.categories
                 self.reloadCategories()
             case .failure(let error):
                 print(error.localizedDescription)
@@ -86,13 +76,17 @@ extension CatalogueModel: CatalogueModelInput {
     
     func didSelectCategoryBy(indexPath: IndexPath) {
         guard let cell = categoryDataSource.cell(for: indexPath) else { return }
+        
+        var category: Category!
+        
         switch cell {
-        case .common(let category):
-            if category.subCategories?.isEmpty ?? true {
-                raise(event: CatalogueEvent.openMedicineListFor(category: category))
-            } else {
-                raise(event: WelcomeEvent.openCategories(category: category))
-            }
+        case .common(let c): category = c
+        }
+        
+        if category.subCategories?.isEmpty ?? true {
+            raise(event: CatalogueEvent.openMedicineListFor(category: category))
+        } else {
+            raise(event: WelcomeEvent.openCategories(category: category))
         }
     }
 }

@@ -30,15 +30,14 @@ class AboutAppTableViewCellData: BaseCellData {
 
 class AboutAppTableViewCell: BaseTableViewCell {
   
-  //MARK: - Outlets
+  // MARK: - Outlets
   @IBOutlet private weak var typeImageView: UIImageView!
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var additionaInfoLabel: UILabel!
   @IBOutlet private weak var arrowView: UIView!
   @IBOutlet private weak var contentBackgroundView: UIView!
   
-  
-  //MARK: - Lifecycle
+  // MARK: - Lifecycle
   override func awakeFromNib() {
     super.awakeFromNib()
     

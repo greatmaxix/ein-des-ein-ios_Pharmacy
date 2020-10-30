@@ -11,7 +11,8 @@ import EventsTree
 
 protocol FarmacyListInput: class {
     var dataSourse: TableDataSource<MapFarmacyCellSection> {get}
-      func load()
+    func addToCart(productId: Int)
+    func load()
 }
 
 protocol FarmacyListOutput: class {
@@ -22,6 +23,8 @@ class MapFarmacyListModel: EventNode {
 
     let medicineDataSourse = TableDataSource<MapFarmacyCellSection>()
     private var pharmacies: [PharmacyModel] = []
+    
+    private let cartAddingProvider = DataManager<ProductCartAPI, PostResponse>()
     
     init(parent: EventNode?, pharmacies: [PharmacyModel]) {
         super.init(parent: parent)
@@ -39,6 +42,26 @@ extension MapFarmacyListModel: FarmacyListInput {
     }
     
     func load() {
-        medicineDataSourse.cells = pharmacies.map({MapFarmacyCellSection.common($0)})
+        medicineDataSourse.cells = pharmacies.map({[weak self] in
+            let product = $0
+            var cell = MapFarmacyCellSection.init(common: $0)
+            cell.addToChartHandler = {
+                self?.addToCart(productId: product.medicines.first!.pharmacyProductId)
+            }
+            return cell
+        })
+    }
+    
+    func addToCart(productId: Int) {
+        cartAddingProvider.load(target: .addPharmacyToCart(productId: productId)) {[weak self] result in
+            guard self != nil else { return }
+            
+            switch result {
+            case .success:
+                print("reciept \(productId) was successfully added to chart")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
