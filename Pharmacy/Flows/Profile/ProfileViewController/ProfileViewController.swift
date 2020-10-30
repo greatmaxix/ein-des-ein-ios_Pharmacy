@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 final class ProfileViewController: UIViewController {
 
@@ -14,11 +15,21 @@ final class ProfileViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
+    private lazy var activityIndicator: MBProgressHUD = {
+        let hud = MBProgressHUD(view: view)
+        hud.backgroundView.style = .solidColor
+        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
+        hud.removeFromSuperViewOnHide = false
+        view.addSubview(hud)
+        
+        return hud
+    }()
+    
     var model: ProfileInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        activityIndicator.show(animated: true)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
@@ -40,6 +51,7 @@ final class ProfileViewController: UIViewController {
         }
         model.loadUser { [weak self] in
             self?.tableView.reloadData()
+            self?.activityIndicator.hide(animated: true)
         }
     }
 }
