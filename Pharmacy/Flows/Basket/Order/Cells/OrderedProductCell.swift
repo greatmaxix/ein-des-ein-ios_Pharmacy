@@ -23,7 +23,7 @@ class OrderedProductCell: UITableViewCell {
         nameLabel.text = product.name.htmlToString
         infoLabel.text = product.releaseForm.htmlToString
         countLabel.text = "X " + String(product.productCount)
-        priceLabel.text = "\(product.price ?? 0.0) ₸"
+        priceLabel.text = product.price?.moneyString(with: "₸")
 
         if let url = URL(string: product.pictureUrls.first ?? "") {
             logoImageView.loadImageBy(url: url)

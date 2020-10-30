@@ -9,16 +9,20 @@
 import Foundation
 import EventsTree
 
-enum CreateOrderModelEvent: Event { }
+enum CreateOrderModelEvent: Event {
+    case back
+}
 
 protocol CreateOrderModelInput: class {
 
     var numberOfRows: Int { get }
     var currentOrder: PharmCartOrder { get }
+    var isValid: Bool { get }
 
     func product(at indexPath: IndexPath) -> CartMedicine
     func type(at indexPath: IndexPath) -> CreateOrderCellType
     func changeDelivery(type: DeliveryType)
+    func back()
 
 }
 
@@ -82,6 +86,10 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
         order
     }
 
+    var isValid: Bool {
+        return false
+    }
+
     func product(at indexPath: IndexPath) -> CartMedicine {
         let delta = deliveryType == .ordered ? 5 : 4
         return order.products[indexPath.row - delta]
@@ -101,6 +109,10 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
 
     func type(at indexPath: IndexPath) -> CreateOrderCellType {
         return cellTypes[indexPath.row]
+    }
+
+    func back() {
+        raise(event: CreateOrderModelEvent.back)
     }
 
 }

@@ -38,6 +38,13 @@ final class BasketCoordinator: EventNode, Coordinator {
                 self?.presentOrder(with: order)
             }
         }
+
+        addHandler { [weak self] (event: CreateOrderModelEvent) in
+            switch event {
+            case .back:
+                self?.pop()
+            }
+        }
     }
 }
 
@@ -64,6 +71,10 @@ extension BasketCoordinator {
             root.pushViewController(controller, animated: true)
         }
 
+    }
+
+    fileprivate func pop() {
+        root.popViewController(animated: true)
     }
 
 }

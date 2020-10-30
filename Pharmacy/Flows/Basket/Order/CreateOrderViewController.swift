@@ -30,6 +30,14 @@ class CreateOrderViewController: UIViewController {
         tableView.register(UINib(nibName: "PaymentTypeCell", bundle: nil), forCellReuseIdentifier: "PaymentTypeCell")
 
         tableView.register(UINib(nibName: "OrderedProductCell", bundle: nil), forCellReuseIdentifier: "OrderedProductCell")
+
+        tableView.register(UINib(nibName: "OrderCommentCell", bundle: nil), forCellReuseIdentifier: "OrderCommentCell")
+
+        tableView.register(UINib(nibName: "OrderSummaryCell", bundle: nil), forCellReuseIdentifier: "OrderSummaryCell")
+    }
+
+    @IBAction func back(_ sender: Any) {
+        model.back()
     }
 
 }
@@ -50,6 +58,10 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
             return paymentSelectionCell(at: indexPath)
         case .product:
             return productCell(at: indexPath)
+        case .comments:
+            return commentCell(at: indexPath)
+        case .total:
+            return totalInfoCell(at: indexPath)
         default:
             return UITableViewCell()
         }
@@ -73,8 +85,22 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
         return cell
     }
 
+    private func totalInfoCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderSummaryCell", for: indexPath) as? OrderSummaryCell else { return UITableViewCell() }
+
+        cell.apply(order: model.currentOrder, valid: model.isValid)
+
+        return cell
+    }
+
     private func deliveryAddress(at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DeliveryAddressCell", for: indexPath) as? DeliveryAddressCell else { return UITableViewCell() }
+
+        return cell
+    }
+
+    private func commentCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCommentCell", for: indexPath) as? OrderCommentCell else { return UITableViewCell() }
 
         return cell
     }
