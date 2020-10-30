@@ -27,6 +27,9 @@ class CreateOrderViewController: UIViewController {
 
         tableView.register(UINib(nibName: "DeliveryAddressCell", bundle: nil), forCellReuseIdentifier: "DeliveryAddressCell")
 
+        tableView.register(UINib(nibName: "PaymentTypeCell", bundle: nil), forCellReuseIdentifier: "PaymentTypeCell")
+
+        tableView.register(UINib(nibName: "OrderedProductCell", bundle: nil), forCellReuseIdentifier: "OrderedProductCell")
     }
 
 }
@@ -43,6 +46,10 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
             return pharmacyCell(at: indexPath)
         case .deliveryAddress:
             return deliveryAddress(at: indexPath)
+        case .paymentType:
+            return paymentSelectionCell(at: indexPath)
+        case .product:
+            return productCell(at: indexPath)
         default:
             return UITableViewCell()
         }
@@ -72,6 +79,14 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
         return cell
     }
 
+    private func productCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderedProductCell", for: indexPath) as? OrderedProductCell else { return UITableViewCell() }
+
+        cell.apply(product: model.product(at: indexPath))
+
+        return cell
+    }
+
     private func deliveryTypeCell(at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDeliveryCell", for: indexPath) as? OrderDeliveryCell else { return UITableViewCell() }
 
@@ -82,6 +97,14 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
         cell.selfHandler = { [weak self] in
             self?.model.changeDelivery(type: .selfdelivery)
         }
+
+        cell.apply()
+
+        return cell
+    }
+
+    private func paymentSelectionCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentTypeCell", for: indexPath) as? PaymentTypeCell else { return UITableViewCell() }
 
         cell.apply()
 

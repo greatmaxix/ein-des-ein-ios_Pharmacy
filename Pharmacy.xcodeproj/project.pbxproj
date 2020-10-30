@@ -254,6 +254,10 @@
 		61CFAA94254C28DD00569DEF /* OrderPharmacyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAA92254C28DD00569DEF /* OrderPharmacyCell.xib */; };
 		61CFAA98254C2C1700569DEF /* DeliveryAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA96254C2C1700569DEF /* DeliveryAddressCell.swift */; };
 		61CFAA99254C2C1700569DEF /* DeliveryAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAA97254C2C1700569DEF /* DeliveryAddressCell.xib */; };
+		61CFAA9E254C2E9300569DEF /* PaymentTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA9C254C2E9300569DEF /* PaymentTypeCell.swift */; };
+		61CFAA9F254C2E9300569DEF /* PaymentTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAA9D254C2E9300569DEF /* PaymentTypeCell.xib */; };
+		61CFAAA3254C356400569DEF /* OrderedProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAAA1254C356400569DEF /* OrderedProductCell.swift */; };
+		61CFAAA4254C356400569DEF /* OrderedProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAAA2254C356400569DEF /* OrderedProductCell.xib */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
 		87131D232507B9890050B8F2 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D222507B9890050B8F2 /* Executor.swift */; };
 		87131D25250913A70050B8F2 /* UISearchBar+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */; };
@@ -556,6 +560,10 @@
 		61CFAA92254C28DD00569DEF /* OrderPharmacyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderPharmacyCell.xib; sourceTree = "<group>"; };
 		61CFAA96254C2C1700569DEF /* DeliveryAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressCell.swift; sourceTree = "<group>"; };
 		61CFAA97254C2C1700569DEF /* DeliveryAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryAddressCell.xib; sourceTree = "<group>"; };
+		61CFAA9C254C2E9300569DEF /* PaymentTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTypeCell.swift; sourceTree = "<group>"; };
+		61CFAA9D254C2E9300569DEF /* PaymentTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTypeCell.xib; sourceTree = "<group>"; };
+		61CFAAA1254C356400569DEF /* OrderedProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedProductCell.swift; sourceTree = "<group>"; };
+		61CFAAA2254C356400569DEF /* OrderedProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderedProductCell.xib; sourceTree = "<group>"; };
 		87131D222507B9890050B8F2 /* Executor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
 		87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+TextField.swift"; sourceTree = "<group>"; };
 		87131D27250A043D0050B8F2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -1686,6 +1694,10 @@
 				61CFAA92254C28DD00569DEF /* OrderPharmacyCell.xib */,
 				61CFAA96254C2C1700569DEF /* DeliveryAddressCell.swift */,
 				61CFAA97254C2C1700569DEF /* DeliveryAddressCell.xib */,
+				61CFAA9C254C2E9300569DEF /* PaymentTypeCell.swift */,
+				61CFAA9D254C2E9300569DEF /* PaymentTypeCell.xib */,
+				61CFAAA1254C356400569DEF /* OrderedProductCell.swift */,
+				61CFAAA2254C356400569DEF /* OrderedProductCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1994,6 +2006,7 @@
 				87131D32251146C10050B8F2 /* EmptySearchView.xib in Resources */,
 				6075BD4924DEA7FB00BC78BD /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				398B0DF124F53AD60084EC54 /* FoundMedicineView.xib in Resources */,
+				61CFAA9F254C2E9300569DEF /* PaymentTypeCell.xib in Resources */,
 				6075BD4A24DEA7FB00BC78BD /* OpenSans-Italic.ttf in Resources */,
 				6184731B2549A5120062D8B9 /* CartSectionFooterView.xib in Resources */,
 				6075BD4B24DEA7FB00BC78BD /* OpenSans-Light.ttf in Resources */,
@@ -2033,6 +2046,7 @@
 				396C45C22497699900A569CE /* Assets.xcassets in Resources */,
 				60E1A71124ECE0C300B3D205 /* Scan.storyboard in Resources */,
 				603D31EF24E5A9E5000E5A6C /* ProductInstructionTableViewCell.xib in Resources */,
+				61CFAAA4254C356400569DEF /* OrderedProductCell.xib in Resources */,
 				8715DB9324FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.xib in Resources */,
 				603D31CE24E57E6B000E5A6C /* ProductPageViewController.xib in Resources */,
 				395C9D6A2498E2EA001EB6CD /* localize.strings in Resources */,
@@ -2296,6 +2310,7 @@
 				6036EB0524DD27B2003336C2 /* SearchViewController.swift in Sources */,
 				603D31B224E3CA1D000E5A6C /* MedicineListModel.swift in Sources */,
 				6075BD4624DEA6FF00BC78BD /* R.generated.swift in Sources */,
+				61CFAA9E254C2E9300569DEF /* PaymentTypeCell.swift in Sources */,
 				603D320324E6585C000E5A6C /* ContainerView.swift in Sources */,
 				603D319724E3B22A000E5A6C /* TableDataSourceViewController.swift in Sources */,
 				618C33982498BDC200951D11 /* SignInViewController.swift in Sources */,
@@ -2336,6 +2351,7 @@
 				395D04FF24D04B19007A278D /* CatalogueViewController.swift in Sources */,
 				875223AB25000482000759C8 /* NibLoadable.swift in Sources */,
 				61CFAA552549EB7200569DEF /* EmptyUserCell.swift in Sources */,
+				61CFAAA3254C356400569DEF /* OrderedProductCell.swift in Sources */,
 				6075BD5324DEB16600BC78BD /* RoundedCornerNavigationBar.swift in Sources */,
 				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
 				87131D3425135E3E0050B8F2 /* UITableView+Reusable.swift in Sources */,

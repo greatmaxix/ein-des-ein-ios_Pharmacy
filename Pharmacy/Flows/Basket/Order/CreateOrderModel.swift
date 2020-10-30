@@ -16,6 +16,7 @@ protocol CreateOrderModelInput: class {
     var numberOfRows: Int { get }
     var currentOrder: PharmCartOrder { get }
 
+    func product(at indexPath: IndexPath) -> CartMedicine
     func type(at indexPath: IndexPath) -> CreateOrderCellType
     func changeDelivery(type: DeliveryType)
 
@@ -79,6 +80,11 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
 
     var currentOrder: PharmCartOrder {
         order
+    }
+
+    func product(at indexPath: IndexPath) -> CartMedicine {
+        let delta = deliveryType == .ordered ? 5 : 4
+        return order.products[indexPath.row - delta]
     }
 
     func changeDelivery(type: DeliveryType) {

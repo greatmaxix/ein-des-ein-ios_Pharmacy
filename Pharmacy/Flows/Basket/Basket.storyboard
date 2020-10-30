@@ -284,7 +284,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="egW-Bv-XfT">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="backgroundGray"/>
                                 <connections>
                                     <outlet property="dataSource" destination="NWN-fo-Med" id="EUu-uP-Z9N"/>
                                     <outlet property="delegate" destination="NWN-fo-Med" id="A00-Vo-Mbo"/>
@@ -292,7 +292,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vvf-mk-blI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstItem="vvf-mk-blI" firstAttribute="trailing" secondItem="egW-Bv-XfT" secondAttribute="trailing" id="Vxa-0n-zgb"/>
                             <constraint firstAttribute="bottom" secondItem="egW-Bv-XfT" secondAttribute="bottom" id="eto-vc-Q87"/>
@@ -317,6 +317,9 @@
         <image name="button_plus" width="16.333333969116211" height="16"/>
         <image name="button_remove" width="24" height="24"/>
         <image name="medicineImagePlaceholder" width="112" height="112"/>
+        <namedColor name="backgroundGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="lightGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
