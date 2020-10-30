@@ -71,6 +71,19 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 break
             }
         }
+        
+        addHandler(.onRaise) { [weak self] (event: ProductModelEvent) in
+            
+            guard let self = self else { return }
+            
+            switch event {
+            case .openMap(let product):
+                self.createMapFlow(medicineId: product.identifier)
+            default:
+                break
+            }
+        }
+        
     }
     
     func createFlow() -> UIViewController {
@@ -86,6 +99,14 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
        
         navigationVC.isToolbarHidden = true
         return navigationVC
+    }
+    
+    func createMapFlow(medicineId: Int) {
+        guard let vc = R.storyboard.product.mapViewController() else { return }
+        let model = MapModel(parent: self, medicineId: medicineId)
+        model.output = vc
+        vc.model = model
+        root.navigationController?.pushViewController(vc, animated: true)
     }
     
     func presentEditProfile() {
