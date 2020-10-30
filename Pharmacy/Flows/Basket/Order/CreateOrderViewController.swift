@@ -52,11 +52,31 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
     private func deliveryTypeCell(at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDeliveryCell", for: indexPath) as? OrderDeliveryCell else { return UITableViewCell() }
 
+        cell.deliveryHandle = { [weak self] in
+            self?.model.changeDelivery(type: .ordered)
+        }
+
+        cell.selfHandler = { [weak self] in
+            self?.model.changeDelivery(type: .selfdelivery)
+        }
+
         return cell
     }
     
 }
 
 extension CreateOrderViewController: CreateOrderViewControllerInput {
+
+    func reload() {
+
+    }
+
+    func setAddress(hidden: Bool, at index: Int) {
+        if hidden == true {
+            tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        } else {
+            tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        }
+    }
 
 }

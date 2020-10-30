@@ -10,15 +10,24 @@ import UIKit
 
 class OrderDeliveryCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var deliveryView: UIView!
+    @IBOutlet weak var selfView: UIView!
+
+    var deliveryHandle: EmptyClosure?
+    var selfHandler: EmptyClosure?
+
+    @IBAction func selectDelivery(_ sender: Any) {
+        deliveryHandle?()
+
+        deliveryView.backgroundColor = R.color.welcomeBlue()
+        selfView.backgroundColor = .white
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    @IBAction func selectSelf(_ sender: Any) {
+        selfHandler?()
 
-        // Configure the view for the selected state
+        deliveryView.backgroundColor = .white
+        selfView.backgroundColor = R.color.welcomeBlue()
     }
-    
+
 }
