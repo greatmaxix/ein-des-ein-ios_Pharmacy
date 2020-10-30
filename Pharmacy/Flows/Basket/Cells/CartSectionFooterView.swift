@@ -20,7 +20,7 @@ class CartSectionFooterView: UITableViewHeaderFooterView {
         totalPriceLabel.text = "\(order.totalCost) ₸"
         totalCountLabel.text = "\(order.totalProducts) товара (ов)"
 
-        corneredView.dropShadow(color: .black, opacity: 0.3)
+        corneredView.dropShadow(color: .black, opacity: 0.6)
     }
     @IBAction func createOrder(_ sender: Any) {
         createOrderHandler?()

@@ -16,6 +16,11 @@ class OrderDeliveryCell: UITableViewCell {
     var deliveryHandle: EmptyClosure?
     var selfHandler: EmptyClosure?
 
+    func apply() {
+        deliveryView.dropBlueShadow()
+        selfView.dropBlueShadow()
+    }
+
     @IBAction func selectDelivery(_ sender: Any) {
         deliveryHandle?()
 

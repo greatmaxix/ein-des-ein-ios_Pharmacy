@@ -30,7 +30,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7y-zr-o19">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
+                            <rect key="frame" x="0.0" y="8" width="414" height="91"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -90,7 +90,7 @@
                         <constraint firstItem="8r9-P1-Qwn" firstAttribute="leading" secondItem="hgs-Xe-fIk" secondAttribute="leading" constant="24" id="IpB-jA-Mgd"/>
                         <constraint firstAttribute="bottom" secondItem="L7y-zr-o19" secondAttribute="bottom" constant="-12" id="cXZ-Ky-uLD"/>
                         <constraint firstItem="DKP-oY-Vn3" firstAttribute="leading" secondItem="8r9-P1-Qwn" secondAttribute="leading" id="jHm-gC-m6Q"/>
-                        <constraint firstItem="L7y-zr-o19" firstAttribute="top" secondItem="hgs-Xe-fIk" secondAttribute="top" id="mDm-NF-d53"/>
+                        <constraint firstItem="L7y-zr-o19" firstAttribute="top" secondItem="hgs-Xe-fIk" secondAttribute="top" constant="8" id="mDm-NF-d53"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

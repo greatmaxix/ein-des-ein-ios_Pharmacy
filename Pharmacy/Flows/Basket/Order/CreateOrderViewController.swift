@@ -22,6 +22,11 @@ class CreateOrderViewController: UIViewController {
         tableView.register(UINib(nibName: "CreateOrderContactInfoCell", bundle: nil), forCellReuseIdentifier: "CreateOrderContactInfoCell")
 
         tableView.register(UINib(nibName: "OrderDeliveryCell", bundle: nil), forCellReuseIdentifier: "OrderDeliveryCell")
+
+        tableView.register(UINib(nibName: "OrderPharmacyCell", bundle: nil), forCellReuseIdentifier: "OrderPharmacyCell")
+
+        tableView.register(UINib(nibName: "DeliveryAddressCell", bundle: nil), forCellReuseIdentifier: "DeliveryAddressCell")
+
     }
 
 }
@@ -34,6 +39,10 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
             return contactInfoCell(at: indexPath)
         case .delivery:
             return deliveryTypeCell(at: indexPath)
+        case .pharmacy:
+            return pharmacyCell(at: indexPath)
+        case .deliveryAddress:
+            return deliveryAddress(at: indexPath)
         default:
             return UITableViewCell()
         }
@@ -49,6 +58,20 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
         return cell
     }
 
+    private func pharmacyCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderPharmacyCell", for: indexPath) as? OrderPharmacyCell else { return UITableViewCell() }
+
+        cell.apply(order: model.currentOrder)
+
+        return cell
+    }
+
+    private func deliveryAddress(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DeliveryAddressCell", for: indexPath) as? DeliveryAddressCell else { return UITableViewCell() }
+
+        return cell
+    }
+
     private func deliveryTypeCell(at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDeliveryCell", for: indexPath) as? OrderDeliveryCell else { return UITableViewCell() }
 
@@ -59,6 +82,8 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
         cell.selfHandler = { [weak self] in
             self?.model.changeDelivery(type: .selfdelivery)
         }
+
+        cell.apply()
 
         return cell
     }

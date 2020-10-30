@@ -14,6 +14,7 @@ enum CreateOrderModelEvent: Event { }
 protocol CreateOrderModelInput: class {
 
     var numberOfRows: Int { get }
+    var currentOrder: PharmCartOrder { get }
 
     func type(at indexPath: IndexPath) -> CreateOrderCellType
     func changeDelivery(type: DeliveryType)
@@ -72,6 +73,14 @@ final class CreateOrderModel: Model {
 
 extension CreateOrderModel: CreateOrderViewControllerOutput {
 
+    var numberOfRows: Int {
+        cellTypes.count
+    }
+
+    var currentOrder: PharmCartOrder {
+        order
+    }
+
     func changeDelivery(type: DeliveryType) {
         deliveryType = type
 
@@ -82,10 +91,6 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
             cellTypes.insert(.deliveryAddress, at: 3)
             output.setAddress(hidden: false, at: 3)
         }
-    }
-
-    var numberOfRows: Int {
-        cellTypes.count
     }
 
     func type(at indexPath: IndexPath) -> CreateOrderCellType {

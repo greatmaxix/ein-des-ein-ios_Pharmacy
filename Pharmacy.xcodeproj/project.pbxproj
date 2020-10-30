@@ -250,6 +250,10 @@
 		61CFAA84254B1AB800569DEF /* CreateOrderContactInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAA82254B1AB800569DEF /* CreateOrderContactInfoCell.xib */; };
 		61CFAA89254B214400569DEF /* OrderDeliveryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA87254B214400569DEF /* OrderDeliveryCell.swift */; };
 		61CFAA8A254B214400569DEF /* OrderDeliveryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAA88254B214400569DEF /* OrderDeliveryCell.xib */; };
+		61CFAA93254C28DD00569DEF /* OrderPharmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA91254C28DD00569DEF /* OrderPharmacyCell.swift */; };
+		61CFAA94254C28DD00569DEF /* OrderPharmacyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAA92254C28DD00569DEF /* OrderPharmacyCell.xib */; };
+		61CFAA98254C2C1700569DEF /* DeliveryAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA96254C2C1700569DEF /* DeliveryAddressCell.swift */; };
+		61CFAA99254C2C1700569DEF /* DeliveryAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAA97254C2C1700569DEF /* DeliveryAddressCell.xib */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
 		87131D232507B9890050B8F2 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D222507B9890050B8F2 /* Executor.swift */; };
 		87131D25250913A70050B8F2 /* UISearchBar+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */; };
@@ -548,6 +552,10 @@
 		61CFAA82254B1AB800569DEF /* CreateOrderContactInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateOrderContactInfoCell.xib; sourceTree = "<group>"; };
 		61CFAA87254B214400569DEF /* OrderDeliveryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDeliveryCell.swift; sourceTree = "<group>"; };
 		61CFAA88254B214400569DEF /* OrderDeliveryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDeliveryCell.xib; sourceTree = "<group>"; };
+		61CFAA91254C28DD00569DEF /* OrderPharmacyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPharmacyCell.swift; sourceTree = "<group>"; };
+		61CFAA92254C28DD00569DEF /* OrderPharmacyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderPharmacyCell.xib; sourceTree = "<group>"; };
+		61CFAA96254C2C1700569DEF /* DeliveryAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressCell.swift; sourceTree = "<group>"; };
+		61CFAA97254C2C1700569DEF /* DeliveryAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryAddressCell.xib; sourceTree = "<group>"; };
 		87131D222507B9890050B8F2 /* Executor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
 		87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+TextField.swift"; sourceTree = "<group>"; };
 		87131D27250A043D0050B8F2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -1674,6 +1682,10 @@
 				61CFAA82254B1AB800569DEF /* CreateOrderContactInfoCell.xib */,
 				61CFAA87254B214400569DEF /* OrderDeliveryCell.swift */,
 				61CFAA88254B214400569DEF /* OrderDeliveryCell.xib */,
+				61CFAA91254C28DD00569DEF /* OrderPharmacyCell.swift */,
+				61CFAA92254C28DD00569DEF /* OrderPharmacyCell.xib */,
+				61CFAA96254C2C1700569DEF /* DeliveryAddressCell.swift */,
+				61CFAA97254C2C1700569DEF /* DeliveryAddressCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1989,9 +2001,11 @@
 				603D31F724E5AA09000E5A6C /* ProductQuestionsTableViewCell.xib in Resources */,
 				601E7ECE2549C69300C936BF /* MapGetDirections.xib in Resources */,
 				6075BD4D24DEA7FB00BC78BD /* OpenSans-Regular.ttf in Resources */,
+				61CFAA99254C2C1700569DEF /* DeliveryAddressCell.xib in Resources */,
 				87131D3A25137B910050B8F2 /* RecentsHeaderView.xib in Resources */,
 				603D318D24E2A269000E5A6C /* ReceiptView.xib in Resources */,
 				6075BD4E24DEA7FB00BC78BD /* OpenSans-SemiBold.ttf in Resources */,
+				61CFAA94254C28DD00569DEF /* OrderPharmacyCell.xib in Resources */,
 				8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */,
 				603D31A524E3B608000E5A6C /* CategoryCollectionViewCell.xib in Resources */,
 				6075BD4F24DEA7FB00BC78BD /* OpenSans-SemiBoldItalic.ttf in Resources */,
@@ -2293,6 +2307,7 @@
 				875223B72500ECCF000759C8 /* Accessible.swift in Sources */,
 				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
 				875223B92500ED29000759C8 /* UserDefaults+Persistent.swift in Sources */,
+				61CFAA98254C2C1700569DEF /* DeliveryAddressCell.swift in Sources */,
 				603D31CD24E57E6B000E5A6C /* ProductPageViewController.swift in Sources */,
 				60289A57254AF9E100F6A503 /* SubcategoryTableViewCell.swift in Sources */,
 				392BD73A24FFE23000088002 /* CategoryAPI.swift in Sources */,
@@ -2335,6 +2350,7 @@
 				398B0DE224F50AD60084EC54 /* UserMarkerView.swift in Sources */,
 				24F5FC58254892D900D28275 /* RecentMedicineEntity.swift in Sources */,
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
+				61CFAA93254C28DD00569DEF /* OrderPharmacyCell.swift in Sources */,
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
 				61CFAA7E254B13E400569DEF /* CreateOrderModel.swift in Sources */,
 				39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */,
