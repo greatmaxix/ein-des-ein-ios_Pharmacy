@@ -146,6 +146,10 @@ final class TextInputView: UIView {
             }
         return result
     }
+
+    func containsObject(textfield: UITextField) -> Bool {
+        return self.inputTextField == textfield
+    }
     
     // MARK: - Setup
     

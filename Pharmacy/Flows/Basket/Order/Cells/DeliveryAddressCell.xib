@@ -81,6 +81,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="appartmentTextView" destination="VwZ-H8-och" id="Ier-QC-w9L"/>
+                <outlet property="cityTextView" destination="p2M-pc-v7S" id="VAO-u8-kg4"/>
+                <outlet property="houseTextView" destination="in9-3S-M3I" id="ABZ-CQ-9EW"/>
+                <outlet property="streetTextView" destination="Rcm-2q-8lC" id="DOP-I1-HEq"/>
+            </connections>
             <point key="canvasLocation" x="69.565217391304358" y="59.598214285714285"/>
         </tableViewCell>
     </objects>
