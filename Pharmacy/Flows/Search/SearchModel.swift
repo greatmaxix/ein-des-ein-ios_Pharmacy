@@ -39,6 +39,7 @@ protocol SearchModelOutput: class {
     func searchTermDidUpdated(_ term: String?)
     func favoriteAciontReloadCell(cellAt: IndexPath)
     func addRemoveFromFavoriteError(indexPath: IndexPath)
+    func beginSearch()
 }
 
 final class SearchModel: Model {
@@ -66,6 +67,18 @@ final class SearchModel: Model {
     private lazy var userRegionId: Int = {
         UserDefaultsAccessor.value(for: \.regionId)
     }()
+    
+    override init(parent: EventNode?) {
+        super.init(parent: parent)
+        addHandler(.onPropagate) { [weak self] (event: TabBarEvent) in
+                    switch event {
+                    case .userWantsToChangeTab(let tab):
+                        if tab == .search {
+                            self?.output.beginSearch()
+                        }
+                    }
+                }
+    }
 }
 
 // MARK: - SearchViewControllerOutput

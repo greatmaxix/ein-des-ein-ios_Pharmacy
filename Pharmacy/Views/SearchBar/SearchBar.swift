@@ -22,7 +22,7 @@ class SearchBar: UIView, NibView {
     
     // MARK: - Properties
     weak var delegate: SearchBarDelegate?
-    var searchBarHandler: EmptyClosure?
+    var searchBarHandler: (() -> Bool)?
     
     override var intrinsicContentSize: CGSize {
       return UIView.layoutFittingExpandedSize
@@ -75,10 +75,9 @@ extension SearchBar {
 
 // MARK: - UITextFieldDelegate
 extension SearchBar: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        guard let action = searchBarHandler else {return}
-        action()
-        self.endEditing(true)
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return searchBarHandler?() ?? true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

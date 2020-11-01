@@ -26,7 +26,7 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var emptyView: EmptySearchView!
     
-    private weak var searchBar: SearchBar!
+    private let searchBar = SearchBar()
     
     private lazy var activityIndicator: MBProgressHUD = {
         let hud = MBProgressHUD(view: view)
@@ -41,10 +41,9 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     var style: NavigationBarStyle = .search
     
     var model: SearchViewControllerOutput!
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configUI()
         setupTableView()
         setupNavigationBar()
@@ -86,9 +85,7 @@ extension SearchViewController {
                                          for: .default)
         navigationBar.shadowImage = UIImage()
         
-        let searchBar = SearchBar()
         searchBar.delegate = self
-        self.searchBar = searchBar
         searchBar.heightAnchor.constraint(equalToConstant: 36).isActive = true
         
         navigationItem.titleView = searchBar
@@ -161,6 +158,10 @@ extension SearchViewController: SearchViewControllerInput {
     func searchTermDidUpdated(_ term: String?) {
         searchBar.endEditing(false)
         searchBar.textField.text = term
+    }
+    
+    func beginSearch() {
+        self.searchBar.textField.becomeFirstResponder()
     }
 }
 
