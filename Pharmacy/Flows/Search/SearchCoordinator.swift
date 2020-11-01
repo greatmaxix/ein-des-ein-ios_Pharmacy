@@ -22,7 +22,7 @@ final class SearchCoordinator: EventNode, Coordinator {
         let model = SearchModel(parent: self)
         viewController.model = model
         model.output = viewController
-        root = UINavigationController(rootViewController: viewController)
+        root = NavigationController(rootViewController: viewController)
         
         return root
     }

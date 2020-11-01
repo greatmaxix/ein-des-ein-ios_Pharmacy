@@ -54,6 +54,7 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
     
     private func configUI() {
         title = model.title
+        
         productContainerView.clipsToBounds = true
         productContainerView.layer.cornerRadius = GUI.cornerRadius
         tableView.delegate = self
