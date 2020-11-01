@@ -12,6 +12,7 @@ import Moya
 
 enum SearchModelEvent: Event {
     case openList
+    case open(_ medicine: Medicine)
 }
 
 protocol SearchModelInput: class {
@@ -132,12 +133,10 @@ extension SearchModel: SearchViewControllerOutput {
     
     func didSelectCellAt(indexPath: IndexPath) {
         switch searchState {
-//        case .found:
-//            searchTerm = recentRequests[indexPath.row]
-//            output.searchTermDidUpdated(searchTerm)
-//            retreiveMedecines()
-        default:
-            return
+        case .found:
+            let item = medicines[indexPath.row]
+            raise(event: SearchModelEvent.open(item))
+        default: return
         }
     }
     
