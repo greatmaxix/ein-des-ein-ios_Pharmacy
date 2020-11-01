@@ -47,12 +47,7 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
         configUI()
         setupTableView()
         setupNavigationBar()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        model.retreiveResentRequests()
+        model.load()
     }
     
     func configUI() {
@@ -118,13 +113,12 @@ extension SearchViewController: SearchViewControllerInput {
     
     func retrivesNewResults() {
         if case .empty = model.searchState {
-            tableView.isHidden = true
             emptyView.isHidden = false
         } else {
-            tableView.isHidden = false
             emptyView.isHidden = true
-            tableView.reloadData()
         }
+        
+        tableView.reloadData()
         
         activityIndicator.hide(animated: true)
     }
@@ -169,8 +163,8 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch model.searchState {
-        case .recents:
-            return model.recentRequests.count
+//        case .recents:
+//            return model.recentRequests.count
         case .found:
             return model.medicines.count
         default:
@@ -180,11 +174,11 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch model.searchState {
-        case .recents:
-            let cell = tableView.dequeueReusableCell(at: indexPath, cellType: SearchTableViewCell.self)
-            cell.apply(title: model.recentRequests[indexPath.row])
-            
-            return cell
+//        case .recents:
+//            let cell = tableView.dequeueReusableCell(at: indexPath, cellType: SearchTableViewCell.self)
+//            cell.apply(title: model.recentRequests[indexPath.row])
+//
+//            return cell
         case .found:
             let cell = tableView.dequeueReusableCell(at: indexPath, cellType: MedicineCell.self)
             cell.apply(medicine: model.medicines[indexPath.row])
@@ -203,30 +197,30 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch model.searchState {
-        case .recents:
-            return 44
+//        case .recents:
+//            return 44
         default:
             return .zero
         }
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch model.searchState {
-        case .recents:
-            guard model.recentRequests.count > 0 else {
-                return UIView()
-            }
-            
-            let headerView = tableView.dequeueReusableView(viewType: RecentsHeaderView.self)
-            headerView.clearActionHandler = { [unowned self] in
-                self.cleanAction()
-            }
-            
-            return headerView
-        default:
-            return UIView()
-        }
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        switch model.searchState {
+//        case .recents:
+//            guard model.recentRequests.count > 0 else {
+//                return UIView()
+//            }
+//
+//            let headerView = tableView.dequeueReusableView(viewType: RecentsHeaderView.self)
+//            headerView.clearActionHandler = { [unowned self] in
+//                self.cleanAction()
+//            }
+//
+//            return headerView
+//        default:
+//            return UIView()
+//        }
+//    }
 }
 
 // MARK: - UITableViewDataSourcePrefetching

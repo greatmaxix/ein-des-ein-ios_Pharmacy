@@ -20,6 +20,7 @@ protocol SearchModelInput: class {
     
     var searchState: SearchModel.SearchState { get }
     
+    func load()
     func retreiveResentRequests()
     func retreiveMoreMedecines()
     func updateSearchTerm(_ term: String)
@@ -49,10 +50,6 @@ final class SearchModel: Model {
     private(set) var recentRequests: [String] = []
     private(set) var medicines: [Medicine] = []
     var searchState: SearchState {
-        guard !searchTerm.isEmpty else {
-            return .recents
-        }
-        
         return medicines.count > 0 ? .found : .empty
     }
     
@@ -78,6 +75,10 @@ final class SearchModel: Model {
                         }
                     }
                 }
+    }
+    
+    func load() {
+        retreiveMedecines()
     }
 }
 
@@ -131,10 +132,10 @@ extension SearchModel: SearchViewControllerOutput {
     
     func didSelectCellAt(indexPath: IndexPath) {
         switch searchState {
-        case .recents:
-            searchTerm = recentRequests[indexPath.row]
-            output.searchTermDidUpdated(searchTerm)
-            retreiveMedecines()
+//        case .found:
+//            searchTerm = recentRequests[indexPath.row]
+//            output.searchTermDidUpdated(searchTerm)
+//            retreiveMedecines()
         default:
             return
         }
@@ -142,7 +143,8 @@ extension SearchModel: SearchViewControllerOutput {
     
     func cleanSearchTerm() {
         searchDebouncer.cancelExecution()
-        retreiveResentRequests()
+        searchTerm = ""
+        retreiveMedecines()
     }
 }
 
@@ -168,12 +170,6 @@ extension SearchModel {
     private func retreiveMedecines() {
         pageNumber = 1
         medicines = []
-        guard searchTerm != "" else {
-            output.didLoadRecentRequests()
-            
-            return
-        }
-        
         output.willSendRequest()
         retreiveMedecines(on: pageNumber, pageSize: .firstPageSize)
     }
@@ -216,7 +212,6 @@ extension SearchModel {
 extension SearchModel {
     
     enum SearchState {
-        case recents
         case empty
         case found
     }
