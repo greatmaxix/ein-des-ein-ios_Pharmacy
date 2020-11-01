@@ -8,9 +8,6 @@
 
 import UIKit
 
-protocol EditProfileOutput: class {
-}
-
 final class EditProfileViewController: UIViewController, SimpleNavigationBarDelegate {
 
     @IBOutlet private weak var editPhotoButton: UIButton!
@@ -123,16 +120,18 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
         setInputText()
       
         var validationSuccess = phoneInputView.validate()
-        validationSuccess = emailInputView.validate() && validationSuccess
         validationSuccess = nameInputView.validate() && validationSuccess
         if validationSuccess, let name: String = nameInputView.text, let email: String = emailInputView.text, let _: String = phoneInputView.text {
-            model.saveProfile(name: name, email: email)
+            let checkedEmail = !email.isEmpty && emailInputView.validate() ? email : ""
+            model.saveProfile(name: name, email: checkedEmail)
         }
     }
 }
 
 extension EditProfileViewController: EditProfileOutput {
-    
+    func savingImageSuccess() {
+        enableSaveButton()
+    }
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -140,6 +139,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         if let image: UIImage = info[.originalImage] as? UIImage {
+            userImageView.image = image
             
             var mime: String = "image/"
             let blurredImage: UIImage = image.bluredImage(sigma: 5) ?? image
@@ -148,8 +148,20 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
                 mime += url.lastPathComponent.components(separatedBy: ".").last ?? ""
                 model.saveImage(image: image, mime: mime, fileName: url.lastPathComponent)
                 userImageView.image = blurredImage
+                disableSaveButton()
             }
         }
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    private func enableSaveButton() {
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            bar.isRightItemHidden = false
+        }
+    }
+    private func disableSaveButton() {
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            bar.isRightItemHidden = true
+        }
     }
 }

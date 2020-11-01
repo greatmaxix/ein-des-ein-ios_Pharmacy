@@ -108,7 +108,9 @@ final class ProfileModel: Model {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileRegion(), additionalInfo: location, type: .region)
             cellData.image = R.image.profilePin()
             cellData.selectHandler = { [weak self] in
-                self?.raise(event: AppEvent.chooseLocation)
+                if UserSession.shared.user != nil {
+                    self?.raise(event: AppEvent.chooseLocation)
+                }
             }
             cellsData.append(cellData)
         }
@@ -209,7 +211,7 @@ extension ProfileModel: ProfileInput {
 
         provider.load(target: .getCustomer) { [weak self] response in
             guard let self = self else {return}
-
+            print("zxcv \(response)")
             switch response {
             case .success(let result):
                 self.user = UserSession.shared.save(user: result.user, token: nil)

@@ -208,8 +208,14 @@ extension ProfileFlowCoordinator: TabBarEmbedCoordinable {
     
     var tabItemInfo: TabBarItemInfo {
     if let user = UserSession.shared.user, let avatarURL = user.avatarURL {
-       let data = try? Data(contentsOf: avatarURL)
-       let image = UIImage(data: data!)?.resizeImage(CGFloat.init(24), opaque: false).withRoundedCorners()
+        // TODO: - здесь так сделано потому что не обрабатываеться ошибка загрузки изображения на сервак
+        guard let data = try? Data(contentsOf: avatarURL) else {
+            return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
+                                  icon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal),
+                                  highlightedIcon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal))
+        }
+        
+    let image = UIImage(data: data)!.resizeImage(CGFloat.init(24), opaque: false).withRoundedCorners()
         
     return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
                           icon: image?.withRenderingMode(.alwaysOriginal),
