@@ -65,7 +65,6 @@ extension CatalogueModel: CatalogueModelInput {
         return false
     }
     
-    
     func close() {
         raise(event: CatalogueEvent.close)
     }
@@ -117,7 +116,7 @@ extension CatalogueModel: CatalogueModelInput {
     }
     
     func search(category: String) {
-        filteredCategories = allCategories.filter({$0.title.contains(category)})
+        filteredCategories = allCategories.filter({$0.title.range(of: category, options: .caseInsensitive) != nil})
         output.reloadFiltered()
     }
     

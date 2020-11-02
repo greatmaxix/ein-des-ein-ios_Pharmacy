@@ -32,7 +32,7 @@ class SubcategoryViewController: TableDataSourceViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.tableFooterView = UIView()
-        searchController.delegate = self
+        searchController.searchResultsUpdater = self
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
         view.sendSubviewToBack(tableView)
@@ -44,6 +44,10 @@ class SubcategoryViewController: TableDataSourceViewController {
 // MARK: - CatalogsModelOutput
 
 extension SubcategoryViewController: SubcategoryModelOutput {
+    var isSearching: Bool {
+        return !(searchController.searchBar.text?.isEmpty ?? false)
+    }
+    
     func didLoadCategories() {
         model.categoryDataSource.assign(tableView: tableView)
     }
@@ -57,6 +61,9 @@ extension SubcategoryViewController: UITableViewDelegate {
     }
 }
 
-extension SubcategoryViewController: UISearchControllerDelegate {
-    
+extension SubcategoryViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        model.search(category: searchController.searchBar.text ?? "")
+        tableView.reloadData()
+    }
 }
