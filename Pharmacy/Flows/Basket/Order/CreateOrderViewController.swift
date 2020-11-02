@@ -62,8 +62,6 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
             return commentCell(at: indexPath)
         case .total:
             return totalInfoCell(at: indexPath)
-        default:
-            return UITableViewCell()
         }
     }
 
@@ -73,6 +71,10 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
 
     private func contactInfoCell(at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CreateOrderContactInfoCell", for: indexPath) as? CreateOrderContactInfoCell else { return UITableViewCell() }
+
+        if let contact = model.contact {
+            cell.apply(contact: contact)
+        }
 
         return cell
     }
@@ -88,13 +90,21 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
     private func totalInfoCell(at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderSummaryCell", for: indexPath) as? OrderSummaryCell else { return UITableViewCell() }
 
-        cell.apply(order: model.currentOrder, valid: model.isValid)
+        cell.apply(order: model.currentOrder, valid: true)
+
+        cell.confirmAction = { [weak self] in
+            self?.model.createOrder()
+        }
 
         return cell
     }
 
     private func deliveryAddress(at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DeliveryAddressCell", for: indexPath) as? DeliveryAddressCell else { return UITableViewCell() }
+
+        if let address = model.address {
+            cell.apply(delivery: address)
+        }
 
         return cell
     }
@@ -144,7 +154,7 @@ extension CreateOrderViewController: CreateOrderViewControllerInput {
     func reload() {
 
     }
-
+    
     func setAddress(hidden: Bool, at index: Int) {
         if hidden == true {
             tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
