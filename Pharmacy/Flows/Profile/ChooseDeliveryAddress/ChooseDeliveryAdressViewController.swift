@@ -123,8 +123,7 @@ class ChooseDeliveryAdressViewController: UIViewController {
     @IBAction func apply(_ sender: UIButton) {
             if self.validationView.allSatisfy({$0.validate()}) {
                 sender.isUserInteractionEnabled = false
-// TODO :- нужно сделать реалзицию приведения полей в соответсвии с сервером
-                
+    // TODO :- нужно сделать реалзицию приведения полей в соответсвии с сервером
                 model.saveDeliveryAddress(city: cityTextView.text!, street: streetTextView.text!,
                                           house: houseTextView.text!, pavilion: pavilionTextView.text,
                                           flat: flatTextView.text, note: noteTextView.text)

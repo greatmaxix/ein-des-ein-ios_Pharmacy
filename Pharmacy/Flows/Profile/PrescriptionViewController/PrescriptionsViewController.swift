@@ -29,6 +29,11 @@ final class PrescriptionsViewController: UIViewController {
         
         emptyView.setup(title: R.string.localize.prescriptionsEmptyTitle(), decriptionText: R.string.localize.prescriptionsEmptyDescription(), buttonTitle: R.string.localize.prescriptionsEmptyButton())
         
+        emptyView.setupImage(image: UIImage(named: "emptyReciept")!)
+        emptyView.tapButtonHandler = {[weak self] in
+            self?.model.signUpAnalysis()
+        }
+        
         emptyResultsView = emptyView
     }
     

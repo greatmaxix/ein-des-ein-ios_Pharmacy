@@ -12,8 +12,15 @@ final class EmptyResultsView: UIView {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var imageViewTopConstr: NSLayoutConstraint!
+    
+    
+    /**
+            Handler for catch tap on the main button adn adding reaction
+     */
+    var tapButtonHandler: EmptyClosure?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +35,19 @@ final class EmptyResultsView: UIView {
         titleLabel.text = title
         descriptionLabel.text = decriptionText
         confirmButton.setTitle(buttonTitle, for: .normal)
+    }
+    
+    
+    /**
+            change defoult image to entered
+            - Parameter image: enter image name from Assets
+     */
+    func setupImage(image: UIImage) {
+        self.imageView.image = image
+    }
+    
+    @IBAction func tapConfirmButton(_ sender: UIButton) {
+        self.tapButtonHandler?()
     }
 }
 

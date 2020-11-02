@@ -11,6 +11,7 @@ import EventsTree
 
 protocol AnalizesInput {
     func close()
+    func signUpAnalysis()
 }
 
 final class AnalizesModel: EventNode {
@@ -21,5 +22,9 @@ extension AnalizesModel: AnalizesInput {
     
     func close() {
         raise(event: ProfileEvent.close)
+    }
+    
+    func signUpAnalysis(){
+        raise(event: AppEvent.presentInDev)
     }
 }
