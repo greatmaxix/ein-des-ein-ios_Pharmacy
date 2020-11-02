@@ -14,5 +14,6 @@ struct UserDisplayable {
     let phone: String
     var avatarURL: URL?
     var regionName: String?
+    var deliveryAddress: String?
     var regionId: Int64?
 }

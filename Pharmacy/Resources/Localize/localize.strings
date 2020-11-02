@@ -265,3 +265,5 @@
 "delivery.note" = "Примечание к заказу";
 "delivery.applyButton" = "Сохранить";
 "delivery.title" = "Адрес доставки";
+"delivery.streenAndCityValidation" = "Поле должно содержать не менее 2 букв";
+"delivery.houseValidation" = "квартира должна быть от 1 до 1000";

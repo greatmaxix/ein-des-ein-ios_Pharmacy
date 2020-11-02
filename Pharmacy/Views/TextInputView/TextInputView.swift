@@ -64,6 +64,7 @@ final class TextInputView: UIView {
             inputTextField.text = newValue
         }
     }
+    
     var returnKeyType: UIReturnKeyType = .default {
         
         willSet {
@@ -214,6 +215,12 @@ final class TextInputView: UIView {
         ])
     }
     
+    
+    // TODO: - нужно сделать реализцаю удаления кнопки из вьюхи
+    func statusButtonDisable() {
+        self.inputStatusButton.isHidden = true
+    }
+    
     private func setupInputTextField() {
         inputTextField = UITextField()
         inputTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -278,7 +285,7 @@ final class TextInputView: UIView {
     }
     
     /**
-            change  main view height from Contanst to entered
+            Change main view height from Contant to entered
             - Parameter height: enter height value for view
      */
     func setupHeightTextView(height: Int) {
@@ -379,6 +386,10 @@ extension TextInputView {
                 return NameValidator()
             case .phone:
                 return PhoneValidator()
+            case .street, .city:
+                return CityValidator()
+            case .house:
+                return HouseValidator()
             // TODO: - сделать валидаторы для экрана
             default:
                 return nil

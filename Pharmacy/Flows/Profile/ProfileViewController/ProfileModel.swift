@@ -129,6 +129,8 @@ final class ProfileModel: Model {
             }
 
             do {
+                let location = user?.deliveryAddress
+                print("TEST SDSDSD \(location)")
                 let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAddress())
                 cellData.image = R.image.profileAddress()
                 cellData.selectHandler = { [weak self] in
