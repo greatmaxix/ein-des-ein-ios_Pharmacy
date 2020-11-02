@@ -92,6 +92,21 @@ struct DeliveryInfo: Codable {
     }
 }
 
+struct OrderListProduct: Codable {
+
+    var pharmacyProductId: Int?
+
+    enum Keys: String, CodingKey {
+        case pharmacyProductId
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+
+        pharmacyProductId = try? container.decode(Int.self, forKey: .pharmacyProductId)
+    }
+}
+
 struct Order: Codable {
 
     var orderId: Int?
@@ -100,7 +115,7 @@ struct Order: Codable {
     var deliveryInfo: DeliveryInfo?
     var paymentType: String?
     var pharmacy: PharmacyOrder?
-    var products: [CartMedicine]?
+    var products: [OrderListProduct]?
     var deliverPrice: Decimal?
     var totalCost: Decimal?
 
@@ -121,7 +136,7 @@ struct Order: Codable {
 
         orderId = try? container.decode(Int.self, forKey: .orderId)
         orderCreatedAt = try? container.decode(String.self, forKey: .orderCreatedAt)
-        products = try? container.decode([CartMedicine].self, forKey: .products)
+        products = try? container.decode([OrderListProduct].self, forKey: .products)
         deliveryInfo = try? container.decode(DeliveryInfo.self, forKey: .deliveryInfo)
         paymentType = try? container.decode(String.self, forKey: .paymentType)
         status = try? container.decode(String.self, forKey: .status)

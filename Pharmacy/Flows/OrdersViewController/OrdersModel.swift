@@ -10,12 +10,17 @@ import UIKit
 import EventsTree
 
 protocol OrdersListInput {
+    var numberOfOrders: Int { get }
+
     func close()
     func initialLoad()
+    func open(tab: OrderListRequestState)
+    func order(at indexPath: IndexPath) -> Order
 }
 
 protocol OrdersListOutput: class {
     func complete(isEmpty: Bool, error: String?)
+    func startLoading()
 }
 
 enum OrderListRequestState {
@@ -31,7 +36,7 @@ enum OrderListRequestState {
         case .canceled:
             return "canceled"
         case .processing:
-            return "in_progress"
+            return "new"
         case .done:
             return "done"
         }
@@ -50,7 +55,9 @@ class OrdersListModel: EventNode {
     private var orders: [Order] = []
     private var currentState: OrderListRequestState = .all
 
-    fileprivate func loadNext() {
+    fileprivate func load() {
+
+        output.startLoading()
 
         apiList.load(target: .getOrders(
                         page: page,
@@ -67,18 +74,34 @@ class OrdersListModel: EventNode {
                             self.output.complete(isEmpty: self.orders.isEmpty, error: error.localizedDescription)
                         }
                      })
-
     }
 }
 
 extension OrdersListModel: OrdersListInput, OrdersViewControllerOutput {
-    
+
+    var numberOfOrders: Int {
+        orders.count
+    }
+
     func close() {
         raise(event: ProfileEvent.close)
     }
 
     func initialLoad() {
         page = 1
-        loadNext()
+        load()
+    }
+
+    func open(tab: OrderListRequestState) {
+        if currentState == tab { return }
+
+        currentState = tab
+        orders.removeAll()
+
+        load()
+    }
+
+    func order(at indexPath: IndexPath) -> Order {
+        return orders[indexPath.row]
     }
 }

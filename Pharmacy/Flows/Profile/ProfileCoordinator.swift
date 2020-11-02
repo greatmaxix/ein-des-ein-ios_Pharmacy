@@ -142,6 +142,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         
         let model = OrdersListModel(parent: self)
         ordersVC.model = model
+        model.output = ordersVC
+        root.navigationController?.isNavigationBarHidden = true
         root.navigationController?.pushViewController(ordersVC, animated: true)
     }
     

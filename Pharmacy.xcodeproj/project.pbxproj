@@ -254,6 +254,7 @@
 		619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA472498B01900AB46ED /* KeychainManager.swift */; };
 		619AAA4A2498B09800AB46ED /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA492498B09800AB46ED /* Token.swift */; };
 		61AA47142550157700D140D3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA47132550157700D140D3 /* Order.swift */; };
+		61AA4718255028E800D140D3 /* OrderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA4717255028E800D140D3 /* OrderListCell.swift */; };
 		61CFAA552549EB7200569DEF /* EmptyUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA532549EB7200569DEF /* EmptyUserCell.swift */; };
 		61CFAA562549EB7200569DEF /* EmptyUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAA542549EB7200569DEF /* EmptyUserCell.xib */; };
 		61CFAA7A254AFFB300569DEF /* CreateOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA79254AFFB200569DEF /* CreateOrderViewController.swift */; };
@@ -577,6 +578,7 @@
 		619AAA472498B01900AB46ED /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		619AAA492498B09800AB46ED /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Pharmacy/Services/Managers/Token.swift; sourceTree = SOURCE_ROOT; };
 		61AA47132550157700D140D3 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		61AA4717255028E800D140D3 /* OrderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListCell.swift; sourceTree = "<group>"; };
 		61CFAA532549EB7200569DEF /* EmptyUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyUserCell.swift; sourceTree = "<group>"; };
 		61CFAA542549EB7200569DEF /* EmptyUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyUserCell.xib; sourceTree = "<group>"; };
 		61CFAA79254AFFB200569DEF /* CreateOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderViewController.swift; sourceTree = "<group>"; };
@@ -1219,6 +1221,7 @@
 		39F0AD6224EEC74600CD6CA4 /* OrdersViewController */ = {
 			isa = PBXGroup;
 			children = (
+				61AA4716255028CE00D140D3 /* Cells */,
 				39F0AD6424EEC80200CD6CA4 /* OrdersViewController.swift */,
 				39F0AD6624EEC81400CD6CA4 /* OrdersModel.swift */,
 				611C3C0B254F7158006178B7 /* Orders.storyboard */,
@@ -1739,6 +1742,14 @@
 				875223AF2500E9E7000759C8 /* UserSession */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		61AA4716255028CE00D140D3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				61AA4717255028E800D140D3 /* OrderListCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		61CFAA78254AFF8300569DEF /* Order */ = {
@@ -2328,6 +2339,7 @@
 				395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */,
 				618C33AA2498BFB400951D11 /* Coordinator.swift in Sources */,
 				393DDFB4250280DB00652A01 /* RegionViewController.swift in Sources */,
+				61AA4718255028E800D140D3 /* OrderListCell.swift in Sources */,
 				397541D324ED23B30069F8DE /* SimpleNavigationBar.swift in Sources */,
 				39CBDA6E249CF5BA00A04831 /* ConfirmCodeViewController.swift in Sources */,
 				87131D2C250A0C8E0050B8F2 /* NibView.swift in Sources */,

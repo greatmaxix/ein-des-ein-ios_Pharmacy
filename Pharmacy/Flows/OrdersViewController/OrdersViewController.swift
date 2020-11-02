@@ -16,6 +16,14 @@ final class OrdersViewController: UIViewController {
 
     var model: OrdersViewControllerOutput!
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var allButton: UIButton!
+    @IBOutlet weak var inProgressButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var cancelledButton: UIButton!
+
+    @IBOutlet var controllButtons: [UIButton]!
+
     private lazy var activityIndicator: MBProgressHUD = {
         let hud = MBProgressHUD(view: view)
         hud.contentColor = .gray
@@ -31,11 +39,9 @@ final class OrdersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
 
         model.initialLoad()
-
-        activityIndicator.show(animated: true)
+        allButton.dropBlueShadow()
     }
 
     private func applyEmptyStyle() {
@@ -49,27 +55,74 @@ final class OrdersViewController: UIViewController {
         
         emptyResultsView = emptyView
     }
-    
-    private func setupUI() {
-        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
-            bar.title = R.string.localize.myOrdersEmptyBarTitle()
-            bar.isLeftItemHidden = false
-            bar.leftItemTitle = nil
-            bar.isRightItemHidden = true
-            bar.barDelegate = self
-        }
+
+    @IBAction func back(_ sender: Any) {
+        model.close()
+    }
+
+    @IBAction func openAll(_ sender: Any) {
+        model.open(tab: .all)
+        setActive(button: allButton)
+    }
+
+    @IBAction func openDone(_ sender: Any) {
+        model.open(tab: .done)
+        setActive(button: doneButton)
+    }
+
+    @IBAction func openInProgress(_ sender: Any) {
+        model.open(tab: .processing)
+        setActive(button: inProgressButton)
     }
     
+    @IBAction func openCanceled(_ sender: Any) {
+        model.open(tab: .canceled)
+        setActive(button: cancelledButton)
+    }
+
+    private func setAllInactive() {
+        for button in controllButtons {
+            button.setTitleColor(R.color.gray(), for: .normal)
+            button.backgroundColor = .clear
+            button.removeShadow()
+        }
+    }
+
+    private func setActive(button: UIButton) {
+        setAllInactive()
+        
+        button.setTitleColor(R.color.welcomeBlue(), for: .normal)
+        button.backgroundColor = .white
+        button.dropBlueShadow()
+    }
 }
 
 extension OrdersViewController: OrdersViewControllerInput {
     func complete(isEmpty: Bool, error: String?) {
         if isEmpty == true {
-            applyEmptyStyle()
+//            applyEmptyStyle()
         }
+
+        tableView.reloadData()
 
         activityIndicator.hide(animated: true)
     }
+}
+
+extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.numberOfOrders
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListCell", for: indexPath) as? OrderListCell else { return UITableViewCell() }
+
+        cell.apply(order: model.order(at: indexPath))
+
+        return cell
+    }
+
 }
 
 extension OrdersViewController: SimpleNavigationBarDelegate {
@@ -78,5 +131,9 @@ extension OrdersViewController: SimpleNavigationBarDelegate {
     }
     
     func rightBarItemAction() {
+    }
+
+    func startLoading() {
+        activityIndicator.show(animated: true)
     }
 }
