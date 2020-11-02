@@ -55,7 +55,8 @@ final class ProfileViewController: UIViewController {
             self?.tableView.reloadData()
             self?.activityIndicator.hide(animated: true)
         }
-        
+
+        navigationController?.isNavigationBarHidden = false
     }
 }
 

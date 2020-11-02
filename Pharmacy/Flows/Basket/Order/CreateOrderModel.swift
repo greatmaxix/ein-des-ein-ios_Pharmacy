@@ -92,9 +92,6 @@ final class CreateOrderModel: Model {
         cellTypes.append(contentsOf: [CreateOrderCellType].init(repeating: .product, count: order.products.count))
         cellTypes.append(contentsOf: [.comments, .total])
     }
-
-
-
 }
 
 // MARK: - BasketViewControllerOutput
