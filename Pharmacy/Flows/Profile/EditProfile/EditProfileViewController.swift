@@ -7,9 +7,7 @@
 //
 
 import UIKit
-
-protocol EditProfileOutput: class {
-}
+import MBProgressHUD
 
 final class EditProfileViewController: UIViewController, SimpleNavigationBarDelegate {
 
@@ -21,6 +19,7 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     @IBOutlet private weak var emailInputView: TextInputView!
     
     private var tapGesture: UITapGestureRecognizer!
+    private var activityIndicator: MBProgressHUD!
     private var imagePicker: UIImagePickerController = UIImagePickerController()
     
     var model: EditProfileInput!
@@ -28,6 +27,7 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        activityIndicator = setupActivityIndicator()
         setupLocalization()
         
         imagePicker.delegate = self
@@ -123,16 +123,18 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
         setInputText()
       
         var validationSuccess = phoneInputView.validate()
-        validationSuccess = emailInputView.validate() && validationSuccess
         validationSuccess = nameInputView.validate() && validationSuccess
         if validationSuccess, let name: String = nameInputView.text, let email: String = emailInputView.text, let _: String = phoneInputView.text {
-            model.saveProfile(name: name, email: email)
+            let checkedEmail = !email.isEmpty && emailInputView.validate() ? email : ""
+            model.saveProfile(name: name, email: checkedEmail)
         }
     }
 }
 
 extension EditProfileViewController: EditProfileOutput {
-    
+    func savingImageSuccess() {
+        disableHUD()
+    }
 }
 
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -140,6 +142,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         if let image: UIImage = info[.originalImage] as? UIImage {
+            userImageView.image = image
             
             var mime: String = "image/"
             let blurredImage: UIImage = image.bluredImage(sigma: 5) ?? image
@@ -148,8 +151,16 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
                 mime += url.lastPathComponent.components(separatedBy: ".").last ?? ""
                 model.saveImage(image: image, mime: mime, fileName: url.lastPathComponent)
                 userImageView.image = blurredImage
+                enableHUD()
             }
         }
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    private func disableHUD() {
+        activityIndicator.hide(animated: true)
+    }
+    private func enableHUD() {
+        activityIndicator.show(animated: true)
     }
 }

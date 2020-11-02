@@ -28,6 +28,9 @@ protocol EditProfileInput: class {
     var email: String? {get}
     var imageUrl: URL? {get}
 }
+protocol EditProfileOutput: class {
+    func savingImageSuccess()
+}
 
 final class EditProfileModel: EventNode {
     
@@ -48,7 +51,6 @@ final class EditProfileModel: EventNode {
     private func updateUser(name: String, email: String, avatarUuid: String) {
         
         provider.load(target: .updateCustomer(name: name, email: email, avatarUuid: avatarUuid)) { [weak self] (result) in
-            
             guard let self: EditProfileModel = self else {return}
             switch result {
             case .success(let response):
@@ -66,12 +68,12 @@ final class EditProfileModel: EventNode {
         
         if let data = profileImage?.pngData() ?? profileImage?.jpegData(compressionQuality: 1) {
             imageProvider.load(target: .sendImage(imageData: data, mime: mime, fileName: imageFileName)) { [weak self] (result) in
-                
                 guard let self = self else {return}
                 switch result {
                 case .success(let response):
                     UserSession.shared.save(avatar: response.avatar)
                     self.user = UserSession.shared.user
+                    self.output.savingImageSuccess()
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
