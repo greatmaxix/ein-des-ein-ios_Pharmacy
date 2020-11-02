@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 protocol OrdersViewControllerInput: OrdersListOutput {}
 protocol OrdersViewControllerOutput: OrdersListInput {}
@@ -15,15 +16,26 @@ final class OrdersViewController: UIViewController {
 
     var model: OrdersViewControllerOutput!
 
+    private lazy var activityIndicator: MBProgressHUD = {
+        let hud = MBProgressHUD(view: view)
+        hud.contentColor = .gray
+        hud.backgroundView.style = .solidColor
+        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
+        hud.removeFromSuperViewOnHide = false
+        view.addSubview(hud)
+
+        return hud
+    }()
+
     private var emptyResultsView: EmptyResultsView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        applyEmptyStyle()
         setupUI()
 
         model.initialLoad()
+
+        activityIndicator.show(animated: true)
     }
 
     private func applyEmptyStyle() {
@@ -51,7 +63,13 @@ final class OrdersViewController: UIViewController {
 }
 
 extension OrdersViewController: OrdersViewControllerInput {
-    
+    func complete(isEmpty: Bool, error: String?) {
+        if isEmpty == true {
+            applyEmptyStyle()
+        }
+
+        activityIndicator.hide(animated: true)
+    }
 }
 
 extension OrdersViewController: SimpleNavigationBarDelegate {

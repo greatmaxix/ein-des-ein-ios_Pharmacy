@@ -14,8 +14,8 @@ protocol OrdersListInput {
     func initialLoad()
 }
 
-protocol OrdersListOutput {
-
+protocol OrdersListOutput: class {
+    func complete(isEmpty: Bool, error: String?)
 }
 
 enum OrderListRequestState {
@@ -40,11 +40,14 @@ enum OrderListRequestState {
 
 class OrdersListModel: EventNode {
 
-    private var apiList = DataManager<OrdersAPI, PostResponse>()
+    private var apiList = DataManager<OrdersAPI, OrdersResponse>()
 
-    var page = 0
-    var perPage = 20
+    private var page = 1
+    private var perPage = 50
 
+    weak var output: OrdersListOutput!
+
+    private var orders: [Order] = []
     private var currentState: OrderListRequestState = .all
 
     fileprivate func loadNext() {
@@ -54,15 +57,16 @@ class OrdersListModel: EventNode {
                         count: perPage,
                         status: currentState.toString()),
                      completion: { [weak self] result in
-            guard let self = self else { return }
+                        guard let self = self else { return }
 
-            switch result {
-            case .success(let response):
-                return
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        })
+                        switch result {
+                        case .success(let response):
+                            self.orders = response.items
+                            self.output.complete(isEmpty: self.orders.isEmpty, error: nil)
+                        case .failure(let error):
+                            self.output.complete(isEmpty: self.orders.isEmpty, error: error.localizedDescription)
+                        }
+                     })
 
     }
 }
@@ -74,7 +78,7 @@ extension OrdersListModel: OrdersListInput, OrdersViewControllerOutput {
     }
 
     func initialLoad() {
-        page = 0
+        page = 1
         loadNext()
     }
 }

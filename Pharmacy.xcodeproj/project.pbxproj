@@ -253,6 +253,7 @@
 		619AAA462498AEA700AB46ED /* SampleResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA452498AEA700AB46ED /* SampleResponseModel.swift */; };
 		619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA472498B01900AB46ED /* KeychainManager.swift */; };
 		619AAA4A2498B09800AB46ED /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619AAA492498B09800AB46ED /* Token.swift */; };
+		61AA47142550157700D140D3 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA47132550157700D140D3 /* Order.swift */; };
 		61CFAA552549EB7200569DEF /* EmptyUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA532549EB7200569DEF /* EmptyUserCell.swift */; };
 		61CFAA562549EB7200569DEF /* EmptyUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAA542549EB7200569DEF /* EmptyUserCell.xib */; };
 		61CFAA7A254AFFB300569DEF /* CreateOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAA79254AFFB200569DEF /* CreateOrderViewController.swift */; };
@@ -575,6 +576,7 @@
 		619AAA452498AEA700AB46ED /* SampleResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleResponseModel.swift; sourceTree = "<group>"; };
 		619AAA472498B01900AB46ED /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		619AAA492498B09800AB46ED /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Token.swift; path = Pharmacy/Services/Managers/Token.swift; sourceTree = SOURCE_ROOT; };
+		61AA47132550157700D140D3 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		61CFAA532549EB7200569DEF /* EmptyUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyUserCell.swift; sourceTree = "<group>"; };
 		61CFAA542549EB7200569DEF /* EmptyUserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyUserCell.xib; sourceTree = "<group>"; };
 		61CFAA79254AFFB200569DEF /* CreateOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderViewController.swift; sourceTree = "<group>"; };
@@ -969,6 +971,7 @@
 				603D31D624E5A3FE000E5A6C /* Product.swift */,
 				396FE9CF25063A460063E466 /* Region.swift */,
 				398880C1250F798300942D30 /* PharmacyModel.swift */,
+				61AA47132550157700D140D3 /* Order.swift */,
 			);
 			name = Models;
 			path = Templates/Models;
@@ -2348,6 +2351,7 @@
 				246A83F625472E260004ECEC /* CategoryDTO.swift in Sources */,
 				603D31A924E3B67B000E5A6C /* Category.swift in Sources */,
 				618C339F2498BE0200951D11 /* ProfileViewController.swift in Sources */,
+				61AA47142550157700D140D3 /* Order.swift in Sources */,
 				8715DB9224FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift in Sources */,
 				60E1A6F424EB8C5E00B3D205 /* SearchTableViewCell.swift in Sources */,
 				619AAA462498AEA700AB46ED /* SampleResponseModel.swift in Sources */,

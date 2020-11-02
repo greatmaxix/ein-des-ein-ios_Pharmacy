@@ -27,7 +27,7 @@ extension OrdersAPI: RequestConvertible {
         case .createOrderWith:
             return "customer/order"
         case .getOrders:
-            return "/api/v1/customer/orders"
+            return "customer/orders"
         }
     }
 
