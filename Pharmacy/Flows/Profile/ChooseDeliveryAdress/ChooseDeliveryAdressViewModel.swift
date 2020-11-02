@@ -8,6 +8,22 @@
 
 import Foundation
 
-class ChooseDeliveryAdressViewModel {
+protocol ChooseDeliveryAdressOutput: class {
+}
+
+protocol ChooseDeliveryAdressInput: class {
+    func close()
+}
+
+final class ChooseDeliveryAdressViewModel: Model {
     
+    unowned var output: ChooseDeliveryAdressOutput!
+    
+}
+
+extension ChooseDeliveryAdressViewModel: ChooseDeliveryAdressInput {
+    
+    func close() {
+        raise(event: AboutAppEvent.close)
+    }
 }
