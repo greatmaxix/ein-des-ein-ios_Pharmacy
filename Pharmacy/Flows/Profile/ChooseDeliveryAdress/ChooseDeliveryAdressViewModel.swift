@@ -19,7 +19,6 @@ protocol ChooseDeliveryAdressInput: class {
 }
 
 final class ChooseDeliveryAdressViewModel: Model {
-    
     unowned var output: ChooseDeliveryAdressOutput!
     
 }

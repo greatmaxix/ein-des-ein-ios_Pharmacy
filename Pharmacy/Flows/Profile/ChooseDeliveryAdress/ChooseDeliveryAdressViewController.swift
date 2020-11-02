@@ -96,6 +96,7 @@ class ChooseDeliveryAdressViewController: UIViewController {
         flatTextView.setupTextFieldSpaceing(leading: 10, trailing: 0, top: 3, bottom: 3)
         flatTextView.setupKeyboardType(type: .numberPad)
     }
+    
     private func setupNoteView() {
         noteTextView.placeholder = R.string.localize.deliveryNote()
         noteTextView.setupFontSize(fontSize: GUI.fontSize)
@@ -122,7 +123,7 @@ class ChooseDeliveryAdressViewController: UIViewController {
     @IBAction func apply(_ sender: UIButton) {
             if self.validationView.allSatisfy({$0.validate()}) {
                 sender.isUserInteractionEnabled = false
-                //let emailString: String? = emailTextView.validate() ? emailTextView.text : ""
+// TODO :- нужно сделать реалзицию приведения полей в соответсвии с сервером
                 
                 model.saveDeliveryAddress(city: cityTextView.text!, street: streetTextView.text!,
                                           house: houseTextView.text!, pavilion: pavilionTextView.text,
@@ -142,7 +143,6 @@ class ChooseDeliveryAdressViewController: UIViewController {
     }
 
     @objc private func keyboardWillAppear(notification: NSNotification) {
-        
         if let rect: CGRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
             
             scrollView.contentInset = UIEdgeInsets(top: scrollViewInsets.top, left: scrollViewInsets.left, bottom: scrollViewInsets.bottom + rect.height, right: scrollViewInsets.right)
@@ -152,24 +152,19 @@ class ChooseDeliveryAdressViewController: UIViewController {
     @objc private func keyboardWillDisappear() {
         scrollView.contentInset = scrollViewInsets
     }
-    
 }
 
-extension ChooseDeliveryAdressViewController: ChooseDeliveryAdressOutput {
-    
-}
+extension ChooseDeliveryAdressViewController: ChooseDeliveryAdressOutput {}
 
 extension ChooseDeliveryAdressViewController: SimpleNavigationBarDelegate, UITextFieldDelegate {
+    
     func leftBarItemAction() {
         model.close()
     }
     
-    func rightBarItemAction() {
-        
-    }
+    func rightBarItemAction() {}
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         if textField.tag + 1 < validationView.count {
             validationView[textField.tag + 1].startEditing()
         } else {
