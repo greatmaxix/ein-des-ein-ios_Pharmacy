@@ -26,7 +26,7 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var emptyView: EmptySearchView!
     
-    private weak var searchBar: SearchBar!
+    private let searchBar = SearchBar()
     
     private lazy var activityIndicator: MBProgressHUD = {
         let hud = MBProgressHUD(view: view)
@@ -41,19 +41,13 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     var style: NavigationBarStyle = .search
     
     var model: SearchViewControllerOutput!
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configUI()
         setupTableView()
         setupNavigationBar()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        model.retreiveResentRequests()
+        model.load()
     }
     
     func configUI() {
@@ -86,9 +80,7 @@ extension SearchViewController {
                                          for: .default)
         navigationBar.shadowImage = UIImage()
         
-        let searchBar = SearchBar()
         searchBar.delegate = self
-        self.searchBar = searchBar
         searchBar.heightAnchor.constraint(equalToConstant: 36).isActive = true
         
         navigationItem.titleView = searchBar
@@ -97,7 +89,6 @@ extension SearchViewController {
     }
     
     private func setupTableView() {
-        tableView.register(viewType: RecentsHeaderView.self)
         tableView.register(cellType: SearchTableViewCell.self)
         tableView.register(cellType: MedicineCell.self)
     }
@@ -121,13 +112,12 @@ extension SearchViewController: SearchViewControllerInput {
     
     func retrivesNewResults() {
         if case .empty = model.searchState {
-            tableView.isHidden = true
             emptyView.isHidden = false
         } else {
-            tableView.isHidden = false
             emptyView.isHidden = true
-            tableView.reloadData()
         }
+        
+        tableView.reloadData()
         
         activityIndicator.hide(animated: true)
     }
@@ -162,14 +152,16 @@ extension SearchViewController: SearchViewControllerInput {
         searchBar.endEditing(false)
         searchBar.textField.text = term
     }
+    
+    func beginSearch() {
+        self.searchBar.textField.becomeFirstResponder()
+    }
 }
 
 extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch model.searchState {
-        case .recents:
-            return model.recentRequests.count
         case .found:
             return model.medicines.count
         default:
@@ -179,11 +171,6 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch model.searchState {
-        case .recents:
-            let cell = tableView.dequeueReusableCell(at: indexPath, cellType: SearchTableViewCell.self)
-            cell.apply(title: model.recentRequests[indexPath.row])
-            
-            return cell
         case .found:
             let cell = tableView.dequeueReusableCell(at: indexPath, cellType: MedicineCell.self)
             cell.apply(medicine: model.medicines[indexPath.row])
@@ -202,28 +189,8 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch model.searchState {
-        case .recents:
-            return 44
         default:
             return .zero
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch model.searchState {
-        case .recents:
-            guard model.recentRequests.count > 0 else {
-                return UIView()
-            }
-            
-            let headerView = tableView.dequeueReusableView(viewType: RecentsHeaderView.self)
-            headerView.clearActionHandler = { [unowned self] in
-                self.cleanAction()
-            }
-            
-            return headerView
-        default:
-            return UIView()
         }
     }
 }

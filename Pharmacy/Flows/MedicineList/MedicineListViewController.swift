@@ -35,7 +35,7 @@ final class MedicineListViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        maskNavigation()
         configUI()
         setupTableView()
         activityIndicator.show(animated: true)
@@ -94,7 +94,6 @@ extension MedicineListViewController: MedicineListViewControllerInput {
         guard let indexPathes = indexPathes else {
             tableView.isHidden = false
             tableView.reloadData()
-            
             return
         }
 
@@ -138,7 +137,6 @@ extension MedicineListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         model.didSelectProductBy(indexPath: indexPath)
     }
 }
@@ -171,5 +169,25 @@ extension MedicineListViewController {
         static let sortButtonImagePadding: CGFloat = 9
         static let separatorInset = UIEdgeInsets.only(left: 135)
         static let separatorColor = R.color.applyBlueGray()?.withAlphaComponent(0.2)
+    }
+}
+
+extension UIViewController {
+    func maskNavigation() {
+        guard navigationController?.isNavigationBarHidden ?? true == false else { return }
+        let background = UIView()
+        background.backgroundColor = R.color.welcomeBlue()
+        background.layer.cornerRadius = 10.0
+        background.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        background.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(background)
+        NSLayoutConstraint.activate([
+            background.topAnchor.constraint(equalTo: view.topAnchor),
+            background.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            background.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            background.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        ])
+        
+        view.bringSubviewToFront(background)
     }
 }

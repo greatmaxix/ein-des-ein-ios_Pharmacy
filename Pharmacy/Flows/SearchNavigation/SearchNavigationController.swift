@@ -11,7 +11,7 @@ import UIKit
 protocol SearchNavigationControllerInput: SearchNavigationModelOutput {}
 protocol SearchNavigationControllerOutput: SearchNavigationModelInput {}
 
-final class SearchNavigationController: UINavigationController {
+final class SearchNavigationController: NavigationController {
     init() {
         super.init(navigationBarClass: NavigationBar.self, toolbarClass: nil)
     }

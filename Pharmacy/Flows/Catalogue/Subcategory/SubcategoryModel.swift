@@ -16,6 +16,7 @@ enum SubcategoryEvent: Event {
 }
 
 protocol SubcategoryModelOutput: class {
+    var isSearching: Bool { get }
     func didLoadCategories()
 }
 
@@ -25,6 +26,7 @@ protocol SubcategoryModelInput: class {
     func load()
     func close()
     func didSelectCategoryBy(indexPath: IndexPath)
+    func search(category: String)
 }
 
 class SubcategoryModel: Model {
@@ -32,6 +34,7 @@ class SubcategoryModel: Model {
     let categoryDataSource = TableDataSource<SubcategoryCellSection>()
     let provider = DataManager<CategoryAPI, CategoriesResponse>()
     private var categories: [Category]
+    private var filteredCategories: [Category] = []
     
     let title: String
     
@@ -42,12 +45,17 @@ class SubcategoryModel: Model {
     }
     
     func reloadCategories() {
-        categoryDataSource.cells = categories.map({SubcategoryCellSection.common($0)})
+        categoryDataSource.cells = (output.isSearching ? filteredCategories : categories).map({SubcategoryCellSection.common($0)})
         output.didLoadCategories()
     }
 }
 
 extension SubcategoryModel: SubcategoryModelInput {
+    
+    func search(category: String) {
+        filteredCategories = categories.flatMap { $0.allCategories()}.filter {$0.title.range(of: category, options: .caseInsensitive) != nil}
+        reloadCategories()
+    }
     
     func close() {
         raise(event: CatalogueEvent.close)
