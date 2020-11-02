@@ -18,7 +18,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     
     private weak var root: ProfileViewController!
     private let storyboard: UIStoryboard = R.storyboard.profile()
-    
+
+    // swiftlint:disable cyclomatic_complexity
     init(configuration: ProfileFlowConfiguration) {
         super.init(parent: configuration.parent)
         
@@ -53,6 +54,15 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 break
             }
         }
+
+        addHandler { [weak self] (event: OrderDetailsEvent) in
+            switch event {
+            case .back:
+                self?.popController()
+            default:
+                break
+            }
+        }
         
         addHandler { [weak self] (event: AppEvent) in
             switch event {
@@ -67,6 +77,15 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
             switch event {
             case .close:
                 self?.popController()
+            default:
+                break
+            }
+        }
+
+        addHandler { [weak self] (event: OrdersListEvent) in
+            switch event {
+            case .openOrder(let id):
+                self?.openOrder(id: id)
             default:
                 break
             }
@@ -201,6 +220,16 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         model.output = viewController
         viewController.model = model
         root.navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    fileprivate func openOrder(id: Int) {
+        guard let controller = R.storyboard.orders().instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController else { return }
+
+        let model = OrderDetailsModel(parent: self, orderId: id)
+        controller.model = model
+        model.output = controller
+
+        root.navigationController?.pushViewController(controller, animated: true)
     }
 }
 
