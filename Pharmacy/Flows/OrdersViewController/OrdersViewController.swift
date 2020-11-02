@@ -8,9 +8,13 @@
 
 import UIKit
 
+protocol OrdersViewControllerInput: OrdersListOutput {}
+protocol OrdersViewControllerOutput: OrdersListInput {}
+
 final class OrdersViewController: UIViewController {
 
-    var model: OrdersInput!
+    var model: OrdersViewControllerOutput!
+
     private var emptyResultsView: EmptyResultsView?
     
     override func viewDidLoad() {
@@ -18,6 +22,8 @@ final class OrdersViewController: UIViewController {
 
         applyEmptyStyle()
         setupUI()
+
+        model.initialLoad()
     }
 
     private func applyEmptyStyle() {
@@ -41,6 +47,10 @@ final class OrdersViewController: UIViewController {
             bar.barDelegate = self
         }
     }
+    
+}
+
+extension OrdersViewController: OrdersViewControllerInput {
     
 }
 

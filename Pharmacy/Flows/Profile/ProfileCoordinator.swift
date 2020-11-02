@@ -136,11 +136,11 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     }
     
     func presentMyOrders() {
-        guard let ordersVC: OrdersViewController = storyboard.instantiateViewController(withIdentifier: "OrdersViewController") as? OrdersViewController else {
+        guard let ordersVC: OrdersViewController = R.storyboard.orders().instantiateViewController(withIdentifier: "OrdersViewController") as? OrdersViewController else {
                    return
         }
         
-        let model = OrdersModel(parent: self)
+        let model = OrdersListModel(parent: self)
         ordersVC.model = model
         root.navigationController?.pushViewController(ordersVC, animated: true)
     }

@@ -17,6 +17,7 @@ enum OrdersAPI {
             paymentType: String,
             deliveryType: String
          )
+    case getOrders(page: Int, count: Int, status: String?)
 }
 
 extension OrdersAPI: RequestConvertible {
@@ -25,6 +26,8 @@ extension OrdersAPI: RequestConvertible {
         switch self {
         case .createOrderWith:
             return "customer/order"
+        case .getOrders:
+            return "/api/v1/customer/orders"
         }
     }
 
@@ -32,11 +35,22 @@ extension OrdersAPI: RequestConvertible {
         switch self {
         case .createOrderWith:
             return .post
+        case .getOrders:
+            return .get
         }
     }
 
     var task: Task {
         switch self {
+        case .getOrders(let page, let count, let status):
+            var params = [
+                "page": page,
+                "per_page": count
+            ] as [String: Any]
+            if status != nil {
+                params["status"] = status
+            }
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .createOrderWith(let order, let contact, let address, let paymentType, let deliveryType):
             var items: [[String: Any]] = []
 
