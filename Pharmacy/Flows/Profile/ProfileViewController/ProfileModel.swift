@@ -66,6 +66,7 @@ final class ProfileModel: Model {
     }
 
     private func setupDataSource() {
+        self.user = UserSession.shared.user
         
         let openOptionHandler: ((_: ProfileEvent) -> Void) = { [weak self] event in
             self?.raise(event: event)
@@ -130,8 +131,8 @@ final class ProfileModel: Model {
 
             do {
                 let location = user?.deliveryAddress
-                print("TEST SDSDSD \(location)")
-                let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAddress())
+                let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAddress(), additionalInfo: location, type: .delivery)
+
                 cellData.image = R.image.profileAddress()
                 cellData.selectHandler = { [weak self] in
                     self?.raise(event: ProfileEvent.openChooseDeliveryAdress)
