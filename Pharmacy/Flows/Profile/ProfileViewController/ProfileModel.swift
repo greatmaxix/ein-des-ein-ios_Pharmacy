@@ -51,8 +51,7 @@ final class ProfileModel: Model {
 
     override init(parent: EventNode?) {
         super.init(parent: parent)
-        
-        self.user = UserSession.shared.user
+
         setupDataSource()
         
         addHandler { [weak self] (event: EditProfileEvent) in
