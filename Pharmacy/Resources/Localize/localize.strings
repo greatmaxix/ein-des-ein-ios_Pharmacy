@@ -254,3 +254,14 @@
 // MARK: - Region
 
 "region.title" = "Регион";
+
+// MARK: - Delivery adress
+
+"delivery.city" = "Город";
+"delivery.street" = "Улица";
+"delivery.pavilion" = "№ Корпуса";
+"delivery.house" = "№ Дома";
+"delivery.flat" = "№ Кв";
+"delivery.note" = "Примечание к заказу";
+"delivery.applyButton" = "Сохранить";
+"delivery.title" = "Адрес доставки";

@@ -240,6 +240,52 @@ final class TextInputView: UIView {
         errorLabel.textColor = R.color.validationRed()
     }
     
+    /**
+            setup font size on current  Text View
+            - Parameter fontSize: enter INT value
+     */
+    func setupFontSize(fontSize: Int) {
+        inputTextField.font = R.font.openSansRegular(size: CGFloat(fontSize))
+    }
+    
+    /**
+        Setup spacing beetwen Text view and main View
+     
+     - Parameter leading: enter INT value
+     - Parameter trailing: enter INT value
+     - Parameter top: enter INT value
+     - Parameter bottom: enter INT value
+     */
+    func setupTextFieldSpaceing (leading: Int, trailing: Int, top: Int, bottom: Int) {
+        NSLayoutConstraint.activate([
+            inputTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
+                                                    constant: CGFloat(leading)),
+            inputTextField.topAnchor.constraint(equalTo: backgroundView.topAnchor,
+                                                constant: CGFloat(top)),
+            inputTextField.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor,
+                                                   constant: -CGFloat(bottom)),
+            inputTextField.trailingAnchor.constraint(equalTo: inputStatusButton.leadingAnchor,
+                                                     constant: -CGFloat(trailing))
+        ])
+    }
+    
+    /**
+            setup keyboard type on tap  Text View
+            - Parameter type: enter type of keyboard your neaded
+     */
+    func setupKeyboardType(type: UIKeyboardType) {
+            inputTextField.keyboardType = type
+    }
+    
+    /**
+            change  main view height from Contanst to entered
+            - Parameter height: enter height value for view
+     */
+    func setupHeightTextView(height: Int) {
+        self.backgroundViewHeight = CGFloat(height)
+        
+    }
+    
     private func setupPlaceHolder() {
         
         if let text = inputTextField!.attributedPlaceholder, contentType != .email {
@@ -261,7 +307,7 @@ fileprivate extension TextInputView {
         
         private init() {}
         
-        static let backgroundViewHeight: CGFloat = 48
+        static var backgroundViewHeight: CGFloat = 48
         static let lbErrorTop: CGFloat = 0
         static let lbErrorLeft: CGFloat = 5
         static let textfieldSpace: CGFloat = 5
@@ -286,6 +332,9 @@ extension TextInputView {
         case phone
         case name
         case other
+        case city
+        case street
+        case house
         
         var placeHolder: String? {
             
@@ -296,6 +345,12 @@ extension TextInputView {
                 return R.string.localize.placeholderPhone()
             case .name:
                 return R.string.localize.placeholderName()
+            case .city:
+                return R.string.localize.deliveryCity()
+            case .street:
+                return R.string.localize.deliveryStreet()
+            case .house:
+                return R.string.localize.deliveryHouse()
             default:
                 return nil
             }
@@ -306,7 +361,7 @@ extension TextInputView {
             switch self {
             case .email:
                 return .emailAddress
-            case .name:
+            case .name, .city, .street, .house:
                 return .default
             case .phone:
                 return .phonePad
@@ -324,6 +379,7 @@ extension TextInputView {
                 return NameValidator()
             case .phone:
                 return PhoneValidator()
+            // TODO: - сделать валидаторы для экрана
             default:
                 return nil
             }
@@ -331,7 +387,7 @@ extension TextInputView {
         
         var startText: String? {
             switch self {
-            case .email, .name, .other:
+            case .email, .name, .other, .city, .street, .house:
                 return nil
             case .phone:
                 return nil
