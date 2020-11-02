@@ -211,7 +211,6 @@ extension ProfileModel: ProfileInput {
 
         provider.load(target: .getCustomer) { [weak self] response in
             guard let self = self else {return}
-            print("zxcv \(response)")
             switch response {
             case .success(let result):
                 self.user = UserSession.shared.save(user: result.user, token: nil)

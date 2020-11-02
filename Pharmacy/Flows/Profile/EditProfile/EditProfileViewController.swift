@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 final class EditProfileViewController: UIViewController, SimpleNavigationBarDelegate {
 
@@ -18,6 +19,7 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     @IBOutlet private weak var emailInputView: TextInputView!
     
     private var tapGesture: UITapGestureRecognizer!
+    private var activityIndicator: MBProgressHUD!
     private var imagePicker: UIImagePickerController = UIImagePickerController()
     
     var model: EditProfileInput!
@@ -25,6 +27,7 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        activityIndicator = setupActivityIndicator()
         setupLocalization()
         
         imagePicker.delegate = self
@@ -130,7 +133,7 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
 
 extension EditProfileViewController: EditProfileOutput {
     func savingImageSuccess() {
-        enableSaveButton()
+        disableHUD()
     }
 }
 
@@ -148,20 +151,16 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
                 mime += url.lastPathComponent.components(separatedBy: ".").last ?? ""
                 model.saveImage(image: image, mime: mime, fileName: url.lastPathComponent)
                 userImageView.image = blurredImage
-                disableSaveButton()
+                enableHUD()
             }
         }
         picker.dismiss(animated: true, completion: nil)
     }
     
-    private func enableSaveButton() {
-        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
-            bar.isRightItemHidden = false
-        }
+    private func disableHUD() {
+        activityIndicator.hide(animated: true)
     }
-    private func disableSaveButton() {
-        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
-            bar.isRightItemHidden = true
-        }
+    private func enableHUD() {
+        activityIndicator.show(animated: true)
     }
 }

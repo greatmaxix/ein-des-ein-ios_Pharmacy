@@ -54,7 +54,6 @@ class DataManager<T, U> where T: TargetType, U: Decodable {
         switch result {
         case let .success(response):
             do {
-                print("zxcv test - \(try response.mapJSON())")
                 let successResponse = try response.filterSuccessfulStatusCodes()
                 let jsonDecoder = JSONDecoder()
                 let keyPath: String

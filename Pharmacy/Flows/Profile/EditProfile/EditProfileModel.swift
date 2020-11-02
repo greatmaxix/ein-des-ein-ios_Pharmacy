@@ -51,9 +51,6 @@ final class EditProfileModel: EventNode {
     private func updateUser(name: String, email: String, avatarUuid: String) {
         
         provider.load(target: .updateCustomer(name: name, email: email, avatarUuid: avatarUuid)) { [weak self] (result) in
-            print("zxcv \(result)")
-            print("zxcv \(try? result.get())")
-            print("zxcv image \(avatarUuid)")
             guard let self: EditProfileModel = self else {return}
             switch result {
             case .success(let response):
@@ -62,7 +59,6 @@ final class EditProfileModel: EventNode {
                 self.raise(event: EditProfileEvent.profileUpdated)
                 self.raise(event: EditProfileEvent.close)
             case .failure(let error):
-                print("zxcv sdasdasd \(error.localizedDescription)")
                 print(error.localizedDescription)
             }
         }
@@ -111,7 +107,6 @@ extension EditProfileModel: EditProfileInput {
     }
     
     func saveProfile(name: String, email: String) {
-        print("zxcv name-\(name)+email-\(email)+ avatar \(UserSession.shared.avatarUUID)")
         updateUser(name: name, email: email, avatarUuid: UserSession.shared.avatarUUID ?? "")
         
     }

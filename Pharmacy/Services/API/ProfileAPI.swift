@@ -50,7 +50,6 @@ extension ProfileAPI: RequestConvertible {
         case .getCustomer:
             return .requestPlain
         case .updateCustomer(name: let name, email: let email, avatarUuid: let avatarUuid):
-            print("zxcv \(self.baseURL.absoluteString)\(self.path)")
             return .requestParameters(parameters: ["name": name, "email": email, "avatarUuid": avatarUuid], encoding: JSONEncoding.default)
         case .sendImage(imageData: let imageData, mime: let mime, fileName: let fileName):
             let multipart = MultipartFormData(provider: .data(imageData), name: "file", fileName: fileName, mimeType: mime)
