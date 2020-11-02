@@ -24,6 +24,8 @@ enum ProfileEvent: Event {
     case logout
     case close
     case openProduct(Medicine)
+    case openChooseLocation
+    case openChooseDeliveryAdress
 }
 
 protocol ProfileInput {
@@ -49,8 +51,7 @@ final class ProfileModel: Model {
 
     override init(parent: EventNode?) {
         super.init(parent: parent)
-        
-        self.user = UserSession.shared.user
+
         setupDataSource()
         
         addHandler { [weak self] (event: EditProfileEvent) in
@@ -64,6 +65,7 @@ final class ProfileModel: Model {
     }
 
     private func setupDataSource() {
+        self.user = UserSession.shared.user
         
         let openOptionHandler: ((_: ProfileEvent) -> Void) = { [weak self] event in
             self?.raise(event: event)
@@ -109,7 +111,7 @@ final class ProfileModel: Model {
             cellData.image = R.image.profilePin()
             cellData.selectHandler = { [weak self] in
                 if UserSession.shared.user != nil {
-                    self?.raise(event: AppEvent.chooseLocation)
+                    self?.raise(event: ProfileEvent.openChooseLocation)
                 }
             }
             cellsData.append(cellData)
@@ -127,11 +129,12 @@ final class ProfileModel: Model {
             }
 
             do {
-                let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAddress())
+                let location = user?.deliveryAddress
+                let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAddress(), additionalInfo: location, type: .delivery)
+
                 cellData.image = R.image.profileAddress()
                 cellData.selectHandler = { [weak self] in
-                    //                self?.raise(event: ProfileEvent.changeRegion)
-                    self?.raise(event: AppEvent.presentInDev)
+                    self?.raise(event: ProfileEvent.openChooseDeliveryAdress)
                 }
                 cellsData.append(cellData)
             }

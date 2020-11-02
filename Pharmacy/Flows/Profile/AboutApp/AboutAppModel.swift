@@ -84,7 +84,6 @@ final class AboutAppModel: EventNode {
   }
 }
 
-
 // MARK: - AboutAppInput
 extension AboutAppModel: AboutAppInput {
   var cellCount: Int {

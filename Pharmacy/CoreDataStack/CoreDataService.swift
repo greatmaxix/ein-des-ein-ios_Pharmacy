@@ -61,16 +61,21 @@ final class CoreDataService {
                                       matching: predicate) { [unowned self] entity in
                                         dto.fillEntity(entity: entity)
                                         
-        guard let avatarDTO = dto.avatar else { return }
+        if let avatarDTO = dto.avatar {
+            self.save(avatar: avatarDTO, isNeedToSave: false)
+            bindAvatarToUser(andSave: false)
+        }
                                         
-                                        self.save(avatar: avatarDTO, isNeedToSave: false)
-        
-            if let regionDTO = dto.region{
+            if let regionDTO = dto.region {
                 self.save(region: regionDTO, isNeedToSave: false)
                 bindRegionToUser(andSave: false)
             }
-                                    
-            bindAvatarToUser(andSave: false)
+            
+            if let deliveryAddress = dto.deliveryAddress {
+                self.save(address: deliveryAddress, isNeedToSave: false)
+                bindDeliveryAddressToUser(andSave: false)
+            }
+                                
         }
         
         try? viewContext.saveIfNeeded()
@@ -105,6 +110,23 @@ final class CoreDataService {
                                                 dto.fillEntity(entity: $0)
         }
         
+        if isNeedToSave {
+            try? viewContext.saveIfNeeded()
+        }
+    }
+    
+    func save(address dto: DeliveryAddressDTO, isNeedToSave: Bool = true) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: dto.entityType.entityName)
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        _ = try? viewContext.execute(batchDeleteRequest)
+        
+        let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
+        dto.entityType.createOrUpdate(in: self.viewContext,
+                                            matching: predicate) {
+                                                dto.fillEntity(entity: $0)
+        }
+
         if isNeedToSave {
             try? viewContext.saveIfNeeded()
         }
@@ -152,5 +174,18 @@ final class CoreDataService {
         if isNeedToSave {
             try? viewContext.saveIfNeeded()
         }
+    }
+    
+    func bindDeliveryAddressToUser(andSave isNeedToSave: Bool = true) {
+        let users: [UserEntity] = (try? viewContext.all()) ?? []
+        let deliveryAdress: DeliveryAddressEntity? = (try? viewContext.all().first) ?? nil
+        
+        guard let user = users.first,
+            let adress = deliveryAdress else {
+                return
+        }
+        
+        user.uppdate(address: adress)
+        try? viewContext.saveIfNeeded()
     }
 }

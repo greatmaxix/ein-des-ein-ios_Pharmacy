@@ -19,6 +19,7 @@ final class UserEntity: NSManagedObject {
     @NSManaged public private(set) var uuid: String
     @NSManaged public private(set) var avatar: AvatarEntity?
     @NSManaged public private(set) var region: RegionEntity?
+    @NSManaged public private(set) var deliveryAdress: DeliveryAddressEntity?
     
     // MARK: - Public methods
     func updateWith(_ dto: UserDTO) {
@@ -34,6 +35,10 @@ final class UserEntity: NSManagedObject {
     
     func uppdate(region: RegionEntity?) {
         self.region = region
+    }
+    
+    func uppdate(address: DeliveryAddressEntity?) {
+        self.deliveryAdress = address
     }
 }
 

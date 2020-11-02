@@ -103,12 +103,19 @@ class UserSession {
                                phone: user.phone,
                                avatarURL: user.avatar?.url,
                                regionName: user.region?.name,
+                               deliveryAddress: user.deliveryAddress?.street,
                                regionId: user.region?.id)
     }
     
     func save(avatar: AvatarDTO) {
         CoreDataService.shared.save(avatar: avatar, isNeedToSave: false)
         CoreDataService.shared.bindAvatarToUser()
+        refetchUser()
+    }
+    
+    func save(deliveryAddress: DeliveryAddressDTO) {
+        CoreDataService.shared.save(address: deliveryAddress, isNeedToSave: false)
+        CoreDataService.shared.bindDeliveryAddressToUser(andSave: true)
         refetchUser()
     }
     
@@ -138,6 +145,7 @@ extension UserSession {
                                phone: userEntity.phone,
                                avatarURL: userEntity.avatar?.url,
                                regionName: userEntity.region?.name,
+                               deliveryAddress: userEntity.deliveryAdress?.street,
                                regionId: userEntity.region?.id)
     }
 
