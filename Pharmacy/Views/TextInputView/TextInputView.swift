@@ -308,13 +308,6 @@ final class TextInputView: UIView {
             inputTextField!.attributedPlaceholder = attrText
         }
     }
-    
-    func setupEmptyPlaceHolder(fontSize: Int) {
-        if let text = inputTextField!.attributedPlaceholder, contentType != .email {
-            let attrText = NSMutableAttributedString(attributedString: text)
-            //qwerty 
-        }
-    }
 }
 
 // MARK: - TextInputView + Constants
