@@ -33,6 +33,8 @@ class ChooseDeliveryAdressViewController: UIViewController {
     }()
     
     private enum GUI {
+        static let fontSize: Int = 14
+        static let noteTextViewHeight: Int = 120
         
     }
     
@@ -76,28 +78,28 @@ class ChooseDeliveryAdressViewController: UIViewController {
         streetTextView.contentType = .street
         
         houseTextView.contentType = .house
-        houseTextView.setupFontSize(fontSize: 14)
+        houseTextView.setupFontSize(fontSize: GUI.fontSize)
         houseTextView.setupTextFieldSpaceing(leading: 10, trailing: 0, top: 3, bottom: 3)
         houseTextView.setupKeyboardType(type: .numberPad)
         
         validationView.forEach({[unowned self] in $0.textFieldDelegate = self})
         
         pavilionTextView.placeholder = R.string.localize.deliveryPavilion()
-        pavilionTextView.setupFontSize(fontSize: 14)
+        pavilionTextView.setupFontSize(fontSize: GUI.fontSize)
         pavilionTextView.statusButtonDisable()
         pavilionTextView.setupTextFieldSpaceing(leading: 10, trailing: 0, top: 3, bottom: 3)
         pavilionTextView.setupKeyboardType(type: .numberPad)
         
         flatTextView.placeholder = R.string.localize.deliveryFlat()
-        flatTextView.setupFontSize(fontSize: 14)
+        flatTextView.setupFontSize(fontSize: GUI.fontSize)
         flatTextView.statusButtonDisable()
         flatTextView.setupTextFieldSpaceing(leading: 10, trailing: 0, top: 3, bottom: 3)
         flatTextView.setupKeyboardType(type: .numberPad)
     }
     private func setupNoteView() {
         noteTextView.placeholder = R.string.localize.deliveryNote()
-        noteTextView.setupFontSize(fontSize: 14)
-        noteTextView.setupHeightTextView(height: 120)
+        noteTextView.setupFontSize(fontSize: GUI.fontSize)
+        noteTextView.setupHeightTextView(height: GUI.noteTextViewHeight)
         noteTextView.statusButtonDisable()
     }
     

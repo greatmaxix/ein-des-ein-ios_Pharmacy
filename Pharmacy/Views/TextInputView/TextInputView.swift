@@ -262,7 +262,12 @@ final class TextInputView: UIView {
      - Parameter top: enter INT value
      - Parameter bottom: enter INT value
      */
-    func setupTextFieldSpaceing (leading: Int, trailing: Int, top: Int, bottom: Int) {
+    func setupTextFieldSpaceing (leading: Int?, trailing: Int?, top: Int?, bottom: Int?) {
+        let leading = leading ?? Int(Const.textfieldSpace)
+        let trailing = trailing ?? Int(Const.textfieldSpace)
+        let top = top ?? Int(Const.textfieldSpace)
+        let bottom = bottom ?? Int(Const.textfieldSpace)
+        
         NSLayoutConstraint.activate([
             inputTextField.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor,
                                                     constant: CGFloat(leading)),
