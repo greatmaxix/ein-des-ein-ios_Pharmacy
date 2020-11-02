@@ -65,7 +65,7 @@ struct OrderDetails: Codable {
         let container = try decoder.container(keyedBy: Keys.self)
 
         orderId = try? container.decode(Int.self, forKey: .orderId)
-
+        contactInfo = try? container.decode(DetailedOrderContact.self, forKey: .contactInfo)
         products = try? container.decode([CartMedicine].self, forKey: .products)
         deliveryInfo = try? container.decode(DeliveryInfo.self, forKey: .deliveryInfo)
         paymentType = try? container.decode(String.self, forKey: .paymentType)

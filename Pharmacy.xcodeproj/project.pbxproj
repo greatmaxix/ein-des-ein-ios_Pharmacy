@@ -241,6 +241,8 @@
 		6184731B2549A5120062D8B9 /* CartSectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6184731A2549A5120062D8B9 /* CartSectionFooterView.xib */; };
 		6184731E2549ACFB0062D8B9 /* CartMedecineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6184731D2549ACFB0062D8B9 /* CartMedecineCell.swift */; };
 		6185013C25508C250094A6A6 /* OrderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6185013B25508C250094A6A6 /* OrderDetails.swift */; };
+		61850140255091830094A6A6 /* OrderDetailsContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6185013F255091830094A6A6 /* OrderDetailsContactCell.swift */; };
+		61850144255091950094A6A6 /* OrderDetailsPharmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61850143255091950094A6A6 /* OrderDetailsPharmacyCell.swift */; };
 		618C33952498BD6700951D11 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33942498BD6700951D11 /* AppNavigation.swift */; };
 		618C33982498BDC200951D11 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C33972498BDC200951D11 /* SignInViewController.swift */; };
 		618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618C339B2498BDF000951D11 /* SignUpViewController.swift */; };
@@ -568,6 +570,8 @@
 		6184731A2549A5120062D8B9 /* CartSectionFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartSectionFooterView.xib; sourceTree = "<group>"; };
 		6184731D2549ACFB0062D8B9 /* CartMedecineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartMedecineCell.swift; sourceTree = "<group>"; };
 		6185013B25508C250094A6A6 /* OrderDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetails.swift; sourceTree = "<group>"; };
+		6185013F255091830094A6A6 /* OrderDetailsContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsContactCell.swift; sourceTree = "<group>"; };
+		61850143255091950094A6A6 /* OrderDetailsPharmacyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsPharmacyCell.swift; sourceTree = "<group>"; };
 		618C33942498BD6700951D11 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
 		618C33972498BDC200951D11 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		618C339B2498BDF000951D11 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -1658,6 +1662,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		6185013E255091570094A6A6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				6185013F255091830094A6A6 /* OrderDetailsContactCell.swift */,
+				61850143255091950094A6A6 /* OrderDetailsPharmacyCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		618C33932498BD1A00951D11 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1763,6 +1776,7 @@
 		61AA471D25505A1800D140D3 /* Order Details */ = {
 			isa = PBXGroup;
 			children = (
+				6185013E255091570094A6A6 /* Cells */,
 				61AA471E25505A2600D140D3 /* OrderDetailsViewController.swift */,
 				61AA472125505A4800D140D3 /* OrderDetailsModel.swift */,
 			);
@@ -2367,6 +2381,7 @@
 				61CFAACA254F1C0D00569DEF /* OrderContactInfo.swift in Sources */,
 				619AAA402498A9AE00AB46ED /* AuthAPI.swift in Sources */,
 				398880C4250F799400942D30 /* PharmacyResponse.swift in Sources */,
+				61850144255091950094A6A6 /* OrderDetailsPharmacyCell.swift in Sources */,
 				87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */,
 				60E1A71524ECE0DD00B3D205 /* ScanCoordinator.swift in Sources */,
 				601E7ED12549CDB300C936BF /* MapGetDirections.swift in Sources */,
@@ -2504,6 +2519,7 @@
 				8717E4DE2507744500546A55 /* SearchAPI.swift in Sources */,
 				875223CC2500FE07000759C8 /* NSManagedObject+Name.swift in Sources */,
 				24F5FC54254892CC00D28275 /* RecentMedicineDTO.swift in Sources */,
+				61850140255091830094A6A6 /* OrderDetailsContactCell.swift in Sources */,
 				61CFAA83254B1AB800569DEF /* CreateOrderContactInfoCell.swift in Sources */,
 				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,
 				87131D3C251392270050B8F2 /* String+HTML.swift in Sources */,

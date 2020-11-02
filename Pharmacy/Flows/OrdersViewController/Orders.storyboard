@@ -408,19 +408,87 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uNT-ck-ym7">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uNT-ck-ym7">
                                 <rect key="frame" x="0.0" y="183" width="414" height="679"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="backgroundGray"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JfP-B0-Rr7">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderDetailsContactCell" rowHeight="188" id="JfP-B0-Rr7" customClass="OrderDetailsContactCell" customModule="Pharmacy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="188"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JfP-B0-Rr7" id="jb5-Ff-wn8">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Контактные данные :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvg-MJ-Xyr">
+                                                    <rect key="frame" x="16" y="24" width="159" height="22"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                                    <color key="textColor" name="textDarkBlue"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uaj-6s-v7K">
+                                                    <rect key="frame" x="16" y="54" width="382" height="120"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BAE-9i-4Zh">
+                                                            <rect key="frame" x="16" y="16" width="350" height="82"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ name }" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Poz-tU-w9M">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="350" height="28"/>
+                                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                                    <color key="textColor" name="textDarkBlue"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ phone }" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54d-oo-9I5">
+                                                                    <rect key="frame" x="0.0" y="36" width="350" height="19"/>
+                                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                                    <color key="textColor" name="textDarkBlue"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="{ email }" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gur-lo-cKg">
+                                                                    <rect key="frame" x="0.0" y="63" width="350" height="19"/>
+                                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                                    <color key="textColor" name="textDarkBlue"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="BAE-9i-4Zh" firstAttribute="top" secondItem="Uaj-6s-v7K" secondAttribute="top" constant="16" id="AvQ-ez-5by"/>
+                                                        <constraint firstItem="BAE-9i-4Zh" firstAttribute="leading" secondItem="Uaj-6s-v7K" secondAttribute="leading" constant="16" id="aNX-Wr-wdA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="BAE-9i-4Zh" secondAttribute="trailing" constant="16" id="dYb-HQ-Mg9"/>
+                                                        <constraint firstAttribute="bottom" secondItem="BAE-9i-4Zh" secondAttribute="bottom" constant="22" id="hHE-pV-6sb"/>
+                                                        <constraint firstAttribute="height" constant="120" id="vzt-a7-hqu"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" name="backgroundGray"/>
+                                            <constraints>
+                                                <constraint firstItem="yvg-MJ-Xyr" firstAttribute="leading" secondItem="jb5-Ff-wn8" secondAttribute="leading" constant="16" id="IPh-TH-Q1g"/>
+                                                <constraint firstAttribute="trailing" secondItem="Uaj-6s-v7K" secondAttribute="trailing" constant="16" id="N9W-C1-bmW"/>
+                                                <constraint firstItem="Uaj-6s-v7K" firstAttribute="top" secondItem="yvg-MJ-Xyr" secondAttribute="bottom" constant="8" id="SKJ-k8-UFS"/>
+                                                <constraint firstAttribute="bottom" secondItem="Uaj-6s-v7K" secondAttribute="bottom" constant="14" id="VEH-9x-bXB"/>
+                                                <constraint firstItem="yvg-MJ-Xyr" firstAttribute="top" secondItem="jb5-Ff-wn8" secondAttribute="top" constant="24" id="YRs-xk-7bk"/>
+                                                <constraint firstItem="Uaj-6s-v7K" firstAttribute="leading" secondItem="jb5-Ff-wn8" secondAttribute="leading" constant="16" id="v9J-hv-0jo"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cornoredView" destination="Uaj-6s-v7K" id="IXe-vr-vuD"/>
+                                            <outlet property="emailLabel" destination="gur-lo-cKg" id="h3v-ez-jR5"/>
+                                            <outlet property="nameLabel" destination="Poz-tU-w9M" id="0V5-yT-NVf"/>
+                                            <outlet property="phoneLabel" destination="54d-oo-9I5" id="zRY-sO-07u"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="icl-Vp-a2b" id="mUY-Yf-m7P"/>
+                                    <outlet property="delegate" destination="icl-Vp-a2b" id="l9i-zi-WIO"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zv9-lz-VhZ"/>
@@ -436,12 +504,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="uNT-ck-ym7" id="lrW-Si-Vuh"/>
                         <outlet property="titleLabel" destination="ia0-x5-xpg" id="f3v-i5-ieb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbc-Zf-1ZK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2658" y="850"/>
+            <point key="canvasLocation" x="2657.971014492754" y="849.77678571428567"/>
         </scene>
     </scenes>
     <resources>

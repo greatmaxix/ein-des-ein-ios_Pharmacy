@@ -15,13 +15,16 @@ enum OrderDetailsEvent: Event {
 
 protocol OrderDetailsModelInput {
     var currentOrderId: String { get }
+    var numberOfRows: Int { get }
+    var contact: DetailedOrderContact? { get }
 
     func load()
     func back()
+    func type(at indexPath: IndexPath) -> CreateOrderCellType
 }
 
 protocol OrderDetailsModelOutput: class {
-
+    func didLoadData(error: String?)
 }
 
 class OrderDetailsModel: EventNode {
@@ -30,11 +33,20 @@ class OrderDetailsModel: EventNode {
     weak var output: OrderDetailsModelOutput!
 
     private var orderId: Int = 0
+    private var order: OrderDetails!
+    private var cellTypes: [CreateOrderCellType]!
 
     init(parent: EventNode?, orderId: Int) {
         super.init(parent: parent)
 
         self.orderId = orderId
+        createCells()
+    }
+
+    fileprivate func createCells() {
+        cellTypes = [.contactInfo] //, .pharmacy, .deliveryAddress, .paymentType]
+//        cellTypes.append(contentsOf: [CreateOrderCellType].init(repeating: .product, count: order.products.count))
+//        cellTypes.append(contentsOf: [.comments, .total])
     }
 
 }
@@ -45,25 +57,39 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
         "\(orderId)"
     }
 
+    var numberOfRows: Int {
+        if order == nil {
+            return 0
+        } else {
+            return cellTypes.count
+        }
+    }
+
+    var contact: DetailedOrderContact? {
+        order.contactInfo
+    }
+
     func load() {
         api.load(target: .orderDteails(orderId: orderId),
                      completion: { [weak self] result in
-                        guard let self = self else { return }
+                        guard let `self` = self else { return }
 
                         switch result {
                         case .success(let response):
-                            return
-//                            self.orders = response.items
-//                            self.output.complete(isEmpty: self.orders.isEmpty, error: nil)
+                            self.order = response.item
+                            self.output.didLoadData(error: nil)
                         case .failure(let error):
-                            return
-//                            self.output.complete(isEmpty: self.orders.isEmpty, error: error.localizedDescription)
+                            self.output.didLoadData(error: error.localizedDescription)
                         }
                      })
     }
 
     func back() {
         raise(event: OrderDetailsEvent.back)
+    }
+
+    func type(at indexPath: IndexPath) -> CreateOrderCellType {
+        return cellTypes[indexPath.row]
     }
 
 }

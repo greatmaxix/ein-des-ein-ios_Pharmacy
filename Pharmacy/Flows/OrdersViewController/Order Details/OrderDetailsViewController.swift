@@ -16,6 +16,7 @@ class OrderDetailsViewController: UIViewController {
     var model: OrderDetailsViewControllerOutput!
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,37 @@ class OrderDetailsViewController: UIViewController {
     }
 }
 
+extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        model.numberOfRows
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch model.type(at: indexPath) {
+        case .contactInfo:
+            return contactInfoCell(at: indexPath)
+        default:
+            return UITableViewCell()
+        }
+    }
+
+    private func contactInfoCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailsContactCell", for: indexPath) as? OrderDetailsContactCell else { return UITableViewCell() }
+
+        if let contact = model.contact {
+            cell.apply(contact: contact)
+        }
+
+        return cell
+    }
+
+}
+
 extension OrderDetailsViewController: OrderDetailsViewControllerInput {
-    
+
+    func didLoadData(error: String?) {
+        tableView.reloadData()
+    }
+
 }
