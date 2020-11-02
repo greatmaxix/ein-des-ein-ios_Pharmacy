@@ -140,7 +140,6 @@ extension UserSession {
     }
     
     private func convertToDisplayable(userEntity: UserEntity) -> UserDisplayable {
-        print("zxcv convertToDisplayable \(userEntity.deliveryAdress?.street)")
         return UserDisplayable(name: userEntity.name,
                                email: userEntity.email,
                                phone: userEntity.phone,

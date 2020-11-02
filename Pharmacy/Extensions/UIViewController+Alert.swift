@@ -16,7 +16,7 @@ struct AlertAction {
 
 extension UIViewController {
     
-    func setupActivityIndicator() -> MBProgressHUD{
+    func setupActivityIndicator() -> MBProgressHUD {
         let hud = MBProgressHUD(view: view)
         hud.backgroundView.style = .solidColor
         hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)

@@ -34,7 +34,7 @@ final class AboutAppViewController: UIViewController {
     tableView.register(UINib(nibName: String(describing: AboutAppTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: AboutAppTableViewCell.self))
   }
   
-  //MARK: - Private functions
+  // MARK: - Private functions
   private func setupUI() {
     /// setup view styles
     view.backgroundColor = R.color.lightGray()
@@ -53,10 +53,11 @@ final class AboutAppViewController: UIViewController {
     
     /// setup textView link
     let url = URL(string: "https://\(R.string.localize.aboutLink())")
-    let attributedLinkString = NSMutableAttributedString(string: R.string.localize.aboutLink(), attributes: [.link : url!])
+    let attributedLinkString = NSMutableAttributedString(string: R.string.localize.aboutLink(),
+                                                         attributes: [.link: url!])
     linkTextView.linkTextAttributes = [
       .foregroundColor: R.color.welcomeBlue(),
-      .underlineStyle: 0
+        .underlineStyle: 0
     ]
     linkTextView.attributedText = attributedLinkString
     linkTextView.isUserInteractionEnabled = true

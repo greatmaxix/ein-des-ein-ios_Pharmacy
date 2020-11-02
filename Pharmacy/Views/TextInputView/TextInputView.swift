@@ -215,7 +215,6 @@ final class TextInputView: UIView {
         ])
     }
     
-    
     // TODO: - нужно сделать реализцаю удаления кнопки из вьюхи
     func statusButtonDisable() {
         self.inputStatusButton.isHidden = true
