@@ -83,6 +83,6 @@ extension SearchBar: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         delegate?.searchBarSearchButtonClicked(self)
         
-        return true
+        return textField.resignFirstResponder()
     }
 }

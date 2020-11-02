@@ -10,9 +10,13 @@ import UIKit
 
 class NavigationController: UINavigationController {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        setupNavigationBar()
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
@@ -20,5 +24,12 @@ class NavigationController: UINavigationController {
         backItem.title = " "
         viewController.navigationItem.backBarButtonItem = backItem
         super.pushViewController(viewController, animated: animated)
+    }
+    
+    private func setupNavigationBar() {
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationBar.tintColor = .white
+        navigationBar.shadowImage = UIImage()
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
 }

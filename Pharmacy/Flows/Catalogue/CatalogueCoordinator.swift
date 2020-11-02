@@ -13,9 +13,9 @@ struct CatalogueFlowConfiguration {
     let parent: EventNode
 }
 
-final class CatalogueCoordinator: EventNode, NaviagationEmbedCoordinable {
+final class CatalogueCoordinator: EventNode, Coordinator {
 
-    lazy private(set) var navigationCoordinator: NavigationCoordinator = SearchNavigationCoordinator(configuration: .init(parent: self))
+    var navigation: UINavigationController!
     
     // MARK: - Init / Deinit methods
     init(configuration: CatalogueFlowConfiguration) {
@@ -61,9 +61,9 @@ final class CatalogueCoordinator: EventNode, NaviagationEmbedCoordinable {
         let model = CatalogueModel(parent: self)
         viewController.model = model
         model.output = viewController
-        navigation.setViewControllers([viewController], animated: false)
-
-        return navigation
+        let nav = NavigationController(rootViewController: viewController)
+        navigation = nav
+        return nav
     }
 }
 

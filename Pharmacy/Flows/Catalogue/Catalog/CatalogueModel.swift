@@ -11,30 +11,42 @@ import EventsTree
 import Moya
 
 enum CatalogueEvent: Event {
-    
     case openMedicineListFor(category: Category)
     case close
 }
 
 protocol CatalogueModelOutput: class {
     func didLoadCategories()
+    func reloadFiltered()
 }
 
 protocol CatalogueModelInput: class {
+    var filteredCategories: [Category] { get }
     var categoryDataSource: CollectionDataSource<CategoryCellSection> { get }
     var title: String { get }
+    var isSearching: Bool { get }
     func load()
     func close()
     func didSelectCategoryBy(indexPath: IndexPath)
+    func didSelectFilteredCategoryBy(indexPath: IndexPath)
+    func search(category: String)
+    func cleanSearch()
 }
 
 class CatalogueModel: Model {
     unowned var output: CatalogueModelOutput!
     let categoryDataSource = CollectionDataSource<CategoryCellSection>()
     let provider = DataManager<CategoryAPI, CategoriesResponse>()
-    private var categories: [Category]
+    private var categories: [Category] {
+        didSet {
+            allCategories = categories.flatMap { $0.allCategories()}
+        }
+    }
+    private var allCategories: [Category] = []
     
     let title: String
+    var filteredCategories: [Category] = []
+    var searchTerm = ""
     
     init(category: Category? = nil, parent: EventNode?) {
         self.title = category?.shortTitle ?? R.string.localize.welcomeCategories()
@@ -49,6 +61,10 @@ class CatalogueModel: Model {
 }
 
 extension CatalogueModel: CatalogueModelInput {
+    var isSearching: Bool {
+        return false
+    }
+    
     
     func close() {
         raise(event: CatalogueEvent.close)
@@ -88,5 +104,25 @@ extension CatalogueModel: CatalogueModelInput {
         } else {
             raise(event: WelcomeEvent.openCategories(category: category))
         }
+    }
+    
+    func didSelectFilteredCategoryBy(indexPath: IndexPath) {
+        let category = filteredCategories[indexPath.row]
+        
+        if category.subCategories?.isEmpty ?? true {
+            raise(event: CatalogueEvent.openMedicineListFor(category: category))
+        } else {
+            raise(event: WelcomeEvent.openCategories(category: category))
+        }
+    }
+    
+    func search(category: String) {
+        filteredCategories = allCategories.filter({$0.title.contains(category)})
+        output.reloadFiltered()
+    }
+    
+    func cleanSearch() {
+        filteredCategories = []
+        output.reloadFiltered()
     }
 }
