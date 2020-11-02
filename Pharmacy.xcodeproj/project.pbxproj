@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24567C0D25501211001CF931 /* ChooseDeliveryAdressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24567C0C25501211001CF931 /* ChooseDeliveryAdressViewController.swift */; };
+		24567C112550121B001CF931 /* ChooseDeliveryAdressViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24567C102550121B001CF931 /* ChooseDeliveryAdressViewController.storyboard */; };
+		24567C1425501226001CF931 /* ChooseDeliveryAdressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24567C1325501226001CF931 /* ChooseDeliveryAdressViewModel.swift */; };
 		246A83B72546E26A0004ECEC /* ProductCartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83B62546E26A0004ECEC /* ProductCartAPI.swift */; };
 		246A83C62547070A0004ECEC /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83C52547070A0004ECEC /* PostResponse.swift */; };
 		246A83F625472E260004ECEC /* CategoryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83F525472E260004ECEC /* CategoryDTO.swift */; };
@@ -325,6 +328,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24567C0C25501211001CF931 /* ChooseDeliveryAdressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDeliveryAdressViewController.swift; sourceTree = "<group>"; };
+		24567C102550121B001CF931 /* ChooseDeliveryAdressViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseDeliveryAdressViewController.storyboard; sourceTree = "<group>"; };
+		24567C1325501226001CF931 /* ChooseDeliveryAdressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDeliveryAdressViewModel.swift; sourceTree = "<group>"; };
 		246A83B62546E26A0004ECEC /* ProductCartAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartAPI.swift; sourceTree = "<group>"; };
 		246A83C52547070A0004ECEC /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
 		246A83F525472E260004ECEC /* CategoryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDTO.swift; sourceTree = "<group>"; };
@@ -658,6 +664,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24567C0B255011ED001CF931 /* ChooseDeliveryAdress */ = {
+			isa = PBXGroup;
+			children = (
+				24567C0C25501211001CF931 /* ChooseDeliveryAdressViewController.swift */,
+				24567C102550121B001CF931 /* ChooseDeliveryAdressViewController.storyboard */,
+				24567C1325501226001CF931 /* ChooseDeliveryAdressViewModel.swift */,
+			);
+			path = ChooseDeliveryAdress;
+			sourceTree = "<group>";
+		};
 		246A83EA25472CE90004ECEC /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -1064,7 +1080,6 @@
 		396C45CF249774D200A569CE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				24F5FD3C254A0B6B00D28275 /* ChooseLocation */,
 				4D8BCF69254891570094C43C /* InDevelopment */,
 				8715DB8424FFBFB900BBF37C /* Onboarding */,
 				60E1A70F24ECE0AB00B3D205 /* Scan */,
@@ -1670,6 +1685,8 @@
 		618C339D2498BDF600951D11 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				24567C0B255011ED001CF931 /* ChooseDeliveryAdress */,
+				24F5FD3C254A0B6B00D28275 /* ChooseLocation */,
 				4DE4D533254980A400EE0E3A /* AboutApp */,
 				3954D11F24D1B5DA00AB44BD /* EditProfile */,
 				39F0AD6224EEC74600CD6CA4 /* OrdersViewController */,
@@ -2138,6 +2155,7 @@
 				6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */,
 				60289A53254AF5FB00F6A503 /* SubcategoryTableViewCell.xib in Resources */,
 				395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */,
+				24567C112550121B001CF931 /* ChooseDeliveryAdressViewController.storyboard in Resources */,
 				24F5FDB6254B3C3A00D28275 /* ChooseLocationTableViewCell.xib in Resources */,
 				393DDFC42502954200652A01 /* RegionHeaderCell.xib in Resources */,
 				60E1A6F524EB8C5E00B3D205 /* SearchTableViewCell.xib in Resources */,
@@ -2376,6 +2394,7 @@
 				39F0AD6924EEC83000CD6CA4 /* PrescriptionsModel.swift in Sources */,
 				603D319F24E3B492000E5A6C /* CollectionDataSourceViewController.swift in Sources */,
 				246A83B72546E26A0004ECEC /* ProductCartAPI.swift in Sources */,
+				24567C0D25501211001CF931 /* ChooseDeliveryAdressViewController.swift in Sources */,
 				878CFC0E2514CC1C00298139 /* Decimal+MoneyFormat.swift in Sources */,
 				6184731E2549ACFB0062D8B9 /* CartMedecineCell.swift in Sources */,
 				875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */,
@@ -2453,6 +2472,7 @@
 				39F0AD5E24EEBF9B00CD6CA4 /* EmptyResultsView.swift in Sources */,
 				39F8B2F724CEFBBA00195AD8 /* WelcomeViewController.swift in Sources */,
 				3949851A24BC519B006A773D /* ProfileOptionsCell.swift in Sources */,
+				24567C1425501226001CF931 /* ChooseDeliveryAdressViewModel.swift in Sources */,
 				60E1A71F24ED12C200B3D205 /* UIViewController+ActionSheetView.swift in Sources */,
 				398B0DE224F50AD60084EC54 /* UserMarkerView.swift in Sources */,
 				24F5FC58254892D900D28275 /* RecentMedicineEntity.swift in Sources */,

@@ -24,6 +24,7 @@ enum ProfileEvent: Event {
     case logout
     case close
     case openProduct(Medicine)
+    case openChooseLocation
 }
 
 protocol ProfileInput {
@@ -109,7 +110,7 @@ final class ProfileModel: Model {
             cellData.image = R.image.profilePin()
             cellData.selectHandler = { [weak self] in
                 if UserSession.shared.user != nil {
-                    self?.raise(event: AppEvent.chooseLocation)
+                    self?.raise(event: ProfileEvent.openChooseLocation)
                 }
             }
             cellsData.append(cellData)
