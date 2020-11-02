@@ -75,7 +75,10 @@ class ChooseDeliveryAdressViewController: UIViewController {
     
     private func setupValidationViews() {
         cityTextView.contentType = .city
+        cityTextView.setupEmptyPlaceHolder(fontSize: 14)
+        
         streetTextView.contentType = .street
+        streetTextView.setupEmptyPlaceHolder(fontSize: 14)
         
         houseTextView.contentType = .house
         houseTextView.setupFontSize(fontSize: GUI.fontSize)

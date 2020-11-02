@@ -28,6 +28,11 @@ final class AnalizesViewController: UIViewController {
         emptyView.constraintsToSuperView()
 
         emptyView.setup(title: R.string.localize.analizesEmptyTitle(), decriptionText: R.string.localize.analizesEmptyDescription(), buttonTitle: R.string.localize.analizesEmptyButton())
+        
+        emptyView.setupImage(image: UIImage(named: "emptyOrders")!)
+        emptyView.tapButtonHandler = {[weak self] in
+            self?.model.signUpAnalysis()
+        }
 
         emptyResultsView = emptyView
     }

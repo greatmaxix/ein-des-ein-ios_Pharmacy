@@ -682,14 +682,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		24567C0B255011ED001CF931 /* ChooseDeliveryAdress */ = {
+		24567C0B255011ED001CF931 /* ChooseDeliveryAddress */ = {
 			isa = PBXGroup;
 			children = (
 				24567C0C25501211001CF931 /* ChooseDeliveryAdressViewController.swift */,
 				24567C102550121B001CF931 /* ChooseDeliveryAdressViewController.storyboard */,
 				24567C1325501226001CF931 /* ChooseDeliveryAdressViewModel.swift */,
 			);
-			path = ChooseDeliveryAdress;
+			path = ChooseDeliveryAddress;
 			sourceTree = "<group>";
 		};
 		246A83EA25472CE90004ECEC /* Category */ = {
@@ -1720,7 +1720,7 @@
 		618C339D2498BDF600951D11 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				24567C0B255011ED001CF931 /* ChooseDeliveryAdress */,
+				24567C0B255011ED001CF931 /* ChooseDeliveryAddress */,
 				24F5FD3C254A0B6B00D28275 /* ChooseLocation */,
 				4DE4D533254980A400EE0E3A /* AboutApp */,
 				3954D11F24D1B5DA00AB44BD /* EditProfile */,
