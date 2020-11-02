@@ -12,6 +12,7 @@ import Moya
 
 enum SearchModelEvent: Event {
     case openList
+    case open(_ medicine: Medicine)
 }
 
 protocol SearchModelInput: class {
@@ -20,6 +21,7 @@ protocol SearchModelInput: class {
     
     var searchState: SearchModel.SearchState { get }
     
+    func load()
     func retreiveResentRequests()
     func retreiveMoreMedecines()
     func updateSearchTerm(_ term: String)
@@ -39,6 +41,7 @@ protocol SearchModelOutput: class {
     func searchTermDidUpdated(_ term: String?)
     func favoriteAciontReloadCell(cellAt: IndexPath)
     func addRemoveFromFavoriteError(indexPath: IndexPath)
+    func beginSearch()
 }
 
 final class SearchModel: Model {
@@ -48,10 +51,6 @@ final class SearchModel: Model {
     private(set) var recentRequests: [String] = []
     private(set) var medicines: [Medicine] = []
     var searchState: SearchState {
-        guard !searchTerm.isEmpty else {
-            return .recents
-        }
-        
         return medicines.count > 0 ? .found : .empty
     }
     
@@ -66,6 +65,22 @@ final class SearchModel: Model {
     private lazy var userRegionId: Int = {
         UserDefaultsAccessor.value(for: \.regionId)
     }()
+    
+    override init(parent: EventNode?) {
+        super.init(parent: parent)
+        addHandler(.onPropagate) { [weak self] (event: TabBarEvent) in
+                    switch event {
+                    case .userWantsToChangeTab(let tab):
+                        if tab == .search {
+                            self?.output.beginSearch()
+                        }
+                    }
+                }
+    }
+    
+    func load() {
+        retreiveMedecines()
+    }
 }
 
 // MARK: - SearchViewControllerOutput
@@ -118,18 +133,17 @@ extension SearchModel: SearchViewControllerOutput {
     
     func didSelectCellAt(indexPath: IndexPath) {
         switch searchState {
-        case .recents:
-            searchTerm = recentRequests[indexPath.row]
-            output.searchTermDidUpdated(searchTerm)
-            retreiveMedecines()
-        default:
-            return
+        case .found:
+            let item = medicines[indexPath.row]
+            raise(event: SearchModelEvent.open(item))
+        default: return
         }
     }
     
     func cleanSearchTerm() {
         searchDebouncer.cancelExecution()
-        retreiveResentRequests()
+        searchTerm = ""
+        retreiveMedecines()
     }
 }
 
@@ -155,12 +169,6 @@ extension SearchModel {
     private func retreiveMedecines() {
         pageNumber = 1
         medicines = []
-        guard searchTerm != "" else {
-            output.didLoadRecentRequests()
-            
-            return
-        }
-        
         output.willSendRequest()
         retreiveMedecines(on: pageNumber, pageSize: .firstPageSize)
     }
@@ -203,7 +211,6 @@ extension SearchModel {
 extension SearchModel {
     
     enum SearchState {
-        case recents
         case empty
         case found
     }

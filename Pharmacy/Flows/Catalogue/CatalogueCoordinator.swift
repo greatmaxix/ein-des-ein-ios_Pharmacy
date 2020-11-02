@@ -15,9 +15,8 @@ struct CatalogueFlowConfiguration {
 
 final class CatalogueCoordinator: EventNode, Coordinator {
 
-    // MARK: - Properties
-    private var root: UINavigationController!
-
+    var navigation: UINavigationController!
+    
     // MARK: - Init / Deinit methods
     init(configuration: CatalogueFlowConfiguration) {
         super.init(parent: configuration.parent)
@@ -62,9 +61,9 @@ final class CatalogueCoordinator: EventNode, Coordinator {
         let model = CatalogueModel(parent: self)
         viewController.model = model
         model.output = viewController
-        root = UINavigationController(rootViewController: viewController)
-
-        return root
+        let nav = NavigationController(rootViewController: viewController)
+        navigation = nav
+        return nav
     }
 }
 
@@ -76,15 +75,15 @@ extension CatalogueCoordinator {
         let model = SubcategoryModel(category: category, parent: self)
         model.output = viewController
         viewController.model = model
-        root.pushViewController(viewController, animated: true)
+        navigation.pushViewController(viewController, animated: true)
     }
 
     private func popController() {
-        root.popViewController(animated: true)
+        navigation.popViewController(animated: true)
     }
     
     private func popToRootController() {
-        root.popToRootViewController(animated: true)
+        navigation.popToRootViewController(animated: true)
     }
 
     private func openMedicineListFor(category: Category) {
@@ -92,12 +91,12 @@ extension CatalogueCoordinator {
         let model = MedicineListModel(category: category, parent: self)
         viewController.model = model
         model.output = viewController
-        root.pushViewController(viewController, animated: true)
+        navigation.pushViewController(viewController, animated: true)
     }
 
     private func openProductMedicineFor(medicine: Medicine) {
-        let vc = ProductCoordinator(configuration: .init(parent: self, navigation: root)).createFlowFor(product: medicine)
-        root.pushViewController(vc, animated: true)
+        let vc = ProductCoordinator(configuration: .init(parent: self, navigation: navigation)).createFlowFor(product: medicine)
+        navigation.pushViewController(vc, animated: true)
     }
 }
 

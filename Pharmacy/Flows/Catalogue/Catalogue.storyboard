@@ -25,23 +25,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zFe-Ej-ztL">
-                                <rect key="frame" x="197" y="443" width="20" height="20"/>
+                                <rect key="frame" x="197" y="465" width="20" height="20"/>
                             </activityIndicatorView>
+                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pim-lR-uGP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                <color key="backgroundColor" name="welcomeBlue"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p7T-KY-2h2"/>
                         <color key="backgroundColor" name="lightGray"/>
                         <constraints>
                             <constraint firstItem="zFe-Ej-ztL" firstAttribute="centerY" secondItem="p7T-KY-2h2" secondAttribute="centerY" id="03p-cC-w4E"/>
-                            <constraint firstItem="zFe-Ej-ztL" firstAttribute="centerX" secondItem="p7T-KY-2h2" secondAttribute="centerX" id="te6-vj-0kj"/>
+                            <constraint firstItem="zFe-Ej-ztL" firstAttribute="centerX" secondItem="OVV-dy-KMQ" secondAttribute="centerX" id="DYI-Dv-1XM"/>
+                            <constraint firstAttribute="trailing" secondItem="pim-lR-uGP" secondAttribute="trailing" id="JS3-xT-OoI"/>
+                            <constraint firstItem="pim-lR-uGP" firstAttribute="top" secondItem="OVV-dy-KMQ" secondAttribute="top" id="Mnf-rS-67y"/>
+                            <constraint firstItem="p7T-KY-2h2" firstAttribute="top" secondItem="pim-lR-uGP" secondAttribute="bottom" id="W6A-xJ-6qa"/>
+                            <constraint firstItem="pim-lR-uGP" firstAttribute="leading" secondItem="OVV-dy-KMQ" secondAttribute="leading" id="ZRz-1Q-cVo"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="indicatorView" destination="zFe-Ej-ztL" id="7Zu-bf-nii"/>
+                        <outlet property="navigationBarBackground" destination="pim-lR-uGP" id="SPW-ow-bim"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELY-CY-gjo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-907" y="222"/>
+            <point key="canvasLocation" x="-907.24637681159425" y="221.65178571428569"/>
         </scene>
         <!--Subcategory View Controller-->
         <scene sceneID="Sin-Dz-IYf">
@@ -50,13 +60,29 @@
                     <view key="view" contentMode="scaleToFill" id="Eci-wx-6dj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6NR-ab-xKC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                <color key="backgroundColor" name="welcomeBlue"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bnC-K3-KoM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6NR-ab-xKC" firstAttribute="top" secondItem="Eci-wx-6dj" secondAttribute="top" id="6he-KH-THd"/>
+                            <constraint firstItem="6NR-ab-xKC" firstAttribute="leading" secondItem="Eci-wx-6dj" secondAttribute="leading" id="LWj-tP-Zqp"/>
+                            <constraint firstAttribute="trailing" secondItem="6NR-ab-xKC" secondAttribute="trailing" id="V5p-LV-e2Q"/>
+                            <constraint firstItem="bnC-K3-KoM" firstAttribute="top" secondItem="6NR-ab-xKC" secondAttribute="bottom" id="pRL-mv-b1a"/>
+                        </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="navigationBackgorundView" destination="6NR-ab-xKC" id="FEu-bz-Gyt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0g-80-pFS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-164" y="216"/>
+            <point key="canvasLocation" x="-165.21739130434784" y="215.625"/>
         </scene>
         <!--Medicine List View Controller-->
         <scene sceneID="rL9-ug-eZT">
@@ -127,6 +153,9 @@
         </namedColor>
         <namedColor name="textDarkBlue">
             <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="welcomeBlue">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

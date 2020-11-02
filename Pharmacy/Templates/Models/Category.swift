@@ -59,4 +59,16 @@ final class Category: Decodable {
         code = "A"
         subCategories = nil
     }
+    
+    func allCategories() -> [Category] {
+        var a: [Category] = []
+        a.append(self)
+        for c in subCategories ?? [] {
+            a.append(c)
+            if let subcategories = c.subCategories, subcategories.count > 0 {
+                a.append(contentsOf: c.allCategories())
+            }
+        }
+        return a
+    }
 }

@@ -44,6 +44,7 @@ final class ProductModel: Model {
     private let wishListProvider = DataManager<WishListAPI, PostResponse>()
     
     let dataSource = TableDataSource<ProductCellSection>()
+    var searchTerm: String = ""
     
     init(product: Medicine, parent: EventNode?) {
         self.medicine = product

@@ -22,7 +22,7 @@ final class SearchCoordinator: EventNode, Coordinator {
         let model = SearchModel(parent: self)
         viewController.model = model
         model.output = viewController
-        root = UINavigationController(rootViewController: viewController)
+        root = NavigationController(rootViewController: viewController)
         
         return root
     }
@@ -34,6 +34,8 @@ final class SearchCoordinator: EventNode, Coordinator {
             switch event {
             case .openList:
                 self?.openMedicineList()
+            case .open(let medicine):
+                self?.open(medicine)
             }
         }
     }
@@ -56,6 +58,11 @@ extension SearchCoordinator {
         let model = MedicineListModel(parent: self)
         viewController.model = model
         model.output = viewController
+        root.pushViewController(viewController, animated: true)
+    }
+    
+    private func open(_ medicine: Medicine) {
+        let viewController = ProductCoordinator(configuration: ProductFlowConfiguration(parent: self, navigation: root)).createFlowFor(product: medicine)
         root.pushViewController(viewController, animated: true)
     }
 }

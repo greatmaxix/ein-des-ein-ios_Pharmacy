@@ -51,6 +51,15 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
         activityIndicator.show(animated: true)
         setupUI()
         model.load()
+        
+        if let nvc = navigationController,
+            let navigationBar = nvc.navigationBar as? NavigationBar {
+            navigationBar.title = R.string.localize.welcomeTitle()
+            navigationBar.searchBar.searchBarHandler = {
+                self.searchHandler()
+                return false
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -75,18 +84,6 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
         watchRecentlyLabel.text = R.string.localize.welcomeWatchRecently()
         
         subscribeScrollViewToKeyboard(scrollView)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if let nvc = navigationController,
-            let navigationBar = nvc.navigationBar as? NavigationBar {
-            navigationBar.title = R.string.localize.welcomeTitle()
-            navigationBar.searchBar.searchBarHandler = {
-                self.searchHandler()
-            }
-        }
     }
     
     private func setupUI() {
