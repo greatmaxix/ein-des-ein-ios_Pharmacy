@@ -37,6 +37,7 @@ class ProfileTableViewCell: BaseTableViewCell {
         case exit
         case payment
         case region
+        case delivery
     }
     
     @IBOutlet private weak var typeImageView: UIImageView!
@@ -83,6 +84,10 @@ class ProfileTableViewCell: BaseTableViewCell {
             titleLabel.textColor = .red
             typeImageView.tintColor = .red
         case .payment, .region:
+            titleLabel.textColor = R.color.textDarkBlue()
+            arrowView.isHidden = false
+            additionaInfoLabel.isHidden = false
+        case .delivery:
             titleLabel.textColor = R.color.textDarkBlue()
             arrowView.isHidden = false
             additionaInfoLabel.isHidden = false

@@ -10,6 +10,14 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="subCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CategoryEntity"/>
     </entity>
+    <entity name="DeliveryAddressEntity" representedClassName="DeliveryAddressEntity" syncable="YES">
+        <attribute name="city" attributeType="String"/>
+        <attribute name="flat" optional="YES" attributeType="String"/>
+        <attribute name="house" attributeType="String"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="pavilion" optional="YES" attributeType="String"/>
+        <attribute name="street" attributeType="String"/>
+    </entity>
     <entity name="RecentMedicineEntity" representedClassName="RecentMedicineEntity" syncable="YES">
         <attribute name="imageURL" optional="YES" attributeType="String"/>
         <attribute name="liked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -35,6 +43,7 @@
         <attribute name="phone" attributeType="String"/>
         <attribute name="uuid" optional="YES" attributeType="String"/>
         <relationship name="avatar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AvatarEntity"/>
+        <relationship name="deliveryAdress" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeliveryAddressEntity"/>
         <relationship name="region" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RegionEntity"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -45,8 +54,9 @@
     <elements>
         <element name="AvatarEntity" positionX="-63" positionY="9" width="128" height="73"/>
         <element name="CategoryEntity" positionX="180.328125" positionY="-66.81640625" width="128" height="103"/>
+        <element name="DeliveryAddressEntity" positionX="72" positionY="-18" width="128" height="133"/>
         <element name="RecentMedicineEntity" positionX="-63.41796875" positionY="162.6796875" width="128" height="148"/>
-        <element name="UserEntity" positionX="-63.88671875" positionY="-168.83203125" width="128" height="148"/>
         <element name="RegionEntity" positionX="72" positionY="-18" width="128" height="73"/>
+        <element name="UserEntity" positionX="-63.88671875" positionY="-168.83203125" width="128" height="163"/>
     </elements>
 </model>
