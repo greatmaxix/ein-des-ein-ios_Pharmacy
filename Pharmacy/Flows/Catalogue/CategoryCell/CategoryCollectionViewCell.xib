@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -69,6 +69,7 @@
             </constraints>
             <size key="customSize" width="473" height="222"/>
             <connections>
+                <outlet property="categoryImageView" destination="7fH-7I-ieM" id="6cI-1g-qCx"/>
                 <outlet property="containerView" destination="Fgm-eZ-bwf" id="7k1-0y-Avm"/>
                 <outlet property="imageView" destination="apT-YQ-j1y" id="1jT-c6-WOi"/>
                 <outlet property="titleLabel" destination="Wtt-JQ-ids" id="Zgq-Rp-Wap"/>

@@ -21,6 +21,7 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var mapLabel: UILabel!
     
     @IBOutlet private var categorieLabels: [UILabel]!
+    @IBOutlet private var categorieImageView: [UIImageView]!
     
     @IBOutlet private var categoriesViews: [UIView]!
     
@@ -145,6 +146,7 @@ extension WelcomeViewController: WelcomeModelOutput {
     func modelIsLoaded() {
         for index in 0...categorieLabels.count-1 {
             categorieLabels[index].text = model.categories[index].shortTitle
+            categorieImageView[index].image = UIImage(named: model.categories[index].imageTitle)
         }
         activityIndicator.hide(animated: true)
     }

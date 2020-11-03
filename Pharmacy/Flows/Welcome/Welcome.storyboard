@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -412,6 +412,10 @@
                         <outletCollection property="categoriesViews" destination="ccA-sF-HZZ" collectionClass="NSMutableArray" id="Tz2-vs-XrW"/>
                         <outletCollection property="categoriesViews" destination="Ha4-pj-trF" collectionClass="NSMutableArray" id="7HX-iy-76z"/>
                         <outletCollection property="categoriesViews" destination="5fK-Py-BV9" collectionClass="NSMutableArray" id="ivJ-TM-fXu"/>
+                        <outletCollection property="categorieImageView" destination="3Ni-uz-t21" collectionClass="NSMutableArray" id="pAk-1s-fkB"/>
+                        <outletCollection property="categorieImageView" destination="Bsk-a9-Dxn" collectionClass="NSMutableArray" id="tUa-Xj-FCs"/>
+                        <outletCollection property="categorieImageView" destination="fwB-Ys-pcF" collectionClass="NSMutableArray" id="JvB-24-fVH"/>
+                        <outletCollection property="categorieImageView" destination="xoi-DQ-jsg" collectionClass="NSMutableArray" id="bxm-RF-OOa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GdV-CK-XCC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

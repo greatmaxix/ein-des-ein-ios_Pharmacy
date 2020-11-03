@@ -28,6 +28,13 @@ final class Category: Decodable {
     let imageURL: URL? = nil
     let code: String
     let subCategories: [Category]?
+    
+    var imageTitle: String {
+        let text = title.components(separatedBy: " ").first
+        let result = text ?? ""
+        return result
+    }
+    
     var shortTitle: String {
         let maxLength = 20
         if title.count - maxLength > 0 {

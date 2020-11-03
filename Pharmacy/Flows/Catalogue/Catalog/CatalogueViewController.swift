@@ -14,6 +14,7 @@ final class CatalogueViewController: CollectionDataSourceViewController {
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     let tableView = UITableView()
+    
     var model: CatalogueModelInput!
     
     private let searchController = SearchController(searchResultsController: nil)
