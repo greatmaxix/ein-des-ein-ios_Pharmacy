@@ -17,5 +17,5 @@ target 'Pharmacy' do
   pod 'MBProgressHUD', '~> 1.2.0'
   pod 'TPKeyboardAvoiding'
   pod 'MessageKit'
-
+  pod 'IKEventSource'
 end

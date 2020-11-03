@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageKit
 
-class ChatViewController: UIViewController, NavigationBarStyled {
+class ChatViewController: MessagesViewController, NavigationBarStyled {
     
     var style: NavigationBarStyle = .normalWithoutSearch
     
