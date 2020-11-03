@@ -16,6 +16,7 @@ final class CategoryCollectionViewCell: HighlightedCollectionViewCell, Container
     
     @IBOutlet internal weak var containerView: UIView!
     @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var categoryImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
@@ -29,8 +30,12 @@ final class CategoryCollectionViewCell: HighlightedCollectionViewCell, Container
     func apply(category: Category) {
         titleLabel.text = category.title
         
-        if let url = category.imageURL {
-            imageView.loadImageBy(url: url)
+//        if let url = category.imageURL {
+//            imageView.loadImageBy(url: url)
+//        }
+        
+        if !category.imageTitle.isEmpty {
+            categoryImageView.image = UIImage(named: category.imageTitle)
         }
     }
 }
