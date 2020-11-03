@@ -227,6 +227,12 @@
 		6075BD5A24DEB9EA00BC78BD /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075BD5924DEB9EA00BC78BD /* UIView+Nib.swift */; };
 		6075BD5C24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075BD5B24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift */; };
 		60891C88255050C800ED2AEE /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60891C87255050C800ED2AEE /* SearchController.swift */; };
+		608E3AEF2551A71200AEE56C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E3AEE2551A71200AEE56C /* Message.swift */; };
+		608E3AF32551A94C00AEE56C /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E3AF22551A94C00AEE56C /* Sender.swift */; };
+		608E3AF62551AB5F00AEE56C /* ImageMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E3AF52551AB5F00AEE56C /* ImageMediaItem.swift */; };
+		608E3AFA2551D3E700AEE56C /* ChatButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E3AF92551D3E700AEE56C /* ChatButtonCollectionViewCell.swift */; };
+		608E3AFD2551D47000AEE56C /* ChatButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608E3AFC2551D47000AEE56C /* ChatButtonCollectionViewCell.xib */; };
+		608E3B002551D73E00AEE56C /* CustomMessageSizeCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E3AFF2551D73E00AEE56C /* CustomMessageSizeCalculator.swift */; };
 		60E1A6F424EB8C5E00B3D205 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A6F224EB8C5E00B3D205 /* SearchTableViewCell.swift */; };
 		60E1A6F524EB8C5E00B3D205 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60E1A6F324EB8C5E00B3D205 /* SearchTableViewCell.xib */; };
 		60E1A6F724EB8C7800B3D205 /* SearchCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A6F624EB8C7800B3D205 /* SearchCellSection.swift */; };
@@ -563,6 +569,12 @@
 		6075BD5924DEB9EA00BC78BD /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		6075BD5B24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
 		60891C87255050C800ED2AEE /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		608E3AEE2551A71200AEE56C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		608E3AF22551A94C00AEE56C /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
+		608E3AF52551AB5F00AEE56C /* ImageMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMediaItem.swift; sourceTree = "<group>"; };
+		608E3AF92551D3E700AEE56C /* ChatButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		608E3AFC2551D47000AEE56C /* ChatButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatButtonCollectionViewCell.xib; sourceTree = "<group>"; };
+		608E3AFF2551D73E00AEE56C /* CustomMessageSizeCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMessageSizeCalculator.swift; sourceTree = "<group>"; };
 		60E1A6F224EB8C5E00B3D205 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		60E1A6F324EB8C5E00B3D205 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		60E1A6F624EB8C7800B3D205 /* SearchCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellSection.swift; sourceTree = "<group>"; };
@@ -1011,6 +1023,7 @@
 		396448E024ADE16600E6D852 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				608E3AED2551A6F600AEE56C /* Chat */,
 				87A50B6425261FD100CF89CF /* Subentities */,
 				395324BA2508CE270038D2DC /* Responses */,
 				603D319024E3A7FD000E5A6C /* Receipt.swift */,
@@ -1606,9 +1619,11 @@
 		60475FDA2551512A00448EF3 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				608E3AF82551D37D00AEE56C /* Cells */,
 				60475FDF2551569400448EF3 /* ChatModel.swift */,
 				60475FDB2551515D00448EF3 /* ChatCoordinator.swift */,
 				60475FE325515CFA00448EF3 /* ChatViewController.swift */,
+				608E3AFF2551D73E00AEE56C /* CustomMessageSizeCalculator.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1646,6 +1661,25 @@
 				60F2673A24E0566B00BFF296 /* NavigationTransitionAnimator.swift */,
 			);
 			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		608E3AED2551A6F600AEE56C /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				608E3AEE2551A71200AEE56C /* Message.swift */,
+				608E3AF22551A94C00AEE56C /* Sender.swift */,
+				608E3AF52551AB5F00AEE56C /* ImageMediaItem.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		608E3AF82551D37D00AEE56C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				608E3AF92551D3E700AEE56C /* ChatButtonCollectionViewCell.swift */,
+				608E3AFC2551D47000AEE56C /* ChatButtonCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		60E1A6F124EB8C3D00B3D205 /* SearchTableViewCell */ = {
@@ -2173,6 +2207,7 @@
 				61CFAA99254C2C1700569DEF /* DeliveryAddressCell.xib in Resources */,
 				87131D3A25137B910050B8F2 /* RecentsHeaderView.xib in Resources */,
 				603D318D24E2A269000E5A6C /* ReceiptView.xib in Resources */,
+				608E3AFD2551D47000AEE56C /* ChatButtonCollectionViewCell.xib in Resources */,
 				6075BD4E24DEA7FB00BC78BD /* OpenSans-SemiBold.ttf in Resources */,
 				61CFAA94254C28DD00569DEF /* OrderPharmacyCell.xib in Resources */,
 				8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */,
@@ -2355,6 +2390,7 @@
 				39505F5624AC73620045EC02 /* TabBarModel.swift in Sources */,
 				875223D42501152F000759C8 /* UserEntity.swift in Sources */,
 				60475FE425515CFA00448EF3 /* ChatViewController.swift in Sources */,
+				608E3AFA2551D3E700AEE56C /* ChatButtonCollectionViewCell.swift in Sources */,
 				39F0AD6D24EEC85400CD6CA4 /* WishlistViewController.swift in Sources */,
 				398B0DD424F506540084EC54 /* MapModel.swift in Sources */,
 				603D319124E3A7FD000E5A6C /* Receipt.swift in Sources */,
@@ -2488,8 +2524,10 @@
 				603D319724E3B22A000E5A6C /* TableDataSourceViewController.swift in Sources */,
 				24F5FD45254A0BBB00D28275 /* ChooseLocationViewModel.swift in Sources */,
 				618C33982498BDC200951D11 /* SignInViewController.swift in Sources */,
+				608E3AF32551A94C00AEE56C /* Sender.swift in Sources */,
 				39505F5824AC73620045EC02 /* TabBarEmbedCoordinable.swift in Sources */,
 				60F2673B24E0566B00BFF296 /* NavigationTransitionAnimator.swift in Sources */,
+				608E3AF62551AB5F00AEE56C /* ImageMediaItem.swift in Sources */,
 				395B9CCB24EFC6CA00254881 /* AnalizesModel.swift in Sources */,
 				8732E4352518AAF0007CBBEF /* UIImage+Grayscale.swift in Sources */,
 				6036EAFC24DD1C8F003336C2 /* BasketViewController.swift in Sources */,
@@ -2551,10 +2589,12 @@
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
 				61CFAA93254C28DD00569DEF /* OrderPharmacyCell.swift in Sources */,
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
+				608E3AEF2551A71200AEE56C /* Message.swift in Sources */,
 				61CFAA7E254B13E400569DEF /* CreateOrderModel.swift in Sources */,
 				39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */,
 				8717E4DE2507744500546A55 /* SearchAPI.swift in Sources */,
 				875223CC2500FE07000759C8 /* NSManagedObject+Name.swift in Sources */,
+				608E3B002551D73E00AEE56C /* CustomMessageSizeCalculator.swift in Sources */,
 				24F5FC54254892CC00D28275 /* RecentMedicineDTO.swift in Sources */,
 				61CFAA83254B1AB800569DEF /* CreateOrderContactInfoCell.swift in Sources */,
 				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,

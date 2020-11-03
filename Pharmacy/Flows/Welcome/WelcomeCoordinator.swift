@@ -133,10 +133,7 @@ fileprivate extension WelcomeCoordinator {
     }
     
     func openChat() {
-        guard let vc = ChatCoordinator(parent: self, navigation: navigation).createFlow() as? ChatViewController else { return }
-        let model = ChatModel(parent: self)
-        vc.model = model
-        model.output = vc
+        let vc = ChatCoordinator(parent: self, navigation: navigation).createFlow()
         navigation.pushViewController(vc, animated: true)
     }
 }

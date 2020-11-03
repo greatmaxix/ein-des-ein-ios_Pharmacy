@@ -12,15 +12,36 @@ import MessageKit
 class ChatViewController: MessagesViewController, NavigationBarStyled {
     
     var style: NavigationBarStyle = .normalWithoutSearch
-    
     var model: ChatInput!
+    var sizeCalculator: MessageSizeCalculator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCollection()
+        model.load()
+    }
+    
+    func setupCollection() {
+        
+        messagesCollectionView.messagesDataSource = model
+        messagesCollectionView.messagesDisplayDelegate = model
+        messagesCollectionView.messagesLayoutDelegate = model
+        messagesCollectionView.register(ChatButtonCollectionViewCell.nib, forCellWithReuseIdentifier: ChatButtonCollectionViewCell.reuseIdentifier)
+        if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
+            sizeCalculator = CustomMessageSizeCalculator(layout: layout)
+            layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
+            layout.textMessageSizeCalculator.incomingAvatarSize = .zero
+        }
     }
     
 }
 
 extension ChatViewController: ChatOutput {
+    var customMessageSizeCalculator: MessageSizeCalculator {
+        return sizeCalculator
+    }
     
+    func didResive(messages: [Message]) {
+        messagesCollectionView.reloadData()
+    }
 }

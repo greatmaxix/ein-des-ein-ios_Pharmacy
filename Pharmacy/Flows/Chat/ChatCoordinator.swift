@@ -14,7 +14,12 @@ final class ChatCoordinator: EventNode, Coordinator {
     weak var navigation: UINavigationController?
     
     func createFlow() -> UIViewController {
-        return ChatViewController()
+        let vc = ChatViewController()
+        let model = ChatModel(parent: self)
+        vc.model = model
+        model.output = vc
+        vc.hidesBottomBarWhenPushed = true
+        return vc
     }
     
     init(parent: EventNode?, navigation: UINavigationController) {
