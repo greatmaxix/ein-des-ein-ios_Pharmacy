@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -40,6 +39,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYZ-0u-FPP">
                                 <rect key="frame" x="16" y="408" width="382" height="33"/>
+                                <color key="backgroundColor" name="backgroundGray"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
                                 <color key="textColor" name="textDarkBlue"/>
                                 <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                                     <action selector="tapConfirmButton:" destination="t3U-iz-hiy" eventType="touchUpInside" id="3P5-qi-fSn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnN-cY-WJR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnN-cY-WJR">
                                 <rect key="frame" x="16" y="449" width="382" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="M6G-H1-lh8"/>
@@ -68,12 +68,12 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qzt-k3-0EX"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstItem="rnN-cY-WJR" firstAttribute="top" secondItem="oYZ-0u-FPP" secondAttribute="bottom" constant="8" id="8cp-nW-kvO"/>
                             <constraint firstItem="Qzt-k3-0EX" firstAttribute="trailing" secondItem="oYZ-0u-FPP" secondAttribute="trailing" constant="16" id="Ftj-Jg-Kme"/>
                             <constraint firstItem="oYZ-0u-FPP" firstAttribute="top" secondItem="6jc-wW-IdL" secondAttribute="bottom" constant="16" id="Ymg-zj-1vw"/>
-                            <constraint firstItem="Qzt-k3-0EX" firstAttribute="bottom" secondItem="oem-j2-ES4" secondAttribute="bottom" constant="101" id="aO2-by-rBk"/>
+                            <constraint firstItem="Qzt-k3-0EX" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="oem-j2-ES4" secondAttribute="bottom" constant="101" id="aO2-by-rBk"/>
                             <constraint firstItem="oYZ-0u-FPP" firstAttribute="leading" secondItem="Qzt-k3-0EX" secondAttribute="leading" constant="16" id="fzt-Pc-UsZ"/>
                             <constraint firstItem="rnN-cY-WJR" firstAttribute="leading" secondItem="oYZ-0u-FPP" secondAttribute="leading" id="hUG-jd-Hym"/>
                             <constraint firstItem="Qzt-k3-0EX" firstAttribute="trailing" secondItem="oem-j2-ES4" secondAttribute="trailing" constant="16" id="hZ2-aM-J0q"/>
@@ -98,14 +98,14 @@
     </objects>
     <resources>
         <image name="noResults" width="261" height="261"/>
+        <namedColor name="backgroundGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="textDarkBlue">
             <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="welcomeBlue">
             <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

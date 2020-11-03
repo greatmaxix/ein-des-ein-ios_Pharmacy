@@ -15,6 +15,7 @@ enum BasketModelEvent: Event {
 
 protocol BasketModelInput: class {
     var numberOfSections: Int { get }
+    var numberOfOrders: Int { get }
 
     func numberOfRows(in section: Int) -> Int
     func section(at index: Int) -> PharmCartOrder
@@ -52,9 +53,8 @@ final class BasketModel: Model {
 
 extension BasketModel: BasketViewControllerOutput {
     func startSearch() {
-        raise(event: AppEvent.presentInDev)
+        raise(event: TabBarEvent.userWantsToChangeTab(newTab: .search))
     }
-    
 
     func section(at index: Int) -> PharmCartOrder {
         return cartOrders[index]
@@ -64,7 +64,15 @@ extension BasketModel: BasketViewControllerOutput {
         return cartOrders.count
     }
 
+    var numberOfOrders: Int {
+        return cartOrders.count
+    }
+
     func numberOfRows(in section: Int) -> Int {
+        if cartOrders.count == 0 {
+            return 1
+        }
+
         if sectionClosureStates[section] == false {
             return 0
         }

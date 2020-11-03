@@ -25,6 +25,8 @@ final class BasketViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.isHidden = true
         
         tableView.register(
             UINib(nibName: "CartSectionHeader", bundle: nil),
@@ -34,7 +36,9 @@ final class BasketViewController: UIViewController {
             UINib(nibName: "CartSectionFooterView", bundle: nil),
             forHeaderFooterViewReuseIdentifier: "CartSectionFooterView")
 
-        tableView.isHidden = true
+        tableView.register(
+            UINib(nibName: "EmptyResultsViewCell", bundle: nil),
+            forCellReuseIdentifier: "EmptyResultsViewCell")
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -43,14 +47,8 @@ final class BasketViewController: UIViewController {
         activityIndicator.show(animated: true)
         
         model.load()
-        if model.numberOfSections == 0 {initEmptyView()}
     }
-    
-    private func initEmptyView() {
-        emptyResultsView = setupEmptyView(title: R.string.localize.basketEmptyTitle(), decriptionText: R.string.localize.basketEmptyDescription(), buttonTitle: R.string.localize.basketEmptyButton(), imageName: "emptyOrders",
-                                          actionHandler: { [weak self] in
-                                            self?.model.startSearch()})
-    }
+
 }
 
 // MARK: - TableView
@@ -58,10 +56,25 @@ final class BasketViewController: UIViewController {
 extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.numberOfRows(in: section)
+        return (model.numberOfOrders == 0) ? 1 : model.numberOfRows(in: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if model.numberOfOrders == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyResultsViewCell", for: indexPath) as? EmptyResultsViewCell else { return UITableViewCell() }
+
+            cell.setup(title: R.string.localize.basketEmptyTitle(),
+                       decriptionText: R.string.localize.basketEmptyDescription(),
+                       buttonTitle: R.string.localize.basketEmptyButton(),
+                       imageName: "emptyOrders")
+
+            cell.tapCellButtonHandler = {[weak self] in
+                self?.model.startSearch()
+            }
+
+            return cell
+        }
+
         guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "CartMedecineCell", for: indexPath) as? CartMedecineCell else {
             return UITableViewCell()
@@ -85,7 +98,18 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if model.numberOfOrders == 0 {
+            return tableView.visibleSize.height
+        } else {
+            return tableView.estimatedRowHeight
+        }
+
+    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if model.numberOfOrders == 0 { return nil }
+
         guard let view = tableView.dequeueReusableHeaderFooterView(
                 withIdentifier: "CartSectionHeader") as? CartSectionHeader else {
             return nil
@@ -100,6 +124,8 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if model.numberOfOrders == 0 { return nil }
+
         guard let view = tableView.dequeueReusableHeaderFooterView(
                 withIdentifier: "CartSectionFooterView") as? CartSectionFooterView else {
             return nil
@@ -115,11 +141,7 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        let amount = model.numberOfSections
-
-        tableView.isHidden = amount == 0 ? true : false
-
-        return amount
+        return (model.numberOfOrders == 0) ? 1 : model.numberOfSections
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

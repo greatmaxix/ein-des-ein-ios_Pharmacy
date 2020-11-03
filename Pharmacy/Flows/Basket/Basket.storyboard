@@ -31,7 +31,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="136" estimatedRowHeight="136" sectionHeaderHeight="96" estimatedSectionHeaderHeight="96" sectionFooterHeight="87" estimatedSectionFooterHeight="87" translatesAutoresizingMaskIntoConstraints="NO" id="b7v-X8-uWm">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" name="lightGray"/>
+                                <color key="backgroundColor" name="backgroundGray"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartMedecineCell" rowHeight="136" id="mW5-Hf-XJR" customClass="CartMedecineCell" customModule="Pharmacy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="136"/>
@@ -53,25 +53,25 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7W-BI-JoA">
-                                                    <rect key="frame" x="151" y="23" width="39.5" height="19"/>
+                                                    <rect key="frame" x="151" y="23" width="43.5" height="22"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" name="textDarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbm-ZW-m04">
-                                                    <rect key="frame" x="151" y="42" width="227" height="16.5"/>
+                                                    <rect key="frame" x="151" y="45" width="227" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" name="textDarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZF-vw-kSO">
-                                                    <rect key="frame" x="151" y="58.5" width="227" height="14"/>
+                                                    <rect key="frame" x="151" y="64.5" width="227" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" name="textDarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="568 ₸  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFX-vk-hlU">
-                                                    <rect key="frame" x="151" y="88.5" width="49" height="19"/>
+                                                    <rect key="frame" x="151" y="97" width="49" height="22"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" name="welcomeBlue"/>
                                                     <nil key="highlightedColor"/>
@@ -214,7 +214,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Корзина" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpq-FL-E6a">
-                                        <rect key="frame" x="175" y="57" width="64.5" height="19"/>
+                                        <rect key="frame" x="171.5" y="54" width="71.5" height="22"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -234,7 +234,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="M7f-bx-YWS"/>
-                        <color key="backgroundColor" name="lightGray"/>
+                        <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstItem="KyC-4O-Nef" firstAttribute="top" secondItem="P6V-GX-Qlq" secondAttribute="top" id="6nh-bA-6cK"/>
                             <constraint firstItem="b7v-X8-uWm" firstAttribute="top" secondItem="KyC-4O-Nef" secondAttribute="bottom" id="9o2-4J-Bcj"/>
@@ -265,7 +265,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оформление" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mI-Vk-mAg">
-                                        <rect key="frame" x="157.5" y="57" width="99" height="19"/>
+                                        <rect key="frame" x="151.5" y="54" width="111" height="22"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -333,9 +333,6 @@
         <image name="icon_back" width="42" height="42"/>
         <image name="medicineImagePlaceholder" width="112" height="112"/>
         <namedColor name="backgroundGray">
-            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="lightGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textDarkBlue">
