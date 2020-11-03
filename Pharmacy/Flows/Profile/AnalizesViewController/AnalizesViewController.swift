@@ -29,7 +29,7 @@ final class AnalizesViewController: UIViewController {
 
         emptyView.setup(title: R.string.localize.analizesEmptyTitle(), decriptionText: R.string.localize.analizesEmptyDescription(), buttonTitle: R.string.localize.analizesEmptyButton())
         
-        emptyView.setupImage(image: UIImage(named: "emptyOrders")!)
+        emptyView.setupImage(image: UIImage(named: "emptyAnalysis")!)
         emptyView.tapButtonHandler = {[weak self] in
             self?.model.signUpAnalysis()
         }

@@ -42,6 +42,7 @@ final class OrdersViewController: UIViewController {
 
         model.initialLoad()
         allButton.dropBlueShadow()
+        //if model.numberOfOrders == 0 {applyEmptyStyle()}
     }
 
     private func applyEmptyStyle() {
@@ -52,6 +53,11 @@ final class OrdersViewController: UIViewController {
         emptyView.constraintsToSuperView()
         
         emptyView.setup(title: R.string.localize.myOrdersEmptyTitle(), decriptionText: R.string.localize.myOrdersEmptyDescription(), buttonTitle: R.string.localize.myOrdersEmptyButton())
+        
+        emptyView.setupImage(image: UIImage(named: "emptyOrders")!)
+        emptyView.tapButtonHandler = {[weak self] in
+            self?.model.startSearch()
+        }
         
         emptyResultsView = emptyView
     }
