@@ -205,6 +205,12 @@
 "wishlist.emptyDescription" = "Начните поиск, чтобы добавить товар в корзину";
 "wishlist.emptyButton" = "Начать поиск";
 
+//MARK: Basket list
+
+"Basket.emptyTitle" = "Оу,ваша корзина пуста";
+"Basket.emptyDescription" = "Начните поиск, что бы  добавить товар в корзину";
+"Basket.emptyButton" = "Начать поиск";
+
 //MARK: Analizes list
 
 "analizes.emptyBarTitle" = "Анализы";
@@ -267,3 +273,5 @@
 "delivery.title" = "Адрес доставки";
 "delivery.streenAndCityValidation" = "Поле должно содержать не менее 2 букв";
 "delivery.houseValidation" = "квартира должна быть от 1 до 1000";
+
+

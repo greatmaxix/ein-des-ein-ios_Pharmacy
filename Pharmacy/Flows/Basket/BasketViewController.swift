@@ -18,16 +18,11 @@ final class BasketViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     private lazy var activityIndicator: MBProgressHUD = {
-        let hud = MBProgressHUD(view: view)
-        hud.contentColor = .gray
-        hud.backgroundView.style = .solidColor
-        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
-        hud.removeFromSuperViewOnHide = false
-        view.addSubview(hud)
-
-        return hud
+        setupActivityIndicator()
     }()
-
+    
+    private var emptyResultsView: EmptyResultsView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,8 +43,14 @@ final class BasketViewController: UIViewController {
         activityIndicator.show(animated: true)
         
         model.load()
+        if model.numberOfSections == 0 {initEmptyView()}
     }
-
+    
+    private func initEmptyView() {
+        emptyResultsView = setupEmptyView(title: R.string.localize.basketEmptyTitle(), decriptionText: R.string.localize.basketEmptyDescription(), buttonTitle: R.string.localize.basketEmptyButton(), imageName: "emptyOrders",
+                                          actionHandler: { [weak self] in
+                                            self?.model.startSearch()})
+    }
 }
 
 // MARK: - TableView

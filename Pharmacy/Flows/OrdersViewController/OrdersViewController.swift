@@ -25,35 +25,18 @@ final class OrdersViewController: UIViewController {
     @IBOutlet var controllButtons: [UIButton]!
 
     private lazy var activityIndicator: MBProgressHUD = {
-        let hud = MBProgressHUD(view: view)
-        hud.contentColor = .gray
-        hud.backgroundView.style = .solidColor
-        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
-        hud.removeFromSuperViewOnHide = false
-        view.addSubview(hud)
-
-        return hud
+        setupActivityIndicator()
     }()
-
-    private var emptyResultsView: EmptyResultsView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         model.initialLoad()
+        setupTableView()
         allButton.dropBlueShadow()
     }
-
-    private func applyEmptyStyle() {
-        
-        let emptyView: EmptyResultsView = EmptyResultsView.fromNib()
-        emptyView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(emptyView)
-        emptyView.constraintsToSuperView()
-        
-        emptyView.setup(title: R.string.localize.myOrdersEmptyTitle(), decriptionText: R.string.localize.myOrdersEmptyDescription(), buttonTitle: R.string.localize.myOrdersEmptyButton())
-        
-        emptyResultsView = emptyView
+    
+    private func setupTableView() {
+        tableView.register(UINib(nibName: "EmptyResultsViewCell", bundle: nil), forCellReuseIdentifier: "EmptyResultsViewCell")
     }
 
     @IBAction func back(_ sender: Any) {
@@ -99,10 +82,7 @@ final class OrdersViewController: UIViewController {
 
 extension OrdersViewController: OrdersViewControllerInput {
     func complete(isEmpty: Bool, error: String?) {
-        if isEmpty == true {
-//            applyEmptyStyle()
-        }
-
+        
         tableView.reloadData()
 
         activityIndicator.hide(animated: true)
@@ -112,17 +92,41 @@ extension OrdersViewController: OrdersViewControllerInput {
 extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard model.numberOfOrders != 0 else { return 1 }
         return model.numberOfOrders
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if model.numberOfOrders == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyResultsViewCell", for: indexPath) as? EmptyResultsViewCell else { return UITableViewCell() }
+            
+            cell.setup(title: R.string.localize.myOrdersEmptyTitle(),
+                       decriptionText: R.string.localize.myOrdersEmptyDescription(),
+                       buttonTitle: R.string.localize.myOrdersEmptyButton(),
+                       imageName: "emptyOrders")
+            
+            cell.tapCellButtonHandler = {[weak self] in
+                self?.model.startSearch()
+            }
+            
+            return cell
+        }
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListCell", for: indexPath) as? OrderListCell else { return UITableViewCell() }
 
         cell.apply(order: model.order(at: indexPath))
 
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if model.numberOfOrders == 0 {
+            return tableView.frame.height
+        } else {
+            return CGFloat.init(201)
+        }
+       
+    }
 }
 
 extension OrdersViewController: SimpleNavigationBarDelegate {

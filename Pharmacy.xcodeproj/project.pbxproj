@@ -18,6 +18,9 @@
 		2488BAD425506685008D7EEB /* HouseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BAD325506685008D7EEB /* HouseValidator.swift */; };
 		2488BAD825506D5E008D7EEB /* DeliveryAddressDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BAD725506D5E008D7EEB /* DeliveryAddressDTO.swift */; };
 		2488BADC25506D6B008D7EEB /* DeliveryAddressEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BADB25506D6B008D7EEB /* DeliveryAddressEntity.swift */; };
+		2488BAFA255153D1008D7EEB /* EmptyResultsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BAF9255153D1008D7EEB /* EmptyResultsViewCell.swift */; };
+		2488BAFE255154DA008D7EEB /* EmptyResultsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2488BAFD255154DA008D7EEB /* EmptyResultsViewCell.xib */; };
+		2488BB1E255188C4008D7EEB /* UIViewController+EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BB1D255188C4008D7EEB /* UIViewController+EmptyView.swift */; };
 		24D30442254C365F00D45CC3 /* RegionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D30441254C365F00D45CC3 /* RegionDTO.swift */; };
 		24D30446254C366D00D45CC3 /* RegionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D30445254C366D00D45CC3 /* RegionEntity.swift */; };
 		24F5FC54254892CC00D28275 /* RecentMedicineDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5FC53254892CC00D28275 /* RecentMedicineDTO.swift */; };
@@ -348,6 +351,9 @@
 		2488BAD325506685008D7EEB /* HouseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseValidator.swift; sourceTree = "<group>"; };
 		2488BAD725506D5E008D7EEB /* DeliveryAddressDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressDTO.swift; sourceTree = "<group>"; };
 		2488BADB25506D6B008D7EEB /* DeliveryAddressEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressEntity.swift; sourceTree = "<group>"; };
+		2488BAF9255153D1008D7EEB /* EmptyResultsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultsViewCell.swift; sourceTree = "<group>"; };
+		2488BAFD255154DA008D7EEB /* EmptyResultsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyResultsViewCell.xib; sourceTree = "<group>"; };
+		2488BB1D255188C4008D7EEB /* UIViewController+EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+EmptyView.swift"; sourceTree = "<group>"; };
 		24D30441254C365F00D45CC3 /* RegionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionDTO.swift; sourceTree = "<group>"; };
 		24D30445254C366D00D45CC3 /* RegionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionEntity.swift; sourceTree = "<group>"; };
 		24F5FC53254892CC00D28275 /* RecentMedicineDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentMedicineDTO.swift; sourceTree = "<group>"; };
@@ -710,6 +716,15 @@
 			path = DeliveryAddress;
 			sourceTree = "<group>";
 		};
+		2488BAF325515396008D7EEB /* EmptyResultsViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2488BAF9255153D1008D7EEB /* EmptyResultsViewCell.swift */,
+				2488BAFD255154DA008D7EEB /* EmptyResultsViewCell.xib */,
+			);
+			path = EmptyResultsViewCell;
+			sourceTree = "<group>";
+		};
 		24D30440254C365100D45CC3 /* Region */ = {
 			isa = PBXGroup;
 			children = (
@@ -837,6 +852,7 @@
 				60E1A71E24ED12C200B3D205 /* UIViewController+ActionSheetView.swift */,
 				39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */,
 				395284AE250A3C3900A6FFAB /* UIViewController+ActivityIndicator.swift */,
+				2488BB1D255188C4008D7EEB /* UIViewController+EmptyView.swift */,
 				603D31B724E3F57B000E5A6C /* NSAttributedString+Price.swift */,
 				39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */,
 				6075BD5B24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift */,
@@ -1083,6 +1099,7 @@
 		396C45CE249774AC00A569CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2488BAF325515396008D7EEB /* EmptyResultsViewCell */,
 				601E7ED32549D49700C936BF /* LightRoundedButton */,
 				87131D262509FBA80050B8F2 /* SearchBar */,
 				60E1A71B24ED078600B3D205 /* ActionSheetView */,
@@ -2143,6 +2160,7 @@
 				87131D32251146C10050B8F2 /* EmptySearchView.xib in Resources */,
 				6075BD4924DEA7FB00BC78BD /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				398B0DF124F53AD60084EC54 /* FoundMedicineView.xib in Resources */,
+				2488BAFE255154DA008D7EEB /* EmptyResultsViewCell.xib in Resources */,
 				61CFAAAE254C4CC200569DEF /* OrderSummaryCell.xib in Resources */,
 				61CFAA9F254C2E9300569DEF /* PaymentTypeCell.xib in Resources */,
 				6075BD4A24DEA7FB00BC78BD /* OpenSans-Italic.ttf in Resources */,
@@ -2361,6 +2379,7 @@
 				3959E9D7249A644E00FA1F74 /* PhoneFormatter.swift in Sources */,
 				603D31C324E578BE000E5A6C /* ProductViewController.swift in Sources */,
 				395CB74624FCE9D5000A958F /* CheckoutModel.swift in Sources */,
+				2488BAFA255153D1008D7EEB /* EmptyResultsViewCell.swift in Sources */,
 				603D31F224E5A9F7000E5A6C /* ProductAdviceTableViewCell.swift in Sources */,
 				619AAA482498B01900AB46ED /* KeychainManager.swift in Sources */,
 				618473072549A0B80062D8B9 /* CartSectionHeader.swift in Sources */,
@@ -2398,6 +2417,7 @@
 				619AAA402498A9AE00AB46ED /* AuthAPI.swift in Sources */,
 				398880C4250F799400942D30 /* PharmacyResponse.swift in Sources */,
 				87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */,
+				2488BB1E255188C4008D7EEB /* UIViewController+EmptyView.swift in Sources */,
 				60E1A71524ECE0DD00B3D205 /* ScanCoordinator.swift in Sources */,
 				601E7ED12549CDB300C936BF /* MapGetDirections.swift in Sources */,
 				395D050124D04B3A007A278D /* CatalogueModel.swift in Sources */,

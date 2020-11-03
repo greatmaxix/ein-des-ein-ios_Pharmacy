@@ -16,7 +16,6 @@ final class EmptyResultsView: UIView {
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var imageViewTopConstr: NSLayoutConstraint!
     
-    
     /**
             Handler for catch tap on the main button adn adding reaction
      */
@@ -36,7 +35,6 @@ final class EmptyResultsView: UIView {
         descriptionLabel.text = decriptionText
         confirmButton.setTitle(buttonTitle, for: .normal)
     }
-    
     
     /**
             change defoult image to entered
