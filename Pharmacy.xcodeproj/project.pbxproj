@@ -207,6 +207,9 @@
 		603D320324E6585C000E5A6C /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D320224E6585C000E5A6C /* ContainerView.swift */; };
 		603D320524E65874000E5A6C /* HighlightedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D320424E65874000E5A6C /* HighlightedTableViewCell.swift */; };
 		6040F0AC254F6CCB006B4B39 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6040F0AB254F6CCB006B4B39 /* NavigationController.swift */; };
+		60475FDC2551515D00448EF3 /* ChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60475FDB2551515D00448EF3 /* ChatCoordinator.swift */; };
+		60475FE02551569400448EF3 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60475FDF2551569400448EF3 /* ChatModel.swift */; };
+		60475FE425515CFA00448EF3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60475FE325515CFA00448EF3 /* ChatViewController.swift */; };
 		60515CFE254B068900977BEF /* SubcategoryCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60515CFD254B068900977BEF /* SubcategoryCellSection.swift */; };
 		6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */; };
 		6075BD4624DEA6FF00BC78BD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075BD4524DEA6FF00BC78BD /* R.generated.swift */; };
@@ -540,6 +543,9 @@
 		603D320224E6585C000E5A6C /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		603D320424E65874000E5A6C /* HighlightedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedTableViewCell.swift; sourceTree = "<group>"; };
 		6040F0AB254F6CCB006B4B39 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		60475FDB2551515D00448EF3 /* ChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCoordinator.swift; sourceTree = "<group>"; };
+		60475FDF2551569400448EF3 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		60475FE325515CFA00448EF3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		60515CFD254B068900977BEF /* SubcategoryCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryCellSection.swift; sourceTree = "<group>"; };
 		6075BD2F24DEA3C800BC78BD /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -1111,6 +1117,7 @@
 		396C45CF249774D200A569CE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				60475FDA2551512A00448EF3 /* Chat */,
 				4D8BCF69254891570094C43C /* InDevelopment */,
 				8715DB8424FFBFB900BBF37C /* Onboarding */,
 				60E1A70F24ECE0AB00B3D205 /* Scan */,
@@ -1594,6 +1601,16 @@
 				603D320224E6585C000E5A6C /* ContainerView.swift */,
 			);
 			path = ContainerView;
+			sourceTree = "<group>";
+		};
+		60475FDA2551512A00448EF3 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				60475FDF2551569400448EF3 /* ChatModel.swift */,
+				60475FDB2551515D00448EF3 /* ChatCoordinator.swift */,
+				60475FE325515CFA00448EF3 /* ChatViewController.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		6075BD2E24DEA3BE00BC78BD /* OpenSans */ = {
@@ -2337,6 +2354,7 @@
 				8715DB8924FFC76F00BBF37C /* OnboardingViewController.swift in Sources */,
 				39505F5624AC73620045EC02 /* TabBarModel.swift in Sources */,
 				875223D42501152F000759C8 /* UserEntity.swift in Sources */,
+				60475FE425515CFA00448EF3 /* ChatViewController.swift in Sources */,
 				39F0AD6D24EEC85400CD6CA4 /* WishlistViewController.swift in Sources */,
 				398B0DD424F506540084EC54 /* MapModel.swift in Sources */,
 				603D319124E3A7FD000E5A6C /* Receipt.swift in Sources */,
@@ -2500,6 +2518,7 @@
 				87131D232507B9890050B8F2 /* Executor.swift in Sources */,
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
 				871E71A32501606200C8489B /* AvatarDTO.swift in Sources */,
+				60475FDC2551515D00448EF3 /* ChatCoordinator.swift in Sources */,
 				3952FA252500FE9B00E5EF1D /* WishListAPI.swift in Sources */,
 				87131D25250913A70050B8F2 /* UISearchBar+TextField.swift in Sources */,
 				24F5FD7B254A0F6000D28275 /* TableViewSection.swift in Sources */,
@@ -2527,6 +2546,7 @@
 				24567C1425501226001CF931 /* ChooseDeliveryAdressViewModel.swift in Sources */,
 				60E1A71F24ED12C200B3D205 /* UIViewController+ActionSheetView.swift in Sources */,
 				398B0DE224F50AD60084EC54 /* UserMarkerView.swift in Sources */,
+				60475FE02551569400448EF3 /* ChatModel.swift in Sources */,
 				24F5FC58254892D900D28275 /* RecentMedicineEntity.swift in Sources */,
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
 				61CFAA93254C28DD00569DEF /* OrderPharmacyCell.swift in Sources */,
