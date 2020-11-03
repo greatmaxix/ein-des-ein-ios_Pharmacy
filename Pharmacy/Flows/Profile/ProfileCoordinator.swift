@@ -18,7 +18,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     
     private weak var root: ProfileViewController!
     private let storyboard: UIStoryboard = R.storyboard.profile()
-    
+
+    // swiftlint:disable cyclomatic_complexity
     init(configuration: ProfileFlowConfiguration) {
         super.init(parent: configuration.parent)
         
@@ -44,6 +45,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 self?.presentChooseLocation()
             case .openChooseDeliveryAdress:
                 self?.presentChooseDeliveryAdress()
+            case .openChooseLocation:
+                self?.presentChooseLocation()
             default:
                 break
             }
@@ -57,11 +60,29 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 break
             }
         }
-      
+
+        addHandler { [weak self] (event: OrderDetailsEvent) in
+            switch event {
+            case .back:
+                self?.popController()
+            default:
+                break
+            }
+        }
+
         addHandler { [weak self] (event: AboutAppEvent) in
             switch event {
             case .close:
                 self?.popController()
+            default:
+                break
+            }
+        }
+
+        addHandler { [weak self] (event: OrdersListEvent) in
+            switch event {
+            case .openOrder(let id):
+                self?.openOrder(id: id)
             default:
                 break
             }
@@ -94,7 +115,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         
         let navigationVC: UINavigationController = UINavigationController(navigationBarClass: SimpleNavigationBar.self, toolbarClass: nil)
         navigationVC.setViewControllers([root], animated: false)
-       
+
         navigationVC.isToolbarHidden = true
         return navigationVC
     }
@@ -121,7 +142,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     
     func presentWishlist() {
         guard let wishlistVC: WishlistViewController = storyboard.instantiateViewController(withIdentifier: "WishlistViewController") as? WishlistViewController else {
-                   return
+            return
         }
         
         let model = WishlistModel(parent: self)
@@ -132,7 +153,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     
     func presentMyOrders() {
         guard let ordersVC: OrdersViewController = R.storyboard.orders().instantiateViewController(withIdentifier: "OrdersViewController") as? OrdersViewController else {
-                   return
+            return
         }
         
         let model = OrdersListModel(parent: self)
@@ -144,7 +165,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     
     func presentPrescriptions() {
         guard let prescriptionsVC: PrescriptionsViewController = storyboard.instantiateViewController(withIdentifier: "PrescriptionsViewController") as? PrescriptionsViewController else {
-                   return
+            return
         }
         
         let model = PrescriptionsModel(parent: self)
@@ -154,20 +175,20 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     
     func presentAnalizes() {
         guard let analizesVC: AnalizesViewController = storyboard.instantiateViewController(withIdentifier: "AnalizesViewController") as? AnalizesViewController else {
-                   return
+            return
         }
         
         let model = AnalizesModel(parent: self)
         analizesVC.model = model
         root.navigationController?.pushViewController(analizesVC, animated: true)
     }
-  
+
     func presentAbout() {
-      guard let aboutVC: AboutAppViewController = storyboard.instantiateViewController(withIdentifier: "AboutAppViewController") as? AboutAppViewController else { return }
-      
-      let model = AboutAppModel(parent: self)
-      aboutVC.model = model
-      root.navigationController?.pushViewController(aboutVC, animated: true)
+        guard let aboutVC: AboutAppViewController = storyboard.instantiateViewController(withIdentifier: "AboutAppViewController") as? AboutAppViewController else { return }
+
+        let model = AboutAppModel(parent: self)
+        aboutVC.model = model
+        root.navigationController?.pushViewController(aboutVC, animated: true)
     }
     
     private func popController() {
@@ -197,7 +218,17 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         viewController.model = model
         root.navigationController?.pushViewController(viewController, animated: true)
     }
-    
+
+    fileprivate func openOrder(id: Int) {
+        guard let controller = R.storyboard.orders().instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController else { return }
+
+        let model = OrderDetailsModel(parent: self, orderId: id)
+        controller.model = model
+        model.output = controller
+
+        root.navigationController?.pushViewController(controller, animated: true)
+    }
+
     private func presentChooseDeliveryAdress() {
         guard let viewController = R.storyboard.chooseDeliveryAdressViewController.chooseDeliveryAdressViewController() else {return}
         
@@ -206,6 +237,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         model.output = viewController
         viewController.model = model
         root.navigationController?.pushViewController(viewController, animated: true)
+
     }
 }
 
@@ -214,23 +246,23 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
 extension ProfileFlowCoordinator: TabBarEmbedCoordinable {
     
     var tabItemInfo: TabBarItemInfo {
-    if let user = UserSession.shared.user, let avatarURL = user.avatarURL {
-        // TODO: - здесь так сделано потому что не обрабатываеться ошибка загрузки изображения на сервак
-        guard let data = try? Data(contentsOf: avatarURL) else {
+        if let user = UserSession.shared.user, let avatarURL = user.avatarURL {
+            // TODO: - здесь так сделано потому  что не обрабатываеться ошибка загрузки изображения на сервак
+            guard let data = try? Data(contentsOf: avatarURL) else {
+                return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
+                                      icon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal),
+                                      highlightedIcon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal))
+            }
+
+            let image = UIImage(data: data)!.resizeImage(CGFloat.init(24), opaque: false).withRoundedCorners()
+
+            return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
+                                  icon: image?.withRenderingMode(.alwaysOriginal),
+                                  highlightedIcon: image?.withRenderingMode(.alwaysOriginal))
+        } else {
             return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
                                   icon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal),
                                   highlightedIcon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal))
-        }
-        
-    let image = UIImage(data: data)!.resizeImage(CGFloat.init(24), opaque: false).withRoundedCorners()
-        
-    return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
-                          icon: image?.withRenderingMode(.alwaysOriginal),
-                          highlightedIcon: image?.withRenderingMode(.alwaysOriginal))
-} else {
-    return TabBarItemInfo(title: R.string.localize.tabbarProfile(),
-                          icon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal),
-                          highlightedIcon: R.image.defaultProfilePhoto()?.withRenderingMode(.alwaysOriginal))
             
         }
     }

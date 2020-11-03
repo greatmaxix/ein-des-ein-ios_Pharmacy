@@ -36,6 +36,8 @@ final class OrdersViewController: UIViewController {
     }
     
     private func setupTableView() {
+        tableView.isHidden = true
+
         tableView.register(UINib(nibName: "EmptyResultsViewCell", bundle: nil), forCellReuseIdentifier: "EmptyResultsViewCell")
     }
 
@@ -82,10 +84,15 @@ final class OrdersViewController: UIViewController {
 
 extension OrdersViewController: OrdersViewControllerInput {
     func complete(isEmpty: Bool, error: String?) {
-        
+
+        tableView.isHidden = false
         tableView.reloadData()
 
         activityIndicator.hide(animated: true)
+    }
+
+    func startLoading() {
+        activityIndicator.show(animated: true)
     }
 }
 
@@ -118,26 +125,19 @@ extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        model.open(at: indexPath)
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if model.numberOfOrders == 0 {
             return tableView.frame.height
         } else {
-            return CGFloat.init(201)
+            return tableView.estimatedRowHeight
         }
        
-    }
-}
-
-extension OrdersViewController: SimpleNavigationBarDelegate {
-    func leftBarItemAction() {
-        model.close()
-    }
-    
-    func rightBarItemAction() {
-    }
-
-    func startLoading() {
-        activityIndicator.show(animated: true)
     }
 }

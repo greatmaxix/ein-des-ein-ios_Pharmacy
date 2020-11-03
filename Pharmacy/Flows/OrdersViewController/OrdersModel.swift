@@ -9,6 +9,10 @@
 import UIKit
 import EventsTree
 
+enum OrdersListEvent: Event {
+    case openOrder(id: Int)
+}
+
 protocol OrdersListInput {
     var numberOfOrders: Int { get }
 
@@ -16,6 +20,7 @@ protocol OrdersListInput {
     func initialLoad()
     func open(tab: OrderListRequestState)
     func order(at indexPath: IndexPath) -> Order
+    func open(at indexPath: IndexPath)
     func startSearch()
 }
 
@@ -65,7 +70,7 @@ class OrdersListModel: EventNode {
                         count: perPage,
                         status: currentState.toString()),
                      completion: { [weak self] result in
-                        guard let self = self else { return }
+                        guard let `self` = self else { return }
 
                         switch result {
                         case .success(let response):
@@ -108,5 +113,11 @@ extension OrdersListModel: OrdersListInput, OrdersViewControllerOutput {
 
     func order(at indexPath: IndexPath) -> Order {
         return orders[indexPath.row]
+    }
+
+    func open(at indexPath: IndexPath) {
+        guard let id = order(at: indexPath).orderId else { return }
+
+        raise(event: OrdersListEvent.openOrder(id: id))
     }
 }

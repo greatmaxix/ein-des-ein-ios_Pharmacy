@@ -18,6 +18,7 @@ enum OrdersAPI {
             deliveryType: String
          )
     case getOrders(page: Int, count: Int, status: String?)
+    case orderDteails(orderId: Int)
 }
 
 extension OrdersAPI: RequestConvertible {
@@ -28,6 +29,8 @@ extension OrdersAPI: RequestConvertible {
             return "customer/order"
         case .getOrders:
             return "customer/orders"
+        case .orderDteails(let orderId):
+            return "customer/order/\(orderId)/order-card"
         }
     }
 
@@ -37,11 +40,15 @@ extension OrdersAPI: RequestConvertible {
             return .post
         case .getOrders:
             return .get
+        case .orderDteails:
+            return .get
         }
     }
 
     var task: Task {
         switch self {
+        case .orderDteails:
+            return .requestPlain
         case .getOrders(let page, let count, let status):
             var params = [
                 "page": page,

@@ -71,7 +71,7 @@ final class CreateOrderModel: Model {
     private var orderContactInfo: OrderContactInfo?
     private var deliveryAddress: OrderDeliveryAddress?
 
-    private var api = DataManager<OrdersAPI, PostResponse>()
+    private var api = DataManager<OrdersAPI, OrderDetailsResponse>()
 
     init(parent: EventNode?, order: PharmCartOrder) {
         super.init(parent: parent)
@@ -158,7 +158,7 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
 
                         switch result {
                         case .success(let response):
-                            return
+                            self.raise(event: CreateOrderModelEvent.back)
                         case .failure(let error):
                             print(error.localizedDescription)
                         }
