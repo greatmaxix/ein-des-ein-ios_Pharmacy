@@ -49,10 +49,8 @@ final class BasketViewController: UIViewController {
     private func initEmptyView() {
         emptyResultsView = setupEmptyView(title: R.string.localize.basketEmptyTitle(), decriptionText: R.string.localize.basketEmptyDescription(), buttonTitle: R.string.localize.basketEmptyButton(), imageName: "emptyOrders",
                                           actionHandler: { [weak self] in
-                                            self?.model.startSearch()
-                                          })
+                                            self?.model.startSearch()})
     }
-
 }
 
 // MARK: - TableView
