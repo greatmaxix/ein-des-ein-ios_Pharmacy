@@ -27,6 +27,7 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
         messagesCollectionView.messagesDisplayDelegate = model
         messagesCollectionView.messagesLayoutDelegate = model
         messagesCollectionView.register(ChatButtonCollectionViewCell.nib, forCellWithReuseIdentifier: ChatButtonCollectionViewCell.reuseIdentifier)
+        messagesCollectionView.register(ChatRouteCollectionViewCell.nib, forCellWithReuseIdentifier: ChatRouteCollectionViewCell.reuseIdentifier)
         if let layout = messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
             sizeCalculator = CustomMessageSizeCalculator(layout: layout)
             layout.textMessageSizeCalculator.outgoingAvatarSize = .zero

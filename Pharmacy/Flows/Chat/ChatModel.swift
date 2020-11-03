@@ -35,7 +35,16 @@ final class ChatModel: Model, ChatInput {
     }
     
     func load() {
-        self.messages = Message.unauthorizedMessages()
+        
+        switch UserSession.shared.authorizationStatus {
+        case .authorized(let userId):
+            let s = Sender(senderId: "\(userId)", displayName: UserSession.shared.user?.name ?? "")
+            sender = s
+            self.messages = [Message(.routeSwitch, sender: s, messageId: "0", date: Date())]
+        case .notAuthorized:
+            self.messages = Message.unauthorizedMessages()
+        }
+        
         output.didResive(messages: self.messages)
     }
 }
@@ -54,7 +63,21 @@ extension ChatModel: MessagesDataSource {
     }
     
     func customCell(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UICollectionViewCell {
-        let cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatButtonCollectionViewCell.reuseIdentifier, for: indexPath)
+        
+        var cell: UICollectionViewCell!
+        
+        switch message.kind {
+        case .custom(let kind as Message.CustomMessageKind):
+            switch kind {
+            case .button:
+                cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatButtonCollectionViewCell.reuseIdentifier, for: indexPath)
+            case .routeSwitch:
+                cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatRouteCollectionViewCell.reuseIdentifier, for: indexPath)
+            case .product: break
+            }
+        default: break
+        }
+        
         return cell
     }
     

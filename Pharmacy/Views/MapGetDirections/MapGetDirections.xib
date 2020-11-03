@@ -83,7 +83,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Kd-TZ-0Dp">
                     <rect key="frame" x="0.0" y="129" width="375" height="111"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgC-Bn-NXT" customClass="LightRoundedButton" customModule="Pharmacy" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgC-Bn-NXT" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
                             <rect key="frame" x="24" y="35.5" width="327" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="bPV-BY-n7i"/>

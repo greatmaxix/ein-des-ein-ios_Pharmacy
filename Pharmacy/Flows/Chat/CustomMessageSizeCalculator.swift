@@ -15,9 +15,9 @@ class CustomMessageSizeCalculator: MessageSizeCalculator {
         case .custom(let kind):
             if let k = kind as? Message.CustomMessageKind {
                 switch k {
-                case .button: return CGSize(width: layout?.collectionView?.frame.width ?? 0.0, height: 100.0)
-                case .routeSwitch: break
-                case .product(let product): break
+                case .button: return CGSize(width: layout?.collectionView?.frame.width ?? 0.0, height: 200.0)
+                case .routeSwitch: return CGSize(width: layout?.collectionView?.frame.width ?? 0.0, height: 400.0)
+                case .product: return CGSize(width: layout?.collectionView?.frame.width ?? 0.0, height: 192.0)
                 }
             }
         default: return .zero

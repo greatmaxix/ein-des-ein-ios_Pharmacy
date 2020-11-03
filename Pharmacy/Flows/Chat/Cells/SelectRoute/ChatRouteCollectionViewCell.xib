@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Shr-eQ-DBC" customClass="ChatRouteCollectionViewCell" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tQ8-f2-FUk">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пожалуйста, выберите, с кем вы хотите начать консультацию" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qh-jm-OvI">
+                        <rect key="frame" x="16" y="33" width="343" height="37.5"/>
+                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                        <color key="textColor" name="textDarkBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgb-6H-UKK">
+                        <rect key="frame" x="40" y="87.5" width="295" height="136"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2E-CP-SvT" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="136" id="Bh7-6N-IOK"/>
+                                    <constraint firstAttribute="height" constant="136" id="y2D-I0-MMy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="180" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Фармацевт">
+                                    <color key="titleColor" name="textDarkBlue"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="68"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pharmacistPressed:" destination="Shr-eQ-DBC" eventType="touchUpInside" id="wjP-IM-Cxb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fve-dd-KZd" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
+                                <rect key="frame" x="159" y="0.0" width="136" height="136"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="136" id="lQS-C4-qOD"/>
+                                    <constraint firstAttribute="width" constant="136" id="ldK-mH-iC3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="180" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Доктор">
+                                    <color key="titleColor" name="textDarkBlue"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="68"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="doctorPressed:" destination="Shr-eQ-DBC" eventType="touchUpInside" id="thz-yq-QRH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fve-dd-KZd" firstAttribute="leading" secondItem="w2E-CP-SvT" secondAttribute="trailing" constant="23" id="G2m-Vg-LM5"/>
+                            <constraint firstAttribute="bottom" secondItem="fve-dd-KZd" secondAttribute="bottom" id="GTo-SW-xZA"/>
+                            <constraint firstItem="w2E-CP-SvT" firstAttribute="top" secondItem="Sgb-6H-UKK" secondAttribute="top" id="X2z-lT-glO"/>
+                            <constraint firstAttribute="trailing" secondItem="fve-dd-KZd" secondAttribute="trailing" id="XbR-nj-S48"/>
+                            <constraint firstAttribute="bottom" secondItem="w2E-CP-SvT" secondAttribute="bottom" id="YrY-Rj-0Fc"/>
+                            <constraint firstItem="fve-dd-KZd" firstAttribute="top" secondItem="Sgb-6H-UKK" secondAttribute="top" id="kG5-j0-4qG"/>
+                            <constraint firstItem="w2E-CP-SvT" firstAttribute="leading" secondItem="Sgb-6H-UKK" secondAttribute="leading" id="pLi-Qw-8Ld"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="666-p4-elN" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
+                        <rect key="frame" x="16" y="323.5" width="343" height="48"/>
+                        <color key="backgroundColor" name="welcomeBlue"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="beT-4c-NOF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                        <state key="normal" title="Далее">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="24"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="confirmChoise:" destination="Shr-eQ-DBC" eventType="touchUpInside" id="bBP-qr-6SX"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="666-p4-elN" firstAttribute="top" secondItem="Sgb-6H-UKK" secondAttribute="bottom" constant="100" id="Nbb-uh-c4R"/>
+                    <constraint firstItem="Sgb-6H-UKK" firstAttribute="centerX" secondItem="tQ8-f2-FUk" secondAttribute="centerX" id="PnE-SZ-Ljl"/>
+                    <constraint firstItem="2qh-jm-OvI" firstAttribute="leading" secondItem="tQ8-f2-FUk" secondAttribute="leading" constant="16" id="SXK-1G-TEe"/>
+                    <constraint firstItem="2qh-jm-OvI" firstAttribute="top" secondItem="tQ8-f2-FUk" secondAttribute="top" constant="33" id="V1n-7R-dbZ"/>
+                    <constraint firstAttribute="trailing" secondItem="2qh-jm-OvI" secondAttribute="trailing" constant="16" id="XWO-Ix-4fL"/>
+                    <constraint firstItem="666-p4-elN" firstAttribute="leading" secondItem="tQ8-f2-FUk" secondAttribute="leading" constant="16" id="hNp-1o-0rY"/>
+                    <constraint firstItem="Sgb-6H-UKK" firstAttribute="top" secondItem="2qh-jm-OvI" secondAttribute="bottom" constant="17" id="jW6-wV-5dS"/>
+                    <constraint firstAttribute="trailing" secondItem="666-p4-elN" secondAttribute="trailing" constant="16" id="yxZ-XI-2QE"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <size key="customSize" width="50" height="333"/>
+            <connections>
+                <outlet property="confirmButton" destination="666-p4-elN" id="jgs-a3-7jD"/>
+                <outlet property="doctorButton" destination="fve-dd-KZd" id="Ya4-rV-Fcj"/>
+                <outlet property="pharmacistButton" destination="w2E-CP-SvT" id="zPE-Yx-ujo"/>
+            </connections>
+            <point key="canvasLocation" x="154.34782608695653" y="84.375"/>
+        </collectionViewCell>
+    </objects>
+    <designables>
+        <designable name="666-p4-elN">
+            <size key="intrinsicContentSize" width="47" height="31"/>
+        </designable>
+        <designable name="fve-dd-KZd">
+            <size key="intrinsicContentSize" width="56" height="31"/>
+        </designable>
+        <designable name="w2E-CP-SvT">
+            <size key="intrinsicContentSize" width="86" height="31"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="welcomeBlue">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
