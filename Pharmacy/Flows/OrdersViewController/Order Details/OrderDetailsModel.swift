@@ -17,6 +17,7 @@ protocol OrderDetailsModelInput {
     var currentOrderId: String { get }
     var numberOfRows: Int { get }
     var contact: DetailedOrderContact? { get }
+    var pharmacy: PharmacyOrder? { get }
 
     func load()
     func back()
@@ -33,18 +34,29 @@ class OrderDetailsModel: EventNode {
     weak var output: OrderDetailsModelOutput!
 
     private var orderId: Int = 0
-    private var order: OrderDetails!
+    private var order: OrderDetails! {
+        didSet {
+            createCells()
+        }
+    }
     private var cellTypes: [CreateOrderCellType]!
 
     init(parent: EventNode?, orderId: Int) {
         super.init(parent: parent)
 
         self.orderId = orderId
-        createCells()
     }
 
     fileprivate func createCells() {
-        cellTypes = [.contactInfo] //, .pharmacy, .deliveryAddress, .paymentType]
+        cellTypes = [.contactInfo, .pharmacy]
+
+        if order.deliveryInfo?.type != "pickup" {
+            cellTypes.append(.deliveryAddress)
+        }
+
+        cellTypes.append(contentsOf: [.paymentType])
+
+        //, .deliveryAddress, .paymentType]
 //        cellTypes.append(contentsOf: [CreateOrderCellType].init(repeating: .product, count: order.products.count))
 //        cellTypes.append(contentsOf: [.comments, .total])
     }
@@ -67,6 +79,10 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
 
     var contact: DetailedOrderContact? {
         order.contactInfo
+    }
+
+    var pharmacy: PharmacyOrder? {
+        order.pharmacy
     }
 
     func load() {

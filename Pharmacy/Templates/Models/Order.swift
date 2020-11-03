@@ -25,7 +25,7 @@ struct OrdersResponse: Codable {
 
 struct PharmacyOrder: Codable {
 
-    var id: Int
+    var id: Int?
     var name: String
     var location: String?
     var imageURL: URL?
@@ -42,7 +42,7 @@ struct PharmacyOrder: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
 
-        id = try container.decode(Int.self, forKey: .id)
+        id = try? container.decode(Int.self, forKey: .id)
 
         name = try container.decode(String.self, forKey: .name)
 

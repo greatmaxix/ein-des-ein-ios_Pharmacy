@@ -40,6 +40,8 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
         switch model.type(at: indexPath) {
         case .contactInfo:
             return contactInfoCell(at: indexPath)
+        case .pharmacy:
+            return pharmCell(at: indexPath)
         default:
             return UITableViewCell()
         }
@@ -50,6 +52,16 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
 
         if let contact = model.contact {
             cell.apply(contact: contact)
+        }
+
+        return cell
+    }
+
+    private func pharmCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailsPharmacyCell", for: indexPath) as? OrderDetailsPharmacyCell else { return UITableViewCell() }
+
+        if let pharmacy = model.pharmacy {
+            cell.apply(pharm: pharmacy)
         }
 
         return cell

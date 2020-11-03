@@ -290,6 +290,8 @@
 		61CFAAAD254C4CC200569DEF /* OrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAAAB254C4CC200569DEF /* OrderSummaryCell.swift */; };
 		61CFAAAE254C4CC200569DEF /* OrderSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAAAC254C4CC200569DEF /* OrderSummaryCell.xib */; };
 		61CFAACA254F1C0D00569DEF /* OrderContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAAC9254F1C0D00569DEF /* OrderContactInfo.swift */; };
+		61F20AF925517BD60027F2B0 /* OrderDetailsDeliveryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F20AF825517BD60027F2B0 /* OrderDetailsDeliveryCell.swift */; };
+		61F20AFC25517DA60027F2B0 /* PrderDetailsPaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F20AFB25517DA60027F2B0 /* PrderDetailsPaymentCell.swift */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
 		87131D232507B9890050B8F2 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D222507B9890050B8F2 /* Executor.swift */; };
 		87131D25250913A70050B8F2 /* UISearchBar+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */; };
@@ -628,6 +630,8 @@
 		61CFAAAB254C4CC200569DEF /* OrderSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryCell.swift; sourceTree = "<group>"; };
 		61CFAAAC254C4CC200569DEF /* OrderSummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSummaryCell.xib; sourceTree = "<group>"; };
 		61CFAAC9254F1C0D00569DEF /* OrderContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderContactInfo.swift; sourceTree = "<group>"; };
+		61F20AF825517BD60027F2B0 /* OrderDetailsDeliveryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsDeliveryCell.swift; sourceTree = "<group>"; };
+		61F20AFB25517DA60027F2B0 /* PrderDetailsPaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrderDetailsPaymentCell.swift; sourceTree = "<group>"; };
 		87131D222507B9890050B8F2 /* Executor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
 		87131D24250913A70050B8F2 /* UISearchBar+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+TextField.swift"; sourceTree = "<group>"; };
 		87131D27250A043D0050B8F2 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
@@ -1707,6 +1711,8 @@
 			children = (
 				6185013F255091830094A6A6 /* OrderDetailsContactCell.swift */,
 				61850143255091950094A6A6 /* OrderDetailsPharmacyCell.swift */,
+				61F20AF825517BD60027F2B0 /* OrderDetailsDeliveryCell.swift */,
+				61F20AFB25517DA60027F2B0 /* PrderDetailsPaymentCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2423,6 +2429,7 @@
 				87131D2C250A0C8E0050B8F2 /* NibView.swift in Sources */,
 				39818FA124AF69B0007D6D94 /* UserSession.swift in Sources */,
 				603D31E024E5A8E3000E5A6C /* ProductCategoryTableViewCell.swift in Sources */,
+				61F20AF925517BD60027F2B0 /* OrderDetailsDeliveryCell.swift in Sources */,
 				397541D724ED35EE0069F8DE /* SimpleNavigationBarView.swift in Sources */,
 				3939A6D524F6A3C90045FB71 /* LocationService.swift in Sources */,
 				61CFAACA254F1C0D00569DEF /* OrderContactInfo.swift in Sources */,
@@ -2523,6 +2530,7 @@
 				61AA472225505A4800D140D3 /* OrderDetailsModel.swift in Sources */,
 				396FE9D025063A460063E466 /* Region.swift in Sources */,
 				395C9D7A2499FD8F001EB6CD /* NameValidator.swift in Sources */,
+				61F20AFC25517DA60027F2B0 /* PrderDetailsPaymentCell.swift in Sources */,
 				603D31EE24E5A9E5000E5A6C /* ProductInstructionTableViewCell.swift in Sources */,
 				394EBEE724FF901600C89970 /* MedicineView.swift in Sources */,
 				611C3BF1254F455E006178B7 /* OrdersAPI.swift in Sources */,
