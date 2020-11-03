@@ -19,10 +19,14 @@ protocol OrderDetailsModelInput {
     var contact: DetailedOrderContact? { get }
     var pharmacy: PharmacyOrder? { get }
     var delivery: OrderDetailsDelivery? { get }
+    var comment: String? { get }
+    var cost: Decimal { get }
 
     func load()
     func back()
+    func cancelOrder()
     func type(at indexPath: IndexPath) -> CreateOrderCellType
+    func product(at indexPath: IndexPath) -> CartMedicine?
 }
 
 protocol OrderDetailsModelOutput: class {
@@ -55,11 +59,17 @@ class OrderDetailsModel: EventNode {
             cellTypes.append(.deliveryAddress)
         }
 
-        cellTypes.append(contentsOf: [.paymentType])
+        cellTypes.append(.paymentType)
 
-        //, .deliveryAddress, .paymentType]
-//        cellTypes.append(contentsOf: [CreateOrderCellType].init(repeating: .product, count: order.products.count))
-//        cellTypes.append(contentsOf: [.comments, .total])
+        if let products = order.products {
+            cellTypes.append(contentsOf: [CreateOrderCellType].init(repeating: .product, count: products.count))
+        }
+
+        if order.deliveryInfo?.comment != nil {
+            cellTypes.append(.comments)
+        }
+
+        cellTypes.append(.total)
     }
 
 }
@@ -78,6 +88,10 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
         }
     }
 
+    var comment: String? {
+        order.deliveryInfo?.comment
+    }
+
     var contact: DetailedOrderContact? {
         order.contactInfo
     }
@@ -88,6 +102,10 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
 
     var delivery: OrderDetailsDelivery? {
         order.deliveryInfo
+    }
+
+    var cost: Decimal {
+        order.totalCost ?? 0
     }
 
     func load() {
@@ -105,6 +123,11 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
                      })
     }
 
+    func product(at indexPath: IndexPath) -> CartMedicine? {
+        let delta = order.deliveryInfo?.type == "delivery_address" ? 4 : 3
+        return order.products?[indexPath.row - delta]
+    }
+
     func back() {
         raise(event: OrderDetailsEvent.back)
     }
@@ -113,4 +136,7 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
         return cellTypes[indexPath.row]
     }
 
+    func cancelOrder() {
+        
+    }
 }

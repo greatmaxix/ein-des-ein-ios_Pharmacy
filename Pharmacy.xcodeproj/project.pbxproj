@@ -243,6 +243,8 @@
 		611C3BEE254F3A70006178B7 /* OrderDeliveryAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C3BED254F3A70006178B7 /* OrderDeliveryAddress.swift */; };
 		611C3BF1254F455E006178B7 /* OrdersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C3BF0254F455E006178B7 /* OrdersAPI.swift */; };
 		611C3C0C254F7158006178B7 /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 611C3C0B254F7158006178B7 /* Orders.storyboard */; };
+		61701FB42551A1AD0000303C /* OrderDetailsCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61701FB32551A1AD0000303C /* OrderDetailsCommentCell.swift */; };
+		61701FB72551A42C0000303C /* OrderDetailsTotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61701FB62551A42C0000303C /* OrderDetailsTotalCell.swift */; };
 		6184730125496E950062D8B9 /* CartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6184730025496E950062D8B9 /* CartResponse.swift */; };
 		618473072549A0B80062D8B9 /* CartSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618473062549A0B80062D8B9 /* CartSectionHeader.swift */; };
 		6184730A2549A0C80062D8B9 /* CartSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 618473092549A0C80062D8B9 /* CartSectionHeader.xib */; };
@@ -583,6 +585,8 @@
 		611C3BED254F3A70006178B7 /* OrderDeliveryAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDeliveryAddress.swift; sourceTree = "<group>"; };
 		611C3BF0254F455E006178B7 /* OrdersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersAPI.swift; sourceTree = "<group>"; };
 		611C3C0B254F7158006178B7 /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
+		61701FB32551A1AD0000303C /* OrderDetailsCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsCommentCell.swift; sourceTree = "<group>"; };
+		61701FB62551A42C0000303C /* OrderDetailsTotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsTotalCell.swift; sourceTree = "<group>"; };
 		6184730025496E950062D8B9 /* CartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponse.swift; sourceTree = "<group>"; };
 		618473062549A0B80062D8B9 /* CartSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSectionHeader.swift; sourceTree = "<group>"; };
 		618473092549A0C80062D8B9 /* CartSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartSectionHeader.xib; sourceTree = "<group>"; };
@@ -1713,6 +1717,8 @@
 				61850143255091950094A6A6 /* OrderDetailsPharmacyCell.swift */,
 				61F20AF825517BD60027F2B0 /* OrderDetailsDeliveryCell.swift */,
 				61F20AFB25517DA60027F2B0 /* PrderDetailsPaymentCell.swift */,
+				61701FB32551A1AD0000303C /* OrderDetailsCommentCell.swift */,
+				61701FB62551A42C0000303C /* OrderDetailsTotalCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2444,6 +2450,7 @@
 				398B0DD224F5062C0084EC54 /* MapViewController.swift in Sources */,
 				8717E4DA2506977D00546A55 /* SuccessfulSignUpViewController.swift in Sources */,
 				395284AF250A3C3900A6FFAB /* UIViewController+ActivityIndicator.swift in Sources */,
+				61701FB72551A42C0000303C /* OrderDetailsTotalCell.swift in Sources */,
 				603D31B424E3CFEE000E5A6C /* Medicine.swift in Sources */,
 				603D31D524E5A0C2000E5A6C /* ProductCellSection.swift in Sources */,
 				246A83F625472E260004ECEC /* CategoryDTO.swift in Sources */,
@@ -2485,6 +2492,7 @@
 				246A83B72546E26A0004ECEC /* ProductCartAPI.swift in Sources */,
 				24567C0D25501211001CF931 /* ChooseDeliveryAdressViewController.swift in Sources */,
 				878CFC0E2514CC1C00298139 /* Decimal+MoneyFormat.swift in Sources */,
+				61701FB42551A1AD0000303C /* OrderDetailsCommentCell.swift in Sources */,
 				6184731E2549ACFB0062D8B9 /* CartMedecineCell.swift in Sources */,
 				875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */,
 				395CB74424FCE9BF000A958F /* CheckoutViewController.swift in Sources */,

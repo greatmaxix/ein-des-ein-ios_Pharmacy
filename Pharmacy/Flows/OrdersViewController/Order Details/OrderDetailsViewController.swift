@@ -23,6 +23,8 @@ class OrderDetailsViewController: UIViewController {
 
         model.load()
         titleLabel.text = "№ \(model.currentOrderId)"
+
+        tableView.register(UINib(nibName: "OrderedProductCell", bundle: nil), forCellReuseIdentifier: "OrderedProductCell")
     }
 
     @IBAction func back(_ sender: Any) {
@@ -46,6 +48,12 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
             return deliveryCell(at: indexPath)
         case .paymentType:
             return paymentCell(at: indexPath)
+        case .product:
+            return productCell(at: indexPath)
+        case .comments:
+            return commentCell(at: indexPath)
+        case .total:
+            return totalCell(at: indexPath)
         default:
             return UITableViewCell()
         }
@@ -56,6 +64,17 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
 
         if let contact = model.contact {
             cell.apply(contact: contact)
+        }
+
+        return cell
+    }
+
+    private func totalCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailsTotalCell", for: indexPath) as? OrderDetailsTotalCell else { return UITableViewCell() }
+
+        cell.apply(cost: model.cost)
+        cell.actionHandler = { [weak self] in
+            self?.model.cancelOrder()
         }
 
         return cell
@@ -83,6 +102,24 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
 
     private func paymentCell(at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailsPaymentCell", for: indexPath) as? OrderDetailsPaymentCell else { return UITableViewCell() }
+
+        return cell
+    }
+
+    private func commentCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailsCommentCell", for: indexPath) as? OrderDetailsCommentCell else { return UITableViewCell() }
+
+        cell.apply(comment: model.comment)
+
+        return cell
+    }
+
+    private func productCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderedProductCell", for: indexPath) as? OrderedProductCell else { return UITableViewCell() }
+
+        if let product = model.product(at: indexPath) {
+            cell.apply(product: product)
+        }
 
         return cell
     }
