@@ -21,6 +21,7 @@ protocol BasketModelInput: class {
     func medecine(at indexPath: IndexPath) -> CartMedicine
     func load()
     func createOrder(at section: Int)
+    func startSearch()
 
     func sectionClosureChanged(at index: Int)
     func increaseCount(at indexPath: IndexPath)
@@ -50,6 +51,10 @@ final class BasketModel: Model {
 // MARK: - BasketViewControllerOutput
 
 extension BasketModel: BasketViewControllerOutput {
+    func startSearch() {
+        raise(event: AppEvent.presentInDev)
+    }
+    
 
     func section(at index: Int) -> PharmCartOrder {
         return cartOrders[index]

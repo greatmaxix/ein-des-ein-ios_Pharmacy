@@ -20,6 +20,7 @@
 		2488BADC25506D6B008D7EEB /* DeliveryAddressEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BADB25506D6B008D7EEB /* DeliveryAddressEntity.swift */; };
 		2488BAFA255153D1008D7EEB /* EmptyResultsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BAF9255153D1008D7EEB /* EmptyResultsViewCell.swift */; };
 		2488BAFE255154DA008D7EEB /* EmptyResultsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2488BAFD255154DA008D7EEB /* EmptyResultsViewCell.xib */; };
+		2488BB1E255188C4008D7EEB /* UIViewController+EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BB1D255188C4008D7EEB /* UIViewController+EmptyView.swift */; };
 		24D30442254C365F00D45CC3 /* RegionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D30441254C365F00D45CC3 /* RegionDTO.swift */; };
 		24D30446254C366D00D45CC3 /* RegionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D30445254C366D00D45CC3 /* RegionEntity.swift */; };
 		24F5FC54254892CC00D28275 /* RecentMedicineDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F5FC53254892CC00D28275 /* RecentMedicineDTO.swift */; };
@@ -352,6 +353,7 @@
 		2488BADB25506D6B008D7EEB /* DeliveryAddressEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressEntity.swift; sourceTree = "<group>"; };
 		2488BAF9255153D1008D7EEB /* EmptyResultsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultsViewCell.swift; sourceTree = "<group>"; };
 		2488BAFD255154DA008D7EEB /* EmptyResultsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyResultsViewCell.xib; sourceTree = "<group>"; };
+		2488BB1D255188C4008D7EEB /* UIViewController+EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+EmptyView.swift"; sourceTree = "<group>"; };
 		24D30441254C365F00D45CC3 /* RegionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionDTO.swift; sourceTree = "<group>"; };
 		24D30445254C366D00D45CC3 /* RegionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionEntity.swift; sourceTree = "<group>"; };
 		24F5FC53254892CC00D28275 /* RecentMedicineDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentMedicineDTO.swift; sourceTree = "<group>"; };
@@ -850,6 +852,7 @@
 				60E1A71E24ED12C200B3D205 /* UIViewController+ActionSheetView.swift */,
 				39534EA624A4D98E009AA5BB /* UIView+Shadow.swift */,
 				395284AE250A3C3900A6FFAB /* UIViewController+ActivityIndicator.swift */,
+				2488BB1D255188C4008D7EEB /* UIViewController+EmptyView.swift */,
 				603D31B724E3F57B000E5A6C /* NSAttributedString+Price.swift */,
 				39520E8D24A5EFAC00C2B7D8 /* UIViewController+Alert.swift */,
 				6075BD5B24DEBA0D00BC78BD /* UIView+NSLayoutConstraint.swift */,
@@ -2414,6 +2417,7 @@
 				619AAA402498A9AE00AB46ED /* AuthAPI.swift in Sources */,
 				398880C4250F799400942D30 /* PharmacyResponse.swift in Sources */,
 				87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */,
+				2488BB1E255188C4008D7EEB /* UIViewController+EmptyView.swift in Sources */,
 				60E1A71524ECE0DD00B3D205 /* ScanCoordinator.swift in Sources */,
 				601E7ED12549CDB300C936BF /* MapGetDirections.swift in Sources */,
 				395D050124D04B3A007A278D /* CatalogueModel.swift in Sources */,

@@ -27,8 +27,6 @@ final class OrdersViewController: UIViewController {
     private lazy var activityIndicator: MBProgressHUD = {
         setupActivityIndicator()
     }()
-
-    private var emptyResultsView: EmptyResultsView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,10 +82,7 @@ final class OrdersViewController: UIViewController {
 
 extension OrdersViewController: OrdersViewControllerInput {
     func complete(isEmpty: Bool, error: String?) {
-        if isEmpty == true {
-//            applyEmptyStyle()
-        }
-
+        
         tableView.reloadData()
 
         activityIndicator.hide(animated: true)
