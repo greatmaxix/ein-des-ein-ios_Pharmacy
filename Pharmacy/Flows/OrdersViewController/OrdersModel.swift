@@ -21,6 +21,7 @@ protocol OrdersListInput {
     func open(tab: OrderListRequestState)
     func order(at indexPath: IndexPath) -> Order
     func open(at indexPath: IndexPath)
+    func startSearch()
 }
 
 protocol OrdersListOutput: class {
@@ -83,6 +84,10 @@ class OrdersListModel: EventNode {
 }
 
 extension OrdersListModel: OrdersListInput, OrdersViewControllerOutput {
+    func startSearch() {
+        raise(event: AppEvent.presentInDev)
+    }
+    
 
     var numberOfOrders: Int {
         orders.count

@@ -16,20 +16,17 @@ final class AnalizesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        applyEmptyStyle()
+        initEmptyStyle()
         setupUI()
     }
 
-    private func applyEmptyStyle() {
-
-        let emptyView: EmptyResultsView = EmptyResultsView.fromNib()
-        emptyView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(emptyView)
-        emptyView.constraintsToSuperView()
-
-        emptyView.setup(title: R.string.localize.analizesEmptyTitle(), decriptionText: R.string.localize.analizesEmptyDescription(), buttonTitle: R.string.localize.analizesEmptyButton())
-
-        emptyResultsView = emptyView
+    private func initEmptyStyle() {
+        emptyResultsView = setupEmptyView(title: R.string.localize.analizesEmptyTitle(),
+                                          decriptionText: R.string.localize.analizesEmptyDescription(),
+                                          buttonTitle: R.string.localize.analizesEmptyButton(),
+                                          imageName: "emptyAnalysis",
+                                          actionHandler: {[weak self] in
+                                            self?.model.signUpAnalysis()})
     }
 
     private func setupUI() {

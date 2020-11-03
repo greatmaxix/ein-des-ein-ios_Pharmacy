@@ -16,20 +16,17 @@ final class PrescriptionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        applyEmptyStyle()
+        initEmptyStyle()
         setupUI()
     }
 
-    private func applyEmptyStyle() {
-        
-        let emptyView: EmptyResultsView = EmptyResultsView.fromNib()
-        emptyView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(emptyView)
-        emptyView.constraintsToSuperView()
-        
-        emptyView.setup(title: R.string.localize.prescriptionsEmptyTitle(), decriptionText: R.string.localize.prescriptionsEmptyDescription(), buttonTitle: R.string.localize.prescriptionsEmptyButton())
-        
-        emptyResultsView = emptyView
+    private func initEmptyStyle() {
+        emptyResultsView = setupEmptyView(title: R.string.localize.prescriptionsEmptyTitle(),
+                                          decriptionText: R.string.localize.prescriptionsEmptyDescription(),
+                                          buttonTitle: R.string.localize.prescriptionsEmptyButton(),
+                                          imageName: "emptyReciept",
+                                          actionHandler: {[weak self] in
+                                            self?.model.signUpAnalysis()})
     }
     
     private func setupUI() {

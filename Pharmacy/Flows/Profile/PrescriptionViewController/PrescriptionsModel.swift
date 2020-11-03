@@ -11,6 +11,7 @@ import EventsTree
 
 protocol PrescriptionsInput {
     func close()
+    func signUpAnalysis()
 }
 
 final class PrescriptionsModel: EventNode {
@@ -20,5 +21,9 @@ final class PrescriptionsModel: EventNode {
 extension PrescriptionsModel: PrescriptionsInput {
     func close() {
         raise(event: ProfileEvent.close)
+    }
+    
+    func signUpAnalysis() {
+        raise(event: AppEvent.presentInDev)
     }
 }
