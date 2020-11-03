@@ -18,6 +18,7 @@ protocol OrderDetailsModelInput {
     var numberOfRows: Int { get }
     var contact: DetailedOrderContact? { get }
     var pharmacy: PharmacyOrder? { get }
+    var delivery: OrderDetailsDelivery? { get }
 
     func load()
     func back()
@@ -50,7 +51,7 @@ class OrderDetailsModel: EventNode {
     fileprivate func createCells() {
         cellTypes = [.contactInfo, .pharmacy]
 
-        if order.deliveryInfo?.type != "pickup" {
+        if order.deliveryInfo?.type == "delivery_address" {
             cellTypes.append(.deliveryAddress)
         }
 
@@ -83,6 +84,10 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
 
     var pharmacy: PharmacyOrder? {
         order.pharmacy
+    }
+
+    var delivery: OrderDetailsDelivery? {
+        order.deliveryInfo
     }
 
     func load() {

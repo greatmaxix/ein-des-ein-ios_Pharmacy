@@ -79,8 +79,8 @@ struct DeliveryInfo: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
 
-        type = try container.decode(String.self, forKey: .type)
-        comment = try container.decode(String.self, forKey: .comment)
+        type = try? container.decode(String.self, forKey: .type)
+        comment = try? container.decode(String.self, forKey: .comment)
 
         var picturesUnkeyedContainer = try? container.nestedUnkeyedContainer(forKey: .address)
         let addressContainer = try? picturesUnkeyedContainer?.nestedContainer(keyedBy: Keys.self)

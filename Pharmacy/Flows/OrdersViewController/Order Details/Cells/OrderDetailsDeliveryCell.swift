@@ -21,7 +21,7 @@ class OrderDetailsDeliveryCell: UITableViewCell {
         corneredView.dropBlueShadow()
     }
 
-    func apply(delivery: DeliveryInfo) {
+    func apply(delivery: OrderDetailsDelivery) {
         sreetLabel.text = "\(delivery.street ?? ""), \(delivery.house ?? "")"
         detailsLabel.text = "\(delivery.apartment ?? "")"
     }

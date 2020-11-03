@@ -37,12 +37,42 @@ struct DetailedOrderContact: Codable {
 
 }
 
+struct OrderDetailsDelivery: Codable {
+    var comment: String?
+    var street: String?
+    var house: String?
+    var apartment: String?
+    var type: String?
+
+    enum Keys: String, CodingKey {
+        case comment
+        case address
+        case type
+        case apartment
+        case house
+        case street
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+
+        comment = try? container.decode(String.self, forKey: .comment)
+        type = try? container.decode(String.self, forKey: .type)
+
+        let addressContainer = try? container.nestedContainer(keyedBy: Keys.self, forKey: .address)
+
+        street = try? addressContainer?.decode(String.self, forKey: .street)
+        house = try? addressContainer?.decode(String.self, forKey: .house)
+        apartment = try? addressContainer?.decode(String.self, forKey: .apartment)
+    }
+}
+
 struct OrderDetails: Codable {
 
     var orderId: Int?
     var contactInfo: DetailedOrderContact?
     var status: String?
-    var deliveryInfo: DeliveryInfo?
+    var deliveryInfo: OrderDetailsDelivery?
     var paymentType: String?
     var pharmacy: PharmacyOrder?
     var products: [CartMedicine]?
@@ -67,7 +97,7 @@ struct OrderDetails: Codable {
         orderId = try? container.decode(Int.self, forKey: .orderId)
         contactInfo = try? container.decode(DetailedOrderContact.self, forKey: .contactInfo)
         products = try? container.decode([CartMedicine].self, forKey: .products)
-        deliveryInfo = try? container.decode(DeliveryInfo.self, forKey: .deliveryInfo)
+        deliveryInfo = try? container.decode(OrderDetailsDelivery.self, forKey: .deliveryInfo)
         paymentType = try? container.decode(String.self, forKey: .paymentType)
         status = try? container.decode(String.self, forKey: .status)
         pharmacy = try? container.decode(PharmacyOrder.self, forKey: .pharmacy)

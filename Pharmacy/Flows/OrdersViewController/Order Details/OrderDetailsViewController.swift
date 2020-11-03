@@ -42,6 +42,10 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
             return contactInfoCell(at: indexPath)
         case .pharmacy:
             return pharmCell(at: indexPath)
+        case .deliveryAddress:
+            return deliveryCell(at: indexPath)
+        case .paymentType:
+            return paymentCell(at: indexPath)
         default:
             return UITableViewCell()
         }
@@ -63,6 +67,22 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
         if let pharmacy = model.pharmacy {
             cell.apply(pharm: pharmacy)
         }
+
+        return cell
+    }
+
+    private func deliveryCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailsDeliveryCell", for: indexPath) as? OrderDetailsDeliveryCell else { return UITableViewCell() }
+
+        if let delivery = model.delivery {
+            cell.apply(delivery: delivery)
+        }
+
+        return cell
+    }
+
+    private func paymentCell(at indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailsPaymentCell", for: indexPath) as? OrderDetailsPaymentCell else { return UITableViewCell() }
 
         return cell
     }
