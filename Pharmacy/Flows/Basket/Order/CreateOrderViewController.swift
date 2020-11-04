@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 protocol CreateOrderViewControllerInput: CreateOrderModelOutput {}
 protocol CreateOrderViewControllerOutput: CreateOrderModelInput {}
@@ -14,6 +15,10 @@ protocol CreateOrderViewControllerOutput: CreateOrderModelInput {}
 class CreateOrderViewController: UIViewController {
 
     var model: CreateOrderViewControllerOutput!
+
+    private lazy var activityIndicator: MBProgressHUD = {
+        setupActivityIndicator()
+    }()
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -93,6 +98,7 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
         cell.apply(order: model.currentOrder, valid: true)
 
         cell.confirmAction = { [weak self] in
+            self?.activityIndicator.show(animated: true)
             self?.model.createOrder()
         }
 
@@ -150,6 +156,13 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
 }
 
 extension CreateOrderViewController: CreateOrderViewControllerInput {
+
+    func networkEnded(with error: String?) {
+        activityIndicator.hide(animated: true)
+        if error != nil {
+            showError(text: error!)
+        }
+    }
 
     func reload() {
 

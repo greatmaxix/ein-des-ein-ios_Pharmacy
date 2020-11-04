@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 protocol OrderDetailsViewControllerInput: OrderDetailsModelOutput {}
 protocol OrderDetailsViewControllerOutput: OrderDetailsModelInput {}
@@ -15,12 +16,17 @@ class OrderDetailsViewController: UIViewController {
 
     var model: OrderDetailsViewControllerOutput!
 
+    private lazy var activityIndicator: MBProgressHUD = {
+        setupActivityIndicator()
+    }()
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        activityIndicator.show(animated: true)
         model.load()
         titleLabel.text = "№ \(model.currentOrderId)"
 
@@ -129,6 +135,12 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
 extension OrderDetailsViewController: OrderDetailsViewControllerInput {
 
     func didLoadData(error: String?) {
+        activityIndicator.hide(animated: true)
+
+        if error != nil {
+            showError(text: error!)
+        }
+
         tableView.reloadData()
     }
 
