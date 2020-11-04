@@ -51,7 +51,7 @@ class ChooseLocationViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.sectionIndexColor = .black
         tableView.register(UINib(nibName: String(describing: ChooseLocationTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ChooseLocationTableViewCell.self))
     }
     
@@ -98,6 +98,10 @@ extension ChooseLocationViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         model.selected(indexPath: indexPath)
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return model.indexForSections
     }
 }
 

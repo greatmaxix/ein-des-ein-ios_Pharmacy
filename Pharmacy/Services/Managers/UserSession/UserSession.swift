@@ -113,6 +113,12 @@ class UserSession {
         refetchUser()
     }
     
+    func save(region: RegionDTO) {
+        CoreDataService.shared.save(region: region, isNeedToSave: false)
+        CoreDataService.shared.bindRegionToUser()
+        refetchUser()
+    }
+    
     func save(deliveryAddress: DeliveryAddressDTO) {
         CoreDataService.shared.save(address: deliveryAddress, isNeedToSave: false)
         CoreDataService.shared.bindDeliveryAddressToUser(andSave: true)

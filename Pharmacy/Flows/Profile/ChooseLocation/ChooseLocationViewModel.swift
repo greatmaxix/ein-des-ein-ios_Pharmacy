@@ -15,6 +15,7 @@ protocol ChooseLocationViewModelOutput: class {
 
 protocol ChooseLocationViewModelInput: class {
     var tableViewSections: [TableViewSection] { get }
+    var indexForSections: [String] { get }
     func load()
     func close()
     func selected(indexPath: IndexPath)
@@ -26,6 +27,7 @@ class ChooseLocationViewModel: Model {
     
     weak var output: ChooseLocationViewModelOutput!
     private(set) var sections: [TableViewSection] = []
+    private var index: [String] = []
     private var searchTerm: String = ""
     
     private let countryProvider = DataManager<LocationAPI, RegionResponse>()
@@ -44,6 +46,10 @@ extension ChooseLocationViewModel: ChooseLocationViewControllerOutput {}
 
 // MARK: - ChooseLocationViewModelInput
 extension ChooseLocationViewModel: ChooseLocationViewModelInput {
+    
+    var indexForSections: [String] {
+        return index
+    }
     
     func applyRegion(regionId: Int) {
         updateUserProvider.load(target: .updateRegion(regionId: regionId)) { result in
@@ -76,6 +82,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
             return
         }
         
+        self.index.removeAll()
         countryResionsData.removeAll()
         self.sections.removeAll()
         
@@ -83,6 +90,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
             .sorted(by: { $0.0 < $1.0 })
         
         array.forEach {[weak self] (key, value) in
+                self?.index.append(key.description)
                 self?.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
         }
         
@@ -100,6 +108,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
                     .sorted(by: { $0.0 < $1.0 })
                         
                 array.forEach {[unowned self] (key, value) in
+                        self.index.append(key.description)
                         self.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
                 }
 

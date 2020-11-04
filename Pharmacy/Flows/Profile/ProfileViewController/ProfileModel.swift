@@ -106,6 +106,7 @@ final class ProfileModel: Model {
         }
 
         do {
+            print("xcvb \(UserDefaultsAccessor.regionId) and \(UserDefaultsAccessor.regionName)")
             let location = user?.regionName
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileRegion(), additionalInfo: location, type: .region)
             cellData.image = R.image.profilePin()

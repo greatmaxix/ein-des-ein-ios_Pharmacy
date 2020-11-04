@@ -71,7 +71,13 @@ extension OnboardingModel {
 
     private func closeFlow() {
         UserDefaultsAccessor.write(value: true, for: \.isPassedOnboarding)
-        raise(event: OnboardingEvent.close)
+        
+        switch currentIndex {
+        case 3:
+            raise(event: OnboardingEvent.close)
+        default:
+            openRegions()
+        }
     }
     
     private func openRegions() {

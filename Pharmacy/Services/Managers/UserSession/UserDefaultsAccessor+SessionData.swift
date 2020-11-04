@@ -28,6 +28,15 @@ extension UserDefaultsAccessor: UserSessionDataAccessible {
         }
     }
     
+    static var regionName: String {
+        get {
+            UserDefaultsAccessor.value(for: \.regionName)
+        }
+        set {
+            UserDefaultsAccessor.write(value: newValue, for: \.regionName)
+        }
+    }
+    
     static func removeUserId() {
         UserDefaultsAccessor.removeValue(for: \.userIdentifier)
     }

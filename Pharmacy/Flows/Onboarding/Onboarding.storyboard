@@ -128,18 +128,13 @@
                                     <action selector="useCurrentLocation:" destination="prj-lU-ErG" eventType="touchUpInside" id="Eva-5K-x8g"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6wK-XM-3ZC">
-                                <rect key="frame" x="197" y="443" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jSR-1b-wnD"/>
                         <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstItem="MOV-1x-5NG" firstAttribute="top" secondItem="jSR-1b-wnD" secondAttribute="top" constant="11" id="6se-ff-hww"/>
-                            <constraint firstItem="6wK-XM-3ZC" firstAttribute="centerX" secondItem="jSR-1b-wnD" secondAttribute="centerX" id="8g6-sl-WAq"/>
                             <constraint firstItem="jSR-1b-wnD" firstAttribute="trailing" secondItem="MOV-1x-5NG" secondAttribute="trailing" constant="16" id="EWY-Ws-1Im"/>
                             <constraint firstItem="nHW-xw-xgD" firstAttribute="top" secondItem="MOV-1x-5NG" secondAttribute="bottom" id="VvV-Ts-A6w"/>
-                            <constraint firstItem="6wK-XM-3ZC" firstAttribute="centerY" secondItem="jSR-1b-wnD" secondAttribute="centerY" id="oKA-qA-b7I"/>
                             <constraint firstItem="MOV-1x-5NG" firstAttribute="leading" secondItem="jSR-1b-wnD" secondAttribute="leading" constant="20" id="svi-ue-q3w"/>
                             <constraint firstItem="jSR-1b-wnD" firstAttribute="trailing" secondItem="nHW-xw-xgD" secondAttribute="trailing" constant="8" id="uTS-5D-MTy"/>
                             <constraint firstItem="nHW-xw-xgD" firstAttribute="bottom" secondItem="jSR-1b-wnD" secondAttribute="bottom" constant="7" id="wHb-gF-Pf3"/>
@@ -147,7 +142,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="indicatorView" destination="6wK-XM-3ZC" id="Yrb-W3-ueT"/>
                         <outlet property="tableView" destination="nHW-xw-xgD" id="oNa-81-N9x"/>
                     </connections>
                 </viewController>

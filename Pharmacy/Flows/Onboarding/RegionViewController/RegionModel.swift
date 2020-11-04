@@ -88,11 +88,12 @@ final class RegionModel: EventNode {
     
     func saveRegion(region: Region) {
         UserDefaultsAccessor.write(value: region.regionId, for: \.regionId)
+        UserDefaultsAccessor.write(value: region.name, for: \.regionName)
         openAuthSlide()
     }
     
     func saveRegion(coordinate: CLLocationCoordinate2D) {
-        openAuthSlide()
+        //openAuthSlide()
     }
 }
 
@@ -124,7 +125,7 @@ extension RegionModel: RegionInput {
     }
     
     func openAuthSlide() {
-        raise(event: OnboardingEvent.regionSelected)
+        raise(event: OnboardingEvent.close)
     }
     
     func startLocationTracking() {
