@@ -34,6 +34,9 @@ class CommonMapViewController: UIViewController {
     
 }
 extension CommonMapViewController: MapOutput {
+    
+    func successfullyAddedToCart() {}
+    
     func setMarkers(positions: [CLLocationCoordinate2D], prices: [Double]) {}
     
     func locationUpdated(newCoordinate: CLLocationCoordinate2D) {

@@ -91,6 +91,7 @@ extension MapModel: MapInput {
             switch result {
             case .success:
                 print("reciept \(productId) was successfully added to chart")
+                self?.output.successfullyAddedToCart()
             case .failure(let error):
                 print(error.localizedDescription)
             }
