@@ -42,13 +42,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Доставка" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37N-bw-ehg">
-                        <rect key="frame" x="16" y="54" width="71" height="22"/>
+                        <rect key="frame" x="16" y="54" width="71.5" height="22"/>
                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                         <color key="textColor" name="textDarkBlue"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Итого к оплате" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCE-LA-E3C">
-                        <rect key="frame" x="16" y="100" width="113.5" height="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Итого к оплате" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCE-LA-E3C">
+                        <rect key="frame" x="16" y="96" width="113.5" height="26"/>
                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                         <color key="textColor" name="textDarkBlue"/>
                         <nil key="highlightedColor"/>
@@ -76,18 +76,30 @@
                             <action selector="confirmOrder:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NlK-aW-OX3"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cумма" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRq-ou-08h">
-                        <rect key="frame" x="228.5" y="91.5" width="75.5" height="33"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cумма" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRq-ou-08h">
+                        <rect key="frame" x="228.5" y="88" width="75.5" height="28"/>
                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
                         <color key="textColor" name="welcomeBlue"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXN-gO-V9f">
-                        <rect key="frame" x="295" y="54" width="9" height="22"/>
-                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
-                        <color key="textColor" name="textDarkBlue"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="guY-bf-xY7">
+                        <rect key="frame" x="266" y="51" width="38.5" height="21.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_truck" translatesAutoresizingMaskIntoConstraints="NO" id="g9I-OC-WeG">
+                                <rect key="frame" x="0.0" y="0.0" width="21.5" height="21.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="21.5" id="7R4-cw-9n8"/>
+                                    <constraint firstAttribute="height" constant="21.5" id="MvG-ha-Qy7"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXN-gO-V9f">
+                                <rect key="frame" x="29.5" y="0.0" width="9" height="21.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" name="backgroundGray"/>
                 <constraints>
@@ -95,8 +107,8 @@
                     <constraint firstItem="uCE-LA-E3C" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="5NI-wS-5c5"/>
                     <constraint firstAttribute="bottom" secondItem="kjq-Ud-h8u" secondAttribute="bottom" constant="30" id="7MH-cP-qqT"/>
                     <constraint firstItem="kjq-Ud-h8u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="8x6-fC-1zK"/>
-                    <constraint firstAttribute="trailing" secondItem="zXN-gO-V9f" secondAttribute="trailing" constant="16" id="9Jv-Gf-6bX"/>
                     <constraint firstItem="VRq-ou-08h" firstAttribute="firstBaseline" secondItem="uCE-LA-E3C" secondAttribute="firstBaseline" id="9ky-5n-x9G"/>
+                    <constraint firstItem="guY-bf-xY7" firstAttribute="top" secondItem="x6p-iF-dlu" secondAttribute="bottom" constant="8" id="E9P-wV-QXq"/>
                     <constraint firstItem="uCE-LA-E3C" firstAttribute="top" secondItem="37N-bw-ehg" secondAttribute="bottom" constant="24" id="JNi-I1-q18"/>
                     <constraint firstItem="37N-bw-ehg" firstAttribute="top" secondItem="MAn-oV-7A6" secondAttribute="bottom" constant="8" id="Uvx-Wg-6pC"/>
                     <constraint firstItem="MAn-oV-7A6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="VxF-Vn-5kx"/>
@@ -106,7 +118,8 @@
                     <constraint firstItem="x6p-iF-dlu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="hZw-ne-0UX"/>
                     <constraint firstItem="MAn-oV-7A6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="hd8-le-NkB"/>
                     <constraint firstAttribute="trailing" secondItem="x6p-iF-dlu" secondAttribute="trailing" constant="16" id="kZT-qR-k8D"/>
-                    <constraint firstItem="zXN-gO-V9f" firstAttribute="firstBaseline" secondItem="37N-bw-ehg" secondAttribute="firstBaseline" id="oVh-yD-bAX"/>
+                    <constraint firstItem="VRq-ou-08h" firstAttribute="top" secondItem="guY-bf-xY7" secondAttribute="bottom" constant="15.5" id="nqx-Kd-0rs"/>
+                    <constraint firstAttribute="trailing" secondItem="guY-bf-xY7" secondAttribute="trailing" constant="15.5" id="s9h-By-0V8"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -120,6 +133,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icon_truck" width="21.333333969116211" height="21.666666030883789"/>
         <namedColor name="backgroundGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

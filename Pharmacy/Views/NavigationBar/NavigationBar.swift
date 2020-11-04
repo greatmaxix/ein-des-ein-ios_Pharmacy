@@ -37,7 +37,7 @@ final class NavigationBar: UINavigationBar {
         static let animationDurartion: TimeInterval = 0.3
         static let textFiledNormalTextColor = UIColor.white
         static let textFiledDarkTextColor = R.color.textDarkBlue()!
-        static let largeHeight: CGFloat = 150
+        static let largeHeight: CGFloat = 90
         static let smallHeight: CGFloat = 16
         static let cornerRadius: CGFloat = 10
         static let scanButtonCornerRadius: CGFloat = 6
