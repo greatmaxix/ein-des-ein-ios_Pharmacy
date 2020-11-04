@@ -19,21 +19,23 @@ extension UserDefaultsAccessor: UserSessionDataAccessible {
         }
     }
     
-    static var regionId: Int {
+    static var regionId: Int? {
         get {
             UserDefaultsAccessor.value(for: \.regionId)
         }
         set {
-            UserDefaultsAccessor.write(value: newValue, for: \.regionId)
+            if let regionId = newValue {
+                UserDefaultsAccessor.write(value: regionId, for: \.regionId)}
         }
     }
     
-    static var regionName: String {
+    static var regionName: String? {
         get {
             UserDefaultsAccessor.value(for: \.regionName)
         }
         set {
-            UserDefaultsAccessor.write(value: newValue, for: \.regionName)
+            if let name = newValue {
+                UserDefaultsAccessor.write(value: name, for: \.regionName)}
         }
     }
     

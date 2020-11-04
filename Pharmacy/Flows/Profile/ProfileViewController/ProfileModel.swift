@@ -66,7 +66,8 @@ final class ProfileModel: Model {
 
     private func setupDataSource() {
         self.user = UserSession.shared.user
-        
+        print("zxcv \(user)")
+        //TODO: - почему то бывает при изменении сдесь приходит НИЛ иногда а иногда нет
         let openOptionHandler: ((_: ProfileEvent) -> Void) = { [weak self] event in
             self?.raise(event: event)
         }
@@ -106,7 +107,6 @@ final class ProfileModel: Model {
         }
 
         do {
-            print("zxcv \(user)")
             let location = user?.regionName
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileRegion(), additionalInfo: location, type: .region)
             cellData.image = R.image.profilePin()
@@ -217,6 +217,7 @@ extension ProfileModel: ProfileInput {
             guard let self = self else {return}
             switch response {
             case .success(let result):
+                print("zxcv result .getCustomer \(result.user)")
                 self.user = UserSession.shared.save(user: result.user, token: nil)
                 self.setupDataSource()
                 completion?()

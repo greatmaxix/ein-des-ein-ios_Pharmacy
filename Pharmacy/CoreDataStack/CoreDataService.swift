@@ -168,7 +168,7 @@ final class CoreDataService {
             let reg = region else {
                 return
         }
-        print("zxcv region \(region)")
+        
         user.uppdate(region: reg)
         
         if isNeedToSave {
