@@ -11,6 +11,8 @@ import EventsTree
 
 enum CreateOrderModelEvent: Event {
     case back
+    case openOrder(id: Int)
+    case backToCart
 }
 
 protocol CreateOrderModelInput: class {
@@ -32,6 +34,7 @@ protocol CreateOrderModelOutput: class {
 
     func reload()
     func setAddress(hidden: Bool, at index: Int)
+    func networkEnded(with error: String?)
 }
 
 enum CreateOrderCellType: Int {
@@ -136,14 +139,19 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
     }
 
     func createOrder() {
-        guard let contact = orderContactInfo, let address = deliveryAddress else { return }
+        guard let contact = orderContactInfo, let address = deliveryAddress else {
+            output.networkEnded(with: nil)
+            return
+        }
 
         if contact.name.isEmpty || contact.phone.isEmpty {
+            output.networkEnded(with: "Контакты не заполнены")
             return
         }
 
         if deliveryType == .ordered {
             if address.city == nil || address.street == nil || address.house == nil {
+                output.networkEnded(with: "Адресс доставки не указан")
                 return
             }
         }
@@ -154,13 +162,18 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
                     address: address,
                     paymentType: "cash",
                     deliveryType: deliveryType.toString()), completion: { [weak self] result in
-                        guard let self = self else { return }
+                        guard let `self` = self else { return }
 
                         switch result {
                         case .success(let response):
-                            self.raise(event: CreateOrderModelEvent.back)
+                            guard let id = response.item.orderId else {
+                                self.output.networkEnded(with: nil)
+                                return
+                            }
+                            self.raise(event: CreateOrderModelEvent.openOrder(id: id))
+                            self.output.networkEnded(with: nil)
                         case .failure(let error):
-                            print(error.localizedDescription)
+                            self.output.networkEnded(with: error.localizedDescription)
                         }
                     })
     }

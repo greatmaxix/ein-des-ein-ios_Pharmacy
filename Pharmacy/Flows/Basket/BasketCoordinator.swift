@@ -43,6 +43,10 @@ final class BasketCoordinator: EventNode, Coordinator {
             switch event {
             case .back:
                 self?.pop()
+            case .openOrder(let id):
+                self?.openCreatedOrder(id: id)
+            case .backToCart:
+                self?.showRoot()
             }
         }
     }
@@ -66,6 +70,22 @@ extension BasketCoordinator {
         if let controller: CreateOrderViewController = R.storyboard.basket().instantiateViewController(withIdentifier: "CreateOrderViewController") as? CreateOrderViewController {
 
             let model = CreateOrderModel(parent: self, order: order)
+            controller.model = model
+            model.output = controller
+            root.pushViewController(controller, animated: true)
+        }
+
+    }
+
+    fileprivate func showRoot() {
+        root.navigationController?.popToRootViewController(animated: true)
+    }
+
+    fileprivate func openCreatedOrder(id: Int) {
+
+        if let controller: OrderDetailsViewController = R.storyboard.orders().instantiateViewController(withIdentifier: "OrderDetailsViewController") as? OrderDetailsViewController {
+
+            let model = OrderDetailsModel(parent: self, orderId: id, fromCart: true)
             controller.model = model
             model.output = controller
             root.pushViewController(controller, animated: true)

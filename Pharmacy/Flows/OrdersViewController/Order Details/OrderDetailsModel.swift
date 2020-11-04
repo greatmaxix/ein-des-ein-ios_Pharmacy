@@ -45,11 +45,13 @@ class OrderDetailsModel: EventNode {
         }
     }
     private var cellTypes: [CreateOrderCellType]!
+    private var fromCart: Bool = false
 
-    init(parent: EventNode?, orderId: Int) {
+    init(parent: EventNode?, orderId: Int, fromCart: Bool = false) {
         super.init(parent: parent)
 
         self.orderId = orderId
+        self.fromCart = fromCart
     }
 
     fileprivate func createCells() {
@@ -129,7 +131,11 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
     }
 
     func back() {
-        raise(event: OrderDetailsEvent.back)
+        if fromCart == true {
+            raise(event: CreateOrderModelEvent.backToCart)
+        } else {
+            raise(event: OrderDetailsEvent.back)
+        }
     }
 
     func type(at indexPath: IndexPath) -> CreateOrderCellType {
