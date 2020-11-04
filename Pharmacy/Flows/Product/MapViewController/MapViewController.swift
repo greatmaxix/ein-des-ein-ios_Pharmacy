@@ -62,6 +62,7 @@ class MapViewController: UIViewController {
         messageViewHolder.addSubview(v)
         v.constraintsToSuperView()
         messageView = v
+        
         v.routeAction = {[weak self] route in
             guard let c = self?.messageView.coordinates else { return }
             v.isDirectionsOpened = false

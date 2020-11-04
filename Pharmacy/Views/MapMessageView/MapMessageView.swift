@@ -80,16 +80,17 @@ class MapMessageView: UIView {
         nameLabel.text = pharmacy.name
         addressLabel.text = pharmacy.geometry.address
         phoneLabel.text = "📞️ " + (pharmacy.phone ?? "phone is unavailible")
+        priceLabel.text = "₸\(pharmacy.medicines.first!.price)"
         self.coordinates = coordinates
     }
     
-    private func addMedicines(medicines: [PharmacyModel.SimpleMedicine]) {
+    private func addMedicines(medicines: [PharmacyModel.SimpleMedicine], name: String) {
         
         medicineStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
         for medicine in medicines {
             let v: FoundMedicineView = FoundMedicineView.fromNib()
             v.titleLabel.text = "medicine"
-            v.priceLabel.text = "\(medicine.price) $"
+            v.priceLabel.text = "₸\(medicine.price)"
             medicineStackView.addArrangedSubview(v)
         }
     }
