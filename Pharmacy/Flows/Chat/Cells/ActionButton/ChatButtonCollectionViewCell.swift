@@ -10,7 +10,13 @@ import UIKit
 import MessageKit
 
 class ChatButtonCollectionViewCell: UICollectionViewCell {
-    open func configure(with message: MessageType, at indexPath: IndexPath, and messagesCollectionView: MessagesCollectionView) {
-         
-        }
+    
+    var buttonAction: (() -> Void)?
+    
+    @IBOutlet weak var button: RoundedButton!
+    
+    @IBAction func actionPressed(_ sender: Any) {
+        buttonAction?()
+    }
+    
 }

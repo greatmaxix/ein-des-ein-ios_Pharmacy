@@ -36,7 +36,6 @@ final class ChatModel: Model, ChatInput {
     }
     
     func load() {
-        
         switch UserSession.shared.authorizationStatus {
         case .authorized(let userId):
             let s = Sender(senderId: "\(userId)", displayName: UserSession.shared.user?.name ?? "")
@@ -57,6 +56,11 @@ final class ChatModel: Model, ChatInput {
         case .pharmacist: break
         default: break
         }
+        raise(event: AppEvent.presentInDev)
+    }
+    
+    private func authorize() {
+        raise(event: OnboardingEvent.close)
     }
 }
 
@@ -82,6 +86,9 @@ extension ChatModel: MessagesDataSource {
             switch kind {
             case .button:
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatButtonCollectionViewCell.reuseIdentifier, for: indexPath)
+                (cell as? ChatButtonCollectionViewCell)?.buttonAction = { [weak self] in
+                    self?.authorize()
+                }
             case .routeSwitch:
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatRouteCollectionViewCell.reuseIdentifier, for: indexPath)
                 (cell as? ChatRouteCollectionViewCell)?.routeAction = {[weak self] route in
