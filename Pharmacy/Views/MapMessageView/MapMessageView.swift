@@ -14,7 +14,6 @@ typealias MapRouteAction = ((MapMessageView.RouteEvent) -> Void)
 class MapMessageView: UIView {
 
     @IBOutlet private weak var swipeView: UIView!
-    @IBOutlet private weak var presenceLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet weak private var addressLabel: UILabel!
     @IBOutlet weak private var phoneLabel: UILabel!
@@ -61,7 +60,6 @@ class MapMessageView: UIView {
     }
     
     private func setupUI() {
-        presenceLabel.text = "\(bounds.height)"
         selectButton.layer.cornerRadius = selectButton.bounds.height / 2
         selectButton.setTitle(R.string.localize.farmaciesListAddToBag(), for: .normal)
         let v: MapGetDirections = MapGetDirections.fromNib()
