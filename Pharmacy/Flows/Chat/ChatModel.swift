@@ -73,6 +73,14 @@ extension ChatModel: MessagesDataSource {
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatButtonCollectionViewCell.reuseIdentifier, for: indexPath)
             case .routeSwitch:
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatRouteCollectionViewCell.reuseIdentifier, for: indexPath)
+                (cell as? ChatRouteCollectionViewCell)?.routeAction = { route in
+                    switch route {
+                    case .doctor: break
+                    case .pharmacist: break
+                    default: break
+                    }
+                }
+                
             case .product: break
             }
         default: break

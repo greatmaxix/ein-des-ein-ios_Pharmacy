@@ -10,41 +10,47 @@ import UIKit
 
 class ChatRouteCollectionViewCell: UICollectionViewCell {
     
-    enum SelectedRoute {
+    enum ChatRoute {
         case none, doctor, pharmacist
     }
     
-    @IBOutlet weak var confirmButton: UIButton! {
+    @IBOutlet weak var doctorBackground: UIView! {
         didSet {
-            self.confirmButton.decorationBlackShadow()
+            self.doctorBackground.layer.cornerRadius = self.doctorBackground.frame.height / 2
+            self.doctorBackground.decorationBlackShadow()
         }
     }
-    @IBOutlet weak var pharmacistButton: UIButton! {
+    @IBOutlet weak var pharmacistBackground: UIView! {
         didSet {
-            self.pharmacistButton.decorationBlackShadow()
-        }
-    }
-    @IBOutlet weak var doctorButton: UIButton! {
-        didSet {
-            self.doctorButton.decorationBlackShadow()
+            self.pharmacistBackground.layer.cornerRadius = self.pharmacistBackground.frame.height / 2
+            self.pharmacistBackground.decorationBlackShadow()
         }
     }
     
-    private var selecetedRoute = SelectedRoute.none {
+    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var pharmacistButton: UIButton!
+    @IBOutlet weak var doctorButton: UIButton!
+    
+    var routeAction: ((ChatRoute) -> Void)?
+    
+    private var selecetedRoute = ChatRoute.none {
         didSet {
             switch selecetedRoute {
             case .none:
                 pharmacistButton.backgroundColor = .clear
                 doctorButton.backgroundColor = .clear
                 confirmButton.isEnabled = true
+                confirmButton.backgroundColor = .gray
             case .doctor:
                 pharmacistButton.backgroundColor = .clear
                 doctorButton.backgroundColor = R.color.welcomeBlue()
                 confirmButton.isEnabled = true
+                confirmButton.backgroundColor = R.color.welcomeBlue()
             case .pharmacist:
                 pharmacistButton.backgroundColor = R.color.welcomeBlue()
                 doctorButton.backgroundColor = .white
                 confirmButton.isEnabled = true
+                confirmButton.backgroundColor = R.color.welcomeBlue()
             }
         }
     }
@@ -58,6 +64,6 @@ class ChatRouteCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func confirmChoise(_ sender: Any) {
-        
+        routeAction?(selecetedRoute)
     }
 }

@@ -25,13 +25,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Проложить маршрут" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzh-HZ-suK">
-                    <rect key="frame" x="109" y="4" width="157" height="19"/>
+                    <rect key="frame" x="99" y="4" width="177.5" height="22"/>
                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="6WW-ST-7P4">
-                    <rect key="frame" x="55.5" y="43" width="264" height="56"/>
+                    <rect key="frame" x="55.5" y="46" width="264" height="56"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Yn-UX-aju">
                             <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
@@ -81,10 +81,10 @@
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Kd-TZ-0Dp">
-                    <rect key="frame" x="0.0" y="129" width="375" height="111"/>
+                    <rect key="frame" x="0.0" y="132" width="375" height="108"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgC-Bn-NXT" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
-                            <rect key="frame" x="24" y="35.5" width="327" height="48"/>
+                            <rect key="frame" x="24" y="34" width="327" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="bPV-BY-n7i"/>
                             </constraints>
@@ -143,7 +143,7 @@
     </objects>
     <designables>
         <designable name="SgC-Bn-NXT">
-            <size key="intrinsicContentSize" width="57" height="31"/>
+            <size key="intrinsicContentSize" width="65" height="34"/>
         </designable>
     </designables>
     <resources>
