@@ -66,6 +66,10 @@ final class ConfirmCodeModel: Model {
              case .success(let response):
                 UserSession.shared.authorizationStatus = .authorized(userId: response.user.id)
                 UserSession.shared.save(user: response.user, token: response.token)
+                
+                let region = RegionDTO(id: Int64(UserDefaultsAccessor.regionId), name: UserDefaultsAccessor.regionName)
+                UserSession.shared.save(region: region)
+                
                 self.successLogin()
              case .failure(let error):
                 print(error)

@@ -61,10 +61,10 @@ final class CoreDataService {
                                       matching: predicate) { [unowned self] entity in
                                         dto.fillEntity(entity: entity)
                                         
-        if let avatarDTO = dto.avatar {
+            if let avatarDTO = dto.avatar {
             self.save(avatar: avatarDTO, isNeedToSave: false)
             bindAvatarToUser(andSave: false)
-        }
+            }
                                         
             if let regionDTO = dto.region {
                 self.save(region: regionDTO, isNeedToSave: false)
@@ -163,12 +163,12 @@ final class CoreDataService {
     func bindRegionToUser(andSave isNeedToSave: Bool = true) {
         let users: [UserEntity] = (try? viewContext.all()) ?? []
         let region: RegionEntity? = (try? viewContext.all().first) ?? nil
-        
+
         guard let user = users.first,
             let reg = region else {
                 return
         }
-        
+        print("zxcv region \(region)")
         user.uppdate(region: reg)
         
         if isNeedToSave {
