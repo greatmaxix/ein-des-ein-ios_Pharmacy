@@ -16,7 +16,7 @@ protocol FarmacyListInput: class {
 }
 
 protocol FarmacyListOutput: class {
-    
+    func addingToCart(indicatorShow: Bool)
 }
 
 class MapFarmacyListModel: EventNode {
@@ -46,6 +46,7 @@ extension MapFarmacyListModel: FarmacyListInput {
             let product = $0
             var cell = MapFarmacyCellSection.init(common: $0)
             cell.addToChartHandler = {
+                self?.output.addingToCart(indicatorShow: true)
                 self?.addToCart(productId: product.medicines.first!.pharmacyProductId)
             }
             return cell
@@ -59,6 +60,7 @@ extension MapFarmacyListModel: FarmacyListInput {
             switch result {
             case .success:
                 print("reciept \(productId) was successfully added to chart")
+                self?.output.addingToCart(indicatorShow: false)
             case .failure(let error):
                 print(error.localizedDescription)
             }

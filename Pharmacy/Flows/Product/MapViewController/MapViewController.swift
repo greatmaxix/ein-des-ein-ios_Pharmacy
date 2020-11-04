@@ -8,10 +8,12 @@
 
 import UIKit
 import GoogleMaps
+import MBProgressHUD
 
 protocol MapOutput: class {
     func locationUpdated(newCoordinate: CLLocationCoordinate2D)
     func setMarkers(positions: [CLLocationCoordinate2D], prices: [Double])
+    func successfullyAddedToCart()
 }
 
 class MapViewController: UIViewController {
@@ -30,6 +32,10 @@ class MapViewController: UIViewController {
     @IBOutlet weak var selectionBackground: UIView!
 
     var model: MapInput!
+    
+    private lazy var activityIndicator: MBProgressHUD = {
+        setupActivityIndicator()
+    }()
     
     private var userMarker: GMSMarker?
     private var messageView: MapMessageView!
@@ -62,6 +68,7 @@ class MapViewController: UIViewController {
         messageViewHolder.addSubview(v)
         v.constraintsToSuperView()
         messageView = v
+        
         v.routeAction = {[weak self] route in
             guard let c = self?.messageView.coordinates else { return }
             v.isDirectionsOpened = false
@@ -123,6 +130,7 @@ class MapViewController: UIViewController {
         
         messageView.setup(pharmacy: pharmacy, coordinates: coordinates)
         messageView.addToPurchesesHandler = {[weak self] in
+            self?.activityIndicator.show(animated: true)
             self?.model.addToCart(productId: pharmacy.medicines.first!.pharmacyProductId)
         }
         
@@ -166,6 +174,9 @@ extension MapViewController: GMSMapViewDelegate {
 // MARK: - MapOutput
 
 extension MapViewController: MapOutput {
+    func successfullyAddedToCart() {
+        activityIndicator.hide(animated: true)
+    }
     
     func setMarkers(positions: [CLLocationCoordinate2D], prices: [Double]) {
         mapView.clear()

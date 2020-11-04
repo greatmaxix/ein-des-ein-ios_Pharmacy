@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class MapFarmacyListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var selectionBackground: UIView!
     @IBOutlet private weak var filterControl: UISegmentedControl!
+    
+    private lazy var activityIndicator: MBProgressHUD = {
+        setupActivityIndicator()
+    }()
     
     var model: FarmacyListInput!
     
@@ -46,4 +51,13 @@ extension MapFarmacyListViewController: UITableViewDelegate {
     }
 }
 
-extension MapFarmacyListViewController: FarmacyListOutput {}
+extension MapFarmacyListViewController: FarmacyListOutput {
+    func addingToCart(indicatorShow: Bool) {
+        switch indicatorShow {
+        case true:
+            activityIndicator.show(animated: true)
+        case false:
+            activityIndicator.hide(animated: true)
+        }
+    }
+}

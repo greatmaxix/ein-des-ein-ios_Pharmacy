@@ -20,7 +20,7 @@ class FarmacyPinView: UIView {
     
     var price: Double = 0 {
         didSet {
-            priceLabel.text = "\(price)$"
+            priceLabel.text = "₸\(price)"
         }
     }
     

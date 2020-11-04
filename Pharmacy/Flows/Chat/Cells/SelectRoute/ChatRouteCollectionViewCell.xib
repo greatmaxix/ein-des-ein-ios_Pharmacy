@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Shr-eQ-DBC" customClass="ChatRouteCollectionViewCell" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tQ8-f2-FUk">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пожалуйста, выберите, с кем вы хотите начать консультацию" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qh-jm-OvI">
+                        <rect key="frame" x="16" y="33" width="343" height="44"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                        <color key="textColor" name="textDarkBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgb-6H-UKK">
+                        <rect key="frame" x="40" y="94" width="295" height="136"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zv-4w-1z6" userLabel="DoctorShadow">
+                                <rect key="frame" x="159" y="0.0" width="136" height="136"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3y3-fH-y6Z" userLabel="PharmacistShadow">
+                                <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2E-CP-SvT" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="136" id="Bh7-6N-IOK"/>
+                                    <constraint firstAttribute="height" constant="136" id="y2D-I0-MMy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="180" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Фармацевт" backgroundImage="pharmacist_chat_icon">
+                                    <color key="titleColor" name="textDarkBlue"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="68"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pharmacistPressed:" destination="Shr-eQ-DBC" eventType="touchUpInside" id="wjP-IM-Cxb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fve-dd-KZd" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
+                                <rect key="frame" x="159" y="0.0" width="136" height="136"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="136" id="lQS-C4-qOD"/>
+                                    <constraint firstAttribute="width" constant="136" id="ldK-mH-iC3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="180" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Доктор" backgroundImage="doctor_chat_icon">
+                                    <color key="titleColor" name="textDarkBlue"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="68"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="doctorPressed:" destination="Shr-eQ-DBC" eventType="touchUpInside" id="thz-yq-QRH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fve-dd-KZd" firstAttribute="leading" secondItem="w2E-CP-SvT" secondAttribute="trailing" constant="23" id="G2m-Vg-LM5"/>
+                            <constraint firstAttribute="bottom" secondItem="fve-dd-KZd" secondAttribute="bottom" id="GTo-SW-xZA"/>
+                            <constraint firstItem="fve-dd-KZd" firstAttribute="top" secondItem="7Zv-4w-1z6" secondAttribute="top" id="HeJ-tz-Z9Q"/>
+                            <constraint firstItem="fve-dd-KZd" firstAttribute="leading" secondItem="7Zv-4w-1z6" secondAttribute="leading" id="ISh-6A-Lii"/>
+                            <constraint firstItem="3y3-fH-y6Z" firstAttribute="bottom" secondItem="w2E-CP-SvT" secondAttribute="bottom" id="JkN-od-VzM"/>
+                            <constraint firstItem="w2E-CP-SvT" firstAttribute="top" secondItem="Sgb-6H-UKK" secondAttribute="top" id="X2z-lT-glO"/>
+                            <constraint firstAttribute="trailing" secondItem="fve-dd-KZd" secondAttribute="trailing" id="XbR-nj-S48"/>
+                            <constraint firstAttribute="bottom" secondItem="w2E-CP-SvT" secondAttribute="bottom" id="YrY-Rj-0Fc"/>
+                            <constraint firstItem="3y3-fH-y6Z" firstAttribute="leading" secondItem="w2E-CP-SvT" secondAttribute="leading" id="aU0-QW-AGZ"/>
+                            <constraint firstItem="fve-dd-KZd" firstAttribute="trailing" secondItem="7Zv-4w-1z6" secondAttribute="trailing" id="dch-YZ-pxd"/>
+                            <constraint firstItem="3y3-fH-y6Z" firstAttribute="top" secondItem="w2E-CP-SvT" secondAttribute="top" id="eBr-M5-twM"/>
+                            <constraint firstItem="3y3-fH-y6Z" firstAttribute="trailing" secondItem="w2E-CP-SvT" secondAttribute="trailing" id="h6O-x4-DQi"/>
+                            <constraint firstItem="fve-dd-KZd" firstAttribute="top" secondItem="Sgb-6H-UKK" secondAttribute="top" id="kG5-j0-4qG"/>
+                            <constraint firstItem="w2E-CP-SvT" firstAttribute="leading" secondItem="Sgb-6H-UKK" secondAttribute="leading" id="pLi-Qw-8Ld"/>
+                            <constraint firstItem="fve-dd-KZd" firstAttribute="bottom" secondItem="7Zv-4w-1z6" secondAttribute="bottom" id="pxw-XL-ZVF"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="666-p4-elN" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
+                        <rect key="frame" x="16" y="330" width="343" height="48"/>
+                        <color key="backgroundColor" name="applyBlueGray"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="beT-4c-NOF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                        <state key="normal" title="Далее">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="24"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="confirmChoise:" destination="Shr-eQ-DBC" eventType="touchUpInside" id="bBP-qr-6SX"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доктор" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6Q-M0-Bj0">
+                        <rect key="frame" x="236.5" y="242" width="61" height="22"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <color key="highlightedColor" name="textDarkBlue"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фармацевт" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcC-42-DZo">
+                        <rect key="frame" x="60" y="242" width="96.5" height="22"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <color key="highlightedColor" name="textDarkBlue"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="w6Q-M0-Bj0" firstAttribute="centerX" secondItem="7Zv-4w-1z6" secondAttribute="centerX" id="GHG-is-12r"/>
+                    <constraint firstItem="666-p4-elN" firstAttribute="top" secondItem="Sgb-6H-UKK" secondAttribute="bottom" constant="100" id="Nbb-uh-c4R"/>
+                    <constraint firstItem="Sgb-6H-UKK" firstAttribute="centerX" secondItem="tQ8-f2-FUk" secondAttribute="centerX" id="PnE-SZ-Ljl"/>
+                    <constraint firstItem="2qh-jm-OvI" firstAttribute="leading" secondItem="tQ8-f2-FUk" secondAttribute="leading" constant="16" id="SXK-1G-TEe"/>
+                    <constraint firstItem="2qh-jm-OvI" firstAttribute="top" secondItem="tQ8-f2-FUk" secondAttribute="top" constant="33" id="V1n-7R-dbZ"/>
+                    <constraint firstItem="xcC-42-DZo" firstAttribute="top" secondItem="Sgb-6H-UKK" secondAttribute="bottom" constant="12" id="VLf-Sg-4tQ"/>
+                    <constraint firstAttribute="trailing" secondItem="2qh-jm-OvI" secondAttribute="trailing" constant="16" id="XWO-Ix-4fL"/>
+                    <constraint firstItem="666-p4-elN" firstAttribute="leading" secondItem="tQ8-f2-FUk" secondAttribute="leading" constant="16" id="hNp-1o-0rY"/>
+                    <constraint firstItem="Sgb-6H-UKK" firstAttribute="top" secondItem="2qh-jm-OvI" secondAttribute="bottom" constant="17" id="jW6-wV-5dS"/>
+                    <constraint firstItem="w6Q-M0-Bj0" firstAttribute="top" secondItem="Sgb-6H-UKK" secondAttribute="bottom" constant="12" id="pkQ-Kq-MeJ"/>
+                    <constraint firstItem="xcC-42-DZo" firstAttribute="centerX" secondItem="3y3-fH-y6Z" secondAttribute="centerX" id="trp-UP-hce"/>
+                    <constraint firstAttribute="trailing" secondItem="666-p4-elN" secondAttribute="trailing" constant="16" id="yxZ-XI-2QE"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <size key="customSize" width="50" height="333"/>
+            <connections>
+                <outlet property="confirmButton" destination="666-p4-elN" id="jgs-a3-7jD"/>
+                <outlet property="doctorBackground" destination="7Zv-4w-1z6" id="Ade-vg-3NP"/>
+                <outlet property="doctorButton" destination="fve-dd-KZd" id="Ya4-rV-Fcj"/>
+                <outlet property="pharmacistBackground" destination="3y3-fH-y6Z" id="hod-MS-3DL"/>
+                <outlet property="pharmacistButton" destination="w2E-CP-SvT" id="zPE-Yx-ujo"/>
+            </connections>
+            <point key="canvasLocation" x="154.34782608695653" y="84.375"/>
+        </collectionViewCell>
+    </objects>
+    <designables>
+        <designable name="666-p4-elN">
+            <size key="intrinsicContentSize" width="52" height="34"/>
+        </designable>
+        <designable name="fve-dd-KZd">
+            <size key="intrinsicContentSize" width="137" height="137"/>
+        </designable>
+        <designable name="w2E-CP-SvT">
+            <size key="intrinsicContentSize" width="137" height="137"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="doctor_chat_icon" width="137" height="137"/>
+        <image name="pharmacist_chat_icon" width="137" height="137"/>
+        <namedColor name="applyBlueGray">
+            <color red="0.6470588235294118" green="0.70588235294117652" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

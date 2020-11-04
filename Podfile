@@ -15,6 +15,7 @@ target 'Pharmacy' do
   pod 'Kingfisher', '~> 5.0'
   pod 'GoogleMaps'
   pod 'MBProgressHUD', '~> 1.2.0'
-  pod "TPKeyboardAvoiding"
-
+  pod 'TPKeyboardAvoiding'
+  pod 'MessageKit'
+  pod 'IKEventSource'
 end

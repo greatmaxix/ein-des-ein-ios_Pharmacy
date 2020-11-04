@@ -14,7 +14,6 @@ typealias MapRouteAction = ((MapMessageView.RouteEvent) -> Void)
 class MapMessageView: UIView {
 
     @IBOutlet private weak var swipeView: UIView!
-    @IBOutlet private weak var presenceLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet weak private var addressLabel: UILabel!
     @IBOutlet weak private var phoneLabel: UILabel!
@@ -61,7 +60,6 @@ class MapMessageView: UIView {
     }
     
     private func setupUI() {
-        presenceLabel.text = "\(bounds.height)"
         selectButton.layer.cornerRadius = selectButton.bounds.height / 2
         selectButton.setTitle(R.string.localize.farmaciesListAddToBag(), for: .normal)
         let v: MapGetDirections = MapGetDirections.fromNib()
@@ -80,16 +78,17 @@ class MapMessageView: UIView {
         nameLabel.text = pharmacy.name
         addressLabel.text = pharmacy.geometry.address
         phoneLabel.text = "📞️ " + (pharmacy.phone ?? "phone is unavailible")
+        priceLabel.text = "₸\(pharmacy.medicines.first!.price)"
         self.coordinates = coordinates
     }
     
-    private func addMedicines(medicines: [PharmacyModel.SimpleMedicine]) {
+    private func addMedicines(medicines: [PharmacyModel.SimpleMedicine], name: String) {
         
         medicineStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
         for medicine in medicines {
             let v: FoundMedicineView = FoundMedicineView.fromNib()
             v.titleLabel.text = "medicine"
-            v.priceLabel.text = "\(medicine.price) $"
+            v.priceLabel.text = "₸\(medicine.price)"
             medicineStackView.addArrangedSubview(v)
         }
     }

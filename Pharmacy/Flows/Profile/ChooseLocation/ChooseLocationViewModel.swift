@@ -50,6 +50,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
             switch result {
             case .success(let user):
                 UserSession.shared.save(user: user.user)
+                UserDefaultsAccessor.regionId = regionId
                 self.successSaveRegion()
             case .failure(let error):
                 print("Was error \(error.localizedDescription)")
