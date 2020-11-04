@@ -11,4 +11,8 @@ import MessageKit
 struct Sender: SenderType {
     var senderId: String
     var displayName: String
+    
+    static func guest() -> Sender {
+        return Sender(senderId: "-2", displayName: "Гость")
+    }
 }

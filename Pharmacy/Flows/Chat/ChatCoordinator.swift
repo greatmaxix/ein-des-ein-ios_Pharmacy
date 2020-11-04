@@ -15,6 +15,7 @@ final class ChatCoordinator: EventNode, Coordinator {
     
     func createFlow() -> UIViewController {
         let vc = ChatViewController()
+        vc.resignFirstResponder()
         let model = ChatModel(parent: self)
         vc.model = model
         model.output = vc

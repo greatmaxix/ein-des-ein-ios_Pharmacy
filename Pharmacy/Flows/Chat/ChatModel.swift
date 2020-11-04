@@ -9,6 +9,7 @@
 import Foundation
 import EventsTree
 import MessageKit
+import IKEventSource
 
 enum ChatEvent: Event {
     case close
@@ -18,9 +19,9 @@ protocol ChatInput: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutD
     func load()
 }
 
-protocol ChatOutput: class {
+protocol ChatOutput: MessagesViewController {
     var customMessageSizeCalculator: MessageSizeCalculator { get }
-    func didResive(messages: [Message])
+    func didResive(message: Message)
 }
 
 final class ChatModel: Model, ChatInput {
@@ -28,7 +29,7 @@ final class ChatModel: Model, ChatInput {
     var output: ChatOutput!
     var messages: [Message] = []
     
-    private var sender: SenderType = Sender(senderId: "-2", displayName: "Пользователь")
+    private var sender: SenderType = Sender.guest()
     
     override init(parent: EventNode?) {
         super.init(parent: parent)
@@ -44,8 +45,18 @@ final class ChatModel: Model, ChatInput {
         case .notAuthorized:
             self.messages = Message.unauthorizedMessages()
         }
-        
-        output.didResive(messages: self.messages)
+
+        self.messages.forEach {
+            output.didResive(message: $0)
+        }
+    }
+    
+    private func didSelect(route: ChatRouteCollectionViewCell.ChatRoute) {
+        switch route {
+        case .doctor: break
+        case .pharmacist: break
+        default: break
+        }
     }
 }
 
@@ -73,14 +84,9 @@ extension ChatModel: MessagesDataSource {
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatButtonCollectionViewCell.reuseIdentifier, for: indexPath)
             case .routeSwitch:
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatRouteCollectionViewCell.reuseIdentifier, for: indexPath)
-                (cell as? ChatRouteCollectionViewCell)?.routeAction = { route in
-                    switch route {
-                    case .doctor: break
-                    case .pharmacist: break
-                    default: break
-                    }
+                (cell as? ChatRouteCollectionViewCell)?.routeAction = {[weak self] route in
+                    self?.didSelect(route: route)
                 }
-                
             case .product: break
             }
         default: break

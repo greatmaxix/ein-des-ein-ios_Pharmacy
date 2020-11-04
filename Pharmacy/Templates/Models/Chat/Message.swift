@@ -50,7 +50,7 @@ struct Message: MessageType {
     
     static func unauthorizedMessages() -> [Message] {
         let sender = Sender(senderId: "-1", displayName: "Фармацевт")
-        let user = Sender(senderId: "-2", displayName: "Пользователь")
+        let user = Sender.guest()
         
         let message1 = Message("Добрый день!", sender: sender, messageId: "1", date: Date())
         let message2 = Message("Чтобы перейти в чат с фармацевтом, Вам необходимо зарегестрироваться или авторизироваться", sender: sender, messageId: "2", date: Date())

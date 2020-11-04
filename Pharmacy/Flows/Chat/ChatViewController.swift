@@ -17,12 +17,12 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.setRightBarButtonItems([UIBarButtonItem.init(image: R.image.info(), style: .plain, target: self, action: #selector(showChatInfo))], animated: true)
         setupCollection()
         model.load()
     }
     
     func setupCollection() {
-        
         messagesCollectionView.messagesDataSource = model
         messagesCollectionView.messagesDisplayDelegate = model
         messagesCollectionView.messagesLayoutDelegate = model
@@ -35,14 +35,17 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
         }
     }
     
+    @objc func showChatInfo() {
+        
+    }
 }
-
+    
 extension ChatViewController: ChatOutput {
-    var customMessageSizeCalculator: MessageSizeCalculator {
-        return sizeCalculator
+    func didResive(message: Message) {
+        messagesCollectionView.reloadData()
     }
     
-    func didResive(messages: [Message]) {
-        messagesCollectionView.reloadData()
+    var customMessageSizeCalculator: MessageSizeCalculator {
+        return sizeCalculator
     }
 }
