@@ -31,6 +31,8 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
                 self?.presentPrescriptions()
             case .openMap:
                 self?.openCommonMap()
+            case .openChat:
+                self?.openChat()
             default:
                 break
             }
@@ -127,6 +129,11 @@ fileprivate extension WelcomeCoordinator {
         let model = CommonMapModel(parent: self)
         vc.model = model
         model.output = vc
+        navigation.pushViewController(vc, animated: true)
+    }
+    
+    func openChat() {
+        let vc = ChatCoordinator(parent: self, navigation: navigation).createFlow()
         navigation.pushViewController(vc, animated: true)
     }
 }

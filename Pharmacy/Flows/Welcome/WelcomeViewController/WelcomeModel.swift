@@ -178,7 +178,7 @@ extension WelcomeModel: WelcomeModelInput {
     }
 
     func openChat() {
-        raise(event: AppEvent.presentInDev)
+        raise(event: WelcomeEvent.openChat)
     }
 
     func openDiagnosis() {

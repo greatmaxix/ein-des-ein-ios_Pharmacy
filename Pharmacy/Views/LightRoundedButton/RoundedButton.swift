@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class LightRoundedButton: UIButton {
+@IBDesignable class RoundedButton: UIButton {
     @IBInspectable var borderColor: UIColor = UIColor.white {
             didSet {
                 self.layer.borderColor = borderColor.cgColor
