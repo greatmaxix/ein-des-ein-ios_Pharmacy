@@ -46,7 +46,7 @@ final class MapFarmacyCell: UITableViewCell {
         for medicine in medicines {
             let medicineView: FoundMedicineView = FoundMedicineView.fromNib()
             medicineView.titleLabel.text = "medicine"
-            medicineView.priceLabel.text = "\(medicine.price) $"
+            medicineView.priceLabel.text = "₸\(medicine.price)"
             medicineStackView.addArrangedSubview(medicineView)
         }
     }
@@ -55,6 +55,7 @@ final class MapFarmacyCell: UITableViewCell {
         nameLabel.text = pharmacy.name
         phoneLabel.text = Const.phoneTitle + (pharmacy.phone ?? Const.phoneErrorTitle)
         addressLabel.text = pharmacy.geometry.address
+        priceLabel.text = "₸\(pharmacy.medicines.first!.price)"
         medicineStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
         addMedicines(medicines: pharmacy.medicines)
     }
