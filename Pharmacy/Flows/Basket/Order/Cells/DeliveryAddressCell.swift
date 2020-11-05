@@ -20,19 +20,19 @@ class DeliveryAddressCell: UITableViewCell {
     func apply(delivery: OrderDeliveryAddress) {
         self.delivery = delivery
 
-        cityTextView.contentType = .name
+        cityTextView.contentType = .city
         cityTextView.placeholder = "Город"
         cityTextView.text = delivery.city
 
-        streetTextView.contentType = .name
+        streetTextView.contentType = .street
         streetTextView.placeholder = "Улица"
         streetTextView.text = delivery.street
 
-        houseTextView.contentType = .name
+        houseTextView.contentType = .house
         houseTextView.placeholder = "№ Дома"
         houseTextView.text = delivery.house
 
-        appartmentTextView.contentType = .name
+        appartmentTextView.contentType = .house
         appartmentTextView.placeholder = "№ Квартиры"
         appartmentTextView.text = delivery.appartment
 

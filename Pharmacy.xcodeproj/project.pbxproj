@@ -257,6 +257,7 @@
 		611C3BEE254F3A70006178B7 /* OrderDeliveryAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C3BED254F3A70006178B7 /* OrderDeliveryAddress.swift */; };
 		611C3BF1254F455E006178B7 /* OrdersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C3BF0254F455E006178B7 /* OrdersAPI.swift */; };
 		611C3C0C254F7158006178B7 /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 611C3C0B254F7158006178B7 /* Orders.storyboard */; };
+		614494432552EB4B003E20F9 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614494422552EB4B003E20F9 /* ErrorPresenter.swift */; };
 		61701FB42551A1AD0000303C /* OrderDetailsCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61701FB32551A1AD0000303C /* OrderDetailsCommentCell.swift */; };
 		61701FB72551A42C0000303C /* OrderDetailsTotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61701FB62551A42C0000303C /* OrderDetailsTotalCell.swift */; };
 		6184730125496E950062D8B9 /* CartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6184730025496E950062D8B9 /* CartResponse.swift */; };
@@ -613,6 +614,7 @@
 		611C3BED254F3A70006178B7 /* OrderDeliveryAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDeliveryAddress.swift; sourceTree = "<group>"; };
 		611C3BF0254F455E006178B7 /* OrdersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersAPI.swift; sourceTree = "<group>"; };
 		611C3C0B254F7158006178B7 /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
+		614494422552EB4B003E20F9 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		61701FB32551A1AD0000303C /* OrderDetailsCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsCommentCell.swift; sourceTree = "<group>"; };
 		61701FB62551A42C0000303C /* OrderDetailsTotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsTotalCell.swift; sourceTree = "<group>"; };
 		6184730025496E950062D8B9 /* CartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponse.swift; sourceTree = "<group>"; };
@@ -1788,6 +1790,14 @@
 			path = ActionSheetView;
 			sourceTree = "<group>";
 		};
+		614494412552EB3C003E20F9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				614494422552EB4B003E20F9 /* ErrorPresenter.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		618473052549A05F0062D8B9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -1873,6 +1883,7 @@
 		619AAA3C2498A98200AB46ED /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				614494412552EB3C003E20F9 /* UI */,
 				618C33932498BD1A00951D11 /* Coordinator */,
 				619AAA412498ADF100AB46ED /* Managers */,
 				3939A6D324F6A39E0045FB71 /* Location Service */,
@@ -2553,6 +2564,7 @@
 				603D31D524E5A0C2000E5A6C /* ProductCellSection.swift in Sources */,
 				246A83F625472E260004ECEC /* CategoryDTO.swift in Sources */,
 				603D31A924E3B67B000E5A6C /* Category.swift in Sources */,
+				614494432552EB4B003E20F9 /* ErrorPresenter.swift in Sources */,
 				618C339F2498BE0200951D11 /* ProfileViewController.swift in Sources */,
 				61AA47142550157700D140D3 /* Order.swift in Sources */,
 				8715DB9224FFE4E500BBF37C /* OnboardingSlideCollectionViewCell.swift in Sources */,
@@ -2860,15 +2872,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = 8YM8U69AT5;
+				CURRENT_PROJECT_VERSION = 15;
+				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eindesein.pharmacy1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eindesein.pharmacy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -2884,15 +2896,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = 8YM8U69AT5;
+				CURRENT_PROJECT_VERSION = 15;
+				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eindesein.pharmacy1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eindesein.pharmacy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

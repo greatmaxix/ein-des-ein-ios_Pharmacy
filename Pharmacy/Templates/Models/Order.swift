@@ -29,6 +29,7 @@ struct PharmacyOrder: Codable {
     var name: String
     var location: String?
     var imageURL: URL?
+    var phone: String?
 
     enum Keys: String, CodingKey {
         case id
@@ -37,6 +38,7 @@ struct PharmacyOrder: Codable {
         case address
         case logo
         case url
+        case phone
     }
 
     init(from decoder: Decoder) throws {
@@ -45,9 +47,9 @@ struct PharmacyOrder: Codable {
         id = try? container.decode(Int.self, forKey: .id)
 
         name = try container.decode(String.self, forKey: .name)
+        phone = try? container.decode(String.self, forKey: .phone)
 
-        var locationContainer = try? container.nestedUnkeyedContainer(forKey: .location)
-        let addressConatiner = try? locationContainer?.nestedContainer(keyedBy: Keys.self)
+        let addressConatiner = try? container.nestedContainer(keyedBy: Keys.self, forKey: .location)
         location = try? addressConatiner?.decode(String.self, forKey: .address)
 
         let nestedContainer = try container.nestedContainer(keyedBy: Keys.self, forKey: .logo)

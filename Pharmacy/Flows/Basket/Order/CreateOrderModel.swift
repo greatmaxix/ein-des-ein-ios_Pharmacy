@@ -11,6 +11,8 @@ import EventsTree
 
 enum CreateOrderModelEvent: Event {
     case back
+    case openOrder(id: Int)
+    case backToCart
 }
 
 protocol CreateOrderModelInput: class {
@@ -26,12 +28,14 @@ protocol CreateOrderModelInput: class {
     func changeDelivery(type: DeliveryType)
     func back()
     func createOrder()
+    func update(comment: String)
 }
 
 protocol CreateOrderModelOutput: class {
 
     func reload()
     func setAddress(hidden: Bool, at index: Int)
+    func networkEnded(with error: String?)
 }
 
 enum CreateOrderCellType: Int {
@@ -70,6 +74,7 @@ final class CreateOrderModel: Model {
     private var deliveryType: DeliveryType = .ordered
     private var orderContactInfo: OrderContactInfo?
     private var deliveryAddress: OrderDeliveryAddress?
+    private var comment: String = ""
 
     private var api = DataManager<OrdersAPI, OrderDetailsResponse>()
 
@@ -124,6 +129,11 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
     }
 
     func changeDelivery(type: DeliveryType) {
+
+        if deliveryType == type {
+            return
+        }
+
         deliveryType = type
 
         if deliveryType == .selfdelivery {
@@ -136,14 +146,19 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
     }
 
     func createOrder() {
-        guard let contact = orderContactInfo, let address = deliveryAddress else { return }
+        guard let contact = orderContactInfo, let address = deliveryAddress else {
+            output.networkEnded(with: nil)
+            return
+        }
 
         if contact.name.isEmpty || contact.phone.isEmpty {
+            output.networkEnded(with: "Контакты не заполнены")
             return
         }
 
         if deliveryType == .ordered {
             if address.city == nil || address.street == nil || address.house == nil {
+                output.networkEnded(with: "Адресс доставки не указан")
                 return
             }
         }
@@ -153,20 +168,30 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
                     contact: contact,
                     address: address,
                     paymentType: "cash",
-                    deliveryType: deliveryType.toString()), completion: { [weak self] result in
-                        guard let self = self else { return }
+                    deliveryType: deliveryType.toString(),
+                    comment: comment), completion: { [weak self] result in
+                        guard let `self` = self else { return }
 
                         switch result {
                         case .success(let response):
-                            self.raise(event: CreateOrderModelEvent.back)
+                            guard let id = response.item.orderId else {
+                                self.output.networkEnded(with: nil)
+                                return
+                            }
+                            self.raise(event: CreateOrderModelEvent.openOrder(id: id))
+                            self.output.networkEnded(with: nil)
                         case .failure(let error):
-                            print(error.localizedDescription)
+                            self.output.networkEnded(with: error.localizedDescription)
                         }
                     })
     }
 
     func type(at indexPath: IndexPath) -> CreateOrderCellType {
         return cellTypes[indexPath.row]
+    }
+
+    func update(comment: String) {
+        self.comment = comment
     }
 
     func back() {

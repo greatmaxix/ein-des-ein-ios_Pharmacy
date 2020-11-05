@@ -15,10 +15,12 @@ enum OrdersAPI {
             contact: OrderContactInfo,
             address: OrderDeliveryAddress?,
             paymentType: String,
-            deliveryType: String
+            deliveryType: String,
+            comment: String
          )
     case getOrders(page: Int, count: Int, status: String?)
     case orderDteails(orderId: Int)
+    case cancelOrder(orderId: Int)
 }
 
 extension OrdersAPI: RequestConvertible {
@@ -31,6 +33,8 @@ extension OrdersAPI: RequestConvertible {
             return "customer/orders"
         case .orderDteails(let orderId):
             return "customer/order/\(orderId)/order-card"
+        case .cancelOrder(let orderId):
+            return "customer/order/\(orderId)/cancel"
         }
     }
 
@@ -42,12 +46,16 @@ extension OrdersAPI: RequestConvertible {
             return .get
         case .orderDteails:
             return .get
+        case .cancelOrder:
+            return .patch
         }
     }
 
     var task: Task {
         switch self {
         case .orderDteails:
+            return .requestPlain
+        case .cancelOrder:
             return .requestPlain
         case .getOrders(let page, let count, let status):
             var params = [
@@ -58,7 +66,7 @@ extension OrdersAPI: RequestConvertible {
                 params["status"] = status
             }
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
-        case .createOrderWith(let order, let contact, let address, let paymentType, let deliveryType):
+        case .createOrderWith(let order, let contact, let address, let paymentType, let deliveryType, let comment):
             var items: [[String: Any]] = []
 
             for product in order.products {
@@ -86,18 +94,27 @@ extension OrdersAPI: RequestConvertible {
 
             parameters["contactInfo"] = contactInfo
 
-            let deliveryInfo = [
-                "type": deliveryType,
-                "comment": "Пустой комментарий",
-                "address": [
-                    "city": address?.city,
-                    "street": address?.street,
-                    "house": address?.house,
-                    "apartment": address?.appartment
-                ] as [String: String?]
-            ] as [String: Any]
+            if deliveryType == "pickup" {
+                let deliveryInfo = [
+                    "type": deliveryType,
+                    "comment": comment
+                ]
 
-            parameters["deliveryInfo"] = deliveryInfo
+                parameters["deliveryInfo"] = deliveryInfo
+            } else {
+                let deliveryInfo = [
+                    "type": deliveryType,
+                    "comment": comment,
+                    "address": [
+                        "city": address?.city ?? "",
+                        "street": address?.street ?? "",
+                        "house": address?.house ?? "",
+                        "apartment": address?.appartment ?? ""
+                    ] as [String: String?]
+                ] as [String: Any]
+
+                parameters["deliveryInfo"] = deliveryInfo
+            }
 
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         }

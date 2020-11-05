@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 protocol OrderDetailsViewControllerInput: OrderDetailsModelOutput {}
 protocol OrderDetailsViewControllerOutput: OrderDetailsModelInput {}
@@ -15,14 +16,26 @@ class OrderDetailsViewController: UIViewController {
 
     var model: OrderDetailsViewControllerOutput!
 
+    private var isCanceled = false
+
+    private lazy var activityIndicator: MBProgressHUD = {
+        setupActivityIndicator()
+    }()
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var canceledOrderView: UIView!
+    @IBOutlet weak var canceledOrderLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        activityIndicator.show(animated: true)
         model.load()
         titleLabel.text = "№ \(model.currentOrderId)"
+
+        canceledOrderLabel.text = "Ваш заказ № \(model.currentOrderId) отменен"
+        canceledOrderView.isHidden = true
 
         tableView.register(UINib(nibName: "OrderedProductCell", bundle: nil), forCellReuseIdentifier: "OrderedProductCell")
     }
@@ -72,8 +85,9 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
     private func totalCell(at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailsTotalCell", for: indexPath) as? OrderDetailsTotalCell else { return UITableViewCell() }
 
-        cell.apply(cost: model.cost)
+        cell.apply(cost: model.cost, isCanceled: isCanceled)
         cell.actionHandler = { [weak self] in
+            self?.activityIndicator.show(animated: true)
             self?.model.cancelOrder()
         }
 
@@ -129,6 +143,17 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
 extension OrderDetailsViewController: OrderDetailsViewControllerInput {
 
     func didLoadData(error: String?) {
+        activityIndicator.hide(animated: true)
+
+        if model.orderState == .canceled {
+            canceledOrderView.isHidden = false
+            isCanceled = true
+        }
+
+        if error != nil {
+            showError(text: error!)
+        }
+
         tableView.reloadData()
     }
 

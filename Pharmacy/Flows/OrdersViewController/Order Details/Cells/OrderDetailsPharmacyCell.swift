@@ -15,6 +15,7 @@ class OrderDetailsPharmacyCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var phoneStackView: UIStackView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,9 +27,9 @@ class OrderDetailsPharmacyCell: UITableViewCell {
     func apply(pharm: PharmacyOrder) {
         nameLabel.text = pharm.name
         addressLabel.text = pharm.location
+        phoneLabel.text = pharm.phone
         if let url = pharm.imageURL {
             logoImage.loadImageBy(url: url)
         }
-        phoneLabel.isHidden = true // We don't have phone in pharmacy now
     }
 }

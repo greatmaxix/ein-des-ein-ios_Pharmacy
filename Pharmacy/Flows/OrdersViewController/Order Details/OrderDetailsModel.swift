@@ -21,6 +21,7 @@ protocol OrderDetailsModelInput {
     var delivery: OrderDetailsDelivery? { get }
     var comment: String? { get }
     var cost: Decimal { get }
+    var orderState: OrderListRequestState { get }
 
     func load()
     func back()
@@ -36,6 +37,8 @@ protocol OrderDetailsModelOutput: class {
 class OrderDetailsModel: EventNode {
 
     private var api = DataManager<OrdersAPI, OrderDetailsResponse>()
+    private var cancelAPI = DataManager<OrdersAPI, PostResponse>()
+
     weak var output: OrderDetailsModelOutput!
 
     private var orderId: Int = 0
@@ -45,11 +48,13 @@ class OrderDetailsModel: EventNode {
         }
     }
     private var cellTypes: [CreateOrderCellType]!
+    private var fromCart: Bool = false
 
-    init(parent: EventNode?, orderId: Int) {
+    init(parent: EventNode?, orderId: Int, fromCart: Bool = false) {
         super.init(parent: parent)
 
         self.orderId = orderId
+        self.fromCart = fromCart
     }
 
     fileprivate func createCells() {
@@ -108,19 +113,23 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
         order.totalCost ?? 0
     }
 
+    var orderState: OrderListRequestState {
+        return OrderListRequestState.init(rawValue: order.status ?? "") ?? .new
+    }
+
     func load() {
         api.load(target: .orderDteails(orderId: orderId),
-                     completion: { [weak self] result in
-                        guard let `self` = self else { return }
+                 completion: { [weak self] result in
+                    guard let `self` = self else { return }
 
-                        switch result {
-                        case .success(let response):
-                            self.order = response.item
-                            self.output.didLoadData(error: nil)
-                        case .failure(let error):
-                            self.output.didLoadData(error: error.localizedDescription)
-                        }
-                     })
+                    switch result {
+                    case .success(let response):
+                        self.order = response.item
+                        self.output.didLoadData(error: nil)
+                    case .failure(let error):
+                        self.output.didLoadData(error: error.localizedDescription)
+                    }
+                 })
     }
 
     func product(at indexPath: IndexPath) -> CartMedicine? {
@@ -129,7 +138,11 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
     }
 
     func back() {
-        raise(event: OrderDetailsEvent.back)
+        if fromCart == true {
+            raise(event: CreateOrderModelEvent.backToCart)
+        } else {
+            raise(event: OrderDetailsEvent.back)
+        }
     }
 
     func type(at indexPath: IndexPath) -> CreateOrderCellType {
@@ -137,6 +150,17 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
     }
 
     func cancelOrder() {
-        
+        cancelAPI.load(target: .cancelOrder(orderId: order.orderId ?? 0),
+                 completion: { [weak self] result in
+                    guard let `self` = self else { return }
+
+                    switch result {
+                    case .success(_):
+                        self.output.didLoadData(error: nil)
+                        self.raise(event: OrderDetailsEvent.back)
+                    case .failure(let error):
+                        self.output.didLoadData(error: error.localizedDescription)
+                    }
+                 })
     }
 }
