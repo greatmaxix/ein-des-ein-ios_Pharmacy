@@ -106,8 +106,7 @@ extension BasketModel: BasketViewControllerOutput {
                 if self.cartOrders[indexPath.section].products.count == 0 {
                     self.cartOrders.remove(at: indexPath.section)
                     self.sectionClosureStates.remove(at: indexPath.section)
-//                    self.output.deleteOrder(at: indexPath)
-                    self.output.requestCompleted()
+                    self.output.deleteOrder(at: indexPath)
                 } else {
                     self.output.reloadSection(at: indexPath.section, animated: true)
                 }

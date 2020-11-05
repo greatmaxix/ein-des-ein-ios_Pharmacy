@@ -25,10 +25,11 @@ class OrderDetailsTotalCell: UITableViewCell {
         cancelButton.layer.borderColor = R.color.welcomeBlue()?.cgColor
     }
 
-    func apply(cost: Decimal) {
+    func apply(cost: Decimal, isCanceled: Bool) {
         costLabel.text = cost.moneyString(with: "₸")
         deliveryCostLabel.text = "₸ 0"
         totalCostLabel.text = cost.moneyString(with: "₸")
+        cancelButton.isHidden = isCanceled
     }
 
     @IBAction func cancelTapped(_ sender: Any) {

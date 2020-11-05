@@ -30,7 +30,6 @@ final class OrdersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model.initialLoad()
         setupTableView()
         allButton.dropBlueShadow()
     }
@@ -39,6 +38,12 @@ final class OrdersViewController: UIViewController {
         tableView.isHidden = true
 
         tableView.register(UINib(nibName: "EmptyResultsViewCell", bundle: nil), forCellReuseIdentifier: "EmptyResultsViewCell")
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        model.initialLoad()
     }
 
     @IBAction func back(_ sender: Any) {

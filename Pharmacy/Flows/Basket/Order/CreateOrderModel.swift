@@ -73,6 +73,7 @@ final class CreateOrderModel: Model {
     private var deliveryType: DeliveryType = .ordered
     private var orderContactInfo: OrderContactInfo?
     private var deliveryAddress: OrderDeliveryAddress?
+    private var comment: String = ""
 
     private var api = DataManager<OrdersAPI, OrderDetailsResponse>()
 
@@ -127,6 +128,11 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
     }
 
     func changeDelivery(type: DeliveryType) {
+
+        if deliveryType == type {
+            return
+        }
+
         deliveryType = type
 
         if deliveryType == .selfdelivery {
@@ -161,7 +167,8 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
                     contact: contact,
                     address: address,
                     paymentType: "cash",
-                    deliveryType: deliveryType.toString()), completion: { [weak self] result in
+                    deliveryType: deliveryType.toString(),
+                    comment: comment), completion: { [weak self] result in
                         guard let `self` = self else { return }
 
                         switch result {
