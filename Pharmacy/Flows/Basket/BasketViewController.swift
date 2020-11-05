@@ -162,15 +162,20 @@ extension BasketViewController: BasketViewControllerInput {
     }
 
     func deleteProduct(at indexPath: IndexPath) {
+        tableView.beginUpdates()
         tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
     }
 
     func deleteOrder(at indexPath: IndexPath) {
+        tableView.beginUpdates()
         tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
+        tableView.endUpdates()
     }
 
     func requestCompleted() {
         activityIndicator.hide(animated: true)
+        tableView.reloadData()
     }
 
     func cartDidLoad() {
