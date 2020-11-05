@@ -56,7 +56,7 @@ final class OrdersViewController: UIViewController {
     }
 
     @IBAction func openInProgress(_ sender: Any) {
-        model.open(tab: .processing)
+        model.open(tab: .inProgress)
         setActive(button: inProgressButton)
     }
     

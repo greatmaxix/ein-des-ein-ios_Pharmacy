@@ -35,20 +35,6 @@ class OrderListCell: UITableViewCell {
         productsCountLabel.text = "\(order.products?.count ?? 0) товаров"
         totalCostLabel.text = order.totalCost?.moneyString(with: "₸")
 
-        switch order.status {
-        case "new":
-            orderStatusView.backgroundColor = R.color.welcomeGreen()
-            orderStatusLabel.text = "В ОБРАБОТКЕ"
-        case "done":
-            orderStatusView.backgroundColor = R.color.welcomeBlue()
-            orderStatusLabel.text = "ВЫПОЛНЕН"
-        case "canceled":
-            orderStatusView.backgroundColor = R.color.validationRed()
-            orderStatusLabel.text = "ОТМЕНЕН"
-        default:
-            break
-        }
-
         if order.deliveryInfo?.type == "pickup" {
             deliveryTypeLabel.text = "Самовывоз"
             deliveryTypeImageView.image = R.image.icon_selfdelivery()
@@ -58,6 +44,24 @@ class OrderListCell: UITableViewCell {
             deliveryTypeImageView.image = R.image.icon_delivery()
             deliveryView.backgroundColor = R.color.delivery()
         }
+
+        let state = OrderListRequestState.init(rawValue: order.status ?? "new")
+
+        switch state {
+        case .new, .inProgress:
+            orderStatusView.backgroundColor = R.color.welcomeGreen()
+            orderStatusLabel.text = "В ОБРАБОТКЕ"
+        case .done:
+            orderStatusView.backgroundColor = R.color.welcomeBlue()
+            orderStatusLabel.text = "ВЫПОЛНЕН"
+        case .canceled:
+            orderStatusView.backgroundColor = R.color.validationRed()
+            orderStatusLabel.text = "ОТМЕНЕН"
+        default:
+            orderStatusView.backgroundColor = R.color.welcomeGreen()
+            orderStatusLabel.text = "В ОБРАБОТКЕ"
+        }
+
 
     }
 }
