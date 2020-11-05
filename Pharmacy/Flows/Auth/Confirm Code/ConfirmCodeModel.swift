@@ -67,7 +67,7 @@ final class ConfirmCodeModel: Model {
              case .success(let response):
                 UserSession.shared.authorizationStatus = .authorized(userId: response.user.id)
                 UserSession.shared.save(user: response.user, token: response.token)
-                //self.updateUserRegion()
+                if self.congratulatioNeeded { self.updateUserRegion() }
                 self.successLogin()
              case .failure(let error):
                 print(error)
@@ -76,23 +76,23 @@ final class ConfirmCodeModel: Model {
         }
     }
     
-//    private func updateUserRegion() {
-//        guard let regionId = UserDefaultsAccessor.regionId,
-//              let regionName = UserDefaultsAccessor.regionName else {return}
-//        
-//        let region = RegionDTO(id: Int64(regionId), name: regionName)
-//        UserSession.shared.save(region: region)
-//        
-//        updateUserProvider.load(target: .updateRegion(regionId: regionId)) { result in
-//            switch result {
-//            case .success(let user):
-//                UserSession.shared.save(user: user.user)
-//                UserDefaultsAccessor.regionId = regionId
-//            case .failure(let error):
-//                print("Was error \(error.localizedDescription)")
-//            }
-//        }
-//    }
+    private func updateUserRegion() {
+        guard let regionId = UserDefaultsAccessor.regionId,
+              let regionName = UserDefaultsAccessor.regionName else {return}
+
+        let region = RegionDTO(id: Int64(regionId), name: regionName)
+        UserSession.shared.save(region: region)
+
+        updateUserProvider.load(target: .updateRegion(regionId: regionId)) { result in
+            switch result {
+            case .success(let user):
+                UserSession.shared.save(user: user.user)
+                UserDefaultsAccessor.regionId = regionId
+            case .failure(let error):
+                print("Was error \(error.localizedDescription)")
+            }
+        }
+    }
     
     private func successLogin() {
         if congratulatioNeeded {
