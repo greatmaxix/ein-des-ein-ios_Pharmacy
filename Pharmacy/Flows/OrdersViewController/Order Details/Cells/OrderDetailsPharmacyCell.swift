@@ -27,9 +27,9 @@ class OrderDetailsPharmacyCell: UITableViewCell {
     func apply(pharm: PharmacyOrder) {
         nameLabel.text = pharm.name
         addressLabel.text = pharm.location
+        phoneLabel.text = pharm.phone
         if let url = pharm.imageURL {
             logoImage.loadImageBy(url: url)
         }
-        phoneStackView.isHidden = true // We don't have phone in pharmacy now
     }
 }

@@ -29,22 +29,30 @@ protocol OrdersListOutput: class {
     func startLoading()
 }
 
-enum OrderListRequestState {
-    case all
-    case canceled
-    case processing
-    case done
+enum OrderListRequestState: String {
+    case all = "all"
+    case canceled = "canceled"
+    case inProgress = "in_progress"
+    case done = "done"
+    case new = "new"
+    case ready = "ready"
+    case toDelivery = "to_delivery"
+    case inDelivery = "in_delivery"
 
-    func toString() -> String? {
+    func color() -> UIColor? {
         switch self {
-        case .all:
-            return nil
-        case .canceled:
-            return "canceled"
-        case .processing:
-            return "new"
+        case .new:
+            return R.color.welcomeBlue()
+        case .inProgress:
+            return R.color.orange()
+        case .ready:
+            return .yellow
         case .done:
-            return "done"
+            return R.color.welcomeGreen()
+        case .canceled:
+            return .red
+        default:
+            return R.color.welcomeBlue()
         }
     }
 }
@@ -65,10 +73,12 @@ class OrdersListModel: EventNode {
 
         output.startLoading()
 
+        let state = (currentState == .all) ? nil : currentState.rawValue
+
         apiList.load(target: .getOrders(
                         page: page,
                         count: perPage,
-                        status: currentState.toString()),
+                        status: state),
                      completion: { [weak self] result in
                         guard let `self` = self else { return }
 
@@ -88,7 +98,6 @@ extension OrdersListModel: OrdersListInput, OrdersViewControllerOutput {
         raise(event: AppEvent.presentInDev)
     }
     
-
     var numberOfOrders: Int {
         orders.count
     }
