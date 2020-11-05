@@ -65,6 +65,13 @@ class ChooseLocationViewController: UIViewController {
         bar.barDelegate = self
       }
     }
+
+    // MARK: - IBAction
+    @IBAction func useCurrentLocation(_ sender: UIButton) {
+        //model.startLocationTracking()
+        //model.openAuthSlide()
+        //model.close()
+    }
 }
 
 // MARK: - TableViewDataSource & Delegate
@@ -144,5 +151,15 @@ extension ChooseLocationViewController: SimpleNavigationBarDelegate {
   
     func rightBarItemAction() {
     
+    }
+    
+    func search(returnText: String) {
+        model.filterRegions(searchText: returnText)
+        tableView.reloadData()
+    }
+    
+    func cancelSearch() {
+        model.filterRegions(searchText: "")
+        tableView.reloadData()
     }
 }

@@ -20,4 +20,5 @@ struct TableViewSection {
         self.footer = header
         self.items = list
     }
+    
 }

@@ -21,6 +21,8 @@ protocol ChooseLocationViewModelInput: class {
     func selected(indexPath: IndexPath)
     var screenState: Bool {get}
     func applyRegion(regionId: Int)
+    func startLocationTracking()
+    func filterRegions(searchText: String)
 }
 
 class ChooseLocationViewModel: Model {
@@ -32,6 +34,8 @@ class ChooseLocationViewModel: Model {
     
     private let countryProvider = DataManager<LocationAPI, RegionResponse>()
     private let updateUserProvider = DataManager<ProfileAPI, ProfileResponse>()
+    
+    private var locationService = LocationService()
     
     private var countryResionsData: [Region] = []
     private var state: Bool = false
@@ -46,6 +50,14 @@ extension ChooseLocationViewModel: ChooseLocationViewControllerOutput {}
 
 // MARK: - ChooseLocationViewModelInput
 extension ChooseLocationViewModel: ChooseLocationViewModelInput {
+    func filterRegions(searchText: String) {
+        //updateSections(searchText: searchText)
+        
+    }
+    
+    func startLocationTracking() {
+        locationService.updateCurrentLocation()
+    }
     
     var indexForSections: [String] {
         return index
