@@ -138,7 +138,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
             self.raise(event: EditProfileEvent.close)
         case .onboarding:
             debouncer.execute {[weak self] in
-                self?.raise(event: OnboardingEvent.close)
+                self?.raise(event: OnboardingEvent.regionSelected(4))
             }
         case .none:
             break

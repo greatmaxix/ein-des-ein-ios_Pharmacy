@@ -12,7 +12,7 @@ enum OnboardingEvent: Event {
     case close
     case openRegions
     case closeRegion
-    case regionSelected
+    case regionSelected(_ index: Int?)
 }
 
 protocol OnboardingModelInput {
@@ -33,7 +33,12 @@ class OnboardingModel: Model {
         addHandler { [weak self] (event: OnboardingEvent) in
             
             guard let self = self else { return }
-            if case OnboardingEvent.regionSelected = event {
+            if case OnboardingEvent.regionSelected(let index) = event {
+                guard index == nil else {
+                    self.currentIndex = 4
+                    self.output.routeToSlide(at: index!)
+                    return
+                }
                 
                 self.currentIndex += 1
                 self.output.routeToSlide(at: self.currentIndex)
@@ -74,6 +79,8 @@ extension OnboardingModel {
         
         switch currentIndex {
         case 3:
+            raise(event: OnboardingEvent.close)
+        case 4:
             raise(event: OnboardingEvent.close)
         default:
             openRegions()
