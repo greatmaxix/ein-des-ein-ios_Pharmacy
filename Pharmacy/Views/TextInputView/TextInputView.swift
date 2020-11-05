@@ -36,6 +36,16 @@ final class TextInputView: UIView {
             inputTextField.keyboardType = newValue.keyboardType
             inputTextField.text = newValue.startText
         }
+
+        didSet {
+            switch self.contentType {
+            case .city, .name, .email, .house, .street:
+                inputTextField.autocorrectionType = .no
+                inputTextField.autocapitalizationType = .sentences
+            default:
+                return
+            }
+        }
     }
     
     var visualStyle: VisualStyle = .standart {
