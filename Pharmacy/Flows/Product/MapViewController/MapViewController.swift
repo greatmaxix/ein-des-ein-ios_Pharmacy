@@ -175,6 +175,7 @@ extension MapViewController: GMSMapViewDelegate {
 
 extension MapViewController: MapOutput {
     func successfullyAddedToCart() {
+        showMessage(text: "Товар успешно добавлен в корзину!")
         activityIndicator.hide(animated: true)
     }
     

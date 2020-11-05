@@ -125,6 +125,10 @@ extension ProductModel: ProductViewControllerOutput {
             raise(event: ProductModelEvent.openAnalogsFor(product))
         case .category(let product):
             raise(event: ProductModelEvent.openCatalogsFor(product))
+        case .instruction:
+            raise(event: AppEvent.presentInDev)
+        case .questions:
+            raise(event: AppEvent.presentInDev)
         default:
             return
         }

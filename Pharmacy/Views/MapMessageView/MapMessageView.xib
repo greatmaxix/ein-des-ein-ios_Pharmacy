@@ -49,7 +49,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Eli-7A-uiI">
-                    <rect key="frame" x="28" y="181.5" width="305" height="14"/>
+                    <rect key="frame" x="28" y="181.5" width="305" height="6"/>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⏰ c 8:00 до 22:00 ежедневно" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4o-LQ-XLn">
                     <rect key="frame" x="32" y="125" width="269.5" height="16.5"/>
@@ -83,10 +83,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iw6-2X-pag">
-                    <rect key="frame" x="102" y="227.5" width="235" height="40"/>
+                    <rect key="frame" x="102" y="219.5" width="235" height="48"/>
                     <color key="backgroundColor" name="welcomeBlue"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="fhe-YB-mfS"/>
+                        <constraint firstAttribute="height" constant="48" id="fhe-YB-mfS"/>
                         <constraint firstAttribute="width" constant="235" id="wnI-7a-4a4"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
@@ -140,7 +140,7 @@
                 <constraint firstItem="L5m-ca-Sws" firstAttribute="top" secondItem="Tqf-rN-zeo" secondAttribute="bottom" id="RMy-a0-lDu"/>
                 <constraint firstItem="yB4-Dv-dcB" firstAttribute="top" secondItem="L5m-ca-Sws" secondAttribute="bottom" constant="20" id="S6l-Th-xec"/>
                 <constraint firstItem="3ma-oR-8cJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="SFL-ud-9k1"/>
-                <constraint firstItem="U2c-h3-wsZ" firstAttribute="centerY" secondItem="iw6-2X-pag" secondAttribute="centerY" constant="-4" id="WNT-HX-onj"/>
+                <constraint firstItem="U2c-h3-wsZ" firstAttribute="centerY" secondItem="iw6-2X-pag" secondAttribute="centerY" id="WNT-HX-onj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="V2Z-ew-B41" secondAttribute="trailing" constant="16" id="Wrg-e9-lp0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Eli-7A-uiI" secondAttribute="trailing" constant="42" id="XmY-sP-b4h"/>
                 <constraint firstItem="Tqf-rN-zeo" firstAttribute="leading" secondItem="jSw-WB-VNB" secondAttribute="trailing" constant="8" id="YUZ-z8-WhM"/>
