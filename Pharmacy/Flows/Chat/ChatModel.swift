@@ -10,6 +10,7 @@ import Foundation
 import EventsTree
 import MessageKit
 import IKEventSource
+import InputBarAccessoryView
 
 enum ChatEvent: Event {
     case close
@@ -26,10 +27,16 @@ protocol ChatOutput: MessagesViewController {
 
 final class ChatModel: Model, ChatInput {
    
-    var output: ChatOutput!
-    var messages: [Message] = []
-    
-    private var sender: SenderType = Sender.guest()
+    var output: ChatOutput! {
+        didSet {
+            output.messageInputBar.delegate = self
+        }
+    }
+    private var messages: [Message] = []
+    private var provider = DataManager<ChatAPI, ChatResponse>()
+    private var createMessagesProvider = DataManager<ChatAPI, CreateMessagesResponse>()
+    private var chatService: ChatService?
+    private var sender: ChatSender = ChatSender.guest()
     
     override init(parent: EventNode?) {
         super.init(parent: parent)
@@ -37,10 +44,15 @@ final class ChatModel: Model, ChatInput {
     
     func load() {
         switch UserSession.shared.authorizationStatus {
-        case .authorized(let userId):
-            let s = Sender(senderId: "\(userId)", displayName: UserSession.shared.user?.name ?? "")
-            sender = s
-            self.messages = [Message(.routeSwitch, sender: s, messageId: "0", date: Date())]
+        case .authorized:
+            provider.load(target: .chatList) { [weak self] result in
+                switch result {
+                case .success(let response):
+                    self?.didReciveChat(list: response.items)
+                case .failure(let error):
+                    print(error)
+                }
+            }
         case .notAuthorized:
             self.messages = Message.unauthorizedMessages()
         }
@@ -50,13 +62,25 @@ final class ChatModel: Model, ChatInput {
         }
     }
     
-    private func didSelect(route: ChatRouteCollectionViewCell.ChatRoute) {
-        switch route {
-        case .doctor: break
-        case .pharmacist: break
-        default: break
+    private func didReciveChat(list: [Chat]) {
+        if let openedChat = list.first(where: {$0.status == .opened || $0.status == .answered}) {
+            self.sender = ChatSender.currentUser()
+            self.chatService = ChatService(openedChat, delegate: self)
+        } else {
+            self.messages = [Message(.routeSwitch, sender: sender, messageId: "0", date: Date())]
+            self.output.messagesCollectionView.reloadData()
         }
-        raise(event: AppEvent.presentInDev)
+    }
+    
+    private func didSelect(route: ChatAPI.ChatRoute) {
+        provider.load(target: .create(route)) {[weak self] result in
+            switch result {
+            case .success(let result):
+                self?.didReciveChat(list: result.items)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     private func authorize() {
@@ -92,8 +116,11 @@ extension ChatModel: MessagesDataSource {
             case .routeSwitch:
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatRouteCollectionViewCell.reuseIdentifier, for: indexPath)
                 (cell as? ChatRouteCollectionViewCell)?.routeAction = {[weak self] route in
+                    
                     self?.didSelect(route: route)
                 }
+            case .chatClosing:
+                cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatCloseCollectionViewCell.reuseIdentifier, for: indexPath)
             case .product: break
             }
         default: break
@@ -115,4 +142,24 @@ extension ChatModel: MessagesDisplayDelegate {
 
 extension ChatModel: MessagesLayoutDelegate {
     
+}
+
+extension ChatModel: InputBarAccessoryViewDelegate {
+    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
+        guard let chatId = chatService?.chat.id else { return }
+        createMessagesProvider.load(target: .createMessage(chatId, text)) { result in
+            switch result {
+            case .success:
+                print("Message sent")
+            case .failure(let error):
+                print("Message error - \(error.localizedDescription)")
+            }
+        }
+    }
+}
+
+extension ChatModel: ChatServiceDelegate {
+    func didRecive(message: Message) {
+        
+    }
 }

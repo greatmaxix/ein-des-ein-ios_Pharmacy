@@ -16,4 +16,5 @@ struct UserDisplayable {
     var regionName: String?
     var deliveryAddress: String?
     var regionId: Int64?
+    var topicName: String?
 }

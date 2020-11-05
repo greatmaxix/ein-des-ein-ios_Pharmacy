@@ -8,11 +8,18 @@
 
 import MessageKit
 
-struct Sender: SenderType {
+struct ChatSender: SenderType {
     var senderId: String
     var displayName: String
     
-    static func guest() -> Sender {
-        return Sender(senderId: "-2", displayName: "Гость")
+    static func guest() -> ChatSender {
+        return ChatSender(senderId: "-2", displayName: "Гость")
+    }
+    
+    static func currentUser() -> ChatSender {
+        switch UserSession.shared.authorizationStatus {
+        case .authorized(let id): return ChatSender(senderId: "\(id)", displayName: UserSession.shared.user?.name ?? "")
+        case .notAuthorized: return guest()
+        }
     }
 }

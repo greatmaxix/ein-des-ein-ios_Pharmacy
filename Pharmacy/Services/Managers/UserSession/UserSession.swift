@@ -104,7 +104,8 @@ class UserSession {
                                avatarURL: user.avatar?.url,
                                regionName: user.region?.name,
                                deliveryAddress: user.deliveryAddress?.street,
-                               regionId: user.region?.id)
+                               regionId: user.region?.id,
+                               topicName: user.topicName)
     }
     
     func save(avatar: AvatarDTO) {
