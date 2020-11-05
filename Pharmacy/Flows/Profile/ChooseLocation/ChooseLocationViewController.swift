@@ -48,15 +48,14 @@ class ChooseLocationViewController: UIViewController {
     }
     
     private func setupNavBar() {
+    navigationController?.isNavigationBarHidden = false
       if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
         bar.style = .search
-        bar.isLeftItemHidden = model.isProfileConfiguration
-        bar.isRightItemHidden = false
         
-        bar.title = R.string.localize.regionTitle()
-        
-        bar.leftItemTitle = model.getNavBarTitle()
         bar.barDelegate = self
+        bar.isLeftItemHidden = model.isProfileConfiguration
+        bar.title = R.string.localize.regionTitle()
+        bar.leftItemTitle = model.getNavBarTitle()
       }
     }
 
@@ -145,10 +144,11 @@ extension ChooseLocationViewController: SimpleNavigationBarDelegate {
     }
   
     func rightBarItemAction() {
-    
+        
     }
     
     func search(returnText: String) {
+
         model.filterRegions(searchText: returnText)
         tableView.reloadData()
     }

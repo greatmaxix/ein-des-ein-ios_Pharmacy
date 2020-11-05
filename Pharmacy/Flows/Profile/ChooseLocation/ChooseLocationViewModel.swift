@@ -14,7 +14,7 @@ protocol ChooseLocationViewModelOutput: class {
     func applyTableViewCell(indexPath: IndexPath)
 }
 
-// MARK: - Configuration enum for model
+// MARK: - Configuration enum for ChooseLocationViewModel
 enum ChooseLocationViewModelConfuguration {
     case profile
     case onboarding
@@ -27,6 +27,7 @@ enum ChooseLocationViewModelConfuguration {
             return ""
         }
     }
+    
     var isProfileConfiguration: Bool {
         switch self {
         case .profile:
@@ -71,6 +72,7 @@ class ChooseLocationViewModel: Model {
     
     private var state: Bool = false
     
+    // MARK: - init model with parent and confiruration
     init(parent: EventNode?, configuretion: ChooseLocationViewModelConfuguration) {
         super.init(parent: parent)
         self.configuretion = configuretion
@@ -123,7 +125,6 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
             case .failure(let error):
                 print("Was error \(error.localizedDescription)")
             }
-            
         }
     }
     

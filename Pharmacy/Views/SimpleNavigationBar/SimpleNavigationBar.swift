@@ -99,6 +99,7 @@ final class SimpleNavigationBar: UINavigationBar {
         barTintColor = R.color.welcomeBlue()
         isTranslucent = false
         barStyle = .black
+        
         setBackgroundImage(UIImage(), for: .default)
         
         contentView = R.nib.simpleNavigationBarView(owner: nil)
@@ -129,6 +130,7 @@ final class SimpleNavigationBar: UINavigationBar {
     }
     
     @objc private func cancelSearchAction() {
+       
         barDelegate?.cancelSearch()
     }
 }
@@ -136,11 +138,11 @@ final class SimpleNavigationBar: UINavigationBar {
 // MARK: - UITextFieldDelegate
 
 extension SimpleNavigationBar: UITextFieldDelegate {
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         barDelegate?.search(returnText: textField.text ?? "")
         return textField.resignFirstResponder()
     }
+    
 }
 
 private extension SimpleNavigationBar {

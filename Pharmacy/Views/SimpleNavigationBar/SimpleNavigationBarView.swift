@@ -46,7 +46,10 @@ class SimpleNavigationBarView: UIView {
     
     @IBAction func clearSearch(_ sender: Any) {
         textField.text = nil
+        hideSearch()
+        
     }
+    
     @IBAction func hideSearch(_ sender: Any) {
         hideSearch()
     }
@@ -58,8 +61,8 @@ class SimpleNavigationBarView: UIView {
         rightButton.isHidden = true
         titleLabel.isHidden = true
 
-        UIView.animate(withDuration: 0.3, animations: {
-            self.layoutIfNeeded()
+        UIView.animate(withDuration: 0.3, animations: {[weak self] in
+            self?.layoutIfNeeded()
         })
     }
     
@@ -68,12 +71,12 @@ class SimpleNavigationBarView: UIView {
         searchLeadingConstraint.constant = GUI.searchHidden
         self.leftButton.isHidden = false
 
-        UIView.animate(withDuration: 0.3, animations: {
-            self.layoutIfNeeded()
-        }, completion: { _ in
-            self.searchView.isHidden = true
-            self.titleLabel.isHidden = false
-            self.rightButton.isHidden = false
+        UIView.animate(withDuration: 0.3, animations: {[weak self] in
+            self?.layoutIfNeeded()
+        }, completion: {[weak self] _ in
+            self?.searchView.isHidden = true
+            self?.titleLabel.isHidden = false
+            self?.rightButton.isHidden = false
         })
     }
 }
