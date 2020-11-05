@@ -15,6 +15,7 @@ protocol BasketViewControllerOutput: BasketModelInput {}
 final class BasketViewController: UIViewController {
     var model: BasketViewControllerOutput!
 
+    @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var tableView: UITableView!
 
     private lazy var activityIndicator: MBProgressHUD = {
@@ -49,6 +50,9 @@ final class BasketViewController: UIViewController {
         model.load()
     }
 
+    @IBAction func startSearch(_ sender: Any) {
+        model.startSearch()
+    }
 }
 
 // MARK: - TableView
@@ -56,25 +60,10 @@ final class BasketViewController: UIViewController {
 extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (model.numberOfOrders == 0) ? 1 : model.numberOfRows(in: section)
+        return model.numberOfRows(in: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if model.numberOfOrders == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyResultsViewCell", for: indexPath) as? EmptyResultsViewCell else { return UITableViewCell() }
-
-            cell.setup(title: R.string.localize.basketEmptyTitle(),
-                       decriptionText: R.string.localize.basketEmptyDescription(),
-                       buttonTitle: R.string.localize.basketEmptyButton(),
-                       imageName: "emptyOrders")
-
-            cell.tapCellButtonHandler = {[weak self] in
-                self?.model.startSearch()
-            }
-
-            return cell
-        }
-
         guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "CartMedecineCell", for: indexPath) as? CartMedecineCell else {
             return UITableViewCell()
@@ -98,18 +87,7 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if model.numberOfOrders == 0 {
-            return tableView.visibleSize.height
-        } else {
-            return tableView.estimatedRowHeight
-        }
-
-    }
-
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if model.numberOfOrders == 0 { return nil }
-
         guard let view = tableView.dequeueReusableHeaderFooterView(
                 withIdentifier: "CartSectionHeader") as? CartSectionHeader else {
             return nil
@@ -124,8 +102,6 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if model.numberOfOrders == 0 { return nil }
-
         guard let view = tableView.dequeueReusableHeaderFooterView(
                 withIdentifier: "CartSectionFooterView") as? CartSectionFooterView else {
             return nil
@@ -141,7 +117,7 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return (model.numberOfOrders == 0) ? 1 : model.numberOfSections
+        return model.numberOfSections
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -171,6 +147,14 @@ extension BasketViewController: BasketViewControllerInput {
         tableView.beginUpdates()
         tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
         tableView.endUpdates()
+
+        if model.numberOfOrders == 0 {
+            emptyView.isHidden = false
+            tableView.isHidden = true
+        } else {
+            emptyView.isHidden = true
+            tableView.isHidden = false
+        }
     }
 
     func requestCompleted() {
@@ -179,7 +163,13 @@ extension BasketViewController: BasketViewControllerInput {
     }
 
     func cartDidLoad() {
-        tableView.isHidden = false
+        if model.numberOfOrders == 0 {
+            emptyView.isHidden = false
+            tableView.isHidden = true
+        } else {
+            emptyView.isHidden = true
+            tableView.isHidden = false
+        }
         activityIndicator.hide(animated: true)
         tableView.reloadData()
     }

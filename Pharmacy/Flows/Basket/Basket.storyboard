@@ -29,7 +29,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="136" estimatedRowHeight="136" sectionHeaderHeight="96" estimatedSectionHeaderHeight="96" sectionFooterHeight="87" estimatedSectionFooterHeight="87" translatesAutoresizingMaskIntoConstraints="NO" id="b7v-X8-uWm">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0OD-Gm-kOl">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyOrders" translatesAutoresizingMaskIntoConstraints="NO" id="G09-Eg-cQk">
+                                        <rect key="frame" x="67" y="130" width="280" height="270"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оу,ваша корзина пуста" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpY-A7-cuB">
+                                        <rect key="frame" x="16" y="432" width="382" height="28"/>
+                                        <color key="backgroundColor" name="backgroundGray"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
+                                        <color key="textColor" name="textDarkBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Начните поиск, что бы  добавить товар в корзину" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6d-Sa-EXF">
+                                        <rect key="frame" x="16" y="468" width="382" height="19"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                        <color key="textColor" name="textDarkBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLX-IT-Bhs">
+                                        <rect key="frame" x="16" y="503" width="382" height="48"/>
+                                        <color key="backgroundColor" name="welcomeBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="YE0-gA-mvx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                        <state key="normal" title="Начать поиск">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="startSearch:" destination="GH9-xT-aHu" eventType="touchUpInside" id="FXi-zZ-ITP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="backgroundGray"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="r6d-Sa-EXF" secondAttribute="trailing" constant="16" id="1A7-yU-PFA"/>
+                                    <constraint firstAttribute="trailing" secondItem="YpY-A7-cuB" secondAttribute="trailing" constant="16" id="3VE-mi-DIW"/>
+                                    <constraint firstItem="YpY-A7-cuB" firstAttribute="leading" secondItem="0OD-Gm-kOl" secondAttribute="leading" constant="16" id="7di-PE-nY4"/>
+                                    <constraint firstItem="YpY-A7-cuB" firstAttribute="top" secondItem="G09-Eg-cQk" secondAttribute="bottom" constant="32" id="AFd-2B-XRH"/>
+                                    <constraint firstAttribute="trailing" secondItem="fLX-IT-Bhs" secondAttribute="trailing" constant="16" id="Ahw-1H-cUe"/>
+                                    <constraint firstItem="r6d-Sa-EXF" firstAttribute="leading" secondItem="0OD-Gm-kOl" secondAttribute="leading" constant="16" id="G5Y-Rs-Xev"/>
+                                    <constraint firstItem="G09-Eg-cQk" firstAttribute="top" secondItem="0OD-Gm-kOl" secondAttribute="top" constant="130" id="QSO-2T-Am8"/>
+                                    <constraint firstItem="fLX-IT-Bhs" firstAttribute="top" secondItem="r6d-Sa-EXF" secondAttribute="bottom" constant="16" id="cfF-ZD-qh2"/>
+                                    <constraint firstItem="G09-Eg-cQk" firstAttribute="centerX" secondItem="0OD-Gm-kOl" secondAttribute="centerX" id="dMF-Yr-uIg"/>
+                                    <constraint firstItem="fLX-IT-Bhs" firstAttribute="leading" secondItem="0OD-Gm-kOl" secondAttribute="leading" constant="16" id="jo4-qu-tvI"/>
+                                    <constraint firstItem="r6d-Sa-EXF" firstAttribute="top" secondItem="YpY-A7-cuB" secondAttribute="bottom" constant="8" id="nOW-8V-WZe"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="136" estimatedRowHeight="136" sectionHeaderHeight="96" estimatedSectionHeaderHeight="96" sectionFooterHeight="87" estimatedSectionFooterHeight="87" translatesAutoresizingMaskIntoConstraints="NO" id="b7v-X8-uWm">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" name="backgroundGray"/>
                                 <prototypes>
@@ -53,25 +107,25 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7W-BI-JoA">
-                                                    <rect key="frame" x="151" y="23" width="43.5" height="22"/>
+                                                    <rect key="frame" x="151" y="23" width="39.5" height="19"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" name="textDarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbm-ZW-m04">
-                                                    <rect key="frame" x="151" y="45" width="227" height="19.5"/>
+                                                    <rect key="frame" x="151" y="42" width="227" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" name="textDarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZF-vw-kSO">
-                                                    <rect key="frame" x="151" y="64.5" width="227" height="16.5"/>
+                                                    <rect key="frame" x="151" y="58.5" width="227" height="14"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                                     <color key="textColor" name="textDarkBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="568 ₸  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFX-vk-hlU">
-                                                    <rect key="frame" x="151" y="97" width="49" height="22"/>
+                                                    <rect key="frame" x="151" y="88.5" width="49" height="19"/>
                                                     <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                     <color key="textColor" name="welcomeBlue"/>
                                                     <nil key="highlightedColor"/>
@@ -168,6 +222,10 @@
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obW-E6-0ao">
                                                     <rect key="frame" x="366" y="23" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="5Xh-ja-BYQ"/>
+                                                        <constraint firstAttribute="width" constant="24" id="OFe-u8-myO"/>
+                                                    </constraints>
                                                     <state key="normal" image="button_remove"/>
                                                     <connections>
                                                         <action selector="deletePosition:" destination="mW5-Hf-XJR" eventType="touchUpInside" id="yfH-db-fk3"/>
@@ -175,7 +233,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="obW-E6-0ao" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v7W-BI-JoA" secondAttribute="trailing" constant="10" id="07V-iP-pnV"/>
+                                                <constraint firstItem="obW-E6-0ao" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v7W-BI-JoA" secondAttribute="trailing" priority="750" constant="10" id="07V-iP-pnV"/>
                                                 <constraint firstItem="yFM-rb-AIq" firstAttribute="centerY" secondItem="Cyv-Vl-fWN" secondAttribute="centerY" id="5Rk-f5-IpD"/>
                                                 <constraint firstItem="QFX-vk-hlU" firstAttribute="top" secondItem="tZF-vw-kSO" secondAttribute="bottom" constant="16" id="6IO-90-nns"/>
                                                 <constraint firstItem="tZF-vw-kSO" firstAttribute="leading" secondItem="dbm-ZW-m04" secondAttribute="leading" id="A7J-US-LE9"/>
@@ -214,7 +272,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Корзина" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kpq-FL-E6a">
-                                        <rect key="frame" x="171.5" y="54" width="71.5" height="22"/>
+                                        <rect key="frame" x="175" y="57" width="64.5" height="19"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -241,11 +299,16 @@
                             <constraint firstItem="KyC-4O-Nef" firstAttribute="leading" secondItem="M7f-bx-YWS" secondAttribute="leading" id="J7O-Nl-swS"/>
                             <constraint firstItem="M7f-bx-YWS" firstAttribute="trailing" secondItem="KyC-4O-Nef" secondAttribute="trailing" id="KWz-wi-xTM"/>
                             <constraint firstItem="M7f-bx-YWS" firstAttribute="bottom" secondItem="b7v-X8-uWm" secondAttribute="bottom" id="Lr9-g7-WI2"/>
+                            <constraint firstItem="0OD-Gm-kOl" firstAttribute="bottom" secondItem="M7f-bx-YWS" secondAttribute="bottom" id="OQN-Xw-jtC"/>
                             <constraint firstItem="b7v-X8-uWm" firstAttribute="leading" secondItem="M7f-bx-YWS" secondAttribute="leading" id="ThB-4L-bDO"/>
+                            <constraint firstItem="0OD-Gm-kOl" firstAttribute="top" secondItem="KyC-4O-Nef" secondAttribute="bottom" id="XuI-mM-oLZ"/>
+                            <constraint firstItem="0OD-Gm-kOl" firstAttribute="trailing" secondItem="M7f-bx-YWS" secondAttribute="trailing" id="bAB-tx-Nyn"/>
                             <constraint firstItem="M7f-bx-YWS" firstAttribute="trailing" secondItem="b7v-X8-uWm" secondAttribute="trailing" id="dhR-F8-aJO"/>
+                            <constraint firstItem="0OD-Gm-kOl" firstAttribute="leading" secondItem="M7f-bx-YWS" secondAttribute="leading" id="peW-Dk-2CV"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emptyView" destination="0OD-Gm-kOl" id="4y6-AX-8th"/>
                         <outlet property="tableView" destination="b7v-X8-uWm" id="D7V-M8-lqv"/>
                     </connections>
                 </viewController>
@@ -265,7 +328,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оформление" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mI-Vk-mAg">
-                                        <rect key="frame" x="151.5" y="54" width="111" height="22"/>
+                                        <rect key="frame" x="157.5" y="57" width="99" height="19"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -330,6 +393,7 @@
         <image name="button_minus" width="16.333333969116211" height="2"/>
         <image name="button_plus" width="16.333333969116211" height="16"/>
         <image name="button_remove" width="24" height="24"/>
+        <image name="emptyOrders" width="280" height="270"/>
         <image name="icon_back" width="42" height="42"/>
         <image name="medicineImagePlaceholder" width="112" height="112"/>
         <namedColor name="backgroundGray">
