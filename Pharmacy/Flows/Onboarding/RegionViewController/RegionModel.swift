@@ -75,6 +75,7 @@ final class RegionModel: EventNode {
                     firstCharacter = region.name.first ?? firstCharacter
                 }
             }
+            
         } else {
             
             let regions = allRegions.filter({$0.name.lowercased().contains(searchText)})

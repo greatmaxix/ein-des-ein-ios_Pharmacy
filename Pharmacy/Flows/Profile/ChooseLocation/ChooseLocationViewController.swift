@@ -107,6 +107,14 @@ extension ChooseLocationViewController: UITableViewDataSource, UITableViewDelega
 
 extension ChooseLocationViewController: ChooseLocationViewModelOutput {
     
+    func searchActionReloading() {
+        UIView.transition(with: tableView,
+                          duration: 0.35,
+                          options: .transitionCrossDissolve,
+                          animations: {[weak self] in
+                            self?.tableView.reloadData() })
+    }
+    
     func reloadTableViewData(state: Bool) {
         activityIndicator.hide(animated: true, afterDelay: 0.3)
         
@@ -148,13 +156,10 @@ extension ChooseLocationViewController: SimpleNavigationBarDelegate {
     }
     
     func search(returnText: String) {
-
         model.filterRegions(searchText: returnText)
-        tableView.reloadData()
     }
     
     func cancelSearch() {
         model.filterRegions(searchText: "")
-        tableView.reloadData()
     }
 }

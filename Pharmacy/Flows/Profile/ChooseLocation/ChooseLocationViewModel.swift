@@ -12,6 +12,7 @@ import EventsTree
 protocol ChooseLocationViewModelOutput: class {
     func reloadTableViewData(state: Bool)
     func applyTableViewCell(indexPath: IndexPath)
+    func searchActionReloading()
 }
 
 // MARK: - Configuration enum for ChooseLocationViewModel
@@ -39,7 +40,7 @@ enum ChooseLocationViewModelConfuguration {
 }
 
 protocol ChooseLocationViewModelInput: class {
-    var tableViewSections: [TableViewSection] { get }
+    var tableViewSections: [TableViewSection<Region>] { get }
     var indexForSections: [String] { get }
     func load()
     func close()
@@ -56,9 +57,10 @@ protocol ChooseLocationViewModelInput: class {
 class ChooseLocationViewModel: Model {
     
     weak var output: ChooseLocationViewModelOutput!
-    private(set) var sections: [TableViewSection] = []
+    private(set) var sections: [TableViewSection<Region>] = []
+    
+    private var backupSection: [TableViewSection<Region>] = []
     private var index: [String] = []
-    private var searchTerm: String = ""
     
     private let countryProvider = DataManager<LocationAPI, RegionResponse>()
     private let updateUserProvider = DataManager<ProfileAPI, ProfileResponse>()
@@ -88,6 +90,7 @@ extension ChooseLocationViewModel: ChooseLocationViewControllerOutput {}
 
 // MARK: - ChooseLocationViewModelInput
 extension ChooseLocationViewModel: ChooseLocationViewModelInput {
+    
     var isProfileConfiguration: Bool {
         return !configuretion.isProfileConfiguration
     }
@@ -97,8 +100,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     }
     
     func filterRegions(searchText: String) {
-        //updateSections(searchText: searchText)
-        
+        updateSections(searchText: searchText)
     }
     
     func startLocationTracking() {
@@ -174,19 +176,21 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
         countryProvider.load(target: .getRegions(nil, nil)) {[unowned self] (result) in
             switch result {
             case .success(let response):
-                guard let region = response.regions.first else {return}
                 
-                self.countryResionsData = region.subRegions!
-                let array =  Dictionary(grouping: self.countryResionsData) {$0.name.prefix(1)}
+            guard let region = response.regions.first else {return}
+                
+            self.countryResionsData = region.subRegions!
+                
+            let array =  Dictionary(grouping: self.countryResionsData) {$0.name.prefix(1)}
                     .sorted(by: { $0.0 < $1.0 })
                         
-                array.forEach {[unowned self] (key, value) in
+            array.forEach {[unowned self] (key, value) in
                         self.index.append(key.description)
                         self.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
                 }
-
-                self.output.reloadTableViewData(state: state)
-                state = false
+            self.output.reloadTableViewData(state: state)
+            state = false
+            self.backupSection = sections
             case .failure(let error):
                 print("Was error \(error.localizedDescription)")
             }
@@ -197,8 +201,26 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
         raise(event: AboutAppEvent.close)
     }
     
-    var tableViewSections: [TableViewSection] {
+    var tableViewSections: [TableViewSection<Region>] {
         sections
+    }
+    
+    private func updateSections(searchText: String) {
+        let trimmedTerm = searchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        guard !trimmedTerm.isEmpty else {
+            sections = backupSection
+            index.removeAll()
+            sections.forEach { index.append($0.header!) }
+            self.output.searchActionReloading()
+            return }
+        
+        guard let firstCharacter = trimmedTerm.first?.description else { return }
+        
+        self.sections = sections.filter({ ($0.header?.lowercased().contains(firstCharacter))!})
+        self.index = [firstCharacter.uppercased()]
+        self.sections[0].items = sections[0].items.filter({$0.name.lowercased().contains(trimmedTerm.lowercased())})
+        
+        self.output.searchActionReloading()
     }
 }
 

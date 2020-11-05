@@ -119,6 +119,10 @@ final class SimpleNavigationBar: UINavigationBar {
         contentView.rightButton.addTarget(self, action: #selector(rightItemAction), for: .touchUpInside)
         contentView.searchButton.addTarget(self, action: #selector(cancelSearchAction), for: .touchUpInside)
         contentView.textField.delegate = self
+        
+        contentView.cancelSearchViewButtonHandler = {[weak self] in
+            self?.barDelegate?.cancelSearch()
+        }
     }
     
     @objc private func leftItemAction() {
@@ -130,7 +134,6 @@ final class SimpleNavigationBar: UINavigationBar {
     }
     
     @objc private func cancelSearchAction() {
-       
         barDelegate?.cancelSearch()
     }
 }

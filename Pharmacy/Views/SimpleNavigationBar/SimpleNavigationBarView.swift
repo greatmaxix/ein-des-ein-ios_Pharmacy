@@ -16,6 +16,8 @@ class SimpleNavigationBarView: UIView {
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var searchButton: UIButton!
+    
+    var cancelSearchViewButtonHandler: EmptyClosure?
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var searchLeadingConstraint: NSLayoutConstraint!
@@ -46,8 +48,9 @@ class SimpleNavigationBarView: UIView {
     
     @IBAction func clearSearch(_ sender: Any) {
         textField.text = nil
-        hideSearch()
+        cancelSearchViewButtonHandler?()
         
+        hideSearch()
     }
     
     @IBAction func hideSearch(_ sender: Any) {
