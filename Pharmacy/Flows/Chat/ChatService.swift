@@ -39,10 +39,7 @@ final class ChatService {
             print("Open connection")
         }
         
-        eventSource.onComplete {[weak self] (code, isComlete, error) in
-            if code == 200 {
-                self?.eventSource.connect()
-            }
+        eventSource.onComplete {(code, isComlete, error) in
             print("Сomplete - \(code ?? 0), \(isComlete ?? false), \(error?.localizedDescription ?? "")")
         }
         

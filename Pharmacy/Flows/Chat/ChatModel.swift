@@ -26,15 +26,9 @@ protocol ChatOutput: MessagesViewController {
 
 final class ChatModel: Model, ChatInput {
    
-    var output: ChatOutput! {
+    weak var output: ChatOutput? {
         didSet {
-            output.messageInputBar.delegate = self
-//            output.subscribeToKeyboard {[weak self] keyboardEvent in
-//                switch keyboardEvent {
-//                case .willShow: self?.output.messagesCollectionView.scrollToBottom(animated: false)
-//                default: break
-//                }
-//            }
+            output?.messageInputBar.delegate = self
         }
     }
     private var messages: [Message] = []
@@ -44,6 +38,10 @@ final class ChatModel: Model, ChatInput {
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
     
+    deinit {
+        print("Chat model deinit")
+    }
+    
     override init(parent: EventNode?) {
         super.init(parent: parent)
     }
@@ -51,7 +49,9 @@ final class ChatModel: Model, ChatInput {
     func load() {
         switch UserSession.shared.authorizationStatus {
         case .authorized:
+            output?.showActivityIndicator()
             chatProvider.load(target: .chatList) { [weak self] result in
+                self?.output?.hideActivityIndicator()
                 switch result {
                 case .success(let response):
                     self?.didReciveChat(list: response.items)
@@ -60,8 +60,9 @@ final class ChatModel: Model, ChatInput {
                 }
             }
         case .notAuthorized:
-            self.messages = []
-            Message.unauthorizedMessages().forEach {self.insertMessage($0)}
+            self.messages = Message.unauthorizedMessages()
+            self.output?.messagesCollectionView.reloadData()
+            self.output?.messageInputBar.isHidden = true
         }
     }
     
@@ -69,13 +70,17 @@ final class ChatModel: Model, ChatInput {
     
     private func didReciveChat(list: [Chat]) {
         if let openedChat = list.first(where: {$0.status == .opened || $0.status == .answered}) {
+            output?.showActivityIndicator()
             messagesListProvider.load(target: .messageList((openedChat.id))) {[weak self] result in
+                self?.output?.hideActivityIndicator()
                 switch result {
                 case .success(let response):
                     response.items.forEach {
                         self?.didRecive(message: $0)
                     }
-                    self?.output.messagesCollectionView.scrollToBottom()
+                    self?.output?.messagesCollectionView.scrollToBottom(animated: true)
+                    self?.output?.messageInputBar.isHidden = false
+                    self?.output?.messageInputBar.becomeFirstResponder()
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -85,12 +90,14 @@ final class ChatModel: Model, ChatInput {
             self.chatService = ChatService(openedChat, delegate: self)
         } else {
             self.messages = [Message(.routeSwitch, sender: sender, messageId: "0", date: Date())]
-            self.output.messagesCollectionView.reloadData()
+            self.output?.messagesCollectionView.reloadData()
         }
     }
     
     private func didSelect(route: ChatAPI.ChatRoute) {
+        output?.showActivityIndicator()
         chatProvider.load(target: .create(route)) {[weak self] result in
+            self?.output?.hideActivityIndicator()
             switch result {
             case .success(let result):
                 self?.didReciveChat(list: result.items)
@@ -111,14 +118,14 @@ final class ChatModel: Model, ChatInput {
         
         // Reload last section to update header/footer labels and insert a new one
         
-        output.messagesCollectionView.performBatchUpdates({
-            output.messagesCollectionView.insertSections([messages.count - 1])
-            if messages.count >= 2 {
-                output.messagesCollectionView.reloadSections([messages.count - 2])
-            }
+        output?.messagesCollectionView.performBatchUpdates({
+            output?.messagesCollectionView.insertSections([messages.count - 1])
+//            if messages.count >= 2 {
+//                output.messagesCollectionView.reloadSections([messages.count - 2])
+//            }
         }, completion: { [weak self] _ in
             if self?.isLastSectionVisible() == true {
-                self?.output.messagesCollectionView.scrollToBottom(animated: true)
+                self?.output?.messagesCollectionView.scrollToBottom(animated: true)
             }
         })
     }
@@ -129,7 +136,7 @@ final class ChatModel: Model, ChatInput {
         
         let lastIndexPath = IndexPath(item: 0, section: messages.count - 1)
         
-        return output.messagesCollectionView.indexPathsForVisibleItems.contains(lastIndexPath)
+        return output?.messagesCollectionView.indexPathsForVisibleItems.contains(lastIndexPath) ?? false
     }
 }
 
@@ -175,7 +182,7 @@ extension ChatModel: MessagesDataSource {
     }
     
     func customCellSizeCalculator(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CellSizeCalculator {
-        return output.customMessageSizeCalculator
+        return output?.customMessageSizeCalculator ?? CellSizeCalculator()
     }
 }
 
@@ -186,7 +193,6 @@ extension ChatModel: MessagesDisplayDelegate {
 }
 
 extension ChatModel: MessagesLayoutDelegate {
-    
 }
 
 extension ChatModel: InputBarAccessoryViewDelegate {
