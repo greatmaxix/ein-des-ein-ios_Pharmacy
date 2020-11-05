@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -22,7 +23,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="OrderCommentCell" customModule="Pharmacy" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -32,26 +33,52 @@
                         <color key="textColor" name="textDarkBlue"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="954-Eb-bzi">
-                        <rect key="frame" x="16" y="51" width="288" height="39"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="textColor" name="textDarkBlue"/>
-                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
-                        <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
-                    </textView>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpZ-We-Vz0">
+                        <rect key="frame" x="16" y="51" width="288" height="72"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="954-Eb-bzi">
+                                <rect key="frame" x="8" y="0.0" width="272" height="72"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="1VE-ut-he3"/>
+                                </constraints>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="954-Eb-bzi" secondAttribute="trailing" constant="8" id="C7s-nG-Ivg"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="dUw-ek-hsN"/>
+                            <constraint firstAttribute="bottom" secondItem="954-Eb-bzi" secondAttribute="bottom" id="uVl-Fq-Kg2"/>
+                            <constraint firstItem="954-Eb-bzi" firstAttribute="top" secondItem="lpZ-We-Vz0" secondAttribute="top" id="ul0-eO-1dV"/>
+                            <constraint firstItem="954-Eb-bzi" firstAttribute="leading" secondItem="lpZ-We-Vz0" secondAttribute="leading" constant="8" id="vyv-rV-qxq"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" name="backgroundGray"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="954-Eb-bzi" secondAttribute="bottom" constant="10" id="9kA-EI-kf1"/>
-                    <constraint firstItem="954-Eb-bzi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="H20-md-GDp"/>
-                    <constraint firstAttribute="trailing" secondItem="954-Eb-bzi" secondAttribute="trailing" constant="16" id="IfD-4u-1qr"/>
+                    <constraint firstItem="lpZ-We-Vz0" firstAttribute="top" secondItem="ljc-6e-FnV" secondAttribute="bottom" constant="8" id="JSJ-H6-rzR"/>
                     <constraint firstItem="ljc-6e-FnV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="O5N-pd-LUo"/>
-                    <constraint firstItem="954-Eb-bzi" firstAttribute="top" secondItem="ljc-6e-FnV" secondAttribute="bottom" constant="8" id="agl-x3-yd8"/>
+                    <constraint firstAttribute="bottom" secondItem="lpZ-We-Vz0" secondAttribute="bottom" constant="16" id="Yt0-cv-Khi"/>
+                    <constraint firstAttribute="trailing" secondItem="lpZ-We-Vz0" secondAttribute="trailing" constant="16" id="cdX-Xo-MQY"/>
                     <constraint firstItem="ljc-6e-FnV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="j2V-O5-QZU"/>
+                    <constraint firstItem="lpZ-We-Vz0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="kfB-Gc-NSn"/>
+                    <constraint firstItem="lpZ-We-Vz0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="pD0-U3-16b"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="corneredView" destination="lpZ-We-Vz0" id="py4-WF-G8Z"/>
+                <outlet property="textview" destination="954-Eb-bzi" id="7iH-Wg-v16"/>
+            </connections>
             <point key="canvasLocation" x="69.565217391304358" y="59.598214285714285"/>
         </tableViewCell>
     </objects>
@@ -62,5 +89,8 @@
         <namedColor name="textDarkBlue">
             <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

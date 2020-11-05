@@ -118,6 +118,8 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
     private func commentCell(at indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderCommentCell", for: indexPath) as? OrderCommentCell else { return UITableViewCell() }
 
+        cell.delegate = self
+
         return cell
     }
 
@@ -174,6 +176,14 @@ extension CreateOrderViewController: CreateOrderViewControllerInput {
         } else {
             tableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
         }
+    }
+
+}
+
+extension CreateOrderViewController: CommentCellProtocol {
+
+    func valueChanged(comment: String) {
+        model.update(comment: comment)
     }
 
 }

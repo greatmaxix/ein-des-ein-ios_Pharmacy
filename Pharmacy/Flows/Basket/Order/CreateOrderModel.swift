@@ -28,6 +28,7 @@ protocol CreateOrderModelInput: class {
     func changeDelivery(type: DeliveryType)
     func back()
     func createOrder()
+    func update(comment: String)
 }
 
 protocol CreateOrderModelOutput: class {
@@ -187,6 +188,10 @@ extension CreateOrderModel: CreateOrderViewControllerOutput {
 
     func type(at indexPath: IndexPath) -> CreateOrderCellType {
         return cellTypes[indexPath.row]
+    }
+
+    func update(comment: String) {
+        self.comment = comment
     }
 
     func back() {
