@@ -8,6 +8,11 @@
 
 import MessageKit
 
+struct MercuryMessageResponse {
+    var type: String
+    var body: ChatMessage
+}
+
 struct Message: MessageType {
     
     enum CustomMessageKind {
@@ -47,7 +52,7 @@ struct Message: MessageType {
     init(_ kind: CustomMessageKind, sender: ChatSender, messageId: String, date: Date) {
         self.init(kind: .custom(kind), sender: sender, messageId: messageId, date: date)
     }
-    
+
     static func unauthorizedMessages() -> [Message] {
         let sender = ChatSender(senderId: "-1", displayName: "Фармацевт")
         let user = ChatSender.guest()

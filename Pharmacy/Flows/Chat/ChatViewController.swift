@@ -26,6 +26,10 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
         messagesCollectionView.messagesDataSource = model
         messagesCollectionView.messagesDisplayDelegate = model
         messagesCollectionView.messagesLayoutDelegate = model
+        scrollsToBottomOnKeyboardBeginsEditing = true
+        maintainPositionOnKeyboardFrameChanged = true
+        showMessageTimestampOnSwipeLeft = true
+        
         messagesCollectionView.register(ChatButtonCollectionViewCell.nib, forCellWithReuseIdentifier: ChatButtonCollectionViewCell.reuseIdentifier)
         messagesCollectionView.register(ChatRouteCollectionViewCell.nib, forCellWithReuseIdentifier: ChatRouteCollectionViewCell.reuseIdentifier)
         messagesCollectionView.register(ChatCloseCollectionViewCell.nib, forCellWithReuseIdentifier: ChatCloseCollectionViewCell.reuseIdentifier)
@@ -42,10 +46,6 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
 }
     
 extension ChatViewController: ChatOutput {
-    func didResive(message: Message) {
-        messagesCollectionView.reloadData()
-    }
-    
     var customMessageSizeCalculator: MessageSizeCalculator {
         return sizeCalculator
     }

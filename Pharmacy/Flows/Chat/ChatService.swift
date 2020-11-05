@@ -10,7 +10,7 @@ import Foundation
 import IKEventSource
 
 protocol ChatServiceDelegate: class {
-    func didRecive(message: Message)
+    func didRecive(message: ChatMessage)
 }
 
 final class ChatService {
@@ -18,14 +18,18 @@ final class ChatService {
     enum ChatStatus: String, Codable, Equatable {
         case opened, answered, requestForClosing, closed
     }
+    
+    enum EventName: String {
+        case message, none = ""
+    }
+    
     weak var delegate: ChatServiceDelegate?
     let chat: Chat
-    
+    private let decoder = JSONDecoder.init()
     private let eventSource: EventSource
     
     init(_ chat: Chat, delegate: ChatServiceDelegate?) {
         self.chat = chat
-        let uuid = UserSession.shared.user
         let url = URL(string: "https://mercure.pharmacies.fmc-dev.com/.well-known/mercure?topic=\(chat.topicName)")!
         self.delegate = delegate
         
@@ -35,13 +39,30 @@ final class ChatService {
             print("Open connection")
         }
         
-        eventSource.onComplete { (code, isComlete, error) in
+        eventSource.onComplete {[weak self] (code, isComlete, error) in
+            if code == 200 {
+                self?.eventSource.connect()
+            }
             print("Сomplete - \(code ?? 0), \(isComlete ?? false), \(error?.localizedDescription ?? "")")
         }
         
-        eventSource.addEventListener("message") {[weak self] (code, response, error) in
+        eventSource.onMessage {[weak self] (_, eventName, response) in
+            let event = EventName(rawValue: eventName ?? "") ?? EventName.none
             
-            print("Message - \(String(describing: code)) \(String(describing: response)) \(error)")
+            if let r = response {
+                do {
+                    switch event {
+                    case .message:
+                        if let messageResponse = try self?.decoder.decode(ChatMessagesResponse.self, from: Data(r.utf8)) {
+                            self?.delegate?.didRecive(message: messageResponse.body.item)
+                        }
+                    case .none: print("Unknow chat event")
+                    }
+                } catch {
+                    print("DecodeErorr")
+                }
+            }
+            
         }
         
         eventSource.connect()

@@ -14,6 +14,7 @@ final class UserEntity: NSManagedObject {
     // MARK: - Properties
     @NSManaged public private(set) var identifier: Int64
     @NSManaged public private(set) var name: String
+    @NSManaged public private(set) var topicName: String?
     @NSManaged public private(set) var email: String?
     @NSManaged public private(set) var phone: String
     @NSManaged public private(set) var uuid: String
@@ -27,6 +28,8 @@ final class UserEntity: NSManagedObject {
         name = dto.name
         email = dto.email
         phone = dto.phone
+        topicName = dto.topicName
+        uuid = dto.uuid
     }
     
     func uppdate(avatar: AvatarEntity?) {

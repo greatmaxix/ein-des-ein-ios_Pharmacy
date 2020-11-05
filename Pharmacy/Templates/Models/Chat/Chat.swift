@@ -47,4 +47,8 @@ struct ChatMessage: Codable, Equatable {
     var createdAt: String
     var ownerType: String
     var ownerUuid: String
+    
+    var isSenderCurrentUser: Bool {
+        return ownerUuid == UserSession.shared.userUUID
+    }
 }

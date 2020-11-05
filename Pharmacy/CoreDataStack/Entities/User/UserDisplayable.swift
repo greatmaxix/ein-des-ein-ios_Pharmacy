@@ -10,6 +10,7 @@ import Foundation
 
 struct UserDisplayable {
     let name: String
+    let uuid: String
     let email: String?
     let phone: String
     var avatarURL: URL?

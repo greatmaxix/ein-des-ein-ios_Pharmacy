@@ -16,7 +16,7 @@ enum ChatAPI {
 
     case chatList
     case chatDetails(String)
-    case chatMessages(String)
+    case messageList(Int)
     case createMessage(Int, String)
     case create(ChatRoute)
     case lastOpened
@@ -27,7 +27,7 @@ extension ChatAPI: RequestConvertible {
         switch self {
         case .chatList: return "chat/chats"
         case .chatDetails(let id): return "customer/chat/\(id)"
-        case .chatMessages(let id): return "chat/chat/\(id)/messages"
+        case .messageList(let id): return "chat/chat/\(id)/messages"
         case .createMessage(let id, _): return "chat/chat/\(id)/message"
         case .create: return "customer/chat"
         case .lastOpened: return "user/chat/last-opened-chats"
@@ -40,7 +40,7 @@ extension ChatAPI: RequestConvertible {
             return .get
         case .chatDetails:
             return .get
-        case .chatMessages:
+        case .messageList:
             return .get
         case .createMessage:
             return .post
@@ -57,7 +57,7 @@ extension ChatAPI: RequestConvertible {
         case .chatList: return .requestPlain
         case .lastOpened: return .requestPlain
         case .chatDetails: return .requestPlain
-        case .chatMessages: return .requestPlain
+        case .messageList: return .requestPlain
         case .createMessage(_, let message): return .requestParameters(parameters: ["text": message], encoding: JSONEncoding.default)
         }
     }

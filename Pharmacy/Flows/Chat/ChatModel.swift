@@ -22,7 +22,6 @@ protocol ChatInput: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutD
 
 protocol ChatOutput: MessagesViewController {
     var customMessageSizeCalculator: MessageSizeCalculator { get }
-    func didResive(message: Message)
 }
 
 final class ChatModel: Model, ChatInput {
@@ -30,11 +29,18 @@ final class ChatModel: Model, ChatInput {
     var output: ChatOutput! {
         didSet {
             output.messageInputBar.delegate = self
+//            output.subscribeToKeyboard {[weak self] keyboardEvent in
+//                switch keyboardEvent {
+//                case .willShow: self?.output.messagesCollectionView.scrollToBottom(animated: false)
+//                default: break
+//                }
+//            }
         }
     }
     private var messages: [Message] = []
-    private var provider = DataManager<ChatAPI, ChatResponse>()
-    private var createMessagesProvider = DataManager<ChatAPI, CreateMessagesResponse>()
+    private var chatProvider = DataManager<ChatAPI, ChatListResponse>()
+    private var messagesListProvider = DataManager<ChatAPI, MessageListResponse>()
+    private var createMessageProvider = DataManager<ChatAPI, CreateMessageResponse>()
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
     
@@ -45,7 +51,7 @@ final class ChatModel: Model, ChatInput {
     func load() {
         switch UserSession.shared.authorizationStatus {
         case .authorized:
-            provider.load(target: .chatList) { [weak self] result in
+            chatProvider.load(target: .chatList) { [weak self] result in
                 switch result {
                 case .success(let response):
                     self?.didReciveChat(list: response.items)
@@ -54,16 +60,27 @@ final class ChatModel: Model, ChatInput {
                 }
             }
         case .notAuthorized:
-            self.messages = Message.unauthorizedMessages()
-        }
-
-        self.messages.forEach {
-            output.didResive(message: $0)
+            self.messages = []
+            Message.unauthorizedMessages().forEach {self.insertMessage($0)}
         }
     }
     
+//    Load chat messages if opened or answered chat exist
+    
     private func didReciveChat(list: [Chat]) {
         if let openedChat = list.first(where: {$0.status == .opened || $0.status == .answered}) {
+            messagesListProvider.load(target: .messageList((openedChat.id))) {[weak self] result in
+                switch result {
+                case .success(let response):
+                    response.items.forEach {
+                        self?.didRecive(message: $0)
+                    }
+                    self?.output.messagesCollectionView.scrollToBottom()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
             self.sender = ChatSender.currentUser()
             self.chatService = ChatService(openedChat, delegate: self)
         } else {
@@ -73,7 +90,7 @@ final class ChatModel: Model, ChatInput {
     }
     
     private func didSelect(route: ChatAPI.ChatRoute) {
-        provider.load(target: .create(route)) {[weak self] result in
+        chatProvider.load(target: .create(route)) {[weak self] result in
             switch result {
             case .success(let result):
                 self?.didReciveChat(list: result.items)
@@ -85,6 +102,34 @@ final class ChatModel: Model, ChatInput {
     
     private func authorize() {
         raise(event: OnboardingEvent.close)
+    }
+    
+    // MARK: - Helpers
+    
+    func insertMessage(_ message: Message) {
+        messages.append(message)
+        
+        // Reload last section to update header/footer labels and insert a new one
+        
+        output.messagesCollectionView.performBatchUpdates({
+            output.messagesCollectionView.insertSections([messages.count - 1])
+            if messages.count >= 2 {
+                output.messagesCollectionView.reloadSections([messages.count - 2])
+            }
+        }, completion: { [weak self] _ in
+            if self?.isLastSectionVisible() == true {
+                self?.output.messagesCollectionView.scrollToBottom(animated: true)
+            }
+        })
+    }
+    
+    func isLastSectionVisible() -> Bool {
+        
+        guard !messages.isEmpty else { return false }
+        
+        let lastIndexPath = IndexPath(item: 0, section: messages.count - 1)
+        
+        return output.messagesCollectionView.indexPathsForVisibleItems.contains(lastIndexPath)
     }
 }
 
@@ -147,7 +192,7 @@ extension ChatModel: MessagesLayoutDelegate {
 extension ChatModel: InputBarAccessoryViewDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         guard let chatId = chatService?.chat.id else { return }
-        createMessagesProvider.load(target: .createMessage(chatId, text)) { result in
+        createMessageProvider.load(target: .createMessage(chatId, text)) { result in
             switch result {
             case .success:
                 print("Message sent")
@@ -159,7 +204,14 @@ extension ChatModel: InputBarAccessoryViewDelegate {
 }
 
 extension ChatModel: ChatServiceDelegate {
-    func didRecive(message: Message) {
-        
+    func didRecive(message: ChatMessage) {
+        if message.isSenderCurrentUser {
+            let m = Message(message.text, sender: self.sender, messageId: "\(message.id)", date: message.createdAt.date() ?? Date())
+            self.insertMessage(m)
+        } else {
+            let s = ChatSender(senderId: "\(message.ownerUuid)", displayName: message.ownerType)
+            let m = Message(message.text, sender: s, messageId: "\(message.id)", date: message.createdAt.date() ?? Date())
+            self.insertMessage(m)
+        }
     }
 }
