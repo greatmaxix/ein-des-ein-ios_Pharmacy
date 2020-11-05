@@ -15,7 +15,7 @@ class HouseValidator: BaseTextValidator {
     }
     
     override var pattern: String {
-        return "^[1-9][0-9][0-9]?$|^1000$"
+        return "^[1-9][0-9]?[0-9]?$|^1000$"
     }
     
     override var errorText: String {
