@@ -73,23 +73,23 @@
                                 <rect key="frame" x="0.0" y="762" width="414" height="115"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="odX-Uo-xhq">
-                                        <rect key="frame" x="16" y="14" width="382" height="52"/>
+                                        <rect key="frame" x="16" y="14" width="382" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4g8-gw-kOP">
-                                                <rect key="frame" x="0.0" y="0.0" width="52" height="52"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="52" id="4EY-Xg-v70"/>
-                                                    <constraint firstAttribute="width" constant="52" id="WbW-Ak-LOT"/>
+                                                    <constraint firstAttribute="height" constant="48" id="4EY-Xg-v70"/>
+                                                    <constraint firstAttribute="width" constant="48" id="WbW-Ak-LOT"/>
                                                 </constraints>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" image="wishList"/>
+                                                <state key="normal" image="button_wishlist"/>
                                                 <state key="selected" image="wishListSelected"/>
                                                 <connections>
                                                     <action selector="wishListAction:" destination="va1-3N-jO0" eventType="touchUpInside" id="3xG-4t-cZ4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wse-rH-8Di">
-                                                <rect key="frame" x="68" y="2" width="314" height="48"/>
+                                                <rect key="frame" x="64" y="0.0" width="318" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="Cm7-4O-FWO"/>
                                                 </constraints>
@@ -1075,6 +1075,7 @@
     <resources>
         <image name="button_default_bg" width="280" height="48"/>
         <image name="button_pressed_bg" width="280" height="48"/>
+        <image name="button_wishlist" width="70" height="69.5"/>
         <image name="crosshair" width="24" height="24"/>
         <image name="decreaseMap" width="24" height="24"/>
         <image name="farmacyPlaceholder" width="48" height="48"/>
@@ -1082,7 +1083,6 @@
         <image name="map" width="32" height="32"/>
         <image name="shopping bag" width="32" height="32"/>
         <image name="truck" width="32" height="32"/>
-        <image name="wishList" width="70" height="70"/>
         <image name="wishListSelected" width="70" height="70"/>
         <namedColor name="applyBlueGray">
             <color red="0.6470588235294118" green="0.70588235294117652" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

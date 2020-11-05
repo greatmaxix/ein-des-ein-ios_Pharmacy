@@ -149,7 +149,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="deliveryImage" destination="1dQ-ux-5oV" id="BXb-E6-WLk"/>
+                <outlet property="deliveryLabel" destination="O3i-mI-et3" id="FPK-A7-24L"/>
                 <outlet property="deliveryView" destination="gzG-zb-NlR" id="rIy-fU-1Tw"/>
+                <outlet property="pickupImage" destination="fMg-rg-ElA" id="a0c-E9-x1D"/>
+                <outlet property="pickupLabel" destination="Oan-6X-YDP" id="mxd-bc-uBW"/>
                 <outlet property="selfView" destination="vlZ-AY-Hbv" id="XNS-8J-sUH"/>
             </connections>
             <point key="canvasLocation" x="69.565217391304358" y="59.598214285714285"/>

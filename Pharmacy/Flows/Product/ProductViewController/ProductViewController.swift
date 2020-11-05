@@ -82,7 +82,8 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
         pageController?.dataSource = self
         pageController?.delegate = self
         pageControl.numberOfPages = viewControllers.count
-        
+        pageControl.isHidden = (viewControllers.count == 1) ? true : false
+
         tableView.tableFooterView = nil
         tableView.tableHeaderView = productContainerView
     }
@@ -116,6 +117,7 @@ extension ProductViewController: ProductViewControllerInput {
         viewControllers = product.imageURLs.count == 0 ? [ProductPageViewController.createWith(image: R.image.medicineImagePlaceholder()!, title: "")] : product.imageURLs.map {ProductPageViewController.createWith(url: $0, title: "")}
         pageController?.setViewControllers([viewControllers[0]], direction: .forward, animated: true, completion: nil)
         pageControl.numberOfPages = viewControllers.count
+        pageControl.isHidden = (viewControllers.count == 1) ? true : false
         model.dataSource.assign(tableView: tableView)
         tableView.reloadData()
         activityIndicator.hide(animated: true)

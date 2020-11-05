@@ -12,6 +12,10 @@ class OrderDeliveryCell: UITableViewCell {
 
     @IBOutlet weak var deliveryView: UIView!
     @IBOutlet weak var selfView: UIView!
+    @IBOutlet weak var deliveryLabel: UILabel!
+    @IBOutlet weak var deliveryImage: UIImageView!
+    @IBOutlet weak var pickupImage: UIImageView!
+    @IBOutlet weak var pickupLabel: UILabel!
 
     var deliveryHandle: EmptyClosure?
     var selfHandler: EmptyClosure?
@@ -26,6 +30,9 @@ class OrderDeliveryCell: UITableViewCell {
 
         deliveryView.backgroundColor = R.color.welcomeBlue()
         selfView.backgroundColor = .white
+
+        deliveryLabel.font = R.font.openSansSemiBold(size: 14)
+        pickupLabel.font = R.font.openSansRegular(size: 14)
     }
 
     @IBAction func selectSelf(_ sender: Any) {
@@ -33,6 +40,9 @@ class OrderDeliveryCell: UITableViewCell {
 
         deliveryView.backgroundColor = .white
         selfView.backgroundColor = R.color.welcomeBlue()
+
+        deliveryLabel.font = R.font.openSansRegular(size: 14)
+        pickupLabel.font = R.font.openSansSemiBold(size: 14)
     }
 
 }

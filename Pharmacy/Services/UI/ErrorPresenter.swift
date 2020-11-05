@@ -15,6 +15,14 @@ protocol ErrorPresenter {
 
 extension UIViewController: ErrorPresenter {
 
+    func showMessage(text: String) {
+        let alert = UIAlertController(title: nil, message: text, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true)
+    }
+
     func showError(text: String) {
         let alert = UIAlertController(title: "Ошибка!", message: text, preferredStyle: .alert)
 

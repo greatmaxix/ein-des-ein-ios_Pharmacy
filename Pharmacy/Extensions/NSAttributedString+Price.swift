@@ -29,7 +29,7 @@ extension NSAttributedString {
         }
         
         let fromFont = R.font.openSansRegular(size: 12)!
-        let font =  R.font.openSansBold(size: 18)!
+        let font =  R.font.openSansBold(size: 24)!
         let color = R.color.welcomeBlue()!
         
         let att = NSMutableAttributedString(string: text, attributes: [NSAttributedString.Key.font: font, .foregroundColor: color])
