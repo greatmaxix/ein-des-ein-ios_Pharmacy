@@ -18,8 +18,6 @@ class ChooseLocationViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     var model: ChooseLocationViewControllerOutput!
-    //private weak var searchBar: SearchBar!
-    //var style: NavigationBarStyle = .search
     
     private enum GUI {
         static let backgroundColor = R.color.welcomeBlue()?.withAlphaComponent(0.1)
@@ -28,13 +26,7 @@ class ChooseLocationViewController: UIViewController {
     }
     
     private lazy var activityIndicator: MBProgressHUD = {
-        let hud = MBProgressHUD(view: view)
-        hud.backgroundView.style = .solidColor
-        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
-        hud.removeFromSuperViewOnHide = false
-        view.addSubview(hud)
-        
-        return hud
+        setupActivityIndicator()
     }()
     
 // MARK: - viewDidLoad
@@ -58,10 +50,12 @@ class ChooseLocationViewController: UIViewController {
     private func setupNavBar() {
       if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
         bar.style = .search
-        bar.isLeftItemHidden = false
+        bar.isLeftItemHidden = model.isProfileConfiguration
         bar.isRightItemHidden = false
-        bar.title = "Search"
-        bar.leftItemTitle = R.string.localize.profileProfile()
+        
+        bar.title = R.string.localize.regionTitle()
+        
+        bar.leftItemTitle = model.getNavBarTitle()
         bar.barDelegate = self
       }
     }
@@ -116,12 +110,13 @@ extension ChooseLocationViewController: ChooseLocationViewModelOutput {
     
     func reloadTableViewData(state: Bool) {
         activityIndicator.hide(animated: true, afterDelay: 0.3)
+        
         let transition = CATransition()
         transition.type = CATransitionType.push
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.fillMode = CAMediaTimingFillMode.removed
         transition.duration = 0.3
-        
+
         transition.subtype = state ? CATransitionSubtype.fromLeft : CATransitionSubtype.fromRight
         self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
 

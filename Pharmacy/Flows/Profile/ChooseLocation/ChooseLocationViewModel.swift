@@ -7,10 +7,34 @@
 //
 
 import Foundation
+import EventsTree
 
 protocol ChooseLocationViewModelOutput: class {
     func reloadTableViewData(state: Bool)
     func applyTableViewCell(indexPath: IndexPath)
+}
+
+// MARK: - Configuration enum for model
+enum ChooseLocationViewModelConfuguration {
+    case profile
+    case onboarding
+    
+    func getBackButtonTitle() -> String {
+        switch self {
+        case .profile:
+           return R.string.localize.profileProfile()
+        case .onboarding:
+            return ""
+        }
+    }
+    var isProfileConfiguration: Bool {
+        switch self {
+        case .profile:
+            return true
+        default:
+            return false
+        }
+    }
 }
 
 protocol ChooseLocationViewModelInput: class {
@@ -23,6 +47,9 @@ protocol ChooseLocationViewModelInput: class {
     func applyRegion(regionId: Int)
     func startLocationTracking()
     func filterRegions(searchText: String)
+    func getNavBarTitle() -> String
+    var isProfileConfiguration: Bool { get }
+    
 }
 
 class ChooseLocationViewModel: Model {
@@ -35,10 +62,19 @@ class ChooseLocationViewModel: Model {
     private let countryProvider = DataManager<LocationAPI, RegionResponse>()
     private let updateUserProvider = DataManager<ProfileAPI, ProfileResponse>()
     
+    private var configuretion: ChooseLocationViewModelConfuguration!
+    
     private var locationService = LocationService()
     
     private var countryResionsData: [Region] = []
+    private lazy var debouncer: Executor = .debounce(interval: 0.3)
+    
     private var state: Bool = false
+    
+    init(parent: EventNode?, configuretion: ChooseLocationViewModelConfuguration) {
+        super.init(parent: parent)
+        self.configuretion = configuretion
+    }
     
     private lazy var userRegionId: Int = {
         UserDefaultsAccessor.value(for: \.regionId)
@@ -50,6 +86,14 @@ extension ChooseLocationViewModel: ChooseLocationViewControllerOutput {}
 
 // MARK: - ChooseLocationViewModelInput
 extension ChooseLocationViewModel: ChooseLocationViewModelInput {
+    var isProfileConfiguration: Bool {
+        return !configuretion.isProfileConfiguration
+    }
+    
+    func getNavBarTitle() -> String {
+        configuretion.getBackButtonTitle()
+    }
+    
     func filterRegions(searchText: String) {
         //updateSections(searchText: searchText)
         
@@ -64,6 +108,12 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     }
     
     func applyRegion(regionId: Int) {
+        guard self.configuretion == .profile else {
+            UserDefaultsAccessor.write(value: regionId, for: \.regionId)
+            self.successSaveRegion()
+            return
+        }
+        
         updateUserProvider.load(target: .updateRegion(regionId: regionId)) { result in
             switch result {
             case .success(let user):
@@ -78,8 +128,18 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     }
     
     func successSaveRegion() {
-        self.raise(event: EditProfileEvent.profileUpdated)
-        self.raise(event: EditProfileEvent.close)
+        
+        switch configuretion {
+        case .profile:
+            self.raise(event: EditProfileEvent.profileUpdated)
+            self.raise(event: EditProfileEvent.close)
+        case .onboarding:
+            debouncer.execute {[weak self] in
+                self?.raise(event: OnboardingEvent.close)
+            }
+        case .none:
+            break
+        }
     }
     
     var screenState: Bool {
@@ -89,7 +149,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     func selected(indexPath: IndexPath) {
         self.state = true
         guard !countryResionsData.isEmpty,
-              let cities = countryResionsData[indexPath.row].subRegions else {
+            let cities = countryResionsData[indexPath.row].subRegions else {
             self.output.applyTableViewCell(indexPath: indexPath)
             return
         }

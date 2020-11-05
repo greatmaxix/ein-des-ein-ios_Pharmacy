@@ -64,10 +64,11 @@ extension OnboardingCoordinator {
     }
     
     private func openRegions() {
-        let vc = R.storyboard.onboarding.regionViewController()!
-        let model = RegionModel(parent: self)
-        model.output = vc
-        vc.model = model
-        root.pushViewController(vc, animated: true)
+        guard let viewController = R.storyboard.chooseLocationViewController.chooseLocationViewController() else {return}
+        let model = ChooseLocationViewModel.init(parent: self, configuretion: .onboarding)
+        model.output = viewController
+        viewController.model = model
+        root.isNavigationBarHidden = false
+        root.pushViewController(viewController, animated: true)
     }
 }
