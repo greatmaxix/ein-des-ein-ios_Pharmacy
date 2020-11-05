@@ -37,6 +37,8 @@ protocol OrderDetailsModelOutput: class {
 class OrderDetailsModel: EventNode {
 
     private var api = DataManager<OrdersAPI, OrderDetailsResponse>()
+    private var cancelAPI = DataManager<OrdersAPI, PostResponse>()
+
     weak var output: OrderDetailsModelOutput!
 
     private var orderId: Int = 0
@@ -117,17 +119,17 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
 
     func load() {
         api.load(target: .orderDteails(orderId: orderId),
-                     completion: { [weak self] result in
-                        guard let `self` = self else { return }
+                 completion: { [weak self] result in
+                    guard let `self` = self else { return }
 
-                        switch result {
-                        case .success(let response):
-                            self.order = response.item
-                            self.output.didLoadData(error: nil)
-                        case .failure(let error):
-                            self.output.didLoadData(error: error.localizedDescription)
-                        }
-                     })
+                    switch result {
+                    case .success(let response):
+                        self.order = response.item
+                        self.output.didLoadData(error: nil)
+                    case .failure(let error):
+                        self.output.didLoadData(error: error.localizedDescription)
+                    }
+                 })
     }
 
     func product(at indexPath: IndexPath) -> CartMedicine? {
@@ -148,6 +150,17 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
     }
 
     func cancelOrder() {
-        
+        cancelAPI.load(target: .cancelOrder(orderId: order.orderId ?? 0),
+                 completion: { [weak self] result in
+                    guard let `self` = self else { return }
+
+                    switch result {
+                    case .success(_):
+                        self.output.didLoadData(error: nil)
+                        self.raise(event: OrderDetailsEvent.back)
+                    case .failure(let error):
+                        self.output.didLoadData(error: error.localizedDescription)
+                    }
+                 })
     }
 }

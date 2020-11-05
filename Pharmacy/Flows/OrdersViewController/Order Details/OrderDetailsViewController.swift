@@ -87,6 +87,7 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
 
         cell.apply(cost: model.cost, isCanceled: isCanceled)
         cell.actionHandler = { [weak self] in
+            self?.activityIndicator.show(animated: true)
             self?.model.cancelOrder()
         }
 
