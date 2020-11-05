@@ -53,16 +53,10 @@ class ChooseLocationViewController: UIViewController {
         bar.style = .search
         
         bar.barDelegate = self
-        bar.isLeftItemHidden = model.isProfileConfiguration
+        bar.isLeftItemHidden = false
         bar.title = R.string.localize.regionTitle()
         bar.leftItemTitle = model.getNavBarTitle()
       }
-    }
-    
-    private func showBackNavBarItem(state: Bool) {
-        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
-            bar.isLeftItemHidden = !state
-        }
     }
 
     // MARK: - IBAction
@@ -104,7 +98,6 @@ extension ChooseLocationViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         model.selected(indexPath: indexPath)
-        showBackNavBarItem(state: true)
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
@@ -153,7 +146,6 @@ extension ChooseLocationViewController: SimpleNavigationBarDelegate {
         if model.screenState {
             activityIndicator.show(animated: true)
             model.load()
-            showBackNavBarItem(state: !model.isProfileConfiguration)
         } else {
             model.close()
         }

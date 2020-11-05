@@ -28,7 +28,7 @@ class OnboardingCoordinator: EventNode, Coordinator {
             case .close:
                 self?.popController()
             case .closeRegion, .regionSelected:
-                self?.popController(animated: false)
+                self?.popController(animated: true)
             case .openRegions:
                 self?.openRegions()
             }
@@ -58,8 +58,9 @@ class OnboardingCoordinator: EventNode, Coordinator {
 
 // MARK: - Private methods
 extension OnboardingCoordinator {
-
+    
     private func popController(animated: Bool = true) {
+        root.isNavigationBarHidden = true
         root.popViewController(animated: animated)
     }
     
@@ -68,7 +69,6 @@ extension OnboardingCoordinator {
         let model = ChooseLocationViewModel.init(parent: self, configuretion: .onboarding)
         model.output = viewController
         viewController.model = model
-        root.isNavigationBarHidden = false
         root.pushViewController(viewController, animated: true)
     }
 }

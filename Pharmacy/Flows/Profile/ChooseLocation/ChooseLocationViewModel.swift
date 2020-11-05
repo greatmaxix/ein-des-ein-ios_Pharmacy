@@ -198,7 +198,14 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     }
     
     func close() {
-        raise(event: AboutAppEvent.close)
+        switch configuretion {
+        case .profile:
+            raise(event: AboutAppEvent.close)
+        case .onboarding:
+            raise(event: OnboardingEvent.closeRegion)
+        case .none:
+            break
+        }
     }
     
     var tableViewSections: [TableViewSection<Region>] {
