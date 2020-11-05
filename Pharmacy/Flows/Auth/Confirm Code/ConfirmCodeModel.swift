@@ -86,12 +86,10 @@ final class ConfirmCodeModel: Model {
             switch result {
             case .success(let user):
                 UserSession.shared.save(user: user.user)
-                print("zxcv sucess saved new region \(user.user.region?.name) + \(user.user.region?.id)")
                 UserDefaultsAccessor.regionId = regionId
             case .failure(let error):
                 print("Was error \(error.localizedDescription)")
             }
-            
         }
     }
     
