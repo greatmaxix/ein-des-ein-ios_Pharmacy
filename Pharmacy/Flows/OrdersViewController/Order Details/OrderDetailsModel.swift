@@ -21,6 +21,7 @@ protocol OrderDetailsModelInput {
     var delivery: OrderDetailsDelivery? { get }
     var comment: String? { get }
     var cost: Decimal { get }
+    var orderState: OrderListRequestState { get }
 
     func load()
     func back()
@@ -108,6 +109,10 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
 
     var cost: Decimal {
         order.totalCost ?? 0
+    }
+
+    var orderState: OrderListRequestState {
+        return OrderListRequestState.init(rawValue: order.status ?? "") ?? .new
     }
 
     func load() {

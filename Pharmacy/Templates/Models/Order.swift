@@ -49,7 +49,7 @@ struct PharmacyOrder: Codable {
         name = try container.decode(String.self, forKey: .name)
         phone = try? container.decode(String.self, forKey: .phone)
 
-        var addressConatiner = try? container.nestedContainer(keyedBy: Keys.self, forKey: .location)
+        let addressConatiner = try? container.nestedContainer(keyedBy: Keys.self, forKey: .location)
         location = try? addressConatiner?.decode(String.self, forKey: .address)
 
         let nestedContainer = try container.nestedContainer(keyedBy: Keys.self, forKey: .logo)
