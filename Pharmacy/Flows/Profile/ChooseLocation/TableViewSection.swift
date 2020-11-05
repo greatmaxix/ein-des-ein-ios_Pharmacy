@@ -8,16 +8,17 @@
 
 import Foundation
 
-struct TableViewSection {
+struct TableViewSection<T> {
     var header: String?
     var footer: String?
-    var items: [Any]
+    var items: [T]
     
     private var uuid = UUID()
     
-    init(header: String? = nil, footer: String? = nil, list: [Any]) {
+    init(header: String? = nil, footer: String? = nil, list: [T]) {
         self.header = header
         self.footer = header
         self.items = list
     }
+    
 }

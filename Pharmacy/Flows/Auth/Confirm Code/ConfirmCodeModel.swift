@@ -33,6 +33,7 @@ final class ConfirmCodeModel: Model {
     private var phone: String
     private let congratulatioNeeded: Bool
     private let provider: DataManager<AuthAPI, LoginResponse> = DataManager<AuthAPI, LoginResponse>()
+    private let updateUserProvider = DataManager<ProfileAPI, ProfileResponse>()
     weak var output: ConfirmCodeOutput!
     
     init(parent: EventNode, phone: String, congratulatioNeeded: Bool = false) {
@@ -66,11 +67,31 @@ final class ConfirmCodeModel: Model {
              case .success(let response):
                 UserSession.shared.authorizationStatus = .authorized(userId: response.user.id)
                 UserSession.shared.save(user: response.user, token: response.token)
+                if self.congratulatioNeeded { self.updateUserRegion() }
                 self.successLogin()
              case .failure(let error):
                 print(error)
                 self.loginFail()
              }
+        }
+    }
+    
+    private func updateUserRegion() {
+        guard let regionId = UserDefaultsAccessor.regionId,
+              let regionName = UserDefaultsAccessor.regionName else {return}
+
+        let region = RegionDTO(id: Int64(regionId), name: regionName)
+        UserSession.shared.save(region: region)
+
+        updateUserProvider.load(target: .updateRegion(regionId: regionId)) { result in
+            switch result {
+            case .success(let user):
+                print("zxcv TEST USER \(user)")
+                UserSession.shared.save(user: user.user)
+                UserDefaultsAccessor.regionId = regionId
+            case .failure(let error):
+                print("Was error \(error.localizedDescription)")
+            }
         }
     }
     

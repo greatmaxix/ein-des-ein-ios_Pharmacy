@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 final class RegionViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
-    @IBOutlet private weak var indicatorView: UIActivityIndicatorView!
+    
+    private lazy var activityIndicator: MBProgressHUD = {
+        setupActivityIndicator()
+    }()
     
     var model: RegionInput!
 
@@ -21,8 +25,7 @@ final class RegionViewController: UIViewController {
         model.load()
         model.dataSource.assign(tableView: tableView)
         setupNavigation()
-        indicatorView.hidesWhenStopped = true
-        indicatorView.startAnimating()
+        activityIndicator.show(animated: true)
     }
     
     private func setupNavigation() {
@@ -61,7 +64,6 @@ extension RegionViewController: SimpleNavigationBarDelegate {
     }
     
     func search(returnText: String) {
-        
         model.filterRegions(searchText: returnText)
         tableView.reloadData()
     }
@@ -77,6 +79,6 @@ extension RegionViewController: RegionOutput {
     func reloadRegions() {
         model.dataSource.assign(tableView: tableView)
         tableView.isHidden = false
-        indicatorView.stopAnimating()
+        activityIndicator.hide(animated: true)
     }
 }

@@ -52,7 +52,6 @@ final class SignUpModel: Model {
             self.output.unblockApplyButton()
         }
     }
-    
 }
 
 // MARK: - SignUpInput

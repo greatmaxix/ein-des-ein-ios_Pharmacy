@@ -213,7 +213,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     
     private func presentChooseLocation() {
         guard let viewController = R.storyboard.chooseLocationViewController.chooseLocationViewController() else {return}
-        let model = ChooseLocationViewModel.init(parent: self)
+        let model = ChooseLocationViewModel.init(parent: self, configuretion: .profile)
         model.output = viewController
         viewController.model = model
         root.navigationController?.pushViewController(viewController, animated: true)

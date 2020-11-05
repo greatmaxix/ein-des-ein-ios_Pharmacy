@@ -18,8 +18,6 @@ class ChooseLocationViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     var model: ChooseLocationViewControllerOutput!
-    //private weak var searchBar: SearchBar!
-    //var style: NavigationBarStyle = .search
     
     private enum GUI {
         static let backgroundColor = R.color.welcomeBlue()?.withAlphaComponent(0.1)
@@ -28,13 +26,7 @@ class ChooseLocationViewController: UIViewController {
     }
     
     private lazy var activityIndicator: MBProgressHUD = {
-        let hud = MBProgressHUD(view: view)
-        hud.backgroundView.style = .solidColor
-        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
-        hud.removeFromSuperViewOnHide = false
-        view.addSubview(hud)
-        
-        return hud
+        setupActivityIndicator()
     }()
     
 // MARK: - viewDidLoad
@@ -51,19 +43,27 @@ class ChooseLocationViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.sectionIndexColor = .black
         tableView.register(UINib(nibName: String(describing: ChooseLocationTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ChooseLocationTableViewCell.self))
     }
     
     private func setupNavBar() {
+    navigationController?.isNavigationBarHidden = false
       if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
         bar.style = .search
-        bar.isLeftItemHidden = false
-        bar.isRightItemHidden = false
-        bar.title = "Search"
-        bar.leftItemTitle = R.string.localize.profileProfile()
+        
         bar.barDelegate = self
+        bar.isLeftItemHidden = false
+        bar.title = R.string.localize.regionTitle()
+        bar.leftItemTitle = model.getNavBarTitle()
       }
+    }
+
+    // MARK: - IBAction
+    @IBAction func useCurrentLocation(_ sender: UIButton) {
+        //model.startLocationTracking()
+        //model.openAuthSlide()
+        //model.close()
     }
 }
 
@@ -99,18 +99,31 @@ extension ChooseLocationViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         model.selected(indexPath: indexPath)
     }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return model.indexForSections
+    }
 }
 
 extension ChooseLocationViewController: ChooseLocationViewModelOutput {
     
+    func searchActionReloading() {
+        UIView.transition(with: tableView,
+                          duration: 0.35,
+                          options: .transitionCrossDissolve,
+                          animations: {[weak self] in
+                            self?.tableView.reloadData() })
+    }
+    
     func reloadTableViewData(state: Bool) {
         activityIndicator.hide(animated: true, afterDelay: 0.3)
+        
         let transition = CATransition()
         transition.type = CATransitionType.push
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.fillMode = CAMediaTimingFillMode.removed
         transition.duration = 0.3
-        
+
         transition.subtype = state ? CATransitionSubtype.fromLeft : CATransitionSubtype.fromRight
         self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
 
@@ -139,6 +152,14 @@ extension ChooseLocationViewController: SimpleNavigationBarDelegate {
     }
   
     func rightBarItemAction() {
+        
+    }
     
+    func search(returnText: String) {
+        model.filterRegions(searchText: returnText)
+    }
+    
+    func cancelSearch() {
+        model.filterRegions(searchText: "")
     }
 }
