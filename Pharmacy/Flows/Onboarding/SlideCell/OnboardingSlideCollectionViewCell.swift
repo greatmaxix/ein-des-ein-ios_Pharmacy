@@ -22,11 +22,12 @@ struct SlideInfo {
     var skipTitle: String = R.string.localize.onboardingButtonSkip()
     var applyButtonTitle: String = R.string.localize.onboardingButtonNext()
     
-    init(image: UIImage, title: String, description: String, skipTitle: String? = nil, applyTitle: String? = nil, option: SlideOption = .onNext) {
+    init(image: UIImage, title: String, description: String, skipTitle: String? = nil, applyTitle: String? = nil, option: SlideOption = .onNext, nextButtonTitle: String? = nil) {
         self.image = image
         self.title = title
         self.description = description
         self.slideOption = option
+        self.applyButtonTitle = nextButtonTitle ?? R.string.localize.onboardingButtonNext()
     }
 }
 

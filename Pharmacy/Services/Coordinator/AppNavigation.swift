@@ -47,6 +47,8 @@ final class AppNavigation: EventNode {
             switch event {
             case .close:
                 self?.presentAuthFlow()
+            case .startMainFlow:
+                self?.presentMainFlow()
             default:
                 break
             }

@@ -89,7 +89,7 @@ final class RegionModel: EventNode {
     
     func saveRegion(region: Region) {
         UserDefaultsAccessor.write(value: region.regionId, for: \.regionId)
-        UserDefaultsAccessor.write(value: region.name, for: \.regionName)
+        //UserDefaultsAccessor.write(value: region.name, for: \.regionName)
         openAuthSlide()
     }
     

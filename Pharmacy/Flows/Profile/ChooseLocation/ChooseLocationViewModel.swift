@@ -114,6 +114,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     func applyRegion(regionId: Int) {
         guard self.configuretion == .profile else {
             UserDefaultsAccessor.write(value: regionId, for: \.regionId)
+            //UserDefaultsAccessor.write(value: userRegionName, for: \.regionName)
             self.successSaveRegion()
             return
         }
@@ -138,7 +139,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
             self.raise(event: EditProfileEvent.close)
         case .onboarding:
             debouncer.execute {[weak self] in
-                self?.raise(event: OnboardingEvent.regionSelected(4))
+                self?.raise(event: OnboardingEvent.regionSelected(screenIndex: 4))
             }
         case .none:
             break

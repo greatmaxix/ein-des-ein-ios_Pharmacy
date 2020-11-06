@@ -52,6 +52,16 @@ class UserSession {
             return nil
         }
     }
+    
+    var userRegionId: Int64? {
+        switch authorizationStatus {
+        case .authorized:
+            return userEntity.region?.id
+        case .notAuthorized:
+            return nil
+        }
+    }
+    
     var user: UserDisplayable? {
         switch authorizationStatus {
         case .authorized:
