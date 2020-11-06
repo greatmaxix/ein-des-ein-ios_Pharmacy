@@ -51,7 +51,9 @@ final class EditProfileModel: EventNode {
     private func updateUser(name: String, email: String, avatarUuid: String) {
         
         provider.load(target: .updateCustomer(name: name, email: email, avatarUuid: avatarUuid)) { [weak self] (result) in
-            guard let self: EditProfileModel = self else {return}
+
+            guard let `self` = self else { return }
+
             switch result {
             case .success(let response):
                 let newUser = response.user

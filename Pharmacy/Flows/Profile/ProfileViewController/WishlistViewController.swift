@@ -7,25 +7,32 @@
 //
 
 import UIKit
+import MBProgressHUD
 
-final class WishlistViewController: UIViewController, ActivityIndicatorDelegate {
+final class WishlistViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-    
-    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+
     var model: WishlistInput!
     private var emptyResultsView: EmptyResultsView?
+
+    private lazy var activityIndicator: MBProgressHUD = {
+        setupActivityIndicator()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTableView()
         applyEmptyStyle()
-        model.load()
         setupUI()
 
-        setupActivityIndicator()
-        showActivityIndicator()
+        model.load()
+        activityIndicator.show(animated: true)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     private func applyEmptyStyle() {
@@ -79,17 +86,20 @@ extension WishlistViewController: SimpleNavigationBarDelegate {
 extension WishlistViewController: WishlistOutput {
     
     func deleteFarovireRow(index: IndexPath) {
+        tableView.beginUpdates()
         tableView.deleteRows(at: [index], with: .fade)
-        hideActivityIndicator()
+        tableView.endUpdates()
+        activityIndicator.hide(animated: true)
     }
     
     func showDeletionError() {
         showError(message: "Unable to remove medicine from wishlist")
+        activityIndicator.hide(animated: true)
     }
     
     func didLoadList() {
         emptyResultsView?.isHidden = !model.wishlistIsEmpty
-        hideActivityIndicator()
+        activityIndicator.hide(animated: true)
         tableView.reloadData()
     }
 }
@@ -108,9 +118,9 @@ extension WishlistViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.apply(medicine: model.favoriteMedicine[indexPath.row])
         
-        cell.favoriteButtonHandler = {[weak self] state in
-            guard let self = self else {return}
-            self.showActivityIndicator()
+        cell.favoriteButtonHandler = { [weak self] state in
+            guard let `self` = self else { return }
+            self.activityIndicator.show(animated: true)
             self.model.deleteMedicine(id: self.model.favoriteMedicine[indexPath.row].id, index: indexPath)
         }
         
@@ -118,7 +128,7 @@ extension WishlistViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            model.selectMedicineAt(index: indexPath.row)
+        model.selectMedicineAt(index: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

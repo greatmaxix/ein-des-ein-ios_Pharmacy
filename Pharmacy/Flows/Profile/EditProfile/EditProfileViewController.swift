@@ -43,7 +43,9 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
         phoneInputView.placeholder = model.phone
         phoneInputView.needsCountryCode = false
         emailInputView.placeholder = model.email
-        
+
+        setInputText()
+
         if let url: URL = model.imageUrl {
             userImageView.loadImageBy(url: url, completion: { [weak self] _ in
                 let image: UIImage? = self?.userImageView.image
@@ -120,11 +122,15 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     }
     
     func rightBarItemAction() {
-        setInputText()
       
         var validationSuccess = phoneInputView.validate()
         validationSuccess = nameInputView.validate() && validationSuccess
-        if validationSuccess, let name: String = nameInputView.text, let email: String = emailInputView.text, let _: String = phoneInputView.text {
+
+        if validationSuccess,
+           let name: String = nameInputView.text,
+           let email: String = emailInputView.text,
+           let _: String = phoneInputView.text {
+            self.activityIndicator.show(animated: true)
             let checkedEmail = !email.isEmpty && emailInputView.validate() ? email : ""
             model.saveProfile(name: name, email: checkedEmail)
         }
@@ -132,6 +138,7 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
 }
 
 extension EditProfileViewController: EditProfileOutput {
+
     func savingImageSuccess() {
         disableHUD()
     }

@@ -59,7 +59,7 @@
                                             <constraint firstAttribute="height" constant="60" id="ICm-oW-y5g"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rys-Vl-AcY" customClass="TextInputView" customModule="Pharmacy" customModuleProvider="target">
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rys-Vl-AcY" customClass="TextInputView" customModule="Pharmacy" customModuleProvider="target">
                                         <rect key="frame" x="16" y="242" width="382" height="60"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>

@@ -10,7 +10,7 @@ import UIKit
 
 protocol ActivityIndicatorDelegate: class {
     
-    var activityIndicator: UIActivityIndicatorView {get}
+    var activityIndicator: UIActivityIndicatorView { get }
     func showActivityIndicator()
     func hideActivityIndicator()
     func setupActivityIndicator()
