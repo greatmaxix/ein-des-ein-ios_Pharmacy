@@ -32,7 +32,7 @@ class OrderListCell: UITableViewCell {
         orderNumberLabel.text = "№ \(order.orderId ?? 0)"
         timestampLabel.text = order.orderCreatedAt
         pharmacyLabel.text = "\(order.pharmacy?.name ?? ""), \(order.pharmacy?.location ?? "")"
-        productsCountLabel.text = "\(order.products?.count ?? 0) товаров"
+        productsCountLabel.text = "\(order.products?.count ?? 0) товар (ов)"
         totalCostLabel.text = order.totalCost?.moneyString(with: "₸")
 
         if order.deliveryInfo?.type == "pickup" {
@@ -48,8 +48,11 @@ class OrderListCell: UITableViewCell {
         let state = OrderListRequestState.init(rawValue: order.status ?? "new")
 
         switch state {
-        case .new, .inProgress:
-            orderStatusView.backgroundColor = R.color.welcomeGreen()
+        case .new:
+            orderStatusView.backgroundColor = R.color.welcomeBlue()
+            orderStatusLabel.text = "НОВЫЙ"
+        case .inProgress:
+            orderStatusView.backgroundColor = R.color.orange()
             orderStatusLabel.text = "В ОБРАБОТКЕ"
         case .done:
             orderStatusView.backgroundColor = R.color.welcomeBlue()
@@ -61,7 +64,5 @@ class OrderListCell: UITableViewCell {
             orderStatusView.backgroundColor = R.color.welcomeGreen()
             orderStatusLabel.text = "В ОБРАБОТКЕ"
         }
-
-
     }
 }

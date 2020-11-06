@@ -27,6 +27,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sma-y3-Gqt">
                         <rect key="frame" x="20" y="12" width="300" height="48"/>
                         <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1eA-yp-Dx3">
+                                <rect key="frame" x="8" y="4" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.85882352941176465" green="0.88235294117647056" blue="0.92156862745098034" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="79m-fN-Da7"/>
+                                    <constraint firstAttribute="height" constant="40" id="BAE-KU-1rT"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="file" translatesAutoresizingMaskIntoConstraints="NO" id="L4M-L7-vPp">
                                 <rect key="frame" x="16" y="12" width="24" height="24"/>
                                 <constraints>
@@ -57,7 +70,9 @@
                             <constraint firstItem="L4M-L7-vPp" firstAttribute="leading" secondItem="Sma-y3-Gqt" secondAttribute="leading" constant="16" id="Rs1-zf-eby"/>
                             <constraint firstItem="KuI-8p-F75" firstAttribute="centerY" secondItem="L4M-L7-vPp" secondAttribute="centerY" id="bV8-s7-9aS"/>
                             <constraint firstAttribute="bottom" secondItem="L4M-L7-vPp" secondAttribute="bottom" constant="12" id="hOR-aK-AHY"/>
+                            <constraint firstItem="1eA-yp-Dx3" firstAttribute="centerY" secondItem="L4M-L7-vPp" secondAttribute="centerY" id="l6j-Bb-kiv"/>
                             <constraint firstItem="qay-X9-I9h" firstAttribute="top" secondItem="Sma-y3-Gqt" secondAttribute="top" constant="12" id="lRP-IW-iEj"/>
+                            <constraint firstItem="1eA-yp-Dx3" firstAttribute="centerX" secondItem="L4M-L7-vPp" secondAttribute="centerX" id="uvz-c0-oau"/>
                             <constraint firstItem="qay-X9-I9h" firstAttribute="leading" secondItem="KuI-8p-F75" secondAttribute="trailing" constant="16" id="yJM-Mb-YtZ"/>
                         </constraints>
                     </view>
