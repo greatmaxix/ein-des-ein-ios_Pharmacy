@@ -32,9 +32,10 @@ class DeliveryAddressCell: UITableViewCell {
         houseTextView.placeholder = "№ Дома"
         houseTextView.text = delivery.house
 
-        appartmentTextView.contentType = .house
         appartmentTextView.placeholder = "№ Квартиры"
         appartmentTextView.text = delivery.appartment
+        appartmentTextView.statusButtonDisable()
+        appartmentTextView.setupKeyboardType(type: .numberPad)
 
         cityTextView.textFieldDelegate = self
         streetTextView.textFieldDelegate = self
