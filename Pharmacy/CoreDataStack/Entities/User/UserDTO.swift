@@ -17,6 +17,7 @@ struct UserDTO: Equatable, Codable, Identifiable {
     var avatar: AvatarDTO?
     var region: RegionDTO?
     var deliveryAddress: DeliveryAddressDTO?
+    var topicName: String?
 }
 
 extension UserDTO: Storable {

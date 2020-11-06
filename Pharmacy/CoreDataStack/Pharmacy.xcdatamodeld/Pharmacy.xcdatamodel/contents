@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AvatarEntity" representedClassName="AvatarEntity" syncable="YES">
         <attribute name="url" attributeType="String"/>
         <attribute name="uuid" attributeType="String"/>
@@ -41,6 +41,7 @@
         <attribute name="identifier" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="phone" attributeType="String"/>
+        <attribute name="topicName" optional="YES" attributeType="String"/>
         <attribute name="uuid" optional="YES" attributeType="String"/>
         <relationship name="avatar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AvatarEntity"/>
         <relationship name="deliveryAdress" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DeliveryAddressEntity"/>
@@ -57,6 +58,6 @@
         <element name="DeliveryAddressEntity" positionX="72" positionY="-18" width="128" height="133"/>
         <element name="RecentMedicineEntity" positionX="-63.41796875" positionY="162.6796875" width="128" height="148"/>
         <element name="RegionEntity" positionX="72" positionY="-18" width="128" height="73"/>
-        <element name="UserEntity" positionX="-63.88671875" positionY="-168.83203125" width="128" height="163"/>
+        <element name="UserEntity" positionX="-63.88671875" positionY="-168.83203125" width="128" height="178"/>
     </elements>
 </model>

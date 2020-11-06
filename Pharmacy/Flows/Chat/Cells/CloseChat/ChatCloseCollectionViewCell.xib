@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1ak-ko-4a6">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="109"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ACN-Lf-EKI">
+                <rect key="frame" x="0.0" y="0.0" width="376" height="109"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gc-Re-9yL" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
+                        <rect key="frame" x="16" y="34.5" width="164" height="40"/>
+                        <color key="backgroundColor" name="welcomeBlue"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="lAI-O3-5CS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                        <state key="normal" title="Продолжить">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9d-xM-hY4" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
+                        <rect key="frame" x="196" y="34.5" width="164" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="xke-WJ-msy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                        <state key="normal" title="Завершить чат">
+                            <color key="titleColor" name="validationRed"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="validationRed"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="O9d-xM-hY4" firstAttribute="leading" secondItem="5gc-Re-9yL" secondAttribute="trailing" constant="16" id="A47-Xy-IvJ"/>
+                    <constraint firstItem="5gc-Re-9yL" firstAttribute="leading" secondItem="ACN-Lf-EKI" secondAttribute="leading" constant="16" id="IHl-GX-DDH"/>
+                    <constraint firstItem="O9d-xM-hY4" firstAttribute="width" secondItem="5gc-Re-9yL" secondAttribute="width" id="PgS-14-bdm"/>
+                    <constraint firstItem="5gc-Re-9yL" firstAttribute="centerY" secondItem="ACN-Lf-EKI" secondAttribute="centerY" id="dFy-SK-ZdE"/>
+                    <constraint firstAttribute="trailing" secondItem="O9d-xM-hY4" secondAttribute="trailing" constant="16" id="h2s-6s-6wm"/>
+                    <constraint firstItem="O9d-xM-hY4" firstAttribute="centerY" secondItem="ACN-Lf-EKI" secondAttribute="centerY" id="qIJ-5n-e8V"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="376" height="109"/>
+            <point key="canvasLocation" x="131.8840579710145" y="123.54910714285714"/>
+        </collectionViewCell>
+    </objects>
+    <designables>
+        <designable name="5gc-Re-9yL">
+            <size key="intrinsicContentSize" width="84" height="29"/>
+        </designable>
+        <designable name="O9d-xM-hY4">
+            <size key="intrinsicContentSize" width="98" height="29"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="validationRed">
+            <color red="0.94901960784313721" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="welcomeBlue">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

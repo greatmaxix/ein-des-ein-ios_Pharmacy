@@ -109,12 +109,14 @@ class UserSession {
         refetchUser()
         
         return UserDisplayable(name: user.name,
+                               uuid: user.uuid,
                                email: user.email,
                                phone: user.phone,
                                avatarURL: user.avatar?.url,
                                regionName: user.region?.name,
                                deliveryAddress: user.deliveryAddress?.street,
-                               regionId: user.region?.id)
+                               regionId: user.region?.id,
+                               topicName: user.topicName)
     }
     
     func save(avatar: AvatarDTO) {
@@ -157,12 +159,14 @@ extension UserSession {
     
     private func convertToDisplayable(userEntity: UserEntity) -> UserDisplayable {
         return UserDisplayable(name: userEntity.name,
+                               uuid: userEntity.uuid,
                                email: userEntity.email,
                                phone: userEntity.phone,
                                avatarURL: userEntity.avatar?.url,
                                regionName: userEntity.region?.name,
                                deliveryAddress: userEntity.deliveryAdress?.street,
-                               regionId: userEntity.region?.id)
+                               regionId: userEntity.region?.id,
+                               topicName: userEntity.topicName)
     }
 
     private func clearData() {
