@@ -47,6 +47,8 @@ final class AppNavigation: EventNode {
             switch event {
             case .close:
                 self?.presentAuthFlow()
+            case .startMainFlow:
+                self?.presentMainFlow()
             default:
                 break
             }
@@ -54,17 +56,17 @@ final class AppNavigation: EventNode {
     }
 
     func startFlow() {
-        guard UserDefaultsAccessor.value(for: \.isPassedOnboarding) else {
+//        guard UserDefaultsAccessor.value(for: \.isPassedOnboarding) else {
             presentOnboardingFlow()
-            return
-        }
+//            return
+//        }
         
-        switch UserSession.shared.authorizationStatus {
-        case .authorized:
-            presentMainFlow()
-        case .notAuthorized:
-            presentAuthFlow()
-        }
+//        switch UserSession.shared.authorizationStatus {
+//        case .authorized:
+//            presentMainFlow()
+//        case .notAuthorized:
+//            presentAuthFlow()
+//        }
     }
 }
 

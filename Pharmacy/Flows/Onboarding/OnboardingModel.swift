@@ -12,7 +12,8 @@ enum OnboardingEvent: Event {
     case close
     case openRegions
     case closeRegion
-    case regionSelected(_ index: Int?)
+    case regionSelected(screenIndex: Int? = nil)
+    case startMainFlow
 }
 
 protocol OnboardingModelInput {
@@ -64,7 +65,8 @@ class OnboardingModel: Model {
                    description: R.string.localize.onboardingDescriptionPurchase(),
                    skipTitle: R.string.localize.onboardingButtonSkipPurchase(),
                    applyTitle: R.string.localize.onboardingButtonNextPurchase(),
-                   option: .toAuth)
+                   option: .toAuth,
+                   nextButtonTitle: R.string.localize.onboardingButtonNextPurchase())
          ]
     }()
 
@@ -81,7 +83,7 @@ extension OnboardingModel {
         case 3:
             raise(event: OnboardingEvent.close)
         case 4:
-            raise(event: OnboardingEvent.close)
+            raise(event: OnboardingEvent.startMainFlow)
         default:
             openRegions()
         }

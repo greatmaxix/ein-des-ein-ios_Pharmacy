@@ -67,13 +67,13 @@ final class ConfirmCodeModel: Model {
              case .success(let response):
                 UserSession.shared.authorizationStatus = .authorized(userId: response.user.id)
                 UserSession.shared.save(user: response.user, token: response.token)
-                if self.congratulatioNeeded { self.updateUserRegion() }
                 self.successLogin()
              case .failure(let error):
                 print(error)
                 self.loginFail()
              }
         }
+        if self.congratulatioNeeded { self.updateUserRegion() }
     }
     
     private func updateUserRegion() {
