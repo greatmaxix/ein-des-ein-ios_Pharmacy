@@ -80,7 +80,7 @@ extension OnboardingModel {
         UserDefaultsAccessor.write(value: true, for: \.isPassedOnboarding)
         
         switch currentIndex {
-        case 3,4:
+        case 3, 4:
             raise(event: OnboardingEvent.close)
         default:
             openRegions()

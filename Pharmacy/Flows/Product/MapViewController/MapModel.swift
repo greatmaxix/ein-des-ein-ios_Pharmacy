@@ -64,7 +64,7 @@ extension MapModel: MapInput {
         guard let medicineId = medicineId else { return }
         provider.load(target: .getPharmacies(medicineId: medicineId,
                 //TODO: - обработать
-            regionId: UserDefaultsAccessor.regionId ?? 0,
+            regionId: Int(UserSession.shared.userRegionId ?? 0),
             page: Const.startPage,
             pageCount: Const.itemsPerPage),
             completion: { [weak self] result in

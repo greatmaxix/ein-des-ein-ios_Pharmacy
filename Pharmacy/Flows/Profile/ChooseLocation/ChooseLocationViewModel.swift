@@ -114,6 +114,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     func applyRegion(regionId: Int) {
         guard self.configuretion == .profile else {
             UserDefaultsAccessor.write(value: regionId, for: \.regionId)
+            //UserDefaultsAccessor.write(value: userRegionName, for: \.regionName)
             self.successSaveRegion()
             return
         }
