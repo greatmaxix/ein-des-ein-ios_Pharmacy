@@ -8,9 +8,10 @@
 
 import UIKit
 
-final class AnalizesViewController: UIViewController {
+final class AnalizesViewController: UIViewController, NavigationBarStyled {
 
     var model: AnalizesInput!
+    var style: NavigationBarStyle = .normalWithoutSearch
     private var emptyResultsView: EmptyResultsView?
 
     override func viewDidLoad() {
