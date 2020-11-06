@@ -86,9 +86,8 @@ extension WishlistViewController: SimpleNavigationBarDelegate {
 extension WishlistViewController: WishlistOutput {
     
     func deleteFarovireRow(index: IndexPath) {
-        tableView.beginUpdates()
         tableView.deleteRows(at: [index], with: .fade)
-        tableView.endUpdates()
+        tableView.reloadData()
         activityIndicator.hide(animated: true)
     }
     
