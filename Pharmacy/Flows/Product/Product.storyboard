@@ -72,24 +72,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEj-fc-StZ">
                                 <rect key="frame" x="0.0" y="762" width="414" height="115"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="odX-Uo-xhq">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="odX-Uo-xhq">
                                         <rect key="frame" x="16" y="14" width="382" height="48"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4g8-gw-kOP">
-                                                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="4EY-Xg-v70"/>
-                                                    <constraint firstAttribute="width" constant="48" id="WbW-Ak-LOT"/>
-                                                </constraints>
-                                                <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbN-xT-9K5">
+                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="48"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="button_wishlist"/>
-                                                <state key="selected" image="wishListSelected"/>
+                                                <state key="selected" image="add_to_wish_list_fill2"/>
                                                 <connections>
-                                                    <action selector="wishListAction:" destination="va1-3N-jO0" eventType="touchUpInside" id="3xG-4t-cZ4"/>
+                                                    <action selector="wishListAction:" destination="va1-3N-jO0" eventType="touchUpInside" id="AnV-EQ-i2c"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wse-rH-8Di">
-                                                <rect key="frame" x="64" y="0.0" width="318" height="48"/>
+                                                <rect key="frame" x="69.5" y="0.0" width="312.5" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="Cm7-4O-FWO"/>
                                                 </constraints>
@@ -129,7 +125,7 @@
                     <connections>
                         <outlet property="bottomView" destination="uEj-fc-StZ" id="fSe-Dd-6oa"/>
                         <outlet property="findButton" destination="Wse-rH-8Di" id="RkJ-ER-qZH"/>
-                        <outlet property="likeButton" destination="4g8-gw-kOP" id="3qh-JG-KbT"/>
+                        <outlet property="likeButton" destination="vbN-xT-9K5" id="HWy-xJ-7ab"/>
                         <outlet property="pageControl" destination="uDV-hc-Xps" id="2ly-AU-maL"/>
                         <outlet property="productContainerView" destination="MtX-mJ-Dn2" id="RKi-TN-Wog"/>
                         <outlet property="tableView" destination="Tob-sf-O0g" id="CiK-Kj-nAu"/>
@@ -1073,9 +1069,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add_to_wish_list_fill2" width="48" height="48"/>
         <image name="button_default_bg" width="280" height="48"/>
         <image name="button_pressed_bg" width="280" height="48"/>
-        <image name="button_wishlist" width="70" height="69.5"/>
+        <image name="button_wishlist" width="48" height="48"/>
         <image name="crosshair" width="24" height="24"/>
         <image name="decreaseMap" width="24" height="24"/>
         <image name="farmacyPlaceholder" width="48" height="48"/>
@@ -1083,7 +1080,6 @@
         <image name="map" width="32" height="32"/>
         <image name="shopping bag" width="32" height="32"/>
         <image name="truck" width="32" height="32"/>
-        <image name="wishListSelected" width="70" height="70"/>
         <namedColor name="applyBlueGray">
             <color red="0.6470588235294118" green="0.70588235294117652" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -66,6 +66,10 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
     
     private func configUI() {
         title = model.title
+
+        likeButton.buttonDropBlueShadow()
+        likeButton.setImage(R.image.button_wishlist(), for: .normal)
+        likeButton.setImage(R.image.button_wishlist_selected(), for: .selected)
         
         productContainerView.clipsToBounds = true
         productContainerView.layer.cornerRadius = GUI.cornerRadius
