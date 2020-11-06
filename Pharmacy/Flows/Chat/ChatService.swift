@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import IKEventSource
+import LDSwiftEventSource
 
 protocol ChatServiceDelegate: class {
     func didRecive(message: ChatMessage)
@@ -26,42 +26,74 @@ final class ChatService {
     weak var delegate: ChatServiceDelegate?
     let chat: Chat
     private let decoder = JSONDecoder.init()
-    private let eventSource: EventSource
+    private var eventSource: EventSource!
+    private var lastEvent: String?
+    private var isNeedReconnect = true
+    private var config: EventSource.Config!
+    deinit {
+        print("Chat service deinit")
+    }
     
-    init(_ chat: Chat, delegate: ChatServiceDelegate?) {
+    init(_ chat: Chat, topicName: String?, delegate: ChatServiceDelegate?) {
         self.chat = chat
-        let url = URL(string: "https://mercure.pharmacies.fmc-dev.com/.well-known/mercure?topic=\(chat.topicName)")!
         self.delegate = delegate
-        
-        eventSource = EventSource(url: url)
-        
-        eventSource.onOpen {
-            print("Open connection")
+        if let t = topicName {
+            subscribeFor(topicName: t)
+        } else {
+            subscribeFor(topicName: chat.topicName)
         }
-        
-        eventSource.onComplete {(code, isComlete, error) in
-            print("Сomplete - \(code ?? 0), \(isComlete ?? false), \(error?.localizedDescription ?? "")")
+    }
+    
+    private func subscribeFor(topicName: String) {
+        let url = URL(string: "https://mercure.pharmacies.fmc-dev.com/.well-known/mercure?topic=\(topicName)")!
+        config = EventSource.Config(handler: self, url: url)
+        eventSource = EventSource(config: config)
+        eventSource.start()
+    }
+    
+    func stop() {
+        isNeedReconnect = false
+        eventSource.stop()
+        eventSource = nil
+        config = nil
+    }
+}
+extension ChatService: EventHandler {
+    func onOpened() {
+        print("Open connection")
+    }
+    
+    func onClosed() {
+        print("Close connection")
+        if isNeedReconnect {
+            eventSource.start()
+            print("Reconnecting...")
         }
-        
-        eventSource.onMessage {[weak self] (_, eventName, response) in
-            let event = EventName(rawValue: eventName ?? "") ?? EventName.none
-            
-            if let r = response {
-                do {
-                    switch event {
-                    case .message:
-                        if let messageResponse = try self?.decoder.decode(ChatMessagesResponse.self, from: Data(r.utf8)) {
-                            self?.delegate?.didRecive(message: messageResponse.body.item)
-                        }
-                    case .none: print("Unknow chat event")
-                    }
-                } catch {
-                    print("DecodeErorr")
+    }
+    
+    func onMessage(eventType: String, messageEvent: MessageEvent) {
+        print("Message - \(messageEvent.data)")
+        let event = EventName(rawValue: eventType) ?? EventName.none
+        do {
+            switch event {
+            case .message:
+                let messageResponse = try decoder.decode(ChatMessagesResponse.self, from: Data(messageEvent.data.utf8))
+                DispatchQueue.main.async { [weak self] in
+                    self?.delegate?.didRecive(message: messageResponse.body.item)
                 }
+            case .none:
+                print("Unknow chat event")
             }
-            
+        } catch {
+            print("DecodeErorr")
         }
-        
-        eventSource.connect()
+    }
+    
+    func onComment(comment: String) {
+        print("Comment - \(comment)")
+    }
+    
+    func onError(error: Error) {
+        print("Error \(error.localizedDescription)")
     }
 }

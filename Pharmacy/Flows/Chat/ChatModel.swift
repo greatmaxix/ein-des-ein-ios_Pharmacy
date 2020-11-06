@@ -9,7 +9,7 @@
 import Foundation
 import EventsTree
 import MessageKit
-import IKEventSource
+
 import InputBarAccessoryView
 
 enum ChatEvent: Event {
@@ -39,6 +39,7 @@ final class ChatModel: Model, ChatInput {
     private var sender: ChatSender = ChatSender.guest()
     
     deinit {
+        chatService?.stop()
         print("Chat model deinit")
     }
     
@@ -87,7 +88,7 @@ final class ChatModel: Model, ChatInput {
             }
             
             self.sender = ChatSender.currentUser()
-            self.chatService = ChatService(openedChat, delegate: self)
+            self.chatService = ChatService(openedChat, topicName: UserSession.shared.user?.topicName, delegate: self)
         } else {
             self.messages = [Message(.routeSwitch, sender: sender, messageId: "0", date: Date())]
             self.output?.messagesCollectionView.reloadData()
@@ -120,9 +121,9 @@ final class ChatModel: Model, ChatInput {
         
         output?.messagesCollectionView.performBatchUpdates({
             output?.messagesCollectionView.insertSections([messages.count - 1])
-//            if messages.count >= 2 {
-//                output.messagesCollectionView.reloadSections([messages.count - 2])
-//            }
+            if messages.count >= 2 {
+                output?.messagesCollectionView.reloadSections([messages.count - 2])
+            }
         }, completion: { [weak self] _ in
             if self?.isLastSectionVisible() == true {
                 self?.output?.messagesCollectionView.scrollToBottom(animated: true)
