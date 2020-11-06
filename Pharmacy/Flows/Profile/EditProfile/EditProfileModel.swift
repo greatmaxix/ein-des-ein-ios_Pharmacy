@@ -66,7 +66,7 @@ final class EditProfileModel: EventNode {
     
     private func updateImage() {
         
-        if let data = profileImage?.pngData() ?? profileImage?.jpegData(compressionQuality: 1) {
+        if let data = profileImage?.jpegData(compressionQuality: 0.5) {
             imageProvider.load(target: .sendImage(imageData: data, mime: mime, fileName: imageFileName)) { [weak self] (result) in
                 guard let self = self else {return}
                 switch result {
