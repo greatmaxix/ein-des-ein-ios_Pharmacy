@@ -9,11 +9,7 @@
 import UIKit
 
 class ChatRouteCollectionViewCell: UICollectionViewCell {
-    
-    enum ChatRoute {
-        case none, doctor, pharmacist
-    }
-    
+   
     @IBOutlet weak var doctorBackground: UIView! {
         didSet {
             self.doctorBackground.layer.cornerRadius = self.doctorBackground.frame.height / 2
@@ -31,16 +27,11 @@ class ChatRouteCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var pharmacistButton: UIButton!
     @IBOutlet weak var doctorButton: UIButton!
     
-    var routeAction: ((ChatRoute) -> Void)?
+    var routeAction: ((ChatAPI.ChatRoute) -> Void)?
     
-    private var selecetedRoute = ChatRoute.none {
+    private var selecetedRoute: ChatAPI.ChatRoute? {
         didSet {
             switch selecetedRoute {
-            case .none:
-                pharmacistButton.backgroundColor = .clear
-                doctorButton.backgroundColor = .clear
-                confirmButton.isEnabled = true
-                confirmButton.backgroundColor = .gray
             case .doctor:
                 pharmacistButton.backgroundColor = .clear
                 doctorButton.backgroundColor = R.color.welcomeBlue()
@@ -51,6 +42,11 @@ class ChatRouteCollectionViewCell: UICollectionViewCell {
                 doctorButton.backgroundColor = .white
                 confirmButton.isEnabled = true
                 confirmButton.backgroundColor = R.color.welcomeBlue()
+            case .none:
+                pharmacistButton.backgroundColor = .clear
+                doctorButton.backgroundColor = .clear
+                confirmButton.isEnabled = false
+                confirmButton.backgroundColor = .gray
             }
         }
     }
@@ -64,6 +60,8 @@ class ChatRouteCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func confirmChoise(_ sender: Any) {
-        routeAction?(selecetedRoute)
+        if let r = selecetedRoute {
+            routeAction?(r)
+        }
     }
 }

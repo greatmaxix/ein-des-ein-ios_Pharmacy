@@ -10,10 +10,12 @@ import Foundation
 
 struct UserDisplayable {
     let name: String
+    let uuid: String
     let email: String?
     let phone: String
     var avatarURL: URL?
     var regionName: String?
     var deliveryAddress: String?
     var regionId: Int64?
+    var topicName: String?
 }

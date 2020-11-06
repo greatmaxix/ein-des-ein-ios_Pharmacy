@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 protocol ActivityIndicatorDelegate: class {
     
@@ -37,5 +38,15 @@ extension ActivityIndicatorDelegate where Self: UIViewController {
     func hideActivityIndicator() {
         activityIndicator.stopAnimating()
         view.isUserInteractionEnabled = true
+    }
+}
+
+extension UIViewController {
+    func showActivityIndicator() {
+        MBProgressHUD.showAdded(to: view, animated: true)
+        
+    }
+    func hideActivityIndicator() {
+        MBProgressHUD.hide(for: view, animated: true)
     }
 }
