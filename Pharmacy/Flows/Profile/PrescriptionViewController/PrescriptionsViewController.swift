@@ -8,8 +8,9 @@
 
 import UIKit
 
-final class PrescriptionsViewController: UIViewController {
+final class PrescriptionsViewController: UIViewController, NavigationBarStyled {
 
+    var style: NavigationBarStyle = .normalWithoutSearch
     var model: PrescriptionsInput!
     private var emptyResultsView: EmptyResultsView?
     
@@ -30,13 +31,10 @@ final class PrescriptionsViewController: UIViewController {
     }
     
     private func setupUI() {
-        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+        if let bar = navigationController?.navigationBar as? NavigationBar {
             
             bar.title = R.string.localize.prescriptionsEmptyBarTitle()
-            bar.isLeftItemHidden = false
-            bar.leftItemTitle = nil
-            bar.isRightItemHidden = true
-            bar.barDelegate = self
+            bar.style = .normalWithoutSearch
         }
     }
 }
