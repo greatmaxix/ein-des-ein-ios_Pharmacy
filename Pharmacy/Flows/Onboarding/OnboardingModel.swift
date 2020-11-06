@@ -80,10 +80,8 @@ extension OnboardingModel {
         UserDefaultsAccessor.write(value: true, for: \.isPassedOnboarding)
         
         switch currentIndex {
-        case 3:
+        case 3,4:
             raise(event: OnboardingEvent.close)
-        case 4:
-            raise(event: OnboardingEvent.startMainFlow)
         default:
             openRegions()
         }
@@ -114,6 +112,11 @@ extension OnboardingModel: OnboardingModelInput {
     }
 
     func onSkipButtonAction() {
-        closeFlow()
+        switch currentIndex {
+        case 4:
+            raise(event: OnboardingEvent.startMainFlow)
+        default:
+            closeFlow()
+        }
     }
 }
