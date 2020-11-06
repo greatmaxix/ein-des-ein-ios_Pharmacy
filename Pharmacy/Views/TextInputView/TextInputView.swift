@@ -382,9 +382,9 @@ extension TextInputView {
             switch self {
             case .email:
                 return .emailAddress
-            case .name, .city, .street, .house:
+            case .name, .city, .street:
                 return .default
-            case .phone:
+            case .phone, .house:
                 return .phonePad
             default:
                 return .default
