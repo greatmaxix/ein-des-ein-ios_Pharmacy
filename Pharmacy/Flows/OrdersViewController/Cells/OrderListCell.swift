@@ -30,7 +30,19 @@ class OrderListCell: UITableViewCell {
 
     func apply(order: Order) {
         orderNumberLabel.text = "№ \(order.orderId ?? 0)"
-        timestampLabel.text = order.orderCreatedAt
+
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "HH:mm dd:MM.YY"
+
+        if let date = dateFormatterGet.date(from: order.orderCreatedAt ?? "") {
+            timestampLabel.text = dateFormatterPrint.string(from: date)
+        } else {
+            timestampLabel.text = order.orderCreatedAt
+        }
+        
         pharmacyLabel.text = "\(order.pharmacy?.name ?? ""), \(order.pharmacy?.location ?? "")"
         productsCountLabel.text = "\(order.products?.count ?? 0) товар (ов)"
         totalCostLabel.text = order.totalCost?.moneyString(with: "₸")
