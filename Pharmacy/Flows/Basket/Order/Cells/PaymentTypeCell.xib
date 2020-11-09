@@ -28,7 +28,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выберите тип оплаты :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apw-vb-PVa">
-                        <rect key="frame" x="16" y="16" width="172" height="24"/>
+                        <rect key="frame" x="16" y="16" width="194.5" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="MS7-He-30O"/>
                         </constraints>
@@ -53,7 +53,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit card *  8344" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvI-Cr-cPZ">
-                                                <rect key="frame" x="48" y="14.5" width="134" height="19"/>
+                                                <rect key="frame" x="48" y="13" width="140" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                                 <color key="textColor" name="gray"/>
                                                 <nil key="highlightedColor"/>
@@ -99,7 +99,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kaspi Bank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2j-yL-jCl">
-                                                <rect key="frame" x="48" y="14.5" width="82" height="19"/>
+                                                <rect key="frame" x="48" y="13" width="82" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                                 <color key="textColor" name="gray"/>
                                                 <nil key="highlightedColor"/>
@@ -145,7 +145,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Наличными" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUk-qM-JrV">
-                                                <rect key="frame" x="48" y="14.5" width="87" height="19"/>
+                                                <rect key="frame" x="48" y="13" width="94.5" height="22"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                                 <color key="textColor" name="textDarkBlue"/>
                                                 <nil key="highlightedColor"/>
@@ -182,7 +182,7 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="6"/>
+                                <integer key="value" value="8"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
