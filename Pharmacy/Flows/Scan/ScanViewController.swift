@@ -27,6 +27,7 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var descriptionLabel: UILabel!
     private var captureSession = AVCaptureSession()
     private var previewLayer: AVCaptureVideoPreviewLayer!
+    
     private var blurView: UIVisualEffectView!
     
     var model: ScanViewControllerOutput!
@@ -56,6 +57,7 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
     
     private func configUI() {
         blurView = CustomIntensityVisualEffectView(effect: UIBlurEffect(style: .light), intensity: GUI.blurIntensity)
+        
         blurView.frame = view.bounds
         blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         blurView.backgroundColor = GUI.blurViewBackgroundColor
