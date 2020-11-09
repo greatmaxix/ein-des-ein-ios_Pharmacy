@@ -42,6 +42,7 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
         if !captureSession.isRunning {
             captureSession.startRunning()
         }
+        descriptionLabel.alpha = 0
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -128,8 +129,9 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
     }
     
     private func hidePreview() {
-        UIView.animate(withDuration: GUI.animateionDuration, animations: { [weak preview] in
-            preview?.alpha = 0
+        UIView.animate(withDuration: GUI.animateionDuration, animations: { [weak self] in
+            self?.preview?.alpha = 0
+            self?.descriptionLabel.alpha = 1
         }, completion: { [weak preview] isCompleted in
             preview?.isHidden = isCompleted
         })
