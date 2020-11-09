@@ -28,16 +28,17 @@ final class ChatModel: Model, ChatInput {
    
     weak var output: ChatOutput? {
         didSet {
-            output?.messageInputBar.delegate = self
+            setupInputBar()
         }
     }
     private var messages: [Message] = []
     private var chatProvider = DataManager<ChatAPI, ChatListResponse>()
+    private var createChatProvider = DataManager<ChatAPI, CreateChatResponse>()
     private var messagesListProvider = DataManager<ChatAPI, MessageListResponse>()
     private var createMessageProvider = DataManager<ChatAPI, CreateMessageResponse>()
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
-    
+  
     deinit {
         chatService?.stop()
         print("Chat model deinit")
@@ -65,6 +66,11 @@ final class ChatModel: Model, ChatInput {
             self.output?.messagesCollectionView.reloadData()
             self.output?.messageInputBar.isHidden = true
         }
+    }
+    
+    private func setupInputBar() {
+        output?.messageInputBar.isHidden = true
+        output?.messageInputBar.delegate = self
     }
     
 //    Load chat messages if opened or answered chat exist
@@ -97,11 +103,15 @@ final class ChatModel: Model, ChatInput {
     
     private func didSelect(route: ChatAPI.ChatRoute) {
         output?.showActivityIndicator()
-        chatProvider.load(target: .create(route)) {[weak self] result in
+        createChatProvider.load(target: .create(route)) {[weak self] result in
             self?.output?.hideActivityIndicator()
+            self?.messages = []
+            self?.output?.messagesCollectionView.reloadData()
+            self?.output?.messageInputBar.isHidden = false
+            self?.output?.becomeFirstResponder()
             switch result {
             case .success(let result):
-                self?.didReciveChat(list: result.items)
+                self?.didReciveChat(list: [result.item])
             case .failure(let error):
                 print(error)
             }
@@ -197,8 +207,14 @@ extension ChatModel: MessagesLayoutDelegate {
 }
 
 extension ChatModel: InputBarAccessoryViewDelegate {
+    
+    func processInputBar(_ inputBar: InputBarAccessoryView) {
+        inputBar.inputTextView.text = String()
+    }
+    
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         guard let chatId = chatService?.chat.id else { return }
+        processInputBar(inputBar)
         createMessageProvider.load(target: .createMessage(chatId, text)) { result in
             switch result {
             case .success:
@@ -207,6 +223,10 @@ extension ChatModel: InputBarAccessoryViewDelegate {
                 print("Message error - \(error.localizedDescription)")
             }
         }
+    }
+    
+    func inputBar(_ inputBar: InputBarAccessoryView, textViewTextDidChangeTo text: String) {
+        
     }
 }
 

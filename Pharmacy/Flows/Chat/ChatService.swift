@@ -65,10 +65,6 @@ extension ChatService: EventHandler {
     
     func onClosed() {
         print("Close connection")
-        if isNeedReconnect {
-            eventSource.start()
-            print("Reconnecting...")
-        }
     }
     
     func onMessage(eventType: String, messageEvent: MessageEvent) {

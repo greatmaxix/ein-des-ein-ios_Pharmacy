@@ -13,6 +13,10 @@ struct ChatListResponse: Codable, Equatable {
     var items: [Chat]
 }
 
+struct CreateChatResponse: Codable, Equatable {
+    var item: Chat
+}
+
 struct CreateMessageResponse: Codable, Equatable {
     let item: ChatMessage
 }

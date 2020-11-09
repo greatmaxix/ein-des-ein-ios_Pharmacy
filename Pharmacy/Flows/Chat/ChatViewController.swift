@@ -15,6 +15,15 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     var model: ChatInput!
     var sizeCalculator: MessageSizeCalculator!
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        messageInputBar = ChatInputBar()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.setRightBarButtonItems([UIBarButtonItem.init(image: R.image.info(), style: .plain, target: self, action: #selector(showChatInfo))], animated: true)
@@ -23,11 +32,11 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     }
     
     func setupCollection() {
+        messagesCollectionView.backgroundColor = R.color.lightGray()
         messagesCollectionView.messagesDataSource = model
         messagesCollectionView.messagesDisplayDelegate = model
         messagesCollectionView.messagesLayoutDelegate = model
         scrollsToBottomOnKeyboardBeginsEditing = true
-        maintainPositionOnKeyboardFrameChanged = true
         showMessageTimestampOnSwipeLeft = true
         
         messagesCollectionView.register(ChatButtonCollectionViewCell.nib, forCellWithReuseIdentifier: ChatButtonCollectionViewCell.reuseIdentifier)

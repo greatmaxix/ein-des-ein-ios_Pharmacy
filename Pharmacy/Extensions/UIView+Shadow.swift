@@ -45,6 +45,10 @@ extension UIView {
         dropShadow(scale: true, color: .black, width: 0, height: 1, radius: 2, opacity: 0.2)
     }
     
+    func dropInputBarShadow() {
+        dropShadow(scale: true, color: .black, width: 0, height: 2, radius: 2, opacity: 0.2)
+    }
+    
     func removeShadow() {
         layer.shadowColor = nil
         layer.shadowOpacity = 0
