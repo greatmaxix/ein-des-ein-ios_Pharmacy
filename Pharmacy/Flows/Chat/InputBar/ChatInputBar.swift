@@ -20,6 +20,8 @@ class ChatInputBar: InputBarAccessoryView {
         static let maskedCorners: CACornerMask = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         static let backgroundColor = UIColor.white
     }
+        
+    private var galleryItem: ChatGallery!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,8 +31,13 @@ class ChatInputBar: InputBarAccessoryView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func configure() {
+        
+        galleryItem = ChatGallery()
+        
+        setStackViewItems([galleryItem], forStack: .bottom, animated: false)
+        galleryItem.isHidden = true
         separatorLine.height = 8.0
         backgroundColor = .clear
         
@@ -65,6 +72,7 @@ class ChatInputBar: InputBarAccessoryView {
         v.setSize(CGSize(width: 30.0, height: 38.0), animated: false)
         setRightStackViewWidthConstant(to: 75.0, animated: false)
         setStackViewItems([sendButton, InputBarButtonItem.fixedSpace(2.0)], forStack: .right, animated: false)
+        
         sendButton.setSize(CGSize(width: 30.0, height: 38.0), animated: false)
         sendButton.image = R.image.send()
         sendButton.title = nil
@@ -80,5 +88,17 @@ class ChatInputBar: InputBarAccessoryView {
         middleContentViewPadding.right = -62.0
         
         decorationBlackShadow()
+    }
+    
+    func showGallery() {
+        let itemWidth = frame.width / 3.0
+        galleryItem.frame = CGRect(origin: .zero, size: CGSize(width: frame.width, height: itemWidth * 2))
+        galleryItem.isHidden = false
+        setStackViewItems([galleryItem], forStack: .bottom, animated: true)
+        galleryItem.setSize(CGSize(width: frame.width, height: (frame.width / 3) * 2  ), animated: true)
+    }
+    
+    func hideGallery() {
+        galleryItem.isHidden = true
     }
 }

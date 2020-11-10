@@ -14,7 +14,9 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     var style: NavigationBarStyle = .normalWithoutSearch
     var model: ChatInput!
     var sizeCalculator: MessageSizeCalculator!
-    
+    var chatBar: ChatInputBar? {
+        return messageInputBar as? ChatInputBar
+    }
     init() {
         super.init(nibName: nil, bundle: nil)
         messageInputBar = ChatInputBar()
@@ -37,4 +39,12 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     }
 }
     
-extension ChatViewController: ChatOutput {}
+extension ChatViewController: ChatOutput {
+    func openGallery() {
+        chatBar?.showGallery()
+    }
+    
+    func closeGallery() {
+        chatBar?.hideGallery()
+    }
+}

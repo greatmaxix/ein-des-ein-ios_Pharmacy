@@ -20,7 +20,10 @@ protocol ChatInput: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutD
     func load()
 }
 
-protocol ChatOutput: MessagesViewController { }
+protocol ChatOutput: MessagesViewController {
+    func openGallery()
+    func closeGallery()
+}
 
 final class ChatModel: Model, ChatInput {
    
@@ -39,25 +42,7 @@ final class ChatModel: Model, ChatInput {
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
     private var sizeCalculator: CustomMessageSizeCalculator!
-    private var attachDialogue: UIAlertController = {
-       
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { _ in
-            
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Библиотека", style: .default, handler: { _ in
-            
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { _ in
-            
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
-        
-        return alert
-    }()
+    private let attachDialogue = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     
     deinit {
         chatService?.stop()
@@ -66,8 +51,25 @@ final class ChatModel: Model, ChatInput {
     
     override init(parent: EventNode?) {
         super.init(parent: parent)
+        setup()
     }
     
+    func setup() {
+        attachDialogue.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { [weak self] _ in
+            self?.openPhotoGalery()
+        }))
+        
+        attachDialogue.addAction(UIAlertAction(title: "Библиотека", style: .default, handler: { [weak self] _ in
+            self?.openPhotoLibrary()
+        }))
+        
+        attachDialogue.addAction(UIAlertAction(title: "Камера", style: .default, handler: { [weak self] _ in
+            self?.openCamera()
+        }))
+        
+        attachDialogue.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+    }
+   
     func load() {
         switch UserSession.shared.authorizationStatus {
         case .authorized:
@@ -172,7 +174,27 @@ final class ChatModel: Model, ChatInput {
         raise(event: OnboardingEvent.close)
     }
     
+// MARK: - Attachment
+    
+    func openPhotoGalery() {
+        output?.openGallery()
+    }
+    
+    func openPhotoLibrary() {
+        
+    }
+    
+    func openCamera() {
+        
+    }
+    
     // MARK: - Helpers
+    
+    func hideKeyboard() {
+        if output?.messageInputBar.inputTextView.isFirstResponder ?? false {
+            output?.navigationController?.view.endEditing(true)
+        }
+    }
     
     func insertMessage(_ message: Message) {
         messages.append(message)
@@ -261,6 +283,7 @@ extension ChatModel: MessagesLayoutDelegate {
 extension ChatModel: ChatInputBarDelegate {
     
     func attach() {
+        hideKeyboard()
         output?.present(attachDialogue, animated: true, completion: nil)
     }
     
@@ -282,7 +305,7 @@ extension ChatModel: ChatInputBarDelegate {
     }
     
     func inputBar(_ inputBar: InputBarAccessoryView, textViewTextDidChangeTo text: String) {
-        
+        output?.messagesCollectionView.scrollToBottom(animated: false)
     }
 }
 

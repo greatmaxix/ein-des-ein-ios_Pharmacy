@@ -34,7 +34,7 @@ class SimpleNavigationBarView: UIView {
     func setupStyle(style: NavigationBarStyle) {
         self.style = style
         if style == .normal {
-            
+    
             hideSearch()
             rightButton.removeTarget(self, action: #selector(showSearch), for: .touchUpInside)
         } else if style == .search {

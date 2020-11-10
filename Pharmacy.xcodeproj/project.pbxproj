@@ -163,6 +163,9 @@
 		6036EB0524DD27B2003336C2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036EB0424DD27B1003336C2 /* SearchViewController.swift */; };
 		6036EB0724DD27BB003336C2 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036EB0624DD27BB003336C2 /* SearchModel.swift */; };
 		6036EB0924DD27CC003336C2 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6036EB0824DD27CC003336C2 /* SearchCoordinator.swift */; };
+		60383A2D255B223800654C1A /* ChatGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60383A2C255B223800654C1A /* ChatGallery.swift */; };
+		60383A31255B2C5F00654C1A /* ChatGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60383A30255B2C5F00654C1A /* ChatGalleryCollectionViewCell.swift */; };
+		60383A35255B2C6900654C1A /* ChatGalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60383A34255B2C6900654C1A /* ChatGalleryCollectionViewCell.xib */; };
 		603D318D24E2A269000E5A6C /* ReceiptView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603D318C24E2A269000E5A6C /* ReceiptView.xib */; };
 		603D318F24E2A2D3000E5A6C /* ReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D318E24E2A2D3000E5A6C /* ReceiptView.swift */; };
 		603D319124E3A7FD000E5A6C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D319024E3A7FD000E5A6C /* Receipt.swift */; };
@@ -533,6 +536,9 @@
 		6036EB0424DD27B1003336C2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		6036EB0624DD27BB003336C2 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		6036EB0824DD27CC003336C2 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		60383A2C255B223800654C1A /* ChatGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGallery.swift; sourceTree = "<group>"; };
+		60383A30255B2C5F00654C1A /* ChatGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		60383A34255B2C6900654C1A /* ChatGalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatGalleryCollectionViewCell.xib; sourceTree = "<group>"; };
 		603D318C24E2A269000E5A6C /* ReceiptView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiptView.xib; sourceTree = "<group>"; };
 		603D318E24E2A2D3000E5A6C /* ReceiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptView.swift; sourceTree = "<group>"; };
 		603D319024E3A7FD000E5A6C /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
@@ -1510,6 +1516,15 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		60383A2F255B2C3D00654C1A /* GalleryItem */ = {
+			isa = PBXGroup;
+			children = (
+				60383A30255B2C5F00654C1A /* ChatGalleryCollectionViewCell.swift */,
+				60383A34255B2C6900654C1A /* ChatGalleryCollectionViewCell.xib */,
+			);
+			path = GalleryItem;
+			sourceTree = "<group>";
+		};
 		603D318B24E2A23D000E5A6C /* ReceiptView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1751,6 +1766,7 @@
 		608E3AF82551D37D00AEE56C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				60383A2F255B2C3D00654C1A /* GalleryItem */,
 				60B95461255ADBC7002DE2A1 /* Application */,
 				60B9545725597720002DE2A1 /* Product */,
 				60AE318C25530854002BD404 /* CloseChat */,
@@ -1782,6 +1798,7 @@
 			isa = PBXGroup;
 			children = (
 				60A48C232555B9BC007CCDFE /* AttachInputItem.swift */,
+				60383A2C255B223800654C1A /* ChatGallery.swift */,
 			);
 			path = InputItems;
 			sourceTree = "<group>";
@@ -2410,6 +2427,7 @@
 				603D31F324E5A9F7000E5A6C /* ProductAdviceTableViewCell.xib in Resources */,
 				396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */,
 				394EBEE924FF904100C89970 /* MedicineView.xib in Resources */,
+				60383A35255B2C6900654C1A /* ChatGalleryCollectionViewCell.xib in Resources */,
 				61CFAAA9254C3CB700569DEF /* OrderCommentCell.xib in Resources */,
 				87131D2A250A04490050B8F2 /* SearchBar.xib in Resources */,
 				6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */,
@@ -2540,6 +2558,7 @@
 			files = (
 				875223BE2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift in Sources */,
 				875223C72500FD90000759C8 /* NSPersistentContainer.swift in Sources */,
+				60383A31255B2C5F00654C1A /* ChatGalleryCollectionViewCell.swift in Sources */,
 				6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */,
 				60E1A71324ECE0D100B3D205 /* ScanViewController.swift in Sources */,
 				618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */,
@@ -2664,6 +2683,7 @@
 				24F5FDB3254B3C1F00D28275 /* ChooseLocationTableViewCell.swift in Sources */,
 				39F0AD6724EEC81400CD6CA4 /* OrdersModel.swift in Sources */,
 				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
+				60383A2D255B223800654C1A /* ChatGallery.swift in Sources */,
 				396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */,
 				87A50B682526256800CF89CF /* ImageContainer.swift in Sources */,
 				4DE4D5392549812000EE0E3A /* AboutAppModel.swift in Sources */,
