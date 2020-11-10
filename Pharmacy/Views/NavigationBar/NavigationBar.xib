@@ -18,6 +18,7 @@
             <connections>
                 <outlet property="backButton" destination="ayr-iR-W0Y" id="xie-fD-tGS"/>
                 <outlet property="backButtonConstraint" destination="s23-MD-rFy" id="mcA-yM-V4Z"/>
+                <outlet property="backgroundImageView" destination="gse-GL-no1" id="gQV-VR-CcD"/>
                 <outlet property="scanButton" destination="vgu-Y8-T4D" id="pAD-SY-F7U"/>
                 <outlet property="searchBar" destination="xco-T6-RjQ" id="A2q-je-nEw"/>
                 <outlet property="searchContainerViewBottomConstraint" destination="7AM-Qv-8qQ" id="J2V-65-S4J"/>
@@ -38,12 +39,24 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hd1-fq-e0X">
                     <rect key="frame" x="0.0" y="0.0" width="449" height="244"/>
                     <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigationBarCircles" translatesAutoresizingMaskIntoConstraints="NO" id="gse-GL-no1">
+                            <rect key="frame" x="0.0" y="0.0" width="449" height="244"/>
+                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Начните поиск" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WH4-I2-bvT">
-                            <rect key="frame" x="18" y="135.5" width="222.5" height="37.5"/>
+                            <rect key="frame" x="18" y="129" width="254" height="44"/>
                             <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="32"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayr-iR-W0Y">
+                            <rect key="frame" x="22" y="12" width="20" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="Nk9-44-yfB"/>
+                                <constraint firstAttribute="width" constant="20" id="cDF-C5-fYc"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="leftArrow"/>
+                        </button>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YP0-IU-yky">
                             <rect key="frame" x="18" y="185" width="415" height="43"/>
                             <subviews>
@@ -71,21 +84,16 @@
                                 <constraint firstAttribute="height" constant="43" id="MN4-jn-sJ3"/>
                             </constraints>
                         </stackView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayr-iR-W0Y">
-                            <rect key="frame" x="22" y="12" width="20" height="28"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="28" id="Nk9-44-yfB"/>
-                                <constraint firstAttribute="width" constant="20" id="cDF-C5-fYc"/>
-                            </constraints>
-                            <inset key="imageEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <state key="normal" image="leftArrow"/>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" name="welcomeBlue"/>
                     <constraints>
+                        <constraint firstItem="gse-GL-no1" firstAttribute="leading" secondItem="Hd1-fq-e0X" secondAttribute="leading" id="2ow-cR-6J9"/>
                         <constraint firstAttribute="bottom" secondItem="YP0-IU-yky" secondAttribute="bottom" constant="16" id="7AM-Qv-8qQ"/>
                         <constraint firstItem="WH4-I2-bvT" firstAttribute="centerY" secondItem="Hd1-fq-e0X" secondAttribute="centerY" id="ITE-ff-jmb"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WH4-I2-bvT" secondAttribute="trailing" constant="18" id="Jw8-kj-fRc"/>
+                        <constraint firstAttribute="bottom" secondItem="gse-GL-no1" secondAttribute="bottom" id="Vll-F7-6t9"/>
+                        <constraint firstItem="gse-GL-no1" firstAttribute="top" secondItem="Hd1-fq-e0X" secondAttribute="top" id="Xa4-Ww-JAz"/>
+                        <constraint firstAttribute="trailing" secondItem="gse-GL-no1" secondAttribute="trailing" id="foG-IW-4VY"/>
                         <constraint firstAttribute="trailing" secondItem="YP0-IU-yky" secondAttribute="trailing" constant="16" id="jZT-r6-1QA"/>
                         <constraint firstItem="ayr-iR-W0Y" firstAttribute="leading" secondItem="Hd1-fq-e0X" secondAttribute="leading" constant="22" id="kJL-VA-EXl"/>
                         <constraint firstItem="WH4-I2-bvT" firstAttribute="leading" secondItem="Hd1-fq-e0X" secondAttribute="leading" constant="18" id="lhs-ab-9zg"/>
@@ -119,6 +127,7 @@
     <resources>
         <image name="barcode" width="24" height="24"/>
         <image name="leftArrow" width="28" height="28"/>
+        <image name="navigationBarCircles" width="375" height="148"/>
         <namedColor name="validationGreen">
             <color red="0.20784313725490197" green="0.90980392156862744" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

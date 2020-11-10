@@ -59,6 +59,9 @@ final class NavigationBar: UINavigationBar {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
+    
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
     @IBOutlet private(set) weak var searchBar: SearchBar!
     @IBOutlet private weak var scanButton: UIButton!
     @IBOutlet private weak var stackView: UIStackView!
@@ -138,9 +141,9 @@ extension NavigationBar {
         tintColor = .clear
         barTintColor = R.color.welcomeBlue()
         isTranslucent = false
-
+        
         contentView = configFromNib()!
-
+        
         contentView.layer.cornerRadius = GUI.cornerRadius
         contentView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         scanButton.layer.cornerRadius = GUI.scanButtonCornerRadius
@@ -191,6 +194,7 @@ extension NavigationBar {
         scanButton.isHidden = !isSearch
         backButton.isHidden = isSearch
 
+        backgroundImageView.alpha = !isSearch ? 0 : 1
         scanButton.alpha = !isSearch ? 0 : 1
         backButton.alpha = isSearch ? 0 : 1
 
