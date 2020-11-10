@@ -78,7 +78,6 @@ final class AboutAppViewController: UIViewController {
   }
 }
 
-
 // MARK: - SimpleNavigationBarDelegate
 extension AboutAppViewController: SimpleNavigationBarDelegate {
   func leftBarItemAction() {

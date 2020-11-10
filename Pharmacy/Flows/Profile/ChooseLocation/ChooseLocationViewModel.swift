@@ -41,7 +41,6 @@ enum ChooseLocationViewModelConfuguration {
 
 protocol ChooseLocationViewModelInput: class {
     var tableViewSections: [TableViewSection<Region>] { get }
-    var indexForSections: [String] { get }
     func load()
     func close()
     func selected(indexPath: IndexPath)
@@ -60,7 +59,6 @@ class ChooseLocationViewModel: Model {
     private(set) var sections: [TableViewSection<Region>] = []
     
     private var backupSection: [TableViewSection<Region>] = []
-    private var index: [String] = []
     
     private let countryProvider = DataManager<LocationAPI, RegionResponse>()
     private let updateUserProvider = DataManager<ProfileAPI, ProfileResponse>()
@@ -105,10 +103,6 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     
     func startLocationTracking() {
         locationService.updateCurrentLocation()
-    }
-    
-    var indexForSections: [String] {
-        return index
     }
     
     func applyRegion(regionId: Int) {
@@ -158,7 +152,6 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
             return
         }
         
-        self.index.removeAll()
         countryResionsData.removeAll()
         self.sections.removeAll()
         
@@ -166,7 +159,6 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
             .sorted(by: { $0.0 < $1.0 })
         
         array.forEach {[weak self] (key, value) in
-                self?.index.append(key.description)
                 self?.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
         }
         
@@ -186,7 +178,6 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
                     .sorted(by: { $0.0 < $1.0 })
                         
             array.forEach {[unowned self] (key, value) in
-                        self.index.append(key.description)
                         self.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
                 }
             self.output.reloadTableViewData(state: state)
@@ -217,15 +208,12 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
         let trimmedTerm = searchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         guard !trimmedTerm.isEmpty else {
             sections = backupSection
-            index.removeAll()
-            sections.forEach { index.append($0.header!) }
             self.output.searchActionReloading()
             return }
         
         guard let firstCharacter = trimmedTerm.first?.description else { return }
         
         self.sections = sections.filter({ ($0.header?.lowercased().contains(firstCharacter))!})
-        self.index = [firstCharacter.uppercased()]
         self.sections[0].items = sections[0].items.filter({$0.name.lowercased().contains(trimmedTerm.lowercased())})
         
         self.output.searchActionReloading()
