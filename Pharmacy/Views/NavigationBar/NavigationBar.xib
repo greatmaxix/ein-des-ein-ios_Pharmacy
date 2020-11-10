@@ -18,6 +18,7 @@
             <connections>
                 <outlet property="backButton" destination="ayr-iR-W0Y" id="xie-fD-tGS"/>
                 <outlet property="backButtonConstraint" destination="s23-MD-rFy" id="mcA-yM-V4Z"/>
+                <outlet property="backgroundImageView" destination="gse-GL-no1" id="gQV-VR-CcD"/>
                 <outlet property="scanButton" destination="vgu-Y8-T4D" id="pAD-SY-F7U"/>
                 <outlet property="searchBar" destination="xco-T6-RjQ" id="A2q-je-nEw"/>
                 <outlet property="searchContainerViewBottomConstraint" destination="7AM-Qv-8qQ" id="J2V-65-S4J"/>
