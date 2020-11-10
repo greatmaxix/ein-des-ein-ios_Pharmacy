@@ -42,15 +42,15 @@ final class ChatModel: Model, ChatInput {
     private var attachDialogue: UIAlertController = {
        
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { a in
+        alert.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { _ in
             
         }))
         
-        alert.addAction(UIAlertAction(title: "Библиотека", style: .default, handler: { a in
+        alert.addAction(UIAlertAction(title: "Библиотека", style: .default, handler: { _ in
             
         }))
         
-        alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { a in
+        alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { _ in
             
         }))
         
@@ -117,21 +117,27 @@ final class ChatModel: Model, ChatInput {
         collection.register(ChatApplicationCollectionViewCell.nib, forCellWithReuseIdentifier: ChatApplicationCollectionViewCell.reuseIdentifier)
     }
     
+    func proccessChat(items: [ChatMessage]) {
+        items.forEach {
+            self.insertMessage($0.message)
+        }
+        
+        output?.messagesCollectionView.scrollToBottom(animated: true)
+        output?.messageInputBar.isHidden = false
+        output?.messageInputBar.becomeFirstResponder()
+    }
+    
 //    Load chat messages if opened or answered chat exist
     
     private func didReciveChat(list: [Chat]) {
         if let openedChat = list.first(where: {$0.status == .opened || $0.status == .answered}) {
+            output?.title = openedChat.type
             output?.showActivityIndicator()
             messagesListProvider.load(target: .messageList((openedChat.id))) {[weak self] result in
                 self?.output?.hideActivityIndicator()
                 switch result {
                 case .success(let response):
-                    response.items.forEach {
-                        self?.insertMessage($0.message)
-                    }
-                    self?.output?.messagesCollectionView.scrollToBottom(animated: true)
-                    self?.output?.messageInputBar.isHidden = false
-                    self?.output?.messageInputBar.becomeFirstResponder()
+                    self?.proccessChat(items: response.items)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

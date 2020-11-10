@@ -21,9 +21,17 @@ class ChatInputBar: InputBarAccessoryView {
         static let backgroundColor = UIColor.white
     }
     
-    override func setup() {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configure() {
         separatorLine.height = 8.0
-        super.setup()
         backgroundColor = .clear
         
         separatorLine.backgroundColor = .clear
@@ -32,7 +40,7 @@ class ChatInputBar: InputBarAccessoryView {
         inputTextView.layer.cornerRadius = 17
         inputTextView.layer.borderWidth = 1.0
         inputTextView.layer.borderColor = R.color.mediumGrey()?.cgColor
-
+        
         backgroundView.layer.cornerRadius = GUI.cornerRadius
         backgroundView.layer.maskedCorners = GUI.maskedCorners
         backgroundView.backgroundColor = GUI.backgroundColor
@@ -42,18 +50,34 @@ class ChatInputBar: InputBarAccessoryView {
         
         var textInset = inputTextView.textContainerInset
         textInset.left = 12.0
+        textInset.right = 30.0
         inputTextView.textContainerInset = textInset
         inputTextView.placeholderLabel.text = " Что Вас волнует?"
         inputTextView.placeholderLabel.textColor = R.color.gray()
         
         setLeftStackViewWidthConstant(to: 60.0, animated: false)
-        leftStackView.alignment = .center
         
         let v = AttachInputItem(view: self) {[weak self] _ in
             (self?.delegate as? ChatInputBarDelegate)?.attach()
         }
         
-        leftStackView.addSubview(v)
+        setStackViewItems([v], forStack: .left, animated: false)
+        v.setSize(CGSize(width: 30.0, height: 38.0), animated: false)
+        setRightStackViewWidthConstant(to: 75.0, animated: false)
+        setStackViewItems([sendButton, InputBarButtonItem.fixedSpace(2.0)], forStack: .right, animated: false)
+        sendButton.setSize(CGSize(width: 30.0, height: 38.0), animated: false)
+        sendButton.image = R.image.send()
+        sendButton.title = nil
+        sendButton.alpha = 0.0
+        sendButton.onTextViewDidChange { (button, inputView) in
+            let isTextEmpty = inputView.text.isEmpty
+            UIView.animate(withDuration: 0.2) {
+                button.alpha = isTextEmpty  ? 0.0 : 1.0
+                inputView.layer.borderColor = (isTextEmpty ? R.color.mediumGrey() : R.color.welcomeBlue())?.cgColor
+            }
+        }
+        sendButton.backgroundColor = .clear
+        middleContentViewPadding.right = -62.0
         
         decorationBlackShadow()
     }
