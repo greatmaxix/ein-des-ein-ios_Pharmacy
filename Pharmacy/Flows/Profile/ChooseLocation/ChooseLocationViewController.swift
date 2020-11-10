@@ -87,8 +87,8 @@ extension ChooseLocationViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: ChooseLocationTableViewCell.self)
         cell.selectionStyle = .none
-        let item = model.tableViewSections[indexPath.section].items[indexPath.row] as? Region
-        cell.apply(title: item!.name)
+        let item = model.tableViewSections[indexPath.section].items[indexPath.row]
+        cell.apply(title: item.name)
         return cell
     }
     
@@ -98,10 +98,6 @@ extension ChooseLocationViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         model.selected(indexPath: indexPath)
-    }
-    
-    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return model.indexForSections
     }
 }
 
@@ -133,8 +129,8 @@ extension ChooseLocationViewController: ChooseLocationViewModelOutput {
     func applyTableViewCell(indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? ChooseLocationTableViewCell else {return}
         cell.selectedCell()
-        let region = model.tableViewSections[indexPath.section].items[indexPath.row] as? Region
-        model.applyRegion(regionId: region!.regionId)
+        let region = model.tableViewSections[indexPath.section].items[indexPath.row]
+        model.applyRegion(regionId: region.regionId)
     }
 }
 
