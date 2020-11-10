@@ -66,8 +66,7 @@ final class ProfileModel: Model {
 
     private func setupDataSource() {
         self.user = UserSession.shared.user
-        print("zxcv \(user)")
-        //TODO: - почему то бывает при изменении сдесь приходит НИЛ иногда а иногда нет
+
         let openOptionHandler: ((_: ProfileEvent) -> Void) = { [weak self] event in
             self?.raise(event: event)
         }

@@ -155,7 +155,7 @@ extension OrderDetailsModel: OrderDetailsModelInput, OrderDetailsViewControllerO
                     guard let `self` = self else { return }
 
                     switch result {
-                    case .success(_):
+                    case .success:
                         self.output.didLoadData(error: nil)
                         self.raise(event: OrderDetailsEvent.back)
                     case .failure(let error):
