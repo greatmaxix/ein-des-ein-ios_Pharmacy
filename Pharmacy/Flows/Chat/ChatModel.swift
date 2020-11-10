@@ -20,17 +20,17 @@ protocol ChatInput: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutD
     func load()
 }
 
-protocol ChatOutput: MessagesViewController {
-    var customMessageSizeCalculator: MessageSizeCalculator { get }
-}
+protocol ChatOutput: MessagesViewController { }
 
 final class ChatModel: Model, ChatInput {
    
     weak var output: ChatOutput? {
         didSet {
             setupInputBar()
+            setupCollection()
         }
     }
+    
     private var messages: [Message] = []
     private var chatProvider = DataManager<ChatAPI, ChatListResponse>()
     private var createChatProvider = DataManager<ChatAPI, CreateChatResponse>()
@@ -38,7 +38,27 @@ final class ChatModel: Model, ChatInput {
     private var createMessageProvider = DataManager<ChatAPI, CreateMessageResponse>()
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
-  
+    private var sizeCalculator: CustomMessageSizeCalculator!
+    private var attachDialogue: UIAlertController = {
+       
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { a in
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Библиотека", style: .default, handler: { a in
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { a in
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        
+        return alert
+    }()
+    
     deinit {
         chatService?.stop()
         print("Chat model deinit")
@@ -73,6 +93,30 @@ final class ChatModel: Model, ChatInput {
         output?.messageInputBar.delegate = self
     }
     
+    func setupCollection() {
+        if let layout = output?.messagesCollectionView.collectionViewLayout as? MessagesCollectionViewFlowLayout {
+            sizeCalculator = CustomMessageSizeCalculator(layout: layout)
+            layout.textMessageSizeCalculator.outgoingAvatarSize = .zero
+            layout.textMessageSizeCalculator.incomingAvatarSize = .zero
+        }
+        
+        output?.scrollsToBottomOnKeyboardBeginsEditing = true
+        output?.showMessageTimestampOnSwipeLeft = true
+        
+        guard let collection = output?.messagesCollectionView else { return }
+        
+        collection.backgroundColor = R.color.lightGray()
+        collection.messagesDataSource = self
+        collection.messagesDisplayDelegate = self
+        collection.messagesLayoutDelegate = self
+        
+        collection.register(ChatButtonCollectionViewCell.nib, forCellWithReuseIdentifier: ChatButtonCollectionViewCell.reuseIdentifier)
+        collection.register(ChatRouteCollectionViewCell.nib, forCellWithReuseIdentifier: ChatRouteCollectionViewCell.reuseIdentifier)
+        collection.register(ChatCloseCollectionViewCell.nib, forCellWithReuseIdentifier: ChatCloseCollectionViewCell.reuseIdentifier)
+        collection.register(ChatProductCollectionViewCell.nib, forCellWithReuseIdentifier: ChatProductCollectionViewCell.reuseIdentifier)
+        collection.register(ChatApplicationCollectionViewCell.nib, forCellWithReuseIdentifier: ChatApplicationCollectionViewCell.reuseIdentifier)
+    }
+    
 //    Load chat messages if opened or answered chat exist
     
     private func didReciveChat(list: [Chat]) {
@@ -83,7 +127,7 @@ final class ChatModel: Model, ChatInput {
                 switch result {
                 case .success(let response):
                     response.items.forEach {
-                        self?.didRecive(message: $0)
+                        self?.insertMessage($0.message)
                     }
                     self?.output?.messagesCollectionView.scrollToBottom(animated: true)
                     self?.output?.messageInputBar.isHidden = false
@@ -173,18 +217,20 @@ extension ChatModel: MessagesDataSource {
             switch kind {
             case .button:
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatButtonCollectionViewCell.reuseIdentifier, for: indexPath)
-                (cell as? ChatButtonCollectionViewCell)?.buttonAction = { [weak self] in
-                    self?.authorize()
-                }
+                (cell as? ChatButtonCollectionViewCell)?.buttonAction = {[weak self] in self?.authorize()}
             case .routeSwitch:
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatRouteCollectionViewCell.reuseIdentifier, for: indexPath)
-                (cell as? ChatRouteCollectionViewCell)?.routeAction = {[weak self] route in
-                    
-                    self?.didSelect(route: route)
-                }
+                (cell as? ChatRouteCollectionViewCell)?.routeAction = {[weak self] route in self?.didSelect(route: route)}
             case .chatClosing:
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatCloseCollectionViewCell.reuseIdentifier, for: indexPath)
-            case .product: break
+            case .product(let product):
+                cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatProductCollectionViewCell.reuseIdentifier, for: indexPath)
+                (cell as? ChatProductCollectionViewCell)?.apply(product: product, actionHandler: { _ in
+                    
+                })
+            case .application(let application):
+                cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatApplicationCollectionViewCell.reuseIdentifier, for: indexPath)
+                (cell as? ChatApplicationCollectionViewCell)?.apply(attachment: application)
             }
         default: break
         }
@@ -193,7 +239,7 @@ extension ChatModel: MessagesDataSource {
     }
     
     func customCellSizeCalculator(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CellSizeCalculator {
-        return output?.customMessageSizeCalculator ?? CellSizeCalculator()
+        return sizeCalculator
     }
 }
 
@@ -206,7 +252,11 @@ extension ChatModel: MessagesDisplayDelegate {
 extension ChatModel: MessagesLayoutDelegate {
 }
 
-extension ChatModel: InputBarAccessoryViewDelegate {
+extension ChatModel: ChatInputBarDelegate {
+    
+    func attach() {
+        output?.present(attachDialogue, animated: true, completion: nil)
+    }
     
     func processInputBar(_ inputBar: InputBarAccessoryView) {
         inputBar.inputTextView.text = String()
@@ -231,14 +281,9 @@ extension ChatModel: InputBarAccessoryViewDelegate {
 }
 
 extension ChatModel: ChatServiceDelegate {
-    func didRecive(message: ChatMessage) {
-        if message.isSenderCurrentUser {
-            let m = Message(message.text, sender: self.sender, messageId: "\(message.id)", date: message.createdAt.date() ?? Date())
-            self.insertMessage(m)
-        } else {
-            let s = ChatSender(senderId: "\(message.ownerUuid)", displayName: message.ownerType)
-            let m = Message(message.text, sender: s, messageId: "\(message.id)", date: message.createdAt.date() ?? Date())
-            self.insertMessage(m)
+    func didRecive(data: ChatMessagesResponse) {
+        if let m = data.body?.item.message {
+            insertMessage(m)
         }
     }
 }

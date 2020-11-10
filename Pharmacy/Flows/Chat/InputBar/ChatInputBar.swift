@@ -9,8 +9,12 @@
 import UIKit
 import InputBarAccessoryView
 
+protocol ChatInputBarDelegate: InputBarAccessoryViewDelegate {
+    func attach()
+}
+
 class ChatInputBar: InputBarAccessoryView {
-    
+        
     struct GUI {
         static let cornerRadius: CGFloat = 10.0
         static let maskedCorners: CACornerMask = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -43,15 +47,12 @@ class ChatInputBar: InputBarAccessoryView {
         inputTextView.placeholderLabel.textColor = R.color.gray()
         
         setLeftStackViewWidthConstant(to: 60.0, animated: false)
-        
-        let v = AttachInputItem()
-        v.inputBarAccessoryView = self
         leftStackView.alignment = .center
-        let imageView = UIImageView(image: R.image.attachment())
-        imageView.contentMode = .scaleAspectFit
-        imageView.frame = CGRect(x: 14.0, y: 0.0, width: 26.0, height: 50.0)
-        v.frame = CGRect(x: 0.0, y: 0.0, width: 60.0, height: 50)
-        v.addSubview(imageView)
+        
+        let v = AttachInputItem(view: self) {[weak self] _ in
+            (self?.delegate as? ChatInputBarDelegate)?.attach()
+        }
+        
         leftStackView.addSubview(v)
         
         decorationBlackShadow()

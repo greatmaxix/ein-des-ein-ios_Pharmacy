@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Manufacturer: Decodable {
+struct Manufacturer: Decodable, Equatable {
     
     // MARK: - Properties
     let name: String
