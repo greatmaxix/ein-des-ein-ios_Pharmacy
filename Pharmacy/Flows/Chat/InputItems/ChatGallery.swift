@@ -13,21 +13,26 @@ final class ChatGallery: UICollectionView, InputItem {
     
     var inputBarAccessoryView: InputBarAccessoryView?
     var parentStackViewPosition: InputStackView.Position?
-    
-    private var size: CGSize = CGSize(width: 200, height: 200) {
-        didSet {
-            invalidateIntrinsicContentSize()
-        }
+    var itemSize: CGSize {
+        let width = (frame.width / 3.0) - 1
+        return CGSize(width: width, height: width)
     }
     
-    init() {
-        let l = UICollectionViewFlowLayout()
+    init(frame: CGRect) {
+        let l = ChatGalleryLayout()
+        super.init(frame: frame, collectionViewLayout: l)
         l.minimumLineSpacing = 1.0
-        super.init(frame: .zero, collectionViewLayout: l)
+        l.minimumInteritemSpacing = 1.0
+        l.itemSize = itemSize
+        setup()
+    }
+    
+    func setup() {
         register(ChatGalleryCollectionViewCell.nib, forCellWithReuseIdentifier: ChatGalleryCollectionViewCell.reuseIdentifier)
         dataSource = self
         delegate = self
         reloadData()
+        decelerationRate = UIScrollView.DecelerationRate.fast
     }
     
     required init?(coder: NSCoder) {
@@ -51,17 +56,13 @@ final class ChatGallery: UICollectionView, InputItem {
     }
     
     override var intrinsicContentSize: CGSize {
-        return size
-    }
-    
-    func setSize(_ newValue: CGSize?, animated: Bool) {
-        size = newValue ?? .zero
+        return frame.size
     }
 }
 
 extension ChatGallery: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 31
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -72,7 +73,34 @@ extension ChatGallery: UICollectionViewDataSource, UICollectionViewDelegate {
 
 extension ChatGallery: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.size.width / 3.0)
-        return CGSize(width: width - 2, height: width - 2)
+        return itemSize
+    }
+}
+
+class ChatGalleryLayout: UICollectionViewFlowLayout {
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        guard let collectionView = self.collectionView else {
+               let latestOffset = super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity)
+               return latestOffset
+        }
+        // Page width used for estimating and calculating paging.
+        let pageWidth = self.itemSize.height + self.minimumInteritemSpacing
+
+        // Make an estimation of the current page position.
+        let approximatePage = collectionView.contentOffset.y/pageWidth
+
+        // Determine the current page based on velocity.
+        let currentPage = velocity.y == 0 ? round(approximatePage) : (velocity.y < 0.0 ? floor(approximatePage) : ceil(approximatePage))
+
+        // Create custom flickVelocity.
+        let flickVelocity = velocity.y * 0.3
+
+        // Check how many pages the user flicked, if <= 1 then flickedPages should return 0.
+        let flickedPages = (abs(round(flickVelocity)) <= 1) ? 0 : round(flickVelocity)
+
+        // Calculate newHorizontalOffset.
+        let newVericallOffset = ((currentPage + flickedPages) * pageWidth) - collectionView.contentInset.bottom
+
+        return CGPoint(x: proposedContentOffset.x, y: newVericallOffset)
     }
 }

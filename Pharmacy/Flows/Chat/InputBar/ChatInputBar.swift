@@ -20,8 +20,6 @@ class ChatInputBar: InputBarAccessoryView {
         static let maskedCorners: CACornerMask = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         static let backgroundColor = UIColor.white
     }
-        
-    private var galleryItem: ChatGallery!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,11 +31,6 @@ class ChatInputBar: InputBarAccessoryView {
     }
 
     private func configure() {
-        
-        galleryItem = ChatGallery()
-        
-        setStackViewItems([galleryItem], forStack: .bottom, animated: false)
-        galleryItem.isHidden = true
         separatorLine.height = 8.0
         backgroundColor = .clear
         
@@ -77,12 +70,13 @@ class ChatInputBar: InputBarAccessoryView {
         sendButton.image = R.image.send()
         sendButton.title = nil
         sendButton.alpha = 0.0
-        sendButton.onTextViewDidChange { (button, inputView) in
+        sendButton.onTextViewDidChange {[weak self] (button, inputView) in
             let isTextEmpty = inputView.text.isEmpty
             UIView.animate(withDuration: 0.2) {
                 button.alpha = isTextEmpty  ? 0.0 : 1.0
                 inputView.layer.borderColor = (isTextEmpty ? R.color.mediumGrey() : R.color.welcomeBlue())?.cgColor
             }
+            self?.hideGallery()
         }
         sendButton.backgroundColor = .clear
         middleContentViewPadding.right = -62.0
@@ -91,14 +85,19 @@ class ChatInputBar: InputBarAccessoryView {
     }
     
     func showGallery() {
-        let itemWidth = frame.width / 3.0
-        galleryItem.frame = CGRect(origin: .zero, size: CGSize(width: frame.width, height: itemWidth * 2))
+        let width = bottomStackView.frame.width
+        let itemWidth = width / 3.0
+        let rect = CGRect(origin: .zero, size: CGSize(width: width, height: itemWidth * 2))
+        let galleryItem = ChatGallery(frame: rect)
+        
         galleryItem.isHidden = false
-        setStackViewItems([galleryItem], forStack: .bottom, animated: true)
-        galleryItem.setSize(CGSize(width: frame.width, height: (frame.width / 3) * 2  ), animated: true)
+        
+        setStackViewItems([galleryItem], forStack: .bottom, animated: false)
     }
     
     func hideGallery() {
-        galleryItem.isHidden = true
+        if bottomStackViewItems.count > 0 {
+            setStackViewItems([], forStack: .bottom, animated: true)
+        }
     }
 }

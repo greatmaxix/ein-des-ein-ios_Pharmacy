@@ -284,6 +284,7 @@ extension ChatModel: ChatInputBarDelegate {
     
     func attach() {
         hideKeyboard()
+        output?.closeGallery()
         output?.present(attachDialogue, animated: true, completion: nil)
     }
     
