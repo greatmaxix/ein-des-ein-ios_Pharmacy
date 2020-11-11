@@ -9,39 +9,44 @@
 import Foundation
 import UIKit
 
-struct ChatListResponse: Codable, Equatable {
+struct ChatListResponse: Decodable, Equatable {
     var items: [Chat]
 }
 
-struct CreateMessageResponse: Codable, Equatable {
+struct CreateChatResponse: Decodable, Equatable {
+    var item: Chat
+}
+
+struct CreateMessageResponse: Decodable, Equatable {
     let item: ChatMessage
 }
 
-struct MessageListResponse: Codable, Equatable {
+struct MessageListResponse: Decodable, Equatable {
     let items: [ChatMessage]
 }
 
 // From Mercury
 
-struct ChatMessagesResponse: Codable, Equatable {
-    struct BodyResponse: Codable, Equatable {
+enum ChatMessageType: String, Decodable {
+    case message, application, changeStatus = "change_status", globalProduct = "global_product"
+}
+
+struct ChatMessagesResponse: Decodable, Equatable {
+    
+    struct ResponseBody: Decodable, Equatable {
         var item: ChatMessage
     }
-    var type: String
-    var body: BodyResponse
+    
+    var type: ChatMessageType
+    var body: ResponseBody?
     
     enum Keys: CodingKey {
-        case type, body, data
+        case type, body
     }
     
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: Keys.self)
-        self.type = try c.decode(String.self, forKey: .type)
-        if c.contains(.body) {
-            body = try c.decode(BodyResponse.self, forKey: .body)
-        } else {
-            body = try c.decode(BodyResponse.self, forKey: .data)
-        }
-        
+        self.type = try c.decode(ChatMessageType.self, forKey: .type)
+        self.body = try c.decode(ResponseBody.self, forKey: .body)
     }
 }

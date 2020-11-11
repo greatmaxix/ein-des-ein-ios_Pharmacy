@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -83,7 +83,7 @@
                                     <constraint firstItem="r6d-Sa-EXF" firstAttribute="top" secondItem="YpY-A7-cuB" secondAttribute="bottom" constant="8" id="nOW-8V-WZe"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="136" estimatedRowHeight="136" sectionHeaderHeight="96" estimatedSectionHeaderHeight="96" sectionFooterHeight="87" estimatedSectionFooterHeight="87" translatesAutoresizingMaskIntoConstraints="NO" id="b7v-X8-uWm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="136" estimatedRowHeight="136" sectionHeaderHeight="96" estimatedSectionHeaderHeight="96" sectionFooterHeight="93" estimatedSectionFooterHeight="93" translatesAutoresizingMaskIntoConstraints="NO" id="b7v-X8-uWm">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" name="backgroundGray"/>
                                 <prototypes>

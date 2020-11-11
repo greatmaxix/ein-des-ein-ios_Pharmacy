@@ -18,7 +18,7 @@ struct ChatSender: SenderType {
     
     static func currentUser() -> ChatSender {
         switch UserSession.shared.authorizationStatus {
-        case .authorized(let id): return ChatSender(senderId: "\(id)", displayName: UserSession.shared.user?.name ?? "")
+        case .authorized: return ChatSender(senderId: "\(UserSession.shared.userUUID ?? "")", displayName: "customer")
         case .notAuthorized: return guest()
         }
     }

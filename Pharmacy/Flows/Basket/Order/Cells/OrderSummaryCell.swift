@@ -21,7 +21,8 @@ class OrderSummaryCell: UITableViewCell {
         createButton.isEnabled = valid
 
         startPriceLabel.text = order.totalCost.moneyString(with: "₸")
-        totalLabel.text = order.totalCost.moneyString(with: "₸")
+        totalLabel.text = order.totalCostWithDelivery.moneyString(with: "₸")
+        deliveryLabel.text = order.deliveryCost.moneyString(with: "₸")
     }
 
     @IBAction func confirmOrder(_ sender: Any) {

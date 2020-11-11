@@ -24,6 +24,10 @@ extension UIView {
     func dropBlueShadow() {
         dropShadow(scale: true, color: R.color.shadowBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
     }
+
+    func dropBlueShadowCart() {
+        dropShadow(scale: true, color: R.color.shadowBlue(), width: 1, height: 1, radius: 8, opacity: 0.1)
+    }
     
     func bottomViewDropGrayShadow() {
         dropShadow(scale: true, color: R.color.gray(), width: 0, height: -4, radius: 8, opacity: 0.1)
@@ -43,6 +47,10 @@ extension UIView {
     
     func decorationBlackShadow() {
         dropShadow(scale: true, color: .black, width: 0, height: 1, radius: 2, opacity: 0.2)
+    }
+    
+    func dropInputBarShadow() {
+        dropShadow(scale: true, color: .black, width: 0, height: 2, radius: 2, opacity: 0.2)
     }
     
     func removeShadow() {

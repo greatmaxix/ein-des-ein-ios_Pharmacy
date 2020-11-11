@@ -10,7 +10,7 @@ import Foundation
 import LDSwiftEventSource
 
 protocol ChatServiceDelegate: class {
-    func didRecive(message: ChatMessage)
+    func didRecive(data: ChatMessagesResponse)
 }
 
 final class ChatService {
@@ -19,7 +19,7 @@ final class ChatService {
         case opened, answered, requestForClosing, closed
     }
     
-    enum EventName: String {
+    enum ChatEvent: String {
         case message, none = ""
     }
     
@@ -65,21 +65,18 @@ extension ChatService: EventHandler {
     
     func onClosed() {
         print("Close connection")
-        if isNeedReconnect {
-            eventSource.start()
-            print("Reconnecting...")
-        }
     }
     
     func onMessage(eventType: String, messageEvent: MessageEvent) {
         print("Message - \(messageEvent.data)")
-        let event = EventName(rawValue: eventType) ?? EventName.none
+        let event = ChatEvent(rawValue: eventType) ?? ChatEvent.none
         do {
             switch event {
             case .message:
-                let messageResponse = try decoder.decode(ChatMessagesResponse.self, from: Data(messageEvent.data.utf8))
+                
+                let message = try decoder.decode(ChatMessagesResponse.self, from: Data(messageEvent.data.utf8))
                 DispatchQueue.main.async { [weak self] in
-                    self?.delegate?.didRecive(message: messageResponse.body.item)
+                        self?.delegate?.didRecive(data: message)
                 }
             case .none:
                 print("Unknow chat event")
