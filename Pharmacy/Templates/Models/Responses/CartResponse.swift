@@ -31,6 +31,7 @@ struct PharmCartOrder: Codable {
     var name: String
     var location: String?
     var imageURL: URL?
+    var deliveryCost: Decimal = 150
 
     enum Keys: String, CodingKey {
         case products = "pharmacyProducts"
@@ -66,6 +67,10 @@ struct PharmCartOrder: Codable {
         }
 
         return cost
+    }
+
+    var totalCostWithDelivery: Decimal {
+        return totalCost + deliveryCost
     }
 
     var totalProducts: Int {

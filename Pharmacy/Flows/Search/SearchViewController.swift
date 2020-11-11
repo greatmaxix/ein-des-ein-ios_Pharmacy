@@ -79,6 +79,8 @@ extension SearchViewController {
                                                                                    topCapHeight: 20),
                                          for: .default)
         navigationBar.shadowImage = UIImage()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.barcode(), style: .plain, target: self, action: nil)
         
         searchBar.delegate = self
         searchBar.heightAnchor.constraint(equalToConstant: 36).isActive = true

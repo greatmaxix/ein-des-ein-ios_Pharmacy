@@ -36,12 +36,9 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     private func setupUI() {
         
         nameInputView.contentType = .name
-        phoneInputView.contentType = .phone
         emailInputView.contentType = .email
         
         nameInputView.placeholder = model.name
-        phoneInputView.placeholder = model.phone
-        phoneInputView.needsCountryCode = false
         emailInputView.placeholder = model.email
 
         setInputText()
@@ -100,7 +97,6 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     }
     
     @objc private func endTextfieldEditing() {
-        phoneInputView.endEditing(true)
         emailInputView.endEditing(true)
         nameInputView.endEditing(true)
     }
@@ -123,8 +119,7 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     
     func rightBarItemAction() {
       
-        var validationSuccess = phoneInputView.validate()
-        validationSuccess = nameInputView.validate() && validationSuccess
+        let validationSuccess = nameInputView.validate()
 
         if validationSuccess,
            let name: String = nameInputView.text,

@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -213,6 +213,7 @@
                                             <segment title="Списком"/>
                                             <segment title="На карте"/>
                                         </segments>
+                                        <color key="tintColor" name="welcomeBlue"/>
                                         <connections>
                                             <action selector="segmentChanged:" destination="tq0-87-ayh" eventType="valueChanged" id="7ec-B2-uYu"/>
                                         </connections>
@@ -287,6 +288,7 @@
                                             <segment title="Списком"/>
                                             <segment title="На карте"/>
                                         </segments>
+                                        <color key="tintColor" name="welcomeBlue"/>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
