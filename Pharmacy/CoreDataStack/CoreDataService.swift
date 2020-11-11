@@ -42,7 +42,9 @@ final class CoreDataService {
             return nil}
         
         var result: [RecentMedicineDTO] = []
-        data.forEach {result.append(RecentMedicineDTO.init(productId: $0.productId,
+
+        data.forEach {
+            result.append(RecentMedicineDTO.init(productId: $0.productId,
                                                            liked: $0.liked,
                                                            minPrice: $0.minPrice,
                                                            maxPrice: $0.maxPrice,
@@ -133,8 +135,22 @@ final class CoreDataService {
     }
     
     func save(medicine dto: RecentMedicineDTO) {
-        
         let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: dto.entityType.entityName)
+        
+        if let data = try? viewContext.fetch(fetchRequest) as? [RecentMedicineEntity],
+           let item = data.last {
+            
+            let medicine = RecentMedicineDTO.init(productId: item.productId,
+                                                  liked: item.liked,
+                                                  minPrice: item.minPrice,
+                                                  maxPrice: item.maxPrice,
+                                                  name: item.name,
+                                                  releaseForm: item.releaseForm,
+                                                  imageURL: item.imageURL)
+            
+                savePreviousMedicineViewed(item: medicine)
+        }
         
         dto.entityType.createOrUpdate(in: self.viewContext,
                                             matching: predicate) {
@@ -188,4 +204,24 @@ final class CoreDataService {
         user.uppdate(address: adress)
         try? viewContext.saveIfNeeded()
     }
+}
+
+private extension CoreDataService {
+    /**
+        Save prevous viewed medicine. Used this func only with saving current viewing medicine. This func save two viewed medicint elements and remove others from coreData
+     
+     - Parameter item: enter last item from data in viewContext.fetch(NSFetchRequest) as        [RecentMedicineEntity]
+     */
+    func savePreviousMedicineViewed(item: RecentMedicineDTO) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: item.entityType.entityName)
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        _ = try? viewContext.execute(batchDeleteRequest)
+        
+        let previousPredicate = NSPredicate(format: "\(item.entityType.primaryKey) = %@", item.identifier)
+        
+        item.entityType.createOrUpdate(in: self.viewContext,
+                                                matching: previousPredicate) {
+        item.fillEntity(entity: $0)
+    }
+  }
 }
