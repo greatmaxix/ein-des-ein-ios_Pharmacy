@@ -109,14 +109,10 @@ extension WelcomeModel: WelcomeModelInput {
         let newArray = Array(arraySlice)
         
         for item in newArray {
-            let medicine = item
             
-            let url = URL(string: medicine.imageURL)
-            
-            let receipt = Medicine(title: medicine.name, minPrice: medicine.minPrice, maxPrice: medicine.maxPrice, imageURL: medicine.imageURL, releaseForm: medicine.releaseForm, liked: medicine.liked, productId: medicine.productId)
+            let receipt = Medicine(title: item.name, minPrice: item.minPrice, maxPrice: item.maxPrice, imageURL: item.imageURL, releaseForm: item.releaseForm, liked: item.liked, productId: item.productId)
     
             recenvMedicineViewed.append(receipt)
-            
         }
         
         output.showReceipts(recenvMedicineViewed)
