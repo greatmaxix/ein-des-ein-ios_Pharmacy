@@ -174,8 +174,6 @@ extension WelcomeViewController: WelcomeModelOutput {
         receiptStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
         
         for receipt in receipts {
-            // TODO: Why imageURL allays nil
-            print("zxc showReceipts - \(receipt)")
             if let receiptView: ReceiptView  = R.nib.receiptView(owner: self) {
                 receiptView.apply(receipt: receipt)
                 
