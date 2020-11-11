@@ -91,7 +91,7 @@ final class ConfirmCodeModel: Model {
     
     private func successLogin() {
         if congratulatioNeeded {
-            self.raise(event: ConfirmCodeEvent.congratulation)
+            self.raise(event: ConfirmCodeEvent.openMainScreen)
         } else {
             self.raise(event: ConfirmCodeEvent.openMainScreen)
         }
