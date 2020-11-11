@@ -13,13 +13,13 @@ enum ChatAPI {
     enum ChatRoute: String {
         case doctor, pharmacist
     }
-
     case chatList
     case chatDetails(String)
     case messageList(Int)
     case createMessage(Int, String)
     case create(ChatRoute)
     case lastOpened
+    case uploadImage(UIImage)
 }
 
 extension ChatAPI: RequestConvertible {
@@ -31,34 +31,31 @@ extension ChatAPI: RequestConvertible {
         case .createMessage(let id, _): return "chat/chat/\(id)/message"
         case .create: return "customer/chat"
         case .lastOpened: return "user/chat/last-opened-chats"
+        case .uploadImage: return "customer/image"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .chatList:
+        case .messageList, .chatList, .chatDetails, .lastOpened:
             return .get
-        case .chatDetails:
-            return .get
-        case .messageList:
-            return .get
-        case .createMessage:
-            return .post
-        case .lastOpened:
-            return .get
-        case .create:
+        case .createMessage, .create, .uploadImage:
             return .post
         }
     }
     
     var task: Task {
         switch self {
-        case .create(let type): return .requestParameters(parameters: ["type": type.rawValue], encoding: JSONEncoding.default)
-        case .chatList: return .requestPlain
-        case .lastOpened: return .requestPlain
-        case .chatDetails: return .requestPlain
-        case .messageList: return .requestPlain
-        case .createMessage(_, let message): return .requestParameters(parameters: ["text": message], encoding: JSONEncoding.default)
+        case .chatDetails, .messageList, .lastOpened, .chatList:
+            return .requestPlain
+        case .create(let type):
+            return .requestParameters(parameters: ["type": type.rawValue], encoding: JSONEncoding.default)
+        case .createMessage(_, let message):
+            return .requestParameters(parameters: ["text": message], encoding: JSONEncoding.default)
+        case .uploadImage(let image):
+            let data = image.jpegData(compressionQuality: 1.0) ?? Data()
+            let formData: [Moya.MultipartFormData] = [Moya.MultipartFormData(provider: .data(data), name: "user_image", fileName: "image.jpeg", mimeType: "image/jpeg")]
+            return .uploadMultipart(formData)
         }
     }
 }

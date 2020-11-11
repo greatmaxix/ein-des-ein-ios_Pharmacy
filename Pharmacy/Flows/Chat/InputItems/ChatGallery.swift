@@ -87,6 +87,10 @@ extension ChatGallery: UICollectionViewDataSource, UICollectionViewDelegate {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            
+    }
 }
 
 extension ChatGallery: UICollectionViewDelegateFlowLayout {

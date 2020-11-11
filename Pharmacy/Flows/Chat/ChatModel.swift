@@ -23,6 +23,8 @@ protocol ChatInput: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutD
 protocol ChatOutput: MessagesViewController {
     func openGallery()
     func closeGallery()
+    func openLibrary()
+    func openCamera()
 }
 
 final class ChatModel: Model, ChatInput {
@@ -42,7 +44,9 @@ final class ChatModel: Model, ChatInput {
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
     private var sizeCalculator: CustomMessageSizeCalculator!
+    
     private let attachDialogue = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    private let imagePicker = UIImagePickerController()
     
     deinit {
         chatService?.stop()
@@ -181,11 +185,11 @@ final class ChatModel: Model, ChatInput {
     }
     
     func openPhotoLibrary() {
-        
+        output?.openLibrary()
     }
     
     func openCamera() {
-        
+        output?.openCamera()
     }
     
     // MARK: - Helpers

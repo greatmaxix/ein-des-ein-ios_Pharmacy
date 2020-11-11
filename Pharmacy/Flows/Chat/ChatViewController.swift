@@ -19,7 +19,9 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
         return messageInputBar as? ChatInputBar
     }
     
-    var photoLibraryAuthorizationStatus: PHAuthorizationStatus!
+    private var photoLibraryAuthorizationStatus: PHAuthorizationStatus!
+    private var cameraAuthorizationStatus: AVAuthorizationStatus!
+    private let imagePicker = UIImagePickerController()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -38,12 +40,22 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
         model.load()
     }
     
-    func setup() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         photoLibraryAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+        cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
     }
     
-    func showDeniedMessage() {
+    func setup() {
+        imagePicker.delegate = self
+    }
+    
+    func showDeniedPhotoMessage() {
         showMessage(text: "Отройте доступ к фото в найстройках приложения")
+    }
+    
+    func showDeniedCameraMessage() {
+        showMessage(text: "Отройте доступ к камере в найстройках приложения")
     }
     
     func requestPhotoLibraryAuthorization() {
@@ -53,8 +65,18 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
             case .authorized, .limited:
                 self?.openGallery()
             case .denied:
-                self?.showDeniedMessage()
+                self?.showDeniedPhotoMessage()
             default: break
+            }
+        }
+    }
+    
+    func requestCameraUsageAuthorization() {
+        AVCaptureDevice.requestAccess(for: .video) {[weak self] isGranted in
+            if isGranted {
+                self?.openCamera()
+            } else {
+                self?.showDeniedCameraMessage()
             }
         }
     }
@@ -72,12 +94,50 @@ extension ChatViewController: ChatOutput {
         case .notDetermined, .none:
             requestPhotoLibraryAuthorization()
         case .denied, .restricted:
-            showDeniedMessage()
+            showDeniedPhotoMessage()
         default: break
         }
     }
     
     func closeGallery() {
         chatBar?.hideGallery()
+    }
+    
+    func openLibrary() {
+        switch photoLibraryAuthorizationStatus {
+        case .authorized, .limited:
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = false
+            present(imagePicker, animated: true, completion: nil)
+        case .notDetermined, .none:
+            requestPhotoLibraryAuthorization()
+        case .denied, .restricted:
+            showDeniedPhotoMessage()
+        default: break
+        }
+    }
+    
+    func openCamera() {
+        switch cameraAuthorizationStatus {
+        case .none: break
+        case .some(let status):
+            switch status {
+            case .notDetermined:
+                requestCameraUsageAuthorization()
+            case .denied, .restricted:
+                self.showDeniedCameraMessage()
+            case .authorized:
+                imagePicker.sourceType = .camera
+                imagePicker.allowsEditing = false
+                present(imagePicker, animated: true, completion: nil)
+            @unknown default: break
+            }
+        }
+    }
+}
+
+extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }

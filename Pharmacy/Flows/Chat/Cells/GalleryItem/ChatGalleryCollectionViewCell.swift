@@ -28,4 +28,9 @@ class ChatGalleryCollectionViewCell: UICollectionViewCell {
         cameraView.isHidden = true
         checkboxButton.isHidden = false
     }
+    
+    func toggleSelection() {
+        checkboxButton.isSelected = !checkboxButton.isSelected
+        isSelected = checkboxButton.isSelected
+    }
 }
