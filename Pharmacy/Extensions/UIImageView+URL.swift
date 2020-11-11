@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Photos
 
 extension UIImageView {
     
@@ -20,4 +21,23 @@ extension UIImageView {
                     placeholder: placeholder,
                     completionHandler: completion)
     }
+}
+
+extension UIImageView {
+    
+ func fetchImage(asset: PHAsset, contentMode: PHImageContentMode, targetSize: CGSize) {
+    let options = PHImageRequestOptions()
+    options.version = .original
+    PHImageManager.default().requestImage(for: asset, targetSize: targetSize, contentMode: contentMode, options: options) { image, _ in
+        guard let image = image else { return }
+        switch contentMode {
+        case .aspectFill:
+            self.contentMode = .scaleAspectFill
+        case .aspectFit:
+            self.contentMode = .scaleAspectFit
+        default: break
+        }
+        self.image = image
+    }
+   }
 }

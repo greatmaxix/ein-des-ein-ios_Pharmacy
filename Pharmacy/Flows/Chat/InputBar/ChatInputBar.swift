@@ -70,6 +70,7 @@ class ChatInputBar: InputBarAccessoryView {
         sendButton.image = R.image.send()
         sendButton.title = nil
         sendButton.alpha = 0.0
+        
         sendButton.onTextViewDidChange {[weak self] (button, inputView) in
             let isTextEmpty = inputView.text.isEmpty
             UIView.animate(withDuration: 0.2) {

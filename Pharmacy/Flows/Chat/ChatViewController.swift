@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageKit
+import Photos
 
 class ChatViewController: MessagesViewController, NavigationBarStyled {
     
@@ -17,10 +18,14 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     var chatBar: ChatInputBar? {
         return messageInputBar as? ChatInputBar
     }
+    
+    var photoLibraryAuthorizationStatus: PHAuthorizationStatus!
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         messageInputBar = ChatInputBar()
         sizeCalculator = CustomMessageSizeCalculator()
+        setup()
     }
     
     required init?(coder: NSCoder) {
@@ -30,8 +35,28 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.setRightBarButtonItems([UIBarButtonItem.init(image: R.image.info(), style: .plain, target: self, action: #selector(showChatInfo))], animated: true)
-    
         model.load()
+    }
+    
+    func setup() {
+        photoLibraryAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+    }
+    
+    func showDeniedMessage() {
+        showMessage(text: "Отройте доступ к фото в найстройках приложения")
+    }
+    
+    func requestPhotoLibraryAuthorization() {
+        PHPhotoLibrary.requestAuthorization {[weak self] status in
+            self?.photoLibraryAuthorizationStatus = status
+            switch status {
+            case .authorized, .limited:
+                self?.openGallery()
+            case .denied:
+                self?.showDeniedMessage()
+            default: break
+            }
+        }
     }
     
     @objc func showChatInfo() {
@@ -41,7 +66,15 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     
 extension ChatViewController: ChatOutput {
     func openGallery() {
-        chatBar?.showGallery()
+        switch photoLibraryAuthorizationStatus {
+        case .authorized, .limited:
+            chatBar?.showGallery()
+        case .notDetermined, .none:
+            requestPhotoLibraryAuthorization()
+        case .denied, .restricted:
+            showDeniedMessage()
+        default: break
+        }
     }
     
     func closeGallery() {

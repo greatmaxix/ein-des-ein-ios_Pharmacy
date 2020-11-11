@@ -9,5 +9,12 @@
 import UIKit
 
 class ChatGalleryCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var contentImage: UIImageView!
+    @IBOutlet weak var checkboxButton: UIButton!
     
+    override var isSelected: Bool {
+        didSet {
+            checkboxButton.isSelected = isSelected
+        }
+    }
 }

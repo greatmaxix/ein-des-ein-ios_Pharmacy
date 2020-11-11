@@ -8,6 +8,7 @@
 
 import Foundation
 import InputBarAccessoryView
+import Photos
 
 final class ChatGallery: UICollectionView, InputItem {
     
@@ -17,6 +18,8 @@ final class ChatGallery: UICollectionView, InputItem {
         let width = (frame.width / 3.0) - 1
         return CGSize(width: width, height: width)
     }
+    
+    private var photos: PHFetchResult<PHAsset>!
     
     init(frame: CGRect) {
         let l = ChatGalleryLayout()
@@ -31,8 +34,15 @@ final class ChatGallery: UICollectionView, InputItem {
         register(ChatGalleryCollectionViewCell.nib, forCellWithReuseIdentifier: ChatGalleryCollectionViewCell.reuseIdentifier)
         dataSource = self
         delegate = self
-        reloadData()
         decelerationRate = UIScrollView.DecelerationRate.fast
+        backgroundColor = .white
+        loadPhotos()
+    }
+    
+    func loadPhotos() {
+        let options = PHFetchOptions()
+        photos = PHAsset.fetchAssets(with: .image, options: options)
+        reloadData()
     }
     
     required init?(coder: NSCoder) {
@@ -62,11 +72,15 @@ final class ChatGallery: UICollectionView, InputItem {
 
 extension ChatGallery: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 31
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChatGalleryCollectionViewCell.reuseIdentifier, for: indexPath)
+        let asset = photos[indexPath.row]
+        
+        (cell as? ChatGalleryCollectionViewCell)?.contentImage.fetchImage(asset: asset, contentMode: .aspectFill, targetSize: itemSize)
+        
         return cell
     }
 }
