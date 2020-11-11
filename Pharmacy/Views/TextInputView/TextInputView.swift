@@ -229,7 +229,7 @@ final class TextInputView: UIView {
     func statusButtonDisable() {
         self.inputStatusButton.isHidden = true
     }
-    
+
     private func setupInputTextField() {
         inputTextField = UITextField()
         inputTextField.translatesAutoresizingMaskIntoConstraints = false

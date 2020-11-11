@@ -45,7 +45,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98a-BM-SV9">
-                                        <rect key="frame" x="16" y="467" width="382" height="48"/>
+                                        <rect key="frame" x="16" y="447" width="382" height="48"/>
                                         <color key="backgroundColor" name="applyBlueGray"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="acX-cb-4MW"/>
@@ -57,14 +57,6 @@
                                             <action selector="apply:" destination="ct1-As-Fog" eventType="touchUpInside" id="gBe-lk-qsX"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7o-59-XeX" customClass="TextInputView" customModule="Pharmacy" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="283" width="382" height="120"/>
-                                        <viewLayoutGuide key="safeArea" id="ObX-S3-WqF"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="HdD-Om-2Ks"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hJH-1B-waH" customClass="TextInputView" customModule="Pharmacy" customModuleProvider="target">
                                         <rect key="frame" x="16" y="32" width="382" height="50"/>
                                         <viewLayoutGuide key="safeArea" id="NDw-wM-HqY"/>
@@ -81,21 +73,31 @@
                                             <constraint firstAttribute="height" constant="50" id="gn1-vx-Dv5"/>
                                         </constraints>
                                     </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vp1-P5-WIe">
+                                        <rect key="frame" x="16" y="283" width="382" height="100"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="WRx-Se-nSy"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="CgI-Hv-Yxm" firstAttribute="leading" secondItem="LhY-H5-0l9" secondAttribute="leading" constant="16" id="0Tp-Vn-uK8"/>
-                                    <constraint firstItem="V7o-59-XeX" firstAttribute="leading" secondItem="LhY-H5-0l9" secondAttribute="leading" constant="16" id="2Kt-WA-fwx"/>
                                     <constraint firstItem="98a-BM-SV9" firstAttribute="leading" secondItem="LhY-H5-0l9" secondAttribute="leading" constant="16" id="5na-rh-3Jl"/>
                                     <constraint firstItem="LhY-H5-0l9" firstAttribute="trailing" secondItem="hJH-1B-waH" secondAttribute="trailing" constant="16" id="6zi-mF-cNp"/>
-                                    <constraint firstItem="98a-BM-SV9" firstAttribute="top" secondItem="V7o-59-XeX" secondAttribute="bottom" constant="64" id="866-7E-8NO"/>
+                                    <constraint firstItem="98a-BM-SV9" firstAttribute="top" secondItem="Vp1-P5-WIe" secondAttribute="bottom" constant="64" id="7xV-Mt-geP"/>
                                     <constraint firstItem="LhY-H5-0l9" firstAttribute="trailing" secondItem="Bwe-2r-PfR" secondAttribute="trailing" constant="16" id="8oL-24-q5X"/>
                                     <constraint firstItem="hJH-1B-waH" firstAttribute="leading" secondItem="LhY-H5-0l9" secondAttribute="leading" constant="16" id="J74-Wb-4Rw"/>
                                     <constraint firstItem="LhY-H5-0l9" firstAttribute="trailing" secondItem="CgI-Hv-Yxm" secondAttribute="trailing" constant="16" id="KmZ-Hg-oRg"/>
-                                    <constraint firstItem="V7o-59-XeX" firstAttribute="top" secondItem="Bwe-2r-PfR" secondAttribute="bottom" constant="32" id="KvY-7W-sRe"/>
+                                    <constraint firstItem="Vp1-P5-WIe" firstAttribute="leading" secondItem="LhY-H5-0l9" secondAttribute="leading" constant="16" id="LrC-kE-jmy"/>
                                     <constraint firstItem="hJH-1B-waH" firstAttribute="top" secondItem="LhY-H5-0l9" secondAttribute="top" constant="32" id="MZr-Zd-4tr"/>
-                                    <constraint firstItem="LhY-H5-0l9" firstAttribute="trailing" secondItem="V7o-59-XeX" secondAttribute="trailing" constant="16" id="Tfy-6x-QXh"/>
+                                    <constraint firstItem="Vp1-P5-WIe" firstAttribute="top" secondItem="Bwe-2r-PfR" secondAttribute="bottom" constant="32" id="Sm4-Ch-7pt"/>
                                     <constraint firstItem="Bwe-2r-PfR" firstAttribute="leading" secondItem="LhY-H5-0l9" secondAttribute="leading" constant="16" id="cZc-NH-03C"/>
                                     <constraint firstItem="CgI-Hv-Yxm" firstAttribute="top" secondItem="hJH-1B-waH" secondAttribute="bottom" constant="32" id="hT4-F8-MxX"/>
+                                    <constraint firstItem="LhY-H5-0l9" firstAttribute="trailing" secondItem="Vp1-P5-WIe" secondAttribute="trailing" constant="16" id="rzV-f1-GKr"/>
                                     <constraint firstItem="LhY-H5-0l9" firstAttribute="trailing" secondItem="98a-BM-SV9" secondAttribute="trailing" constant="16" id="wSC-rN-iby"/>
                                     <constraint firstItem="Bwe-2r-PfR" firstAttribute="top" secondItem="CgI-Hv-Yxm" secondAttribute="bottom" constant="32" id="yXp-1g-RpI"/>
                                 </constraints>
@@ -117,7 +119,7 @@
                         <outlet property="cityTextView" destination="hJH-1B-waH" id="S6s-sc-zYW"/>
                         <outlet property="flatTextView" destination="TNn-a6-vb0" id="KOc-cC-LAF"/>
                         <outlet property="houseTextView" destination="vja-mX-EGc" id="mY5-9J-r2U"/>
-                        <outlet property="noteTextView" destination="V7o-59-XeX" id="cum-0A-H5b"/>
+                        <outlet property="noteTextView" destination="Vp1-P5-WIe" id="vqb-VT-X3e"/>
                         <outlet property="pavilionTextView" destination="pWF-iE-inB" id="muV-T8-Usu"/>
                         <outlet property="scrollView" destination="kzq-RV-6Jm" id="Vcq-WT-4nR"/>
                         <outlet property="streetTextView" destination="CgI-Hv-Yxm" id="vDt-na-jyb"/>
@@ -132,6 +134,9 @@
         <namedColor name="applyBlueGray">
             <color red="0.6470588235294118" green="0.70588235294117652" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

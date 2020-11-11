@@ -24,7 +24,7 @@ class ChooseDeliveryAdressViewController: UIViewController {
     @IBOutlet private weak var pavilionTextView: TextInputView!
     @IBOutlet private weak var flatTextView: TextInputView!
     
-    @IBOutlet private weak var noteTextView: TextInputView!
+    @IBOutlet private weak var noteTextView: UITextView!
     
     @IBOutlet private weak var applyButton: UIButton!
     
@@ -98,10 +98,17 @@ class ChooseDeliveryAdressViewController: UIViewController {
     }
     
     private func setupNoteView() {
-        noteTextView.placeholder = R.string.localize.deliveryNote()
-        noteTextView.setupFontSize(fontSize: GUI.fontSize)
-        noteTextView.setupHeightTextView(height: GUI.noteTextViewHeight)
-        noteTextView.statusButtonDisable()
+        noteTextView.text = R.string.localize.deliveryNote()
+        noteTextView.textColor = R.color.applyBlueGray()?.withAlphaComponent(0.7)
+        noteTextView.font = R.font.openSansRegular(size: 14)
+        
+        noteTextView.backgroundColor = R.color.backgroundGray()
+        
+        noteTextView.layer.cornerRadius = noteTextView.frame.height / 2
+        noteTextView.layer.borderWidth = 1
+        noteTextView.layer.borderColor = R.color.validationGray()?.cgColor
+        noteTextView.layer.sublayerTransform = CATransform3DMakeTranslation(30, 0, 0)
+        noteTextView.delegate = self
     }
     
     private func setupApplyButton() {
@@ -172,5 +179,25 @@ extension ChooseDeliveryAdressViewController: SimpleNavigationBarDelegate, UITex
         
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension ChooseDeliveryAdressViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        if textView.text == R.string.localize.deliveryNote() {
+                textView.text = ""
+                textView.textColor = .black
+            }
+        textView.becomeFirstResponder()
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        if textView.text == "" {
+            textView.text = R.string.localize.deliveryNote()
+            textView.textColor = R.color.applyBlueGray()?.withAlphaComponent(0.7)
+        }
+        textView.resignFirstResponder()
     }
 }
