@@ -17,7 +17,7 @@ class CartSectionFooterView: UITableViewHeaderFooterView {
     var createOrderHandler: EmptyClosure?
 
     func apply(order: PharmCartOrder) {
-        totalPriceLabel.text = order.totalCost.moneyString(with: "₸")
+        totalPriceLabel.text = order.totalCostWithDelivery.moneyString(with: "₸")
         totalCountLabel.text = "\(order.totalProducts) товара (ов)"
 
         corneredView.dropBlueShadowCart()

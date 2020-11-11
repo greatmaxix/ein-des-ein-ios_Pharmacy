@@ -23,14 +23,28 @@ class OrderCommentCell: UITableViewCell {
         super.awakeFromNib()
 
         textview.delegate = self
+        textview.backgroundColor = R.color.backgroundGray()
+
         corneredView.layer.borderWidth = 1
-        corneredView.layer.borderColor = R.color.welcomeBlue()?.cgColor
-        corneredView.backgroundColor = .white
+        corneredView.layer.borderColor = R.color.mediumGrey()?.cgColor
+        corneredView.backgroundColor = R.color.backgroundGray()
     }
     
 }
 
 extension OrderCommentCell: UITextViewDelegate {
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        corneredView.layer.borderColor = R.color.welcomeBlue()?.cgColor
+        corneredView.backgroundColor = .white
+        textview.backgroundColor = .white
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        corneredView.layer.borderColor = R.color.mediumGrey()?.cgColor
+        corneredView.backgroundColor = R.color.backgroundGray()
+        textview.backgroundColor = R.color.backgroundGray()
+    }
 
     func textViewDidChange(_ textView: UITextView) {
         let size = textView.bounds.size

@@ -23,14 +23,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="CartSectionFooterView" customModule="Pharmacy" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgs-Xe-fIk">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="93"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiD-lH-e9i">
-                            <rect key="frame" x="0.0" y="47" width="414" height="40"/>
+                            <rect key="frame" x="0.0" y="53" width="414" height="40"/>
                             <color key="backgroundColor" name="backgroundGray"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="dRu-hv-koY"/>
@@ -65,19 +65,19 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8r9-P1-Qwn">
-                            <rect key="frame" x="24" y="16" width="40" height="19"/>
+                            <rect key="frame" x="24" y="16" width="45.5" height="22"/>
                             <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                             <color key="textColor" name="validationBlue"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKP-oY-Vn3">
-                            <rect key="frame" x="24" y="35" width="35" height="16.5"/>
+                            <rect key="frame" x="24" y="38" width="37.5" height="19.5"/>
                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                             <color key="textColor" name="textDarkBlue"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ доставка от 150 ₽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spd-YA-ee2">
-                            <rect key="frame" x="24" y="51.5" width="93" height="12"/>
+                            <rect key="frame" x="24" y="57.5" width="96" height="14"/>
                             <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="10"/>
                             <color key="textColor" name="violet"/>
                             <nil key="highlightedColor"/>
@@ -95,7 +95,7 @@
                         <constraint firstItem="MFt-Vg-sG5" firstAttribute="top" secondItem="hgs-Xe-fIk" secondAttribute="top" constant="16" id="CKC-fL-A5i"/>
                         <constraint firstAttribute="trailing" secondItem="MFt-Vg-sG5" secondAttribute="trailing" constant="16" id="HrQ-Un-LzO"/>
                         <constraint firstItem="8r9-P1-Qwn" firstAttribute="leading" secondItem="hgs-Xe-fIk" secondAttribute="leading" constant="24" id="IpB-jA-Mgd"/>
-                        <constraint firstAttribute="bottom" secondItem="L7y-zr-o19" secondAttribute="bottom" constant="8" id="cXZ-Ky-uLD"/>
+                        <constraint firstAttribute="bottom" secondItem="L7y-zr-o19" secondAttribute="bottom" constant="14" id="cXZ-Ky-uLD"/>
                         <constraint firstItem="DKP-oY-Vn3" firstAttribute="leading" secondItem="8r9-P1-Qwn" secondAttribute="leading" id="jHm-gC-m6Q"/>
                         <constraint firstItem="L7y-zr-o19" firstAttribute="top" secondItem="hgs-Xe-fIk" secondAttribute="top" constant="8" id="mDm-NF-d53"/>
                         <constraint firstAttribute="trailing" secondItem="aiD-lH-e9i" secondAttribute="trailing" id="qT3-4t-e8I"/>
