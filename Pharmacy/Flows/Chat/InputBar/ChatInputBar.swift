@@ -14,7 +14,9 @@ protocol ChatInputBarDelegate: InputBarAccessoryViewDelegate {
 }
 
 class ChatInputBar: InputBarAccessoryView {
-        
+    
+    var attachInputItem: AttachInputItem!
+    
     struct GUI {
         static let cornerRadius: CGFloat = 10.0
         static let maskedCorners: CACornerMask = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -57,12 +59,12 @@ class ChatInputBar: InputBarAccessoryView {
         
         setLeftStackViewWidthConstant(to: 60.0, animated: false)
         
-        let v = AttachInputItem(view: self) {[weak self] _ in
+        attachInputItem = AttachInputItem(view: self) {[weak self] _ in
             (self?.delegate as? ChatInputBarDelegate)?.attach()
         }
         
-        setStackViewItems([v], forStack: .left, animated: false)
-        v.setSize(CGSize(width: 30.0, height: 38.0), animated: false)
+        setStackViewItems([attachInputItem], forStack: .left, animated: false)
+        attachInputItem.setSize(CGSize(width: 26.0, height: 38.0), animated: false)
         setRightStackViewWidthConstant(to: 75.0, animated: false)
         setStackViewItems([sendButton, InputBarButtonItem.fixedSpace(2.0)], forStack: .right, animated: false)
         
@@ -86,6 +88,7 @@ class ChatInputBar: InputBarAccessoryView {
     }
     
     func showGallery() {
+        attachInputItem.isHighlighted = true
         let width = bottomStackView.frame.width
         let itemWidth = width / 3.0
         let rect = CGRect(origin: .zero, size: CGSize(width: width, height: itemWidth * 2))
@@ -98,6 +101,7 @@ class ChatInputBar: InputBarAccessoryView {
     
     func hideGallery() {
         if bottomStackViewItems.count > 0 {
+            attachInputItem.isSelected = false
             setStackViewItems([], forStack: .bottom, animated: true)
         }
     }
