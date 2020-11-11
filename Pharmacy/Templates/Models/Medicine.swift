@@ -72,11 +72,11 @@ struct Medicine: Codable {
         liked = false
     }
     
-    init(title: String, minPrice: Double, maxPrice: Double, imageURL: URL?, releaseForm: String, liked: Bool, productId: Int) {
+    init(title: String, minPrice: Double, maxPrice: Double, imageURL: String?, releaseForm: String, liked: Bool, productId: Int) {
         id = productId
         name = title
         self.releaseForm = releaseForm
-        pictureUrls = []
+        pictureUrls = [imageURL ?? ""]
         manufacturerName = ""
         manufacturerCountryCode = ""
         self.minPrice = Decimal.init(minPrice)
@@ -98,7 +98,10 @@ struct Medicine: Codable {
         return  minPrice?.moneyString(with: currency) ?? "--"
     }
     var imageURL: URL? {
-        return nil
+        guard let url = URL(string: pictureUrls[0]) else {
+            return nil
+        }
+        return url
     }
     var currency = "₸"
 }

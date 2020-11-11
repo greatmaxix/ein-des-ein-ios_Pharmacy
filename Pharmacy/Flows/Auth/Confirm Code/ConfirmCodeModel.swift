@@ -81,7 +81,6 @@ final class ConfirmCodeModel: Model {
         updateUserProvider.load(target: .updateRegion(regionId: regionId)) { result in
             switch result {
             case .success(let user):
-                print("zxcv TEST USER \(user)")
                 UserSession.shared.save(user: user.user)
                 UserDefaultsAccessor.regionId = regionId
             case .failure(let error):
