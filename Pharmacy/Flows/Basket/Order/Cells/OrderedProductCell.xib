@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -30,7 +30,7 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CsA-ci-sH5">
                         <rect key="frame" x="16" y="4" width="288" height="136"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medicineImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="oQe-DB-bf4">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medicineImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="oQe-DB-bf4">
                                 <rect key="frame" x="8" y="8" width="112" height="112"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="112" id="ngB-f9-9Ab"/>
@@ -48,7 +48,7 @@
                                 <color key="textColor" name="textDarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoA-09-ST2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoA-09-ST2">
                                 <rect key="frame" x="128" y="35" width="152" height="16.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" name="textDarkBlue"/>
@@ -66,22 +66,30 @@
                                 <color key="textColor" name="textDarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exX-Bf-c5C">
+                                <rect key="frame" x="128" y="55.5" width="152" height="16.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <color key="textColor" name="textDarkBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="oQe-DB-bf4" secondAttribute="bottom" constant="16" id="3Kh-E4-deO"/>
+                            <constraint firstItem="exX-Bf-c5C" firstAttribute="top" secondItem="DoA-09-ST2" secondAttribute="bottom" constant="4" id="5Pu-fR-qPL"/>
                             <constraint firstItem="oQe-DB-bf4" firstAttribute="leading" secondItem="CsA-ci-sH5" secondAttribute="leading" constant="8" id="98c-t2-6Zl"/>
                             <constraint firstAttribute="trailing" secondItem="I3t-O3-8Zs" secondAttribute="trailing" constant="8" id="AKP-q4-MVd"/>
                             <constraint firstAttribute="trailing" secondItem="DoA-09-ST2" secondAttribute="trailing" constant="8" id="AY6-4F-weF"/>
                             <constraint firstItem="jfp-L8-Gbi" firstAttribute="leading" secondItem="oQe-DB-bf4" secondAttribute="trailing" constant="8" id="Bae-zB-LRl"/>
                             <constraint firstItem="DoA-09-ST2" firstAttribute="leading" secondItem="oQe-DB-bf4" secondAttribute="trailing" constant="8" id="GVI-ok-9Vz"/>
                             <constraint firstItem="gme-Vh-gRR" firstAttribute="firstBaseline" secondItem="jfp-L8-Gbi" secondAttribute="firstBaseline" id="H8p-O0-oLl"/>
-                            <constraint firstItem="gme-Vh-gRR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DoA-09-ST2" secondAttribute="bottom" constant="8" id="TWM-jx-EUY"/>
                             <constraint firstItem="I3t-O3-8Zs" firstAttribute="top" secondItem="CsA-ci-sH5" secondAttribute="top" constant="8" id="ZOO-5J-KJv"/>
+                            <constraint firstItem="exX-Bf-c5C" firstAttribute="leading" secondItem="oQe-DB-bf4" secondAttribute="trailing" constant="8" id="gox-sh-hDl"/>
                             <constraint firstItem="I3t-O3-8Zs" firstAttribute="leading" secondItem="oQe-DB-bf4" secondAttribute="trailing" constant="8" id="hpb-qS-eqB"/>
                             <constraint firstAttribute="trailing" secondItem="gme-Vh-gRR" secondAttribute="trailing" constant="16" id="idy-X9-68r"/>
                             <constraint firstItem="oQe-DB-bf4" firstAttribute="top" secondItem="CsA-ci-sH5" secondAttribute="top" constant="8" id="lvA-TZ-weM"/>
                             <constraint firstItem="DoA-09-ST2" firstAttribute="top" secondItem="I3t-O3-8Zs" secondAttribute="bottom" constant="8" id="rNy-lm-2Sf"/>
+                            <constraint firstAttribute="trailing" secondItem="exX-Bf-c5C" secondAttribute="trailing" constant="8" id="uOx-ye-njr"/>
                             <constraint firstItem="jfp-L8-Gbi" firstAttribute="bottom" secondItem="oQe-DB-bf4" secondAttribute="bottom" id="vxQ-xT-CUg"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -105,6 +113,7 @@
                 <outlet property="countLabel" destination="gme-Vh-gRR" id="IAL-ZJ-f60"/>
                 <outlet property="infoLabel" destination="DoA-09-ST2" id="aYN-7V-Efk"/>
                 <outlet property="logoImageView" destination="oQe-DB-bf4" id="gUX-qt-0Jg"/>
+                <outlet property="manufacturerLabel" destination="exX-Bf-c5C" id="G5U-H8-Fav"/>
                 <outlet property="nameLabel" destination="I3t-O3-8Zs" id="weW-in-dP5"/>
                 <outlet property="priceLabel" destination="jfp-L8-Gbi" id="JAr-Wb-h5w"/>
             </connections>
