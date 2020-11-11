@@ -49,12 +49,17 @@ class OrderListCell: UITableViewCell {
 
         if order.deliveryInfo?.type == "pickup" {
             deliveryTypeLabel.text = "Самовывоз"
+            deliveryTypeLabel.textColor = R.color.textDarkBlue()
             deliveryTypeImageView.image = R.image.icon_selfdelivery()
+            deliveryTypeImageView.tintColor = R.color.textDarkBlue()
             deliveryView.backgroundColor = R.color.pickup()
         } else {
             deliveryTypeLabel.text = "Доставка"
+            deliveryTypeLabel.textColor = R.color.textDarkBlue()
             deliveryTypeImageView.image = R.image.icon_delivery()
+            deliveryTypeImageView.tintColor = R.color.textDarkBlue()
             deliveryView.backgroundColor = R.color.delivery()
+            
         }
 
         let state = OrderListRequestState.init(rawValue: order.status ?? "new")
