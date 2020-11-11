@@ -39,8 +39,8 @@ struct LastMessage: Codable, Equatable {
     var ownerUuid: String
 }
 
-struct ChatMessage: Codable, Equatable {
-    var text: String
+struct ChatMessage: Decodable, Equatable {
+    
     var id: Int
     var chatId: Int
     var chatNumber: Int
@@ -48,7 +48,51 @@ struct ChatMessage: Codable, Equatable {
     var ownerType: String
     var ownerUuid: String
     
+    var text: String?
+    var product: Product?
+    var file: FileAttachment?
+    
+    var type = ChatMessageType.message
+    
+    var message: Message {
+        let sender = ChatSender(senderId: ownerUuid, displayName: ownerType)
+        switch type {
+        case .message: return Message(text ?? "", sender: sender, messageId: "\(id)", date: createdAt.date() ?? Date())
+        case .globalProduct: return Message(.product(product!), sender: sender, messageId: "\(id)", date: createdAt.date() ?? Date())
+        case .application: return Message(.application(file!), sender: sender, messageId: "\(id)", date: createdAt.date() ?? Date())
+        case .changeStatus: return Message(.chatClosing, sender: sender, messageId: "\(id)", date: createdAt.date() ?? Date())
+        }
+    }
+    
     var isSenderCurrentUser: Bool {
         return ownerUuid == UserSession.shared.userUUID
+    }
+    
+    enum Key: CodingKey {
+        case id, chatId, chatNumber, createdAt, ownerType, ownerUuid, text, product, file
+    }
+    
+    public static func == (lhs: ChatMessage, rhs: ChatMessage) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: Key.self)
+        id = try c.decode(Int.self, forKey: .id)
+        chatId = try c.decode(Int.self, forKey: .chatId)
+        chatNumber = try c.decode(Int.self, forKey: .chatNumber)
+        createdAt = try c.decode(String.self, forKey: .createdAt)
+        ownerType = try c.decode(String.self, forKey: .ownerType)
+        ownerUuid = try c.decode(String.self, forKey: .ownerUuid)
+        
+        if c.contains(.text) {
+            text = try c.decode(String.self, forKey: .text)
+        } else if c.contains(.product) {
+            product = try c.decode(Product.self, forKey: .product)
+            type = .globalProduct
+        } else if c.contains(.file) {
+            file = try c.decode(FileAttachment.self, forKey: .file)
+            type = .application
+        }
     }
 }

@@ -10,13 +10,13 @@ import MessageKit
 
 struct MercuryMessageResponse {
     var type: String
-    var body: ChatMessage
+    var body: Any
 }
 
 struct Message: MessageType {
     
     enum CustomMessageKind {
-        case button, routeSwitch, chatClosing, product(Product)
+        case button, routeSwitch, chatClosing, product(Product), application(FileAttachment)
     }
         
     var sender: SenderType
