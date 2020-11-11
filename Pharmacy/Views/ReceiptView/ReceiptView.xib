@@ -37,19 +37,19 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nO-Vo-pN2">
-                            <rect key="frame" x="8" y="80" width="283" height="19"/>
+                            <rect key="frame" x="8" y="80" width="283" height="22"/>
                             <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                             <color key="textColor" name="textDarkBlue"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iz-1O-hnm">
-                            <rect key="frame" x="8" y="99" width="283" height="14"/>
+                            <rect key="frame" x="8" y="102" width="283" height="16.5"/>
                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                             <color key="textColor" name="textDarkBlue"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="от" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tK-Tk-Ppx">
-                            <rect key="frame" x="8" y="162" width="13" height="14"/>
+                            <rect key="frame" x="8" y="159.5" width="13" height="16.5"/>
                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                             <color key="textColor" name="welcomeBlue"/>
                             <nil key="highlightedColor"/>
@@ -66,7 +66,7 @@
                                 <action selector="likeAction:" destination="Ii1-sQ-zPE" eventType="touchUpInside" id="Zta-Zr-glZ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eo-VJ-HAE">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eo-VJ-HAE">
                             <rect key="frame" x="0.0" y="0.0" width="74" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="FnU-Uk-eAy"/>
