@@ -49,7 +49,6 @@ final class ProductModel: Model {
     init(product: Medicine, parent: EventNode?) {
         self.medicine = product
         super.init(parent: parent)
-        saveToCoreData(medicine: product)
     }
 }
 
@@ -109,6 +108,9 @@ extension ProductModel: ProductViewControllerOutput {
             switch result {
             case .success(let product):
                 self.product = product.item
+                
+                self.saveToCoreData(medicine: self.medicine)
+                
                 self.dataSource.cells = ProductCellSection.allSectionsFor(product: self.product)
                 self.output.didLoad(product: self.product)
             case .failure(let error):

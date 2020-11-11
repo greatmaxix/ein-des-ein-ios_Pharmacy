@@ -172,11 +172,11 @@ extension WelcomeViewController: WelcomeModelOutput {
     
     func showReceipts(_ receipts: [Medicine]) {
         receiptStackView.arrangedSubviews.forEach({$0.removeFromSuperview()})
-
+        
         for receipt in receipts {
-            // TODO: Why imageURL allays nil
             if let receiptView: ReceiptView  = R.nib.receiptView(owner: self) {
                 receiptView.apply(receipt: receipt)
+                
                 receiptView.likeActionHandler = {[unowned self] state in
                     if state {
                         self.model.addToWishList(productId: receiptView.productId)
@@ -188,6 +188,7 @@ extension WelcomeViewController: WelcomeModelOutput {
                     self.model.addToCart(productId: receiptView.productId)
                 }
                 receiptStackView.addArrangedSubview(receiptView)
+                
                 let tap = UITapGestureRecognizer(target: self, action: #selector(recentMedicineTapped(_:)))
                 receiptStackView.arrangedSubviews.forEach({$0.addGestureRecognizer(tap)})
             }
