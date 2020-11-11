@@ -72,12 +72,16 @@ final class ChatGallery: UICollectionView, InputItem {
 
 extension ChatGallery: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return photos.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChatGalleryCollectionViewCell.reuseIdentifier, for: indexPath)
-        let asset = photos[indexPath.row]
+        if indexPath.row == 0 {
+            (cell as? ChatGalleryCollectionViewCell)?.applyCameraStyle()
+            return cell
+        }
+        let asset = photos[indexPath.row - 1]
         
         (cell as? ChatGalleryCollectionViewCell)?.contentImage.fetchImage(asset: asset, contentMode: .aspectFill, targetSize: itemSize)
         

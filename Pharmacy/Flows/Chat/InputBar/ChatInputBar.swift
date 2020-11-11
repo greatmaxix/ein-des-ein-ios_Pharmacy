@@ -88,21 +88,25 @@ class ChatInputBar: InputBarAccessoryView {
     }
     
     func showGallery() {
-        attachInputItem.isHighlighted = true
-        let width = bottomStackView.frame.width
-        let itemWidth = width / 3.0
-        let rect = CGRect(origin: .zero, size: CGSize(width: width, height: itemWidth * 2))
-        let galleryItem = ChatGallery(frame: rect)
-        
-        galleryItem.isHidden = false
-        
-        setStackViewItems([galleryItem], forStack: .bottom, animated: false)
+        DispatchQueue.main.async { [weak self] in
+            self?.attachInputItem.isHighlighted = true
+            let width = self?.bottomStackView.frame.width ?? 0.0
+            let itemWidth = width / 3.0
+            let rect = CGRect(origin: .zero, size: CGSize(width: width, height: itemWidth * 2))
+            let galleryItem = ChatGallery(frame: rect)
+            
+            galleryItem.isHidden = false
+            
+            self?.setStackViewItems([galleryItem], forStack: .bottom, animated: false)
+        }
     }
     
     func hideGallery() {
         if bottomStackViewItems.count > 0 {
-            attachInputItem.isSelected = false
-            setStackViewItems([], forStack: .bottom, animated: true)
+            DispatchQueue.main.async { [weak self] in
+                self?.attachInputItem.isHighlighted = false
+                self?.setStackViewItems([], forStack: .bottom, animated: true)
+            }
         }
     }
 }

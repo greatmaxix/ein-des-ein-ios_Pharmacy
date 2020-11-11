@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +18,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="117" height="111"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTh-SV-tbq" userLabel="Camera">
+                        <rect key="frame" x="0.0" y="0.0" width="117" height="111"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileCamera" translatesAutoresizingMaskIntoConstraints="NO" id="82m-Fm-GDn">
+                                <rect key="frame" x="46.5" y="43.5" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="88k-ru-jLq"/>
+                                    <constraint firstAttribute="height" constant="24" id="pBo-pP-mGb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="textDarkBlue"/>
+                        <constraints>
+                            <constraint firstItem="82m-Fm-GDn" firstAttribute="centerX" secondItem="YTh-SV-tbq" secondAttribute="centerX" id="FGt-Os-rZz"/>
+                            <constraint firstItem="82m-Fm-GDn" firstAttribute="centerY" secondItem="YTh-SV-tbq" secondAttribute="centerY" id="kt4-3W-mKv"/>
+                        </constraints>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="baY-2T-Qel">
                         <rect key="frame" x="0.0" y="0.0" width="117" height="111"/>
                     </imageView>
@@ -32,15 +50,20 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="baY-2T-Qel" firstAttribute="leading" secondItem="YaK-oi-thq" secondAttribute="leading" id="36A-Uc-fKl"/>
+                    <constraint firstAttribute="trailing" secondItem="YTh-SV-tbq" secondAttribute="trailing" id="NFp-aK-0wb"/>
                     <constraint firstAttribute="bottom" secondItem="baY-2T-Qel" secondAttribute="bottom" id="U8X-zZ-N0l"/>
+                    <constraint firstItem="YTh-SV-tbq" firstAttribute="leading" secondItem="YaK-oi-thq" secondAttribute="leading" id="fCK-AV-ics"/>
                     <constraint firstAttribute="trailing" secondItem="el6-Ds-g5a" secondAttribute="trailing" constant="10" id="izg-nk-sUj"/>
+                    <constraint firstAttribute="bottom" secondItem="YTh-SV-tbq" secondAttribute="bottom" id="muN-ZK-ESu"/>
                     <constraint firstItem="el6-Ds-g5a" firstAttribute="top" secondItem="YaK-oi-thq" secondAttribute="top" constant="8" id="pmC-cb-GzT"/>
                     <constraint firstItem="baY-2T-Qel" firstAttribute="top" secondItem="YaK-oi-thq" secondAttribute="top" id="vhi-Wr-fq3"/>
+                    <constraint firstItem="YTh-SV-tbq" firstAttribute="top" secondItem="YaK-oi-thq" secondAttribute="top" id="yx3-5I-cd0"/>
                     <constraint firstAttribute="trailing" secondItem="baY-2T-Qel" secondAttribute="trailing" id="zz8-XB-0YV"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="117" height="111"/>
             <connections>
+                <outlet property="cameraView" destination="YTh-SV-tbq" id="M74-xX-pq9"/>
                 <outlet property="checkboxButton" destination="el6-Ds-g5a" id="IZ7-mM-hJw"/>
                 <outlet property="contentImage" destination="baY-2T-Qel" id="tMw-cG-k0x"/>
             </connections>
@@ -48,7 +71,11 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="profileCamera" width="24" height="24"/>
         <image name="radiobutton" width="24" height="24"/>
         <image name="radiobutton_checked" width="24" height="24"/>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

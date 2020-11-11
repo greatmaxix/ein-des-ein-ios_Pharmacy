@@ -11,10 +11,21 @@ import UIKit
 class ChatGalleryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var contentImage: UIImageView!
     @IBOutlet weak var checkboxButton: UIButton!
+    @IBOutlet weak var cameraView: UIView!
     
     override var isSelected: Bool {
         didSet {
             checkboxButton.isSelected = isSelected
         }
+    }
+    
+    func applyCameraStyle() {
+        cameraView.isHidden = false
+        checkboxButton.isHidden = true
+    }
+    
+    override func prepareForReuse() {
+        cameraView.isHidden = true
+        checkboxButton.isHidden = false
     }
 }
