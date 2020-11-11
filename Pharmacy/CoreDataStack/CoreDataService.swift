@@ -141,7 +141,13 @@ final class CoreDataService {
         if let data = try? viewContext.fetch(fetchRequest) as? [RecentMedicineEntity],
            let item = data.last {
             
-            let medicine = RecentMedicineDTO.init(productId: item.productId, liked: item.liked, minPrice: item.minPrice, maxPrice: item.maxPrice, name: item.name, releaseForm: item.releaseForm, imageURL: item.imageURL)
+            let medicine = RecentMedicineDTO.init(productId: item.productId,
+                                                  liked: item.liked,
+                                                  minPrice: item.minPrice,
+                                                  maxPrice: item.maxPrice,
+                                                  name: item.name,
+                                                  releaseForm: item.releaseForm,
+                                                  imageURL: item.imageURL)
             
                 savePreviousMedicineViewed(item: medicine)
         }
