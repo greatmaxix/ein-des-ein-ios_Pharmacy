@@ -12,7 +12,7 @@ class CollectionDataSourceViewController: UIViewController {
     
     private enum GUI {
         static let defaultContentInset = UIEdgeInsets.all(16)
-        static let defaultLayout = FlowLayoutStyle.grid(count: 2, height: 136)
+        static let defaultLayout = FlowLayoutStyle.grid(count: 1, height: 60)
     }
     
     enum FlowLayoutStyle {
