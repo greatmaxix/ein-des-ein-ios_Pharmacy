@@ -22,10 +22,12 @@ class ChatGalleryCollectionViewCell: UICollectionViewCell {
     func applyCameraStyle() {
         cameraView.isHidden = false
         checkboxButton.isHidden = true
+        contentImage.isHidden = true
     }
     
     override func prepareForReuse() {
         cameraView.isHidden = true
+        contentImage.isHidden = false
         checkboxButton.isHidden = false
     }
     

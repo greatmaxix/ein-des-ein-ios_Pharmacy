@@ -11,9 +11,10 @@ import InputBarAccessoryView
 
 protocol ChatInputBarDelegate: InputBarAccessoryViewDelegate {
     func attach()
+    func didSelect(action: ImageSelectionAction)
 }
 
-class ChatInputBar: InputBarAccessoryView {
+final class ChatInputBar: InputBarAccessoryView {
     
     var attachInputItem: AttachInputItem!
     
@@ -95,8 +96,9 @@ class ChatInputBar: InputBarAccessoryView {
             let rect = CGRect(origin: .zero, size: CGSize(width: width, height: itemWidth * 2))
             let galleryItem = ChatGallery(frame: rect)
             
-            galleryItem.isHidden = false
-            
+            galleryItem.didSelectImageHandler = {[weak self] action in
+                (self?.delegate as? ChatInputBarDelegate)?.didSelect(action: action)
+            }
             self?.setStackViewItems([galleryItem], forStack: .bottom, animated: false)
         }
     }

@@ -18,6 +18,7 @@ enum ChatEvent: Event {
 
 protocol ChatInput: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate {
     func load()
+    func sendMessage(text: String)
 }
 
 protocol ChatOutput: MessagesViewController {
@@ -28,10 +29,9 @@ protocol ChatOutput: MessagesViewController {
 }
 
 final class ChatModel: Model, ChatInput {
-   
+    
     weak var output: ChatOutput? {
         didSet {
-            setupInputBar()
             setupCollection()
         }
     }
@@ -45,9 +45,6 @@ final class ChatModel: Model, ChatInput {
     private var sender: ChatSender = ChatSender.guest()
     private var sizeCalculator: CustomMessageSizeCalculator!
     
-    private let attachDialogue = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-    private let imagePicker = UIImagePickerController()
-    
     deinit {
         chatService?.stop()
         print("Chat model deinit")
@@ -55,25 +52,8 @@ final class ChatModel: Model, ChatInput {
     
     override init(parent: EventNode?) {
         super.init(parent: parent)
-        setup()
     }
     
-    func setup() {
-        attachDialogue.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { [weak self] _ in
-            self?.openPhotoGalery()
-        }))
-        
-        attachDialogue.addAction(UIAlertAction(title: "Библиотека", style: .default, handler: { [weak self] _ in
-            self?.openPhotoLibrary()
-        }))
-        
-        attachDialogue.addAction(UIAlertAction(title: "Камера", style: .default, handler: { [weak self] _ in
-            self?.openCamera()
-        }))
-        
-        attachDialogue.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
-    }
-   
     func load() {
         switch UserSession.shared.authorizationStatus {
         case .authorized:
@@ -94,9 +74,11 @@ final class ChatModel: Model, ChatInput {
         }
     }
     
-    private func setupInputBar() {
-        output?.messageInputBar.isHidden = true
-        output?.messageInputBar.delegate = self
+    func sendMessage(text: String) {
+        guard let chatId = chatService?.chat.id else { return }
+        createMessageProvider.load(target: .createMessage(chatId, text)) { response in
+            print(response)
+        }
     }
     
     func setupCollection() {
@@ -282,36 +264,6 @@ extension ChatModel: MessagesDisplayDelegate {
 }
 
 extension ChatModel: MessagesLayoutDelegate {
-}
-
-extension ChatModel: ChatInputBarDelegate {
-    
-    func attach() {
-        hideKeyboard()
-        output?.closeGallery()
-        output?.present(attachDialogue, animated: true, completion: nil)
-    }
-    
-    func processInputBar(_ inputBar: InputBarAccessoryView) {
-        inputBar.inputTextView.text = String()
-    }
-    
-    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        guard let chatId = chatService?.chat.id else { return }
-        processInputBar(inputBar)
-        createMessageProvider.load(target: .createMessage(chatId, text)) { result in
-            switch result {
-            case .success:
-                print("Message sent")
-            case .failure(let error):
-                print("Message error - \(error.localizedDescription)")
-            }
-        }
-    }
-    
-    func inputBar(_ inputBar: InputBarAccessoryView, textViewTextDidChangeTo text: String) {
-        output?.messagesCollectionView.scrollToBottom(animated: false)
-    }
 }
 
 extension ChatModel: ChatServiceDelegate {

@@ -10,6 +10,12 @@ import Foundation
 import InputBarAccessoryView
 import Photos
 
+enum ImageSelectionAction {
+    case select(image: UIImage,index: IndexPath), deselect(image: UIImage, index: IndexPath)
+}
+
+typealias ChatGalleryImageHandler = (ImageSelectionAction) -> Void
+
 final class ChatGallery: UICollectionView, InputItem {
     
     var inputBarAccessoryView: InputBarAccessoryView?
@@ -18,6 +24,7 @@ final class ChatGallery: UICollectionView, InputItem {
         let width = (frame.width / 3.0) - 1
         return CGSize(width: width, height: width)
     }
+    var didSelectImageHandler: ChatGalleryImageHandler?
     
     private var photos: PHFetchResult<PHAsset>!
     
@@ -36,9 +43,10 @@ final class ChatGallery: UICollectionView, InputItem {
         delegate = self
         decelerationRate = UIScrollView.DecelerationRate.fast
         backgroundColor = .white
+        allowsMultipleSelection = true
         loadPhotos()
     }
-    
+        
     func loadPhotos() {
         let options = PHFetchOptions()
         photos = PHAsset.fetchAssets(with: .image, options: options)
@@ -62,7 +70,7 @@ final class ChatGallery: UICollectionView, InputItem {
     }
     
     func keyboardEditingBeginsAction() {
-        
+        print("Keyboard begin editing")
     }
     
     override var intrinsicContentSize: CGSize {
@@ -89,7 +97,12 @@ extension ChatGallery: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ChatGalleryCollectionViewCell, let image = cell.contentImage.image else { return }
+        didSelectImageHandler?(.select(image: image, index: indexPath))
+    }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ChatGalleryCollectionViewCell, let image = cell.contentImage.image else { return }
+        didSelectImageHandler?(.deselect(image: image, index: indexPath))
     }
 }
 
