@@ -30,6 +30,9 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     private let imagePicker = UIImagePickerController()
     private let attachDialogue = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     private var attachedItems: [LibraryImage] = []
+    private var isKeyboardVisible: Bool {
+        return messageInputBar.inputTextView.isFirstResponder
+    }
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -123,6 +126,11 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     
 extension ChatViewController: ChatOutput {
     func openGallery() {
+        
+        if isKeyboardVisible {
+            navigationController?.view.endEditing(true)
+        }
+        
         switch photoLibraryAuthorizationStatus {
         case .authorized, .limited:
             chatBar?.showGallery()
@@ -213,7 +221,6 @@ extension ChatViewController: AttachmentManagerDelegate {
         }
         
         messageInputBar.sendButton.isEnabled = manager.attachments.count > 0
-        
     }
     
     func attachmentManager(_ manager: AttachmentManager, didSelectAddAttachmentAt index: Int) {

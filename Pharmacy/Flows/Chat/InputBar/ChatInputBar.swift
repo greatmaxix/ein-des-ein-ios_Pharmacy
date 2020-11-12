@@ -21,7 +21,9 @@ final class ChatInputBar: InputBarAccessoryView {
         let width = bottomStackView.frame.width
         let itemWidth = width / 3.0
         let rect = CGRect(origin: .zero, size: CGSize(width: width, height: itemWidth * 2))
-        return ChatGallery(frame: rect)
+        let g = ChatGallery(frame: rect)
+        g.actionsDelegate = self
+        return g
     }()
     
     struct GUI {
@@ -98,11 +100,7 @@ final class ChatInputBar: InputBarAccessoryView {
         DispatchQueue.main.async { [weak self] in
             guard let g = self?.chatGallery else { return }
             self?.attachInputItem.isHighlighted = true
-            
-            self?.chatGallery.didSelectImageHandler = {[weak self] action in
-                (self?.delegate as? ChatInputBarDelegate)?.didSelect(action: action)
-            }
-            self?.setStackViewItems([g], forStack: .bottom, animated: false)
+            self?.setStackViewItems([g], forStack: .bottom, animated: true)
         }
     }
     
@@ -113,5 +111,15 @@ final class ChatInputBar: InputBarAccessoryView {
                 self?.setStackViewItems([], forStack: .bottom, animated: true)
             }
         }
+    }
+}
+
+extension ChatInputBar: ChatGalleryDelegate {
+    func imageAction(action: ImageSelectionAction) {
+        (delegate as? ChatInputBarDelegate)?.didSelect(action: action)
+    }
+    
+    func needHideGallery() {
+        hideGallery()
     }
 }
