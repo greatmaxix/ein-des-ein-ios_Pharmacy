@@ -15,24 +15,18 @@ final class CategoryCollectionViewCell: HighlightedCollectionViewCell, Container
     }
     
     @IBOutlet internal weak var containerView: UIView!
-    @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var categoryImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = GUI.cornerRadius
-        imageView.layer.cornerRadius = GUI.cornerRadius
         containerView.decorationBlackShadow()
         clipsToBounds = false
     }
     
     func apply(category: Category) {
         titleLabel.text = category.title
-        
-//        if let url = category.imageURL {
-//            imageView.loadImageBy(url: url)
-//        }
         
         if !category.imageTitle.isEmpty {
             categoryImageView.image = UIImage(named: category.imageTitle)
