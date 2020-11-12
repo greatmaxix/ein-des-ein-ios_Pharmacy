@@ -219,7 +219,7 @@ extension ChatViewController: AttachmentManagerDelegate {
             attachedItems.remove(at: index)
         default: break
         }
-        
+        chatBar?.updateAttachments(count: attachedItems.count)
         messageInputBar.sendButton.isEnabled = manager.attachments.count > 0
     }
     
@@ -270,6 +270,7 @@ extension ChatViewController: ChatInputBarDelegate {
             guard attachedItems.contains(image) == false else { return }
             attachedItems.append(image)
             attachmentManager.handleInput(of: image.placeholder)
+            chatBar?.updateAttachments(count: attachedItems.count)
         case .deselect(let image):
             if let index = attachedItems.firstIndex(of: image) {
                 attachmentManager.removeAttachment(at: index)
