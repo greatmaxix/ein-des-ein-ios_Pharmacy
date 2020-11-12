@@ -14,6 +14,8 @@ protocol ConfirmCodeInput {
     func sendCode(code: String)
     func resendCode()
     func close()
+    func edit()
+
     var phoneNumber: String { get }
 }
 
@@ -21,6 +23,7 @@ enum ConfirmCodeEvent: Event {
     case openMainScreen
     case congratulation
     case close
+    case back
 }
 
 protocol ConfirmCodeOutput: class {
@@ -122,5 +125,9 @@ extension ConfirmCodeModel: ConfirmCodeInput {
     
     func close() {
         raise(event: ConfirmCodeEvent.close)
+    }
+
+    func edit() {
+        raise(event: ConfirmCodeEvent.back)
     }
 }

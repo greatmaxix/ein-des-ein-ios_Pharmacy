@@ -63,6 +63,10 @@ final class ConfirmCodeViewController: UIViewController {
         }
     }
 
+    @IBAction func editTapped(_ sender: Any) {
+        model.close()
+    }
+    
     @IBAction func resendCode(_ sender: UIButton) {
 
         confirmCodeView.clear()
