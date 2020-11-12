@@ -545,7 +545,7 @@
         <image name="apply_right" width="24" height="24"/>
         <image name="confirmIcon" width="80" height="80"/>
         <image name="edit" width="24" height="24"/>
-        <image name="logo" width="104" height="104"/>
+        <image name="logo" width="80" height="80"/>
         <image name="onboarding" width="261" height="261"/>
         <namedColor name="applyBlueGray">
             <color red="0.6470588235294118" green="0.70588235294117652" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

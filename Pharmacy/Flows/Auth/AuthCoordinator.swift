@@ -48,7 +48,8 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         addHandler { [weak self] (event: ConfirmCodeEvent) in
             switch event {
             case .congratulation:
-                self?.presentCongratulation()
+                //self?.presentCongratulation(
+                break
             case .close:
                 self?.popController()
             default:
@@ -97,15 +98,6 @@ class AuthFlowCoordinator: EventNode, Coordinator {
             model.output = confirmVC
             root.navigationController?.pushViewController(confirmVC, animated: true)
         }
-    }
-    
-    private func presentCongratulation() {
-        let congratulationViewController = R.storyboard.auth.successfulSignUpViewController()!
-        
-        let model = SuccessfulSignUpModel(parent: self)
-        congratulationViewController.model = model
-        root.navigationController?.pushViewController(congratulationViewController,
-                                                      animated: true)
     }
   
     private func popController() {
