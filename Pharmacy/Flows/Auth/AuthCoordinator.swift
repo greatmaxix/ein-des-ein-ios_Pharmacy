@@ -52,6 +52,8 @@ class AuthFlowCoordinator: EventNode, Coordinator {
                 break
             case .close:
                 self?.popController()
+            case .back:
+                self?.popController()
             default:
                 break
             }

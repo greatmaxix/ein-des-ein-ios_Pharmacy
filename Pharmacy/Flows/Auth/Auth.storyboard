@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -274,13 +274,17 @@
                                     <constraint firstAttribute="width" constant="80" id="bGm-jn-VvZ"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit" translatesAutoresizingMaskIntoConstraints="NO" id="Jlv-of-crw">
-                                <rect key="frame" x="260" y="313.5" width="24" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJh-b5-i44">
+                                <rect key="frame" x="264" y="313.5" width="24" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="4BT-6P-9uN"/>
-                                    <constraint firstAttribute="width" secondItem="Jlv-of-crw" secondAttribute="height" multiplier="1:1" id="eGL-Wo-QDR"/>
+                                    <constraint firstAttribute="width" constant="24" id="VNt-1B-crD"/>
+                                    <constraint firstAttribute="height" constant="24" id="r7b-IO-InJ"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" image="edit"/>
+                                <connections>
+                                    <action selector="editTapped:" destination="aUu-t4-pVr" eventType="touchUpInside" id="vAH-Jz-N3O"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="G93-M5-R2n"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -291,22 +295,21 @@
                             <constraint firstItem="efZ-Bi-MMT" firstAttribute="leading" secondItem="LwX-iW-KFc" secondAttribute="leading" id="7b8-kx-w3H"/>
                             <constraint firstItem="efZ-Bi-MMT" firstAttribute="top" secondItem="LwX-iW-KFc" secondAttribute="bottom" constant="48" id="A9U-Zs-LJq"/>
                             <constraint firstItem="efZ-Bi-MMT" firstAttribute="width" secondItem="LwX-iW-KFc" secondAttribute="width" multiplier="0.5" id="BjV-aD-a8m"/>
+                            <constraint firstItem="MJh-b5-i44" firstAttribute="leading" secondItem="eWm-L2-iXc" secondAttribute="trailing" constant="8" id="EuF-tg-Lc6"/>
                             <constraint firstItem="eWm-L2-iXc" firstAttribute="top" secondItem="aDk-Zi-C30" secondAttribute="bottom" constant="8" id="HF0-jz-Zqt"/>
+                            <constraint firstItem="MJh-b5-i44" firstAttribute="centerY" secondItem="eWm-L2-iXc" secondAttribute="centerY" id="HQc-P3-WC9"/>
                             <constraint firstItem="LwX-iW-KFc" firstAttribute="centerX" secondItem="G93-M5-R2n" secondAttribute="centerX" id="HyY-DB-Nje"/>
                             <constraint firstItem="G93-M5-R2n" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FiS-w1-MqE" secondAttribute="trailing" constant="16" id="OhA-Ib-gwG"/>
                             <constraint firstItem="FiS-w1-MqE" firstAttribute="leading" secondItem="efZ-Bi-MMT" secondAttribute="trailing" constant="5" id="R7K-ye-JWu"/>
                             <constraint firstItem="waO-um-oSn" firstAttribute="centerX" secondItem="G93-M5-R2n" secondAttribute="centerX" id="RCj-mG-Okx"/>
                             <constraint firstItem="1cc-Vw-d6e" firstAttribute="top" secondItem="waO-um-oSn" secondAttribute="bottom" constant="16" id="S6v-7e-LCc"/>
-                            <constraint firstItem="Jlv-of-crw" firstAttribute="leading" secondItem="eWm-L2-iXc" secondAttribute="trailing" constant="4" id="a3N-MH-dnE"/>
                             <constraint firstItem="FiS-w1-MqE" firstAttribute="centerY" secondItem="efZ-Bi-MMT" secondAttribute="centerY" id="eVZ-69-5b7"/>
                             <constraint firstItem="aDk-Zi-C30" firstAttribute="top" secondItem="1cc-Vw-d6e" secondAttribute="bottom" constant="8" id="fnc-3E-MSd"/>
                             <constraint firstItem="waO-um-oSn" firstAttribute="top" secondItem="G93-M5-R2n" secondAttribute="top" constant="112" id="g7n-Xx-uTY"/>
                             <constraint firstItem="aDk-Zi-C30" firstAttribute="leading" secondItem="1cc-Vw-d6e" secondAttribute="leading" id="gQk-Mw-WzZ"/>
                             <constraint firstItem="aDk-Zi-C30" firstAttribute="trailing" secondItem="1cc-Vw-d6e" secondAttribute="trailing" id="jg4-xt-nuu"/>
                             <constraint firstItem="G93-M5-R2n" firstAttribute="trailing" secondItem="1cc-Vw-d6e" secondAttribute="trailing" constant="16" id="kvy-ih-dLD"/>
-                            <constraint firstItem="Jlv-of-crw" firstAttribute="centerY" secondItem="eWm-L2-iXc" secondAttribute="centerY" id="ozh-GM-CQf"/>
                             <constraint firstItem="1cc-Vw-d6e" firstAttribute="leading" secondItem="G93-M5-R2n" secondAttribute="leading" constant="37" id="pQk-gN-3AH"/>
-                            <constraint firstItem="Jlv-of-crw" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="aDk-Zi-C30" secondAttribute="trailing" id="zP3-QX-rO5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DI8-4X-9CW"/>
