@@ -29,14 +29,20 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     private var cameraAuthorizationStatus: AVAuthorizationStatus!
     private let imagePicker = UIImagePickerController()
     private let attachDialogue = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-    private var attachmentIndexPaths: [IndexPath] = []
+    private var attachedItems: [LibraryImage] = []
     
     init() {
         super.init(nibName: nil, bundle: nil)
         messageInputBar = ChatInputBar()
         messageInputBar.delegate = self
         messageInputBar.inputPlugins.append(attachmentManager)
-        setup()
+    }
+    
+    @objc
+    func hideKeyboardIfNeeded() {
+        if messageInputBar.inputTextView.isFirstResponder {
+            navigationController?.view.endEditing(true)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -45,7 +51,7 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.setRightBarButtonItems([UIBarButtonItem.init(image: R.image.info(), style: .plain, target: self, action: #selector(showChatInfo))], animated: true)
+        setup()
         model.load()
     }
     
@@ -56,6 +62,13 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     }
     
     func setup() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardIfNeeded))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        messagesCollectionView.backgroundColor = .clear
+        view.backgroundColor = .white
+        navigationItem.setRightBarButtonItems([UIBarButtonItem.init(image: R.image.info(), style: .plain, target: self, action: #selector(showChatInfo))], animated: true)
+        
         imagePicker.delegate = self
         attachDialogue.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { [weak self] _ in
             self?.openGallery()
@@ -166,12 +179,12 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-
-        picker.dismiss(animated: true, completion: {[weak self] in
-            if let pickedImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage {
-                self?.messageInputBar.inputPlugins.forEach { _ = $0.handleInput(of: pickedImage) }
-            }
-        })
+        guard let url = info[UIImagePickerController.InfoKey.imageURL.rawValue] as? URL,
+              let pickedImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage else { return }
+        
+        let image = LibraryImage(originalImage: pickedImage, url: url, source: .library)
+        didSelect(action: .select(image))
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -189,7 +202,18 @@ extension ChatViewController: AttachmentManagerDelegate {
     }
     
     func attachmentManager(_ manager: AttachmentManager, didRemove attachment: AttachmentManager.Attachment, at index: Int) {
+        let image = attachedItems[index]
+        switch image.source {
+        case .gallery(let indexPath):
+            attachedItems.remove(at: index)
+            chatBar?.chatGallery.deselectItem(at: indexPath, animated: false)
+        case .library:
+            attachedItems.remove(at: index)
+        default: break
+        }
+        
         messageInputBar.sendButton.isEnabled = manager.attachments.count > 0
+        
     }
     
     func attachmentManager(_ manager: AttachmentManager, didSelectAddAttachmentAt index: Int) {
@@ -216,7 +240,6 @@ extension ChatViewController: AttachmentManagerDelegate {
 
 extension ChatViewController: ChatInputBarDelegate {
     func attach() {
-        navigationController?.view.endEditing(true)
         closeGallery()
         present(attachDialogue, animated: true, completion: nil)
     }
@@ -236,13 +259,13 @@ extension ChatViewController: ChatInputBarDelegate {
     
     func didSelect(action: ImageSelectionAction) {
         switch action {
-        case .select(let image, let index):
-            attachmentIndexPaths.append(index)
-            attachmentManager.handleInput(of: image)
-        case .deselect(_ , let index):
-            if let i = attachmentIndexPaths.firstIndex(of: index) {
-                attachmentManager.removeAttachment(at: i)
-                attachmentIndexPaths.remove(at: i)
+        case .select(let image):
+            guard attachedItems.contains(image) == false else { return }
+            attachedItems.append(image)
+            attachmentManager.handleInput(of: image.placeholder)
+        case .deselect(let image):
+            if let index = attachedItems.firstIndex(of: image) {
+                attachmentManager.removeAttachment(at: index)
             }
         }
     }

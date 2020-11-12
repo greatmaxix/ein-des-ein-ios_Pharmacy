@@ -10,8 +10,38 @@ import Foundation
 import InputBarAccessoryView
 import Photos
 
+struct LibraryImage: Equatable {
+    
+    enum ImageSource {
+        case library, gallery(IndexPath)
+    }
+    
+    let original: UIImage
+    let placeholder: UIImage
+    let url: URL
+    let source: ImageSource?
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.url.absoluteString == rhs.url.absoluteString
+    }
+    
+    init(data: Data, info: [AnyHashable: Any]?, source: ImageSource? = nil) {
+        original = UIImage(data: data)!
+        placeholder = UIImage(data: data, scale: 0.2)!
+        url = (info?["PHImageFileURLKey"] as? URL) ?? URL(string: "empty")!
+        self.source = source
+    }
+    
+    init(originalImage: UIImage, url: URL, source: ImageSource? = nil) {
+        original = originalImage
+        placeholder = originalImage
+        self.url = url
+        self.source = source
+    }
+}
+
 enum ImageSelectionAction {
-    case select(image: UIImage,index: IndexPath), deselect(image: UIImage, index: IndexPath)
+    case select(LibraryImage), deselect(LibraryImage)
 }
 
 typealias ChatGalleryImageHandler = (ImageSelectionAction) -> Void
@@ -46,7 +76,7 @@ final class ChatGallery: UICollectionView, InputItem {
         allowsMultipleSelection = true
         loadPhotos()
     }
-        
+    
     func loadPhotos() {
         let options = PHFetchOptions()
         photos = PHAsset.fetchAssets(with: .image, options: options)
@@ -70,6 +100,7 @@ final class ChatGallery: UICollectionView, InputItem {
     }
     
     func keyboardEditingBeginsAction() {
+        
         print("Keyboard begin editing")
     }
     
@@ -91,18 +122,24 @@ extension ChatGallery: UICollectionViewDataSource, UICollectionViewDelegate {
         }
         let asset = photos[indexPath.row - 1]
         
-        (cell as? ChatGalleryCollectionViewCell)?.contentImage.fetchImage(asset: asset, contentMode: .aspectFill, targetSize: itemSize)
+        (cell as? ChatGalleryCollectionViewCell)?.fetchImage(asset: asset, indexPath: indexPath)
+        cell.isSelected = collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? ChatGalleryCollectionViewCell, let image = cell.contentImage.image else { return }
-        didSelectImageHandler?(.select(image: image, index: indexPath))
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return !(indexPath.row == 0)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ChatGalleryCollectionViewCell, let image = cell.image else { return }
+        didSelectImageHandler?(.select(image))
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? ChatGalleryCollectionViewCell, let image = cell.contentImage.image else { return }
-        didSelectImageHandler?(.deselect(image: image, index: indexPath))
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ChatGalleryCollectionViewCell, let image = cell.image else { return }
+        didSelectImageHandler?(.deselect(image))
     }
 }
 

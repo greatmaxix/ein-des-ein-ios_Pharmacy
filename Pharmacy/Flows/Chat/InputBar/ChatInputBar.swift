@@ -17,6 +17,12 @@ protocol ChatInputBarDelegate: InputBarAccessoryViewDelegate {
 final class ChatInputBar: InputBarAccessoryView {
     
     var attachInputItem: AttachInputItem!
+    lazy var chatGallery: ChatGallery = {
+        let width = bottomStackView.frame.width
+        let itemWidth = width / 3.0
+        let rect = CGRect(origin: .zero, size: CGSize(width: width, height: itemWidth * 2))
+        return ChatGallery(frame: rect)
+    }()
     
     struct GUI {
         static let cornerRadius: CGFloat = 10.0
@@ -90,16 +96,13 @@ final class ChatInputBar: InputBarAccessoryView {
     
     func showGallery() {
         DispatchQueue.main.async { [weak self] in
+            guard let g = self?.chatGallery else { return }
             self?.attachInputItem.isHighlighted = true
-            let width = self?.bottomStackView.frame.width ?? 0.0
-            let itemWidth = width / 3.0
-            let rect = CGRect(origin: .zero, size: CGSize(width: width, height: itemWidth * 2))
-            let galleryItem = ChatGallery(frame: rect)
             
-            galleryItem.didSelectImageHandler = {[weak self] action in
+            self?.chatGallery.didSelectImageHandler = {[weak self] action in
                 (self?.delegate as? ChatInputBarDelegate)?.didSelect(action: action)
             }
-            self?.setStackViewItems([galleryItem], forStack: .bottom, animated: false)
+            self?.setStackViewItems([g], forStack: .bottom, animated: false)
         }
     }
     

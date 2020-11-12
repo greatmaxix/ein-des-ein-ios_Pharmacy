@@ -35,7 +35,7 @@
                             <constraint firstItem="82m-Fm-GDn" firstAttribute="centerY" secondItem="YTh-SV-tbq" secondAttribute="centerY" id="kt4-3W-mKv"/>
                         </constraints>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="baY-2T-Qel">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="baY-2T-Qel">
                         <rect key="frame" x="0.0" y="0.0" width="117" height="111"/>
                     </imageView>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="el6-Ds-g5a">
