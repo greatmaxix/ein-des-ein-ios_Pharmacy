@@ -45,6 +45,9 @@ final class WishlistViewController: UIViewController {
         
         emptyView.setup(title: R.string.localize.wishlistEmptyTitle(), decriptionText: R.string.localize.wishlistEmptyDescription(), buttonTitle: R.string.localize.wishlistEmptyButton())
         emptyView.setupImage(image: R.image.emptyWishList()!)
+        emptyView.tapButtonHandler = {[weak self] in
+            self?.model.startSearch()
+        }
         
         emptyResultsView = emptyView
     }
