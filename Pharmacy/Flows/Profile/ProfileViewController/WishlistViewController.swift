@@ -44,6 +44,7 @@ final class WishlistViewController: UIViewController {
         emptyView.constraintsToSuperView()
         
         emptyView.setup(title: R.string.localize.wishlistEmptyTitle(), decriptionText: R.string.localize.wishlistEmptyDescription(), buttonTitle: R.string.localize.wishlistEmptyButton())
+        emptyView.setupImage(image: UIImage(named: "emptyWishList")!)
         
         emptyResultsView = emptyView
     }
