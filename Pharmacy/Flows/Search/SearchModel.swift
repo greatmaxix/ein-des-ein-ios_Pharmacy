@@ -13,6 +13,7 @@ import Moya
 enum SearchModelEvent: Event {
     case openList
     case open(_ medicine: Medicine)
+    case openScan
 }
 
 protocol SearchModelInput: class {
@@ -30,6 +31,7 @@ protocol SearchModelInput: class {
     func didSelectCellAt(indexPath: IndexPath)
     func addToWishList(productId: Int, indexPath: IndexPath)
     func removeFromWishList(productId: Int, indexPath: IndexPath)
+    func openScan()
 }
 
 protocol SearchModelOutput: class {
@@ -85,6 +87,10 @@ final class SearchModel: Model {
 
 // MARK: - SearchViewControllerOutput
 extension SearchModel: SearchViewControllerOutput {
+    
+    func openScan() {
+        raise(event: SearchModelEvent.openScan)
+    }
     
     func removeFromWishList(productId: Int, indexPath: IndexPath) {
         wishListProvider.load(target: .removeFromWishList(medicineId: productId)) { (result) in

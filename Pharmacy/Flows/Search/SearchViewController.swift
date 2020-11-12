@@ -82,7 +82,10 @@ extension SearchViewController {
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.barcode(), style: .plain, target: self, action: nil)
         
+        navigationItem.rightBarButtonItem?.action = #selector(tapScan)
+        
         searchBar.delegate = self
+        
         searchBar.heightAnchor.constraint(equalToConstant: 36).isActive = true
         
         navigationItem.titleView = searchBar
@@ -93,6 +96,10 @@ extension SearchViewController {
     private func setupTableView() {
         tableView.register(cellType: SearchTableViewCell.self)
         tableView.register(cellType: MedicineCell.self)
+    }
+    
+    @objc private func tapScan() {
+        model.openScan()
     }
 }
 
