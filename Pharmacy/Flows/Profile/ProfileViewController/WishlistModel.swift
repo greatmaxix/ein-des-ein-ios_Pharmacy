@@ -19,6 +19,7 @@ protocol WishlistInput: class {
     func close()
     func selectMedicineAt(index: Int)
     func deleteMedicine(id: Int, index: IndexPath)
+    func startSearch()
 }
 
 protocol WishlistOutput: class {
@@ -64,6 +65,10 @@ final class WishlistModel: EventNode {
 }
 
 extension WishlistModel: WishlistInput {
+    
+    func startSearch() {
+        raise(event: TabBarEvent.userWantsToChangeTab(newTab: .search))
+    }
     
     var favoriteMedicine: [Medicine] {
         medicines
