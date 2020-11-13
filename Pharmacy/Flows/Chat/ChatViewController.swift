@@ -140,6 +140,7 @@ extension ChatViewController: ChatOutput {
                 self.showDeniedPhotoMessage()
             default: break
             }
+            self.messagesCollectionView.scrollToBottom(animated: true)
         }
     }
     

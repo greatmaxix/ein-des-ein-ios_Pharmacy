@@ -110,6 +110,7 @@
                 <outlet property="likeButton" destination="cDs-yN-R4h" id="Cag-5B-j9N"/>
                 <outlet property="nameLabel" destination="ZLU-Hy-lYp" id="q6Q-Kv-mEI"/>
                 <outlet property="priceLabel" destination="9ru-nK-ILa" id="LNN-oQ-xpC"/>
+                <outlet property="productContainer" destination="BDG-xw-gck" id="1bF-9E-ia5"/>
                 <outlet property="productImage" destination="ZPg-W2-u7Q" id="UkS-uj-S4P"/>
                 <outlet property="trailingConstraint" destination="Ae7-sM-qQr" id="XIW-6b-pbJ"/>
             </connections>

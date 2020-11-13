@@ -20,7 +20,11 @@ class ChatProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var detailsLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
-    
+    @IBOutlet weak var productContainer: UIView! {
+        didSet {
+            productContainer.decorationBlackShadow()
+        }
+    }
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
     
