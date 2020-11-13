@@ -28,7 +28,7 @@ class ReceiptCell: UITableViewCell {
     }
 
     func apply(receipt: UserReceipt) {
-        idLabel.text = "# \(receipt.id)"
+        idLabel.text = "№ \(receipt.id)"
         productLabel.text = receipt.text?.htmlToString
         amountLabel.text = "QNT \(receipt.amount ?? 0)"
         authorLabel.text = receipt.doctorName
