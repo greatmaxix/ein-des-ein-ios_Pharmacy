@@ -92,6 +92,8 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     
     private func openCamera() {
         imagePicker.sourceType = .camera
+        imagePicker.cameraCaptureMode = .photo
+
         imagePicker.allowsEditing = false
         present(imagePicker, animated: true, completion: nil)
     }
@@ -144,8 +146,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         if let image: UIImage = info[.originalImage] as? UIImage {
-            userImageView.image = image
-            
+        
             var mime: String = "image/"
 
             if let url: URL = info[.imageURL] as? URL {
