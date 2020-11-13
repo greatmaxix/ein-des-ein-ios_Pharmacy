@@ -11,7 +11,7 @@ import UIKit
 class ChatApplicationCollectionViewCell: UICollectionViewCell {
     
     struct GUI {
-        static let cornerRadius: CGFloat = 10.0
+        static let cornerRadius: CGFloat = 24.0
     }
     @IBOutlet weak var leadingImageConstraint: NSLayoutConstraint!
     
@@ -36,6 +36,5 @@ class ChatApplicationCollectionViewCell: UICollectionViewCell {
             leadingImageConstraint.constant = 8.0
             trailingImageConstraint.constant = 40.0
         }
-        
     }
 }

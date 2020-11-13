@@ -217,6 +217,7 @@
 		60475FE02551569400448EF3 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60475FDF2551569400448EF3 /* ChatModel.swift */; };
 		60475FE425515CFA00448EF3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60475FE325515CFA00448EF3 /* ChatViewController.swift */; };
 		60515CFE254B068900977BEF /* SubcategoryCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60515CFD254B068900977BEF /* SubcategoryCellSection.swift */; };
+		606DAB58255EFD0400663E55 /* ChatEvaluatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606DAB57255EFD0400663E55 /* ChatEvaluatingModel.swift */; };
 		6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */; };
 		6075BD4624DEA6FF00BC78BD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075BD4524DEA6FF00BC78BD /* R.generated.swift */; };
 		6075BD4724DEA7FB00BC78BD /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6075BD3324DEA3C800BC78BD /* OpenSans-BoldItalic.ttf */; };
@@ -591,6 +592,7 @@
 		60475FDF2551569400448EF3 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		60475FE325515CFA00448EF3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		60515CFD254B068900977BEF /* SubcategoryCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryCellSection.swift; sourceTree = "<group>"; };
+		606DAB57255EFD0400663E55 /* ChatEvaluatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEvaluatingModel.swift; sourceTree = "<group>"; };
 		6075BD2F24DEA3C800BC78BD /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		6075BD3124DEA3C800BC78BD /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
@@ -1706,6 +1708,7 @@
 		60475FDA2551512A00448EF3 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				606DAB56255EFB7400663E55 /* Evaluating */,
 				60A48C262555BD24007CCDFE /* InputBar */,
 				60A48C222555B996007CCDFE /* InputItems */,
 				608E3AF82551D37D00AEE56C /* Cells */,
@@ -1716,6 +1719,14 @@
 				60AE31892552FA26002BD404 /* ChatService.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		606DAB56255EFB7400663E55 /* Evaluating */ = {
+			isa = PBXGroup;
+			children = (
+				606DAB57255EFD0400663E55 /* ChatEvaluatingModel.swift */,
+			);
+			path = Evaluating;
 			sourceTree = "<group>";
 		};
 		6075BD2E24DEA3BE00BC78BD /* OpenSans */ = {
@@ -2608,6 +2619,7 @@
 				39F0AD6B24EEC84100CD6CA4 /* PrescriptionsViewController.swift in Sources */,
 				6036EB0924DD27CC003336C2 /* SearchCoordinator.swift in Sources */,
 				8717E4DC2506979200546A55 /* SuccessfulSignUpModel.swift in Sources */,
+				606DAB58255EFD0400663E55 /* ChatEvaluatingModel.swift in Sources */,
 				619AAA432498ADFE00AB46ED /* DataManager.swift in Sources */,
 				39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */,
 				875223A925000462000759C8 /* CellReusable.swift in Sources */,
