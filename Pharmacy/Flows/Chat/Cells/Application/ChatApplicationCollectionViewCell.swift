@@ -13,18 +13,29 @@ class ChatApplicationCollectionViewCell: UICollectionViewCell {
     struct GUI {
         static let cornerRadius: CGFloat = 10.0
     }
+    @IBOutlet weak var leadingImageConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var trailingImageConstraint: NSLayoutConstraint!
     @IBOutlet weak var applicationImage: UIImageView! {
         didSet {
             applicationImage.contentMode = .scaleAspectFill
             applicationImage.layer.cornerRadius = GUI.cornerRadius
-            applicationImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
             applicationImage.layer.masksToBounds = true
         }
     }
     
-    func apply(attachment: FileAttachment) {
+    func apply(attachment: FileAttachment, isFromCurrentSender: Bool) {
         guard let url = URL(string: attachment.url) else { return }
         applicationImage.loadImageBy(url: url)
+        if isFromCurrentSender {
+            applicationImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
+            leadingImageConstraint.constant = 40.0
+            trailingImageConstraint.constant = 0.0
+        } else {
+            applicationImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMaxXMaxYCorner]
+            leadingImageConstraint.constant = 0.0
+            trailingImageConstraint.constant = 40.0
+        }
+        
     }
 }

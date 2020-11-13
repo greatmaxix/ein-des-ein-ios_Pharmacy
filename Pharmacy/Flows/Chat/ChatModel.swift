@@ -285,7 +285,7 @@ extension ChatModel: MessagesDataSource {
                 })
             case .application(let application):
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatApplicationCollectionViewCell.reuseIdentifier, for: indexPath)
-                (cell as? ChatApplicationCollectionViewCell)?.apply(attachment: application)
+                (cell as? ChatApplicationCollectionViewCell)?.apply(attachment: application, isFromCurrentSender: message.sender.senderId == sender.senderId)
             }
         default: break
         }
