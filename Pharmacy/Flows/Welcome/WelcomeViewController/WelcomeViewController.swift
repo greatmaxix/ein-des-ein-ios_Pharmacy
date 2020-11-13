@@ -26,6 +26,7 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private var categoriesViews: [UIView]!
     
     @IBOutlet private var buttonsBackground: [UIView]!
+    @IBOutlet private var buttonsBackgroundImages: [UIImageView]!
     
     @IBOutlet private weak var loadReceipeButton: UIButton!
     @IBOutlet private weak var watchCategoriesButton: UIButton!
@@ -93,6 +94,11 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
         buttonsBackground.forEach({
             $0.layer.cornerRadius = 10
             $0.dropBlueShadow()
+        })
+        
+        buttonsBackgroundImages.forEach({
+            $0.image = $0.image?.withRenderingMode(.alwaysTemplate)
+            $0.tintColor = $0.superview?.tintColor.withAlphaComponent(0.3)
         })
         
         loadReceipeButton.dropBlueShadow()

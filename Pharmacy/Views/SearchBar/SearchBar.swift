@@ -69,6 +69,7 @@ extension SearchBar {
     
     private func initialize() {
         self.clipsToBounds = true
+        self.textField.placeholder = R.string.localize.welcomeSearchBarPlaceholder()
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
 }
