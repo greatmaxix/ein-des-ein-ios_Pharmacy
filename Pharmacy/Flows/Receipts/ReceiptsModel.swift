@@ -29,7 +29,7 @@ protocol ReceiptsModelOutput: class {
 
 class ReceiptsModel: EventNode {
 
-    private var apiList = DataManager<OrdersAPI, OrdersResponse>()
+    private var apiList = DataManager<ReceiptsAPI, UserReceiptsResponse>()
 
     private var page = 1
     private var perPage = 50
@@ -40,14 +40,23 @@ class ReceiptsModel: EventNode {
 
     override init(parent: EventNode?) {
         super.init(parent: parent)
-
-        receipts.append(
-            contentsOf: [UserReceipt(id: 231231, text: "ГІДАЗЕПАМ IC® (GIDAZEPAM IC) 0,05 №10 табл. АТХ N05В А.", productURL: "", amount: 3, doctorURL: "", doctorName: "Иванчук О. А", isActive: true, activeTill: "02.12.2020"),
-            UserReceipt(id: 123122, text: "ГІДАЗЕПАМ IC® (GIDAZEPAM IC) 0,05 №10 табл. АТХ N05В А.", productURL: "", amount: 1, doctorURL: "", doctorName: "Иванчук О. А", isActive: false, activeTill: "10.10.2020")]
-        )
     }
 
     fileprivate func load() {
+
+        apiList.load(target: .loadReceipts,
+                     completion: { [weak self] result in
+                        guard let `self` = self else { return }
+
+                        switch result {
+                        case .success(let response):
+                            self.receipts = response.items
+                            self.output.complete(isEmpty: self.receipts.isEmpty, error: nil)
+                        case .failure(let error):
+                            return
+                            self.output.complete(isEmpty: self.receipts.isEmpty, error: error.localizedDescription)
+                        }
+                     })
 
         output.startLoading()
     }
@@ -61,6 +70,7 @@ extension ReceiptsModel: ReceiptsModelInput, ReceiptsViewControllerOutput {
     
     func initialLoad() {
         page = 1
+        load()
     }
 
     func receipt(at indexPath: IndexPath) -> UserReceipt {

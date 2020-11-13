@@ -31,40 +31,40 @@
                         <rect key="frame" x="16" y="8" width="288" height="168"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{id}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUP-iw-7bB">
-                                <rect key="frame" x="16" y="8" width="21" height="16.5"/>
+                                <rect key="frame" x="16" y="8" width="23.5" height="19.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" name="textDarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рецепт выписан:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3U-0V-pgD">
-                                <rect key="frame" x="56" y="120" width="79" height="12"/>
+                                <rect key="frame" x="56" y="125.5" width="86" height="14"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="10"/>
-                                <color key="textColor" name="mediumGrey"/>
+                                <color key="textColor" red="0.6470588235294118" green="0.70588235294117641" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{description}" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpo-3I-3o6">
-                                <rect key="frame" x="64" y="41" width="208" height="19"/>
+                                <rect key="frame" x="64" y="44" width="208" height="22"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" name="welcomeBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{description}" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROf-Cc-YI4">
-                                <rect key="frame" x="16" y="89" width="256" height="14"/>
+                                <rect key="frame" x="16" y="92" width="256" height="16.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                 <color key="textColor" name="greyText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGN-NG-pUR">
-                                <rect key="frame" x="247.5" y="8" width="52.5" height="24"/>
+                                <rect key="frame" x="245.5" y="8" width="54.5" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCz-sf-yrL">
-                                        <rect key="frame" x="8" y="6" width="24.5" height="12"/>
+                                        <rect key="frame" x="8" y="5" width="26.5" height="14"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="10"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KPv-Fl-Qk4">
-                                        <rect key="frame" x="40.5" y="0.0" width="12" height="24"/>
+                                        <rect key="frame" x="42.5" y="0.0" width="12" height="24"/>
                                         <color key="backgroundColor" name="backgroundGray"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="12" id="rfc-06-61r"/>
@@ -88,28 +88,28 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yds-U6-9uf">
-                                <rect key="frame" x="16" y="111" width="256" height="1"/>
+                                <rect key="frame" x="16" y="116.5" width="256" height="1"/>
                                 <color key="backgroundColor" name="mediumGrey"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="qhf-a6-RFr"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medicineImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="ngE-WW-THb">
-                                <rect key="frame" x="16" y="41" width="40" height="40"/>
+                                <rect key="frame" x="16" y="44" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KTu-dW-DAb"/>
                                     <constraint firstAttribute="width" constant="40" id="cze-H4-hpY"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farmacyPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="KUx-Fd-y3z">
-                                <rect key="frame" x="16" y="120" width="32" height="32"/>
+                                <rect key="frame" x="16" y="125.5" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="Bh5-Pk-cSF"/>
                                     <constraint firstAttribute="height" constant="32" id="Lwx-Gx-elF"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukk-8O-8vt">
-                                <rect key="frame" x="248" y="124" width="24" height="24"/>
+                                <rect key="frame" x="248" y="129.5" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="JAc-iB-Ahf"/>
                                     <constraint firstAttribute="height" constant="24" id="vFi-aR-3Qh"/>
@@ -117,7 +117,7 @@
                                 <state key="normal" image="download"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{author}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBa-F7-kHP">
-                                <rect key="frame" x="56" y="132" width="50" height="16.5"/>
+                                <rect key="frame" x="56" y="139.5" width="57" height="19.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" name="textDarkBlue"/>
                                 <nil key="highlightedColor"/>

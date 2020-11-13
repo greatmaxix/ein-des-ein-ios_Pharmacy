@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 protocol ReceiptsViewControllerInput: ReceiptsModelOutput {}
 protocol ReceiptsViewControllerOutput: ReceiptsModelInput {}
@@ -14,6 +15,10 @@ protocol ReceiptsViewControllerOutput: ReceiptsModelInput {}
 class ReceiptsViewController: UIViewController, NavigationBarStyled {
 
     var style: NavigationBarStyle = .normalWithoutSearch
+
+    private lazy var activityIndicator: MBProgressHUD = {
+        setupActivityIndicator()
+    }()
 
     @IBOutlet private weak var tableView: UITableView!
 
@@ -28,6 +33,14 @@ class ReceiptsViewController: UIViewController, NavigationBarStyled {
         title = "Рецепты"
 
         setupUI()
+        tableView.isHidden = true
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        activityIndicator.show(animated: true)
+        model.initialLoad()
     }
 
     private func setupUI() {
@@ -55,7 +68,14 @@ extension ReceiptsViewController: SimpleNavigationBarDelegate {
 extension ReceiptsViewController: ReceiptsViewControllerInput {
 
     func complete(isEmpty: Bool, error: String?) {
+        activityIndicator.hide(animated: true)
 
+        if error != nil {
+            showError(text: error!)
+        }
+
+        tableView.isHidden = false
+        tableView.reloadData()
     }
 
     func startLoading() {

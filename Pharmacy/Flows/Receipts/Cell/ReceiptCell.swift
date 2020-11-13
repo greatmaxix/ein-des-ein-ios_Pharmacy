@@ -29,11 +29,26 @@ class ReceiptCell: UITableViewCell {
 
     func apply(receipt: UserReceipt) {
         idLabel.text = "# \(receipt.id)"
-        productLabel.text = receipt.text
-        amountLabel.text = "QNT \(receipt.amount)"
+        productLabel.text = receipt.text?.htmlToString
+        amountLabel.text = "QNT \(receipt.amount ?? 0)"
         authorLabel.text = receipt.doctorName
-        stateView.backgroundColor = receipt.isActive ? R.color.welcomeGreen() : R.color.greyText()
-        stateLabel.text = receipt.isActive ? "Активен до \(receipt.activeTill)" : "Завершен \(receipt.activeTill)"
+
+        var dateString: String = ""
+
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "dd.MM.YY"
+
+        if let date = dateFormatterGet.date(from: receipt.validTill ?? "") {
+            dateString = dateFormatterPrint.string(from: date)
+        } else {
+            dateString = receipt.validTill ?? ""
+        }
+
+        stateView.backgroundColor = receipt.status == "active" ? R.color.welcomeGreen() : R.color.greyText()
+        stateLabel.text = receipt.status == "active" ? "Активен до \(dateString)" : "Завершен \(dateString)"
     }
     
 }
