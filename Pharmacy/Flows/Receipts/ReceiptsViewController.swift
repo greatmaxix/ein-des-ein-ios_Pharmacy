@@ -21,6 +21,7 @@ class ReceiptsViewController: UIViewController, NavigationBarStyled {
     }()
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var emptyView: UIView!
 
     var model: ReceiptsViewControllerOutput!
 
@@ -33,7 +34,9 @@ class ReceiptsViewController: UIViewController, NavigationBarStyled {
         title = "Рецепты"
 
         setupUI()
+
         tableView.isHidden = true
+        emptyView.isHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -74,8 +77,12 @@ extension ReceiptsViewController: ReceiptsViewControllerInput {
             showError(text: error!)
         }
 
-        tableView.isHidden = false
-        tableView.reloadData()
+        if model.numberOfReceipts == 0 {
+            emptyView.isHidden = false
+        } else {
+            tableView.isHidden = false
+            tableView.reloadData()
+        }
     }
 
     func startLoading() {
