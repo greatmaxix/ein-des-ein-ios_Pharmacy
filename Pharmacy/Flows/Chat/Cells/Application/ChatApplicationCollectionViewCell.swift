@@ -16,6 +16,7 @@ class ChatApplicationCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var applicationImage: UIImageView! {
         didSet {
+            applicationImage.contentMode = .scaleAspectFill
             applicationImage.layer.cornerRadius = GUI.cornerRadius
             applicationImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
             applicationImage.layer.masksToBounds = true
@@ -23,6 +24,7 @@ class ChatApplicationCollectionViewCell: UICollectionViewCell {
     }
     
     func apply(attachment: FileAttachment) {
-        
+        guard let url = URL(string: attachment.url) else { return }
+        applicationImage.loadImageBy(url: url)
     }
 }

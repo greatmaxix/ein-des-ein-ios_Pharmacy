@@ -19,7 +19,8 @@ enum ChatAPI {
     case createMessage(Int, String)
     case create(ChatRoute)
     case lastOpened
-    case uploadImage(UIImage)
+    case upload(data: Data, mime: String, name: String)
+    case sendImage(chatId: Int, uuid: String)
 }
 
 extension ChatAPI: RequestConvertible {
@@ -31,7 +32,8 @@ extension ChatAPI: RequestConvertible {
         case .createMessage(let id, _): return "chat/chat/\(id)/message"
         case .create: return "customer/chat"
         case .lastOpened: return "user/chat/last-opened-chats"
-        case .uploadImage: return "customer/image"
+        case .upload: return "customer/image"
+        case .sendImage(let chatId, let uuid): return "chat/chat/\(chatId)/application/\(uuid)"
         }
     }
     
@@ -39,22 +41,21 @@ extension ChatAPI: RequestConvertible {
         switch self {
         case .messageList, .chatList, .chatDetails, .lastOpened:
             return .get
-        case .createMessage, .create, .uploadImage:
+        case .createMessage, .create, .upload, .sendImage:
             return .post
         }
     }
     
     var task: Task {
         switch self {
-        case .chatDetails, .messageList, .lastOpened, .chatList:
+        case .chatDetails, .messageList, .lastOpened, .chatList, .sendImage:
             return .requestPlain
         case .create(let type):
             return .requestParameters(parameters: ["type": type.rawValue], encoding: JSONEncoding.default)
         case .createMessage(_, let message):
             return .requestParameters(parameters: ["text": message], encoding: JSONEncoding.default)
-        case .uploadImage(let image):
-            let data = image.jpegData(compressionQuality: 1.0) ?? Data()
-            let formData: [Moya.MultipartFormData] = [Moya.MultipartFormData(provider: .data(data), name: "user_image", fileName: "image.jpeg", mimeType: "image/jpeg")]
+        case .upload(let data, let mime, let name):
+            let formData = [Moya.MultipartFormData(provider: .data(data), name: "file", fileName: name, mimeType:mime)]
             return .uploadMultipart(formData)
         }
     }

@@ -31,7 +31,7 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     private let attachDialogue = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     private var attachedItems: [LibraryImage] = []
     private var isKeyboardVisible: Bool {
-        return messageInputBar.inputTextView.isFirstResponder
+            return messageInputBar.inputTextView.isFirstResponder
     }
     
     init() {
@@ -126,19 +126,20 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     
 extension ChatViewController: ChatOutput {
     func openGallery() {
-        
-        if isKeyboardVisible {
-            navigationController?.view.endEditing(true)
-        }
-        
-        switch photoLibraryAuthorizationStatus {
-        case .authorized, .limited:
-            chatBar?.showGallery()
-        case .notDetermined, .none:
-            requestPhotoLibraryAuthorization()
-        case .denied, .restricted:
-            showDeniedPhotoMessage()
-        default: break
+        DispatchQueue.main.async {
+            if self.isKeyboardVisible {
+                self.navigationController?.view.endEditing(true)
+            }
+            
+            switch self.photoLibraryAuthorizationStatus {
+            case .authorized, .limited:
+                self.chatBar?.showGallery()
+            case .notDetermined, .none:
+                self.requestPhotoLibraryAuthorization()
+            case .denied, .restricted:
+                self.showDeniedPhotoMessage()
+            default: break
+            }
         }
     }
     
@@ -175,6 +176,19 @@ extension ChatViewController: ChatOutput {
                 present(imagePicker, animated: true, completion: nil)
             @unknown default: break
             }
+        }
+    }
+    
+    func uploadFinished(image: LibraryImage, with result: UploadImageResult) {
+        switch result {
+        case .success(let response):
+            print(response)
+        case .failure(let error):
+            print(error.localizedDescription)
+        }
+        
+        if let index = attachedItems.firstIndex(of: image) {
+            attachmentManager.removeAttachment(at: index)
         }
     }
 }
@@ -219,7 +233,7 @@ extension ChatViewController: AttachmentManagerDelegate {
             attachedItems.remove(at: index)
         default: break
         }
-        chatBar?.updateAttachments(count: attachedItems.count)
+        chatBar?.updateAppearanceWithAttachments(count: attachedItems.count)
         messageInputBar.sendButton.isEnabled = manager.attachments.count > 0
     }
     
@@ -258,6 +272,10 @@ extension ChatViewController: ChatInputBarDelegate {
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         processInputBar(inputBar)
         model.sendMessage(text: text)
+        if attachedItems.count > 0 {
+            model.upload(images: attachedItems)
+            chatBar?.needHideGallery()
+        }
     }
     
     func inputBar(_ inputBar: InputBarAccessoryView, textViewTextDidChangeTo text: String) {
@@ -270,7 +288,7 @@ extension ChatViewController: ChatInputBarDelegate {
             guard attachedItems.contains(image) == false else { return }
             attachedItems.append(image)
             attachmentManager.handleInput(of: image.placeholder)
-            chatBar?.updateAttachments(count: attachedItems.count)
+            chatBar?.updateAppearanceWithAttachments(count: attachedItems.count)
         case .deselect(let image):
             if let index = attachedItems.firstIndex(of: image) {
                 attachmentManager.removeAttachment(at: index)

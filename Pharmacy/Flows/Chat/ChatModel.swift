@@ -19,6 +19,7 @@ enum ChatEvent: Event {
 protocol ChatInput: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate {
     func load()
     func sendMessage(text: String)
+    func upload(images: [LibraryImage])
 }
 
 protocol ChatOutput: MessagesViewController {
@@ -26,24 +27,28 @@ protocol ChatOutput: MessagesViewController {
     func closeGallery()
     func openLibrary()
     func openCamera()
+    func uploadFinished(image: LibraryImage, with result: UploadImageResult)
 }
 
 final class ChatModel: Model, ChatInput {
-    
     weak var output: ChatOutput? {
         didSet {
             setupCollection()
         }
     }
     
-    private var messages: [Message] = []
     private var chatProvider = DataManager<ChatAPI, ChatListResponse>()
     private var createChatProvider = DataManager<ChatAPI, CreateChatResponse>()
     private var messagesListProvider = DataManager<ChatAPI, MessageListResponse>()
     private var createMessageProvider = DataManager<ChatAPI, CreateMessageResponse>()
+    private var uploadProvider = DataManager<ChatAPI, CustomerImageUploadResponse>()
+    private var sendImageProvider = DataManager<ChatAPI, CreateMessageResponse>()
+    
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
     private var sizeCalculator: CustomMessageSizeCalculator!
+    
+    private var messages: [Message] = []
     
     deinit {
         chatService?.stop()
@@ -75,7 +80,7 @@ final class ChatModel: Model, ChatInput {
     }
     
     func sendMessage(text: String) {
-        guard let chatId = chatService?.chat.id else { return }
+        guard let chatId = chatService?.chat.id, text.isEmpty == false else { return }
         createMessageProvider.load(target: .createMessage(chatId, text)) { response in
             print(response)
         }
@@ -113,6 +118,42 @@ final class ChatModel: Model, ChatInput {
         output?.messagesCollectionView.scrollToBottom(animated: true)
         output?.messageInputBar.isHidden = false
         output?.messageInputBar.becomeFirstResponder()
+    }
+    
+    func upload(images: [LibraryImage]) {
+        output?.showActivityIndicator()
+        recursiveUpload(images: images)
+    }
+
+    private func recursiveUpload(images: [LibraryImage]) {
+        if let image = images.first, let data = image.original.jpegData(compressionQuality: 0.5) {
+            let mime = "image/\(image.url.lastPathComponent.components(separatedBy: ".").last ?? "jpg")"
+            uploadProvider.load(target: .upload(data: data, mime: mime, name: image.url.lastPathComponent)) {[weak self] result in
+                self?.output?.uploadFinished(image: image, with: result)
+                switch result {
+                case .success(let response):
+                    self?.sendUploadedImageWith(response: response)
+                default: break
+                }
+                var i = images
+                i.removeFirst()
+                self?.recursiveUpload(images: i)
+            }
+        } else {
+            output?.hideActivityIndicator()
+        }
+    }
+    
+    private func sendUploadedImageWith(response: CustomerImageUploadResponse) {
+        guard let chatId = chatService?.chat.id else { return }
+        sendImageProvider.load(target: .sendImage(chatId: chatId, uuid: response.item.uuid)) { result in
+            switch result {
+            case .success(let r):
+                print("Image uploaded with -\(r)")
+            case .failure(let e):
+                print(e.localizedDescription)
+            }
+        }
     }
     
 //    Load chat messages if opened or answered chat exist

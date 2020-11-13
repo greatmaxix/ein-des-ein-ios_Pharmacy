@@ -89,6 +89,7 @@ final class ChatInputBar: InputBarAccessoryView {
             $0.alpha = 0.0
         }.onTouchUpInside {
             $0.inputBarAccessoryView?.didSelectSendButton()
+            
         }
         setRightStackViewWidthConstant(to: 75.0, animated: false)
         setStackViewItems([sendButton, InputBarButtonItem.fixedSpace(2.0)], forStack: .right, animated: false)
@@ -122,7 +123,7 @@ final class ChatInputBar: InputBarAccessoryView {
         }
     }
     
-    func updateAttachments(count: Int) {
+    func updateAppearanceWithAttachments(count: Int) {
         guard let b = sendButton as? ChatSendButton else { return }
         if count > 0 {
             b.appearanceState = .attachment

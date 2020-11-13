@@ -45,8 +45,8 @@ class ChatGalleryCollectionViewCell: UICollectionViewCell {
     
     func fetchImage(asset: PHAsset, indexPath: IndexPath) {
        let options = PHImageRequestOptions()
-       options.version = .current
-       PHImageManager.default().requestImageData(for: asset, options: options) {[weak self](data, _, _, info) in
+       options.version = .original
+       PHImageManager.default().requestImageData(for: asset, options: options) {[weak self](data, a, dd, info) in
             guard let d = data else { return }
             self?.image = LibraryImage(data: d, info: info, source: .gallery(indexPath))
        }
