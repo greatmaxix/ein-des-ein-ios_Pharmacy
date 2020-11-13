@@ -37,12 +37,13 @@ final class ChatModel: Model, ChatInput {
         }
     }
     
-    private var chatProvider = DataManager<ChatAPI, ChatListResponse>()
-    private var createChatProvider = DataManager<ChatAPI, CreateChatResponse>()
-    private var messagesListProvider = DataManager<ChatAPI, MessageListResponse>()
-    private var createMessageProvider = DataManager<ChatAPI, CreateMessageResponse>()
-    private var uploadProvider = DataManager<ChatAPI, CustomerImageUploadResponse>()
-    private var sendImageProvider = DataManager<ChatAPI, CreateMessageResponse>()
+    private let chatProvider = DataManager<ChatAPI, ChatListResponse>()
+    private let createChatProvider = DataManager<ChatAPI, CreateChatResponse>()
+    private let messagesListProvider = DataManager<ChatAPI, MessageListResponse>()
+    private let createMessageProvider = DataManager<ChatAPI, CreateMessageResponse>()
+    private let uploadProvider = DataManager<ChatAPI, CustomerImageUploadResponse>()
+    private let sendImageProvider = DataManager<ChatAPI, CreateMessageResponse>()
+    private let sendProductProvider = DataManager<ChatAPI, CreateProductMessageResponse>()
     
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
@@ -114,7 +115,6 @@ final class ChatModel: Model, ChatInput {
         items.forEach {
             self.insertMessage($0.message)
         }
-        
         output?.messagesCollectionView.scrollToBottom(animated: true)
         output?.messageInputBar.isHidden = false
         output?.messageInputBar.becomeFirstResponder()

@@ -21,6 +21,9 @@ class ChatProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var likeButton: UIButton!
     
+    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
+    
     var actionHandler: ChatProductHandler?
     
     func apply(product: Product, actionHandler: @escaping ChatProductHandler) {
