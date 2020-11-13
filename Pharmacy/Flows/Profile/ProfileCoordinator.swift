@@ -83,8 +83,13 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
             switch event {
             case .openOrder(let id):
                 self?.openOrder(id: id)
-            default:
-                break
+            }
+        }
+
+        addHandler { [weak self] (event: ReceiptsModelEvent) in
+            switch event {
+            case .close:
+                self?.popController()
             }
         }
         
@@ -164,13 +169,14 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     }
     
     func presentPrescriptions() {
-        guard let prescriptionsVC: PrescriptionsViewController = storyboard.instantiateViewController(withIdentifier: "PrescriptionsViewController") as? PrescriptionsViewController else {
+        guard let controller: ReceiptsViewController = R.storyboard.receipts().instantiateViewController(withIdentifier: "ReceiptsViewController") as? ReceiptsViewController else {
             return
         }
         
-        let model = PrescriptionsModel(parent: self)
-        prescriptionsVC.model = model
-        root.navigationController?.pushViewController(prescriptionsVC, animated: true)
+        let model = ReceiptsModel(parent: self)
+        controller.model = model
+        model.output = controller
+        root.navigationController?.pushViewController(controller, animated: true)
     }
     
     func presentAnalizes() {

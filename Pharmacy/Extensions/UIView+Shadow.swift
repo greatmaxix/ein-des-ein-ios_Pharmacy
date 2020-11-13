@@ -40,6 +40,10 @@ extension UIView {
     func dropLightBlueShadow() {
         dropShadow(scale: true, color: R.color.lightBlue(), width: 0, height: 6, radius: 8, opacity: 0.1)
     }
+
+    func dropCellLightBlueShadow() {
+        dropShadow(scale: true, color: R.color.lightBlue(), width: 1, height: 1, radius: 8, opacity: 0.1)
+    }
   
     func cellLightBlueShadow() {
         dropShadow(scale: true, color: R.color.lightBlue(), width: 0, height: 0, radius: 2, opacity: 0.1)

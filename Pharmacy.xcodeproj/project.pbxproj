@@ -274,6 +274,7 @@
 		611C3BEE254F3A70006178B7 /* OrderDeliveryAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C3BED254F3A70006178B7 /* OrderDeliveryAddress.swift */; };
 		611C3BF1254F455E006178B7 /* OrdersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C3BF0254F455E006178B7 /* OrdersAPI.swift */; };
 		611C3C0C254F7158006178B7 /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 611C3C0B254F7158006178B7 /* Orders.storyboard */; };
+		611CA281255EA17E009BD8B6 /* ReceiptsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CA280255EA17E009BD8B6 /* ReceiptsAPI.swift */; };
 		614494432552EB4B003E20F9 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614494422552EB4B003E20F9 /* ErrorPresenter.swift */; };
 		61701FB42551A1AD0000303C /* OrderDetailsCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61701FB32551A1AD0000303C /* OrderDetailsCommentCell.swift */; };
 		61701FB72551A42C0000303C /* OrderDetailsTotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61701FB62551A42C0000303C /* OrderDetailsTotalCell.swift */; };
@@ -324,6 +325,12 @@
 		61CFAAAD254C4CC200569DEF /* OrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAAAB254C4CC200569DEF /* OrderSummaryCell.swift */; };
 		61CFAAAE254C4CC200569DEF /* OrderSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAAAC254C4CC200569DEF /* OrderSummaryCell.xib */; };
 		61CFAACA254F1C0D00569DEF /* OrderContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAAC9254F1C0D00569DEF /* OrderContactInfo.swift */; };
+		61D90F8C255DCF0A00AE6124 /* ReceiptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D90F8B255DCF0A00AE6124 /* ReceiptsViewController.swift */; };
+		61D90F8F255DCF1600AE6124 /* ReceiptsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D90F8E255DCF1600AE6124 /* ReceiptsModel.swift */; };
+		61D90F94255DCF3400AE6124 /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D90F92255DCF3400AE6124 /* ReceiptCell.swift */; };
+		61D90F95255DCF3400AE6124 /* ReceiptCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61D90F93255DCF3400AE6124 /* ReceiptCell.xib */; };
+		61D90F98255DCFA600AE6124 /* Receipts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D90F97255DCFA600AE6124 /* Receipts.storyboard */; };
+		61D90F9B255DE9B100AE6124 /* UserReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D90F9A255DE9B100AE6124 /* UserReceipt.swift */; };
 		61F20AF925517BD60027F2B0 /* OrderDetailsDeliveryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F20AF825517BD60027F2B0 /* OrderDetailsDeliveryCell.swift */; };
 		61F20AFC25517DA60027F2B0 /* PrderDetailsPaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F20AFB25517DA60027F2B0 /* PrderDetailsPaymentCell.swift */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
@@ -648,6 +655,7 @@
 		611C3BED254F3A70006178B7 /* OrderDeliveryAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDeliveryAddress.swift; sourceTree = "<group>"; };
 		611C3BF0254F455E006178B7 /* OrdersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersAPI.swift; sourceTree = "<group>"; };
 		611C3C0B254F7158006178B7 /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
+		611CA280255EA17E009BD8B6 /* ReceiptsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReceiptsAPI.swift; path = Pharmacy/Services/API/ReceiptsAPI.swift; sourceTree = SOURCE_ROOT; };
 		614494422552EB4B003E20F9 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		61701FB32551A1AD0000303C /* OrderDetailsCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsCommentCell.swift; sourceTree = "<group>"; };
 		61701FB62551A42C0000303C /* OrderDetailsTotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsTotalCell.swift; sourceTree = "<group>"; };
@@ -698,6 +706,12 @@
 		61CFAAAB254C4CC200569DEF /* OrderSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryCell.swift; sourceTree = "<group>"; };
 		61CFAAAC254C4CC200569DEF /* OrderSummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSummaryCell.xib; sourceTree = "<group>"; };
 		61CFAAC9254F1C0D00569DEF /* OrderContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderContactInfo.swift; sourceTree = "<group>"; };
+		61D90F8B255DCF0A00AE6124 /* ReceiptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsViewController.swift; sourceTree = "<group>"; };
+		61D90F8E255DCF1600AE6124 /* ReceiptsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsModel.swift; sourceTree = "<group>"; };
+		61D90F92255DCF3400AE6124 /* ReceiptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
+		61D90F93255DCF3400AE6124 /* ReceiptCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiptCell.xib; sourceTree = "<group>"; };
+		61D90F97255DCFA600AE6124 /* Receipts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Receipts.storyboard; sourceTree = "<group>"; };
+		61D90F9A255DE9B100AE6124 /* UserReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReceipt.swift; sourceTree = "<group>"; };
 		61F20AF825517BD60027F2B0 /* OrderDetailsDeliveryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsDeliveryCell.swift; sourceTree = "<group>"; };
 		61F20AFB25517DA60027F2B0 /* PrderDetailsPaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrderDetailsPaymentCell.swift; sourceTree = "<group>"; };
 		87131D222507B9890050B8F2 /* Executor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
@@ -1108,6 +1122,7 @@
 				398880C1250F798300942D30 /* PharmacyModel.swift */,
 				61AA47132550157700D140D3 /* Order.swift */,
 				6185013B25508C250094A6A6 /* OrderDetails.swift */,
+				61D90F9A255DE9B100AE6124 /* UserReceipt.swift */,
 			);
 			name = Models;
 			path = Templates/Models;
@@ -1207,6 +1222,7 @@
 		396C45CF249774D200A569CE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				61D90F8A255DCEED00AE6124 /* Receipts */,
 				60475FDA2551512A00448EF3 /* Chat */,
 				4D8BCF69254891570094C43C /* InDevelopment */,
 				8715DB8424FFBFB900BBF37C /* Onboarding */,
@@ -2002,6 +2018,7 @@
 				8717E4DD2507744500546A55 /* SearchAPI.swift */,
 				398880BF250F753200942D30 /* MapAPI.swift */,
 				87A50B6D2527072800CF89CF /* ProductAPI.swift */,
+				611CA280255EA17E009BD8B6 /* ReceiptsAPI.swift */,
 				611C3BF0254F455E006178B7 /* OrdersAPI.swift */,
 				60AE3194255315B3002BD404 /* ChatAPI.swift */,
 			);
@@ -2078,6 +2095,26 @@
 				611C3BED254F3A70006178B7 /* OrderDeliveryAddress.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		61D90F8A255DCEED00AE6124 /* Receipts */ = {
+			isa = PBXGroup;
+			children = (
+				61D90F91255DCF1B00AE6124 /* Cell */,
+				61D90F8B255DCF0A00AE6124 /* ReceiptsViewController.swift */,
+				61D90F8E255DCF1600AE6124 /* ReceiptsModel.swift */,
+				61D90F97255DCFA600AE6124 /* Receipts.storyboard */,
+			);
+			path = Receipts;
+			sourceTree = "<group>";
+		};
+		61D90F91255DCF1B00AE6124 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				61D90F92255DCF3400AE6124 /* ReceiptCell.swift */,
+				61D90F93255DCF3400AE6124 /* ReceiptCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		87131D262509FBA80050B8F2 /* SearchBar */ = {
@@ -2390,6 +2427,7 @@
 				2488BAFE255154DA008D7EEB /* EmptyResultsViewCell.xib in Resources */,
 				61CFAAAE254C4CC200569DEF /* OrderSummaryCell.xib in Resources */,
 				61CFAA9F254C2E9300569DEF /* PaymentTypeCell.xib in Resources */,
+				61D90F98255DCFA600AE6124 /* Receipts.storyboard in Resources */,
 				6075BD4A24DEA7FB00BC78BD /* OpenSans-Italic.ttf in Resources */,
 				6184731B2549A5120062D8B9 /* CartSectionFooterView.xib in Resources */,
 				6075BD4B24DEA7FB00BC78BD /* OpenSans-Light.ttf in Resources */,
@@ -2403,6 +2441,7 @@
 				61CFAA99254C2C1700569DEF /* DeliveryAddressCell.xib in Resources */,
 				87131D3A25137B910050B8F2 /* RecentsHeaderView.xib in Resources */,
 				603D318D24E2A269000E5A6C /* ReceiptView.xib in Resources */,
+				61D90F95255DCF3400AE6124 /* ReceiptCell.xib in Resources */,
 				608E3AFD2551D47000AEE56C /* ChatButtonCollectionViewCell.xib in Resources */,
 				6075BD4E24DEA7FB00BC78BD /* OpenSans-SemiBold.ttf in Resources */,
 				61CFAA94254C28DD00569DEF /* OrderPharmacyCell.xib in Resources */,
@@ -2561,6 +2600,7 @@
 			files = (
 				875223BE2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift in Sources */,
 				875223C72500FD90000759C8 /* NSPersistentContainer.swift in Sources */,
+				61D90F8F255DCF1600AE6124 /* ReceiptsModel.swift in Sources */,
 				60383A31255B2C5F00654C1A /* ChatGalleryCollectionViewCell.swift in Sources */,
 				6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */,
 				60E1A71324ECE0D100B3D205 /* ScanViewController.swift in Sources */,
@@ -2650,6 +2690,7 @@
 				39818FA124AF69B0007D6D94 /* UserSession.swift in Sources */,
 				603D31E024E5A8E3000E5A6C /* ProductCategoryTableViewCell.swift in Sources */,
 				61F20AF925517BD60027F2B0 /* OrderDetailsDeliveryCell.swift in Sources */,
+				61D90F94255DCF3400AE6124 /* ReceiptCell.swift in Sources */,
 				397541D724ED35EE0069F8DE /* SimpleNavigationBarView.swift in Sources */,
 				3939A6D524F6A3C90045FB71 /* LocationService.swift in Sources */,
 				61CFAACA254F1C0D00569DEF /* OrderContactInfo.swift in Sources */,
@@ -2701,6 +2742,7 @@
 				875223C52500FD60000759C8 /* NSManagedObjectContext.swift in Sources */,
 				399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */,
 				398B0DEB24F51C8F0084EC54 /* MapFarmacyCell.swift in Sources */,
+				61D90F8C255DCF0A00AE6124 /* ReceiptsViewController.swift in Sources */,
 				6040F0AC254F6CCB006B4B39 /* NavigationController.swift in Sources */,
 				395324BC2508CE450038D2DC /* RegionResponse.swift in Sources */,
 				396448E224ADE17A00E6D852 /* UserDTO.swift in Sources */,
@@ -2723,6 +2765,7 @@
 				60515CFE254B068900977BEF /* SubcategoryCellSection.swift in Sources */,
 				398B0DE724F51C410084EC54 /* MapFarmacyListModel.swift in Sources */,
 				603D319824E3B22A000E5A6C /* TableCellSection.swift in Sources */,
+				61D90F9B255DE9B100AE6124 /* UserReceipt.swift in Sources */,
 				603D31D224E5A09F000E5A6C /* ProductInfoTableViewCell.swift in Sources */,
 				601E7ED52549D4B500C936BF /* RoundedButton.swift in Sources */,
 				39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */,
@@ -2790,6 +2833,7 @@
 				61CFAA552549EB7200569DEF /* EmptyUserCell.swift in Sources */,
 				61CFAAA3254C356400569DEF /* OrderedProductCell.swift in Sources */,
 				6075BD5324DEB16600BC78BD /* RoundedCornerNavigationBar.swift in Sources */,
+				611CA281255EA17E009BD8B6 /* ReceiptsAPI.swift in Sources */,
 				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
 				87131D3425135E3E0050B8F2 /* UITableView+Reusable.swift in Sources */,
 				60E1A6FB24EBB20E00B3D205 /* UIViewController+Keyboard.swift in Sources */,
