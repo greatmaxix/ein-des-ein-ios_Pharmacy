@@ -25,7 +25,7 @@ struct SlideInfo {
     var fontColor: UIColor = .white
     var alternativeOnboardingConfiguration: Bool = false
     
-    init(image: UIImage, title: String, description: String, skipTitle: String? = nil, applyTitle: String? = nil, option: SlideOption = .onNext, nextButtonTitle: String? = nil,alternativeConfiguration: Bool = false) {
+    init(image: UIImage, title: String, description: String, skipTitle: String? = nil, applyTitle: String? = nil, option: SlideOption = .onNext, nextButtonTitle: String? = nil, alternativeConfiguration: Bool = false) {
         self.image = image
         self.title = title
         self.description = description

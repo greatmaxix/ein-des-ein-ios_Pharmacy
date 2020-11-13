@@ -90,7 +90,7 @@ extension OnboardingViewController {
                             for: .normal)
         
         if configuration {
-            self.skipButton.titleLabel?.textColor = .gray
+            self.skipButton.setTitleColor(.gray, for: .normal)
         }
     }
     
