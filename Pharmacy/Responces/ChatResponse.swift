@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Moya
 
 struct ChatListResponse: Decodable, Equatable {
     var items: [Chat]
@@ -23,6 +24,17 @@ struct CreateMessageResponse: Decodable, Equatable {
 
 struct MessageListResponse: Decodable, Equatable {
     let items: [ChatMessage]
+}
+
+struct UploadedImage: Decodable, Equatable {
+    let uuid: String
+    let url: String
+}
+
+typealias UploadImageResult = Result<CustomerImageUploadResponse, MoyaError>
+
+struct CustomerImageUploadResponse: Decodable, Equatable {
+    let item: UploadedImage
 }
 
 // From Mercury

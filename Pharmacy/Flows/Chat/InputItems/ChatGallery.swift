@@ -10,6 +10,15 @@ import Foundation
 import InputBarAccessoryView
 import Photos
 
+protocol ChatGalleryDelegate: class {
+    func imageAction(action: ImageSelectionAction)
+    func needHideGallery()
+}
+
+enum ImageSelectionAction {
+    case select(LibraryImage), deselect(LibraryImage)
+}
+
 final class ChatGallery: UICollectionView, InputItem {
     
     var inputBarAccessoryView: InputBarAccessoryView?
@@ -18,6 +27,8 @@ final class ChatGallery: UICollectionView, InputItem {
         let width = (frame.width / 3.0) - 1
         return CGSize(width: width, height: width)
     }
+    
+    weak var actionsDelegate: ChatGalleryDelegate?
     
     private var photos: PHFetchResult<PHAsset>!
     
@@ -36,6 +47,7 @@ final class ChatGallery: UICollectionView, InputItem {
         delegate = self
         decelerationRate = UIScrollView.DecelerationRate.fast
         backgroundColor = .white
+        allowsMultipleSelection = true
         loadPhotos()
     }
     
@@ -62,7 +74,7 @@ final class ChatGallery: UICollectionView, InputItem {
     }
     
     func keyboardEditingBeginsAction() {
-        
+        actionsDelegate?.needHideGallery()
     }
     
     override var intrinsicContentSize: CGSize {
@@ -72,16 +84,35 @@ final class ChatGallery: UICollectionView, InputItem {
 
 extension ChatGallery: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return photos.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChatGalleryCollectionViewCell.reuseIdentifier, for: indexPath)
-        let asset = photos[indexPath.row]
+        if indexPath.row == 0 {
+            (cell as? ChatGalleryCollectionViewCell)?.applyCameraStyle()
+            return cell
+        }
+        let asset = photos[indexPath.row - 1]
         
-        (cell as? ChatGalleryCollectionViewCell)?.contentImage.fetchImage(asset: asset, contentMode: .aspectFill, targetSize: itemSize)
+        (cell as? ChatGalleryCollectionViewCell)?.fetchImage(asset: asset, indexPath: indexPath)
+        cell.isSelected = collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return !(indexPath.row == 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ChatGalleryCollectionViewCell, let image = cell.image else { return }
+        actionsDelegate?.imageAction(action: .select(image))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? ChatGalleryCollectionViewCell, let image = cell.image else { return }
+        actionsDelegate?.imageAction(action: .deselect(image))
     }
 }
 
@@ -116,5 +147,35 @@ class ChatGalleryLayout: UICollectionViewFlowLayout {
         let newVericallOffset = ((currentPage + flickedPages) * pageWidth) - collectionView.contentInset.bottom
 
         return CGPoint(x: proposedContentOffset.x, y: newVericallOffset)
+    }
+}
+
+struct LibraryImage: Equatable {
+    
+    enum ImageSource {
+        case library, gallery(IndexPath)
+    }
+    
+    let original: UIImage
+    let placeholder: UIImage
+    let url: URL
+    let source: ImageSource?
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.url.absoluteString == rhs.url.absoluteString
+    }
+    
+    init(data: Data, info: [AnyHashable: Any]?, source: ImageSource? = nil) {
+        original = UIImage(data: data)!
+        placeholder = UIImage(data: data, scale: 0.2)!
+        url = (info?["PHImageFileURLKey"] as? URL) ?? URL(string: "empty")!
+        self.source = source
+    }
+    
+    init(originalImage: UIImage, url: URL, source: ImageSource? = nil) {
+        original = originalImage
+        placeholder = originalImage
+        self.url = url
+        self.source = source
     }
 }

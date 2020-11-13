@@ -18,31 +18,37 @@ enum ChatEvent: Event {
 
 protocol ChatInput: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate {
     func load()
+    func sendMessage(text: String)
+    func upload(images: [LibraryImage])
 }
 
 protocol ChatOutput: MessagesViewController {
     func openGallery()
     func closeGallery()
+    func openLibrary()
+    func openCamera()
+    func uploadFinished(image: LibraryImage, with result: UploadImageResult)
 }
 
 final class ChatModel: Model, ChatInput {
-   
     weak var output: ChatOutput? {
         didSet {
-            setupInputBar()
             setupCollection()
         }
     }
     
-    private var messages: [Message] = []
     private var chatProvider = DataManager<ChatAPI, ChatListResponse>()
     private var createChatProvider = DataManager<ChatAPI, CreateChatResponse>()
     private var messagesListProvider = DataManager<ChatAPI, MessageListResponse>()
     private var createMessageProvider = DataManager<ChatAPI, CreateMessageResponse>()
+    private var uploadProvider = DataManager<ChatAPI, CustomerImageUploadResponse>()
+    private var sendImageProvider = DataManager<ChatAPI, CreateMessageResponse>()
+    
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
     private var sizeCalculator: CustomMessageSizeCalculator!
-    private let attachDialogue = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    
+    private var messages: [Message] = []
     
     deinit {
         chatService?.stop()
@@ -51,25 +57,8 @@ final class ChatModel: Model, ChatInput {
     
     override init(parent: EventNode?) {
         super.init(parent: parent)
-        setup()
     }
     
-    func setup() {
-        attachDialogue.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { [weak self] _ in
-            self?.openPhotoGalery()
-        }))
-        
-        attachDialogue.addAction(UIAlertAction(title: "Библиотека", style: .default, handler: { [weak self] _ in
-            self?.openPhotoLibrary()
-        }))
-        
-        attachDialogue.addAction(UIAlertAction(title: "Камера", style: .default, handler: { [weak self] _ in
-            self?.openCamera()
-        }))
-        
-        attachDialogue.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
-    }
-   
     func load() {
         switch UserSession.shared.authorizationStatus {
         case .authorized:
@@ -90,9 +79,11 @@ final class ChatModel: Model, ChatInput {
         }
     }
     
-    private func setupInputBar() {
-        output?.messageInputBar.isHidden = true
-        output?.messageInputBar.delegate = self
+    func sendMessage(text: String) {
+        guard let chatId = chatService?.chat.id, text.isEmpty == false else { return }
+        createMessageProvider.load(target: .createMessage(chatId, text)) { response in
+            print(response)
+        }
     }
     
     func setupCollection() {
@@ -127,6 +118,42 @@ final class ChatModel: Model, ChatInput {
         output?.messagesCollectionView.scrollToBottom(animated: true)
         output?.messageInputBar.isHidden = false
         output?.messageInputBar.becomeFirstResponder()
+    }
+    
+    func upload(images: [LibraryImage]) {
+        output?.showActivityIndicator()
+        recursiveUpload(images: images)
+    }
+
+    private func recursiveUpload(images: [LibraryImage]) {
+        if let image = images.first, let data = image.original.jpegData(compressionQuality: 0.5) {
+            let mime = "image/\(image.url.lastPathComponent.components(separatedBy: ".").last ?? "jpg")"
+            uploadProvider.load(target: .upload(data: data, mime: mime, name: image.url.lastPathComponent)) {[weak self] result in
+                self?.output?.uploadFinished(image: image, with: result)
+                switch result {
+                case .success(let response):
+                    self?.sendUploadedImageWith(response: response)
+                default: break
+                }
+                var i = images
+                i.removeFirst()
+                self?.recursiveUpload(images: i)
+            }
+        } else {
+            output?.hideActivityIndicator()
+        }
+    }
+    
+    private func sendUploadedImageWith(response: CustomerImageUploadResponse) {
+        guard let chatId = chatService?.chat.id else { return }
+        sendImageProvider.load(target: .sendImage(chatId: chatId, uuid: response.item.uuid)) { result in
+            switch result {
+            case .success(let r):
+                print("Image uploaded with -\(r)")
+            case .failure(let e):
+                print(e.localizedDescription)
+            }
+        }
     }
     
 //    Load chat messages if opened or answered chat exist
@@ -181,11 +208,11 @@ final class ChatModel: Model, ChatInput {
     }
     
     func openPhotoLibrary() {
-        
+        output?.openLibrary()
     }
     
     func openCamera() {
-        
+        output?.openCamera()
     }
     
     // MARK: - Helpers
@@ -258,7 +285,7 @@ extension ChatModel: MessagesDataSource {
                 })
             case .application(let application):
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatApplicationCollectionViewCell.reuseIdentifier, for: indexPath)
-                (cell as? ChatApplicationCollectionViewCell)?.apply(attachment: application)
+                (cell as? ChatApplicationCollectionViewCell)?.apply(attachment: application, isFromCurrentSender: message.sender.senderId == sender.senderId)
             }
         default: break
         }
@@ -278,36 +305,6 @@ extension ChatModel: MessagesDisplayDelegate {
 }
 
 extension ChatModel: MessagesLayoutDelegate {
-}
-
-extension ChatModel: ChatInputBarDelegate {
-    
-    func attach() {
-        hideKeyboard()
-        output?.closeGallery()
-        output?.present(attachDialogue, animated: true, completion: nil)
-    }
-    
-    func processInputBar(_ inputBar: InputBarAccessoryView) {
-        inputBar.inputTextView.text = String()
-    }
-    
-    func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        guard let chatId = chatService?.chat.id else { return }
-        processInputBar(inputBar)
-        createMessageProvider.load(target: .createMessage(chatId, text)) { result in
-            switch result {
-            case .success:
-                print("Message sent")
-            case .failure(let error):
-                print("Message error - \(error.localizedDescription)")
-            }
-        }
-    }
-    
-    func inputBar(_ inputBar: InputBarAccessoryView, textViewTextDidChangeTo text: String) {
-        output?.messagesCollectionView.scrollToBottom(animated: false)
-    }
 }
 
 extension ChatModel: ChatServiceDelegate {

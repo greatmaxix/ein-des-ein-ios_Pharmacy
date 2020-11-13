@@ -22,15 +22,17 @@
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="ej1-uc-IwU" secondAttribute="trailing" id="5DS-6K-xaN"/>
                     <constraint firstAttribute="bottom" secondItem="ej1-uc-IwU" secondAttribute="bottom" id="RQv-OR-T2i"/>
+                    <constraint firstItem="ej1-uc-IwU" firstAttribute="leading" secondItem="jfF-oS-IuG" secondAttribute="leading" id="g9r-vF-c6C"/>
                     <constraint firstItem="ej1-uc-IwU" firstAttribute="top" secondItem="jfF-oS-IuG" secondAttribute="top" id="o5L-ca-ymg"/>
-                    <constraint firstItem="ej1-uc-IwU" firstAttribute="leading" secondItem="jfF-oS-IuG" secondAttribute="leading" id="pjh-sM-lic"/>
-                    <constraint firstAttribute="trailing" secondItem="ej1-uc-IwU" secondAttribute="trailing" id="y0p-5E-fts"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="368" height="112"/>
             <connections>
                 <outlet property="applicationImage" destination="ej1-uc-IwU" id="i2F-dg-pGI"/>
+                <outlet property="leadingImageConstraint" destination="g9r-vF-c6C" id="9Tw-Wl-rVm"/>
+                <outlet property="trailingImageConstraint" destination="5DS-6K-xaN" id="UzT-Df-Poc"/>
             </connections>
             <point key="canvasLocation" x="295.6521739130435" y="112.5"/>
         </collectionViewCell>

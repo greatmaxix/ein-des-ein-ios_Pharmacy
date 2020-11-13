@@ -11,11 +11,20 @@ import InputBarAccessoryView
 
 protocol ChatInputBarDelegate: InputBarAccessoryViewDelegate {
     func attach()
+    func didSelect(action: ImageSelectionAction)
 }
 
-class ChatInputBar: InputBarAccessoryView {
+final class ChatInputBar: InputBarAccessoryView {
     
     var attachInputItem: AttachInputItem!
+    lazy var chatGallery: ChatGallery = {
+        let width = bottomStackView.frame.width
+        let itemWidth = width / 3.0
+        let rect = CGRect(origin: .zero, size: CGSize(width: width, height: itemWidth * 2))
+        let g = ChatGallery(frame: rect)
+        g.actionsDelegate = self
+        return g
+    }()
     
     struct GUI {
         static let cornerRadius: CGFloat = 10.0
@@ -33,11 +42,10 @@ class ChatInputBar: InputBarAccessoryView {
     }
 
     private func configure() {
+        setupSendButton()
         separatorLine.height = 8.0
         backgroundColor = .clear
-        
         separatorLine.backgroundColor = .clear
-        
         inputTextView.backgroundColor = R.color.lightGray()
         inputTextView.layer.cornerRadius = 17
         inputTextView.layer.borderWidth = 1.0
@@ -65,44 +73,118 @@ class ChatInputBar: InputBarAccessoryView {
         
         setStackViewItems([attachInputItem], forStack: .left, animated: false)
         attachInputItem.setSize(CGSize(width: 26.0, height: 38.0), animated: false)
-        setRightStackViewWidthConstant(to: 75.0, animated: false)
-        setStackViewItems([sendButton, InputBarButtonItem.fixedSpace(2.0)], forStack: .right, animated: false)
         
-        sendButton.setSize(CGSize(width: 30.0, height: 38.0), animated: false)
-        sendButton.image = R.image.send()
-        sendButton.title = nil
-        sendButton.alpha = 0.0
-        
-        sendButton.onTextViewDidChange {[weak self] (button, inputView) in
-            let isTextEmpty = inputView.text.isEmpty
-            UIView.animate(withDuration: 0.2) {
-                button.alpha = isTextEmpty  ? 0.0 : 1.0
-                inputView.layer.borderColor = (isTextEmpty ? R.color.mediumGrey() : R.color.welcomeBlue())?.cgColor
-            }
-            self?.hideGallery()
-        }
-        sendButton.backgroundColor = .clear
         middleContentViewPadding.right = -62.0
         
         decorationBlackShadow()
     }
     
+    private func setupSendButton() {
+        shouldManageSendButtonEnabledState = false
+        sendButton = ChatSendButton().configure {
+            $0.setSize(CGSize(width: 52, height: 36), animated: false)
+            $0.isEnabled = true
+            $0.title = ""
+            $0.image = R.image.send()
+            $0.alpha = 0.0
+        }.onTouchUpInside {
+            $0.inputBarAccessoryView?.didSelectSendButton()
+            
+        }
+        setRightStackViewWidthConstant(to: 75.0, animated: false)
+        setStackViewItems([sendButton, InputBarButtonItem.fixedSpace(2.0)], forStack: .right, animated: false)
+        
+        sendButton.setSize(CGSize(width: 30.0, height: 38.0), animated: false)
+        
+        sendButton.onTextViewDidChange {(button, inputView) in
+            guard let b = button as? ChatSendButton else { return }
+            let isEmpty = inputView.text.isEmpty
+            if b.appearanceState != .attachment {
+                b.appearanceState = isEmpty ? .hidden : .normal
+            }
+        }
+        sendButton.backgroundColor = .clear
+    }
+    
     func showGallery() {
-        attachInputItem.isHighlighted = true
-        let width = bottomStackView.frame.width
-        let itemWidth = width / 3.0
-        let rect = CGRect(origin: .zero, size: CGSize(width: width, height: itemWidth * 2))
-        let galleryItem = ChatGallery(frame: rect)
-        
-        galleryItem.isHidden = false
-        
-        setStackViewItems([galleryItem], forStack: .bottom, animated: false)
+        DispatchQueue.main.async { [weak self] in
+            guard let g = self?.chatGallery else { return }
+            self?.attachInputItem.isHighlighted = true
+            self?.setStackViewItems([g], forStack: .bottom, animated: true)
+        }
     }
     
     func hideGallery() {
         if bottomStackViewItems.count > 0 {
-            attachInputItem.isSelected = false
-            setStackViewItems([], forStack: .bottom, animated: true)
+            DispatchQueue.main.async { [weak self] in
+                self?.attachInputItem.isHighlighted = false
+                self?.setStackViewItems([], forStack: .bottom, animated: true)
+            }
         }
     }
+    
+    func updateAppearanceWithAttachments(count: Int) {
+        guard let b = sendButton as? ChatSendButton else { return }
+        if count > 0 {
+            b.appearanceState = .attachment
+        } else {
+            if inputTextView.text.isEmpty {
+                b.appearanceState = .hidden
+            } else {
+                b.appearanceState = .normal
+            }
+        }
+    }
+}
+
+extension ChatInputBar: ChatGalleryDelegate {
+    func imageAction(action: ImageSelectionAction) {
+        (delegate as? ChatInputBarDelegate)?.didSelect(action: action)
+    }
+    
+    func needHideGallery() {
+        hideGallery()
+    }
+}
+
+class ChatSendButton: InputBarSendButton {
+    
+    enum AppearanceState {
+        case normal, attachment, hidden
+    }
+    
+    override var isEnabled: Bool {
+        get {
+            return true
+        }
+        set {
+            print("\(newValue)")
+        }
+    }
+    
+    var appearanceState = AppearanceState.hidden {
+        didSet {
+            switch appearanceState {
+            case .normal:
+                isEnabled = true
+                UIView.animate(withDuration: 0.2) { [weak self] in
+                    self?.transform = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
+                    self?.alpha = 1.0
+                }
+            case .attachment:
+                isEnabled = true
+                UIView.animate(withDuration: 0.2) { [weak self] in
+                    let scaleTransfor = CGAffineTransform.init(scaleX: 1.0, y: 1.0)
+                    self?.transform = scaleTransfor.concatenating(CGAffineTransform(rotationAngle: CGFloat.pi * -0.5))
+                    self?.alpha = 1.0
+                }
+            case .hidden:
+                UIView.animate(withDuration: 0.2) { [weak self] in
+                    self?.transform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
+                    self?.alpha = 0.0
+                }
+            }
+        }
+    }
+    
 }
