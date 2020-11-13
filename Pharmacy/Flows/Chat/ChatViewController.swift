@@ -65,10 +65,12 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     }
     
     func setup() {
+        messagesCollectionView.contentInset = UIEdgeInsets(top: 12.0, left: 0.0, bottom: 0.0, right: 12.0)
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardIfNeeded))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         messagesCollectionView.backgroundColor = .clear
+        showMessageTimestampOnSwipeLeft = false
         view.backgroundColor = .white
         navigationItem.setRightBarButtonItems([UIBarButtonItem.init(image: R.image.info(), style: .plain, target: self, action: #selector(showChatInfo))], animated: true)
         

@@ -20,7 +20,7 @@ final class ChatService {
     }
     
     enum ChatEvent: String {
-        case message, none = ""
+        case message, changeStatus = "change_status", none = ""
     }
     
     weak var delegate: ChatServiceDelegate?
@@ -69,17 +69,16 @@ extension ChatService: EventHandler {
     
     func onMessage(eventType: String, messageEvent: MessageEvent) {
         print("Message - \(messageEvent.data)")
-        let event = ChatEvent(rawValue: eventType) ?? ChatEvent.none
+        
+        guard let event = ChatMessageType(rawValue: eventType) else {
+            print("Unknow message type")
+            return
+        }
+        
         do {
-            switch event {
-            case .message:
-                
-                let message = try decoder.decode(ChatMessagesResponse.self, from: Data(messageEvent.data.utf8))
-                DispatchQueue.main.async { [weak self] in
-                        self?.delegate?.didRecive(data: message)
-                }
-            case .none:
-                print("Unknow chat event")
+            let message = try decoder.decode(ChatMessagesResponse.self, from: Data(messageEvent.data.utf8))
+            DispatchQueue.main.async { [weak self] in
+                    self?.delegate?.didRecive(data: message)
             }
         } catch {
             print("DecodeErorr")
