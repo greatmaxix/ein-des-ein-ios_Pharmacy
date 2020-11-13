@@ -103,6 +103,7 @@ extension OrdersViewController: OrdersViewControllerInput {
         if model.numberOfOrders == 0 {
             emptyView.isHidden = false
         } else {
+            emptyView.isHidden = true
             tableView.isHidden = false
             tableView.reloadData()
         }
