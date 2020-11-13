@@ -135,7 +135,8 @@
 "welcome.title" = "Начните поиск";
 "welcome.ask" = "Спроси фармецевта";
 "welcome.diagnostic" = "Анализы и диагностика";
-"welcome.map" = "Карта аптек";
+"welcome.map" = "Аптеки на карте";
+"welcome.searchBar.placeholder" = "Что необходимо найти?";
 "welcome.receipe" = "Загрузить рецепт";
 "welcome.categories" = "Категории";
 "welcome.watch_all" = "Смотреть все";
