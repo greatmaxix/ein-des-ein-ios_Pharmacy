@@ -31,9 +31,11 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="illustration_onboarding_1" translatesAutoresizingMaskIntoConstraints="NO" id="WgE-Zf-JsV">
                                 <rect key="frame" x="0.0" y="0.0" width="397" height="445"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQK-zF-ujm">
                                 <rect key="frame" x="16" y="450" width="365" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8UZ-wM-z48"/>
                                 </constraints>
@@ -43,12 +45,13 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tC3-II-0oH">
                                 <rect key="frame" x="16" y="488" width="365" height="19"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="textDarkBlue"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tC3-II-0oH" firstAttribute="top" secondItem="fQK-zF-ujm" secondAttribute="bottom" constant="8" id="2Xk-5X-ELq"/>
                             <constraint firstItem="fQK-zF-ujm" firstAttribute="top" secondItem="WgE-Zf-JsV" secondAttribute="bottom" constant="5" id="5tx-xm-BoO"/>
@@ -66,6 +69,7 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" name="textDarkBlue"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Qds-Pf-WdC" secondAttribute="trailing" id="7k6-HO-lX8"/>
                 <constraint firstItem="Qds-Pf-WdC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="d83-vl-GsF"/>
