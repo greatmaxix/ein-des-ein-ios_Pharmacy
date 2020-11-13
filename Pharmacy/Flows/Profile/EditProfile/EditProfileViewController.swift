@@ -147,12 +147,21 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
             userImageView.image = image
             
             var mime: String = "image/"
-            let blurredImage: UIImage = image.bluredImage(sigma: 5) ?? image
+
             if let url: URL = info[.imageURL] as? URL {
-                
                 mime += url.lastPathComponent.components(separatedBy: ".").last ?? ""
                 model.saveImage(image: image, mime: mime, fileName: url.lastPathComponent)
+                
+                let blurredImage: UIImage = image.bluredImage(sigma: 5) ?? image
                 userImageView.image = blurredImage
+                enableHUD()
+            } else {
+                let identifier = UUID()
+                
+                let flippedImage = UIImage(cgImage: image.cgImage!, scale: image.scale, orientation: .right)
+                
+                model.saveImage(image: flippedImage, mime: "image/.png", fileName: identifier.uuidString)
+                userImageView.image = flippedImage
                 enableHUD()
             }
         }
