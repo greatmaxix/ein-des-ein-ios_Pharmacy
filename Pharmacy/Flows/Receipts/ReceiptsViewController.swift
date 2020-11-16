@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import PDFKit
 
 protocol ReceiptsViewControllerInput: ReceiptsModelOutput {}
 protocol ReceiptsViewControllerOutput: ReceiptsModelInput {}
@@ -22,6 +23,7 @@ class ReceiptsViewController: UIViewController, NavigationBarStyled {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var pdfView: PDFView!
 
     var model: ReceiptsViewControllerOutput!
 
@@ -86,7 +88,21 @@ extension ReceiptsViewController: ReceiptsViewControllerInput {
     }
 
     func startLoading() {
+        activityIndicator.show(animated: true)
+    }
 
+    func openPDF(url: URL) {
+        pdfView.isHidden = false
+        if let pdfDocument = PDFDocument(url: url) {
+            pdfView.displayMode = .singlePageContinuous
+            pdfView.autoScales = true
+            pdfView.displayDirection = .vertical
+            pdfView.document = pdfDocument
+        }
+    }
+
+    func pdfLoaded() {
+        activityIndicator.hide(animated: true)
     }
     
 }
@@ -99,6 +115,10 @@ extension ReceiptsViewController: UITableViewDataSource, UITableViewDelegate {
         }
 
         cell.apply(receipt: model.receipt(at: indexPath))
+
+        cell.pdfHandler = { [weak self] in
+            self?.model.downloadPDF(at: indexPath)
+        }
 
         return cell
     }

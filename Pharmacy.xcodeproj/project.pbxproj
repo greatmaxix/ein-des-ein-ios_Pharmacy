@@ -272,6 +272,7 @@
 		60E1A71D24ED079F00B3D205 /* ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A71C24ED079F00B3D205 /* ActionSheetView.swift */; };
 		60E1A71F24ED12C200B3D205 /* UIViewController+ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A71E24ED12C200B3D205 /* UIViewController+ActionSheetView.swift */; };
 		60F2673B24E0566B00BFF296 /* NavigationTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F2673A24E0566B00BFF296 /* NavigationTransitionAnimator.swift */; };
+		6106BA5C2562860D00E85864 /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6106BA5B2562860D00E85864 /* PDFManager.swift */; };
 		611C3BEE254F3A70006178B7 /* OrderDeliveryAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C3BED254F3A70006178B7 /* OrderDeliveryAddress.swift */; };
 		611C3BF1254F455E006178B7 /* OrdersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C3BF0254F455E006178B7 /* OrdersAPI.swift */; };
 		611C3C0C254F7158006178B7 /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 611C3C0B254F7158006178B7 /* Orders.storyboard */; };
@@ -654,6 +655,7 @@
 		60E1A71C24ED079F00B3D205 /* ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetView.swift; sourceTree = "<group>"; };
 		60E1A71E24ED12C200B3D205 /* UIViewController+ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActionSheetView.swift"; sourceTree = "<group>"; };
 		60F2673A24E0566B00BFF296 /* NavigationTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTransitionAnimator.swift; sourceTree = "<group>"; };
+		6106BA5B2562860D00E85864 /* PDFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFManager.swift; sourceTree = "<group>"; };
 		611C3BED254F3A70006178B7 /* OrderDeliveryAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDeliveryAddress.swift; sourceTree = "<group>"; };
 		611C3BF0254F455E006178B7 /* OrdersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersAPI.swift; sourceTree = "<group>"; };
 		611C3C0B254F7158006178B7 /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
@@ -2035,6 +2037,7 @@
 				619AAA472498B01900AB46ED /* KeychainManager.swift */,
 				608F0224255C2272002F7161 /* PhotoLibraryManager.swift */,
 				875223AF2500E9E7000759C8 /* UserSession */,
+				6106BA5B2562860D00E85864 /* PDFManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -2792,6 +2795,7 @@
 				608E3AF62551AB5F00AEE56C /* ImageMediaItem.swift in Sources */,
 				395B9CCB24EFC6CA00254881 /* AnalizesModel.swift in Sources */,
 				8732E4352518AAF0007CBBEF /* UIImage+Grayscale.swift in Sources */,
+				6106BA5C2562860D00E85864 /* PDFManager.swift in Sources */,
 				6036EAFC24DD1C8F003336C2 /* BasketViewController.swift in Sources */,
 				875223B72500ECCF000759C8 /* Accessible.swift in Sources */,
 				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
@@ -3036,8 +3040,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 27;
+				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -3060,8 +3064,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 27;
+				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -20,6 +20,8 @@ class ReceiptCell: UITableViewCell {
     @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var stateView: UIView!
 
+    var pdfHandler: EmptyClosure?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -51,4 +53,7 @@ class ReceiptCell: UITableViewCell {
         stateLabel.text = receipt.status == "active" ? "Активен до \(dateString)" : "Завершен \(dateString)"
     }
     
+    @IBAction func download(_ sender: Any) {
+        pdfHandler?()
+    }
 }
