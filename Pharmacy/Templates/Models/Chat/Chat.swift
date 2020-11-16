@@ -49,7 +49,7 @@ struct ChatMessage: Decodable, Equatable {
     var ownerUuid: String
     
     var text: String?
-    var product: Product?
+    var product: ChatProduct?
     var file: FileAttachment?
     
     var type = ChatMessageType.message
@@ -69,7 +69,7 @@ struct ChatMessage: Decodable, Equatable {
     }
     
     enum Key: CodingKey {
-        case id, chatId, chatNumber, createdAt, ownerType, ownerUuid, text, product, file
+        case id, chatId, chatNumber, createdAt, ownerType, ownerUuid, text, globalProductCard, file
     }
     
     public static func == (lhs: ChatMessage, rhs: ChatMessage) -> Bool {
@@ -87,8 +87,8 @@ struct ChatMessage: Decodable, Equatable {
         
         if c.contains(.text) {
             text = try c.decode(String.self, forKey: .text)
-        } else if c.contains(.product) {
-            product = try c.decode(Product.self, forKey: .product)
+        } else if c.contains(.globalProductCard) {
+            product = try c.decode(ChatProduct.self, forKey: .globalProductCard)
             type = .globalProduct
         } else if c.contains(.file) {
             file = try c.decode(FileAttachment.self, forKey: .file)

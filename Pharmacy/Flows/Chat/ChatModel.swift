@@ -13,7 +13,7 @@ import MessageKit
 import InputBarAccessoryView
 
 enum ChatEvent: Event {
-    case close
+    case close, openProduct(ChatProduct)
 }
 
 protocol ChatInput: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate {
@@ -44,6 +44,7 @@ final class ChatModel: Model, ChatInput {
     private let uploadProvider = DataManager<ChatAPI, CustomerImageUploadResponse>()
     private let sendImageProvider = DataManager<ChatAPI, CreateMessageResponse>()
     private let sendProductProvider = DataManager<ChatAPI, CreateProductMessageResponse>()
+    private let wishListProvider = DataManager<WishListAPI, PostResponse>()
     
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
@@ -115,9 +116,9 @@ final class ChatModel: Model, ChatInput {
         items.forEach {
             self.insertMessage($0.message)
         }
+        
         output?.messagesCollectionView.scrollToBottom(animated: true)
         output?.messageInputBar.isHidden = false
-        output?.messageInputBar.becomeFirstResponder()
     }
     
     func upload(images: [LibraryImage]) {
@@ -248,6 +249,15 @@ final class ChatModel: Model, ChatInput {
         
         return output?.messagesCollectionView.indexPathsForVisibleItems.contains(lastIndexPath) ?? false
     }
+    
+    func toggleLike(product: ChatProduct, message: MessageType, at indexPath: IndexPath) {
+        var p = product
+        p.liked ? removeFromWishList(id: p.id) : addToWishList(id: p.id)
+        p.updateLike(value: !p.liked)
+        guard let sender = message.sender as? ChatSender else { return }
+        messages.remove(at: indexPath.section)
+        messages.insert(Message(.product(p), sender: sender, messageId: message.messageId, date: message.sentDate), at: indexPath.section)
+    }
 }
 
 extension ChatModel: MessagesDataSource {
@@ -266,6 +276,7 @@ extension ChatModel: MessagesDataSource {
     func customCell(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UICollectionViewCell {
         
         var cell: UICollectionViewCell!
+        let isFromCurrent = isFromCurrentSender(message: message)
         
         switch message.kind {
         case .custom(let kind as Message.CustomMessageKind):
@@ -280,12 +291,18 @@ extension ChatModel: MessagesDataSource {
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatCloseCollectionViewCell.reuseIdentifier, for: indexPath)
             case .product(let product):
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatProductCollectionViewCell.reuseIdentifier, for: indexPath)
-                (cell as? ChatProductCollectionViewCell)?.apply(product: product, actionHandler: { _ in
-                    
-                })
+                (cell as? ChatProductCollectionViewCell)?.apply(product: product, actionHandler: {[weak self] action in
+                    switch action {
+                    case .likeToggle:
+                        self?.toggleLike(product: product, message: message, at: indexPath)
+                    case .openProduct:
+                        self?.raise(event: ChatEvent.openProduct(product))
+                    }
+                }, isFromCurrentSender: isFromCurrent)
             case .application(let application):
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatApplicationCollectionViewCell.reuseIdentifier, for: indexPath)
-                (cell as? ChatApplicationCollectionViewCell)?.apply(attachment: application, isFromCurrentSender: message.sender.senderId == sender.senderId)
+                (cell as? ChatApplicationCollectionViewCell)?.apply(attachment: application, isFromCurrentSender: isFromCurrent)
+            case .receipt: break
             }
         default: break
         }
@@ -327,6 +344,32 @@ extension ChatModel: ChatServiceDelegate {
     func didRecive(data: ChatMessagesResponse) {
         if let m = data.body?.item.message {
             insertMessage(m)
+        }
+    }
+}
+
+extension ChatModel {
+    func addToWishList(id: Int) {
+        wishListProvider.load(target: .addToWishList(medicineId: id)) { (result) in
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                print("error is \(error.localizedDescription)")
+                self.output?.showError(message: error.localizedDescription)
+            }
+        }
+    }
+    
+    func removeFromWishList(id: Int) {
+        wishListProvider.load(target: .removeFromWishList(medicineId: id)) { (result) in
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                print("error is \(error.localizedDescription)")
+                self.output?.showError(message: error.localizedDescription)
+                }
         }
     }
 }

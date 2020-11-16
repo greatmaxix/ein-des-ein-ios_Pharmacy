@@ -27,11 +27,21 @@ final class ChatCoordinator: EventNode, Coordinator {
         super.init(parent: parent)
         self.navigation = navigation
         
-        addHandler(.onRaise) {(event: ChatEvent) in
+        addHandler(.onRaise) {[weak self] (event: ChatEvent) in
             switch event {
             case .close:
                 navigation.popViewController(animated: true)
+            case .openProduct(let product):
+                self?.open(product: product)
             }
+            
         }
+    }
+    
+    func open(product: ChatProduct) {
+        guard let nav = navigation else { return }
+        let vc = ProductCoordinator(configuration: ProductFlowConfiguration(parent: self, navigation: nav)).createFlowFor(product: product)
+        
+        navigation?.pushViewController(vc, animated: true)
     }
 }

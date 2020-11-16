@@ -21,16 +21,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9Ry-1h-URK" customClass="ChatProductCollectionViewCell" customModule="Pharmacy" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="334" height="192"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="233"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OaM-W5-SuR">
-                <rect key="frame" x="0.0" y="0.0" width="334" height="192"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="OaM-W5-SuR">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="233"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BDG-xw-gck">
-                        <rect key="frame" x="0.0" y="0.0" width="164" height="192"/>
+                        <rect key="frame" x="16" y="16" width="164" height="201"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZPg-W2-u7Q">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medicineImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="ZPg-W2-u7Q">
                                 <rect key="frame" x="0.0" y="0.0" width="164" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="id6-qU-EXI"/>
@@ -49,16 +49,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="568 ₸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ru-nK-ILa">
-                                <rect key="frame" x="25" y="156.5" width="40.5" height="19"/>
+                                <rect key="frame" x="25" y="165.5" width="40.5" height="19"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" name="welcomeBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDs-yN-R4h">
-                                <rect key="frame" x="128" y="6" width="30" height="30"/>
+                                <rect key="frame" x="124" y="0.0" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="5cq-QR-dD5"/>
-                                    <constraint firstAttribute="height" constant="30" id="FdG-30-i8X"/>
+                                    <constraint firstAttribute="width" constant="40" id="5cq-QR-dD5"/>
+                                    <constraint firstAttribute="height" constant="40" id="FdG-30-i8X"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                 <state key="normal" image="unliked"/>
@@ -68,7 +68,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="от" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9Y-Pu-MOx">
-                                <rect key="frame" x="8" y="160" width="13" height="14"/>
+                                <rect key="frame" x="8" y="169" width="13" height="14"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                 <color key="textColor" name="welcomeBlue"/>
                                 <nil key="highlightedColor"/>
@@ -86,10 +86,10 @@
                             <constraint firstItem="ZPg-W2-u7Q" firstAttribute="leading" secondItem="BDG-xw-gck" secondAttribute="leading" id="U4b-gU-uE4"/>
                             <constraint firstAttribute="trailing" secondItem="ZPg-W2-u7Q" secondAttribute="trailing" id="ese-rO-vVh"/>
                             <constraint firstItem="9ru-nK-ILa" firstAttribute="centerY" secondItem="c9Y-Pu-MOx" secondAttribute="centerY" constant="-1" id="lSl-5M-uGy"/>
-                            <constraint firstItem="cDs-yN-R4h" firstAttribute="top" secondItem="BDG-xw-gck" secondAttribute="top" constant="6" id="n9q-o9-ZUl"/>
+                            <constraint firstItem="cDs-yN-R4h" firstAttribute="top" secondItem="BDG-xw-gck" secondAttribute="top" id="n9q-o9-ZUl"/>
                             <constraint firstAttribute="trailing" secondItem="q0r-bg-XQd" secondAttribute="trailing" constant="8" id="nsk-sy-ElW"/>
                             <constraint firstAttribute="width" constant="164" id="pVZ-72-t05"/>
-                            <constraint firstAttribute="trailing" secondItem="cDs-yN-R4h" secondAttribute="trailing" constant="6" id="tr9-R2-uQg"/>
+                            <constraint firstAttribute="trailing" secondItem="cDs-yN-R4h" secondAttribute="trailing" id="tr9-R2-uQg"/>
                             <constraint firstItem="ZLU-Hy-lYp" firstAttribute="top" secondItem="ZPg-W2-u7Q" secondAttribute="bottom" constant="8" id="zDu-Jg-7vO"/>
                             <constraint firstItem="c9Y-Pu-MOx" firstAttribute="leading" secondItem="BDG-xw-gck" secondAttribute="leading" constant="8" id="zmq-5J-tkK"/>
                         </constraints>
@@ -97,13 +97,13 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="BDG-xw-gck" secondAttribute="bottom" id="APQ-Kn-jia"/>
-                    <constraint firstAttribute="trailing" secondItem="BDG-xw-gck" secondAttribute="trailing" priority="962" constant="170" id="Ae7-sM-qQr"/>
-                    <constraint firstItem="BDG-xw-gck" firstAttribute="top" secondItem="OaM-W5-SuR" secondAttribute="top" id="VeF-9F-ONZ"/>
-                    <constraint firstItem="BDG-xw-gck" firstAttribute="leading" secondItem="OaM-W5-SuR" secondAttribute="leading" id="jZn-47-8Zw"/>
+                    <constraint firstAttribute="bottom" secondItem="BDG-xw-gck" secondAttribute="bottom" constant="16" id="APQ-Kn-jia"/>
+                    <constraint firstAttribute="trailing" secondItem="BDG-xw-gck" secondAttribute="trailing" constant="16" id="Ae7-sM-qQr"/>
+                    <constraint firstItem="BDG-xw-gck" firstAttribute="top" secondItem="OaM-W5-SuR" secondAttribute="top" constant="16" id="VeF-9F-ONZ"/>
+                    <constraint firstItem="BDG-xw-gck" firstAttribute="leading" secondItem="OaM-W5-SuR" secondAttribute="leading" constant="16" id="jZn-47-8Zw"/>
                 </constraints>
             </collectionViewCellContentView>
-            <size key="customSize" width="334" height="186"/>
+            <size key="customSize" width="320" height="227"/>
             <connections>
                 <outlet property="detailsLabel" destination="q0r-bg-XQd" id="LqP-I1-51o"/>
                 <outlet property="leadingConstraint" destination="jZn-47-8Zw" id="nTy-Xa-6JZ"/>
@@ -114,11 +114,12 @@
                 <outlet property="productImage" destination="ZPg-W2-u7Q" id="UkS-uj-S4P"/>
                 <outlet property="trailingConstraint" destination="Ae7-sM-qQr" id="XIW-6b-pbJ"/>
             </connections>
-            <point key="canvasLocation" x="169.56521739130437" y="50.892857142857139"/>
+            <point key="canvasLocation" x="179.71014492753625" y="63.950892857142854"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="liked" width="24" height="24"/>
+        <image name="medicineImagePlaceholder" width="112" height="112"/>
         <image name="unliked" width="23" height="21"/>
         <namedColor name="welcomeBlue">
             <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

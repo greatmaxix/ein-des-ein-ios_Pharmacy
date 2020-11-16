@@ -21,6 +21,11 @@ struct PriceRange: Decodable {
         minPrice = try container.decode(Decimal.self, forKey: .minPrice)
         maxPrice = try container.decode(Decimal.self, forKey: .maxPrice)
     }
+    
+    init(min: Decimal, max: Decimal) {
+        minPrice = min
+        maxPrice = max
+    }
 }
 
 // MARK: - External declaration

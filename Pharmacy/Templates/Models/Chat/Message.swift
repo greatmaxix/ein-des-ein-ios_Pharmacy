@@ -16,7 +16,7 @@ struct MercuryMessageResponse {
 struct Message: MessageType {
     
     enum CustomMessageKind {
-        case button, routeSwitch, chatClosing, product(Product), application(FileAttachment)
+        case button, routeSwitch, chatClosing, product(ChatProduct), application(FileAttachment), receipt(ChatReceipt)
     }
         
     var sender: SenderType
@@ -64,5 +64,18 @@ struct Message: MessageType {
         let message5 = Message("Ничего сложного, просто укажите свою контактуню информацию", sender: sender, messageId: "5", date: Date())
         let message6 = Message(.button, sender: sender, messageId: "5", date: Date())
         return [message1, message2, message3, message4, message5, message6]
+    }
+    
+    static func productMessages() -> [Message] {
+        let sender = ChatSender(senderId: "-1", displayName: "Фармацевт")
+        let user = ChatSender.currentUser()
+ 
+        let product = ChatProduct(liked: false)
+        let product2 = ChatProduct(liked: false)
+        
+        let message = Message(.product(product), sender: sender, messageId: "0", date: Date())
+        let message2 = Message(.product(product2), sender: user, messageId: "1", date: Date())
+        
+        return [message, message2]
     }
 }

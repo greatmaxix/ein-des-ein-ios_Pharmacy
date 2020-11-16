@@ -31,6 +31,14 @@ final class ProductCoordinator: EventNode, Coordinator {
         return root
     }
     
+    func createFlowFor(product: ChatProduct) -> ProductViewController {
+        let root =  R.storyboard.product.instantiateInitialViewController()!
+        let model = ProductModel(product: product, parent: self)
+        root.model = model
+        model.output = root
+        return root
+    }
+    
     init(configuration: ProductFlowConfiguration) {
         navigation = configuration.navigation
         super.init(parent: configuration.parent)
