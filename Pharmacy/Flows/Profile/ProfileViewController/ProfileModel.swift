@@ -216,7 +216,6 @@ extension ProfileModel: ProfileInput {
             guard let self = self else {return}
             switch response {
             case .success(let result):
-                print("zxcv result .getCustomer \(result.user)")
                 self.user = UserSession.shared.save(user: result.user, token: nil)
                 self.setupDataSource()
                 completion?()
