@@ -9,5 +9,5 @@
 import Foundation
 
 struct ChatReceipt: Decodable, Equatable {
-    
+    var fileName: String
 }

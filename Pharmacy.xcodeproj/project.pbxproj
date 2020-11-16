@@ -219,6 +219,8 @@
 		60515CFE254B068900977BEF /* SubcategoryCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60515CFD254B068900977BEF /* SubcategoryCellSection.swift */; };
 		60655B912562F8100030DC63 /* ChatProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60655B902562F8100030DC63 /* ChatProduct.swift */; };
 		60655B95256303DE0030DC63 /* ChatReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60655B94256303DE0030DC63 /* ChatReceipt.swift */; };
+		60655B982563287B0030DC63 /* ChatReceiptCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60655B972563287B0030DC63 /* ChatReceiptCollectionViewCell.swift */; };
+		60655B9D256328A20030DC63 /* ChatReceiptCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60655B9C256328A20030DC63 /* ChatReceiptCollectionViewCell.xib */; };
 		606DAB58255EFD0400663E55 /* ChatEvaluatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606DAB57255EFD0400663E55 /* ChatEvaluatingModel.swift */; };
 		6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */; };
 		6075BD4624DEA6FF00BC78BD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075BD4524DEA6FF00BC78BD /* R.generated.swift */; };
@@ -596,6 +598,8 @@
 		60515CFD254B068900977BEF /* SubcategoryCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryCellSection.swift; sourceTree = "<group>"; };
 		60655B902562F8100030DC63 /* ChatProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatProduct.swift; sourceTree = "<group>"; };
 		60655B94256303DE0030DC63 /* ChatReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatReceipt.swift; sourceTree = "<group>"; };
+		60655B972563287B0030DC63 /* ChatReceiptCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatReceiptCollectionViewCell.swift; sourceTree = "<group>"; };
+		60655B9C256328A20030DC63 /* ChatReceiptCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatReceiptCollectionViewCell.xib; sourceTree = "<group>"; };
 		606DAB57255EFD0400663E55 /* ChatEvaluatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEvaluatingModel.swift; sourceTree = "<group>"; };
 		6075BD2F24DEA3C800BC78BD /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -1725,6 +1729,15 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		60655B9A2563287F0030DC63 /* ChatReceipt */ = {
+			isa = PBXGroup;
+			children = (
+				60655B972563287B0030DC63 /* ChatReceiptCollectionViewCell.swift */,
+				60655B9C256328A20030DC63 /* ChatReceiptCollectionViewCell.xib */,
+			);
+			path = ChatReceipt;
+			sourceTree = "<group>";
+		};
 		606DAB56255EFB7400663E55 /* Evaluating */ = {
 			isa = PBXGroup;
 			children = (
@@ -1791,6 +1804,7 @@
 				60AE318C25530854002BD404 /* CloseChat */,
 				608E3B032551EF8000AEE56C /* SelectRoute */,
 				608E3B022551EF6E00AEE56C /* ActionButton */,
+				60655B9A2563287F0030DC63 /* ChatReceipt */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2423,6 +2437,7 @@
 				608E3AFD2551D47000AEE56C /* ChatButtonCollectionViewCell.xib in Resources */,
 				6075BD4E24DEA7FB00BC78BD /* OpenSans-SemiBold.ttf in Resources */,
 				61CFAA94254C28DD00569DEF /* OrderPharmacyCell.xib in Resources */,
+				60655B9D256328A20030DC63 /* ChatReceiptCollectionViewCell.xib in Resources */,
 				8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */,
 				603D31A524E3B608000E5A6C /* CategoryCollectionViewCell.xib in Resources */,
 				6075BD4F24DEA7FB00BC78BD /* OpenSans-SemiBoldItalic.ttf in Resources */,
@@ -2657,6 +2672,7 @@
 				875223BB2500ED89000759C8 /* UserDefaultsAccessor.swift in Sources */,
 				618473182549A5060062D8B9 /* CartSectionFooterView.swift in Sources */,
 				603D31D724E5A3FE000E5A6C /* Product.swift in Sources */,
+				60655B982563287B0030DC63 /* ChatReceiptCollectionViewCell.swift in Sources */,
 				61CFAA89254B214400569DEF /* OrderDeliveryCell.swift in Sources */,
 				395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */,
 				618C33AA2498BFB400951D11 /* Coordinator.swift in Sources */,
