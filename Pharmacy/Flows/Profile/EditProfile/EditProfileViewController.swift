@@ -158,11 +158,10 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
                 enableHUD()
             } else {
                 let identifier = UUID()
-                
-                let flippedImage = UIImage(cgImage: image.cgImage!, scale: image.scale, orientation: .right)
-                
-                model.saveImage(image: flippedImage, mime: "image/.png", fileName: identifier.uuidString)
-                userImageView.image = flippedImage
+                let test = image.fixedOrientation()
+                model.saveImage(image: test, mime: "image/.png", fileName: identifier.uuidString)
+                print("zxcv test is (image/.png) \(identifier.uuidString)")
+                userImageView.image = test
                 enableHUD()
             }
         }
