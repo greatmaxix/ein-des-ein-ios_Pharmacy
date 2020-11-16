@@ -14,6 +14,7 @@
 		246A83C62547070A0004ECEC /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83C52547070A0004ECEC /* PostResponse.swift */; };
 		246A83F625472E260004ECEC /* CategoryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83F525472E260004ECEC /* CategoryDTO.swift */; };
 		246A83FD25472F1F0004ECEC /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83FC25472F1F0004ECEC /* CategoryEntity.swift */; };
+		247C4E4B2562933400A46061 /* UIImage+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C4E4A2562933400A46061 /* UIImage+Orientation.swift */; };
 		2488BAD125506422008D7EEB /* Street&CityValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BAD025506422008D7EEB /* Street&CityValidator.swift */; };
 		2488BAD425506685008D7EEB /* HouseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BAD325506685008D7EEB /* HouseValidator.swift */; };
 		2488BAD825506D5E008D7EEB /* DeliveryAddressDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BAD725506D5E008D7EEB /* DeliveryAddressDTO.swift */; };
@@ -393,6 +394,7 @@
 		246A83C52547070A0004ECEC /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
 		246A83F525472E260004ECEC /* CategoryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDTO.swift; sourceTree = "<group>"; };
 		246A83FC25472F1F0004ECEC /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
+		247C4E4A2562933400A46061 /* UIImage+Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Orientation.swift"; sourceTree = "<group>"; };
 		2488BAD025506422008D7EEB /* Street&CityValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Street&CityValidator.swift"; sourceTree = "<group>"; };
 		2488BAD325506685008D7EEB /* HouseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseValidator.swift; sourceTree = "<group>"; };
 		2488BAD725506D5E008D7EEB /* DeliveryAddressDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressDTO.swift; sourceTree = "<group>"; };
@@ -960,6 +962,7 @@
 				87131D3B251392260050B8F2 /* String+HTML.swift */,
 				878CFC0D2514CC1C00298139 /* Decimal+MoneyFormat.swift */,
 				8732E4342518AAF0007CBBEF /* UIImage+Grayscale.swift */,
+				247C4E4A2562933400A46061 /* UIImage+Orientation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2735,6 +2738,7 @@
 				396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */,
 				87A50B682526256800CF89CF /* ImageContainer.swift in Sources */,
 				4DE4D5392549812000EE0E3A /* AboutAppModel.swift in Sources */,
+				247C4E4B2562933400A46061 /* UIImage+Orientation.swift in Sources */,
 				87131D30251146960050B8F2 /* EmptySearchView.swift in Sources */,
 				4DE4D5352549810C00EE0E3A /* AboutAppViewController.swift in Sources */,
 				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,

@@ -92,6 +92,8 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     
     private func openCamera() {
         imagePicker.sourceType = .camera
+        imagePicker.cameraCaptureMode = .photo
+
         imagePicker.allowsEditing = false
         present(imagePicker, animated: true, completion: nil)
     }
@@ -144,15 +146,22 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         
         if let image: UIImage = info[.originalImage] as? UIImage {
-            userImageView.image = image
-            
+        
             var mime: String = "image/"
-            let blurredImage: UIImage = image.bluredImage(sigma: 5) ?? image
+
             if let url: URL = info[.imageURL] as? URL {
-                
                 mime += url.lastPathComponent.components(separatedBy: ".").last ?? ""
                 model.saveImage(image: image, mime: mime, fileName: url.lastPathComponent)
+                
+                let blurredImage: UIImage = image.bluredImage(sigma: 5) ?? image
                 userImageView.image = blurredImage
+                enableHUD()
+            } else {
+                let identifier = UUID()
+                let fixedOrientationImage = image.fixedOrientation()
+                
+                model.saveImage(image: fixedOrientationImage, mime: "image/.png", fileName: identifier.uuidString)
+                userImageView.image = fixedOrientationImage
                 enableHUD()
             }
         }
