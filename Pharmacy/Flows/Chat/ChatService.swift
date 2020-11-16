@@ -69,6 +69,7 @@ extension ChatService: EventHandler {
     
     func onMessage(eventType: String, messageEvent: MessageEvent) {
         print("Message - \(messageEvent.data)")
+        
         do {
             let message = try decoder.decode(ChatMessagesResponse.self, from: Data(messageEvent.data.utf8))
             DispatchQueue.main.async { [weak self] in

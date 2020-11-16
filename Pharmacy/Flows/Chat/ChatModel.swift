@@ -38,13 +38,14 @@ final class ChatModel: Model, ChatInput {
     }
     
     private let chatProvider = DataManager<ChatAPI, ChatListResponse>()
-    private let createChatProvider = DataManager<ChatAPI, CreateChatResponse>()
+    private let createChatProvider = DataManager<ChatAPI, ChatResponse>()
     private let messagesListProvider = DataManager<ChatAPI, MessageListResponse>()
     private let createMessageProvider = DataManager<ChatAPI, CreateMessageResponse>()
     private let uploadProvider = DataManager<ChatAPI, CustomerImageUploadResponse>()
     private let sendImageProvider = DataManager<ChatAPI, CreateMessageResponse>()
     private let sendProductProvider = DataManager<ChatAPI, CreateProductMessageResponse>()
     private let wishListProvider = DataManager<WishListAPI, PostResponse>()
+    private let manageChatProvider = DataManager<ChatAPI, ChatResponse>()
     
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
@@ -258,6 +259,28 @@ final class ChatModel: Model, ChatInput {
         messages.remove(at: indexPath.section)
         messages.insert(Message(.product(p), sender: sender, messageId: message.messageId, date: message.sentDate), at: indexPath.section)
     }
+    
+    func continueChat() {
+        guard let id = chatService?.chat.id else { return }
+        output?.showActivityIndicator()
+        manageChatProvider.load(target: .continueChat(id: id)) {[weak self] result in
+            self?.messages.removeLast()
+            self?.output?.messagesCollectionView.reloadData()
+            self?.output?.hideActivityIndicator()
+            print(result)
+        }
+    }
+    
+    func closeChat() {
+        guard let id = chatService?.chat.id else { return }
+        output?.showActivityIndicator()
+        manageChatProvider.load(target: .closeChat(id: id)) {[weak self] result in
+            self?.messages.removeLast()
+            self?.output?.messagesCollectionView.reloadData()
+            self?.output?.hideActivityIndicator()
+            print(result)
+        }
+    }
 }
 
 extension ChatModel: MessagesDataSource {
@@ -289,6 +312,14 @@ extension ChatModel: MessagesDataSource {
                 (cell as? ChatRouteCollectionViewCell)?.routeAction = {[weak self] route in self?.didSelect(route: route)}
             case .chatClosing:
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatCloseCollectionViewCell.reuseIdentifier, for: indexPath)
+                (cell as? ChatCloseCollectionViewCell)?.actionHandler = {[weak self] action in
+                    switch action {
+                    case .continueChat:
+                        self?.continueChat()
+                    case .close:
+                        self?.closeChat()
+                    }
+                }
             case .product(let product):
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatProductCollectionViewCell.reuseIdentifier, for: indexPath)
                 (cell as? ChatProductCollectionViewCell)?.apply(product: product, actionHandler: {[weak self] action in
@@ -342,9 +373,15 @@ extension ChatModel: MessagesLayoutDelegate {
 
 extension ChatModel: ChatServiceDelegate {
     func didRecive(data: ChatMessagesResponse) {
-        if let m = data.body?.item.message {
-            insertMessage(m)
+        switch data.type {
+        case .changeStatus:
+            break
+        default:
+            if let m = data.body?.item.message {
+                insertMessage(m)
+            }
         }
+        
     }
 }
 

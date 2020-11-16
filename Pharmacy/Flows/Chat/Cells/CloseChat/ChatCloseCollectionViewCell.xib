@@ -16,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1ak-ko-4a6">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1ak-ko-4a6" customClass="ChatCloseCollectionViewCell" customModule="Pharmacy" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="376" height="109"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ACN-Lf-EKI">
@@ -38,6 +38,9 @@
                                 <real key="value" value="8"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="continueChat:" destination="1ak-ko-4a6" eventType="touchUpInside" id="aaK-mr-zzq"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9d-xM-hY4" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
                         <rect key="frame" x="196" y="34.5" width="164" height="40"/>
@@ -59,6 +62,9 @@
                                 <real key="value" value="8"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="endChat:" destination="1ak-ko-4a6" eventType="touchUpInside" id="9uJ-M4-eY7"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

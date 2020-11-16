@@ -14,7 +14,7 @@ struct ChatListResponse: Decodable, Equatable {
     var items: [Chat]
 }
 
-struct CreateChatResponse: Decodable, Equatable {
+struct ChatResponse: Decodable, Equatable {
     var item: Chat
 }
 
@@ -53,8 +53,13 @@ struct ChatMessagesResponse: Decodable, Equatable {
         var item: ChatMessage
     }
     
+    struct ChatResponseBody: Decodable, Equatable {
+        var item: ChatResponse
+    }
+    
     var type: ChatMessageType
     var body: ResponseBody?
+    var chatBody: ChatResponseBody?
     
     enum Keys: CodingKey {
         case type, body
@@ -62,7 +67,11 @@ struct ChatMessagesResponse: Decodable, Equatable {
     
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: Keys.self)
-        self.type = try c.decode(ChatMessageType.self, forKey: .type)
-        self.body = try c.decode(ResponseBody.self, forKey: .body)
+        type = try c.decode(ChatMessageType.self, forKey: .type)
+        if type == .changeStatus {
+            chatBody = try c.decode(ChatResponseBody.self, forKey: .body)
+        } else {
+            body = try c.decode(ResponseBody.self, forKey: .body)
+        }
     }
 }
