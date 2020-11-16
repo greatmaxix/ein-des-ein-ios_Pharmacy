@@ -42,6 +42,8 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
             switch event {
             case .close:
                 self?.popController()
+            case .saveData(let data):
+                self?.saveToFiles(data: data)
             }
         }
 
@@ -143,5 +145,10 @@ fileprivate extension WelcomeCoordinator {
     func openChat() {
         let vc = ChatCoordinator(parent: self, navigation: navigation).createFlow()
         navigation.pushViewController(vc, animated: true)
+    }
+
+    func saveToFiles(data: Data) {
+        let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        navigation.present(activityController, animated: true, completion: nil)
     }
 }

@@ -82,13 +82,14 @@ struct UserReceipt: Codable {
     var doctorName: String?
     var status: String?
     var validTill: String?
+    var pdfLink: String?
 
     enum Keys: String, CodingKey {
         case id
         case status
         case code
         case validTill
-        case recipeProducts = "recipeProducts"
+        case recipeProducts
         case count
         case globalProduct
         case rusName
@@ -96,6 +97,8 @@ struct UserReceipt: Codable {
         case pictures
         case avatar
         case name
+        case image
+        case uuid
     }
 
     init(from decoder: Decoder) throws {
@@ -115,6 +118,9 @@ struct UserReceipt: Codable {
 
         let doctorContainer = try? container.nestedContainer(keyedBy: Keys.self, forKey: .doctor)
         doctorName = try? doctorContainer?.decode(String.self, forKey: .name)
+
+        var pictureContainer = try? container.nestedContainer(keyedBy: Keys.self, forKey: .image)
+        pdfLink = try? pictureContainer?.decode(String.self, forKey: .uuid)
     }
 
 }

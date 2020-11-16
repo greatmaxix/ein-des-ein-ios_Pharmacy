@@ -90,6 +90,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
             switch event {
             case .close:
                 self?.popController()
+            case .saveData(let data):
+                self?.saveToFiles(data: data)
             }
         }
         
@@ -244,6 +246,11 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         viewController.model = model
         root.navigationController?.pushViewController(viewController, animated: true)
 
+    }
+
+    private func saveToFiles(data: Data) {
+        let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        root.navigationController?.present(activityController, animated: true, completion: nil)
     }
 }
 

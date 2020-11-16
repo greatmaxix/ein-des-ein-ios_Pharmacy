@@ -11,6 +11,7 @@ import Moya
 
 enum ReceiptsAPI {
     case loadReceipts
+    case getPDF(code: String)
 }
 
 extension ReceiptsAPI: RequestConvertible {
@@ -19,6 +20,8 @@ extension ReceiptsAPI: RequestConvertible {
         switch self {
         case .loadReceipts:
             return "customer/recipes"
+        case .getPDF(let code):
+            return "recipe/file/\(code)"
         }
     }
 
@@ -26,12 +29,16 @@ extension ReceiptsAPI: RequestConvertible {
         switch self {
         case .loadReceipts:
             return .get
+        case .getPDF:
+            return .get
         }
     }
 
     var task: Task {
         switch self {
         case .loadReceipts:
+            return .requestPlain
+        case .getPDF:
             return .requestPlain
         }
     }

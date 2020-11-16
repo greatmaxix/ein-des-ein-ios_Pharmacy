@@ -11,6 +11,7 @@ import EventsTree
 
 enum ReceiptsModelEvent: Event {
     case close
+    case saveData(data: Data)
 }
 
 protocol ReceiptsModelInput {
@@ -20,11 +21,14 @@ protocol ReceiptsModelInput {
     func close()
     func receipt(at indexPath: IndexPath) -> UserReceipt
     func open(at indexPath: IndexPath)
+    func downloadPDF(at indexPath: IndexPath)
 }
 
 protocol ReceiptsModelOutput: class {
     func complete(isEmpty: Bool, error: String?)
     func startLoading()
+    func openPDF(url: URL)
+    func pdfLoaded()
 }
 
 class ReceiptsModel: EventNode {
@@ -53,13 +57,13 @@ class ReceiptsModel: EventNode {
                             self.receipts = response.items
                             self.output.complete(isEmpty: self.receipts.isEmpty, error: nil)
                         case .failure(let error):
-                            return
                             self.output.complete(isEmpty: self.receipts.isEmpty, error: error.localizedDescription)
                         }
                      })
 
         output.startLoading()
     }
+
 }
 
 extension ReceiptsModel: ReceiptsModelInput, ReceiptsViewControllerOutput {
@@ -71,6 +75,31 @@ extension ReceiptsModel: ReceiptsModelInput, ReceiptsViewControllerOutput {
     func initialLoad() {
         page = 1
         load()
+    }
+
+    func downloadPDF(at indexPath: IndexPath) {
+        let recipe = receipts[indexPath.row]
+
+        if let url = URL(string: "https://api.pharmacies.fmc-dev.com/api/v1/recipe/file/\(recipe.pdfLink ?? "")") {
+            self.output.startLoading()
+
+            PDFManager.shared.download(by: url) { [weak self] result in
+                switch result {
+                case .success(let url):
+                    do {
+                        let data = try Data(contentsOf: url)
+                        self?.raise(event: ReceiptsModelEvent.saveData(data: data))
+                        self?.output.openPDF(url: url)
+                        self?.output.pdfLoaded()
+                    } catch let _ {
+                        self?.output.pdfLoaded()
+                    }
+                case .failure(let _):
+                    self?.output.pdfLoaded()
+                }
+            }
+        }
+
     }
 
     func receipt(at indexPath: IndexPath) -> UserReceipt {

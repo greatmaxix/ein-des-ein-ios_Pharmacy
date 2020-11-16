@@ -68,22 +68,31 @@
                                     <constraint firstItem="g95-W9-maO" firstAttribute="leading" secondItem="Fuf-Q4-5dU" secondAttribute="leading" constant="16" id="z3c-Zy-MTf"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVt-lE-Ioz" customClass="PDFView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" name="backgroundGray"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="crh-x7-a73"/>
                         <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
                             <constraint firstItem="Fuf-Q4-5dU" firstAttribute="top" secondItem="crh-x7-a73" secondAttribute="top" id="3xQ-oJ-opu"/>
+                            <constraint firstItem="ZVt-lE-Ioz" firstAttribute="leading" secondItem="crh-x7-a73" secondAttribute="leading" id="9uC-dp-axn"/>
                             <constraint firstItem="crh-x7-a73" firstAttribute="trailing" secondItem="Fuf-Q4-5dU" secondAttribute="trailing" id="CoY-S0-Lqa"/>
                             <constraint firstItem="crh-x7-a73" firstAttribute="bottom" secondItem="Fuf-Q4-5dU" secondAttribute="bottom" id="Dqh-Tl-Gi4"/>
+                            <constraint firstItem="ZVt-lE-Ioz" firstAttribute="top" secondItem="crh-x7-a73" secondAttribute="top" id="Hw7-H0-v0x"/>
                             <constraint firstItem="tS6-Yb-AAm" firstAttribute="leading" secondItem="crh-x7-a73" secondAttribute="leading" id="Nj1-1N-H4U"/>
                             <constraint firstItem="Fuf-Q4-5dU" firstAttribute="leading" secondItem="crh-x7-a73" secondAttribute="leading" id="Ogh-66-Eek"/>
                             <constraint firstItem="tS6-Yb-AAm" firstAttribute="top" secondItem="crh-x7-a73" secondAttribute="top" id="Qqd-bs-bDu"/>
                             <constraint firstItem="crh-x7-a73" firstAttribute="bottom" secondItem="tS6-Yb-AAm" secondAttribute="bottom" id="dif-sC-5me"/>
+                            <constraint firstItem="crh-x7-a73" firstAttribute="trailing" secondItem="ZVt-lE-Ioz" secondAttribute="trailing" id="ePG-De-zQK"/>
                             <constraint firstItem="crh-x7-a73" firstAttribute="trailing" secondItem="tS6-Yb-AAm" secondAttribute="trailing" id="nrN-o7-IZH"/>
+                            <constraint firstItem="crh-x7-a73" firstAttribute="bottom" secondItem="ZVt-lE-Ioz" secondAttribute="bottom" id="uL8-sy-Pw9"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emptyView" destination="Fuf-Q4-5dU" id="BKE-kC-vfW"/>
+                        <outlet property="pdfView" destination="ZVt-lE-Ioz" id="spm-XU-wvW"/>
                         <outlet property="tableView" destination="tS6-Yb-AAm" id="WLb-kJ-9SI"/>
                     </connections>
                 </viewController>
