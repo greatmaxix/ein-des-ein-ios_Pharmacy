@@ -194,6 +194,10 @@ extension ChatViewController: ChatOutput {
             attachmentManager.removeAttachment(at: index)
         }
     }
+    
+    func evaluateChat() {
+        
+    }
 }
 
 extension ChatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

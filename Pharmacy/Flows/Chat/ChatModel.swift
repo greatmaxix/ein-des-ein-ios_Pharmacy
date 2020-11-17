@@ -27,6 +27,7 @@ protocol ChatOutput: MessagesViewController {
     func closeGallery()
     func openLibrary()
     func openCamera()
+    func evaluateChat()
     func uploadFinished(image: LibraryImage, with result: UploadImageResult)
 }
 
