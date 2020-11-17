@@ -248,7 +248,8 @@
 		608E3B092551EFB500AEE56C /* ChatRouteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608E3B082551EFB500AEE56C /* ChatRouteCollectionViewCell.xib */; };
 		608F0225255C2272002F7161 /* PhotoLibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F0224255C2272002F7161 /* PhotoLibraryManager.swift */; };
 		60A12B33256401400001C994 /* ChatEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A12B31256401400001C994 /* ChatEvaluationViewController.swift */; };
-		60A12B34256401400001C994 /* ChatEvaluationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60A12B32256401400001C994 /* ChatEvaluationViewController.xib */; };
+		60A12B3A256426F00001C994 /* ChatEvaluationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A12B39256426F00001C994 /* ChatEvaluationModel.swift */; };
+		60A12B3D25642BBB0001C994 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A12B3C25642BBB0001C994 /* Chat.storyboard */; };
 		60A48C242555B9BC007CCDFE /* AttachInputItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A48C232555B9BC007CCDFE /* AttachInputItem.swift */; };
 		60A48C282555BD3E007CCDFE /* ChatInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A48C272555BD3E007CCDFE /* ChatInputBar.swift */; };
 		60AE318A2552FA26002BD404 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE31892552FA26002BD404 /* ChatService.swift */; };
@@ -629,7 +630,8 @@
 		608E3B082551EFB500AEE56C /* ChatRouteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRouteCollectionViewCell.xib; sourceTree = "<group>"; };
 		608F0224255C2272002F7161 /* PhotoLibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryManager.swift; sourceTree = "<group>"; };
 		60A12B31256401400001C994 /* ChatEvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEvaluationViewController.swift; sourceTree = "<group>"; };
-		60A12B32256401400001C994 /* ChatEvaluationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatEvaluationViewController.xib; sourceTree = "<group>"; };
+		60A12B39256426F00001C994 /* ChatEvaluationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEvaluationModel.swift; sourceTree = "<group>"; };
+		60A12B3C25642BBB0001C994 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		60A48C232555B9BC007CCDFE /* AttachInputItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachInputItem.swift; sourceTree = "<group>"; };
 		60A48C272555BD3E007CCDFE /* ChatInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputBar.swift; sourceTree = "<group>"; };
 		60AE31892552FA26002BD404 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
@@ -1725,7 +1727,6 @@
 				60A48C222555B996007CCDFE /* InputItems */,
 				608E3AF82551D37D00AEE56C /* Cells */,
 				60A12B362564015A0001C994 /* ViewControllers */,
-				60475FDF2551569400448EF3 /* ChatModel.swift */,
 				60475FDB2551515D00448EF3 /* ChatCoordinator.swift */,
 				608E3AFF2551D73E00AEE56C /* CustomMessageSizeCalculator.swift */,
 				60AE31892552FA26002BD404 /* ChatService.swift */,
@@ -1834,9 +1835,11 @@
 		60A12B362564015A0001C994 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				60A12B3C25642BBB0001C994 /* Chat.storyboard */,
 				60475FE325515CFA00448EF3 /* ChatViewController.swift */,
+				60475FDF2551569400448EF3 /* ChatModel.swift */,
 				60A12B31256401400001C994 /* ChatEvaluationViewController.swift */,
-				60A12B32256401400001C994 /* ChatEvaluationViewController.xib */,
+				60A12B39256426F00001C994 /* ChatEvaluationModel.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2450,10 +2453,10 @@
 				603D318D24E2A269000E5A6C /* ReceiptView.xib in Resources */,
 				608E3AFD2551D47000AEE56C /* ChatButtonCollectionViewCell.xib in Resources */,
 				6075BD4E24DEA7FB00BC78BD /* OpenSans-SemiBold.ttf in Resources */,
-				60A12B34256401400001C994 /* ChatEvaluationViewController.xib in Resources */,
 				61CFAA94254C28DD00569DEF /* OrderPharmacyCell.xib in Resources */,
 				60655B9D256328A20030DC63 /* ChatReceiptCollectionViewCell.xib in Resources */,
 				8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */,
+				60A12B3D25642BBB0001C994 /* Chat.storyboard in Resources */,
 				603D31A524E3B608000E5A6C /* CategoryCollectionViewCell.xib in Resources */,
 				6075BD4F24DEA7FB00BC78BD /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				395D050624D05206007A278D /* MedicineCell.xib in Resources */,
@@ -2735,6 +2738,7 @@
 				60E1A70E24ECD6F400B3D205 /* SearchNavigationModel.swift in Sources */,
 				24F5FDB3254B3C1F00D28275 /* ChooseLocationTableViewCell.swift in Sources */,
 				39F0AD6724EEC81400CD6CA4 /* OrdersModel.swift in Sources */,
+				60A12B3A256426F00001C994 /* ChatEvaluationModel.swift in Sources */,
 				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
 				60383A2D255B223800654C1A /* ChatGallery.swift in Sources */,
 				396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */,

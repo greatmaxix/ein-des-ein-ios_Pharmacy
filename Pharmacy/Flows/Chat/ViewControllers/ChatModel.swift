@@ -13,7 +13,7 @@ import MessageKit
 import InputBarAccessoryView
 
 enum ChatEvent: Event {
-    case close, openProduct(ChatProduct)
+    case close, openProduct(ChatProduct), evaluateChat, later
 }
 
 protocol ChatInput: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate {
@@ -27,7 +27,6 @@ protocol ChatOutput: MessagesViewController {
     func closeGallery()
     func openLibrary()
     func openCamera()
-    func evaluateChat()
     func uploadFinished(image: LibraryImage, with result: UploadImageResult)
 }
 
@@ -162,11 +161,11 @@ final class ChatModel: Model, ChatInput {
 //    Load chat messages if opened or answered chat exist
     
     private func didReciveChat(list: [Chat]) {
-        if let openedChat = list.first(where: {$0.status == .opened || $0.status == .answered}) {
-            currentChat = openedChat
-            output?.title = openedChat.type
+        if let chat = list.first(where: {$0.status == .opened || $0.status == .answered || $0.status == .closeRequest}) {
+            currentChat = chat
+            output?.title = chat.type
             output?.showActivityIndicator()
-            messagesListProvider.load(target: .messageList((openedChat.id))) {[weak self] result in
+            messagesListProvider.load(target: .messageList((chat.id))) {[weak self] result in
                 self?.output?.hideActivityIndicator()
                 switch result {
                 case .success(let response):
@@ -177,7 +176,7 @@ final class ChatModel: Model, ChatInput {
             }
             
             self.sender = ChatSender.currentUser()
-            self.chatService = ChatService(openedChat, topicName: UserSession.shared.user?.topicName, delegate: self)
+            self.chatService = ChatService(chat, topicName: UserSession.shared.user?.topicName, delegate: self)
         } else {
             self.messages = [Message(.routeSwitch, sender: sender, messageId: "0", date: Date())]
             self.output?.messagesCollectionView.reloadData()
@@ -269,15 +268,19 @@ final class ChatModel: Model, ChatInput {
         guard let id = chatService?.chat.id else { return }
         output?.showActivityIndicator()
         manageChatProvider.load(target: .closeChat(id: id)) {[weak self] result in
-            self?.messages.removeLast()
-            self?.output?.messagesCollectionView.reloadData()
-            self?.output?.hideActivityIndicator()
-            print(result)
+            switch result {
+            case .success:
+                self?.messages.removeLast()
+                self?.output?.messagesCollectionView.reloadData()
+                self?.output?.hideActivityIndicator()
+                self?.evalueateChat()
+            case .failure: break
+            }
         }
     }
     
     func evalueateChat() {
-        
+        raise(event: ChatEvent.evaluateChat)
     }
 }
 
@@ -372,10 +375,12 @@ extension ChatModel: ChatServiceDelegate {
         case .changeStatus:
             guard let chat = data.chatBody?.item else { return }
             currentChat = chat
-            if chat.status == .requestForClosing {
+            if chat.status == .closeRequest {
                 let sender = ChatSender(senderId: chat.user.uuid, displayName: chat.user.name)
-                let m = Message(.chatClosing, sender: sender, messageId: "\(chat.lastMessage.id + 1)", date: Date())
+                let m = Message("У Вас есть еще какие либо вопросы?", sender: sender, messageId: "\(chat.lastMessage.id + 1)", date: Date())
+                let a = Message(.chatClosing, sender: sender, messageId: "\(chat.lastMessage.id + 2)", date: Date())
                 insertMessage(m)
+                insertMessage(a)
             }
         default:
             if let m = data.body?.item.asMessage { insertMessage(m) }

@@ -16,7 +16,7 @@ protocol ChatServiceDelegate: class {
 final class ChatService {
     
     enum ChatStatus: String, Codable, Equatable {
-        case opened, answered, requestForClosing, closed
+        case opened, answered, closeRequest = "close_request", closed
     }
     
     enum ChatEvent: String {
