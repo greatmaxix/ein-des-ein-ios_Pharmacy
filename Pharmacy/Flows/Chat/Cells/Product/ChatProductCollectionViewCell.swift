@@ -37,7 +37,7 @@ class ChatProductCollectionViewCell: MessageCollectionViewCell {
     var actionHandler: ChatProductHandler?
     
     func apply(product: ChatProduct, actionHandler: @escaping ChatProductHandler, isFromCurrentSender: Bool) {
-        if let url = product.pictures.first {
+        if let url = product.pictures.first?.url {
             productImage.loadImageBy(url: url)
         }
         nameLabel.text = product.name

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Chat: Codable, Equatable {
+struct Chat: Decodable, Equatable {
     var id: Int
     var createdAt: String
     var customer: ChatUser
@@ -19,10 +19,10 @@ struct Chat: Codable, Equatable {
     var isAutomaticClosed: Bool
     var closedAt: String?
     var topicName: String
-    var lastMessage: LastMessage
+    var lastMessage: ChatMessage
 }
 
-struct ChatUser: Codable, Equatable {
+struct ChatUser: Decodable, Equatable {
     var id: Int
     var name: String
     var uuid: String
@@ -30,7 +30,7 @@ struct ChatUser: Codable, Equatable {
     var type: String
 }
 
-struct LastMessage: Codable, Equatable {
+struct LastMessage: Decodable, Equatable {
     var id: Int
     var chatId: Int
     var chatNumber: Int
@@ -54,7 +54,7 @@ struct ChatMessage: Decodable, Equatable {
     
     var type = ChatMessageType.message
     
-    var message: Message {
+    var asMessage: Message {
         let sender = ChatSender(senderId: ownerUuid, displayName: ownerType)
         switch type {
         case .message: return Message(text ?? "", sender: sender, messageId: "\(id)", date: createdAt.date() ?? Date())

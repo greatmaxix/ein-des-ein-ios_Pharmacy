@@ -52,7 +52,7 @@ final class ChatModel: Model, ChatInput {
     private var sizeCalculator: CustomMessageSizeCalculator!
     
     private var messages: [Message] = []
-    
+    private var currentChat: Chat!
     deinit {
         chatService?.stop()
         print("Chat model deinit")
@@ -115,7 +115,7 @@ final class ChatModel: Model, ChatInput {
     
     func proccessChat(items: [ChatMessage]) {
         items.forEach {
-            self.insertMessage($0.message)
+            self.insertMessage($0.asMessage)
         }
         
         output?.messagesCollectionView.scrollToBottom(animated: true)
@@ -162,6 +162,7 @@ final class ChatModel: Model, ChatInput {
     
     private func didReciveChat(list: [Chat]) {
         if let openedChat = list.first(where: {$0.status == .opened || $0.status == .answered}) {
+            currentChat = openedChat
             output?.title = openedChat.type
             output?.showActivityIndicator()
             messagesListProvider.load(target: .messageList((openedChat.id))) {[weak self] result in
@@ -191,10 +192,8 @@ final class ChatModel: Model, ChatInput {
             self?.output?.messageInputBar.isHidden = false
             self?.output?.becomeFirstResponder()
             switch result {
-            case .success(let result):
-                self?.didReciveChat(list: [result.item])
-            case .failure(let error):
-                print(error)
+            case .success(let result): self?.didReciveChat(list: [result.item])
+            case .failure(let error): print(error)
             }
         }
     }
@@ -227,9 +226,6 @@ final class ChatModel: Model, ChatInput {
     
     func insertMessage(_ message: Message) {
         messages.append(message)
-        
-        // Reload last section to update header/footer labels and insert a new one
-        
         output?.messagesCollectionView.performBatchUpdates({
             output?.messagesCollectionView.insertSections([messages.count - 1])
             if messages.count >= 2 {
@@ -243,11 +239,8 @@ final class ChatModel: Model, ChatInput {
     }
     
     func isLastSectionVisible() -> Bool {
-        
         guard !messages.isEmpty else { return false }
-        
         let lastIndexPath = IndexPath(item: 0, section: messages.count - 1)
-        
         return output?.messagesCollectionView.indexPathsForVisibleItems.contains(lastIndexPath) ?? false
     }
     
@@ -281,6 +274,10 @@ final class ChatModel: Model, ChatInput {
             print(result)
         }
     }
+    
+    func evalueateChat() {
+        
+    }
 }
 
 extension ChatModel: MessagesDataSource {
@@ -297,10 +294,8 @@ extension ChatModel: MessagesDataSource {
     }
     
     func customCell(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UICollectionViewCell {
-        
         var cell: UICollectionViewCell!
         let isFromCurrent = isFromCurrentSender(message: message)
-        
         switch message.kind {
         case .custom(let kind as Message.CustomMessageKind):
             switch kind {
@@ -337,7 +332,6 @@ extension ChatModel: MessagesDataSource {
             }
         default: break
         }
-        
         return cell
     }
     
@@ -373,15 +367,18 @@ extension ChatModel: MessagesLayoutDelegate {
 
 extension ChatModel: ChatServiceDelegate {
     func didRecive(data: ChatMessagesResponse) {
-        switch data.type {
+        switch data.messageType {
         case .changeStatus:
-            break
-        default:
-            if let m = data.body?.item.message {
+            guard let chat = data.chatBody?.item else { return }
+            currentChat = chat
+            if chat.status == .requestForClosing {
+                let sender = ChatSender(senderId: chat.user.uuid, displayName: chat.user.name)
+                let m = Message(.chatClosing, sender: sender, messageId: "\(chat.lastMessage.id + 1)", date: Date())
                 insertMessage(m)
             }
+        default:
+            if let m = data.body?.item.asMessage { insertMessage(m) }
         }
-        
     }
 }
 
@@ -389,8 +386,7 @@ extension ChatModel {
     func addToWishList(id: Int) {
         wishListProvider.load(target: .addToWishList(medicineId: id)) { (result) in
             switch result {
-            case .success:
-                break
+            case .success: break
             case .failure(let error):
                 print("error is \(error.localizedDescription)")
                 self.output?.showError(message: error.localizedDescription)
@@ -401,12 +397,10 @@ extension ChatModel {
     func removeFromWishList(id: Int) {
         wishListProvider.load(target: .removeFromWishList(medicineId: id)) { (result) in
             switch result {
-            case .success:
-                break
+            case .success: break
             case .failure(let error):
-                print("error is \(error.localizedDescription)")
                 self.output?.showError(message: error.localizedDescription)
-                }
+            }
         }
     }
 }

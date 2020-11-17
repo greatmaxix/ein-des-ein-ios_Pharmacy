@@ -43,7 +43,7 @@ struct CustomerImageUploadResponse: Decodable, Equatable {
 
 // From Mercury
 
-enum ChatMessageType: String, Decodable {
+enum ChatMessageType: String, Decodable, Equatable {
     case message, application, changeStatus = "change_status", globalProduct = "global_product"
 }
 
@@ -54,10 +54,14 @@ struct ChatMessagesResponse: Decodable, Equatable {
     }
     
     struct ChatResponseBody: Decodable, Equatable {
-        var item: ChatResponse
+        var item: Chat
+        var asMessage: Message {
+            let s = ChatSender(senderId: item.user.uuid, displayName: item.user.name)
+            return Message(.chatClosing, sender: s, messageId: "\(item.id)", date: item.createdAt.date() ?? Date())
+        }
     }
     
-    var type: ChatMessageType
+    var messageType: ChatMessageType
     var body: ResponseBody?
     var chatBody: ChatResponseBody?
     
@@ -67,10 +71,11 @@ struct ChatMessagesResponse: Decodable, Equatable {
     
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: Keys.self)
-        type = try c.decode(ChatMessageType.self, forKey: .type)
-        if type == .changeStatus {
+        messageType = try c.decode(ChatMessageType.self, forKey: .type)
+        switch messageType {
+        case .changeStatus:
             chatBody = try c.decode(ChatResponseBody.self, forKey: .body)
-        } else {
+        default:
             body = try c.decode(ResponseBody.self, forKey: .body)
         }
     }

@@ -9,12 +9,17 @@
 import Foundation
 
 struct ChatProduct: Decodable, Equatable {
+    
+    struct ChatImage: Decodable, Equatable {
+        let url: URL
+    }
+    
     let id: Int
     let name: String
     let releaseForm: String
-    let pictures: [URL]
+    let pictures: [ChatImage]
     let priceRange: PriceRange
-    var liked: Bool
+    var liked: Bool = false
     
     var title: String {
         return name.htmlToString
@@ -24,7 +29,7 @@ struct ChatProduct: Decodable, Equatable {
     }
     
     var asMedicine: Medicine {
-        return Medicine(title: name, minPrice: priceRange.minPrice, maxPrice: priceRange.maxPrice, imageURL: pictures.first?.absoluteString, releaseForm: releaseForm, liked: liked, productId: id)
+        return Medicine(title: name, minPrice: priceRange.minPrice, maxPrice: priceRange.maxPrice, imageURL: pictures.first?.url.absoluteString, releaseForm: releaseForm, liked: liked, productId: id)
     }
     
     static func == (lhs: ChatProduct, rhs: ChatProduct) -> Bool {
@@ -45,9 +50,11 @@ struct ChatProduct: Decodable, Equatable {
         id = try c.decode(Int.self, forKey: .globalProductId)
         name = try c.decode(String.self, forKey: .rusName)
         releaseForm = try c.decode(String.self, forKey: .releaseForm)
-        pictures = try c.decode([URL].self, forKey: .pictures)
+        pictures = try c.decode([ChatImage].self, forKey: .pictures)
         priceRange = try c.decode(PriceRange.self, forKey: .pharmacyProductsAggregationData)
-        liked = try c.decode(Bool.self, forKey: .liked)
+        if let isLiked = try? c.decode(Bool.self, forKey: .liked) {
+            liked = isLiked
+        }
     }
     
     init(liked: Bool) {
