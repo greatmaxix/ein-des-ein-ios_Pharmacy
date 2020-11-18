@@ -86,7 +86,7 @@
                             </constraints>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fR-rb-4Xt">
-                            <rect key="frame" x="165" y="16.5" width="119" height="19.5"/>
+                            <rect key="frame" x="209" y="16.5" width="31" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -101,7 +101,6 @@
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WH4-I2-bvT" secondAttribute="trailing" constant="18" id="Jw8-kj-fRc"/>
                         <constraint firstAttribute="bottom" secondItem="gse-GL-no1" secondAttribute="bottom" id="Vll-F7-6t9"/>
                         <constraint firstItem="gse-GL-no1" firstAttribute="top" secondItem="Hd1-fq-e0X" secondAttribute="top" id="Xa4-Ww-JAz"/>
-                        <constraint firstItem="9fR-rb-4Xt" firstAttribute="leading" secondItem="ayr-iR-W0Y" secondAttribute="trailing" constant="123" id="aKi-S8-In8"/>
                         <constraint firstAttribute="trailing" secondItem="gse-GL-no1" secondAttribute="trailing" id="foG-IW-4VY"/>
                         <constraint firstItem="9fR-rb-4Xt" firstAttribute="centerY" secondItem="ayr-iR-W0Y" secondAttribute="centerY" id="hoq-QV-Qei"/>
                         <constraint firstAttribute="trailing" secondItem="YP0-IU-yky" secondAttribute="trailing" constant="16" id="jZT-r6-1QA"/>

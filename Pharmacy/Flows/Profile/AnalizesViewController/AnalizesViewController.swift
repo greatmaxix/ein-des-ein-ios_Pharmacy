@@ -38,6 +38,8 @@ final class AnalizesViewController: UIViewController, NavigationBarStyled {
             bar.leftItemTitle = nil
             bar.isRightItemHidden = true
             bar.barDelegate = self
+        } else if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = R.string.localize.analizesEmptyBarTitle()
         }
     }
 }

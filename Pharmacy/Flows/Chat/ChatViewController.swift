@@ -69,6 +69,11 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         messagesCollectionView.backgroundColor = .clear
+        
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = R.string.localize.productFarmacept()
+        }
+        
         view.backgroundColor = .white
         navigationItem.setRightBarButtonItems([UIBarButtonItem.init(image: R.image.info(), style: .plain, target: self, action: #selector(showChatInfo))], animated: true)
         
