@@ -23,6 +23,7 @@
                 <outlet property="searchBar" destination="xco-T6-RjQ" id="A2q-je-nEw"/>
                 <outlet property="searchContainerViewBottomConstraint" destination="7AM-Qv-8qQ" id="J2V-65-S4J"/>
                 <outlet property="searchViewLeadingConstraint" destination="pA2-ty-HpN" id="rPt-D6-cXp"/>
+                <outlet property="smallNavBarTitleLabel" destination="9fR-rb-4Xt" id="hOS-E4-Jzh"/>
                 <outlet property="stackView" destination="YP0-IU-yky" id="3cg-pj-Pou"/>
                 <outlet property="titleBottomConstraint" destination="msl-Tm-oSW" id="Oq6-ET-MGD"/>
                 <outlet property="titleCenterXConstraint" destination="qx0-Og-v1Q" id="2hh-3l-CKy"/>
@@ -43,7 +44,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="449" height="244"/>
                         </imageView>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Начните поиск" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WH4-I2-bvT">
-                            <rect key="frame" x="18" y="135.5" width="222.5" height="37.5"/>
+                            <rect key="frame" x="18" y="129" width="254" height="44"/>
                             <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="32"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -84,16 +85,25 @@
                                 <constraint firstAttribute="height" constant="43" id="MN4-jn-sJ3"/>
                             </constraints>
                         </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fR-rb-4Xt">
+                            <rect key="frame" x="165" y="16.5" width="119" height="19.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" name="welcomeBlue"/>
                     <constraints>
                         <constraint firstItem="gse-GL-no1" firstAttribute="leading" secondItem="Hd1-fq-e0X" secondAttribute="leading" id="2ow-cR-6J9"/>
+                        <constraint firstItem="9fR-rb-4Xt" firstAttribute="centerX" secondItem="Hd1-fq-e0X" secondAttribute="centerX" id="4F6-6L-ns1"/>
                         <constraint firstAttribute="bottom" secondItem="YP0-IU-yky" secondAttribute="bottom" constant="16" id="7AM-Qv-8qQ"/>
                         <constraint firstItem="WH4-I2-bvT" firstAttribute="centerY" secondItem="Hd1-fq-e0X" secondAttribute="centerY" id="ITE-ff-jmb"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WH4-I2-bvT" secondAttribute="trailing" constant="18" id="Jw8-kj-fRc"/>
                         <constraint firstAttribute="bottom" secondItem="gse-GL-no1" secondAttribute="bottom" id="Vll-F7-6t9"/>
                         <constraint firstItem="gse-GL-no1" firstAttribute="top" secondItem="Hd1-fq-e0X" secondAttribute="top" id="Xa4-Ww-JAz"/>
+                        <constraint firstItem="9fR-rb-4Xt" firstAttribute="leading" secondItem="ayr-iR-W0Y" secondAttribute="trailing" constant="123" id="aKi-S8-In8"/>
                         <constraint firstAttribute="trailing" secondItem="gse-GL-no1" secondAttribute="trailing" id="foG-IW-4VY"/>
+                        <constraint firstItem="9fR-rb-4Xt" firstAttribute="centerY" secondItem="ayr-iR-W0Y" secondAttribute="centerY" id="hoq-QV-Qei"/>
                         <constraint firstAttribute="trailing" secondItem="YP0-IU-yky" secondAttribute="trailing" constant="16" id="jZT-r6-1QA"/>
                         <constraint firstItem="ayr-iR-W0Y" firstAttribute="leading" secondItem="Hd1-fq-e0X" secondAttribute="leading" constant="22" id="kJL-VA-EXl"/>
                         <constraint firstItem="WH4-I2-bvT" firstAttribute="leading" secondItem="Hd1-fq-e0X" secondAttribute="leading" constant="18" id="lhs-ab-9zg"/>
