@@ -55,9 +55,9 @@
                                             <action selector="laterAction:" destination="x2b-EW-EaQ" eventType="touchUpInside" id="GVL-Id-eHG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfL-UD-GSW" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfL-UD-GSW" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
                                         <rect key="frame" x="24" y="162" width="366" height="48"/>
-                                        <color key="backgroundColor" name="welcomeBlue"/>
+                                        <color key="backgroundColor" name="mediumGrey"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="gmH-p5-cmX"/>
                                         </constraints>
@@ -244,6 +244,7 @@
                     <connections>
                         <outlet property="commentsView" destination="R0J-qw-c1G" id="MQc-9k-5ty"/>
                         <outlet property="evaluationView" destination="0vP-5C-xi4" id="U3o-B3-Jfj"/>
+                        <outlet property="nextButton" destination="YfL-UD-GSW" id="KKa-oU-Vc7"/>
                         <outlet property="placeholderLabel" destination="b9v-1o-9xo" id="wXd-L7-6AW"/>
                         <outlet property="star1" destination="J9x-Pz-i6X" id="LrE-9a-Jb8"/>
                         <outlet property="star2" destination="ySq-GH-J2B" id="CGV-sZ-kc1"/>
@@ -272,6 +273,9 @@
         <image name="starSelected" width="37" height="35"/>
         <namedColor name="lightGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="mediumGrey">
+            <color red="0.85882352941176465" green="0.88235294117647056" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textDarkBlue">
             <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -27,9 +27,23 @@ class ChatEvaluationViewController: UIViewController {
     @IBOutlet weak var tagsCollection: UICollectionView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var placeholderLabel: UILabel!
+    @IBOutlet weak var nextButton: RoundedButton!
     
     private var buttons: [UIButton] = []
-    private var state: UIState = .normal
+    private var state: UIState = .normal {
+        didSet {
+            UIView.animate(withDuration: 0.3) {
+                switch self.state {
+                case .normal:
+                    self.commentsView.isHidden = true
+                    self.starsView.alpha = 1.0
+                case .comments:
+                    self.commentsView.isHidden = false
+                    self.starsView.alpha = 0.0
+                }
+            }
+        }
+    }
     private let modalAppearTransition = ModalPresentingTransitionioning()
     private let modalDissapearTransition = ModalDissmisingTransitionioning()
     var model: ChatEvaluationInput!
@@ -44,10 +58,15 @@ class ChatEvaluationViewController: UIViewController {
     }
 
     @IBAction func nextAction(_ sender: Any) {
-        if starsCount > 2 {
-            model.send(ChatEvaluation(evaluatingRating: starsCount, evaluatingComment: nil, evaluatingTags: nil))
-        } else {
-            state = .comments
+        switch state {
+        case .normal:
+            if starsCount > 2 {
+                model.send(ChatEvaluation(evaluatingRating: starsCount, evaluatingComment: nil, evaluatingTags: nil))
+            } else {
+                state = .comments
+            }
+        case .comments:
+            model.send(ChatEvaluation(evaluatingRating: starsCount, evaluatingComment: textView.text, evaluatingTags: nil))
         }
     }
     
@@ -69,6 +88,9 @@ class ChatEvaluationViewController: UIViewController {
         for b in buttons[0...countToSelect - 1] {
             b.isSelected = true
         }
+        
+        nextButton.isEnabled = true
+        nextButton.backgroundColor = R.color.welcomeBlue()
     }
     
 }
@@ -76,26 +98,35 @@ class ChatEvaluationViewController: UIViewController {
 extension ChatEvaluationViewController: ChatEvaluationOutput {
     
 }
-
-extension ChatEvaluationViewController: UIViewControllerTransitioningDelegate {
     
+extension ChatEvaluationViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-            return modalDissapearTransition
-        }
-        
+        return modalDissapearTransition
+    }
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-            return modalAppearTransition
+        return modalAppearTransition
+    }
+}
+
+class BlurEffect: UIVisualEffectView {
+    init() {
+        super.init(effect: UIBlurEffect(style: .regular))
+        backgroundColor = R.color.welcomeBlue()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
 class ModalPresentingTransitionioning: NSObject, UIViewControllerAnimatedTransitioning {
     
-    lazy var blurView: UIVisualEffectView = {
-        let blur = UIBlurEffect(style: .dark)
-        let effect = UIVisualEffectView(effect: blur)
-        effect.backgroundColor = R.color.welcomeBlue()
-        return effect
-    }()
+    struct GUI {
+        static let blurMaxAlpha: CGFloat = 0.4
+        static let blurMinAlpha: CGFloat = 0.0
+    }
+
+    let blurView = BlurEffect()
     
     let animator = UIViewPropertyAnimator()
     
@@ -104,7 +135,7 @@ class ModalPresentingTransitionioning: NSObject, UIViewControllerAnimatedTransit
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 2.0
+        return 0.5
     }
        
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -121,23 +152,21 @@ class ModalPresentingTransitionioning: NSObject, UIViewControllerAnimatedTransit
         let offScreenDrawerFrame = CGRect(origin: CGPoint(x: 0, y: onScreenDrawerFrame.height), size: drawerSize)
        
         drawerView.frame = isPresenting ? offScreenDrawerFrame : onScreenDrawerFrame
-        var blur: UIVisualEffectView!
+        var blur: BlurEffect!
         if isPresenting {
             blurView.frame = onScreenDrawerFrame
-            blurView.alpha = isPresenting ? 0.0 : 0.3
+            blurView.alpha = isPresenting ? GUI.blurMinAlpha : GUI.blurMaxAlpha
             transitionContext.containerView.addSubview(blurView)
             transitionContext.containerView.addSubview(drawerView)
-            
             blur = blurView
         } else {
-            blur = transitionContext.containerView.subviews.first(where: {$0 is UIVisualEffectView}) as? UIVisualEffectView
+            blur = transitionContext.containerView.subviews.first(where: {$0 is BlurEffect}) as? BlurEffect
         }
 
-        UIView.animate(withDuration: 1.0, animations: {
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             drawerView.frame = isPresenting ? onScreenDrawerFrame: offScreenDrawerFrame
-            blur.alpha = isPresenting ? 0.3 : 0.0
+            blur.alpha = isPresenting ? GUI.blurMaxAlpha : GUI.blurMinAlpha
         }, completion: { (success) in
-            
             if !isPresenting && success {
                 blur.removeFromSuperview()
                 drawerView.removeFromSuperview()
