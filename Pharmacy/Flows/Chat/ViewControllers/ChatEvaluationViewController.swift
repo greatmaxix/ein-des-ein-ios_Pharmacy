@@ -14,6 +14,7 @@ class ChatEvaluationViewController: UIViewController {
         case normal, comments
     }
     
+    @IBOutlet weak var evaluationView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtittleLabel: UILabel!
     @IBOutlet weak var commentsView: UIView!
@@ -29,7 +30,8 @@ class ChatEvaluationViewController: UIViewController {
     
     private var buttons: [UIButton] = []
     private var state: UIState = .normal
-    
+    private let modalAppearTransition = ModalPresentingTransitionioning()
+    private let modalDissapearTransition = ModalDissmisingTransitionioning()
     var model: ChatEvaluationInput!
     
     override func viewDidLoad() {
@@ -73,4 +75,80 @@ class ChatEvaluationViewController: UIViewController {
 
 extension ChatEvaluationViewController: ChatEvaluationOutput {
     
+}
+
+extension ChatEvaluationViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            return modalDissapearTransition
+        }
+        
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            return modalAppearTransition
+    }
+}
+
+class ModalPresentingTransitionioning: NSObject, UIViewControllerAnimatedTransitioning {
+    
+    lazy var blurView: UIVisualEffectView = {
+        let blur = UIBlurEffect(style: .dark)
+        let effect = UIVisualEffectView(effect: blur)
+        effect.backgroundColor = R.color.welcomeBlue()
+        return effect
+    }()
+    
+    let animator = UIViewPropertyAnimator()
+    
+    open var isPresentingDrawer: Bool {
+        return true
+    }
+    
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 2.0
+    }
+       
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let isPresenting = isPresentingDrawer
+        
+        let drawerSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
+        
+        let fromView = transitionContext.viewController(forKey: .from)!.view!
+        let toView = transitionContext.viewController(forKey: .to)!.view!
+        
+        let drawerView = isPresenting ? toView : fromView
+        
+        let onScreenDrawerFrame = CGRect(origin: .zero, size: drawerSize)
+        let offScreenDrawerFrame = CGRect(origin: CGPoint(x: 0, y: onScreenDrawerFrame.height), size: drawerSize)
+       
+        drawerView.frame = isPresenting ? offScreenDrawerFrame : onScreenDrawerFrame
+        var blur: UIVisualEffectView!
+        if isPresenting {
+            blurView.frame = onScreenDrawerFrame
+            blurView.alpha = isPresenting ? 0.0 : 0.3
+            transitionContext.containerView.addSubview(blurView)
+            transitionContext.containerView.addSubview(drawerView)
+            
+            blur = blurView
+        } else {
+            blur = transitionContext.containerView.subviews.first(where: {$0 is UIVisualEffectView}) as? UIVisualEffectView
+        }
+
+        UIView.animate(withDuration: 1.0, animations: {
+            drawerView.frame = isPresenting ? onScreenDrawerFrame: offScreenDrawerFrame
+            blur.alpha = isPresenting ? 0.3 : 0.0
+        }, completion: { (success) in
+            
+            if !isPresenting && success {
+                blur.removeFromSuperview()
+                drawerView.removeFromSuperview()
+            }
+            transitionContext.completeTransition(success)
+        })
+    }
+}
+
+class ModalDissmisingTransitionioning: ModalPresentingTransitionioning {
+    override var isPresentingDrawer: Bool {
+        return false
+    }
 }

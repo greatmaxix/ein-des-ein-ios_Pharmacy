@@ -41,10 +41,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euC-gc-TG9" userLabel="BlurView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" name="welcomeBlue"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vP-5C-xi4">
                                 <rect key="frame" x="0.0" y="588" width="414" height="308"/>
                                 <subviews>
@@ -240,17 +236,14 @@
                         <viewLayoutGuide key="safeArea" id="i5I-Tm-w6Z"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="euC-gc-TG9" secondAttribute="bottom" id="3Jq-8m-i3r"/>
-                            <constraint firstItem="i5I-Tm-w6Z" firstAttribute="trailing" secondItem="euC-gc-TG9" secondAttribute="trailing" id="ODV-Ed-haA"/>
-                            <constraint firstItem="euC-gc-TG9" firstAttribute="top" secondItem="CPx-PT-u87" secondAttribute="top" id="Xgh-zI-maR"/>
                             <constraint firstItem="i5I-Tm-w6Z" firstAttribute="bottom" secondItem="0vP-5C-xi4" secondAttribute="bottom" constant="-34" id="ZEu-C0-SFN"/>
                             <constraint firstItem="0vP-5C-xi4" firstAttribute="trailing" secondItem="i5I-Tm-w6Z" secondAttribute="trailing" id="oAc-8A-WHW"/>
                             <constraint firstItem="0vP-5C-xi4" firstAttribute="leading" secondItem="i5I-Tm-w6Z" secondAttribute="leading" id="ppc-Ee-f0x"/>
-                            <constraint firstItem="euC-gc-TG9" firstAttribute="leading" secondItem="i5I-Tm-w6Z" secondAttribute="leading" id="rHQ-WF-S03"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="commentsView" destination="R0J-qw-c1G" id="MQc-9k-5ty"/>
+                        <outlet property="evaluationView" destination="0vP-5C-xi4" id="U3o-B3-Jfj"/>
                         <outlet property="placeholderLabel" destination="b9v-1o-9xo" id="wXd-L7-6AW"/>
                         <outlet property="star1" destination="J9x-Pz-i6X" id="LrE-9a-Jb8"/>
                         <outlet property="star2" destination="ySq-GH-J2B" id="CGV-sZ-kc1"/>

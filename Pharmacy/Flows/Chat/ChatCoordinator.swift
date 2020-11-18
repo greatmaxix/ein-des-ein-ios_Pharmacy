@@ -42,14 +42,14 @@ final class ChatCoordinator: EventNode, Coordinator {
     }
     
     func openChatEvaluation() {
-        guard let chatVc = navigation?.viewControllers.last as? ChatViewController else { return }
+        navigation?.view.endEditing(true)
         let vc = R.storyboard.chat.chatEvaluationViewController()!
         let model = ChatEvaluationModel(parent: self)
         vc.model = model
         model.output = vc
-//        vc.transitioningDelegate = chatVc
-//        vc.modalPresentationStyle = .custom
-        chatVc.present(vc, animated: true, completion: nil)
+        vc.transitioningDelegate = vc
+        vc.modalPresentationStyle = .overCurrentContext
+        navigation?.present(vc, animated: true, completion: nil)
     }
     
     func open(product: ChatProduct) {

@@ -170,11 +170,13 @@ final class ChatModel: Model, ChatInput {
                 switch result {
                 case .success(let response):
                     self?.proccessChat(items: response.items)
+                    if chat.status == .closeRequest {
+                        self?.showCloseRequestMessages()
+                    }
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
             }
-            
             self.sender = ChatSender.currentUser()
             self.chatService = ChatService(chat, topicName: UserSession.shared.user?.topicName, delegate: self)
         } else {
@@ -279,8 +281,16 @@ final class ChatModel: Model, ChatInput {
         }
     }
     
-    func evalueateChat() {
+    func evalueateChat() {        
         raise(event: ChatEvent.evaluateChat)
+    }
+    
+    func showCloseRequestMessages() {
+        let sender = ChatSender(senderId: currentChat.user.uuid, displayName: currentChat.user.name)
+        let m = Message("У Вас есть еще какие либо вопросы?", sender: sender, messageId: "\(currentChat.lastMessage.id + 1)", date: Date())
+        let a = Message(.chatClosing, sender: sender, messageId: "\(currentChat.lastMessage.id + 2)", date: Date())
+        insertMessage(m)
+        insertMessage(a)
     }
 }
 
@@ -376,11 +386,7 @@ extension ChatModel: ChatServiceDelegate {
             guard let chat = data.chatBody?.item else { return }
             currentChat = chat
             if chat.status == .closeRequest {
-                let sender = ChatSender(senderId: chat.user.uuid, displayName: chat.user.name)
-                let m = Message("У Вас есть еще какие либо вопросы?", sender: sender, messageId: "\(chat.lastMessage.id + 1)", date: Date())
-                let a = Message(.chatClosing, sender: sender, messageId: "\(chat.lastMessage.id + 2)", date: Date())
-                insertMessage(m)
-                insertMessage(a)
+                showCloseRequestMessages()
             }
         default:
             if let m = data.body?.item.asMessage { insertMessage(m) }
