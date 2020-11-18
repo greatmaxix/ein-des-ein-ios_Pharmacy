@@ -15,7 +15,7 @@ protocol ReceiptsViewControllerOutput: ReceiptsModelInput {}
 
 class ReceiptsViewController: UIViewController, NavigationBarStyled {
 
-    var style: NavigationBarStyle = .normalWithoutSearch
+   var style: NavigationBarStyle = .normalWithoutSearch
 
     private lazy var activityIndicator: MBProgressHUD = {
         setupActivityIndicator()
@@ -33,6 +33,7 @@ class ReceiptsViewController: UIViewController, NavigationBarStyled {
         // Do any additional setup after loading the view.
 
         tableView.register(UINib(nibName: "ReceiptCell", bundle: nil), forCellReuseIdentifier: "ReceiptCell")
+        
         title = "Рецепты"
 
         setupUI()
@@ -49,16 +50,17 @@ class ReceiptsViewController: UIViewController, NavigationBarStyled {
     }
 
     private func setupUI() {
-        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
-
+        if let bar = self.navigationController?.navigationBar as? SimpleNavigationBar {
             bar.title = "Рецепты"
             bar.isLeftItemHidden = false
             bar.leftItemTitle = nil
             bar.isRightItemHidden = true
             bar.barDelegate = self
+            bar.style = .normalWithoutSearch
+        } else if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = "Рецепты"
         }
     }
-
 }
 
 extension ReceiptsViewController: SimpleNavigationBarDelegate {

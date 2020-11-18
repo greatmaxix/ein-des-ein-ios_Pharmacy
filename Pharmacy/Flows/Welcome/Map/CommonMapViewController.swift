@@ -9,7 +9,9 @@
 import UIKit
 import GoogleMaps
 
-class CommonMapViewController: UIViewController {
+class CommonMapViewController: UIViewController, NavigationBarStyled {
+    
+    var style: NavigationBarStyle = .normalWithoutSearch
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -20,6 +22,7 @@ class CommonMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
+        setupTitle()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -30,6 +33,12 @@ class CommonMapViewController: UIViewController {
     private func setupMap() {
         model.startLocationTracking()
         mapView.delegate = self
+    }
+    
+    private func setupTitle() {
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = R.string.localize.farmaciesListTitle()
+        }
     }
     
 }
