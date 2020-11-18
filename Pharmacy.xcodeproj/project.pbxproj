@@ -14,6 +14,7 @@
 		246A83C62547070A0004ECEC /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83C52547070A0004ECEC /* PostResponse.swift */; };
 		246A83F625472E260004ECEC /* CategoryDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83F525472E260004ECEC /* CategoryDTO.swift */; };
 		246A83FD25472F1F0004ECEC /* CategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246A83FC25472F1F0004ECEC /* CategoryEntity.swift */; };
+		247C4E4B2562933400A46061 /* UIImage+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C4E4A2562933400A46061 /* UIImage+Orientation.swift */; };
 		2488BAD125506422008D7EEB /* Street&CityValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BAD025506422008D7EEB /* Street&CityValidator.swift */; };
 		2488BAD425506685008D7EEB /* HouseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BAD325506685008D7EEB /* HouseValidator.swift */; };
 		2488BAD825506D5E008D7EEB /* DeliveryAddressDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2488BAD725506D5E008D7EEB /* DeliveryAddressDTO.swift */; };
@@ -279,9 +280,11 @@
 		60E1A71D24ED079F00B3D205 /* ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A71C24ED079F00B3D205 /* ActionSheetView.swift */; };
 		60E1A71F24ED12C200B3D205 /* UIViewController+ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E1A71E24ED12C200B3D205 /* UIViewController+ActionSheetView.swift */; };
 		60F2673B24E0566B00BFF296 /* NavigationTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F2673A24E0566B00BFF296 /* NavigationTransitionAnimator.swift */; };
+		6106BA5C2562860D00E85864 /* PDFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6106BA5B2562860D00E85864 /* PDFManager.swift */; };
 		611C3BEE254F3A70006178B7 /* OrderDeliveryAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C3BED254F3A70006178B7 /* OrderDeliveryAddress.swift */; };
 		611C3BF1254F455E006178B7 /* OrdersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C3BF0254F455E006178B7 /* OrdersAPI.swift */; };
 		611C3C0C254F7158006178B7 /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 611C3C0B254F7158006178B7 /* Orders.storyboard */; };
+		611CA281255EA17E009BD8B6 /* ReceiptsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CA280255EA17E009BD8B6 /* ReceiptsAPI.swift */; };
 		614494432552EB4B003E20F9 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614494422552EB4B003E20F9 /* ErrorPresenter.swift */; };
 		61701FB42551A1AD0000303C /* OrderDetailsCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61701FB32551A1AD0000303C /* OrderDetailsCommentCell.swift */; };
 		61701FB72551A42C0000303C /* OrderDetailsTotalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61701FB62551A42C0000303C /* OrderDetailsTotalCell.swift */; };
@@ -332,6 +335,12 @@
 		61CFAAAD254C4CC200569DEF /* OrderSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAAAB254C4CC200569DEF /* OrderSummaryCell.swift */; };
 		61CFAAAE254C4CC200569DEF /* OrderSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61CFAAAC254C4CC200569DEF /* OrderSummaryCell.xib */; };
 		61CFAACA254F1C0D00569DEF /* OrderContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CFAAC9254F1C0D00569DEF /* OrderContactInfo.swift */; };
+		61D90F8C255DCF0A00AE6124 /* ReceiptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D90F8B255DCF0A00AE6124 /* ReceiptsViewController.swift */; };
+		61D90F8F255DCF1600AE6124 /* ReceiptsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D90F8E255DCF1600AE6124 /* ReceiptsModel.swift */; };
+		61D90F94255DCF3400AE6124 /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D90F92255DCF3400AE6124 /* ReceiptCell.swift */; };
+		61D90F95255DCF3400AE6124 /* ReceiptCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61D90F93255DCF3400AE6124 /* ReceiptCell.xib */; };
+		61D90F98255DCFA600AE6124 /* Receipts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61D90F97255DCFA600AE6124 /* Receipts.storyboard */; };
+		61D90F9B255DE9B100AE6124 /* UserReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D90F9A255DE9B100AE6124 /* UserReceipt.swift */; };
 		61F20AF925517BD60027F2B0 /* OrderDetailsDeliveryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F20AF825517BD60027F2B0 /* OrderDetailsDeliveryCell.swift */; };
 		61F20AFC25517DA60027F2B0 /* PrderDetailsPaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F20AFB25517DA60027F2B0 /* PrderDetailsPaymentCell.swift */; };
 		735EDBB60CEF893C8EC41CA6 /* Pods_Pharmacy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */; };
@@ -393,6 +402,7 @@
 		246A83C52547070A0004ECEC /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
 		246A83F525472E260004ECEC /* CategoryDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDTO.swift; sourceTree = "<group>"; };
 		246A83FC25472F1F0004ECEC /* CategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryEntity.swift; sourceTree = "<group>"; };
+		247C4E4A2562933400A46061 /* UIImage+Orientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Orientation.swift"; sourceTree = "<group>"; };
 		2488BAD025506422008D7EEB /* Street&CityValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Street&CityValidator.swift"; sourceTree = "<group>"; };
 		2488BAD325506685008D7EEB /* HouseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseValidator.swift; sourceTree = "<group>"; };
 		2488BAD725506D5E008D7EEB /* DeliveryAddressDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressDTO.swift; sourceTree = "<group>"; };
@@ -661,9 +671,11 @@
 		60E1A71C24ED079F00B3D205 /* ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetView.swift; sourceTree = "<group>"; };
 		60E1A71E24ED12C200B3D205 /* UIViewController+ActionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ActionSheetView.swift"; sourceTree = "<group>"; };
 		60F2673A24E0566B00BFF296 /* NavigationTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTransitionAnimator.swift; sourceTree = "<group>"; };
+		6106BA5B2562860D00E85864 /* PDFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFManager.swift; sourceTree = "<group>"; };
 		611C3BED254F3A70006178B7 /* OrderDeliveryAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDeliveryAddress.swift; sourceTree = "<group>"; };
 		611C3BF0254F455E006178B7 /* OrdersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersAPI.swift; sourceTree = "<group>"; };
 		611C3C0B254F7158006178B7 /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
+		611CA280255EA17E009BD8B6 /* ReceiptsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReceiptsAPI.swift; path = Pharmacy/Services/API/ReceiptsAPI.swift; sourceTree = SOURCE_ROOT; };
 		614494422552EB4B003E20F9 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		61701FB32551A1AD0000303C /* OrderDetailsCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsCommentCell.swift; sourceTree = "<group>"; };
 		61701FB62551A42C0000303C /* OrderDetailsTotalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsTotalCell.swift; sourceTree = "<group>"; };
@@ -714,6 +726,12 @@
 		61CFAAAB254C4CC200569DEF /* OrderSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryCell.swift; sourceTree = "<group>"; };
 		61CFAAAC254C4CC200569DEF /* OrderSummaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderSummaryCell.xib; sourceTree = "<group>"; };
 		61CFAAC9254F1C0D00569DEF /* OrderContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderContactInfo.swift; sourceTree = "<group>"; };
+		61D90F8B255DCF0A00AE6124 /* ReceiptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsViewController.swift; sourceTree = "<group>"; };
+		61D90F8E255DCF1600AE6124 /* ReceiptsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsModel.swift; sourceTree = "<group>"; };
+		61D90F92255DCF3400AE6124 /* ReceiptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
+		61D90F93255DCF3400AE6124 /* ReceiptCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiptCell.xib; sourceTree = "<group>"; };
+		61D90F97255DCFA600AE6124 /* Receipts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Receipts.storyboard; sourceTree = "<group>"; };
+		61D90F9A255DE9B100AE6124 /* UserReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReceipt.swift; sourceTree = "<group>"; };
 		61F20AF825517BD60027F2B0 /* OrderDetailsDeliveryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsDeliveryCell.swift; sourceTree = "<group>"; };
 		61F20AFB25517DA60027F2B0 /* PrderDetailsPaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrderDetailsPaymentCell.swift; sourceTree = "<group>"; };
 		87131D222507B9890050B8F2 /* Executor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Executor.swift; sourceTree = "<group>"; };
@@ -960,6 +978,7 @@
 				87131D3B251392260050B8F2 /* String+HTML.swift */,
 				878CFC0D2514CC1C00298139 /* Decimal+MoneyFormat.swift */,
 				8732E4342518AAF0007CBBEF /* UIImage+Grayscale.swift */,
+				247C4E4A2562933400A46061 /* UIImage+Orientation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1124,6 +1143,7 @@
 				398880C1250F798300942D30 /* PharmacyModel.swift */,
 				61AA47132550157700D140D3 /* Order.swift */,
 				6185013B25508C250094A6A6 /* OrderDetails.swift */,
+				61D90F9A255DE9B100AE6124 /* UserReceipt.swift */,
 			);
 			name = Models;
 			path = Templates/Models;
@@ -1223,6 +1243,7 @@
 		396C45CF249774D200A569CE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				61D90F8A255DCEED00AE6124 /* Receipts */,
 				60475FDA2551512A00448EF3 /* Chat */,
 				4D8BCF69254891570094C43C /* InDevelopment */,
 				8715DB8424FFBFB900BBF37C /* Onboarding */,
@@ -2050,6 +2071,7 @@
 				8717E4DD2507744500546A55 /* SearchAPI.swift */,
 				398880BF250F753200942D30 /* MapAPI.swift */,
 				87A50B6D2527072800CF89CF /* ProductAPI.swift */,
+				611CA280255EA17E009BD8B6 /* ReceiptsAPI.swift */,
 				611C3BF0254F455E006178B7 /* OrdersAPI.swift */,
 				60AE3194255315B3002BD404 /* ChatAPI.swift */,
 			);
@@ -2063,6 +2085,7 @@
 				619AAA472498B01900AB46ED /* KeychainManager.swift */,
 				608F0224255C2272002F7161 /* PhotoLibraryManager.swift */,
 				875223AF2500E9E7000759C8 /* UserSession */,
+				6106BA5B2562860D00E85864 /* PDFManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -2126,6 +2149,26 @@
 				611C3BED254F3A70006178B7 /* OrderDeliveryAddress.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		61D90F8A255DCEED00AE6124 /* Receipts */ = {
+			isa = PBXGroup;
+			children = (
+				61D90F91255DCF1B00AE6124 /* Cell */,
+				61D90F8B255DCF0A00AE6124 /* ReceiptsViewController.swift */,
+				61D90F8E255DCF1600AE6124 /* ReceiptsModel.swift */,
+				61D90F97255DCFA600AE6124 /* Receipts.storyboard */,
+			);
+			path = Receipts;
+			sourceTree = "<group>";
+		};
+		61D90F91255DCF1B00AE6124 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				61D90F92255DCF3400AE6124 /* ReceiptCell.swift */,
+				61D90F93255DCF3400AE6124 /* ReceiptCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		87131D262509FBA80050B8F2 /* SearchBar */ = {
@@ -2438,6 +2481,7 @@
 				2488BAFE255154DA008D7EEB /* EmptyResultsViewCell.xib in Resources */,
 				61CFAAAE254C4CC200569DEF /* OrderSummaryCell.xib in Resources */,
 				61CFAA9F254C2E9300569DEF /* PaymentTypeCell.xib in Resources */,
+				61D90F98255DCFA600AE6124 /* Receipts.storyboard in Resources */,
 				6075BD4A24DEA7FB00BC78BD /* OpenSans-Italic.ttf in Resources */,
 				6184731B2549A5120062D8B9 /* CartSectionFooterView.xib in Resources */,
 				6075BD4B24DEA7FB00BC78BD /* OpenSans-Light.ttf in Resources */,
@@ -2451,6 +2495,7 @@
 				61CFAA99254C2C1700569DEF /* DeliveryAddressCell.xib in Resources */,
 				87131D3A25137B910050B8F2 /* RecentsHeaderView.xib in Resources */,
 				603D318D24E2A269000E5A6C /* ReceiptView.xib in Resources */,
+				61D90F95255DCF3400AE6124 /* ReceiptCell.xib in Resources */,
 				608E3AFD2551D47000AEE56C /* ChatButtonCollectionViewCell.xib in Resources */,
 				6075BD4E24DEA7FB00BC78BD /* OpenSans-SemiBold.ttf in Resources */,
 				61CFAA94254C28DD00569DEF /* OrderPharmacyCell.xib in Resources */,
@@ -2611,6 +2656,7 @@
 			files = (
 				875223BE2500EF84000759C8 /* UserDefaultsAccessor+SessionData.swift in Sources */,
 				875223C72500FD90000759C8 /* NSPersistentContainer.swift in Sources */,
+				61D90F8F255DCF1600AE6124 /* ReceiptsModel.swift in Sources */,
 				60383A31255B2C5F00654C1A /* ChatGalleryCollectionViewCell.swift in Sources */,
 				6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */,
 				60E1A71324ECE0D100B3D205 /* ScanViewController.swift in Sources */,
@@ -2702,6 +2748,7 @@
 				39818FA124AF69B0007D6D94 /* UserSession.swift in Sources */,
 				603D31E024E5A8E3000E5A6C /* ProductCategoryTableViewCell.swift in Sources */,
 				61F20AF925517BD60027F2B0 /* OrderDetailsDeliveryCell.swift in Sources */,
+				61D90F94255DCF3400AE6124 /* ReceiptCell.swift in Sources */,
 				397541D724ED35EE0069F8DE /* SimpleNavigationBarView.swift in Sources */,
 				3939A6D524F6A3C90045FB71 /* LocationService.swift in Sources */,
 				61CFAACA254F1C0D00569DEF /* OrderContactInfo.swift in Sources */,
@@ -2744,6 +2791,7 @@
 				396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */,
 				87A50B682526256800CF89CF /* ImageContainer.swift in Sources */,
 				4DE4D5392549812000EE0E3A /* AboutAppModel.swift in Sources */,
+				247C4E4B2562933400A46061 /* UIImage+Orientation.swift in Sources */,
 				87131D30251146960050B8F2 /* EmptySearchView.swift in Sources */,
 				4DE4D5352549810C00EE0E3A /* AboutAppViewController.swift in Sources */,
 				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,
@@ -2755,6 +2803,7 @@
 				875223C52500FD60000759C8 /* NSManagedObjectContext.swift in Sources */,
 				399F2428249CA17A003BA7E1 /* ConfirmCodeView.swift in Sources */,
 				398B0DEB24F51C8F0084EC54 /* MapFarmacyCell.swift in Sources */,
+				61D90F8C255DCF0A00AE6124 /* ReceiptsViewController.swift in Sources */,
 				6040F0AC254F6CCB006B4B39 /* NavigationController.swift in Sources */,
 				395324BC2508CE450038D2DC /* RegionResponse.swift in Sources */,
 				396448E224ADE17A00E6D852 /* UserDTO.swift in Sources */,
@@ -2777,6 +2826,7 @@
 				60515CFE254B068900977BEF /* SubcategoryCellSection.swift in Sources */,
 				398B0DE724F51C410084EC54 /* MapFarmacyListModel.swift in Sources */,
 				603D319824E3B22A000E5A6C /* TableCellSection.swift in Sources */,
+				61D90F9B255DE9B100AE6124 /* UserReceipt.swift in Sources */,
 				603D31D224E5A09F000E5A6C /* ProductInfoTableViewCell.swift in Sources */,
 				601E7ED52549D4B500C936BF /* RoundedButton.swift in Sources */,
 				39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */,
@@ -2799,6 +2849,7 @@
 				608E3AF62551AB5F00AEE56C /* ImageMediaItem.swift in Sources */,
 				395B9CCB24EFC6CA00254881 /* AnalizesModel.swift in Sources */,
 				8732E4352518AAF0007CBBEF /* UIImage+Grayscale.swift in Sources */,
+				6106BA5C2562860D00E85864 /* PDFManager.swift in Sources */,
 				6036EAFC24DD1C8F003336C2 /* BasketViewController.swift in Sources */,
 				875223B72500ECCF000759C8 /* Accessible.swift in Sources */,
 				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
@@ -2846,6 +2897,7 @@
 				61CFAA552549EB7200569DEF /* EmptyUserCell.swift in Sources */,
 				61CFAAA3254C356400569DEF /* OrderedProductCell.swift in Sources */,
 				6075BD5324DEB16600BC78BD /* RoundedCornerNavigationBar.swift in Sources */,
+				611CA281255EA17E009BD8B6 /* ReceiptsAPI.swift in Sources */,
 				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
 				87131D3425135E3E0050B8F2 /* UITableView+Reusable.swift in Sources */,
 				60E1A6FB24EBB20E00B3D205 /* UIViewController+Keyboard.swift in Sources */,
@@ -3044,7 +3096,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 27;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -3068,7 +3120,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 27;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;

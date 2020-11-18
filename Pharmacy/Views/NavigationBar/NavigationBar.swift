@@ -58,6 +58,9 @@ final class NavigationBar: UINavigationBar {
     @IBOutlet private weak var titleLeadingConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var smallNavBarTitleLabel: UILabel!
+    
     @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -159,6 +162,9 @@ extension NavigationBar {
             contentView.rightAnchor.constraint(equalTo: rightAnchor)
         ])
 
+        smallNavBarTitleLabel.font = R.font.openSansBold(size: 16)
+        smallNavBarTitleLabel.alpha = 0
+        
         configUIBy(style: style)
     }
 
@@ -166,8 +172,9 @@ extension NavigationBar {
         self.style = style
         let isLarge = style == .largeSearch
         let isSearch = style == .largeSearch || style == .search
-
         endEditing(true)
+        
+        smallNavBarTitleLabel.alpha = style == .normalWithoutSearch ? 1 : 0
 
         titleLabel.font = isLarge ? GUI.largeTitleFont : GUI.normalTitleFont
 
@@ -218,6 +225,7 @@ extension NavigationBar {
 
     private func configSearchTextFieldBy(style: NavigationBarStyle) {
         let isSearch = style == .largeSearch || style == .search
+        
         searchViewLeadingConstraint.constant = isSearch
         ? GUI.searchViewLargeLeftMargin
         : frame.width - GUI.searchViewLargeLeftMargin * 3
@@ -231,7 +239,7 @@ extension NavigationBar {
 
         UIView.animate(withDuration: GUI.animationDurartion) {
             self.searchBar.backgroundColor = .white
-            self.scanButton.alpha = 1
+            self.smallNavBarTitleLabel.alpha = 1
             self.layoutIfNeeded()
         }
     }

@@ -59,14 +59,17 @@ class OnboardingModel: Model {
                    description: R.string.localize.onboardingText3()),
          SlideInfo(image: R.image.illustration_location()!,
                    title: R.string.localize.onboardingTitleCity(),
-                   description: R.string.localize.onboardingDescription(), option: .toCategories),
+                   description: R.string.localize.onboardingDescription(),
+                   option: .toCategories,
+                   alternativeConfiguration: true),
          SlideInfo(image: R.image.illustration_purchase()!,
                    title: R.string.localize.onboardingTitlePurchase(),
                    description: R.string.localize.onboardingDescriptionPurchase(),
                    skipTitle: R.string.localize.onboardingButtonSkipPurchase(),
                    applyTitle: R.string.localize.onboardingButtonNextPurchase(),
                    option: .toAuth,
-                   nextButtonTitle: R.string.localize.onboardingButtonNextPurchase())
+                   nextButtonTitle: R.string.localize.onboardingButtonNextPurchase(),
+                   alternativeConfiguration: true)
          ]
     }()
 

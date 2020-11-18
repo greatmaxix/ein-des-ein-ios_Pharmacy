@@ -16,6 +16,9 @@
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans-Regular</string>
         </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Orders View Controller-->
@@ -26,130 +29,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxa-pt-pRf">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
-                                <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="THH-bj-FZq">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTO-LH-mSj">
-                                                <rect key="frame" x="14" y="52" width="28" height="28"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="28" id="3vM-nC-Xf0"/>
-                                                    <constraint firstAttribute="width" constant="28" id="F1g-Rf-xik"/>
-                                                </constraints>
-                                                <state key="normal" image="icon_back"/>
-                                                <connections>
-                                                    <action selector="back:" destination="zHB-5y-vTz" eventType="touchUpInside" id="f3b-6u-qh4"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мои заказы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1U-c0-Sls">
-                                                <rect key="frame" x="162" y="56.5" width="90" height="19"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" name="welcomeBlue"/>
-                                        <constraints>
-                                            <constraint firstItem="L1U-c0-Sls" firstAttribute="centerX" secondItem="THH-bj-FZq" secondAttribute="centerX" id="2nJ-lS-WkW"/>
-                                            <constraint firstItem="xTO-LH-mSj" firstAttribute="leading" secondItem="THH-bj-FZq" secondAttribute="leading" constant="14" id="7o1-6U-nOC"/>
-                                            <constraint firstItem="L1U-c0-Sls" firstAttribute="centerY" secondItem="xTO-LH-mSj" secondAttribute="centerY" id="9Un-cm-vzq"/>
-                                            <constraint firstAttribute="height" constant="88" id="ZLw-7G-1yn"/>
-                                            <constraint firstAttribute="bottom" secondItem="xTO-LH-mSj" secondAttribute="bottom" constant="8" id="raR-Oo-moI"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OxD-oH-2dU">
-                                        <rect key="frame" x="16" y="108" width="382" height="40"/>
-                                        <subviews>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlh-gv-ax9">
-                                                <rect key="frame" x="0.0" y="0.0" width="48.5" height="40"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
-                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                                <state key="normal" title="Все">
-                                                    <color key="titleColor" name="welcomeBlue"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="openAll:" destination="zHB-5y-vTz" eventType="touchUpInside" id="bZs-i4-54R"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZT-El-Zeb">
-                                                <rect key="frame" x="56.5" y="0.0" width="120" height="40"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
-                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                                <state key="normal" title="В обработке">
-                                                    <color key="titleColor" name="gray"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="openInProgress:" destination="zHB-5y-vTz" eventType="touchUpInside" id="Mkn-W8-dnS"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBA-D3-nOO">
-                                                <rect key="frame" x="184.5" y="0.0" width="99" height="40"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
-                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                                <state key="normal" title="Выполнен">
-                                                    <color key="titleColor" name="gray"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="openDone:" destination="zHB-5y-vTz" eventType="touchUpInside" id="zLg-uB-xof"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWH-nR-2k9">
-                                                <rect key="frame" x="291.5" y="0.0" width="90.5" height="40"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
-                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
-                                                <state key="normal" title="Отменен">
-                                                    <color key="titleColor" name="gray"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="6"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="openCanceled:" destination="zHB-5y-vTz" eventType="touchUpInside" id="IO1-R9-nEl"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" name="backgroundGray"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="THH-bj-FZq" secondAttribute="trailing" id="5Bl-uQ-RG8"/>
-                                    <constraint firstAttribute="height" constant="156" id="Bxe-8q-gAS"/>
-                                    <constraint firstItem="OxD-oH-2dU" firstAttribute="leading" secondItem="zxa-pt-pRf" secondAttribute="leading" constant="16" id="ILT-l5-9Mj"/>
-                                    <constraint firstAttribute="trailing" secondItem="OxD-oH-2dU" secondAttribute="trailing" constant="16" id="QXi-8h-oL7"/>
-                                    <constraint firstAttribute="bottom" secondItem="OxD-oH-2dU" secondAttribute="bottom" constant="8" id="VCb-08-d2T"/>
-                                    <constraint firstItem="THH-bj-FZq" firstAttribute="leading" secondItem="zxa-pt-pRf" secondAttribute="leading" id="WQM-Pz-mGx"/>
-                                    <constraint firstItem="THH-bj-FZq" firstAttribute="top" secondItem="zxa-pt-pRf" secondAttribute="top" id="rQs-Rm-UNY"/>
-                                    <constraint firstItem="OxD-oH-2dU" firstAttribute="top" secondItem="THH-bj-FZq" secondAttribute="bottom" constant="20" id="xRh-OP-BaS"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jb3-ZE-cTQ">
                                 <rect key="frame" x="0.0" y="172" width="414" height="690"/>
                                 <color key="backgroundColor" name="backgroundGray"/>
@@ -335,15 +214,197 @@
                                     <outlet property="delegate" destination="zHB-5y-vTz" id="qK1-hW-qmg"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxa-pt-pRf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="THH-bj-FZq">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTO-LH-mSj">
+                                                <rect key="frame" x="14" y="52" width="28" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="3vM-nC-Xf0"/>
+                                                    <constraint firstAttribute="width" constant="28" id="F1g-Rf-xik"/>
+                                                </constraints>
+                                                <state key="normal" image="icon_back"/>
+                                                <connections>
+                                                    <action selector="back:" destination="zHB-5y-vTz" eventType="touchUpInside" id="f3b-6u-qh4"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мои заказы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L1U-c0-Sls">
+                                                <rect key="frame" x="162" y="56.5" width="90" height="19"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="welcomeBlue"/>
+                                        <constraints>
+                                            <constraint firstItem="L1U-c0-Sls" firstAttribute="centerX" secondItem="THH-bj-FZq" secondAttribute="centerX" id="2nJ-lS-WkW"/>
+                                            <constraint firstItem="xTO-LH-mSj" firstAttribute="leading" secondItem="THH-bj-FZq" secondAttribute="leading" constant="14" id="7o1-6U-nOC"/>
+                                            <constraint firstItem="L1U-c0-Sls" firstAttribute="centerY" secondItem="xTO-LH-mSj" secondAttribute="centerY" id="9Un-cm-vzq"/>
+                                            <constraint firstAttribute="height" constant="88" id="ZLw-7G-1yn"/>
+                                            <constraint firstAttribute="bottom" secondItem="xTO-LH-mSj" secondAttribute="bottom" constant="8" id="raR-Oo-moI"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OxD-oH-2dU">
+                                        <rect key="frame" x="16" y="108" width="382" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlh-gv-ax9">
+                                                <rect key="frame" x="0.0" y="0.0" width="48.5" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                                <state key="normal" title="Все">
+                                                    <color key="titleColor" name="welcomeBlue"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="openAll:" destination="zHB-5y-vTz" eventType="touchUpInside" id="bZs-i4-54R"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZT-El-Zeb">
+                                                <rect key="frame" x="56.5" y="0.0" width="120" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                                <state key="normal" title="В обработке">
+                                                    <color key="titleColor" name="gray"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="openInProgress:" destination="zHB-5y-vTz" eventType="touchUpInside" id="Mkn-W8-dnS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBA-D3-nOO">
+                                                <rect key="frame" x="184.5" y="0.0" width="99" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                                <state key="normal" title="Выполнен">
+                                                    <color key="titleColor" name="gray"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="openDone:" destination="zHB-5y-vTz" eventType="touchUpInside" id="zLg-uB-xof"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oWH-nR-2k9">
+                                                <rect key="frame" x="291.5" y="0.0" width="90.5" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                                <state key="normal" title="Отменен">
+                                                    <color key="titleColor" name="gray"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="openCanceled:" destination="zHB-5y-vTz" eventType="touchUpInside" id="IO1-R9-nEl"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="backgroundGray"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="THH-bj-FZq" secondAttribute="trailing" id="5Bl-uQ-RG8"/>
+                                    <constraint firstAttribute="height" constant="156" id="Bxe-8q-gAS"/>
+                                    <constraint firstItem="OxD-oH-2dU" firstAttribute="leading" secondItem="zxa-pt-pRf" secondAttribute="leading" constant="16" id="ILT-l5-9Mj"/>
+                                    <constraint firstAttribute="trailing" secondItem="OxD-oH-2dU" secondAttribute="trailing" constant="16" id="QXi-8h-oL7"/>
+                                    <constraint firstAttribute="bottom" secondItem="OxD-oH-2dU" secondAttribute="bottom" constant="8" id="VCb-08-d2T"/>
+                                    <constraint firstItem="THH-bj-FZq" firstAttribute="leading" secondItem="zxa-pt-pRf" secondAttribute="leading" id="WQM-Pz-mGx"/>
+                                    <constraint firstItem="THH-bj-FZq" firstAttribute="top" secondItem="zxa-pt-pRf" secondAttribute="top" id="rQs-Rm-UNY"/>
+                                    <constraint firstItem="OxD-oH-2dU" firstAttribute="top" secondItem="THH-bj-FZq" secondAttribute="bottom" constant="20" id="xRh-OP-BaS"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvQ-qN-Ws4">
+                                <rect key="frame" x="0.0" y="156" width="414" height="706"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyOrders" translatesAutoresizingMaskIntoConstraints="NO" id="Kxf-1J-72v">
+                                        <rect key="frame" x="67" y="68" width="280" height="270"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы еще не решились сделать заказ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7me-Bx-sj2">
+                                        <rect key="frame" x="16" y="370" width="382" height="56"/>
+                                        <color key="backgroundColor" name="backgroundGray"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
+                                        <color key="textColor" name="textDarkBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Перейдите в корзину, что бы продолжить оформление заказа" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ErE-rq-ebt">
+                                        <rect key="frame" x="16" y="434" width="382" height="37.5"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                        <color key="textColor" name="textDarkBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qc-n9-NvX">
+                                        <rect key="frame" x="16" y="487.5" width="382" height="48"/>
+                                        <color key="backgroundColor" name="welcomeBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="yIb-Li-bL2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                        <state key="normal" title="Перейти в корзину">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="24"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="openCart:" destination="zHB-5y-vTz" eventType="touchUpInside" id="XWp-9z-jFO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="backgroundGray"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ErE-rq-ebt" secondAttribute="trailing" constant="16" id="5KH-tE-4nd"/>
+                                    <constraint firstItem="ErE-rq-ebt" firstAttribute="leading" secondItem="MvQ-qN-Ws4" secondAttribute="leading" constant="16" id="IxH-S5-tOs"/>
+                                    <constraint firstItem="1Qc-n9-NvX" firstAttribute="leading" secondItem="MvQ-qN-Ws4" secondAttribute="leading" constant="16" id="QgK-hn-det"/>
+                                    <constraint firstItem="7me-Bx-sj2" firstAttribute="top" secondItem="Kxf-1J-72v" secondAttribute="bottom" constant="32" id="RUj-XC-KbM"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Qc-n9-NvX" secondAttribute="trailing" constant="16" id="Taj-Es-8Yl"/>
+                                    <constraint firstItem="ErE-rq-ebt" firstAttribute="top" secondItem="7me-Bx-sj2" secondAttribute="bottom" constant="8" id="Uf0-u1-F7Y"/>
+                                    <constraint firstItem="Kxf-1J-72v" firstAttribute="centerX" secondItem="MvQ-qN-Ws4" secondAttribute="centerX" id="ZY6-q7-9Fz"/>
+                                    <constraint firstAttribute="trailing" secondItem="7me-Bx-sj2" secondAttribute="trailing" constant="16" id="bKM-xl-g8Z"/>
+                                    <constraint firstItem="1Qc-n9-NvX" firstAttribute="top" secondItem="ErE-rq-ebt" secondAttribute="bottom" constant="16" id="jeN-73-Ywn"/>
+                                    <constraint firstItem="Kxf-1J-72v" firstAttribute="top" secondItem="MvQ-qN-Ws4" secondAttribute="top" constant="68" id="w1Q-ZA-y6I"/>
+                                    <constraint firstItem="7me-Bx-sj2" firstAttribute="leading" secondItem="MvQ-qN-Ws4" secondAttribute="leading" constant="16" id="wFp-jZ-E4C"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ASZ-gg-640"/>
                         <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
+                            <constraint firstItem="MvQ-qN-Ws4" firstAttribute="trailing" secondItem="ASZ-gg-640" secondAttribute="trailing" id="C2d-vN-0fP"/>
                             <constraint firstItem="ASZ-gg-640" firstAttribute="bottom" secondItem="jb3-ZE-cTQ" secondAttribute="bottom" id="HCg-yH-y5m"/>
                             <constraint firstItem="zxa-pt-pRf" firstAttribute="top" secondItem="vod-bQ-RwZ" secondAttribute="top" id="MQV-aC-p3L"/>
                             <constraint firstItem="jb3-ZE-cTQ" firstAttribute="top" secondItem="zxa-pt-pRf" secondAttribute="bottom" constant="16" id="P1a-2w-lIV"/>
                             <constraint firstItem="zxa-pt-pRf" firstAttribute="leading" secondItem="ASZ-gg-640" secondAttribute="leading" id="Y2r-Q0-g3J"/>
+                            <constraint firstItem="MvQ-qN-Ws4" firstAttribute="leading" secondItem="ASZ-gg-640" secondAttribute="leading" id="cgT-io-z3j"/>
+                            <constraint firstItem="ASZ-gg-640" firstAttribute="bottom" secondItem="MvQ-qN-Ws4" secondAttribute="bottom" id="ckY-ET-7fK"/>
                             <constraint firstItem="ASZ-gg-640" firstAttribute="trailing" secondItem="zxa-pt-pRf" secondAttribute="trailing" id="dkS-IN-h7e"/>
+                            <constraint firstItem="MvQ-qN-Ws4" firstAttribute="top" secondItem="zxa-pt-pRf" secondAttribute="bottom" id="i6j-Pg-aCe"/>
                             <constraint firstItem="ASZ-gg-640" firstAttribute="trailing" secondItem="jb3-ZE-cTQ" secondAttribute="trailing" id="sFg-wh-Si5"/>
                             <constraint firstItem="jb3-ZE-cTQ" firstAttribute="leading" secondItem="ASZ-gg-640" secondAttribute="leading" id="uy1-KY-Gds"/>
                         </constraints>
@@ -352,6 +413,7 @@
                         <outlet property="allButton" destination="Rlh-gv-ax9" id="0EW-YC-wBL"/>
                         <outlet property="cancelledButton" destination="oWH-nR-2k9" id="fYB-9c-co0"/>
                         <outlet property="doneButton" destination="uBA-D3-nOO" id="U91-eU-1fC"/>
+                        <outlet property="emptyView" destination="MvQ-qN-Ws4" id="hbY-Fy-JXi"/>
                         <outlet property="inProgressButton" destination="aZT-El-Zeb" id="5Xb-Lp-nhm"/>
                         <outlet property="tableView" destination="jb3-ZE-cTQ" id="U24-RW-Fc9"/>
                         <outletCollection property="controllButtons" destination="Rlh-gv-ax9" collectionClass="NSMutableArray" id="AXn-qr-ZKD"/>
@@ -1362,6 +1424,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="emptyOrders" width="280" height="270"/>
         <image name="icon_back" width="42" height="42"/>
         <image name="icon_celphone" width="21.333333969116211" height="21.666666030883789"/>
         <image name="icon_door" width="21.333333969116211" height="21.666666030883789"/>

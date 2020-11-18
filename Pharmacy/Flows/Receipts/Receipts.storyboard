@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Рецепты-->
+        <scene sceneID="Bi7-NK-XGQ">
+            <objects>
+                <viewController storyboardIdentifier="ReceiptsViewController" title="Рецепты" id="jzz-GX-DX1" customClass="ReceiptsViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q3k-QH-O1B">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="184" estimatedRowHeight="184" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tS6-Yb-AAm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jzz-GX-DX1" id="0Fd-UG-dyl"/>
+                                    <outlet property="delegate" destination="jzz-GX-DX1" id="PY4-gA-ZTA"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fuf-Q4-5dU">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyReciept" translatesAutoresizingMaskIntoConstraints="NO" id="WJO-U2-tnT">
+                                        <rect key="frame" x="72" y="100" width="270" height="270"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="270" id="Srg-Mg-wPG"/>
+                                            <constraint firstAttribute="width" constant="270" id="hmn-ge-zab"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У Вас пока нет выписанных рецептов" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkj-SW-zWJ">
+                                        <rect key="frame" x="16" y="402" width="382" height="56"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
+                                        <color key="textColor" name="textDarkBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Обратитесь к Вашему лечащему врачу или проконсультируйтесь с врачем в чате" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g95-W9-maO">
+                                        <rect key="frame" x="16" y="466" width="382" height="37.5"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                        <color key="textColor" name="textDarkBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="backgroundGray"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Pkj-SW-zWJ" secondAttribute="trailing" constant="16" id="5SX-Pb-Jh3"/>
+                                    <constraint firstItem="g95-W9-maO" firstAttribute="top" secondItem="Pkj-SW-zWJ" secondAttribute="bottom" constant="8" id="KU3-Lf-1bM"/>
+                                    <constraint firstItem="WJO-U2-tnT" firstAttribute="centerX" secondItem="Fuf-Q4-5dU" secondAttribute="centerX" id="Wvr-c3-U3y"/>
+                                    <constraint firstAttribute="trailing" secondItem="g95-W9-maO" secondAttribute="trailing" constant="16" id="hDk-wh-ohr"/>
+                                    <constraint firstItem="Pkj-SW-zWJ" firstAttribute="leading" secondItem="Fuf-Q4-5dU" secondAttribute="leading" constant="16" id="t5r-nd-KgO"/>
+                                    <constraint firstItem="WJO-U2-tnT" firstAttribute="top" secondItem="Fuf-Q4-5dU" secondAttribute="top" constant="100" id="uHB-7B-G14"/>
+                                    <constraint firstItem="Pkj-SW-zWJ" firstAttribute="top" secondItem="WJO-U2-tnT" secondAttribute="bottom" constant="32" id="uVi-HB-dCx"/>
+                                    <constraint firstItem="g95-W9-maO" firstAttribute="leading" secondItem="Fuf-Q4-5dU" secondAttribute="leading" constant="16" id="z3c-Zy-MTf"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVt-lE-Ioz" customClass="PDFView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" name="backgroundGray"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="crh-x7-a73"/>
+                        <color key="backgroundColor" name="backgroundGray"/>
+                        <constraints>
+                            <constraint firstItem="Fuf-Q4-5dU" firstAttribute="top" secondItem="crh-x7-a73" secondAttribute="top" id="3xQ-oJ-opu"/>
+                            <constraint firstItem="ZVt-lE-Ioz" firstAttribute="leading" secondItem="crh-x7-a73" secondAttribute="leading" id="9uC-dp-axn"/>
+                            <constraint firstItem="crh-x7-a73" firstAttribute="trailing" secondItem="Fuf-Q4-5dU" secondAttribute="trailing" id="CoY-S0-Lqa"/>
+                            <constraint firstItem="crh-x7-a73" firstAttribute="bottom" secondItem="Fuf-Q4-5dU" secondAttribute="bottom" id="Dqh-Tl-Gi4"/>
+                            <constraint firstItem="ZVt-lE-Ioz" firstAttribute="top" secondItem="crh-x7-a73" secondAttribute="top" id="Hw7-H0-v0x"/>
+                            <constraint firstItem="tS6-Yb-AAm" firstAttribute="leading" secondItem="crh-x7-a73" secondAttribute="leading" id="Nj1-1N-H4U"/>
+                            <constraint firstItem="Fuf-Q4-5dU" firstAttribute="leading" secondItem="crh-x7-a73" secondAttribute="leading" id="Ogh-66-Eek"/>
+                            <constraint firstItem="tS6-Yb-AAm" firstAttribute="top" secondItem="crh-x7-a73" secondAttribute="top" id="Qqd-bs-bDu"/>
+                            <constraint firstItem="crh-x7-a73" firstAttribute="bottom" secondItem="tS6-Yb-AAm" secondAttribute="bottom" id="dif-sC-5me"/>
+                            <constraint firstItem="crh-x7-a73" firstAttribute="trailing" secondItem="ZVt-lE-Ioz" secondAttribute="trailing" id="ePG-De-zQK"/>
+                            <constraint firstItem="crh-x7-a73" firstAttribute="trailing" secondItem="tS6-Yb-AAm" secondAttribute="trailing" id="nrN-o7-IZH"/>
+                            <constraint firstItem="crh-x7-a73" firstAttribute="bottom" secondItem="ZVt-lE-Ioz" secondAttribute="bottom" id="uL8-sy-Pw9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emptyView" destination="Fuf-Q4-5dU" id="BKE-kC-vfW"/>
+                        <outlet property="pdfView" destination="ZVt-lE-Ioz" id="spm-XU-wvW"/>
+                        <outlet property="tableView" destination="tS6-Yb-AAm" id="WLb-kJ-9SI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ML-Cl-v6u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-236" y="17"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="emptyReciept" width="292" height="270"/>
+        <namedColor name="backgroundGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textDarkBlue">
+            <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

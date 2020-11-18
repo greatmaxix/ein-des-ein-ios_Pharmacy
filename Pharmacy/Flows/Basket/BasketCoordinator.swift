@@ -39,6 +39,13 @@ final class BasketCoordinator: EventNode, Coordinator {
             }
         }
 
+        addHandler { [weak self] (event: OrderDetailsEvent) in
+            switch event {
+            case .back:
+                self?.showRoot()
+            }
+        }
+
         addHandler { [weak self] (event: CreateOrderModelEvent) in
             switch event {
             case .back:
@@ -78,7 +85,7 @@ extension BasketCoordinator {
     }
 
     fileprivate func showRoot() {
-        root.navigationController?.popToRootViewController(animated: true)
+        root.popToRootViewController(animated: true)
     }
 
     fileprivate func openCreatedOrder(id: Int) {

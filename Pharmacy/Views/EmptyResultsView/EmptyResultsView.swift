@@ -26,7 +26,11 @@ final class EmptyResultsView: UIView {
         
         confirmButton.layer.cornerRadius = confirmButton.bounds.height / 2
         confirmButton.dropBlueShadow()
-
+        
+        titleLabel.font = R.font.openSansBold(size: 16)
+        descriptionLabel.font = R.font.openSansRegular(size: 16)
+        confirmButton.titleLabel?.font = R.font.openSansBold(size: 16)
+        
         imageViewTopConstr.constant = Const.topSpace()
     }
     

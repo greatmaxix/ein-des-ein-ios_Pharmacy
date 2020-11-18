@@ -27,13 +27,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lD-JQ-r9W">
-                            <rect key="frame" x="192" y="57" width="30" height="19"/>
+                            <rect key="frame" x="189.5" y="54" width="35.5" height="22"/>
                             <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUy-h4-mP0">
-                            <rect key="frame" x="16" y="52.5" width="40" height="28"/>
+                            <rect key="frame" x="16" y="51" width="40" height="28"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="6hO-l2-oOb"/>
                             </constraints>
@@ -43,7 +43,7 @@
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-Z6-s0d">
-                            <rect key="frame" x="368" y="49.5" width="30" height="34"/>
+                            <rect key="frame" x="368" y="48" width="30" height="34"/>
                             <state key="normal">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -119,6 +119,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="backgroundGray"/>
+            <color key="tintColor" name="welcomeBlue"/>
             <constraints>
                 <constraint firstAttribute="top" secondItem="lZX-GD-XdC" secondAttribute="top" id="ETI-7T-8CY"/>
                 <constraint firstItem="lZX-GD-XdC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OaH-lK-0X5"/>

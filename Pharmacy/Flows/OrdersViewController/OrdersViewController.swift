@@ -21,6 +21,7 @@ final class OrdersViewController: UIViewController {
     @IBOutlet weak var inProgressButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelledButton: UIButton!
+    @IBOutlet weak var emptyView: UIView!
 
     @IBOutlet var controllButtons: [UIButton]!
 
@@ -36,8 +37,7 @@ final class OrdersViewController: UIViewController {
     
     private func setupTableView() {
         tableView.isHidden = true
-
-        tableView.register(UINib(nibName: "EmptyResultsViewCell", bundle: nil), forCellReuseIdentifier: "EmptyResultsViewCell")
+        emptyView.isHidden = true
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -58,6 +58,10 @@ final class OrdersViewController: UIViewController {
     @IBAction func openDone(_ sender: Any) {
         model.open(tab: .done)
         setActive(button: doneButton)
+    }
+
+    @IBAction func openCart(_ sender: Any) {
+        model.startSearch()
     }
 
     @IBAction func openInProgress(_ sender: Any) {
@@ -90,10 +94,19 @@ final class OrdersViewController: UIViewController {
 extension OrdersViewController: OrdersViewControllerInput {
     func complete(isEmpty: Bool, error: String?) {
 
-        tableView.isHidden = false
-        tableView.reloadData()
-
         activityIndicator.hide(animated: true)
+
+        if error != nil {
+            showError(text: error!)
+        }
+
+        if model.numberOfOrders == 0 {
+            emptyView.isHidden = false
+        } else {
+            emptyView.isHidden = true
+            tableView.isHidden = false
+            tableView.reloadData()
+        }
     }
 
     func startLoading() {
@@ -104,26 +117,10 @@ extension OrdersViewController: OrdersViewControllerInput {
 extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard model.numberOfOrders != 0 else { return 1 }
         return model.numberOfOrders
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if model.numberOfOrders == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyResultsViewCell", for: indexPath) as? EmptyResultsViewCell else { return UITableViewCell() }
-            
-            cell.setup(title: R.string.localize.myOrdersEmptyTitle(),
-                       decriptionText: R.string.localize.myOrdersEmptyDescription(),
-                       buttonTitle: R.string.localize.myOrdersEmptyButton(),
-                       imageName: "emptyOrders")
-            
-            cell.tapCellButtonHandler = {[weak self] in
-                self?.model.startSearch()
-            }
-            
-            return cell
-        }
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListCell", for: indexPath) as? OrderListCell else { return UITableViewCell() }
 
         cell.apply(order: model.order(at: indexPath))
@@ -137,12 +134,4 @@ extension OrdersViewController: UITableViewDelegate, UITableViewDataSource {
         model.open(at: indexPath)
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if model.numberOfOrders == 0 {
-            return tableView.frame.height
-        } else {
-            return tableView.estimatedRowHeight
-        }
-       
-    }
 }

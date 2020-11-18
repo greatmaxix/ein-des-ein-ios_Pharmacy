@@ -28,6 +28,7 @@ class SimpleNavigationBarView: UIView {
         
         frontView.layer.cornerRadius = 10
         frontView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        frontView.clipsToBounds = true
         dropBlueShadow()
     }
     

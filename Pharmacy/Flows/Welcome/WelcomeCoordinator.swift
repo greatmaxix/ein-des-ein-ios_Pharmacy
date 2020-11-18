@@ -37,7 +37,16 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
                 break
             }
         }
-        
+
+        addHandler { [weak self] (event: ReceiptsModelEvent) in
+            switch event {
+            case .close:
+                self?.popController()
+            case .saveData(let data):
+                self?.saveToFiles(data: data)
+            }
+        }
+
         addHandler(.onRaise) { [weak self] (event: CatalogueEvent) in
             switch event {
             case .close:
@@ -115,13 +124,14 @@ fileprivate extension WelcomeCoordinator {
     }
 
     func presentPrescriptions() {
-        guard let prescriptionsVC: PrescriptionsViewController = R.storyboard.profile().instantiateViewController(withIdentifier: "PrescriptionsViewController") as? PrescriptionsViewController else {
-                   return
+        guard let controller: ReceiptsViewController = R.storyboard.receipts().instantiateViewController(withIdentifier: "ReceiptsViewController") as? ReceiptsViewController else {
+            return
         }
 
-        let model = PrescriptionsModel(parent: self)
-        prescriptionsVC.model = model
-        navigation.pushViewController(prescriptionsVC, animated: true)
+        let model = ReceiptsModel(parent: self)
+        controller.model = model
+        model.output = controller
+        navigation.pushViewController(controller, animated: true)
     }
     
     func openCommonMap() {
@@ -135,5 +145,10 @@ fileprivate extension WelcomeCoordinator {
     func openChat() {
         let vc = ChatCoordinator(parent: self, navigation: navigation).createFlow()
         navigation.pushViewController(vc, animated: true)
+    }
+
+    func saveToFiles(data: Data) {
+        let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        navigation.present(activityController, animated: true, completion: nil)
     }
 }

@@ -95,7 +95,7 @@ class OrdersListModel: EventNode {
 
 extension OrdersListModel: OrdersListInput, OrdersViewControllerOutput {
     func startSearch() {
-        raise(event: AppEvent.presentInDev)
+        raise(event: TabBarEvent.userWantsToChangeTab(newTab: .favorites))
     }
     
     var numberOfOrders: Int {

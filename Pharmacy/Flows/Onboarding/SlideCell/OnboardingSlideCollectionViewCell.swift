@@ -21,13 +21,28 @@ struct SlideInfo {
     var slideOption: SlideOption
     var skipTitle: String = R.string.localize.onboardingButtonSkip()
     var applyButtonTitle: String = R.string.localize.onboardingButtonNext()
+    var backgroundColor: UIColor = R.color.textDarkBlue()!
+    var fontColor: UIColor = .white
+    var alternativeOnboardingConfiguration: Bool = false
     
-    init(image: UIImage, title: String, description: String, skipTitle: String? = nil, applyTitle: String? = nil, option: SlideOption = .onNext, nextButtonTitle: String? = nil) {
+    init(image: UIImage, title: String, description: String, skipTitle: String? = nil, applyTitle: String? = nil, option: SlideOption = .onNext, nextButtonTitle: String? = nil, alternativeConfiguration: Bool = false) {
         self.image = image
         self.title = title
         self.description = description
         self.slideOption = option
+        self.skipTitle = skipTitle ?? R.string.localize.onboardingButtonSkip()
         self.applyButtonTitle = nextButtonTitle ?? R.string.localize.onboardingButtonNext()
+        
+        switch alternativeConfiguration {
+        case true:
+            self.alternativeOnboardingConfiguration = true
+            self.backgroundColor = .white
+            self.fontColor = R.color.textDarkBlue()!
+        case false:
+            self.alternativeOnboardingConfiguration = false
+            self.backgroundColor = R.color.textDarkBlue()!
+            self.fontColor = .white
+        }
     }
 }
 
@@ -40,12 +55,27 @@ class OnboardingSlideCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        titleLabel.font = R.font.openSansBold(size: 24)
+        descriptionLabel.font = R.font.openSansRegular(size: 16)
     }
 
     func setupContent(with info: SlideInfo) {
         imageView.image = info.image
         titleLabel.text = info.title
         descriptionLabel.text = info.description
+        backgroundColor = info.backgroundColor
+        titleLabel.textColor = info.fontColor
+        descriptionLabel.textColor = info.fontColor
+    
+        if info.alternativeOnboardingConfiguration {
+        
+            NSLayoutConstraint.activate([
+                imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -52),
+                imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 52),
+                imageView.topAnchor.constraint(equalTo: topAnchor, constant: 176)
+            ])
+            imageView.contentMode = .scaleAspectFit
+        }
     }
 }
 

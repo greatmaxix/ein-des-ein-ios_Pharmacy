@@ -24,6 +24,10 @@ class EmptyResultsViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        titleLabel.font = R.font.openSansBold(size: 16)
+        descriptionLabel.font = R.font.openSansRegular(size: 16)
+        confirmButton.titleLabel?.font = R.font.openSansBold(size: 16)
+        
         confirmButton.layer.cornerRadius = confirmButton.bounds.height / 2
         confirmButton.dropBlueShadow()
     }
