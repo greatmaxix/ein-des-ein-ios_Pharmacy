@@ -9,22 +9,24 @@
 import Foundation
 import EventsTree
 
+enum ChatEvaluateEvent: Event {
+    case send(ChatEvaluation)
+}
+
 protocol ChatEvaluationInput: class {
-    func send(_ eveluation: ChatEvaluation)
+    func send(_ evaluation: ChatEvaluation)
     func later()
 }
 
-protocol ChatEvaluationOutput {
-    
-}
+protocol ChatEvaluationOutput {}
 
 final class ChatEvaluationModel: EventNode {
     var output: ChatEvaluationOutput!
 }
 
 extension ChatEvaluationModel: ChatEvaluationInput {
-    func send(_ eveluation: ChatEvaluation) {
-        
+    func send(_ evaluation: ChatEvaluation) {
+        raise(event: ChatEvaluateEvent.send(evaluation))
     }
     
     func later() {

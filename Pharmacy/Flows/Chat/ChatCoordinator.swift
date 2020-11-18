@@ -42,9 +42,10 @@ final class ChatCoordinator: EventNode, Coordinator {
     }
     
     func openChatEvaluation() {
+        guard let chatVC = navigation?.viewControllers.last as? ChatViewController else { return }
         navigation?.view.endEditing(true)
         let vc = R.storyboard.chat.chatEvaluationViewController()!
-        let model = ChatEvaluationModel(parent: self)
+        let model = ChatEvaluationModel(parent: chatVC.model as? EventNode)
         vc.model = model
         model.output = vc
         vc.transitioningDelegate = vc

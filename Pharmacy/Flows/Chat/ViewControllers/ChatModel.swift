@@ -46,6 +46,7 @@ final class ChatModel: Model, ChatInput {
     private let sendProductProvider = DataManager<ChatAPI, CreateProductMessageResponse>()
     private let wishListProvider = DataManager<WishListAPI, PostResponse>()
     private let manageChatProvider = DataManager<ChatAPI, ChatResponse>()
+    private let evaluateChatProvider = DataManager<ChatAPI, PostResponse>()
     
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
@@ -60,7 +61,16 @@ final class ChatModel: Model, ChatInput {
     
     override init(parent: EventNode?) {
         super.init(parent: parent)
+        
+        addHandler(.onRaise) {[weak self] (event: ChatEvaluateEvent) in
+            switch event {
+            case .send(let evaluation):
+                self?.send(evaluation: evaluation)
+            }
+        }
     }
+    
+//    MARK: - ChatInput
     
     func load() {
         switch UserSession.shared.authorizationStatus {
@@ -126,7 +136,167 @@ final class ChatModel: Model, ChatInput {
         output?.showActivityIndicator()
         recursiveUpload(images: images)
     }
-
+    
+    private func didReciveChat(list: [Chat]) {
+        if let chat = list.first(where: {$0.status == .opened || $0.status == .answered || $0.status == .closeRequest}) {
+            currentChat = chat
+            output?.title = chat.type
+            output?.showActivityIndicator()
+            sender = ChatSender.currentUser()
+            chatService = ChatService(chat, topicName: UserSession.shared.user?.topicName, delegate: self)
+            loadMessages()
+        } else {
+            self.messages = [Message(.routeSwitch, sender: sender, messageId: "0", date: Date())]
+            self.output?.messagesCollectionView.reloadData()
+        }
+    }
+    
+    private func didSelect(route: ChatAPI.ChatRoute) {
+        output?.showActivityIndicator()
+        createChatProvider.load(target: .create(route)) {[weak self] result in
+            self?.output?.hideActivityIndicator()
+            self?.messages = []
+            self?.output?.messagesCollectionView.reloadData()
+            self?.output?.messageInputBar.isHidden = false
+            self?.output?.becomeFirstResponder()
+            switch result {
+            case .success(let result): self?.didReciveChat(list: [result.item])
+            case .failure(let error): print(error)
+            }
+        }
+    }
+    
+    private func authorize() {
+        raise(event: OnboardingEvent.close)
+    }
+    
+    private func evalueateChat() {
+        raise(event: ChatEvent.evaluateChat)
+    }
+    
+    private func showCloseRequestMessages() {
+        let sender = ChatSender(senderId: currentChat.user.uuid, displayName: currentChat.user.name)
+        let m = Message("У Вас есть еще какие либо вопросы?", sender: sender, messageId: "\(currentChat.lastMessage.id + 1)", date: Date())
+        let a = Message(.chatClosing, sender: sender, messageId: "\(currentChat.lastMessage.id + 2)", date: Date())
+        insertMessage(m)
+        insertMessage(a)
+    }
+    
+    private func insertMessage(_ message: Message) {
+        messages.append(message)
+        output?.messagesCollectionView.performBatchUpdates({
+            output?.messagesCollectionView.insertSections([messages.count - 1])
+            if messages.count >= 2 {
+                output?.messagesCollectionView.reloadSections([messages.count - 2])
+            }
+        }, completion: { [weak self] _ in
+            if self?.isLastSectionVisible() == true {
+                self?.output?.messagesCollectionView.scrollToBottom(animated: true)
+            }
+        })
+    }
+    
+    private func isLastSectionVisible() -> Bool {
+        guard !messages.isEmpty else { return false }
+        let lastIndexPath = IndexPath(item: 0, section: messages.count - 1)
+        return output?.messagesCollectionView.indexPathsForVisibleItems.contains(lastIndexPath) ?? false
+    }
+    
+// MARK: - Attachment
+    
+    private func openPhotoGalery() {
+        output?.openGallery()
+    }
+    
+    private func openPhotoLibrary() {
+        output?.openLibrary()
+    }
+    
+    private func openCamera() {
+        output?.openCamera()
+    }
+    
+    // MARK: - Helpers
+    
+    private func hideKeyboard() {
+        if output?.messageInputBar.inputTextView.isFirstResponder ?? false {
+            output?.navigationController?.view.endEditing(true)
+        }
+    }
+    
+    // MARK: - APICals
+    
+    private func loadMessages() {
+        messagesListProvider.load(target: .messageList((currentChat.id))) {[weak self] result in
+            self?.output?.hideActivityIndicator()
+            switch result {
+            case .success(let response):
+                self?.proccessChat(items: response.items)
+                if self?.currentChat.status == .closeRequest {
+                    self?.showCloseRequestMessages()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+  
+    private func toggleLike(product: ChatProduct, message: MessageType, at indexPath: IndexPath) {
+        var p = product
+        p.liked ? removeFromWishList(id: p.id) : addToWishList(id: p.id)
+        p.updateLike(value: !p.liked)
+        guard let sender = message.sender as? ChatSender else { return }
+        messages.remove(at: indexPath.section)
+        messages.insert(Message(.product(p), sender: sender, messageId: message.messageId, date: message.sentDate), at: indexPath.section)
+    }
+    
+    private func continueChat() {
+        guard let id = chatService?.chat.id else { return }
+        output?.showActivityIndicator()
+        manageChatProvider.load(target: .continueChat(id: id)) {[weak self] result in
+            self?.output?.hideActivityIndicator()
+            switch result {
+            case .success:
+                self?.messages.removeLast()
+                self?.output?.messagesCollectionView.reloadData()
+            case .failure(let error):
+                self?.output?.showError(text: error.localizedDescription)
+            }
+        }
+    }
+    
+    private func closeChat() {
+        output?.showActivityIndicator()
+        manageChatProvider.load(target: .closeChat(id: currentChat.id)) {[weak self] result in
+            self?.output?.hideActivityIndicator()
+            switch result {
+            case .success:
+                self?.messages.removeLast()
+                self?.output?.messagesCollectionView.reloadData()
+                self?.evalueateChat()
+            case .failure(let error):
+                self?.output?.showError(text: error.localizedDescription)
+            }
+        }
+    }
+    
+    private func send(evaluation: ChatEvaluation) {
+        output?.showActivityIndicator()
+        manageChatProvider.load(target: .evaluating(chatId: currentChat.id, evaluating: evaluation)) {[weak self] result in
+            self?.output?.hideActivityIndicator()
+            switch result {
+            case .success:
+                self?.output?.dismiss(animated: true, completion: {
+                    self?.output?.showMessage(title: "Чат завершен", text: "Если у вас остались вопросы начните новый чат", okAction: {[weak self] _ in
+                        self?.raise(event: ChatEvent.close)
+                    })
+                })
+            case .failure(let error):
+                self?.output?.showError(text: error.localizedDescription)
+            }
+        }
+    }
+    
     private func recursiveUpload(images: [LibraryImage]) {
         if let image = images.first, let data = image.original.jpegData(compressionQuality: 0.5) {
             let mime = "image/\(image.url.lastPathComponent.components(separatedBy: ".").last ?? "jpg")"
@@ -156,146 +326,6 @@ final class ChatModel: Model, ChatInput {
                 print(e.localizedDescription)
             }
         }
-    }
-    
-//    Load chat messages if opened or answered chat exist
-    
-    private func didReciveChat(list: [Chat]) {
-        if let chat = list.first(where: {$0.status == .opened || $0.status == .answered || $0.status == .closeRequest}) {
-            currentChat = chat
-            output?.title = chat.type
-            output?.showActivityIndicator()
-            messagesListProvider.load(target: .messageList((chat.id))) {[weak self] result in
-                self?.output?.hideActivityIndicator()
-                switch result {
-                case .success(let response):
-                    self?.proccessChat(items: response.items)
-                    if chat.status == .closeRequest {
-                        self?.showCloseRequestMessages()
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-            self.sender = ChatSender.currentUser()
-            self.chatService = ChatService(chat, topicName: UserSession.shared.user?.topicName, delegate: self)
-        } else {
-            self.messages = [Message(.routeSwitch, sender: sender, messageId: "0", date: Date())]
-            self.output?.messagesCollectionView.reloadData()
-        }
-    }
-    
-    private func didSelect(route: ChatAPI.ChatRoute) {
-        output?.showActivityIndicator()
-        createChatProvider.load(target: .create(route)) {[weak self] result in
-            self?.output?.hideActivityIndicator()
-            self?.messages = []
-            self?.output?.messagesCollectionView.reloadData()
-            self?.output?.messageInputBar.isHidden = false
-            self?.output?.becomeFirstResponder()
-            switch result {
-            case .success(let result): self?.didReciveChat(list: [result.item])
-            case .failure(let error): print(error)
-            }
-        }
-    }
-    
-    private func authorize() {
-        raise(event: OnboardingEvent.close)
-    }
-    
-// MARK: - Attachment
-    
-    func openPhotoGalery() {
-        output?.openGallery()
-    }
-    
-    func openPhotoLibrary() {
-        output?.openLibrary()
-    }
-    
-    func openCamera() {
-        output?.openCamera()
-    }
-    
-    // MARK: - Helpers
-    
-    func hideKeyboard() {
-        if output?.messageInputBar.inputTextView.isFirstResponder ?? false {
-            output?.navigationController?.view.endEditing(true)
-        }
-    }
-    
-    func insertMessage(_ message: Message) {
-        messages.append(message)
-        output?.messagesCollectionView.performBatchUpdates({
-            output?.messagesCollectionView.insertSections([messages.count - 1])
-            if messages.count >= 2 {
-                output?.messagesCollectionView.reloadSections([messages.count - 2])
-            }
-        }, completion: { [weak self] _ in
-            if self?.isLastSectionVisible() == true {
-                self?.output?.messagesCollectionView.scrollToBottom(animated: true)
-            }
-        })
-    }
-    
-    func isLastSectionVisible() -> Bool {
-        guard !messages.isEmpty else { return false }
-        let lastIndexPath = IndexPath(item: 0, section: messages.count - 1)
-        return output?.messagesCollectionView.indexPathsForVisibleItems.contains(lastIndexPath) ?? false
-    }
-    
-    func toggleLike(product: ChatProduct, message: MessageType, at indexPath: IndexPath) {
-        var p = product
-        p.liked ? removeFromWishList(id: p.id) : addToWishList(id: p.id)
-        p.updateLike(value: !p.liked)
-        guard let sender = message.sender as? ChatSender else { return }
-        messages.remove(at: indexPath.section)
-        messages.insert(Message(.product(p), sender: sender, messageId: message.messageId, date: message.sentDate), at: indexPath.section)
-    }
-    
-    func continueChat() {
-        guard let id = chatService?.chat.id else { return }
-        output?.showActivityIndicator()
-        manageChatProvider.load(target: .continueChat(id: id)) {[weak self] result in
-            self?.output?.hideActivityIndicator()
-            switch result {
-            case .success:
-                self?.messages.removeLast()
-                self?.output?.messagesCollectionView.reloadData()
-            case .failure(let error):
-                self?.output?.showError(text: error.localizedDescription)
-            }
-        }
-    }
-    
-    func closeChat() {
-        guard let id = chatService?.chat.id else { return }
-        output?.showActivityIndicator()
-        manageChatProvider.load(target: .closeChat(id: id)) {[weak self] result in
-            self?.output?.hideActivityIndicator()
-            switch result {
-            case .success:
-                self?.messages.removeLast()
-                self?.output?.messagesCollectionView.reloadData()
-                self?.evalueateChat()
-            case .failure(let error):
-                self?.output?.showError(text: error.localizedDescription)
-            }
-        }
-    }
-    
-    func evalueateChat() {        
-        raise(event: ChatEvent.evaluateChat)
-    }
-    
-    func showCloseRequestMessages() {
-        let sender = ChatSender(senderId: currentChat.user.uuid, displayName: currentChat.user.name)
-        let m = Message("У Вас есть еще какие либо вопросы?", sender: sender, messageId: "\(currentChat.lastMessage.id + 1)", date: Date())
-        let a = Message(.chatClosing, sender: sender, messageId: "\(currentChat.lastMessage.id + 2)", date: Date())
-        insertMessage(m)
-        insertMessage(a)
     }
 }
 

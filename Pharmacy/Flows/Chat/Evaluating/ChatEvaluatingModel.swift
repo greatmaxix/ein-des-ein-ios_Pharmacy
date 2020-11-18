@@ -14,11 +14,11 @@ struct ChatEvaluation {
     let evaluatingTags: [String]?
     
     var asDictionary: [String: Any] {
-        var d: [String: Any] = ["evaluatingRating" : "\(evaluatingRating)"]
-        if let c = evaluatingComment {
+        var d: [String: Any] = ["evaluatingRating": "\(evaluatingRating)"]
+        if let c = evaluatingComment, c.isEmpty == false {
             d["evaluatingComment"] = c
         }
-        if let t = evaluatingTags {
+        if let t = evaluatingTags, t.count > 0 {
             d["evaluatingTags"] = t
         }
         
