@@ -259,10 +259,14 @@ final class ChatModel: Model, ChatInput {
         guard let id = chatService?.chat.id else { return }
         output?.showActivityIndicator()
         manageChatProvider.load(target: .continueChat(id: id)) {[weak self] result in
-            self?.messages.removeLast()
-            self?.output?.messagesCollectionView.reloadData()
             self?.output?.hideActivityIndicator()
-            print(result)
+            switch result {
+            case .success:
+                self?.messages.removeLast()
+                self?.output?.messagesCollectionView.reloadData()
+            case .failure(let error):
+                self?.output?.showError(text: error.localizedDescription)
+            }
         }
     }
     
@@ -270,13 +274,14 @@ final class ChatModel: Model, ChatInput {
         guard let id = chatService?.chat.id else { return }
         output?.showActivityIndicator()
         manageChatProvider.load(target: .closeChat(id: id)) {[weak self] result in
+            self?.output?.hideActivityIndicator()
             switch result {
             case .success:
                 self?.messages.removeLast()
                 self?.output?.messagesCollectionView.reloadData()
-                self?.output?.hideActivityIndicator()
                 self?.evalueateChat()
-            case .failure: break
+            case .failure(let error):
+                self?.output?.showError(text: error.localizedDescription)
             }
         }
     }
