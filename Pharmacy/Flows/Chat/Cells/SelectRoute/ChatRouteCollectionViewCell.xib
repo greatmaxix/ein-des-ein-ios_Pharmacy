@@ -28,13 +28,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пожалуйста, выберите, с кем вы хотите начать консультацию" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qh-jm-OvI">
-                        <rect key="frame" x="16" y="33" width="343" height="44"/>
+                        <rect key="frame" x="16" y="33" width="343" height="37.5"/>
                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                         <color key="textColor" name="textDarkBlue"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgb-6H-UKK">
-                        <rect key="frame" x="40" y="94" width="295" height="136"/>
+                        <rect key="frame" x="40" y="87.5" width="295" height="136"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zv-4w-1z6" userLabel="DoctorShadow">
                                 <rect key="frame" x="159" y="0.0" width="136" height="136"/>
@@ -107,7 +107,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="666-p4-elN" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
-                        <rect key="frame" x="16" y="330" width="343" height="48"/>
+                        <rect key="frame" x="16" y="323.5" width="343" height="48"/>
                         <color key="backgroundColor" name="applyBlueGray"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="beT-4c-NOF"/>
@@ -129,13 +129,13 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доктор" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6Q-M0-Bj0">
-                        <rect key="frame" x="236.5" y="242" width="61" height="22"/>
+                        <rect key="frame" x="239.5" y="235.5" width="55.5" height="19"/>
                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                         <nil key="textColor"/>
                         <color key="highlightedColor" name="textDarkBlue"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фармацевт" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcC-42-DZo">
-                        <rect key="frame" x="60" y="242" width="96.5" height="22"/>
+                        <rect key="frame" x="65.5" y="235.5" width="85.5" height="19"/>
                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                         <nil key="textColor"/>
                         <color key="highlightedColor" name="textDarkBlue"/>
@@ -170,7 +170,7 @@
     </objects>
     <designables>
         <designable name="666-p4-elN">
-            <size key="intrinsicContentSize" width="52" height="34"/>
+            <size key="intrinsicContentSize" width="47" height="31"/>
         </designable>
         <designable name="fve-dd-KZd">
             <size key="intrinsicContentSize" width="137" height="137"/>

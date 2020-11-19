@@ -16,11 +16,11 @@ protocol ChatServiceDelegate: class {
 final class ChatService {
     
     enum ChatStatus: String, Codable, Equatable {
-        case opened, answered, requestForClosing, closed
+        case opened, answered, closeRequest = "close_request", closed
     }
     
     enum ChatEvent: String {
-        case message, none = ""
+        case message, changeStatus = "change_status", none = ""
     }
     
     weak var delegate: ChatServiceDelegate?
@@ -37,6 +37,8 @@ final class ChatService {
     init(_ chat: Chat, topicName: String?, delegate: ChatServiceDelegate?) {
         self.chat = chat
         self.delegate = delegate
+        decoder.dataDecodingStrategy = .deferredToData
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         if let t = topicName {
             subscribeFor(topicName: t)
         } else {
@@ -69,17 +71,11 @@ extension ChatService: EventHandler {
     
     func onMessage(eventType: String, messageEvent: MessageEvent) {
         print("Message - \(messageEvent.data)")
-        let event = ChatEvent(rawValue: eventType) ?? ChatEvent.none
+        
         do {
-            switch event {
-            case .message:
-                
-                let message = try decoder.decode(ChatMessagesResponse.self, from: Data(messageEvent.data.utf8))
-                DispatchQueue.main.async { [weak self] in
-                        self?.delegate?.didRecive(data: message)
-                }
-            case .none:
-                print("Unknow chat event")
+            let message = try decoder.decode(ChatMessagesResponse.self, from: Data(messageEvent.data.utf8))
+            DispatchQueue.main.async { [weak self] in
+                self?.delegate?.didRecive(data: message)
             }
         } catch {
             print("DecodeErorr")

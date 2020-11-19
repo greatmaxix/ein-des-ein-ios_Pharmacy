@@ -12,6 +12,7 @@ import Photos
 
 protocol ChatGalleryDelegate: class {
     func imageAction(action: ImageSelectionAction)
+    func openCamera()
     func needHideGallery()
 }
 
@@ -102,7 +103,12 @@ extension ChatGallery: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return !(indexPath.row == 0)
+        if indexPath.row == 0 {
+            actionsDelegate?.openCamera()
+            return false
+        } else {
+            return true
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -158,21 +164,21 @@ struct LibraryImage: Equatable {
     
     let original: UIImage
     let placeholder: UIImage
-    let url: URL
+    let url: URL?
     let source: ImageSource?
     
     static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.url.absoluteString == rhs.url.absoluteString
+        return lhs.original == rhs.original
     }
     
     init(data: Data, info: [AnyHashable: Any]?, source: ImageSource? = nil) {
         original = UIImage(data: data)!
         placeholder = UIImage(data: data, scale: 0.2)!
-        url = (info?["PHImageFileURLKey"] as? URL) ?? URL(string: "empty")!
+        url = info?["PHImageFileURLKey"] as? URL
         self.source = source
     }
     
-    init(originalImage: UIImage, url: URL, source: ImageSource? = nil) {
+    init(originalImage: UIImage, url: URL?, source: ImageSource? = nil) {
         original = originalImage
         placeholder = originalImage
         self.url = url

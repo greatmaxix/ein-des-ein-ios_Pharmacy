@@ -50,6 +50,11 @@ final class ProductModel: Model {
         self.medicine = product
         super.init(parent: parent)
     }
+    
+    init(product: ChatProduct, parent: EventNode?) {
+        self.medicine = product.asMedicine
+        super.init(parent: parent)
+    }
 }
 
 // MARK: - ProductViewControllerOutput
@@ -96,7 +101,7 @@ extension ProductModel: ProductViewControllerOutput {
     }
     
     var title: String {
-        medicine.title
+        return medicine.title
     }
     
     func load() {

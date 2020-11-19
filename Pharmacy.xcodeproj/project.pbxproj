@@ -144,6 +144,10 @@
 		4DE4D53D25498E4100EE0E3A /* AboutAppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4D53C25498E4100EE0E3A /* AboutAppTableViewCell.swift */; };
 		4DE4D54025498E5A00EE0E3A /* AboutAppTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE4D53F25498E5A00EE0E3A /* AboutAppTableViewCell.xib */; };
 		6010A10C24E246A0000D6AEE /* NavigationBar.xib in Sources */ = {isa = PBXBuildFile; fileRef = 6010A10A24E2467A000D6AEE /* NavigationBar.xib */; };
+		601121962565A8A800532C26 /* ChatTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601121952565A8A700532C26 /* ChatTagCollectionViewCell.swift */; };
+		601121992565A8B700532C26 /* ChatTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601121982565A8B700532C26 /* ChatTagCollectionViewCell.xib */; };
+		6011219D2565B4FF00532C26 /* ModalPresentingTransitionioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011219C2565B4FF00532C26 /* ModalPresentingTransitionioning.swift */; };
+		601121A02565B56500532C26 /* ChatTagsCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011219F2565B56500532C26 /* ChatTagsCollectionViewLayout.swift */; };
 		601E7ECE2549C69300C936BF /* MapGetDirections.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601E7ECD2549C69300C936BF /* MapGetDirections.xib */; };
 		601E7ED12549CDB300C936BF /* MapGetDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7ED02549CDB300C936BF /* MapGetDirections.swift */; };
 		601E7ED52549D4B500C936BF /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7ED42549D4B500C936BF /* RoundedButton.swift */; };
@@ -218,6 +222,11 @@
 		60475FE02551569400448EF3 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60475FDF2551569400448EF3 /* ChatModel.swift */; };
 		60475FE425515CFA00448EF3 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60475FE325515CFA00448EF3 /* ChatViewController.swift */; };
 		60515CFE254B068900977BEF /* SubcategoryCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60515CFD254B068900977BEF /* SubcategoryCellSection.swift */; };
+		60655B912562F8100030DC63 /* ChatProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60655B902562F8100030DC63 /* ChatProduct.swift */; };
+		60655B95256303DE0030DC63 /* ChatReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60655B94256303DE0030DC63 /* ChatReceipt.swift */; };
+		60655B982563287B0030DC63 /* ChatReceiptCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60655B972563287B0030DC63 /* ChatReceiptCollectionViewCell.swift */; };
+		60655B9D256328A20030DC63 /* ChatReceiptCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60655B9C256328A20030DC63 /* ChatReceiptCollectionViewCell.xib */; };
+		606DAB58255EFD0400663E55 /* ChatEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606DAB57255EFD0400663E55 /* ChatEvaluation.swift */; };
 		6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */; };
 		6075BD4624DEA6FF00BC78BD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075BD4524DEA6FF00BC78BD /* R.generated.swift */; };
 		6075BD4724DEA7FB00BC78BD /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6075BD3324DEA3C800BC78BD /* OpenSans-BoldItalic.ttf */; };
@@ -243,6 +252,9 @@
 		608E3B052551EFA900AEE56C /* ChatRouteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E3B042551EFA900AEE56C /* ChatRouteCollectionViewCell.swift */; };
 		608E3B092551EFB500AEE56C /* ChatRouteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 608E3B082551EFB500AEE56C /* ChatRouteCollectionViewCell.xib */; };
 		608F0225255C2272002F7161 /* PhotoLibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608F0224255C2272002F7161 /* PhotoLibraryManager.swift */; };
+		60A12B33256401400001C994 /* ChatEvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A12B31256401400001C994 /* ChatEvaluationViewController.swift */; };
+		60A12B3A256426F00001C994 /* ChatEvaluationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A12B39256426F00001C994 /* ChatEvaluationModel.swift */; };
+		60A12B3D25642BBB0001C994 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A12B3C25642BBB0001C994 /* Chat.storyboard */; };
 		60A48C242555B9BC007CCDFE /* AttachInputItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A48C232555B9BC007CCDFE /* AttachInputItem.swift */; };
 		60A48C282555BD3E007CCDFE /* ChatInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A48C272555BD3E007CCDFE /* ChatInputBar.swift */; };
 		60AE318A2552FA26002BD404 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AE31892552FA26002BD404 /* ChatService.swift */; };
@@ -527,6 +539,10 @@
 		4DE4D53C25498E4100EE0E3A /* AboutAppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppTableViewCell.swift; sourceTree = "<group>"; };
 		4DE4D53F25498E5A00EE0E3A /* AboutAppTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppTableViewCell.xib; sourceTree = "<group>"; };
 		6010A10A24E2467A000D6AEE /* NavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
+		601121952565A8A700532C26 /* ChatTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		601121982565A8B700532C26 /* ChatTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTagCollectionViewCell.xib; sourceTree = "<group>"; };
+		6011219C2565B4FF00532C26 /* ModalPresentingTransitionioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentingTransitionioning.swift; sourceTree = "<group>"; };
+		6011219F2565B56500532C26 /* ChatTagsCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTagsCollectionViewLayout.swift; sourceTree = "<group>"; };
 		601E7ECD2549C69300C936BF /* MapGetDirections.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapGetDirections.xib; sourceTree = "<group>"; };
 		601E7ED02549CDB300C936BF /* MapGetDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGetDirections.swift; sourceTree = "<group>"; };
 		601E7ED42549D4B500C936BF /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -601,6 +617,11 @@
 		60475FDF2551569400448EF3 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		60475FE325515CFA00448EF3 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		60515CFD254B068900977BEF /* SubcategoryCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryCellSection.swift; sourceTree = "<group>"; };
+		60655B902562F8100030DC63 /* ChatProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatProduct.swift; sourceTree = "<group>"; };
+		60655B94256303DE0030DC63 /* ChatReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatReceipt.swift; sourceTree = "<group>"; };
+		60655B972563287B0030DC63 /* ChatReceiptCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatReceiptCollectionViewCell.swift; sourceTree = "<group>"; };
+		60655B9C256328A20030DC63 /* ChatReceiptCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatReceiptCollectionViewCell.xib; sourceTree = "<group>"; };
+		606DAB57255EFD0400663E55 /* ChatEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEvaluation.swift; sourceTree = "<group>"; };
 		6075BD2F24DEA3C800BC78BD /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		6075BD3124DEA3C800BC78BD /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
@@ -626,6 +647,9 @@
 		608E3B042551EFA900AEE56C /* ChatRouteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRouteCollectionViewCell.swift; sourceTree = "<group>"; };
 		608E3B082551EFB500AEE56C /* ChatRouteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRouteCollectionViewCell.xib; sourceTree = "<group>"; };
 		608F0224255C2272002F7161 /* PhotoLibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryManager.swift; sourceTree = "<group>"; };
+		60A12B31256401400001C994 /* ChatEvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEvaluationViewController.swift; sourceTree = "<group>"; };
+		60A12B39256426F00001C994 /* ChatEvaluationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEvaluationModel.swift; sourceTree = "<group>"; };
+		60A12B3C25642BBB0001C994 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		60A48C232555B9BC007CCDFE /* AttachInputItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachInputItem.swift; sourceTree = "<group>"; };
 		60A48C272555BD3E007CCDFE /* ChatInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputBar.swift; sourceTree = "<group>"; };
 		60AE31892552FA26002BD404 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
@@ -1445,6 +1469,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		601121942565A82500532C26 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				601121952565A8A700532C26 /* ChatTagCollectionViewCell.swift */,
+				601121982565A8B700532C26 /* ChatTagCollectionViewCell.xib */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
 		601E7ECC2549C64E00C936BF /* MapGetDirections */ = {
 			isa = PBXGroup;
 			children = (
@@ -1730,13 +1763,42 @@
 				60A48C262555BD24007CCDFE /* InputBar */,
 				60A48C222555B996007CCDFE /* InputItems */,
 				608E3AF82551D37D00AEE56C /* Cells */,
-				60475FDF2551569400448EF3 /* ChatModel.swift */,
+				60A12B362564015A0001C994 /* ViewControllers */,
 				60475FDB2551515D00448EF3 /* ChatCoordinator.swift */,
-				60475FE325515CFA00448EF3 /* ChatViewController.swift */,
 				608E3AFF2551D73E00AEE56C /* CustomMessageSizeCalculator.swift */,
 				60AE31892552FA26002BD404 /* ChatService.swift */,
+				60A12B3C25642BBB0001C994 /* Chat.storyboard */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		60655B9A2563287F0030DC63 /* ChatReceipt */ = {
+			isa = PBXGroup;
+			children = (
+				60655B972563287B0030DC63 /* ChatReceiptCollectionViewCell.swift */,
+				60655B9C256328A20030DC63 /* ChatReceiptCollectionViewCell.xib */,
+			);
+			path = ChatReceipt;
+			sourceTree = "<group>";
+		};
+		6069A4912565F20800596B5B /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				60475FE325515CFA00448EF3 /* ChatViewController.swift */,
+				60475FDF2551569400448EF3 /* ChatModel.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		6069A4932565F21700596B5B /* Evaluation */ = {
+			isa = PBXGroup;
+			children = (
+				60A12B31256401400001C994 /* ChatEvaluationViewController.swift */,
+				60A12B39256426F00001C994 /* ChatEvaluationModel.swift */,
+				6011219C2565B4FF00532C26 /* ModalPresentingTransitionioning.swift */,
+				6011219F2565B56500532C26 /* ChatTagsCollectionViewLayout.swift */,
+			);
+			path = Evaluation;
 			sourceTree = "<group>";
 		};
 		6075BD2E24DEA3BE00BC78BD /* OpenSans */ = {
@@ -1778,10 +1840,13 @@
 			isa = PBXGroup;
 			children = (
 				608E3AEE2551A71200AEE56C /* Message.swift */,
+				606DAB57255EFD0400663E55 /* ChatEvaluation.swift */,
 				608E3AF22551A94C00AEE56C /* Sender.swift */,
 				608E3AF52551AB5F00AEE56C /* ImageMediaItem.swift */,
 				60AE319A2553F980002BD404 /* Chat.swift */,
 				60B9545E255AD139002DE2A1 /* FileAttachment.swift */,
+				60655B902562F8100030DC63 /* ChatProduct.swift */,
+				60655B94256303DE0030DC63 /* ChatReceipt.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -1789,12 +1854,14 @@
 		608E3AF82551D37D00AEE56C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				601121942565A82500532C26 /* Tag */,
 				60383A2F255B2C3D00654C1A /* GalleryItem */,
 				60B95461255ADBC7002DE2A1 /* Application */,
 				60B9545725597720002DE2A1 /* Product */,
 				60AE318C25530854002BD404 /* CloseChat */,
 				608E3B032551EF8000AEE56C /* SelectRoute */,
 				608E3B022551EF6E00AEE56C /* ActionButton */,
+				60655B9A2563287F0030DC63 /* ChatReceipt */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1815,6 +1882,15 @@
 				608E3B082551EFB500AEE56C /* ChatRouteCollectionViewCell.xib */,
 			);
 			path = SelectRoute;
+			sourceTree = "<group>";
+		};
+		60A12B362564015A0001C994 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6069A4912565F20800596B5B /* Chat */,
+				6069A4932565F21700596B5B /* Evaluation */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		60A48C222555B996007CCDFE /* InputItems */ = {
@@ -2451,12 +2527,15 @@
 				608E3AFD2551D47000AEE56C /* ChatButtonCollectionViewCell.xib in Resources */,
 				6075BD4E24DEA7FB00BC78BD /* OpenSans-SemiBold.ttf in Resources */,
 				61CFAA94254C28DD00569DEF /* OrderPharmacyCell.xib in Resources */,
+				60655B9D256328A20030DC63 /* ChatReceiptCollectionViewCell.xib in Resources */,
 				8715DB8624FFBFF800BBF37C /* Onboarding.storyboard in Resources */,
+				60A12B3D25642BBB0001C994 /* Chat.storyboard in Resources */,
 				603D31A524E3B608000E5A6C /* CategoryCollectionViewCell.xib in Resources */,
 				6075BD4F24DEA7FB00BC78BD /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				395D050624D05206007A278D /* MedicineCell.xib in Resources */,
 				60B9545C2559797C002DE2A1 /* ChatProductCollectionViewCell.xib in Resources */,
 				618C33A52498BE6200951D11 /* Profile.storyboard in Resources */,
+				601121992565A8B700532C26 /* ChatTagCollectionViewCell.xib in Resources */,
 				3949851B24BC519B006A773D /* ProfileOptionsCell.xib in Resources */,
 				39DBC19124F7C2DD00CB82D5 /* MapMessageView.xib in Resources */,
 				603D31FB24E5AA31000E5A6C /* ProductDescriptionTableViewCell.xib in Resources */,
@@ -2654,6 +2733,7 @@
 				39F0AD6B24EEC84100CD6CA4 /* PrescriptionsViewController.swift in Sources */,
 				6036EB0924DD27CC003336C2 /* SearchCoordinator.swift in Sources */,
 				8717E4DC2506979200546A55 /* SuccessfulSignUpModel.swift in Sources */,
+				606DAB58255EFD0400663E55 /* ChatEvaluation.swift in Sources */,
 				619AAA432498ADFE00AB46ED /* DataManager.swift in Sources */,
 				39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */,
 				875223A925000462000759C8 /* CellReusable.swift in Sources */,
@@ -2685,6 +2765,7 @@
 				875223BB2500ED89000759C8 /* UserDefaultsAccessor.swift in Sources */,
 				618473182549A5060062D8B9 /* CartSectionFooterView.swift in Sources */,
 				603D31D724E5A3FE000E5A6C /* Product.swift in Sources */,
+				60655B982563287B0030DC63 /* ChatReceiptCollectionViewCell.swift in Sources */,
 				61CFAA89254B214400569DEF /* OrderDeliveryCell.swift in Sources */,
 				395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */,
 				618C33AA2498BFB400951D11 /* Coordinator.swift in Sources */,
@@ -2733,6 +2814,7 @@
 				60E1A70E24ECD6F400B3D205 /* SearchNavigationModel.swift in Sources */,
 				24F5FDB3254B3C1F00D28275 /* ChooseLocationTableViewCell.swift in Sources */,
 				39F0AD6724EEC81400CD6CA4 /* OrdersModel.swift in Sources */,
+				60A12B3A256426F00001C994 /* ChatEvaluationModel.swift in Sources */,
 				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
 				60383A2D255B223800654C1A /* ChatGallery.swift in Sources */,
 				396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */,
@@ -2742,6 +2824,7 @@
 				87131D30251146960050B8F2 /* EmptySearchView.swift in Sources */,
 				4DE4D5352549810C00EE0E3A /* AboutAppViewController.swift in Sources */,
 				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,
+				60655B95256303DE0030DC63 /* ChatReceipt.swift in Sources */,
 				393DDFC32502954200652A01 /* RegionHeaderCell.swift in Sources */,
 				398B0DD724F50A4C0084EC54 /* FarmacyPinView.swift in Sources */,
 				875223D12501075D000759C8 /* CoreDataService.swift in Sources */,
@@ -2765,6 +2848,7 @@
 				61701FB42551A1AD0000303C /* OrderDetailsCommentCell.swift in Sources */,
 				6184731E2549ACFB0062D8B9 /* CartMedecineCell.swift in Sources */,
 				875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */,
+				601121A02565B56500532C26 /* ChatTagsCollectionViewLayout.swift in Sources */,
 				395CB74424FCE9BF000A958F /* CheckoutViewController.swift in Sources */,
 				60E1A70C24ECD6E500B3D205 /* SearchNavigationController.swift in Sources */,
 				87131D3725137B6C0050B8F2 /* RecentsHeaderView.swift in Sources */,
@@ -2793,10 +2877,12 @@
 				39505F5824AC73620045EC02 /* TabBarEmbedCoordinable.swift in Sources */,
 				60F2673B24E0566B00BFF296 /* NavigationTransitionAnimator.swift in Sources */,
 				608E3AF62551AB5F00AEE56C /* ImageMediaItem.swift in Sources */,
+				6011219D2565B4FF00532C26 /* ModalPresentingTransitionioning.swift in Sources */,
 				395B9CCB24EFC6CA00254881 /* AnalizesModel.swift in Sources */,
 				8732E4352518AAF0007CBBEF /* UIImage+Grayscale.swift in Sources */,
 				6106BA5C2562860D00E85864 /* PDFManager.swift in Sources */,
 				6036EAFC24DD1C8F003336C2 /* BasketViewController.swift in Sources */,
+				601121962565A8A800532C26 /* ChatTagCollectionViewCell.swift in Sources */,
 				875223B72500ECCF000759C8 /* Accessible.swift in Sources */,
 				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
 				875223B92500ED29000759C8 /* UserDefaults+Persistent.swift in Sources */,
@@ -2808,6 +2894,7 @@
 				395A7FC524A3980D00A7CFC6 /* NameTableViewCell.swift in Sources */,
 				603D31DB24E5A88C000E5A6C /* ProductAnalogTableViewCell.swift in Sources */,
 				39520E8E24A5EFAC00C2B7D8 /* UIViewController+Alert.swift in Sources */,
+				60A12B33256401400001C994 /* ChatEvaluationViewController.swift in Sources */,
 				395085E724EBC3650076E1DF /* ProfileResponse.swift in Sources */,
 				603D31B824E3F57B000E5A6C /* NSAttributedString+Price.swift in Sources */,
 				61AA472225505A4800D140D3 /* OrderDetailsModel.swift in Sources */,
@@ -2818,6 +2905,7 @@
 				394EBEE724FF901600C89970 /* MedicineView.swift in Sources */,
 				611C3BF1254F455E006178B7 /* OrdersAPI.swift in Sources */,
 				61CFAAA8254C3CB700569DEF /* OrderCommentCell.swift in Sources */,
+				60655B912562F8100030DC63 /* ChatProduct.swift in Sources */,
 				395085E924EC1C960076E1DF /* CustomerImageResponse.swift in Sources */,
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
 				4DE4D53D25498E4100EE0E3A /* AboutAppTableViewCell.swift in Sources */,

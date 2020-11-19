@@ -11,7 +11,7 @@ import UIKit
 class ChatApplicationCollectionViewCell: UICollectionViewCell {
     
     struct GUI {
-        static let cornerRadius: CGFloat = 10.0
+        static let cornerRadius: CGFloat = 24.0
     }
     @IBOutlet weak var leadingImageConstraint: NSLayoutConstraint!
     
@@ -30,12 +30,11 @@ class ChatApplicationCollectionViewCell: UICollectionViewCell {
         if isFromCurrentSender {
             applicationImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
             leadingImageConstraint.constant = 40.0
-            trailingImageConstraint.constant = 0.0
+            trailingImageConstraint.constant = 8.0
         } else {
             applicationImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMaxXMaxYCorner]
-            leadingImageConstraint.constant = 0.0
+            leadingImageConstraint.constant = 8.0
             trailingImageConstraint.constant = 40.0
         }
-        
     }
 }

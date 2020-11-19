@@ -14,7 +14,7 @@ struct ChatListResponse: Decodable, Equatable {
     var items: [Chat]
 }
 
-struct CreateChatResponse: Decodable, Equatable {
+struct ChatResponse: Decodable, Equatable {
     var item: Chat
 }
 
@@ -31,6 +31,10 @@ struct UploadedImage: Decodable, Equatable {
     let url: String
 }
 
+struct CreateProductMessageResponse: Decodable, Equatable {
+    let item: Product
+}
+
 typealias UploadImageResult = Result<CustomerImageUploadResponse, MoyaError>
 
 struct CustomerImageUploadResponse: Decodable, Equatable {
@@ -39,7 +43,7 @@ struct CustomerImageUploadResponse: Decodable, Equatable {
 
 // From Mercury
 
-enum ChatMessageType: String, Decodable {
+enum ChatMessageType: String, Decodable, Equatable {
     case message, application, changeStatus = "change_status", globalProduct = "global_product"
 }
 
@@ -49,8 +53,17 @@ struct ChatMessagesResponse: Decodable, Equatable {
         var item: ChatMessage
     }
     
-    var type: ChatMessageType
+    struct ChatResponseBody: Decodable, Equatable {
+        var item: Chat
+        var asMessage: Message {
+            let s = ChatSender(senderId: item.user.uuid, displayName: item.user.name)
+            return Message(.chatClosing, sender: s, messageId: "\(item.id)", date: item.createdAt.date() ?? Date())
+        }
+    }
+    
+    var messageType: ChatMessageType
     var body: ResponseBody?
+    var chatBody: ChatResponseBody?
     
     enum Keys: CodingKey {
         case type, body
@@ -58,7 +71,12 @@ struct ChatMessagesResponse: Decodable, Equatable {
     
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: Keys.self)
-        self.type = try c.decode(ChatMessageType.self, forKey: .type)
-        self.body = try c.decode(ResponseBody.self, forKey: .body)
+        messageType = try c.decode(ChatMessageType.self, forKey: .type)
+        switch messageType {
+        case .changeStatus:
+            chatBody = try c.decode(ChatResponseBody.self, forKey: .body)
+        default:
+            body = try c.decode(ResponseBody.self, forKey: .body)
+        }
     }
 }

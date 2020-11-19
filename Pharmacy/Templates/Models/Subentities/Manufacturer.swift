@@ -21,6 +21,11 @@ struct Manufacturer: Decodable, Equatable {
         name = try container.decode(String.self, forKey: .localName)
         countryISOCode = try container.decode(String.self, forKey: .iso3CountryCode)
     }
+    
+    init(name: String, countryISOCode: String) {
+        self.name = name
+        self.countryISOCode = countryISOCode
+    }
 }
 
 // MARK: - External declaration

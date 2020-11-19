@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XfN-xq-AO2" customClass="ChatTagCollectionViewCell" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="176" height="34"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ha4-a0-Zlh">
+                <rect key="frame" x="0.0" y="0.0" width="176" height="34"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wzg-Q4-hRo">
+                        <rect key="frame" x="0.0" y="0.0" width="176" height="34"/>
+                        <color key="backgroundColor" name="welcomeBlue"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="rCR-oa-e0Z"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJf-cg-SGC">
+                        <rect key="frame" x="14" y="7" width="148" height="20"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                        <color key="textColor" name="welcomeBlue"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="LJf-cg-SGC" firstAttribute="top" secondItem="ha4-a0-Zlh" secondAttribute="top" constant="7" id="7MQ-8d-RNj"/>
+                    <constraint firstAttribute="trailing" secondItem="Wzg-Q4-hRo" secondAttribute="trailing" id="FHS-EC-qep"/>
+                    <constraint firstAttribute="bottom" secondItem="LJf-cg-SGC" secondAttribute="bottom" constant="7" id="FUs-0f-9Ee"/>
+                    <constraint firstItem="Wzg-Q4-hRo" firstAttribute="leading" secondItem="ha4-a0-Zlh" secondAttribute="leading" id="d9G-QL-otv"/>
+                    <constraint firstItem="LJf-cg-SGC" firstAttribute="leading" secondItem="ha4-a0-Zlh" secondAttribute="leading" constant="14" id="j2Y-1W-v5a"/>
+                    <constraint firstItem="Wzg-Q4-hRo" firstAttribute="top" secondItem="ha4-a0-Zlh" secondAttribute="top" id="rQh-kj-f1W"/>
+                    <constraint firstAttribute="bottom" secondItem="Wzg-Q4-hRo" secondAttribute="bottom" id="sg1-2F-iqP"/>
+                    <constraint firstAttribute="trailing" secondItem="LJf-cg-SGC" secondAttribute="trailing" constant="14" id="yiM-0J-RAS"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="176" height="34"/>
+            <connections>
+                <outlet property="decorationView" destination="Wzg-Q4-hRo" id="ypo-gz-07P"/>
+                <outlet property="tagTitleLabel" destination="LJf-cg-SGC" id="ZFM-bd-j1P"/>
+            </connections>
+            <point key="canvasLocation" x="146.37681159420291" y="78.348214285714278"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="welcomeBlue">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

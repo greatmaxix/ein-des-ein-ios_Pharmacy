@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="22E-en-JBj" customClass="ChatReceiptCollectionViewCell" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="306" height="96"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e9H-N8-cLJ">
+                <rect key="frame" x="0.0" y="0.0" width="306" height="96"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NSe-pD-OdP">
+                        <rect key="frame" x="0.0" y="0.0" width="306" height="96"/>
+                        <color key="backgroundColor" name="mediumGrey"/>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SKJ-CS-M8X">
+                        <rect key="frame" x="16" y="0.0" width="274" height="96"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pdf_icon" translatesAutoresizingMaskIntoConstraints="NO" id="o3g-Ol-mEF">
+                                <rect key="frame" x="0.0" y="24" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="WXD-Uc-TkP"/>
+                                    <constraint firstAttribute="width" constant="48" id="eRM-wo-G1q"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0M-6f-oNX">
+                                <rect key="frame" x="56" y="40" width="162" height="16.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pdf_icon" translatesAutoresizingMaskIntoConstraints="NO" id="t4u-7B-PDP">
+                                <rect key="frame" x="226" y="24" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="L3y-SX-1f4"/>
+                                    <constraint firstAttribute="width" constant="48" id="l2l-vm-bPb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="NSe-pD-OdP" firstAttribute="top" secondItem="e9H-N8-cLJ" secondAttribute="top" id="32M-Jb-Qac"/>
+                    <constraint firstItem="NSe-pD-OdP" firstAttribute="leading" secondItem="e9H-N8-cLJ" secondAttribute="leading" id="7P7-3X-pj4"/>
+                    <constraint firstItem="SKJ-CS-M8X" firstAttribute="top" secondItem="e9H-N8-cLJ" secondAttribute="top" id="JDA-QS-Swp"/>
+                    <constraint firstItem="SKJ-CS-M8X" firstAttribute="leading" secondItem="e9H-N8-cLJ" secondAttribute="leading" constant="16" id="LQf-gI-nWe"/>
+                    <constraint firstAttribute="bottom" secondItem="NSe-pD-OdP" secondAttribute="bottom" id="Y8X-6y-EiG"/>
+                    <constraint firstAttribute="trailing" secondItem="NSe-pD-OdP" secondAttribute="trailing" id="ipu-18-OtG"/>
+                    <constraint firstAttribute="bottom" secondItem="SKJ-CS-M8X" secondAttribute="bottom" id="jE1-BN-be4"/>
+                    <constraint firstAttribute="trailing" secondItem="SKJ-CS-M8X" secondAttribute="trailing" constant="16" id="tCt-Su-TKo"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="306" height="96"/>
+            <connections>
+                <outlet property="decorationView" destination="NSe-pD-OdP" id="0ba-QI-AsV"/>
+                <outlet property="leftPfdIcon" destination="o3g-Ol-mEF" id="CG5-IO-DNT"/>
+                <outlet property="nameLabel" destination="u0M-6f-oNX" id="yTQ-WS-6sq"/>
+                <outlet property="rightPdfIcon" destination="t4u-7B-PDP" id="Cmb-wO-Wse"/>
+            </connections>
+            <point key="canvasLocation" x="221.73913043478262" y="103.125"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="pdf_icon" width="48" height="48"/>
+        <namedColor name="mediumGrey">
+            <color red="0.85882352941176465" green="0.88235294117647056" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

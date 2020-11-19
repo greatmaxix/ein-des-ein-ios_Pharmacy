@@ -30,5 +30,13 @@ extension UIViewController: ErrorPresenter {
 
         self.present(alert, animated: true)
     }
+    
+    func showMessage(title: String?, text: String, okAction: @escaping (UIAlertAction) -> Void) {
+        let alert = UIAlertController(title: title, message: text, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: okAction))
+
+        self.present(alert, animated: true)
+    }
 
 }

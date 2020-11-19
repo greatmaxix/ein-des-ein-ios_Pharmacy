@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Chat: Codable, Equatable {
+struct Chat: Decodable, Equatable {
     var id: Int
     var createdAt: String
     var customer: ChatUser
@@ -19,10 +19,10 @@ struct Chat: Codable, Equatable {
     var isAutomaticClosed: Bool
     var closedAt: String?
     var topicName: String
-    var lastMessage: LastMessage
+    var lastMessage: ChatMessage
 }
 
-struct ChatUser: Codable, Equatable {
+struct ChatUser: Decodable, Equatable {
     var id: Int
     var name: String
     var uuid: String
@@ -30,7 +30,7 @@ struct ChatUser: Codable, Equatable {
     var type: String
 }
 
-struct LastMessage: Codable, Equatable {
+struct LastMessage: Decodable, Equatable {
     var id: Int
     var chatId: Int
     var chatNumber: Int
@@ -49,12 +49,12 @@ struct ChatMessage: Decodable, Equatable {
     var ownerUuid: String
     
     var text: String?
-    var product: Product?
+    var product: ChatProduct?
     var file: FileAttachment?
     
     var type = ChatMessageType.message
     
-    var message: Message {
+    var asMessage: Message {
         let sender = ChatSender(senderId: ownerUuid, displayName: ownerType)
         switch type {
         case .message: return Message(text ?? "", sender: sender, messageId: "\(id)", date: createdAt.date() ?? Date())
@@ -69,7 +69,7 @@ struct ChatMessage: Decodable, Equatable {
     }
     
     enum Key: CodingKey {
-        case id, chatId, chatNumber, createdAt, ownerType, ownerUuid, text, product, file
+        case id, chatId, chatNumber, createdAt, ownerType, ownerUuid, text, globalProductCard, file
     }
     
     public static func == (lhs: ChatMessage, rhs: ChatMessage) -> Bool {
@@ -87,8 +87,8 @@ struct ChatMessage: Decodable, Equatable {
         
         if c.contains(.text) {
             text = try c.decode(String.self, forKey: .text)
-        } else if c.contains(.product) {
-            product = try c.decode(Product.self, forKey: .product)
+        } else if c.contains(.globalProductCard) {
+            product = try c.decode(ChatProduct.self, forKey: .globalProductCard)
             type = .globalProduct
         } else if c.contains(.file) {
             file = try c.decode(FileAttachment.self, forKey: .file)
