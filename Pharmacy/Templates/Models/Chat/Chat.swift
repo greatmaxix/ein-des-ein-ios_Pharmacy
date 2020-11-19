@@ -51,6 +51,7 @@ struct ChatMessage: Decodable, Equatable {
     var text: String?
     var product: ChatProduct?
     var file: FileAttachment?
+    var recipe: ChatRecipe?
     
     var type = ChatMessageType.message
     
@@ -61,6 +62,7 @@ struct ChatMessage: Decodable, Equatable {
         case .globalProduct: return Message(.product(product!), sender: sender, messageId: "\(id)", date: createdAt.date() ?? Date())
         case .application: return Message(.application(file!), sender: sender, messageId: "\(id)", date: createdAt.date() ?? Date())
         case .changeStatus: return Message(.chatClosing, sender: sender, messageId: "\(id)", date: createdAt.date() ?? Date())
+        case .recipe: return Message(.recipe(recipe!), sender: sender, messageId: "\(id)", date: createdAt.date() ?? Date())
         }
     }
     
@@ -69,7 +71,7 @@ struct ChatMessage: Decodable, Equatable {
     }
     
     enum Key: CodingKey {
-        case id, chatId, chatNumber, createdAt, ownerType, ownerUuid, text, globalProductCard, file
+        case id, chatId, chatNumber, createdAt, ownerType, ownerUuid, text, globalProductCard, file, recipeImage
     }
     
     public static func == (lhs: ChatMessage, rhs: ChatMessage) -> Bool {
@@ -93,6 +95,9 @@ struct ChatMessage: Decodable, Equatable {
         } else if c.contains(.file) {
             file = try c.decode(FileAttachment.self, forKey: .file)
             type = .application
+        } else if c.contains(.recipeImage) {
+            recipe = try c.decode(ChatRecipe.self, forKey: .recipeImage)
+            type = .recipe
         }
     }
 }

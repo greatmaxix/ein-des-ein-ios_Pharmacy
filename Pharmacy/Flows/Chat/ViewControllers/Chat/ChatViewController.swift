@@ -10,6 +10,7 @@ import UIKit
 import MessageKit
 import Photos
 import InputBarAccessoryView
+import PDFKit
 
 class ChatViewController: MessagesViewController, NavigationBarStyled {
     
@@ -33,6 +34,7 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     private var isKeyboardVisible: Bool {
             return messageInputBar.inputTextView.isFirstResponder
     }
+    var pdfView = PDFView()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -128,6 +130,17 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     @objc func showChatInfo() {
         
     }
+    
+    func openPDF(url: URL) {
+        pdfView.isHidden = false
+        if let pdfDocument = PDFDocument(url: url) {
+            pdfView.displayMode = .singlePageContinuous
+            pdfView.autoScales = true
+            pdfView.displayDirection = .vertical
+            pdfView.document = pdfDocument
+        }
+    }
+
 }
     
 extension ChatViewController: ChatOutput {

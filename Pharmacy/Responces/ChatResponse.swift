@@ -44,7 +44,7 @@ struct CustomerImageUploadResponse: Decodable, Equatable {
 // From Mercury
 
 enum ChatMessageType: String, Decodable, Equatable {
-    case message, application, changeStatus = "change_status", globalProduct = "global_product"
+    case message, application, changeStatus = "change_status", globalProduct = "global_product", recipe
 }
 
 struct ChatMessagesResponse: Decodable, Equatable {

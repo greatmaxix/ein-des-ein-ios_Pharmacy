@@ -143,6 +143,7 @@ final class ChatModel: Model, ChatInput {
         collection.register(ChatCloseCollectionViewCell.nib, forCellWithReuseIdentifier: ChatCloseCollectionViewCell.reuseIdentifier)
         collection.register(ChatProductCollectionViewCell.nib, forCellWithReuseIdentifier: ChatProductCollectionViewCell.reuseIdentifier)
         collection.register(ChatApplicationCollectionViewCell.nib, forCellWithReuseIdentifier: ChatApplicationCollectionViewCell.reuseIdentifier)
+        collection.register(ChatRecipeCollectionViewCell.nib, forCellWithReuseIdentifier: ChatRecipeCollectionViewCell.reuseIdentifier)
     }
     
     func proccessChat(items: [ChatMessage]) {
@@ -353,6 +354,30 @@ final class ChatModel: Model, ChatInput {
             }
         }
     }
+    
+    func downloadPDF(recipe: ChatRecipe) {
+        
+        if let url = URL(string: "https://api.pharmacies.fmc-dev.com/api/v1/recipe/file/\(recipe.originalFilename)") {
+            self.output?.showActivityIndicator()
+            PDFManager.shared.download(by: url) { [weak self] result in
+                self?.output?.hideActivityIndicator()
+                switch result {
+                case .success(let url):
+                    do {
+                        let data = try Data(contentsOf: url)
+                        self?.raise(event: ReceiptsModelEvent.saveData(data: data))
+//                        self?.output.openPDF(url: url)
+//                        self?.output.pdfLoaded()
+                    } catch let _ {
+//                        self?.output.pdfLoaded()
+                    }
+                case .failure: break
+//                    self?.output.pdfLoaded()
+                }
+            }
+        }
+
+    }
 }
 
 extension ChatModel: MessagesDataSource {
@@ -403,7 +428,9 @@ extension ChatModel: MessagesDataSource {
             case .application(let application):
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatApplicationCollectionViewCell.reuseIdentifier, for: indexPath)
                 (cell as? ChatApplicationCollectionViewCell)?.apply(attachment: application, isFromCurrentSender: isFromCurrent)
-            case .receipt: break
+            case .recipe(let recipe):
+                cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatRecipeCollectionViewCell.reuseIdentifier, for: indexPath)
+                (cell as? ChatRecipeCollectionViewCell)?.apply(receipt: recipe, isFromCurrentSender: isFromCurrent)
             }
         default: break
         }
@@ -446,6 +473,7 @@ extension ChatModel: MessagesLayoutDelegate {
         let previousMessage = messages[indexPath.section]
         return previousMessage.sentDate.dateCompactString == message.sentDate.dateCompactString ? 0.0 : 40.0
     }
+    
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? R.color.welcomeBlue()! : R.color.mediumGrey()!
     }
