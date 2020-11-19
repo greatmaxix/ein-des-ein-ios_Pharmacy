@@ -149,6 +149,7 @@
 		6011219D2565B4FF00532C26 /* ModalPresentingTransitionioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011219C2565B4FF00532C26 /* ModalPresentingTransitionioning.swift */; };
 		601121A02565B56500532C26 /* ChatTagsCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6011219F2565B56500532C26 /* ChatTagsCollectionViewLayout.swift */; };
 		6016121E2566B1DC005151BC /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6016121D2566B1DC005151BC /* Date+String.swift */; };
+		601612252566D2B8005151BC /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601612242566D2B8005151BC /* PDFViewController.swift */; };
 		601E7ECE2549C69300C936BF /* MapGetDirections.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601E7ECD2549C69300C936BF /* MapGetDirections.xib */; };
 		601E7ED12549CDB300C936BF /* MapGetDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7ED02549CDB300C936BF /* MapGetDirections.swift */; };
 		601E7ED52549D4B500C936BF /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601E7ED42549D4B500C936BF /* RoundedButton.swift */; };
@@ -545,6 +546,7 @@
 		6011219C2565B4FF00532C26 /* ModalPresentingTransitionioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentingTransitionioning.swift; sourceTree = "<group>"; };
 		6011219F2565B56500532C26 /* ChatTagsCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTagsCollectionViewLayout.swift; sourceTree = "<group>"; };
 		6016121D2566B1DC005151BC /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		601612242566D2B8005151BC /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
 		601E7ECD2549C69300C936BF /* MapGetDirections.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapGetDirections.xib; sourceTree = "<group>"; };
 		601E7ED02549CDB300C936BF /* MapGetDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapGetDirections.swift; sourceTree = "<group>"; };
 		601E7ED42549D4B500C936BF /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
@@ -1481,6 +1483,14 @@
 			path = Tag;
 			sourceTree = "<group>";
 		};
+		601612232566D29E005151BC /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				601612242566D2B8005151BC /* PDFViewController.swift */,
+			);
+			path = PDF;
+			sourceTree = "<group>";
+		};
 		601E7ECC2549C64E00C936BF /* MapGetDirections */ = {
 			isa = PBXGroup;
 			children = (
@@ -1775,13 +1785,13 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		60655B9A2563287F0030DC63 /* ChatReceipt */ = {
+		60655B9A2563287F0030DC63 /* ChatRecipe */ = {
 			isa = PBXGroup;
 			children = (
 				60655B972563287B0030DC63 /* ChatRecipeCollectionViewCell.swift */,
 				60655B9C256328A20030DC63 /* ChatRecipeCollectionViewCell.xib */,
 			);
-			path = ChatReceipt;
+			path = ChatRecipe;
 			sourceTree = "<group>";
 		};
 		6069A4912565F20800596B5B /* Chat */ = {
@@ -1864,7 +1874,7 @@
 				60AE318C25530854002BD404 /* CloseChat */,
 				608E3B032551EF8000AEE56C /* SelectRoute */,
 				608E3B022551EF6E00AEE56C /* ActionButton */,
-				60655B9A2563287F0030DC63 /* ChatReceipt */,
+				60655B9A2563287F0030DC63 /* ChatRecipe */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1890,6 +1900,7 @@
 		60A12B362564015A0001C994 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				601612232566D29E005151BC /* PDF */,
 				6069A4912565F20800596B5B /* Chat */,
 				6069A4932565F21700596B5B /* Evaluation */,
 			);
@@ -2695,6 +2706,7 @@
 				618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */,
 				8715DB9724FFF97B00BBF37C /* OnboardingModel.swift in Sources */,
 				395B9CCD24EFC6E000254881 /* AnalizesViewController.swift in Sources */,
+				601612252566D2B8005151BC /* PDFViewController.swift in Sources */,
 				875223A72500043D000759C8 /* NibReusable.swift in Sources */,
 				3915D60824A2466700A93627 /* ConfirmCodeModel.swift in Sources */,
 				603D31B024E3C9E4000E5A6C /* MedicineListViewController.swift in Sources */,

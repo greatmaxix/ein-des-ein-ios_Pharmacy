@@ -14,7 +14,7 @@ class ChatRecipeCollectionViewCell: UICollectionViewCell {
         static let leadingInset: CGFloat = 11.0
         static let trailingInset: CGFloat = 84.0
     }
-    
+    private var actionHandler: (() -> Void)?
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var trailingConstraint: NSLayoutConstraint!
     
@@ -28,7 +28,8 @@ class ChatRecipeCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func apply(receipt: ChatRecipe, isFromCurrentSender: Bool) {
+    func apply(receipt: ChatRecipe, isFromCurrentSender: Bool, actionHandler: @escaping (() -> Void) ) {
+        self.actionHandler = actionHandler
         nameLabel.text = receipt.originalFilename
         if isFromCurrentSender {
             nameLabel.textAlignment = .right
@@ -45,5 +46,9 @@ class ChatRecipeCollectionViewCell: UICollectionViewCell {
             rightPdfIcon.isHidden = true
             decorationView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMaxXMaxYCorner]
         }
+    }
+    
+    @IBAction func downloadPDF(_ sender: Any) {
+        actionHandler?()
     }
 }

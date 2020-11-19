@@ -130,17 +130,6 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     @objc func showChatInfo() {
         
     }
-    
-    func openPDF(url: URL) {
-        pdfView.isHidden = false
-        if let pdfDocument = PDFDocument(url: url) {
-            pdfView.displayMode = .singlePageContinuous
-            pdfView.autoScales = true
-            pdfView.displayDirection = .vertical
-            pdfView.document = pdfDocument
-        }
-    }
-
 }
     
 extension ChatViewController: ChatOutput {

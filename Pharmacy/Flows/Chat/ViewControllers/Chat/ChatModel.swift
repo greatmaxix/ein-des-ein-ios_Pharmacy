@@ -13,7 +13,7 @@ import MessageKit
 import InputBarAccessoryView
 
 enum ChatEvent: Event {
-    case close, openProduct(ChatProduct), evaluateChat
+    case close, openProduct(ChatProduct), evaluateChat, openPDF(URL)
 }
 
 protocol ChatInput: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate {
@@ -356,27 +356,19 @@ final class ChatModel: Model, ChatInput {
     }
     
     func downloadPDF(recipe: ChatRecipe) {
-        
-        if let url = URL(string: "https://api.pharmacies.fmc-dev.com/api/v1/recipe/file/\(recipe.originalFilename)") {
-            self.output?.showActivityIndicator()
-            PDFManager.shared.download(by: url) { [weak self] result in
-                self?.output?.hideActivityIndicator()
-                switch result {
-                case .success(let url):
-                    do {
-                        let data = try Data(contentsOf: url)
-                        self?.raise(event: ReceiptsModelEvent.saveData(data: data))
-//                        self?.output.openPDF(url: url)
-//                        self?.output.pdfLoaded()
-                    } catch let _ {
-//                        self?.output.pdfLoaded()
-                    }
-                case .failure: break
-//                    self?.output.pdfLoaded()
+        guard let url = URL(string: "https://api.pharmacies.fmc-dev.com/api/v1/recipe/file/\(recipe.uuid)") else { return }
+        output?.showActivityIndicator()
+        PDFManager.shared.download(by: url) {[weak self] result in
+            self?.output?.hideActivityIndicator()
+            switch result {
+            case .success(let pdfURL):
+                if let data = try? Data.init(contentsOf: pdfURL) {
+                    self?.raise(event: ReceiptsModelEvent.saveData(data: data))
                 }
+                self?.raise(event: ChatEvent.openPDF(pdfURL))
+            case .failure: break
             }
         }
-
     }
 }
 
@@ -430,7 +422,9 @@ extension ChatModel: MessagesDataSource {
                 (cell as? ChatApplicationCollectionViewCell)?.apply(attachment: application, isFromCurrentSender: isFromCurrent)
             case .recipe(let recipe):
                 cell = messagesCollectionView.dequeueReusableCell(withReuseIdentifier: ChatRecipeCollectionViewCell.reuseIdentifier, for: indexPath)
-                (cell as? ChatRecipeCollectionViewCell)?.apply(receipt: recipe, isFromCurrentSender: isFromCurrent)
+                (cell as? ChatRecipeCollectionViewCell)?.apply(receipt: recipe, isFromCurrentSender: isFromCurrent, actionHandler: {[weak self] in
+                    self?.downloadPDF(recipe: recipe)
+                })
             }
         default: break
         }
