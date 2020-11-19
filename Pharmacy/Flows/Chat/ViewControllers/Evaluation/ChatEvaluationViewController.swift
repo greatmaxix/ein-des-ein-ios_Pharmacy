@@ -14,6 +14,7 @@ class ChatEvaluationViewController: UIViewController {
         case normal, comments
     }
     
+    @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var evaluationView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtittleLabel: UILabel!
@@ -29,6 +30,11 @@ class ChatEvaluationViewController: UIViewController {
     @IBOutlet weak var placeholderLabel: UILabel!
     @IBOutlet weak var nextButton: RoundedButton!
     @IBOutlet weak var clearCommentsButton: UIButton!
+    @IBOutlet weak var swipeIndicator: UIView! {
+        didSet {
+            swipeIndicator.layer.cornerRadius = 2.0
+        }
+    }
     
     private var tags = ["Медленные ответы", "Хамство", "Некомпетентность", "Не спросили рецепт", "Советовали очень дорогое"]
     private var buttons: [UIButton] = []
@@ -53,11 +59,24 @@ class ChatEvaluationViewController: UIViewController {
         buttons = [star1, star2, star3, star4, star5]
         evaluationView.layer.cornerRadius = 24.0
         evaluationView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        evaluationView.layer.masksToBounds = true
         textView.layer.cornerRadius = textView.frame.height / 2.0
         textView.layer.borderWidth = 1.0
         textView.layer.borderColor = R.color.mediumGrey()?.cgColor
         textView.textContainerInset = UIEdgeInsets(top: 12.0, left: 16.0, bottom: 12.0, right: 16.0)
         state = .normal
+        subscribeToKeyboard {[weak self] event in
+            switch event {
+            case .willShow(let rect):
+                self?.bottomViewConstraint.constant = (rect.height / 2) + 80.0
+            case .willHide:
+                self?.bottomViewConstraint.constant = 0.0
+            }
+            
+            UIView.animate(withDuration: 0.3) {
+                self?.view.layoutIfNeeded()
+            }
+        }
         setupTagsCollection()
     }
     
@@ -141,6 +160,7 @@ class ChatEvaluationViewController: UIViewController {
     @IBAction func clearComments(_ sender: Any) {
         textView.text = ""
         textViewDidChange(textView)
+        textView.resignFirstResponder()
     }
     
     @IBAction func panGesture(_ sender: UIPanGestureRecognizer) {
@@ -170,6 +190,12 @@ class ChatEvaluationViewController: UIViewController {
                 interactor.cancel()
             }
         default: break
+        }
+    }
+    
+    @IBAction func closeKeyboard(_ sender: UITapGestureRecognizer) {
+        if textView.isFirstResponder {
+            textView.resignFirstResponder()
         }
     }
 }
@@ -205,5 +231,9 @@ extension ChatEvaluationViewController: UITextViewDelegate {
         let isTextEmpty = textView.text.isEmpty
         placeholderLabel.isHidden = !isTextEmpty
         clearCommentsButton.isHidden = isTextEmpty
+    }
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        return true
     }
 }

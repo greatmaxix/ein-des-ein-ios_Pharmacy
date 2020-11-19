@@ -106,10 +106,11 @@ final class ChatModel: Model, ChatInput {
     }
     
     func sendMessage(text: String) {
-        guard let chatId = chatService?.chat.id, text.isEmpty == false else { return }
-        createMessageProvider.load(target: .createMessage(chatId, text)) { response in
-            print(response)
-        }
+        evalueateChat()
+//        guard let chatId = chatService?.chat.id, text.isEmpty == false else { return }
+//        createMessageProvider.load(target: .createMessage(chatId, text)) { response in
+//            print(response)
+//        }
     }
     
     func setupCollection() {

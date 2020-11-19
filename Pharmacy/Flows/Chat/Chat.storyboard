@@ -44,6 +44,14 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vP-5C-xi4">
                                 <rect key="frame" x="0.0" y="354" width="414" height="542"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXb-jq-GM8" userLabel="TapView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="542"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="GSR-SB-sKO" appends="YES" id="5mM-4e-boy"/>
+                                        </connections>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tI-Nf-2u3">
                                         <rect key="frame" x="139" y="462" width="136" height="48"/>
                                         <constraints>
@@ -98,9 +106,17 @@
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0J-qw-c1G" userLabel="CommentsView">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="234"/>
                                                 <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1Z-Vi-JOJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="234"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="p9c-99-TNa" appends="YES" id="ZFP-I6-eeE"/>
+                                                        </connections>
+                                                    </view>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VoJ-6a-ap7">
                                                         <rect key="frame" x="16" y="0.0" width="382" height="132"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="132" id="f9T-9C-P69"/>
                                                         </constraints>
@@ -138,17 +154,21 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstItem="K1Z-Vi-JOJ" firstAttribute="leading" secondItem="R0J-qw-c1G" secondAttribute="leading" id="4yQ-DU-NXB"/>
                                                     <constraint firstAttribute="trailing" secondItem="mCh-wR-FuG" secondAttribute="trailing" constant="16" id="Iok-Rt-mDa"/>
                                                     <constraint firstAttribute="trailing" secondItem="VoJ-6a-ap7" secondAttribute="trailing" constant="16" id="JeD-VB-1OX"/>
                                                     <constraint firstItem="VoJ-6a-ap7" firstAttribute="top" secondItem="R0J-qw-c1G" secondAttribute="top" id="Ndq-hj-pkg"/>
                                                     <constraint firstItem="b9v-1o-9xo" firstAttribute="top" secondItem="mCh-wR-FuG" secondAttribute="top" constant="12" id="Ocl-wf-cPA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="K1Z-Vi-JOJ" secondAttribute="trailing" id="Tkl-VF-REf"/>
                                                     <constraint firstItem="b9v-1o-9xo" firstAttribute="leading" secondItem="mCh-wR-FuG" secondAttribute="leading" constant="21" id="WrZ-tA-DHw"/>
                                                     <constraint firstItem="mCh-wR-FuG" firstAttribute="top" secondItem="VoJ-6a-ap7" secondAttribute="bottom" constant="30" id="f0U-rF-l2m"/>
                                                     <constraint firstItem="mCh-wR-FuG" firstAttribute="leading" secondItem="R0J-qw-c1G" secondAttribute="leading" constant="16" id="fWc-qJ-2y1"/>
+                                                    <constraint firstItem="K1Z-Vi-JOJ" firstAttribute="top" secondItem="R0J-qw-c1G" secondAttribute="top" id="feD-Gb-3hE"/>
                                                     <constraint firstItem="lSa-Fb-Ow1" firstAttribute="top" secondItem="mCh-wR-FuG" secondAttribute="top" constant="8" id="i1J-tZ-v3V"/>
                                                     <constraint firstItem="VoJ-6a-ap7" firstAttribute="leading" secondItem="R0J-qw-c1G" secondAttribute="leading" constant="16" id="jU3-s9-yTz"/>
+                                                    <constraint firstAttribute="bottom" secondItem="K1Z-Vi-JOJ" secondAttribute="bottom" id="jza-yJ-QFU"/>
                                                     <constraint firstItem="lSa-Fb-Ow1" firstAttribute="trailing" secondItem="mCh-wR-FuG" secondAttribute="trailing" constant="-13" id="msV-eq-VC6"/>
                                                     <constraint firstAttribute="bottom" secondItem="mCh-wR-FuG" secondAttribute="bottom" id="n3E-eG-ayU"/>
                                                 </constraints>
@@ -219,22 +239,37 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="R0J-qw-c1G" firstAttribute="width" secondItem="mbD-9z-I5G" secondAttribute="width" id="85F-Jl-HbF"/>
                                         </constraints>
                                     </stackView>
+                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIr-pB-N4q">
+                                        <rect key="frame" x="187" y="8" width="40" height="4"/>
+                                        <color key="backgroundColor" name="typingIndicatorDot"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="gwg-L0-gIK"/>
+                                            <constraint firstAttribute="height" constant="4" id="vGx-cm-dSa"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="WQb-kW-04L" secondAttribute="trailing" constant="22" id="0nh-bL-n41"/>
                                     <constraint firstItem="WQb-kW-04L" firstAttribute="leading" secondItem="0vP-5C-xi4" secondAttribute="leading" constant="22" id="0ou-Xy-uDk"/>
+                                    <constraint firstItem="fIr-pB-N4q" firstAttribute="top" secondItem="0vP-5C-xi4" secondAttribute="top" constant="8" id="0vI-Cz-nFu"/>
+                                    <constraint firstItem="fIr-pB-N4q" firstAttribute="centerX" secondItem="0vP-5C-xi4" secondAttribute="centerX" id="3KK-XM-SmJ"/>
                                     <constraint firstItem="YfL-UD-GSW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="WQb-kW-04L" secondAttribute="bottom" constant="80" id="4KO-RD-dEu"/>
                                     <constraint firstItem="WQb-kW-04L" firstAttribute="top" secondItem="tER-p6-y1r" secondAttribute="bottom" id="5GI-7b-isF"/>
                                     <constraint firstAttribute="bottom" secondItem="6tI-Nf-2u3" secondAttribute="bottom" constant="32" id="5Gk-Ap-vVy"/>
                                     <constraint firstItem="tER-p6-y1r" firstAttribute="leading" secondItem="0vP-5C-xi4" secondAttribute="leading" constant="20" id="AjV-p3-aJd"/>
                                     <constraint firstAttribute="trailing" secondItem="YfL-UD-GSW" secondAttribute="trailing" constant="24" id="FZF-j3-I9O"/>
+                                    <constraint firstItem="jXb-jq-GM8" firstAttribute="top" secondItem="0vP-5C-xi4" secondAttribute="top" id="QKF-se-rNz"/>
                                     <constraint firstItem="tER-p6-y1r" firstAttribute="top" secondItem="0vP-5C-xi4" secondAttribute="top" constant="20" id="SjJ-3I-3TO"/>
+                                    <constraint firstAttribute="bottom" secondItem="jXb-jq-GM8" secondAttribute="bottom" id="Vn5-9T-nzO"/>
+                                    <constraint firstAttribute="trailing" secondItem="jXb-jq-GM8" secondAttribute="trailing" id="Yf0-k4-ZiV"/>
+                                    <constraint firstItem="jXb-jq-GM8" firstAttribute="leading" secondItem="0vP-5C-xi4" secondAttribute="leading" id="bwr-Nv-rsV"/>
                                     <constraint firstItem="6tI-Nf-2u3" firstAttribute="centerX" secondItem="0vP-5C-xi4" secondAttribute="centerX" id="dBy-Mb-cZB"/>
                                     <constraint firstItem="mbD-9z-I5G" firstAttribute="top" secondItem="WQb-kW-04L" secondAttribute="bottom" constant="20" id="dQh-6I-rl6"/>
                                     <constraint firstAttribute="trailing" secondItem="tER-p6-y1r" secondAttribute="trailing" constant="20" id="h9q-h4-RIL"/>
@@ -252,12 +287,13 @@
                         <viewLayoutGuide key="safeArea" id="i5I-Tm-w6Z"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="i5I-Tm-w6Z" firstAttribute="bottom" secondItem="0vP-5C-xi4" secondAttribute="bottom" constant="-34" id="ZEu-C0-SFN"/>
+                            <constraint firstAttribute="bottom" secondItem="0vP-5C-xi4" secondAttribute="bottom" id="ih6-4N-roc"/>
                             <constraint firstItem="0vP-5C-xi4" firstAttribute="trailing" secondItem="i5I-Tm-w6Z" secondAttribute="trailing" id="oAc-8A-WHW"/>
                             <constraint firstItem="0vP-5C-xi4" firstAttribute="leading" secondItem="i5I-Tm-w6Z" secondAttribute="leading" id="ppc-Ee-f0x"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomViewConstraint" destination="ih6-4N-roc" id="Y5N-l2-7w6"/>
                         <outlet property="clearCommentsButton" destination="lSa-Fb-Ow1" id="xGE-IR-vo6"/>
                         <outlet property="commentsView" destination="R0J-qw-c1G" id="MQc-9k-5ty"/>
                         <outlet property="evaluationView" destination="0vP-5C-xi4" id="U3o-B3-Jfj"/>
@@ -270,6 +306,7 @@
                         <outlet property="star5" destination="qh7-ef-Rr4" id="mRS-yq-Kiu"/>
                         <outlet property="starsView" destination="oa2-wC-hdc" id="Wa1-1A-ef5"/>
                         <outlet property="subtittleLabel" destination="WQb-kW-04L" id="2JY-ic-mWI"/>
+                        <outlet property="swipeIndicator" destination="fIr-pB-N4q" id="Nwd-Jj-FFW"/>
                         <outlet property="tagsCollection" destination="VoJ-6a-ap7" id="VZB-W6-Buz"/>
                         <outlet property="textView" destination="mCh-wR-FuG" id="YHw-4L-rB0"/>
                         <outlet property="titleLabel" destination="tER-p6-y1r" id="msN-BC-wvi"/>
@@ -281,8 +318,19 @@
                         <action selector="panGesture:" destination="x2b-EW-EaQ" id="Jq8-lC-SX0"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="GSR-SB-sKO">
+                    <eventButtonMask key="buttonMaskRequired" secondary="YES"/>
+                    <connections>
+                        <action selector="closeKeyboard:" destination="x2b-EW-EaQ" id="USq-k6-eYw"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="p9c-99-TNa">
+                    <connections>
+                        <action selector="closeKeyboard:" destination="x2b-EW-EaQ" id="62u-YJ-RZI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="670" y="115"/>
+            <point key="canvasLocation" x="669.56521739130437" y="114.50892857142857"/>
         </scene>
     </scenes>
     <designables>
@@ -302,6 +350,9 @@
         </namedColor>
         <namedColor name="textDarkBlue">
             <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="typingIndicatorDot">
+            <color red="0.68199998140335083" green="0.68199998140335083" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="welcomeBlue">
             <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

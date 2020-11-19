@@ -226,7 +226,7 @@
 		60655B95256303DE0030DC63 /* ChatReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60655B94256303DE0030DC63 /* ChatReceipt.swift */; };
 		60655B982563287B0030DC63 /* ChatReceiptCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60655B972563287B0030DC63 /* ChatReceiptCollectionViewCell.swift */; };
 		60655B9D256328A20030DC63 /* ChatReceiptCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60655B9C256328A20030DC63 /* ChatReceiptCollectionViewCell.xib */; };
-		606DAB58255EFD0400663E55 /* ChatEvaluatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606DAB57255EFD0400663E55 /* ChatEvaluatingModel.swift */; };
+		606DAB58255EFD0400663E55 /* ChatEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606DAB57255EFD0400663E55 /* ChatEvaluation.swift */; };
 		6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */; };
 		6075BD4624DEA6FF00BC78BD /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6075BD4524DEA6FF00BC78BD /* R.generated.swift */; };
 		6075BD4724DEA7FB00BC78BD /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6075BD3324DEA3C800BC78BD /* OpenSans-BoldItalic.ttf */; };
@@ -621,7 +621,7 @@
 		60655B94256303DE0030DC63 /* ChatReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatReceipt.swift; sourceTree = "<group>"; };
 		60655B972563287B0030DC63 /* ChatReceiptCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatReceiptCollectionViewCell.swift; sourceTree = "<group>"; };
 		60655B9C256328A20030DC63 /* ChatReceiptCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatReceiptCollectionViewCell.xib; sourceTree = "<group>"; };
-		606DAB57255EFD0400663E55 /* ChatEvaluatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEvaluatingModel.swift; sourceTree = "<group>"; };
+		606DAB57255EFD0400663E55 /* ChatEvaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEvaluation.swift; sourceTree = "<group>"; };
 		6075BD2F24DEA3C800BC78BD /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		6075BD3024DEA3C800BC78BD /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		6075BD3124DEA3C800BC78BD /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
@@ -1760,7 +1760,6 @@
 		60475FDA2551512A00448EF3 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				606DAB56255EFB7400663E55 /* Evaluating */,
 				60A48C262555BD24007CCDFE /* InputBar */,
 				60A48C222555B996007CCDFE /* InputItems */,
 				608E3AF82551D37D00AEE56C /* Cells */,
@@ -1782,12 +1781,24 @@
 			path = ChatReceipt;
 			sourceTree = "<group>";
 		};
-		606DAB56255EFB7400663E55 /* Evaluating */ = {
+		6069A4912565F20800596B5B /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				606DAB57255EFD0400663E55 /* ChatEvaluatingModel.swift */,
+				60475FE325515CFA00448EF3 /* ChatViewController.swift */,
+				60475FDF2551569400448EF3 /* ChatModel.swift */,
 			);
-			path = Evaluating;
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		6069A4932565F21700596B5B /* Evaluation */ = {
+			isa = PBXGroup;
+			children = (
+				60A12B31256401400001C994 /* ChatEvaluationViewController.swift */,
+				60A12B39256426F00001C994 /* ChatEvaluationModel.swift */,
+				6011219C2565B4FF00532C26 /* ModalPresentingTransitionioning.swift */,
+				6011219F2565B56500532C26 /* ChatTagsCollectionViewLayout.swift */,
+			);
+			path = Evaluation;
 			sourceTree = "<group>";
 		};
 		6075BD2E24DEA3BE00BC78BD /* OpenSans */ = {
@@ -1829,6 +1840,7 @@
 			isa = PBXGroup;
 			children = (
 				608E3AEE2551A71200AEE56C /* Message.swift */,
+				606DAB57255EFD0400663E55 /* ChatEvaluation.swift */,
 				608E3AF22551A94C00AEE56C /* Sender.swift */,
 				608E3AF52551AB5F00AEE56C /* ImageMediaItem.swift */,
 				60AE319A2553F980002BD404 /* Chat.swift */,
@@ -1875,12 +1887,8 @@
 		60A12B362564015A0001C994 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				60475FE325515CFA00448EF3 /* ChatViewController.swift */,
-				60475FDF2551569400448EF3 /* ChatModel.swift */,
-				60A12B31256401400001C994 /* ChatEvaluationViewController.swift */,
-				60A12B39256426F00001C994 /* ChatEvaluationModel.swift */,
-				6011219C2565B4FF00532C26 /* ModalPresentingTransitionioning.swift */,
-				6011219F2565B56500532C26 /* ChatTagsCollectionViewLayout.swift */,
+				6069A4912565F20800596B5B /* Chat */,
+				6069A4932565F21700596B5B /* Evaluation */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -2725,7 +2733,7 @@
 				39F0AD6B24EEC84100CD6CA4 /* PrescriptionsViewController.swift in Sources */,
 				6036EB0924DD27CC003336C2 /* SearchCoordinator.swift in Sources */,
 				8717E4DC2506979200546A55 /* SuccessfulSignUpModel.swift in Sources */,
-				606DAB58255EFD0400663E55 /* ChatEvaluatingModel.swift in Sources */,
+				606DAB58255EFD0400663E55 /* ChatEvaluation.swift in Sources */,
 				619AAA432498ADFE00AB46ED /* DataManager.swift in Sources */,
 				39273A0924A0DA5A004A9909 /* SignInModel.swift in Sources */,
 				875223A925000462000759C8 /* CellReusable.swift in Sources */,
