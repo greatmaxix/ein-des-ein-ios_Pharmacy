@@ -65,6 +65,15 @@ final class ChatModel: Model, ChatInput {
             }
         }
     }
+    struct GUI {
+        static let dateAttribues = [NSAttributedString.Key.foregroundColor: R.color.gray() ?? UIColor.gray,
+                                    NSAttributedString.Key.font: R.font.openSansSemiBold(size: 12) ?? UIFont.systemFont(ofSize: 12.0)]
+        static let timeAttribues = [NSAttributedString.Key.foregroundColor: R.color.gray() ?? UIColor.gray,
+                                    NSAttributedString.Key.font: R.font.openSansRegular(size: 12) ?? UIFont.systemFont(ofSize: 12.0)]
+    }
+    
+    private var lastShowedDate: String = ""
+    
     deinit {
         chatService?.stop()
         print("Chat model deinit")
@@ -83,7 +92,7 @@ final class ChatModel: Model, ChatInput {
         }
     }
     
-//    MARK: - ChatInput
+    // MARK: ChatInput
     
     func load() {
         switch UserSession.shared.authorizationStatus {
@@ -418,10 +427,25 @@ extension ChatModel: MessagesDisplayDelegate {
 
 extension ChatModel: MessagesLayoutDelegate {
     
-    func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        return 10.0
+    func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        
+        func makeString() -> NSAttributedString {
+            let dateString: NSMutableAttributedString = NSMutableAttributedString(string: message.sentDate.dayNameString, attributes: GUI.dateAttribues)
+            let timeString = NSAttributedString(string: " \(message.sentDate.timeString)", attributes: GUI.timeAttribues)
+            dateString.append(timeString)
+            return dateString
+        }
+        
+        guard indexPath.section != 0 else { return makeString() }
+        let previousMessage = messages[indexPath.section]
+        return previousMessage.sentDate.dateCompactString == message.sentDate.dateCompactString ? nil : makeString()
     }
-    
+
+    func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        guard indexPath.section != 0 else { return 40.0 }
+        let previousMessage = messages[indexPath.section]
+        return previousMessage.sentDate.dateCompactString == message.sentDate.dateCompactString ? 0.0 : 40.0
+    }
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? R.color.welcomeBlue()! : R.color.mediumGrey()!
     }
