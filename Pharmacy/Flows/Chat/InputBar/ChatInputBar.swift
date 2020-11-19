@@ -12,6 +12,7 @@ import InputBarAccessoryView
 protocol ChatInputBarDelegate: InputBarAccessoryViewDelegate {
     func attach()
     func didSelect(action: ImageSelectionAction)
+    func openCamera()
 }
 
 final class ChatInputBar: InputBarAccessoryView {
@@ -138,6 +139,10 @@ final class ChatInputBar: InputBarAccessoryView {
 }
 
 extension ChatInputBar: ChatGalleryDelegate {
+    func openCamera() {
+        (delegate as? ChatInputBarDelegate)?.openCamera()
+    }
+    
     func imageAction(action: ImageSelectionAction) {
         (delegate as? ChatInputBarDelegate)?.didSelect(action: action)
     }

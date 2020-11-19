@@ -116,6 +116,7 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     
     func requestCameraUsageAuthorization() {
         AVCaptureDevice.requestAccess(for: .video) {[weak self] isGranted in
+            self?.cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
             if isGranted {
                 self?.openCamera()
             } else {
@@ -207,12 +208,20 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-        guard let url = info[UIImagePickerController.InfoKey.imageURL.rawValue] as? URL,
-              let pickedImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage else { return }
-        
-        let image = LibraryImage(originalImage: pickedImage, url: url, source: .library)
-        didSelect(action: .select(image))
         picker.dismiss(animated: true, completion: nil)
+        
+        guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage else { return }
+        
+        switch picker.sourceType {
+        case .camera:
+            let image = LibraryImage(originalImage: pickedImage, url: nil, source: .library)
+            didSelect(action: .select(image))
+        case .photoLibrary, .savedPhotosAlbum:
+            guard let url = info[UIImagePickerController.InfoKey.imageURL.rawValue] as? URL else { return }
+            let image = LibraryImage(originalImage: pickedImage, url: url, source: .library)
+            didSelect(action: .select(image))
+        default: break
+        }
     }
 }
 

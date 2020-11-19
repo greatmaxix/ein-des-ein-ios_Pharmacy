@@ -316,8 +316,8 @@ final class ChatModel: Model, ChatInput {
     
     private func recursiveUpload(images: [LibraryImage]) {
         if let image = images.first, let data = image.original.jpegData(compressionQuality: 0.5) {
-            let mime = "image/\(image.url.lastPathComponent.components(separatedBy: ".").last ?? "jpg")"
-            uploadProvider.load(target: .upload(data: data, mime: mime, name: image.url.lastPathComponent)) {[weak self] result in
+            let mime = "image/\(image.url?.lastPathComponent.components(separatedBy: ".").last ?? "jpg")"
+            uploadProvider.load(target: .upload(data: data, mime: mime, name: image.url?.lastPathComponent ?? "image")) {[weak self] result in
                 self?.output?.uploadFinished(image: image, with: result)
                 switch result {
                 case .success(let response):
