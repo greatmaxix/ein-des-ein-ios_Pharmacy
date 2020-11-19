@@ -17,7 +17,8 @@ struct ChatEvaluation {
         var d: [String: Any] = [:]
         d["evaluatingRating"] = evaluatingRating
         d["evaluatingComment"] = evaluatingComment ?? ""
-        d["evaluatingTags"] = evaluatingTags ?? []
+        d["evaluatingTags"] = evaluatingTags ?? [""]
+        
         return d
     }
 }

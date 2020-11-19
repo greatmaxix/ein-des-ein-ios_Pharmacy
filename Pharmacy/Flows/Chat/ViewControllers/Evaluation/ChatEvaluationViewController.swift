@@ -121,7 +121,7 @@ class ChatEvaluationViewController: UIViewController {
     @IBAction func nextAction(_ sender: Any) {
         switch state {
         case .normal:
-            if starsCount > 2 {
+            if starsCount > 3 {
                 model.send(ChatEvaluation(evaluatingRating: starsCount, evaluatingComment: nil, evaluatingTags: nil))
             } else {
                 state = .comments
@@ -231,6 +231,8 @@ extension ChatEvaluationViewController: UITextViewDelegate {
         let isTextEmpty = textView.text.isEmpty
         placeholderLabel.isHidden = !isTextEmpty
         clearCommentsButton.isHidden = isTextEmpty
+        textView.layer.borderWidth = 1.0
+        textView.layer.borderColor = (isTextEmpty ? R.color.mediumGrey() : R.color.welcomeBlue())?.cgColor
     }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
