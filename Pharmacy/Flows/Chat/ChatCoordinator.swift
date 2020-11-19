@@ -35,8 +35,6 @@ final class ChatCoordinator: EventNode, Coordinator {
                 self?.open(product: product)
             case .evaluateChat:
                 self?.openChatEvaluation()
-            case .later:
-                self?.navigation?.dismiss(animated: true, completion: nil)
             }
         }
     }

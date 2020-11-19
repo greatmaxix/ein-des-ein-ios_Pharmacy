@@ -67,12 +67,36 @@ class ModalPresentingTransitionioning: NSObject, UIViewControllerAnimatedTransit
             drawerView.frame = isPresenting ? onScreenDrawerFrame: offScreenDrawerFrame
             blur.alpha = isPresenting ? GUI.blurMaxAlpha : GUI.blurMinAlpha
         }, completion: { (success) in
-            if !isPresenting && success {
-                blur.removeFromSuperview()
-                drawerView.removeFromSuperview()
-            }
-            transitionContext.completeTransition(success)
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
+    }
+}
+
+class Interactor: UIPercentDrivenInteractiveTransition {
+    var hasStarted = false
+    var shouldFinish = false
+}
+
+class DismissAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 0.5
+    }
+
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let fromVC = transitionContext.viewController(forKey: .from), let toVC = transitionContext.viewController(forKey: .to) else { return }
+        let containerView = transitionContext.containerView
+        containerView.insertSubview(toVC.view, belowSubview: fromVC.view)
+
+        let screenBounds = UIScreen.main.bounds
+        
+        let bottomLeftCorner = CGPoint(x: 0, y: screenBounds.height)
+        let finalFrame = CGRect(origin: bottomLeftCorner, size: screenBounds.size)
+
+        UIView.animate(withDuration: transitionDuration(using: transitionContext)) {
+            fromVC.view.frame = finalFrame
+        } completion: { _ in
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        }
     }
 }
 

@@ -27,3 +27,5 @@ struct PostResponse: Codable {
         data = try? container?.decode([Int].self, forKey: .data)
     }
 }
+
+struct EmptyResponse: Decodable {}

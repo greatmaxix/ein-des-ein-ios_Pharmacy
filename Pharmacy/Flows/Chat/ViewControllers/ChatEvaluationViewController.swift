@@ -31,8 +31,10 @@ class ChatEvaluationViewController: UIViewController {
     @IBOutlet weak var clearCommentsButton: UIButton!
     
     private var tags = ["Медленные ответы", "Хамство", "Некомпетентность", "Не спросили рецепт", "Советовали очень дорогое"]
-    
     private var buttons: [UIButton] = []
+    
+    private let interactor = Interactor()
+    
     private var state: UIState = .normal {
         didSet {
             self.stateDidChanged()
@@ -112,7 +114,9 @@ class ChatEvaluationViewController: UIViewController {
     }
     
     @IBAction func laterAction(_ sender: Any) {
-        model.later()
+        dismiss(animated: true) {[weak self] in
+            self?.model.later()
+        }
     }
     
     @IBAction func starAction(_ sender: UIButton) {
@@ -138,6 +142,36 @@ class ChatEvaluationViewController: UIViewController {
         textView.text = ""
         textViewDidChange(textView)
     }
+    
+    @IBAction func panGesture(_ sender: UIPanGestureRecognizer) {
+        let percentThreshold: CGFloat = 0.3
+        let translation = sender.translation(in: evaluationView)
+        let verticalMovement = translation.y / evaluationView.bounds.height
+        let downwardMovement = fmaxf(Float(verticalMovement), 0.0)
+        let downwardMovementPercent = fminf(downwardMovement, 1.0)
+        let progress = CGFloat(downwardMovementPercent)
+        
+        switch sender.state {
+        case .began:
+            interactor.hasStarted = true
+            dismiss(animated: true, completion: nil)
+        case .changed:
+            interactor.shouldFinish = progress > percentThreshold
+            interactor.update(progress)
+        case .cancelled:
+            interactor.hasStarted = false
+            interactor.cancel()
+        case .ended:
+            interactor.hasStarted = false
+            if interactor.shouldFinish {
+                model.later()
+                interactor.finish()
+            } else {
+                interactor.cancel()
+            }
+        default: break
+        }
+    }
 }
 
 extension ChatEvaluationViewController: ChatEvaluationOutput {}
@@ -160,6 +194,9 @@ extension ChatEvaluationViewController: UIViewControllerTransitioningDelegate {
     }
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return modalAppearTransition
+    }
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
     }
 }
 

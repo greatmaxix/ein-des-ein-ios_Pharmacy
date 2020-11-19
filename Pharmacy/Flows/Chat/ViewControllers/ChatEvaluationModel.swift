@@ -10,7 +10,7 @@ import Foundation
 import EventsTree
 
 enum ChatEvaluateEvent: Event {
-    case send(ChatEvaluation)
+    case send(ChatEvaluation), later
 }
 
 protocol ChatEvaluationInput: class {
@@ -30,6 +30,6 @@ extension ChatEvaluationModel: ChatEvaluationInput {
     }
     
     func later() {
-        raise(event: ChatEvent.later)
+        raise(event: ChatEvaluateEvent.later)
     }
 }

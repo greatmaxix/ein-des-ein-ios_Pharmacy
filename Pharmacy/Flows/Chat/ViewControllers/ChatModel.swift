@@ -13,7 +13,7 @@ import MessageKit
 import InputBarAccessoryView
 
 enum ChatEvent: Event {
-    case close, openProduct(ChatProduct), evaluateChat, later
+    case close, openProduct(ChatProduct), evaluateChat
 }
 
 protocol ChatInput: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate {
@@ -46,14 +46,25 @@ final class ChatModel: Model, ChatInput {
     private let sendProductProvider = DataManager<ChatAPI, CreateProductMessageResponse>()
     private let wishListProvider = DataManager<WishListAPI, PostResponse>()
     private let manageChatProvider = DataManager<ChatAPI, ChatResponse>()
-    private let evaluateChatProvider = DataManager<ChatAPI, PostResponse>()
+    private let evaluateChatProvider = DataManager<ChatAPI, EmptyResponse>()
     
     private var chatService: ChatService?
     private var sender: ChatSender = ChatSender.guest()
     private var sizeCalculator: CustomMessageSizeCalculator!
     
     private var messages: [Message] = []
-    private var currentChat: Chat!
+    private var currentChat: Chat! {
+        didSet {
+            switch currentChat.status {
+            case .closed, .closeRequest:
+                hideKeyboard()
+                output?.messageInputBar.isHidden = true
+            default:
+                output?.messageInputBar.becomeFirstResponder()
+                output?.messageInputBar.isHidden = false
+            }
+        }
+    }
     deinit {
         chatService?.stop()
         print("Chat model deinit")
@@ -66,6 +77,8 @@ final class ChatModel: Model, ChatInput {
             switch event {
             case .send(let evaluation):
                 self?.send(evaluation: evaluation)
+            case .later:
+                self?.showEndChatMessage()
             }
         }
     }
@@ -202,6 +215,12 @@ final class ChatModel: Model, ChatInput {
         return output?.messagesCollectionView.indexPathsForVisibleItems.contains(lastIndexPath) ?? false
     }
     
+    func showEndChatMessage() {
+        output?.showMessage(title: "Чат завершен", text: "Благодарим вас за использование нашего сервиса! Оставайтесь здоровыми", okAction: {[weak self] _ in
+            self?.raise(event: ChatEvent.close)
+        })
+    }
+    
 // MARK: - Attachment
     
     private func openPhotoGalery() {
@@ -282,14 +301,12 @@ final class ChatModel: Model, ChatInput {
     
     private func send(evaluation: ChatEvaluation) {
         output?.showActivityIndicator()
-        manageChatProvider.load(target: .evaluating(chatId: currentChat.id, evaluating: evaluation)) {[weak self] result in
+        evaluateChatProvider.load(target: .evaluating(chatId: currentChat.id, evaluating: evaluation)) {[weak self] result in
             self?.output?.hideActivityIndicator()
             switch result {
             case .success:
                 self?.output?.dismiss(animated: true, completion: {
-                    self?.output?.showMessage(title: "Чат завершен", text: "Если у вас остались вопросы начните новый чат", okAction: {[weak self] _ in
-                        self?.raise(event: ChatEvent.close)
-                    })
+                    self?.showEndChatMessage()
                 })
             case .failure(let error):
                 self?.output?.showError(text: error.localizedDescription)

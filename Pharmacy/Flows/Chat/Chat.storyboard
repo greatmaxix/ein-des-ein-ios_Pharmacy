@@ -225,6 +225,7 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="WQb-kW-04L" secondAttribute="trailing" constant="22" id="0nh-bL-n41"/>
                                     <constraint firstItem="WQb-kW-04L" firstAttribute="leading" secondItem="0vP-5C-xi4" secondAttribute="leading" constant="22" id="0ou-Xy-uDk"/>
@@ -243,6 +244,9 @@
                                     <constraint firstAttribute="trailing" secondItem="mbD-9z-I5G" secondAttribute="trailing" id="u9K-fo-Uz7"/>
                                     <constraint firstItem="mbD-9z-I5G" firstAttribute="leading" secondItem="0vP-5C-xi4" secondAttribute="leading" id="xHz-3r-kpj"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="scZ-3G-z6N" appends="YES" id="7sG-8a-KrR"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i5I-Tm-w6Z"/>
@@ -272,6 +276,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gn7-Ku-5OB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="scZ-3G-z6N">
+                    <connections>
+                        <action selector="panGesture:" destination="x2b-EW-EaQ" id="Jq8-lC-SX0"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="670" y="115"/>
         </scene>
