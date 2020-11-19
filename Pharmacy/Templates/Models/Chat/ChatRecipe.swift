@@ -8,6 +8,7 @@
 
 import Foundation
 
-struct ChatReceipt: Decodable, Equatable {
-    var fileName: String
+struct ChatRecipe: Decodable, Equatable {
+    var uuid: String
+    var originalFilename: String
 }

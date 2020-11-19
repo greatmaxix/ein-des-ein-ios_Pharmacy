@@ -16,7 +16,7 @@ struct MercuryMessageResponse {
 struct Message: MessageType {
     
     enum CustomMessageKind {
-        case button, routeSwitch, chatClosing, product(ChatProduct), application(FileAttachment), receipt(ChatReceipt)
+        case button, routeSwitch, chatClosing, product(ChatProduct), application(FileAttachment), recipe(ChatRecipe)
     }
         
     var sender: SenderType

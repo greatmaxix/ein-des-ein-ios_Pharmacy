@@ -35,6 +35,8 @@ final class ChatCoordinator: EventNode, Coordinator {
                 self?.open(product: product)
             case .evaluateChat:
                 self?.openChatEvaluation()
+            case .openPDF(let url):
+                self?.open(pdf: url)
             }
         }
     }
@@ -54,6 +56,11 @@ final class ChatCoordinator: EventNode, Coordinator {
     func open(product: ChatProduct) {
         guard let nav = navigation else { return }
         let vc = ProductCoordinator(configuration: ProductFlowConfiguration(parent: self, navigation: nav)).createFlowFor(product: product)
+        navigation?.pushViewController(vc, animated: true)
+    }
+    
+    func open(pdf url: URL) {
+        let vc = PDFViewController(url: url)
         navigation?.pushViewController(vc, animated: true)
     }
 }

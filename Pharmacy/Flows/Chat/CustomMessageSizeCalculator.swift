@@ -22,7 +22,7 @@ class CustomMessageSizeCalculator: MessageSizeCalculator {
                 case .product: return CGSize(width: width, height: 224.0)
                 case .chatClosing: return CGSize(width: width, height: 64.0)
                 case .application: return CGSize(width: width, height: 152.0)
-                case .receipt: return CGSize(width: width, height: 84.0)
+                case .recipe: return CGSize(width: width, height: 90.0)
                 }
             }
         default: return .zero

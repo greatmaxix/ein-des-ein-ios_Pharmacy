@@ -10,6 +10,7 @@ import UIKit
 import MessageKit
 import Photos
 import InputBarAccessoryView
+import PDFKit
 
 class ChatViewController: MessagesViewController, NavigationBarStyled {
     
@@ -33,6 +34,7 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     private var isKeyboardVisible: Bool {
             return messageInputBar.inputTextView.isFirstResponder
     }
+    var pdfView = PDFView()
     
     init() {
         super.init(nibName: nil, bundle: nil)
