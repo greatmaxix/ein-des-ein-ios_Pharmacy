@@ -61,9 +61,9 @@ final class Category: Decodable {
         subCategories = try? container.decode([Category].self, forKey: .nodes)
     }
     
-    init(title: String, imageURL: URL?) {
+    init(title: String, imageURL: URL?, code: String? = nil) {
         self.title = title
-        code = "A"
+        self.code = code ?? "A"
         subCategories = nil
     }
     
