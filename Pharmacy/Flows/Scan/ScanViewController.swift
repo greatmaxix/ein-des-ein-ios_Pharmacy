@@ -25,6 +25,7 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var doneButton: UIButton!
     @IBOutlet private weak var preview: UIView!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var codeCaptureView: UIView!
     private var captureSession = AVCaptureSession()
     private var previewLayer: AVCaptureVideoPreviewLayer!
     
@@ -112,9 +113,9 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = view.layer.bounds
+        previewLayer.frame = codeCaptureView.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
-        view.layer.insertSublayer(previewLayer, at: 0)
+        codeCaptureView.layer.insertSublayer(previewLayer, at: 0)
         
         captureSession.startRunning()
     }
