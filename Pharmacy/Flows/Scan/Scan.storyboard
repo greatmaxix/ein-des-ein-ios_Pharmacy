@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EVX-oU-pGK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EVX-oU-pGK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,6 +25,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUv-i4-jPg">
+                                <rect key="frame" x="57.5" y="338.5" width="299" height="131"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SCAN" translatesAutoresizingMaskIntoConstraints="NO" id="67q-vT-99k">
                                 <rect key="frame" x="57.5" y="338.5" width="299" height="131"/>
                             </imageView>
@@ -32,13 +36,13 @@
                                 <rect key="frame" x="0.0" y="34" width="414" height="862"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Наведите на штрих код" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Oc-ne-BYY">
-                                        <rect key="frame" x="16" y="34" width="382" height="28"/>
+                                        <rect key="frame" x="16" y="34" width="382" height="33"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="57R-0T-AX3">
-                                        <rect key="frame" x="32" y="118" width="350" height="33"/>
+                                        <rect key="frame" x="32" y="123" width="350" height="57.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="Qfz-08-EaQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -48,7 +52,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Наведите камеру на штрих-код так, что бы он оказалася внутри прямоугольной области." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulo-f8-wzV">
-                                                <rect key="frame" x="41" y="0.0" width="309" height="33"/>
+                                                <rect key="frame" x="41" y="0.0" width="309" height="57.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -56,7 +60,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="yq5-zr-wzf">
-                                        <rect key="frame" x="32" y="254" width="350" height="49"/>
+                                        <rect key="frame" x="32" y="283.5" width="350" height="57.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcode" translatesAutoresizingMaskIntoConstraints="NO" id="6yv-iH-StG">
                                                 <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -66,7 +70,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сканер автоматически считает штрих-код и найдет товар, если он присутсвует в нашей сети." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaD-PE-wRn">
-                                                <rect key="frame" x="41" y="0.0" width="309" height="49"/>
+                                                <rect key="frame" x="41" y="0.0" width="309" height="57.5"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -88,13 +92,13 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firstVector" translatesAutoresizingMaskIntoConstraints="NO" id="Udx-S8-vXV">
-                                        <rect key="frame" x="32" y="141" width="60" height="60"/>
+                                        <rect key="frame" x="32" y="170.5" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="nBg-GV-2WV"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="secondVector" translatesAutoresizingMaskIntoConstraints="NO" id="ZB1-lN-II6">
-                                        <rect key="frame" x="26" y="283" width="71.5" height="60"/>
+                                        <rect key="frame" x="26" y="321" width="71.5" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="JYF-6s-tmA"/>
                                         </constraints>
@@ -121,26 +125,32 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Наведите камеру на штрих-код, что бы найти его в приложении" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qah-Dr-qtN">
-                                <rect key="frame" x="56" y="697" width="302" height="33"/>
+                                <rect key="frame" x="56" y="691.5" width="302" height="38.5"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jAL-B3-PgK"/>
+                        <color key="backgroundColor" name="textDarkBlue"/>
                         <constraints>
+                            <constraint firstItem="gUv-i4-jPg" firstAttribute="centerX" secondItem="67q-vT-99k" secondAttribute="centerX" id="9DY-7O-p2h"/>
                             <constraint firstItem="jAL-B3-PgK" firstAttribute="bottom" secondItem="Qah-Dr-qtN" secondAttribute="bottom" constant="132" id="BRm-3h-fnd"/>
                             <constraint firstItem="Qah-Dr-qtN" firstAttribute="leading" secondItem="jAL-B3-PgK" secondAttribute="leading" constant="56" id="S3X-9q-XBg"/>
+                            <constraint firstItem="gUv-i4-jPg" firstAttribute="width" secondItem="67q-vT-99k" secondAttribute="width" id="SCd-qh-Ueb"/>
+                            <constraint firstItem="gUv-i4-jPg" firstAttribute="centerY" secondItem="67q-vT-99k" secondAttribute="centerY" id="cim-GA-hAM"/>
                             <constraint firstItem="NMf-99-dmY" firstAttribute="leading" secondItem="jAL-B3-PgK" secondAttribute="leading" id="ika-ly-GTO"/>
                             <constraint firstItem="jAL-B3-PgK" firstAttribute="trailing" secondItem="Qah-Dr-qtN" secondAttribute="trailing" constant="56" id="kIi-5d-iI4"/>
                             <constraint firstItem="jAL-B3-PgK" firstAttribute="bottom" secondItem="NMf-99-dmY" secondAttribute="bottom" constant="-34" id="nOx-U8-KK0"/>
                             <constraint firstItem="67q-vT-99k" firstAttribute="centerY" secondItem="lDI-wl-ibC" secondAttribute="centerY" constant="-44" id="ovS-Ud-h8q"/>
                             <constraint firstItem="67q-vT-99k" firstAttribute="centerX" secondItem="lDI-wl-ibC" secondAttribute="centerX" id="pY9-Pi-dhD"/>
+                            <constraint firstItem="gUv-i4-jPg" firstAttribute="height" secondItem="67q-vT-99k" secondAttribute="height" id="uy0-y2-w3U"/>
                             <constraint firstItem="jAL-B3-PgK" firstAttribute="trailing" secondItem="NMf-99-dmY" secondAttribute="trailing" id="xQo-LM-L1M"/>
                             <constraint firstItem="NMf-99-dmY" firstAttribute="top" secondItem="jAL-B3-PgK" secondAttribute="top" constant="-10" id="zKC-TQ-LAg"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="codeCaptureView" destination="gUv-i4-jPg" id="QXZ-dx-XHG"/>
                         <outlet property="descriptionLabel" destination="Qah-Dr-qtN" id="9Vg-JK-HUO"/>
                         <outlet property="doneButton" destination="J34-oH-27l" id="2t7-uS-Pej"/>
                         <outlet property="preview" destination="NMf-99-dmY" id="ByC-KA-Swv"/>
