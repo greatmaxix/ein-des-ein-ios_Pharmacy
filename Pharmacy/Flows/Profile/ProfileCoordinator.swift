@@ -45,8 +45,6 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 self?.presentChooseLocation()
             case .openChooseDeliveryAdress:
                 self?.presentChooseDeliveryAdress()
-            case .openChooseLocation:
-                self?.presentChooseLocation()
             default:
                 break
             }
@@ -65,8 +63,6 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
             switch event {
             case .back:
                 self?.popController()
-            default:
-                break
             }
         }
 

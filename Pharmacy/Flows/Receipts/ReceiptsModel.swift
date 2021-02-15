@@ -91,10 +91,10 @@ extension ReceiptsModel: ReceiptsModelInput, ReceiptsViewControllerOutput {
                         self?.raise(event: ReceiptsModelEvent.saveData(data: data))
                         self?.output.openPDF(url: url)
                         self?.output.pdfLoaded()
-                    } catch let _ {
+                    } catch (_) {
                         self?.output.pdfLoaded()
                     }
-                case .failure(let _):
+                case .failure(_):
                     self?.output.pdfLoaded()
                 }
             }

@@ -398,6 +398,7 @@
 		87A50B682526256800CF89CF /* ImageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B672526256800CF89CF /* ImageContainer.swift */; };
 		87A50B6A25262FAD00CF89CF /* PriceRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6925262FAD00CF89CF /* PriceRange.swift */; };
 		87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6D2527072800CF89CF /* ProductAPI.swift */; };
+		F520B9A725DAB63B0077CB03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F520B9A625DAB63B0077CB03 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -795,6 +796,7 @@
 		87A50B6925262FAD00CF89CF /* PriceRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRange.swift; sourceTree = "<group>"; };
 		87A50B6D2527072800CF89CF /* ProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPI.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F520B9A625DAB63B0077CB03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1195,6 +1197,7 @@
 				875223C12500FD17000759C8 /* CoreDataStack */,
 				396C45CD2497744800A569CE /* Resources */,
 				396C45C62497699900A569CE /* Info.plist */,
+				F520B9A625DAB63B0077CB03 /* GoogleService-Info.plist */,
 				396C45B82497699800A569CE /* AppDelegate.swift */,
 				396C45C32497699900A569CE /* LaunchScreen.storyboard */,
 			);
@@ -2512,6 +2515,7 @@
 				4D8BCF6B254891A40094C43C /* InDevelopment.storyboard in Resources */,
 				4DE4D54025498E5A00EE0E3A /* AboutAppTableViewCell.xib in Resources */,
 				397541D524ED23CB0069F8DE /* SimpleNavigationBarView.xib in Resources */,
+				F520B9A725DAB63B0077CB03 /* GoogleService-Info.plist in Resources */,
 				6075BD4724DEA7FB00BC78BD /* OpenSans-BoldItalic.ttf in Resources */,
 				6075BD4824DEA7FB00BC78BD /* OpenSans-ExtraBold.ttf in Resources */,
 				39F0AD6024EEBFB000CD6CA4 /* EmptyResultsView.xib in Resources */,

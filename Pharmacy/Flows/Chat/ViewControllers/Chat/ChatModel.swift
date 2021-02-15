@@ -128,7 +128,8 @@ final class ChatModel: Model, ChatInput {
             layout.textMessageSizeCalculator.incomingAvatarSize = .zero
         }
         
-        output?.scrollsToBottomOnKeyboardBeginsEditing = true
+        output?.scrollsToLastItemOnKeyboardBeginsEditing = true
+    
         output?.showMessageTimestampOnSwipeLeft = true
         
         guard let collection = output?.messagesCollectionView else { return }
@@ -151,7 +152,7 @@ final class ChatModel: Model, ChatInput {
             self.insertMessage($0.asMessage)
         }
         
-        output?.messagesCollectionView.scrollToBottom(animated: true)
+        output?.messagesCollectionView.scrollToLastItem(animated: true)
         output?.messageInputBar.isHidden = false
     }
     
@@ -214,7 +215,7 @@ final class ChatModel: Model, ChatInput {
             }
         }, completion: { [weak self] _ in
             if self?.isLastSectionVisible() == true {
-                self?.output?.messagesCollectionView.scrollToBottom(animated: true)
+                self?.output?.messagesCollectionView.scrollToLastItem(animated: true)
             }
         })
     }

@@ -148,7 +148,7 @@ extension ChatViewController: ChatOutput {
                 self.showDeniedPhotoMessage()
             default: break
             }
-            self.messagesCollectionView.scrollToBottom(animated: true)
+            self.messagesCollectionView.scrollToLastItem(animated: true)
         }
     }
     
@@ -296,7 +296,7 @@ extension ChatViewController: ChatInputBarDelegate {
     }
     
     func inputBar(_ inputBar: InputBarAccessoryView, textViewTextDidChangeTo text: String) {
-        messagesCollectionView.scrollToBottom(animated: false)
+        messagesCollectionView.scrollToLastItem(animated: false)
     }
     
     func didSelect(action: ImageSelectionAction) {
