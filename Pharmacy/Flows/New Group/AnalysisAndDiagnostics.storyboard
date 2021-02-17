@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zn6-uU-mRM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Analysis And Diagnostics-->
+        <scene sceneID="aTP-w8-ZDy">
+            <objects>
+                <viewController storyboardIdentifier="AnalysisAndDiagnostics" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zn6-uU-mRM" customClass="AnalysisAndDiagnostics" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yPm-rV-u2h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAu-32-UZe" userLabel="TopView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsf-u7-XeO" customClass="NavigationBarWithSearchView" customModule="Pharmacy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="1lQ-vU-4gI"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="welcomeBlue"/>
+                                <constraints>
+                                    <constraint firstItem="zsf-u7-XeO" firstAttribute="leading" secondItem="xAu-32-UZe" secondAttribute="leading" id="5gQ-5g-mP4"/>
+                                    <constraint firstAttribute="height" constant="144" id="RJj-Jf-mvm"/>
+                                    <constraint firstAttribute="trailing" secondItem="zsf-u7-XeO" secondAttribute="trailing" id="ShL-YX-9I2"/>
+                                    <constraint firstAttribute="bottom" secondItem="zsf-u7-XeO" secondAttribute="bottom" id="f48-pK-JfI"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-Qu-Sfe">
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mXo-YU-I3b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xAu-32-UZe" firstAttribute="leading" secondItem="mXo-YU-I3b" secondAttribute="leading" id="29x-jQ-Zdk"/>
+                            <constraint firstItem="3aQ-Qu-Sfe" firstAttribute="top" secondItem="xAu-32-UZe" secondAttribute="bottom" id="FxT-0e-fKb"/>
+                            <constraint firstItem="mXo-YU-I3b" firstAttribute="trailing" secondItem="3aQ-Qu-Sfe" secondAttribute="trailing" id="O9Y-kz-1Be"/>
+                            <constraint firstItem="mXo-YU-I3b" firstAttribute="bottom" secondItem="3aQ-Qu-Sfe" secondAttribute="bottom" id="X5a-qI-KMU"/>
+                            <constraint firstItem="mXo-YU-I3b" firstAttribute="trailing" secondItem="xAu-32-UZe" secondAttribute="trailing" id="d2d-kD-j0j"/>
+                            <constraint firstItem="3aQ-Qu-Sfe" firstAttribute="leading" secondItem="mXo-YU-I3b" secondAttribute="leading" id="heA-dS-AAq"/>
+                            <constraint firstItem="xAu-32-UZe" firstAttribute="top" secondItem="yPm-rV-u2h" secondAttribute="top" id="lTp-13-OqU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="3aQ-Qu-Sfe" id="WJQ-0B-CNM"/>
+                        <outlet property="topNavBarView" destination="xAu-32-UZe" id="9oY-n9-eSO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rmh-Ha-YAR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="157.97101449275362" y="134.59821428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="welcomeBlue">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
