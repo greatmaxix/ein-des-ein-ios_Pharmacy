@@ -114,14 +114,8 @@ fileprivate extension WelcomeCoordinator {
     }
 
     func presentAnalizes() {
-        guard let analizesVC:
-                AnalysisAndDiagnostics = R.storyboard.analysisAndDiagnostics().instantiateViewController(withIdentifier: "AnalysisAndDiagnostics") as? AnalysisAndDiagnostics else {
-                   return
-        }
-        
-        let model = AnalizesModel(parent: self)
-      //  analizesVC.model = model
-        navigation.pushViewController(analizesVC, animated: true)
+        let controller = AnalisisCoordinator(configuration: AnalisisFlowConfiguration(parent: self, navigation: navigation)).createFlow()
+        navigation.pushViewController(controller, animated: true)
     }
 
     func presentPrescriptions() {

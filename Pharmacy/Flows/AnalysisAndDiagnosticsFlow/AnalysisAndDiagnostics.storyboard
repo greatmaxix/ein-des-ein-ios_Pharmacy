@@ -36,8 +36,12 @@
                                     <constraint firstAttribute="bottom" secondItem="zsf-u7-XeO" secondAttribute="bottom" id="f48-pK-JfI"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-Qu-Sfe">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JpJ-Dy-tOB">
                                 <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                                <color key="backgroundColor" name="backgroundGray"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-Qu-Sfe">
+                                <rect key="frame" x="0.0" y="152" width="414" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -45,12 +49,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xAu-32-UZe" firstAttribute="leading" secondItem="mXo-YU-I3b" secondAttribute="leading" id="29x-jQ-Zdk"/>
-                            <constraint firstItem="3aQ-Qu-Sfe" firstAttribute="top" secondItem="xAu-32-UZe" secondAttribute="bottom" id="FxT-0e-fKb"/>
+                            <constraint firstItem="JpJ-Dy-tOB" firstAttribute="leading" secondItem="mXo-YU-I3b" secondAttribute="leading" id="AF2-57-NJs"/>
+                            <constraint firstItem="3aQ-Qu-Sfe" firstAttribute="top" secondItem="xAu-32-UZe" secondAttribute="bottom" constant="8" id="FxT-0e-fKb"/>
+                            <constraint firstItem="mXo-YU-I3b" firstAttribute="trailing" secondItem="JpJ-Dy-tOB" secondAttribute="trailing" id="MlF-0T-cj5"/>
                             <constraint firstItem="mXo-YU-I3b" firstAttribute="trailing" secondItem="3aQ-Qu-Sfe" secondAttribute="trailing" id="O9Y-kz-1Be"/>
                             <constraint firstItem="mXo-YU-I3b" firstAttribute="bottom" secondItem="3aQ-Qu-Sfe" secondAttribute="bottom" id="X5a-qI-KMU"/>
                             <constraint firstItem="mXo-YU-I3b" firstAttribute="trailing" secondItem="xAu-32-UZe" secondAttribute="trailing" id="d2d-kD-j0j"/>
                             <constraint firstItem="3aQ-Qu-Sfe" firstAttribute="leading" secondItem="mXo-YU-I3b" secondAttribute="leading" id="heA-dS-AAq"/>
+                            <constraint firstItem="JpJ-Dy-tOB" firstAttribute="top" secondItem="xAu-32-UZe" secondAttribute="bottom" id="kw7-Ii-8ua"/>
                             <constraint firstItem="xAu-32-UZe" firstAttribute="top" secondItem="yPm-rV-u2h" secondAttribute="top" id="lTp-13-OqU"/>
+                            <constraint firstItem="mXo-YU-I3b" firstAttribute="bottom" secondItem="JpJ-Dy-tOB" secondAttribute="bottom" id="uLy-Om-mjE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -64,6 +72,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="backgroundGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="welcomeBlue">
             <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

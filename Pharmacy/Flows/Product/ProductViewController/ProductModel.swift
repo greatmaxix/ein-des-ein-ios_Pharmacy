@@ -9,6 +9,7 @@
 import Foundation
 import EventsTree
 import CoreLocation
+
 enum ProductModelEvent: Event {
     case openAnalogsFor(Product)
     case openCatalogsFor(Product)

@@ -12,8 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationBarWithSearchView" customModule="Pharmacy" customModuleProvider="target">
             <connections>
+                <outlet property="navBarTitleLabel" destination="6bR-cz-bnj" id="q5E-W0-OyY"/>
                 <outlet property="searchView" destination="nUY-HM-ork" id="r9q-rm-HG9"/>
-                <outlet property="serchInfoPlaceholderlabel" destination="jNZ-Mx-cby" id="lEJ-r5-MQY"/>
+                <outlet property="serchInfoPlaceholderTextField" destination="jNZ-Mx-cby" id="Wxf-cW-yX6"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -45,7 +46,7 @@
                                 <constraint firstAttribute="height" constant="22" id="Vls-Q6-ZJi"/>
                             </constraints>
                         </imageView>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jNZ-Mx-cby">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jNZ-Mx-cby">
                             <rect key="frame" x="44" y="0.0" width="432" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
