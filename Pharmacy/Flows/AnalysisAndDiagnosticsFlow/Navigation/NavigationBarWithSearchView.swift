@@ -8,34 +8,53 @@
 
 import UIKit
 
-class NavigationBarWithSearchView: UIView, NibView {
 
 
-    @IBOutlet var searchView: UIView?
+
+class NavigationBarWithSearchView: UIView {
+
+    @IBOutlet weak var frontView: UIView!
+    @IBOutlet var leftButton: UIButton!
+    @IBOutlet var searchView: UIView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var searchTextField: UITextField!
     
-    @IBOutlet var navBarTitleLabel: UILabel?
-    @IBOutlet var serchInfoPlaceholderTextField: UITextField?
+    var style: NavigationBarStyle = .normalWithSearch
     
-    // MARK: - Init / Deinit Methods
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        loadViewFromNib()
+    func setupStyle(style: NavigationBarStyle) {
+        self.style = style
+        if style == .normal {
+            hideSearch(true)
+        } else {
+            hideSearch(false)
+        }
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        loadViewFromNib()
-        self.configure(view: self.searchView)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.configure()
     }
     
     // MARK: - Private
-    private func configure(view: UIView?) {
-        view?.backgroundColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 0.3)
-        view?.layer.cornerRadius = 12
+    private func configure() {
+        searchView.backgroundColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 0.3)
+        searchView.layer.cornerRadius = 12
         
-        self.navBarTitleLabel?.text = "Анализы"
-        serchInfoPlaceholderTextField?.attributedPlaceholder = NSAttributedString(string: "Какие исследования вы ищите?",
+//        self.titleLabel?.text = "Анализы"
+        searchTextField?.attributedPlaceholder = NSAttributedString(string: "Какие исследования вы ищите?",
                                                                attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+    }
+    
+    private func hideSearch(_ bool: Bool) {
+        searchTextField.resignFirstResponder()
+//        self.leftButton.isHidden = !bool
+        
+        UIView.animate(withDuration: 0.3, animations: {[weak self] in
+            self?.layoutIfNeeded()
+        }, completion: {[weak self] _ in
+            self?.searchView.isHidden = bool
+//            self?.titleLabel.isHidden = !bool
+    
+        })
     }
 }

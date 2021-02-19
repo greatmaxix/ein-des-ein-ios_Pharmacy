@@ -114,8 +114,9 @@ fileprivate extension WelcomeCoordinator {
     }
 
     func presentAnalizes() {
-        let controller = AnalisisCoordinator(configuration: AnalisisFlowConfiguration(parent: self, navigation: navigation)).createFlow()
-        navigation.pushViewController(controller, animated: true)
+        let controller = AnalisisCoordinator(configuration: AnalisisFlowConfiguration(parent: self)).createFlow()
+        controller.modalPresentationStyle = .overFullScreen
+        navigation.present(controller, animated: true)
     }
 
     func presentPrescriptions() {

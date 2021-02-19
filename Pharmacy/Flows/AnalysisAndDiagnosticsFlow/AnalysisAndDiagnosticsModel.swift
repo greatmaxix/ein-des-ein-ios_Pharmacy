@@ -13,6 +13,7 @@ import CoreLocation
 enum AnalysisAndDiagnosticsModelEvent: Event {
     case openAnalysis(TypeOfAnalysis)
     case openLaboratory(TypeOfAnalysis)
+    case backToAnalisis
 }
 
 protocol AnalysisAndDiagnosticsModelInput: class {

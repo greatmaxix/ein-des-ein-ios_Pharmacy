@@ -7,10 +7,16 @@
 //
 
 import Foundation
+import EventsTree
+import Moya
+
+
+
 
 protocol LaboratoryModelInput: class {
     func load()
     func didSelectCell(at indexPath: IndexPath)
+    func close()
 }
 
 protocol LaboratoryModelOutput: class {
@@ -26,6 +32,10 @@ final class LaboratoryModel: Model {
 }
 
 extension LaboratoryModel: LaboratoryControllerOutput {
+    func close() {
+        self.raise(event: AnalysisAndDiagnosticsModelEvent.backToAnalisis)
+    }
+    
     func load() {
         let mockData: [LaboratoryResearchModel] = [
             .init(laboratoryName: "Биохимические исследования"),

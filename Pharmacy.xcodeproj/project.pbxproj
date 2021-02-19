@@ -411,6 +411,9 @@
 		F51F88EC25DED72900C1A9ED /* LaboratoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51F88EA25DED72900C1A9ED /* LaboratoryTableViewCell.xib */; };
 		F51F88F025DEDA8400C1A9ED /* LaboratoryResearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F88EF25DEDA8400C1A9ED /* LaboratoryResearchModel.swift */; };
 		F520B9A725DAB63B0077CB03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F520B9A625DAB63B0077CB03 /* GoogleService-Info.plist */; };
+		F521BCE625DFB9CC00289081 /* ModerDeteilLaboratoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521BCE525DFB9CC00289081 /* ModerDeteilLaboratoryController.swift */; };
+		F521BCEA25DFBC8A00289081 /* DetailLaboratoryController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F521BCE925DFBC8A00289081 /* DetailLaboratoryController.storyboard */; };
+		F521BCED25DFE28200289081 /* SimpleWithSearchNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521BCEC25DFE28200289081 /* SimpleWithSearchNavigationBar.swift */; };
 		F56B649B25DD300000B108AC /* AnalysisAndDiagnostics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56B649A25DD300000B108AC /* AnalysisAndDiagnostics.storyboard */; };
 		F56B649E25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B649D25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift */; };
 		F56B64A225DD538400B108AC /* NavigationBarWithSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B64A125DD538400B108AC /* NavigationBarWithSearchView.swift */; };
@@ -828,6 +831,9 @@
 		F51F88EA25DED72900C1A9ED /* LaboratoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaboratoryTableViewCell.xib; sourceTree = "<group>"; };
 		F51F88EF25DEDA8400C1A9ED /* LaboratoryResearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryResearchModel.swift; sourceTree = "<group>"; };
 		F520B9A625DAB63B0077CB03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F521BCE525DFB9CC00289081 /* ModerDeteilLaboratoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModerDeteilLaboratoryController.swift; sourceTree = "<group>"; };
+		F521BCE925DFBC8A00289081 /* DetailLaboratoryController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailLaboratoryController.storyboard; sourceTree = "<group>"; };
+		F521BCEC25DFE28200289081 /* SimpleWithSearchNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWithSearchNavigationBar.swift; sourceTree = "<group>"; };
 		F56B649A25DD300000B108AC /* AnalysisAndDiagnostics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnalysisAndDiagnostics.storyboard; sourceTree = "<group>"; };
 		F56B649D25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisAndDiagnosticsViewController.swift; sourceTree = "<group>"; };
 		F56B64A125DD538400B108AC /* NavigationBarWithSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSearchView.swift; sourceTree = "<group>"; };
@@ -1297,6 +1303,7 @@
 		396C45CF249774D200A569CE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				F521BCE125DFB86900289081 /* ModerDeteilLaboratory */,
 				F51F88E125DED59900C1A9ED /* Labaratory */,
 				F56B649925DD2F6E00B108AC /* AnalysisAndDiagnosticsFlow */,
 				61D90F8A255DCEED00AE6124 /* Receipts */,
@@ -2553,6 +2560,15 @@
 			path = LaboratoryModel;
 			sourceTree = "<group>";
 		};
+		F521BCE125DFB86900289081 /* ModerDeteilLaboratory */ = {
+			isa = PBXGroup;
+			children = (
+				F521BCE525DFB9CC00289081 /* ModerDeteilLaboratoryController.swift */,
+				F521BCE925DFBC8A00289081 /* DetailLaboratoryController.storyboard */,
+			);
+			path = ModerDeteilLaboratory;
+			sourceTree = "<group>";
+		};
 		F56B649925DD2F6E00B108AC /* AnalysisAndDiagnosticsFlow */ = {
 			isa = PBXGroup;
 			children = (
@@ -2573,6 +2589,7 @@
 			children = (
 				F56B64A125DD538400B108AC /* NavigationBarWithSearchView.swift */,
 				F56B64A525DD539800B108AC /* NavigationBarWithSearchView.xib */,
+				F521BCEC25DFE28200289081 /* SimpleWithSearchNavigationBar.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -2703,6 +2720,7 @@
 				618C33A12498BE4A00951D11 /* Auth.storyboard in Resources */,
 				6036EAF124DD1A81003336C2 /* Catalogue.storyboard in Resources */,
 				61CFAA8A254B214400569DEF /* OrderDeliveryCell.xib in Resources */,
+				F521BCEA25DFBC8A00289081 /* DetailLaboratoryController.storyboard in Resources */,
 				6184730A2549A0C80062D8B9 /* CartSectionHeader.xib in Resources */,
 				393D3CDB24FD33BD00E8181F /* PaymentMethodView.xib in Resources */,
 				395A7FC224A3980D00A7CFC6 /* ProfileTableViewCell.xib in Resources */,
@@ -2922,6 +2940,7 @@
 				24F5FD3E254A0BA300D28275 /* ChooseLocationViewController.swift in Sources */,
 				6184730125496E950062D8B9 /* CartResponse.swift in Sources */,
 				603D31A724E3B627000E5A6C /* CategoryCellSection.swift in Sources */,
+				F521BCED25DFE28200289081 /* SimpleWithSearchNavigationBar.swift in Sources */,
 				603D31A424E3B608000E5A6C /* CategoryCollectionViewCell.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
 				39F0AD6524EEC80200CD6CA4 /* OrdersViewController.swift in Sources */,
@@ -3003,6 +3022,7 @@
 				61D90F8C255DCF0A00AE6124 /* ReceiptsViewController.swift in Sources */,
 				6040F0AC254F6CCB006B4B39 /* NavigationController.swift in Sources */,
 				395324BC2508CE450038D2DC /* RegionResponse.swift in Sources */,
+				F521BCE625DFB9CC00289081 /* ModerDeteilLaboratoryController.swift in Sources */,
 				396448E224ADE17A00E6D852 /* UserDTO.swift in Sources */,
 				60E1A71A24ED025000B3D205 /* CustomIntensityVisualEffectView.swift in Sources */,
 				39273A0B24A0DFEC004A9909 /* Model.swift in Sources */,

@@ -13,11 +13,10 @@ import MapKit
 
 struct AnalisisFlowConfiguration {
     let parent: EventNode
-    let navigation: UINavigationController
 }
 
 final class AnalisisCoordinator: EventNode, Coordinator {
-    let navigation: UINavigationController
+    var navigation: UINavigationController?
     
     func createFlow() -> UIViewController {
         let root = R.storyboard.analysisAndDiagnostics.instantiateInitialViewController()!
@@ -25,11 +24,15 @@ final class AnalisisCoordinator: EventNode, Coordinator {
         root.model = model
         model.output = root
         
-        return root
+        let navigationVC: UINavigationController = UINavigationController(navigationBarClass: SimpleWithSearchNavigationBar.self, toolbarClass: nil)
+        navigationVC.setViewControllers([root], animated: false)
+        navigationVC.isToolbarHidden = true
+        navigation = navigationVC
+        
+        return navigationVC
     }
     
     init(configuration: AnalisisFlowConfiguration) {
-        navigation = configuration.navigation
         super.init(parent: configuration.parent)
         addHandler(.onRaise) { [weak self] (event: AnalysisAndDiagnosticsModelEvent) in
             guard let self = self else { return }
@@ -38,6 +41,8 @@ final class AnalisisCoordinator: EventNode, Coordinator {
                 self.openAnalisisBy(type: type)
             case let .openLaboratory(model):
                 debugPrint(model)
+            case .backToAnalisis:
+                self.navigation?.popViewController(animated: true)
             }
         }
     }
@@ -50,14 +55,11 @@ fileprivate extension AnalisisCoordinator {
         let model = LaboratoryModel(parent: self)
         controller.model = model
         model.output = controller
-        navigation.pushViewController(controller, animated: true)
+        navigation?.pushViewController(controller, animated: true)
     }
     
-    func openMedicineList(product: Product) {
+    func openDeteilLaboratoryList() {
         let viewController = R.storyboard.catalogue.medicineListViewController()!
-        let model = MedicineListModel(product: product, parent: self)
-        viewController.model = model
-        model.output = viewController
-        navigation.pushViewController(viewController, animated: true)
+        navigation?.pushViewController(viewController, animated: true)
     }
 }

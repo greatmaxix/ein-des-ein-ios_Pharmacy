@@ -25,7 +25,6 @@ class SimpleNavigationBarView: UIView {
     var style: NavigationBarStyle = .normal
     
     override func awakeFromNib() {
-        
         frontView.layer.cornerRadius = 10
         frontView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         frontView.clipsToBounds = true

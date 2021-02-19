@@ -11,13 +11,14 @@ import UIKit
 protocol LaboratoryControllerOutput: LaboratoryModelInput {}
 protocol LaboratoryControllerInput: LaboratoryModelOutput {}
 
-class LaboratoryViewController: UIViewController {
-
-    @IBOutlet var tableView: UITableView?
-    
+class LaboratoryViewController: UIViewController, NavigationBarStyled {
+        
+    var style: NavigationBarStyle = .normal
     var model: LaboratoryControllerOutput!
     var models: [LaboratoryResearchModel] = []
     
+    @IBOutlet var tableView: UITableView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -29,6 +30,16 @@ class LaboratoryViewController: UIViewController {
         tableView?.separatorStyle = .none
         tableView?.delegate = self
         tableView?.dataSource = self
+        
+        self.setupTitle()
+    }
+    private func setupTitle() {
+        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
+            bar.title = "Лабараторные"
+            bar.style = .normal
+            bar.barDelegate = self
+    
+        }
     }
 }
 
@@ -74,4 +85,15 @@ extension LaboratoryViewController: LaboratoryControllerInput {
     func didFetchError(error: Error) {
         
     }
+}
+extension  LaboratoryViewController: SimpleWithSearchNavigationBarDelegate {
+    func leftBarItemAction() {
+        model.close()
+    }
+    
+    func rightBarItemAction() {
+        
+    }
+    
+    
 }

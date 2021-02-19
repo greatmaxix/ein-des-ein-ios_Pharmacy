@@ -11,7 +11,9 @@ import UIKit
 protocol AnalysisAndDiagnosticsControllerInput: AnalysisAndDiagnosticsModelOutput {}
 protocol AnalysisAndDiagnosticsControllerOutput: AnalysisAndDiagnosticsModelInput {}
 
-class AnalysisAndDiagnostics: UIViewController {
+class AnalysisAndDiagnostics: UIViewController, NavigationBarStyled {
+    
+    var style: NavigationBarStyle = .normalWithSearch
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var topNavBarView: UIView?
@@ -23,15 +25,14 @@ class AnalysisAndDiagnostics: UIViewController {
         super.viewDidLoad()
         model.load()
         configUI()
+//        setupUI()
         setupTableView()
-        self.setupNavBar()
+//        self.setupNavBar()
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        setupUI()
     }
     
     func configUI() {
@@ -39,7 +40,16 @@ class AnalysisAndDiagnostics: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
+    
+    private func setupUI() {
+        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
+            bar.title =  "Анализы"
+            bar.isLeftItemHidden = false
+            bar.leftItemTitle = nil
+            bar.barDelegate = self
+            bar.style = .normalWithSearch
+        }
+    }
 }
 
 // MARK: - Private methods
@@ -51,10 +61,10 @@ extension AnalysisAndDiagnostics {
         
     }
     
-    private func setupNavBar() {
-        topNavBarView?.layer.cornerRadius = 10
-        topNavBarView?.layer.masksToBounds = true
-    }
+//    private func setupNavBar() {
+//        topNavBarView?.layer.cornerRadius = 10
+//        topNavBarView?.layer.masksToBounds = true
+//    }
 }
 
 extension AnalysisAndDiagnostics: UITableViewDataSource {
@@ -115,6 +125,17 @@ extension AnalysisAndDiagnostics: AnalysisAndDiagnosticsControllerInput {
     }
     
     func didFetchError(error: Error) {
+        
+    }
+}
+
+extension AnalysisAndDiagnostics: SimpleWithSearchNavigationBarDelegate {
+    
+    func leftBarItemAction() {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func rightBarItemAction() {
         
     }
 }
