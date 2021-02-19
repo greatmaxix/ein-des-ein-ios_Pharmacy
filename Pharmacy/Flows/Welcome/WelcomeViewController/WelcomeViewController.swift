@@ -97,7 +97,8 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
         })
         
         buttonsBackgroundImages.forEach({
-            $0.image = $0.image?.withRenderingMode(.alwaysTemplate)
+//            $0.image = $0.image?.withRenderingMode(.alwaysOriginal)
+        
             $0.tintColor = $0.superview?.tintColor.withAlphaComponent(0.3)
         })
         

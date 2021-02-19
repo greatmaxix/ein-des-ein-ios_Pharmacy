@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TypeOfAnalysisCell" rowHeight="69" id="KGk-i7-Jjw" customClass="TypeOfAnalysisCell" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="332" height="69"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="332" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEz-bl-fBc">
+                        <rect key="frame" x="13" y="4" width="301" height="61"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIX-es-ngM">
+                                <rect key="frame" x="8" y="0.0" width="260" height="61"/>
+                                <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vector_icon" translatesAutoresizingMaskIntoConstraints="NO" id="tiB-DA-25A">
+                                <rect key="frame" x="273" y="18" width="12" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="12" id="4es-B5-wc5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tiB-DA-25A" secondAttribute="trailing" constant="16" id="FvA-hy-I7m"/>
+                            <constraint firstItem="CIX-es-ngM" firstAttribute="leading" secondItem="yEz-bl-fBc" secondAttribute="leading" constant="8" id="MtQ-Kk-Ff0"/>
+                            <constraint firstItem="tiB-DA-25A" firstAttribute="top" secondItem="yEz-bl-fBc" secondAttribute="top" constant="18" id="XY3-Xl-ptB"/>
+                            <constraint firstItem="CIX-es-ngM" firstAttribute="top" secondItem="yEz-bl-fBc" secondAttribute="top" id="e3Z-Lb-lTi"/>
+                            <constraint firstAttribute="bottom" secondItem="CIX-es-ngM" secondAttribute="bottom" id="eTL-gT-nF0"/>
+                            <constraint firstItem="tiB-DA-25A" firstAttribute="leading" secondItem="CIX-es-ngM" secondAttribute="trailing" constant="5" id="fVn-19-f9J"/>
+                            <constraint firstAttribute="bottom" secondItem="tiB-DA-25A" secondAttribute="bottom" constant="18" id="xdE-pX-fw0"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="backgroundGray"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="yEz-bl-fBc" secondAttribute="bottom" constant="4" id="11d-2a-crQ"/>
+                    <constraint firstItem="yEz-bl-fBc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="frO-re-VF6"/>
+                    <constraint firstItem="yEz-bl-fBc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="jFa-Os-5bp"/>
+                    <constraint firstAttribute="trailing" secondItem="yEz-bl-fBc" secondAttribute="trailing" constant="18" id="ybH-3e-Wjy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="nameOfTypeAnalysis" destination="CIX-es-ngM" id="kfQ-cK-7MZ"/>
+                <outlet property="whiteCotentView" destination="yEz-bl-fBc" id="rH7-HD-neS"/>
+            </connections>
+            <point key="canvasLocation" x="-30.434782608695656" y="92.745535714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="vector_icon" width="8" height="14"/>
+        <namedColor name="backgroundGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
