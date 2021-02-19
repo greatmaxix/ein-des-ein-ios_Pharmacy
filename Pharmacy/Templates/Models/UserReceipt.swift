@@ -119,7 +119,7 @@ struct UserReceipt: Codable {
         let doctorContainer = try? container.nestedContainer(keyedBy: Keys.self, forKey: .doctor)
         doctorName = try? doctorContainer?.decode(String.self, forKey: .name)
 
-        var pictureContainer = try? container.nestedContainer(keyedBy: Keys.self, forKey: .image)
+        let pictureContainer = try? container.nestedContainer(keyedBy: Keys.self, forKey: .image)
         pdfLink = try? pictureContainer?.decode(String.self, forKey: .uuid)
     }
 
