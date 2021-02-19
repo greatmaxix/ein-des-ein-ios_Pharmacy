@@ -15,9 +15,9 @@ class LaboratoryViewController: UIViewController, NavigationBarStyled {
         
     var style: NavigationBarStyle = .normal
     var model: LaboratoryControllerOutput!
-    var models: [LaboratoryResearchModel] = []
+    private var models: [LaboratoryResearchModel] = []
     
-    @IBOutlet var tableView: UITableView?
+    @IBOutlet private var tableView: UITableView?
 
     override func viewDidLoad() {
         super.viewDidLoad()

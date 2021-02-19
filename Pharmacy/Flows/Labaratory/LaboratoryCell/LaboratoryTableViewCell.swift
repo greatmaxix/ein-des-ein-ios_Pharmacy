@@ -10,8 +10,8 @@ import UIKit
 
 class LaboratoryTableViewCell: UITableViewCell {
 
-    @IBOutlet var nameLabel: UILabel?
-    @IBOutlet var whiteCotentView: UIView?
+    @IBOutlet private var nameLabel: UILabel?
+    @IBOutlet private var whiteCotentView: UIView?
     
     func apply(laboratory: LaboratoryResearchModel) {
         self.nameLabel?.text = laboratory.laboratoryName

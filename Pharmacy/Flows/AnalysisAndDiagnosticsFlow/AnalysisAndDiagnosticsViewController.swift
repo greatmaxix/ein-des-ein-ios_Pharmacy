@@ -15,8 +15,8 @@ class AnalysisAndDiagnostics: UIViewController, NavigationBarStyled {
     
     var style: NavigationBarStyle = .normalWithSearch
     
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var topNavBarView: UIView?
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var topNavBarView: UIView?
     
     var model: AnalysisAndDiagnosticsControllerOutput!
     var types: [TypeOfAnalysis] = []
@@ -25,9 +25,7 @@ class AnalysisAndDiagnostics: UIViewController, NavigationBarStyled {
         super.viewDidLoad()
         model.load()
         configUI()
-//        setupUI()
         setupTableView()
-//        self.setupNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,11 +58,6 @@ extension AnalysisAndDiagnostics {
                            forCellReuseIdentifier: String(describing: TypeOfAnalysisCell.self))
         
     }
-    
-//    private func setupNavBar() {
-//        topNavBarView?.layer.cornerRadius = 10
-//        topNavBarView?.layer.masksToBounds = true
-//    }
 }
 
 extension AnalysisAndDiagnostics: UITableViewDataSource {

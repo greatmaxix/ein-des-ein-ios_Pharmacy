@@ -10,8 +10,8 @@ import UIKit
 
 class TypeOfAnalysisCell: UITableViewCell {
 
-    @IBOutlet var whiteCotentView: UIView?
-    @IBOutlet var nameOfTypeAnalysis: UILabel?
+    @IBOutlet private var whiteCotentView: UIView?
+    @IBOutlet private var nameOfTypeAnalysis: UILabel?
     
     func apply(analisName: TypeOfAnalysis) {
         self.whiteCotentView?.layer.cornerRadius = 10

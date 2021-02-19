@@ -10,9 +10,6 @@ import Foundation
 import EventsTree
 import Moya
 
-
-
-
 protocol LaboratoryModelInput: class {
     func load()
     func didSelectCell(at indexPath: IndexPath)
@@ -23,7 +20,6 @@ protocol LaboratoryModelOutput: class {
     func didLoad(models: [LaboratoryResearchModel])
     func didFetchError(error: Error)
 }
-
 
 final class LaboratoryModel: Model {
     weak var output: LaboratoryModelOutput!
@@ -58,7 +54,6 @@ extension LaboratoryModel: LaboratoryControllerOutput {
     
     func didSelectCell(at indexPath: IndexPath) {
         let model = self.laboratoryList[indexPath.row]
-    //    self.raise(event: AnalysisAndDiagnosticsModelEvent.openAnalysis(model))
     }
 
 }
