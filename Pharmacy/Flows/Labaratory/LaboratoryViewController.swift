@@ -26,6 +26,12 @@ class LaboratoryViewController: UIViewController, NavigationBarStyled {
         model.load()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupTitle()
+    }
+    
     private func configUI() {
         tableView?.separatorStyle = .none
         tableView?.delegate = self
@@ -35,10 +41,9 @@ class LaboratoryViewController: UIViewController, NavigationBarStyled {
     }
     private func setupTitle() {
         if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
-            bar.title = "Лабараторные"
-            bar.style = .normal
             bar.barDelegate = self
-    
+            bar.title = "Лабараторные"
+            bar.style = style
         }
     }
 }
@@ -87,13 +92,16 @@ extension LaboratoryViewController: LaboratoryControllerInput {
     }
 }
 extension  LaboratoryViewController: SimpleWithSearchNavigationBarDelegate {
+    
     func leftBarItemAction() {
+        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
+            bar.setupUI()
+        }
+        
         model.close()
     }
     
     func rightBarItemAction() {
         
     }
-    
-    
 }

@@ -37,12 +37,18 @@ final class AnalisisCoordinator: EventNode, Coordinator {
         addHandler(.onRaise) { [weak self] (event: AnalysisAndDiagnosticsModelEvent) in
             guard let self = self else { return }
             switch event {
-            case let .openAnalysis(type):
-                self.openAnalisisBy(type: type)
-            case let .openLaboratory(model):
-                debugPrint(model)
-            case .backToAnalisis:
+            case let .openLaboratoryList(type):
+                self.openLaboratoryList(type: type)
+            case let .openLaboratoryDetail(model):
+                self.openLaboratoryDetail(model: model)
+            case .openAnalisInformation:
+                self.openAnalisInformation()
+            case .back:
                 self.navigation?.popViewController(animated: true)
+            case let .openClinic(model):
+                print("open clinic info")
+            case .openOrderService:
+                self.openOrder()
             }
         }
     }
@@ -50,7 +56,7 @@ final class AnalisisCoordinator: EventNode, Coordinator {
 
 fileprivate extension AnalisisCoordinator {
     
-    func openAnalisisBy(type: TypeOfAnalysis) {
+    func openLaboratoryList(type: TypeOfAnalysis) {
         let controller = R.storyboard.laboratoryViewController.instantiateInitialViewController()!
         let model = LaboratoryModel(parent: self)
         controller.model = model
@@ -58,8 +64,35 @@ fileprivate extension AnalisisCoordinator {
         navigation?.pushViewController(controller, animated: true)
     }
     
-    func openDeteilLaboratoryList() {
-        let viewController = R.storyboard.catalogue.medicineListViewController()!
-        navigation?.pushViewController(viewController, animated: true)
+    func openOrder() {
+        let controller = R.storyboard.orderServiceViewController.instantiateInitialViewController()!
+        let model = OrderServiceViewModel(parent: self)
+        controller.model = model
+        model.output = controller
+        navigation?.pushViewController(controller, animated: true)
     }
+    
+    func openLaboratoryDetail(model: LaboratoryResearchModel) {
+        let controller = R.storyboard.detailLaboratoryController.instantiateInitialViewController()!
+        let model = DeteilLaboratoryyModel(parent: self)
+        controller.model = model
+        model.output = controller
+        navigation?.pushViewController(controller, animated: true)
+    }
+    
+    func openAnalisInformation() {
+        let controller = R.storyboard.analisInformationViewController.instantiateInitialViewController()!
+        let model = AnalisInformationModel(parent: self)
+        controller.model = model
+        model.output = controller
+        navigation?.pushViewController(controller, animated: true)
+    }
+    
+//    func openDeteilLaboratoryList() {
+//        let controller = R.storyboard.detailLaboratoryController.instantiateInitialViewController()!
+//        let model = DeteilLaboratoryyModel(parent: self)
+//        controller.model = model
+//        model.output = controller
+//        navigation?.pushViewController(controller, animated: true)
+//    }
 }

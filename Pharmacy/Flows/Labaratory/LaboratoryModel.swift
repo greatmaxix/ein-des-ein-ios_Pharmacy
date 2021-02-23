@@ -28,8 +28,9 @@ final class LaboratoryModel: Model {
 }
 
 extension LaboratoryModel: LaboratoryControllerOutput {
+    
     func close() {
-        self.raise(event: AnalysisAndDiagnosticsModelEvent.backToAnalisis)
+        raise(event: AnalysisAndDiagnosticsModelEvent.back)
     }
     
     func load() {
@@ -54,6 +55,6 @@ extension LaboratoryModel: LaboratoryControllerOutput {
     
     func didSelectCell(at indexPath: IndexPath) {
         let model = self.laboratoryList[indexPath.row]
+        raise(event: AnalysisAndDiagnosticsModelEvent.openLaboratoryDetail(model))
     }
-
 }

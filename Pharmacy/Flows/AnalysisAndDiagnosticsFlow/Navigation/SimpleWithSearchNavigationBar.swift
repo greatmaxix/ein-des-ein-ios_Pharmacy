@@ -84,8 +84,11 @@ final class SimpleWithSearchNavigationBar: UINavigationBar {
         setupUI()
     }
     
-    private func setupUI() {
-        
+    func setupUI() {
+        self.subviews.forEach {
+            $0.removeFromSuperview()
+        }
+
         tintColor = .clear
         barTintColor = R.color.welcomeBlue()
         isTranslucent = false
