@@ -129,6 +129,16 @@ final class ProfileModel: Model {
             }
 
             do {
+                let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: "Льготы")
+                cellData.image = R.image.prosent_icon()
+                cellData.selectHandler = { [weak self] in
+                    //                self?.raise(event: ProfileEvent.openHelp)
+                    self?.raise(event: AppEvent.presentInDev)
+                }
+                cellsData.append(cellData)
+            }
+            
+            do {
                 let location = user?.deliveryAddress
                 let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAddress(), additionalInfo: location, type: .delivery)
 
@@ -139,6 +149,8 @@ final class ProfileModel: Model {
                 cellsData.append(cellData)
             }
         }
+        
+  
 
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileNotifications())
@@ -170,6 +182,8 @@ final class ProfileModel: Model {
             }
             cellsData.append(cellData)
         }
+        
+
         do {
             let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 38, color: .clear)
             cellsData.append(cellData)
