@@ -13,21 +13,19 @@ protocol OrderServiceVControllerInput: OrderServiceViewModelModelOutput {}
 
 class OrderServiceViewController: UIViewController {
     
-    private let cellHeight: CGFloat = 50
-    
     @IBOutlet private var nameTextFieldView: UIView!
     @IBOutlet private var phoneTextFieldView: UIView!
     @IBOutlet private var emailTextFieldView: UIView!
     @IBOutlet private var tableView: UITableView!
-    @IBOutlet var genelPriceView: UIView!
-    @IBOutlet var payButton: UIButton!
-    @IBOutlet var promocodView: UIView!
-    @IBOutlet var paymentView: UIView!
-    @IBOutlet var commentTextField: UITextView!
-    @IBOutlet var clinicView: UIView!
-    @IBOutlet var timeView: UIView!
-    @IBOutlet var generalPriceView: UIView!
-    @IBOutlet var infoClinicView: UIView!
+    @IBOutlet private var genelPriceView: UIView!
+    @IBOutlet private var payButton: UIButton!
+    @IBOutlet private var promocodView: UIView!
+    @IBOutlet private var paymentView: UIView!
+    @IBOutlet private var commentTextField: UITextView!
+    @IBOutlet private var clinicView: UIView!
+    @IBOutlet private var timeView: UIView!
+    @IBOutlet private var generalPriceView: UIView!
+    @IBOutlet private var infoClinicView: UIView!
     @IBOutlet private var tableHeight: NSLayoutConstraint!
     
     var model: OrderServiceVControllerOutput!
@@ -125,7 +123,7 @@ extension OrderServiceViewController: SimpleWithSearchNavigationBarDelegate {
 extension OrderServiceViewController: OrderServiceViewModelModelOutput {
     
     func didLoad(models: [LaboratoryDetailModel]) {
-        tableHeight.constant = CGFloat(3) * cellHeight
+        tableHeight.constant = CGFloat(3) * model.cellHeight
     }
     
     func didFetchError(error: Error) {

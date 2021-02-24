@@ -87,12 +87,4 @@ fileprivate extension AnalisisCoordinator {
         model.output = controller
         navigation?.pushViewController(controller, animated: true)
     }
-    
-//    func openDeteilLaboratoryList() {
-//        let controller = R.storyboard.detailLaboratoryController.instantiateInitialViewController()!
-//        let model = DeteilLaboratoryyModel(parent: self)
-//        controller.model = model
-//        model.output = controller
-//        navigation?.pushViewController(controller, animated: true)
-//    }
 }

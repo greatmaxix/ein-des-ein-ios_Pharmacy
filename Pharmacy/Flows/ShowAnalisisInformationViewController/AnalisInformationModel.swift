@@ -14,29 +14,36 @@ protocol AnalisInformationModelInput: class {
     func close()
     func openDeteilClinic(_ model: ClinicModel)
     func orderService()
+    
+    var models: [String] { get }
+    var cellHeight: CGFloat { get }
 }
 
 protocol AnalisInformationyModelOutput: class {
-    func didLoad(models: [LaboratoryDetailModel])
+    func didLoad(models: [String])
     func didFetchError(error: Error)
 }
 
 
 final class AnalisInformationModel: Model {
+    
     weak var output: AnalisInformationyModelOutput!
+    
     private let laboratoryProvider = DataManager<DeteilLaboratorAPI, LaboratoryDetailModel>()
-    private var laboratoryList: [LaboratoryDetailModel] = []
+    
+    private(set) var models: [String] = []
+    let cellHeight: CGFloat = 190
 }
 
 extension AnalisInformationModel: AnalisInformationControllerOutput {
+    
+    
     func orderService() {
         raise(event: AnalysisAndDiagnosticsModelEvent.openOrderService)
     }
     
     func openDeteilClinic(_ model: ClinicModel) {
-        //let model = self.laboratoryList[indexPath.row]
         raise(event: AnalysisAndDiagnosticsModelEvent.openClinic(model))
-         
     }
     
     
@@ -45,19 +52,13 @@ extension AnalisInformationModel: AnalisInformationControllerOutput {
     }
     
     func load() {
-        let mockData: [LaboratoryDetailModel] = [
-            .init(analisName: "Биохимические исследования", countOfDay: "54"),
-            .init(analisName: "Гематологические исследования", countOfDay: "54"),
-            .init(analisName: "Гармональные исследования", countOfDay: "54")
-        ]
-        self.laboratoryList = mockData
-        self.output.didLoad(models: mockData)
+        models = ["1", "2"]
+        output.didLoad(models: models)
         
         self.laboratoryProvider.load(target: .getLaboratoryList) { [weak self] result in
             switch result {
             case let .success(response):
-                let model = LaboratoryDetailModel(analisName: response.analisName ?? "", countOfDay: response.countOfDay ?? "")
-                self?.output.didLoad(models: [model])
+                debugPrint(response)
             case let .failure(error):
                 self?.output.didFetchError(error: error)
             }
@@ -65,7 +66,6 @@ extension AnalisInformationModel: AnalisInformationControllerOutput {
     }
     
     func didSelectCell(at indexPath: IndexPath) {
-
         raise(event: AnalysisAndDiagnosticsModelEvent.openAnalisInformation)
     }
 }

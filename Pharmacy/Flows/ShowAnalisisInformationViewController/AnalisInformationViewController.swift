@@ -17,14 +17,12 @@ class AnalisInformationViewController: UIViewController {
     @IBOutlet private var tableHeight: NSLayoutConstraint!
     @IBOutlet private var infoView: UIView!
     
-    
-    private let cellHeight: CGFloat = 190
     var model: AnalisInformationControllerOutput!
-    private var models = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        model.load()
         setupTableView()
     }
     
@@ -46,9 +44,8 @@ class AnalisInformationViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        tableHeight.constant = CGFloat(3) * cellHeight
         infoView.layer.cornerRadius = 8
-        self.setupTitle()
+        setupTitle()
     }
     
     private func setupTitle() {
@@ -69,7 +66,7 @@ extension AnalisInformationViewController {
 
 extension AnalisInformationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return model.models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,9 +96,8 @@ extension AnalisInformationViewController: SimpleWithSearchNavigationBarDelegate
 }
 
 extension AnalisInformationViewController: AnalisInformationControllerInput {
-    func didLoad(models: [LaboratoryDetailModel]) {
-        self.models = ["1", "2"]
-        tableHeight.constant = CGFloat(models.count) * cellHeight
+    func didLoad(models: [String]) {
+        tableHeight.constant = CGFloat(models.count) * model.cellHeight
     }
 
     

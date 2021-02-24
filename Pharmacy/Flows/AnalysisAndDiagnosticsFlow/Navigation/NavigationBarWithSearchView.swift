@@ -8,14 +8,12 @@
 
 import UIKit
 
-
-
-
 class NavigationBarWithSearchView: UIView {
     
-    @IBOutlet weak var frontView: UIView!
+    @IBOutlet private weak var frontView: UIView!
+    @IBOutlet private var searchView: UIView!
+    
     @IBOutlet var leftButton: UIButton!
-    @IBOutlet var searchView: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var searchTextField: UITextField!
     
@@ -42,22 +40,17 @@ class NavigationBarWithSearchView: UIView {
     private func configure() {
         searchView.backgroundColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 0.3)
         searchView.layer.cornerRadius = 12
-        
-        //        self.titleLabel?.text = "Анализы"
         searchTextField?.attributedPlaceholder = NSAttributedString(string: "Какие исследования вы ищите?",
                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
     
     private func hideSearch(_ bool: Bool) {
         searchTextField.resignFirstResponder()
-        //        self.leftButton.isHidden = !bool
         
         UIView.animate(withDuration: 0.3, animations: {[weak self] in
             self?.layoutIfNeeded()
         }, completion: {[weak self] _ in
             self?.searchView.isHidden = bool
-            //            self?.titleLabel.isHidden = !bool
-            
         })
     }
 }
