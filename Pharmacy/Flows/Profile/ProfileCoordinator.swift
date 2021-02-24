@@ -45,6 +45,10 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 self?.presentChooseLocation()
             case .openChooseDeliveryAdress:
                 self?.presentChooseDeliveryAdress()
+            case .openPrivileges:
+                self?.presentPrivilegesVC()
+            case .openAddPrivileges:
+                self?.presentAddDocuments()
             default:
                 break
             }
@@ -154,6 +158,11 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         root.navigationController?.pushViewController(wishlistVC, animated: true)
     }
     
+    func presentAddDocuments() {
+        let viewController = R.storyboard.addPrivilegesViewController.instantiateInitialViewController()!
+        root.navigationController?.pushViewController(viewController, animated: false)
+    }
+    
     func presentMyOrders() {
         guard let ordersVC: OrdersViewController = R.storyboard.orders().instantiateViewController(withIdentifier: "OrdersViewController") as? OrdersViewController else {
             return
@@ -244,6 +253,16 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
 
     }
 
+    
+    private func presentPrivilegesVC() {
+        guard let viewController = R.storyboard.privilegesViewController.instantiateInitialViewController() else { return }
+        let model = PrivilegesModel(parent: self)
+
+        model.output = viewController
+        viewController.model = model
+        root.navigationController?.pushViewController(viewController, animated: true)
+
+    }
     private func saveToFiles(data: Data) {
         let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
         root.navigationController?.present(activityController, animated: true, completion: nil)

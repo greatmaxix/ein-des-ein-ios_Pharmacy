@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gwi-bn-RjP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Add Privileges View Controller-->
+        <scene sceneID="djl-9o-nkQ">
+            <objects>
+                <viewController id="gwi-bn-RjP" customClass="AddPrivilegesViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ggb-fD-tft">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUB-lt-zBH">
+                                <rect key="frame" x="15" y="452" width="382" height="150"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="2GK-Gw-Ze8">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="150"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2N-yt-D2m">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="74.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы пока не добавили удостоверение" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mME-BZ-pnd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="74.5"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" name="backgroundGray"/>
+                                                <constraints>
+                                                    <constraint firstItem="mME-BZ-pnd" firstAttribute="leading" secondItem="G2N-yt-D2m" secondAttribute="leading" id="59p-g4-YeG"/>
+                                                    <constraint firstAttribute="bottom" secondItem="mME-BZ-pnd" secondAttribute="bottom" id="H3O-Wx-C6e"/>
+                                                    <constraint firstItem="mME-BZ-pnd" firstAttribute="top" secondItem="G2N-yt-D2m" secondAttribute="top" id="cR7-cF-3EK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="mME-BZ-pnd" secondAttribute="trailing" id="qrr-dr-kip"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEL-sl-blm">
+                                                <rect key="frame" x="0.0" y="75.5" width="382" height="74.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQG-HP-8F9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="74.5"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" name="backgroundGray"/>
+                                                <constraints>
+                                                    <constraint firstItem="GQG-HP-8F9" firstAttribute="leading" secondItem="tEL-sl-blm" secondAttribute="leading" id="MFI-M4-H9s"/>
+                                                    <constraint firstItem="GQG-HP-8F9" firstAttribute="top" secondItem="tEL-sl-blm" secondAttribute="top" id="ZAf-VA-yES"/>
+                                                    <constraint firstAttribute="bottom" secondItem="GQG-HP-8F9" secondAttribute="bottom" id="ikE-cl-JgN"/>
+                                                    <constraint firstAttribute="trailing" secondItem="GQG-HP-8F9" secondAttribute="trailing" id="v7k-hX-ALC"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" name="backgroundGray"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="backgroundGray"/>
+                                <constraints>
+                                    <constraint firstItem="2GK-Gw-Ze8" firstAttribute="leading" secondItem="EUB-lt-zBH" secondAttribute="leading" id="FMI-KF-PHR"/>
+                                    <constraint firstItem="2GK-Gw-Ze8" firstAttribute="top" secondItem="EUB-lt-zBH" secondAttribute="top" id="SkK-YY-J2E"/>
+                                    <constraint firstAttribute="trailing" secondItem="2GK-Gw-Ze8" secondAttribute="trailing" id="ZSx-qo-jE9"/>
+                                    <constraint firstAttribute="height" constant="150" id="dSX-aQ-IwM"/>
+                                    <constraint firstAttribute="bottom" secondItem="2GK-Gw-Ze8" secondAttribute="bottom" id="kI1-2x-vZo"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addPrivilegion" translatesAutoresizingMaskIntoConstraints="NO" id="ljw-Xf-nzd">
+                                <rect key="frame" x="67" y="150" width="280" height="270"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="E6Q-Td-xdI"/>
+                                    <constraint firstAttribute="width" constant="280" id="d0E-fM-zzu"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4ED-2k-Fm0"/>
+                        <color key="backgroundColor" name="backgroundGray"/>
+                        <constraints>
+                            <constraint firstItem="ljw-Xf-nzd" firstAttribute="top" secondItem="4ED-2k-Fm0" secondAttribute="top" constant="106" id="OWo-BQ-3JL"/>
+                            <constraint firstItem="ljw-Xf-nzd" firstAttribute="centerX" secondItem="4ED-2k-Fm0" secondAttribute="centerX" id="QHW-Ax-eKc"/>
+                            <constraint firstItem="EUB-lt-zBH" firstAttribute="leading" secondItem="4ED-2k-Fm0" secondAttribute="leading" constant="15" id="UYs-YX-V8D"/>
+                            <constraint firstItem="4ED-2k-Fm0" firstAttribute="trailing" secondItem="EUB-lt-zBH" secondAttribute="trailing" constant="17" id="eo7-k3-rpY"/>
+                            <constraint firstItem="EUB-lt-zBH" firstAttribute="top" secondItem="ljw-Xf-nzd" secondAttribute="bottom" constant="32" id="s8F-Xh-Ytv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="infoLabel" destination="GQG-HP-8F9" id="cgK-Dx-cvU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2qh-Ez-YxP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-384" y="100"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="addPrivilegion" width="280" height="270"/>
+        <namedColor name="backgroundGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

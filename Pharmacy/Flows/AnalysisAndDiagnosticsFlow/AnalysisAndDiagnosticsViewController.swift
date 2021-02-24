@@ -30,9 +30,10 @@ class AnalysisAndDiagnostics: UIViewController, NavigationBarStyled {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         setupUI()
     }
-    
+
     func configUI() {
         tableView.separatorStyle = .none
         tableView.delegate = self
@@ -41,11 +42,11 @@ class AnalysisAndDiagnostics: UIViewController, NavigationBarStyled {
     
     private func setupUI() {
         if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
-            bar.title =  "Анализы"
+            bar.barDelegate = self
+            bar.style = style
+            bar.title =  "Биохимические"
             bar.isLeftItemHidden = false
             bar.leftItemTitle = nil
-            bar.barDelegate = self
-            bar.style = .normalWithSearch
         }
     }
 }

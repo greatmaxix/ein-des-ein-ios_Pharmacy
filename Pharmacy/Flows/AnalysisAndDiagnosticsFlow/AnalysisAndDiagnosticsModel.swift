@@ -11,9 +11,12 @@ import EventsTree
 import CoreLocation
 
 enum AnalysisAndDiagnosticsModelEvent: Event {
-    case openAnalysis(TypeOfAnalysis)
-    case openLaboratory(TypeOfAnalysis)
-    case backToAnalisis
+    case openLaboratoryDetail(LaboratoryResearchModel)
+    case openLaboratoryList(TypeOfAnalysis)
+    case openAnalisInformation
+    case openClinic(ClinicModel)
+    case openOrderService
+    case back
 }
 
 protocol AnalysisAndDiagnosticsModelInput: class {
@@ -59,6 +62,6 @@ extension AnalysisAndDiagnosticsModel: AnalysisAndDiagnosticsControllerOutput {
     
     func didSelectCell(at indexPath: IndexPath) {
         let model = self.typesOfAnalysis[indexPath.row]
-        self.raise(event: AnalysisAndDiagnosticsModelEvent.openAnalysis(model))
+        self.raise(event: AnalysisAndDiagnosticsModelEvent.openLaboratoryList(model))
     }
 }
