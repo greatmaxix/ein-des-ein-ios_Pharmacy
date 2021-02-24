@@ -15,37 +15,33 @@ class AnalisInformationViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var tableHeight: NSLayoutConstraint!
-    @IBOutlet var infoView: UIView!
+    @IBOutlet private var infoView: UIView!
     
-    var model: AnalisInformationControllerOutput!
+    
     private let cellHeight: CGFloat = 190
-    
-    var models = [String]()
+    var model: AnalisInformationControllerOutput!
+    private var models = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configUI()
         setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setupTitle()
     }
     
-    
     @IBAction func openInfoAboutClinic(_ sender: Any) {
-        print("clinic!!!!!")
         let modelClinic = ClinicModel(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "")
         model.openDeteilClinic(modelClinic)
-    
     }
     
     @IBAction func orderSrvice(_ sender: Any) {
         model.orderService()
     }
+    
     private func configUI() {
         tableView.separatorStyle = .none
         tableView.delegate = self
@@ -54,6 +50,7 @@ class AnalisInformationViewController: UIViewController {
         infoView.layer.cornerRadius = 8
         self.setupTitle()
     }
+    
     private func setupTitle() {
         if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
             bar.title = "Клинический"
@@ -61,7 +58,6 @@ class AnalisInformationViewController: UIViewController {
             bar.barDelegate = self
         }
     }
-    
 }
 
 extension AnalisInformationViewController {
@@ -79,9 +75,6 @@ extension AnalisInformationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: ClinicTableCell.self)
         cell.apply()
-//        let model = self.models[indexPath.row]
-        
-        
         return cell
     }
 }
@@ -104,6 +97,7 @@ extension AnalisInformationViewController: SimpleWithSearchNavigationBarDelegate
         
     }
 }
+
 extension AnalisInformationViewController: AnalisInformationControllerInput {
     func didLoad(models: [LaboratoryDetailModel]) {
         self.models = ["1", "2"]

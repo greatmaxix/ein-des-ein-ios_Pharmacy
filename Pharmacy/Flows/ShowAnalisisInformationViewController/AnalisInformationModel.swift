@@ -65,7 +65,7 @@ extension AnalisInformationModel: AnalisInformationControllerOutput {
     }
     
     func didSelectCell(at indexPath: IndexPath) {
-        let model = self.laboratoryList[indexPath.row]
+
         raise(event: AnalysisAndDiagnosticsModelEvent.openAnalisInformation)
     }
 }

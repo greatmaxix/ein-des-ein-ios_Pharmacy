@@ -10,9 +10,9 @@ import UIKit
 
 class DetailLaboratoryTableViewCell: UITableViewCell {
 
-    @IBOutlet var conteinerView: UIView!
-    @IBOutlet var nameLaboratoryLabel: UILabel!
-    @IBOutlet var countOfDayLabel: UILabel!
+    @IBOutlet private var conteinerView: UIView!
+    @IBOutlet private var nameLaboratoryLabel: UILabel!
+    @IBOutlet private var countOfDayLabel: UILabel!
     
     func apply(deteilLaboratory: LaboratoryDetailModel) {
         self.nameLaboratoryLabel.text = deteilLaboratory.analisName

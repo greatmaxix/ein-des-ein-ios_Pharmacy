@@ -13,19 +13,12 @@ protocol OrderServiceVControllerInput: OrderServiceViewModelModelOutput {}
 
 class OrderServiceViewController: UIViewController {
     
+    private let cellHeight: CGFloat = 50
+    
     @IBOutlet private var nameTextFieldView: UIView!
     @IBOutlet private var phoneTextFieldView: UIView!
     @IBOutlet private var emailTextFieldView: UIView!
     @IBOutlet private var tableView: UITableView!
-    
-    @IBOutlet private var tableHeight: NSLayoutConstraint!
-    
-    var model: OrderServiceVControllerOutput!
-    
-    private let cellHeight: CGFloat = 50
-    
-    //    var models = [String]()
-    
     @IBOutlet var genelPriceView: UIView!
     @IBOutlet var payButton: UIButton!
     @IBOutlet var promocodView: UIView!
@@ -35,10 +28,12 @@ class OrderServiceViewController: UIViewController {
     @IBOutlet var timeView: UIView!
     @IBOutlet var generalPriceView: UIView!
     @IBOutlet var infoClinicView: UIView!
+    @IBOutlet private var tableHeight: NSLayoutConstraint!
     
+    var model: OrderServiceVControllerOutput!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configUI()
         setup(to: phoneTextFieldView)
         setup(to: emailTextFieldView)
@@ -49,7 +44,6 @@ class OrderServiceViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         setupTitle()
     }
     
@@ -70,9 +64,11 @@ class OrderServiceViewController: UIViewController {
         textFieldView.layer.cornerRadius = 12
         textFieldView.layer.borderColor = UIColor(red: 0.145, green: 0.4, blue: 0.976, alpha: 1).cgColor
     }
+    
     private func configure(to view: UIView) {
         view.layer.cornerRadius = 6
     }
+    
     private func setupView() {
         commentTextField.layer.cornerRadius = 8
         commentTextField.layer.borderWidth = 1
@@ -131,6 +127,7 @@ extension OrderServiceViewController: OrderServiceViewModelModelOutput {
     func didLoad(models: [LaboratoryDetailModel]) {
         tableHeight.constant = CGFloat(3) * cellHeight
     }
+    
     func didFetchError(error: Error) {
         
     }

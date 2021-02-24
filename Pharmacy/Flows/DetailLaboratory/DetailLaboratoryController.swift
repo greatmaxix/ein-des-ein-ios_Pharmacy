@@ -14,11 +14,10 @@ protocol DeteilLaboratoryControllerInput: DetailLaboratoryModelOutput {}
 
 class DetailLaboratoryController: UIViewController {
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
+    private var models: [LaboratoryDetailModel] = []
     
     var model: DeteilLaboratoryControllerOutput!
-    var models: [LaboratoryDetailModel] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

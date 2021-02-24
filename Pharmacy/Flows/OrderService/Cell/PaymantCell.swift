@@ -6,15 +6,13 @@
 //  Copyright © 2021 pharmacy. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
 
 class PaymantCell: UITableViewCell {
 
-    @IBOutlet var paymentType: UIImageView!
-    @IBOutlet var notEnableView: UIImageView!
-    @IBOutlet var namePaymentLabel: UILabel!
+    @IBOutlet private var paymentType: UIImageView!
+    @IBOutlet private var notEnableView: UIImageView!
+    @IBOutlet private var namePaymentLabel: UILabel!
     
     func apply() {
        

@@ -10,12 +10,12 @@ import UIKit
 
 class ClinicTableCell: UITableViewCell {
     
-    @IBOutlet var logoImageView: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var addressLabel: UILabel!
-    @IBOutlet var phoneLabel: UILabel!
-    @IBOutlet var mapButton: UIButton!
-    @IBOutlet var orderServiceButton: UIButton!
+    @IBOutlet private var logoImageView: UIImageView!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var addressLabel: UILabel!
+    @IBOutlet private var phoneLabel: UILabel!
+    @IBOutlet private var mapButton: UIButton!
+    @IBOutlet private var orderServiceButton: UIButton!
     
     func apply() {
         self.orderServiceButton.layer.cornerRadius = 12

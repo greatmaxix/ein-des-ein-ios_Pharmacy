@@ -399,7 +399,6 @@
 		87A50B6A25262FAD00CF89CF /* PriceRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6925262FAD00CF89CF /* PriceRange.swift */; };
 		87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6D2527072800CF89CF /* ProductAPI.swift */; };
 		F51BF7EB25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7EA25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift */; };
-		F51BF7EE25E3AA59004BFBFD /* DeteilLaboratorResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7ED25E3AA59004BFBFD /* DeteilLaboratorResponce.swift */; };
 		F51BF7F325E3C869004BFBFD /* AnalisInformationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51BF7F225E3C869004BFBFD /* AnalisInformationViewController.storyboard */; };
 		F51BF7F825E40AAB004BFBFD /* AnalisInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7F725E40AAB004BFBFD /* AnalisInformationViewController.swift */; };
 		F51BF80025E41A4C004BFBFD /* ClinicTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7FF25E41A4C004BFBFD /* ClinicTableCell.swift */; };
@@ -834,7 +833,6 @@
 		87A50B6D2527072800CF89CF /* ProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPI.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51BF7EA25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilLaboratorAPI.swift; sourceTree = "<group>"; };
-		F51BF7ED25E3AA59004BFBFD /* DeteilLaboratorResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilLaboratorResponce.swift; sourceTree = "<group>"; };
 		F51BF7F225E3C869004BFBFD /* AnalisInformationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnalisInformationViewController.storyboard; sourceTree = "<group>"; };
 		F51BF7F725E40AAB004BFBFD /* AnalisInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalisInformationViewController.swift; sourceTree = "<group>"; };
 		F51BF7FF25E41A4C004BFBFD /* ClinicTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicTableCell.swift; sourceTree = "<group>"; };
@@ -2531,7 +2529,6 @@
 			isa = PBXGroup;
 			children = (
 				F51BF7EA25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift */,
-				F51BF7ED25E3AA59004BFBFD /* DeteilLaboratorResponce.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -3213,7 +3210,6 @@
 				395C9D7A2499FD8F001EB6CD /* NameValidator.swift in Sources */,
 				61F20AFC25517DA60027F2B0 /* PrderDetailsPaymentCell.swift in Sources */,
 				603D31EE24E5A9E5000E5A6C /* ProductInstructionTableViewCell.swift in Sources */,
-				F51BF7EE25E3AA59004BFBFD /* DeteilLaboratorResponce.swift in Sources */,
 				394EBEE724FF901600C89970 /* MedicineView.swift in Sources */,
 				611C3BF1254F455E006178B7 /* OrdersAPI.swift in Sources */,
 				61CFAAA8254C3CB700569DEF /* OrderCommentCell.swift in Sources */,
