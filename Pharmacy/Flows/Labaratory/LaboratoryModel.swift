@@ -14,6 +14,7 @@ protocol LaboratoryModelInput: class {
     func load()
     func didSelectCell(at indexPath: IndexPath)
     func close()
+    
 }
 
 protocol LaboratoryModelOutput: class {

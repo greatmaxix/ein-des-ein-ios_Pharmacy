@@ -21,11 +21,13 @@ enum ProfileEvent: Event {
     case openNotifications
     case openAbout
     case openHelp
+    case openPrivileges
     case logout
     case close
     case openProduct(Medicine)
     case openChooseLocation
     case openChooseDeliveryAdress
+    case openAddPrivileges
 }
 
 protocol ProfileInput {
@@ -122,7 +124,7 @@ final class ProfileModel: Model {
                 let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePayment(), additionalInfo: "1000", type: .payment)
                 cellData.image = R.image.profilePayment()
                 cellData.selectHandler = { [weak self] in
-                    //                self?.raise(event: ProfileEvent.openPayment)
+                    //       z         self?.raise(event: ProfileEvent.openPayment)
                     self?.raise(event: AppEvent.presentInDev)
                 }
                 cellsData.append(cellData)
@@ -132,8 +134,8 @@ final class ProfileModel: Model {
                 let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: "Льготы")
                 cellData.image = R.image.prosent_icon()
                 cellData.selectHandler = { [weak self] in
-                    //                self?.raise(event: ProfileEvent.openHelp)
-                    self?.raise(event: AppEvent.presentInDev)
+                    self?.raise(event: ProfileEvent.openPrivileges)
+                   // self?.raise(event: AppEvent.presentInDev)
                 }
                 cellsData.append(cellData)
             }
