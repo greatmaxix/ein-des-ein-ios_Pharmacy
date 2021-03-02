@@ -27,6 +27,11 @@ class OrderServiceViewController: UIViewController {
     @IBOutlet private var generalPriceView: UIView!
     @IBOutlet private var infoClinicView: UIView!
     @IBOutlet private var tableHeight: NSLayoutConstraint!
+    @IBOutlet private var openFilialListButton: UIButton!
+    
+    @IBAction func openFilialListButton(_ sender: Any) {
+        model.openFilialList()
+    }
     
     var model: OrderServiceVControllerOutput!
 

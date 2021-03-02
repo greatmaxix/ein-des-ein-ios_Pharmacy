@@ -113,6 +113,7 @@
                 <outlet property="leftButton" destination="E4a-4M-jDD" id="iR0-pK-oOY"/>
                 <outlet property="searchTextField" destination="boe-Ax-bVU" id="iCu-Uj-EiO"/>
                 <outlet property="searchView" destination="NrC-uk-QQo" id="PUP-jn-OaO"/>
+                <outlet property="titleConteiner" destination="AdK-FZ-Ipz" id="JzK-tE-VnG"/>
                 <outlet property="titleLabel" destination="GgA-te-ejx" id="4SI-md-RuM"/>
             </connections>
             <point key="canvasLocation" x="202.89855072463769" y="-135.26785714285714"/>

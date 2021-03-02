@@ -9,6 +9,7 @@
 import UIKit
 
 protocol OrderServiceViewModelInput: class {
+    func openFilialList()
     func load()
     func didSelectCell(at indexPath: IndexPath)
     func close()
@@ -31,6 +32,10 @@ final class OrderServiceViewModel: Model {
 }
 
 extension OrderServiceViewModel: OrderServiceVControllerOutput {
+    
+    func openFilialList() {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList)
+    }
     
     func close() {
         raise(event: AnalysisAndDiagnosticsModelEvent.back)

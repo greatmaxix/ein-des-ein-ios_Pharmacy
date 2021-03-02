@@ -37,6 +37,8 @@ final class AnalisisCoordinator: EventNode, Coordinator {
         addHandler(.onRaise) { [weak self] (event: AnalysisAndDiagnosticsModelEvent) in
             guard let self = self else { return }
             switch event {
+            case .openAnalisis:
+                _ = self.createFlow()
             case let .openLaboratoryList(type):
                 self.openLaboratoryList(type: type)
             case let .openLaboratoryDetail(model):
@@ -45,8 +47,13 @@ final class AnalisisCoordinator: EventNode, Coordinator {
                 self.openAnalisInformation()
             case .back:
                 self.navigation?.popViewController(animated: true)
-            case let .openClinic(model):
-                print("open clinic info")
+            case .openClinicFilial:
+                self.openClinicFilial()
+            case .openClinic:
+                self.openClinic()
+            case .openFilialList:
+                self.openFilialList()
+                break
             case .openOrderService:
                 self.openOrder()
             }
@@ -55,6 +62,27 @@ final class AnalisisCoordinator: EventNode, Coordinator {
 }
 
 fileprivate extension AnalisisCoordinator {
+    
+    func openFilialList() {
+        let controller = R.storyboard.chooseClinicViewController.instantiateInitialViewController()!
+        self.navigation?.pushViewController(controller, animated: true)
+    }
+    
+    func openClinicFilial() {
+        let controller = R.storyboard.deteilClinicInfoController.instantiateInitialViewController()!
+        let model = DeteilClinicInfoModel(parent: self)
+        controller.model = model
+        model.output = controller
+        self.navigation?.pushViewController(controller, animated: true)
+    }
+    
+    func openClinic() {
+        let controller = R.storyboard.informationAboutClicController.instantiateInitialViewController()!
+        let model = InformationAboutClicModel(parent: self)
+        controller.model = model
+        model.output = controller
+        self.navigation?.pushViewController(controller, animated: true)
+    }
     
     func openLaboratoryList(type: TypeOfAnalysis) {
         let controller = R.storyboard.laboratoryViewController.instantiateInitialViewController()!
@@ -85,6 +113,14 @@ fileprivate extension AnalisisCoordinator {
         let model = AnalisInformationModel(parent: self)
         controller.model = model
         model.output = controller
+        navigation?.pushViewController(controller, animated: true)
+    }
+    
+    func openMyOrderVC() {
+        let controller = R.storyboard.myOrderViewController.instantiateInitialViewController()!
+        let modelVC = MyOrderModel(parent: self)
+        controller.model = modelVC
+        modelVC.output = controller
         navigation?.pushViewController(controller, animated: true)
     }
 }

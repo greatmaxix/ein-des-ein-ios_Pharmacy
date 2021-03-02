@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="InformationHeaderView" customModule="Pharmacy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="637" height="107"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zqr-vN-Epl">
+                    <rect key="frame" x="0.0" y="40" width="637" height="59"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wiT-wj-D0e">
+                            <rect key="frame" x="0.0" y="0.0" width="637" height="59"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgp-zE-TpF">
+                                    <rect key="frame" x="0.0" y="0.0" width="487" height="59"/>
+                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TfG-bc-ZYU">
+                                    <rect key="frame" x="487" y="0.0" width="150" height="59"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="150" id="XSA-EU-6Mp"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
+                                    <state key="normal" title="Смотреть все"/>
+                                    <connections>
+                                        <action selector="showAllAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="0rI-og-5Qw"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="wiT-wj-D0e" firstAttribute="top" secondItem="zqr-vN-Epl" secondAttribute="top" id="6b2-I0-tOA"/>
+                        <constraint firstItem="wiT-wj-D0e" firstAttribute="leading" secondItem="zqr-vN-Epl" secondAttribute="leading" id="UNL-sp-tXB"/>
+                        <constraint firstAttribute="trailing" secondItem="wiT-wj-D0e" secondAttribute="trailing" id="nOi-tX-Iy7"/>
+                        <constraint firstAttribute="bottom" secondItem="wiT-wj-D0e" secondAttribute="bottom" id="pek-Wb-oUu"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zqr-vN-Epl" secondAttribute="trailing" id="VoB-TN-kth"/>
+                <constraint firstItem="zqr-vN-Epl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="jE5-j1-RJ7"/>
+                <constraint firstItem="zqr-vN-Epl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kQo-Vo-RJr"/>
+                <constraint firstAttribute="bottom" secondItem="zqr-vN-Epl" secondAttribute="bottom" constant="8" id="lp8-ly-ESz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="showAllButton" destination="TfG-bc-ZYU" id="uCp-mU-YhO"/>
+                <outlet property="textLabel" destination="jgp-zE-TpF" id="iti-ES-7r2"/>
+            </connections>
+            <point key="canvasLocation" x="302.17391304347831" y="-167.74553571428569"/>
+        </view>
+    </objects>
+</document>

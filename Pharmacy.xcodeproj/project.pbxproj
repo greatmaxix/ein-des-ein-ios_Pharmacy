@@ -402,12 +402,27 @@
 		F51BF7F325E3C869004BFBFD /* AnalisInformationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51BF7F225E3C869004BFBFD /* AnalisInformationViewController.storyboard */; };
 		F51BF7F825E40AAB004BFBFD /* AnalisInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7F725E40AAB004BFBFD /* AnalisInformationViewController.swift */; };
 		F51BF80025E41A4C004BFBFD /* ClinicTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7FF25E41A4C004BFBFD /* ClinicTableCell.swift */; };
+		F51C02CC25E8E4C500C266C5 /* InformationAboutClicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C02CB25E8E4C500C266C5 /* InformationAboutClicController.swift */; };
+		F51C02CF25E8E5B700C266C5 /* InformationAboutClicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C02CE25E8E5B700C266C5 /* InformationAboutClicModel.swift */; };
+		F51C02D325E8F66C00C266C5 /* DeteilClinicInfoController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51C02D225E8F66C00C266C5 /* DeteilClinicInfoController.storyboard */; };
+		F51C02DB25E9145A00C266C5 /* DeteilClinicInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C02DA25E9145A00C266C5 /* DeteilClinicInfoController.swift */; };
+		F51C02DE25E9165C00C266C5 /* DeteilClinicInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C02DD25E9165C00C266C5 /* DeteilClinicInfoModel.swift */; };
+		F51C02E325E91AA600C266C5 /* AnalisInformationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C02E225E91AA600C266C5 /* AnalisInformationAPI.swift */; };
+		F51C02E825E91B1800C266C5 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C02E725E91B1800C266C5 /* File.swift */; };
+		F51C02EC25E92DA000C266C5 /* ChooseClinicViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51C02EB25E92DA000C266C5 /* ChooseClinicViewController.storyboard */; };
 		F51C16E725E4FB8E00231E6D /* AnalisInformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C16E625E4FB8E00231E6D /* AnalisInformationModel.swift */; };
 		F51C16EB25E4FDCF00231E6D /* ClinicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C16EA25E4FDCF00231E6D /* ClinicModel.swift */; };
 		F51C16F025E5085600231E6D /* OrderServiceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51C16EF25E5085600231E6D /* OrderServiceViewController.storyboard */; };
 		F51C16F925E5472800231E6D /* OrderServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C16F825E5472800231E6D /* OrderServiceViewController.swift */; };
 		F51C16FD25E54B1E00231E6D /* PaymantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C16FC25E54B1E00231E6D /* PaymantCell.swift */; };
 		F51C170125E5569B00231E6D /* OrderServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C170025E5569B00231E6D /* OrderServiceViewModel.swift */; };
+		F51DCBF925EE51C000626DF7 /* InformationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCBF825EE51C000626DF7 /* InformationHeaderView.swift */; };
+		F51DCBFD25EE51CE00626DF7 /* InformationHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51DCBFC25EE51CE00626DF7 /* InformationHeaderView.xib */; };
+		F51DCC2A25EE718800626DF7 /* TableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCC2925EE718800626DF7 /* TableAdapter.swift */; };
+		F51DCC2D25EE71D400626DF7 /* TableAdapterSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCC2C25EE71D400626DF7 /* TableAdapterSection.swift */; };
+		F51DCC3025EE71EB00626DF7 /* TableAdapterBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCC2F25EE71EB00626DF7 /* TableAdapterBaseCell.swift */; };
+		F51DCC3925EE7BF500626DF7 /* ClinicTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51DCC3725EE7BF500626DF7 /* ClinicTableCell.xib */; };
+		F51F1E2A25EE231E00DEDE06 /* CancelOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F1E2925EE231E00DEDE06 /* CancelOrderViewController.swift */; };
 		F51F88C725DE747900C1A9ED /* TypeOfAnalysisCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F88C525DE747900C1A9ED /* TypeOfAnalysisCell.swift */; };
 		F51F88C825DE747900C1A9ED /* TypeOfAnalysisCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51F88C625DE747900C1A9ED /* TypeOfAnalysisCell.xib */; };
 		F51F88CB25DE8D3600C1A9ED /* AnalysisAndDiagnosticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F88CA25DE8D3600C1A9ED /* AnalysisAndDiagnosticsModel.swift */; };
@@ -435,10 +450,21 @@
 		F528151F25E66CED007FC2FA /* AddPrivilegesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F528151E25E66CED007FC2FA /* AddPrivilegesViewController.storyboard */; };
 		F528152225E67090007FC2FA /* AddPrivilegesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F528152125E67090007FC2FA /* AddPrivilegesViewController.swift */; };
 		F528152525E677C8007FC2FA /* AddPrivilegesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F528152425E677C8007FC2FA /* AddPrivilegesModel.swift */; };
+		F52D2CBC25E79AA900242A5B /* InformationAboutClicController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52D2CBB25E79AA900242A5B /* InformationAboutClicController.storyboard */; };
+		F549F37225EC295D008749BD /* ChooseClinicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F37125EC295D008749BD /* ChooseClinicViewController.swift */; };
+		F549F37C25EC2D5F008749BD /* ClinicsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F37B25EC2D5F008749BD /* ClinicsListController.swift */; };
 		F56B649B25DD300000B108AC /* AnalysisAndDiagnostics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56B649A25DD300000B108AC /* AnalysisAndDiagnostics.storyboard */; };
 		F56B649E25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B649D25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift */; };
 		F56B64A225DD538400B108AC /* NavigationBarWithSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B64A125DD538400B108AC /* NavigationBarWithSearchView.swift */; };
 		F56B64A625DD539800B108AC /* NavigationBarWithSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F56B64A525DD539800B108AC /* NavigationBarWithSearchView.xib */; };
+		F56E41D525ECF0AB00599CAA /* ChoseClinicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E41D425ECF0AB00599CAA /* ChoseClinicAPI.swift */; };
+		F56E41DA25ECF3E900599CAA /* ClinicListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E41D925ECF3E900599CAA /* ClinicListModel.swift */; };
+		F56E41DF25ED129F00599CAA /* MyOrderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56E41DE25ED129F00599CAA /* MyOrderViewController.storyboard */; };
+		F56E41E525ED134500599CAA /* MyOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E41E325ED134500599CAA /* MyOrderTableViewCell.swift */; };
+		F56E41E625ED134500599CAA /* MyOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F56E41E425ED134500599CAA /* MyOrderTableViewCell.xib */; };
+		F56E41ED25ED24E200599CAA /* MyOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E41EC25ED24E200599CAA /* MyOrderModel.swift */; };
+		F56E420B25ED375700599CAA /* CancelOrderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56E420A25ED375700599CAA /* CancelOrderViewController.storyboard */; };
+		F56E421425ED38DA00599CAA /* MyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E421325ED38DA00599CAA /* MyOrderViewController.swift */; };
 		F589C6D125DEEC9F00CBBD99 /* LaboratoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6D025DEEC9F00CBBD99 /* LaboratoryModel.swift */; };
 		F589C6D725DEEEEC00CBBD99 /* LaboratoryListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6D625DEEEEC00CBBD99 /* LaboratoryListAPI.swift */; };
 		F589C6DC25DEEFC300CBBD99 /* LaboratoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6DB25DEEFC300CBBD99 /* LaboratoryResponse.swift */; };
@@ -843,12 +869,27 @@
 		F51BF7F225E3C869004BFBFD /* AnalisInformationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnalisInformationViewController.storyboard; sourceTree = "<group>"; };
 		F51BF7F725E40AAB004BFBFD /* AnalisInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalisInformationViewController.swift; sourceTree = "<group>"; };
 		F51BF7FF25E41A4C004BFBFD /* ClinicTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicTableCell.swift; sourceTree = "<group>"; };
+		F51C02CB25E8E4C500C266C5 /* InformationAboutClicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationAboutClicController.swift; sourceTree = "<group>"; };
+		F51C02CE25E8E5B700C266C5 /* InformationAboutClicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationAboutClicModel.swift; sourceTree = "<group>"; };
+		F51C02D225E8F66C00C266C5 /* DeteilClinicInfoController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeteilClinicInfoController.storyboard; sourceTree = "<group>"; };
+		F51C02DA25E9145A00C266C5 /* DeteilClinicInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilClinicInfoController.swift; sourceTree = "<group>"; };
+		F51C02DD25E9165C00C266C5 /* DeteilClinicInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilClinicInfoModel.swift; sourceTree = "<group>"; };
+		F51C02E225E91AA600C266C5 /* AnalisInformationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalisInformationAPI.swift; sourceTree = "<group>"; };
+		F51C02E725E91B1800C266C5 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		F51C02EB25E92DA000C266C5 /* ChooseClinicViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseClinicViewController.storyboard; sourceTree = "<group>"; };
 		F51C16E625E4FB8E00231E6D /* AnalisInformationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalisInformationModel.swift; sourceTree = "<group>"; };
 		F51C16EA25E4FDCF00231E6D /* ClinicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicModel.swift; sourceTree = "<group>"; };
 		F51C16EF25E5085600231E6D /* OrderServiceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderServiceViewController.storyboard; sourceTree = "<group>"; };
 		F51C16F825E5472800231E6D /* OrderServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceViewController.swift; sourceTree = "<group>"; };
 		F51C16FC25E54B1E00231E6D /* PaymantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymantCell.swift; sourceTree = "<group>"; };
 		F51C170025E5569B00231E6D /* OrderServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceViewModel.swift; sourceTree = "<group>"; };
+		F51DCBF825EE51C000626DF7 /* InformationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationHeaderView.swift; sourceTree = "<group>"; };
+		F51DCBFC25EE51CE00626DF7 /* InformationHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationHeaderView.xib; sourceTree = "<group>"; };
+		F51DCC2925EE718800626DF7 /* TableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapter.swift; sourceTree = "<group>"; };
+		F51DCC2C25EE71D400626DF7 /* TableAdapterSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapterSection.swift; sourceTree = "<group>"; };
+		F51DCC2F25EE71EB00626DF7 /* TableAdapterBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapterBaseCell.swift; sourceTree = "<group>"; };
+		F51DCC3725EE7BF500626DF7 /* ClinicTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClinicTableCell.xib; sourceTree = "<group>"; };
+		F51F1E2925EE231E00DEDE06 /* CancelOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderViewController.swift; sourceTree = "<group>"; };
 		F51F88C525DE747900C1A9ED /* TypeOfAnalysisCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfAnalysisCell.swift; sourceTree = "<group>"; };
 		F51F88C625DE747900C1A9ED /* TypeOfAnalysisCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeOfAnalysisCell.xib; sourceTree = "<group>"; };
 		F51F88CA25DE8D3600C1A9ED /* AnalysisAndDiagnosticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisAndDiagnosticsModel.swift; sourceTree = "<group>"; };
@@ -876,10 +917,21 @@
 		F528151E25E66CED007FC2FA /* AddPrivilegesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPrivilegesViewController.storyboard; sourceTree = "<group>"; };
 		F528152125E67090007FC2FA /* AddPrivilegesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPrivilegesViewController.swift; sourceTree = "<group>"; };
 		F528152425E677C8007FC2FA /* AddPrivilegesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPrivilegesModel.swift; sourceTree = "<group>"; };
+		F52D2CBB25E79AA900242A5B /* InformationAboutClicController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InformationAboutClicController.storyboard; sourceTree = "<group>"; };
+		F549F37125EC295D008749BD /* ChooseClinicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseClinicViewController.swift; sourceTree = "<group>"; };
+		F549F37B25EC2D5F008749BD /* ClinicsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicsListController.swift; sourceTree = "<group>"; };
 		F56B649A25DD300000B108AC /* AnalysisAndDiagnostics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnalysisAndDiagnostics.storyboard; sourceTree = "<group>"; };
 		F56B649D25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisAndDiagnosticsViewController.swift; sourceTree = "<group>"; };
 		F56B64A125DD538400B108AC /* NavigationBarWithSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSearchView.swift; sourceTree = "<group>"; };
 		F56B64A525DD539800B108AC /* NavigationBarWithSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarWithSearchView.xib; sourceTree = "<group>"; };
+		F56E41D425ECF0AB00599CAA /* ChoseClinicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseClinicAPI.swift; sourceTree = "<group>"; };
+		F56E41D925ECF3E900599CAA /* ClinicListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicListModel.swift; sourceTree = "<group>"; };
+		F56E41DE25ED129F00599CAA /* MyOrderViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyOrderViewController.storyboard; sourceTree = "<group>"; };
+		F56E41E325ED134500599CAA /* MyOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderTableViewCell.swift; sourceTree = "<group>"; };
+		F56E41E425ED134500599CAA /* MyOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrderTableViewCell.xib; sourceTree = "<group>"; };
+		F56E41EC25ED24E200599CAA /* MyOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderModel.swift; sourceTree = "<group>"; };
+		F56E420A25ED375700599CAA /* CancelOrderViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CancelOrderViewController.storyboard; sourceTree = "<group>"; };
+		F56E421325ED38DA00599CAA /* MyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderViewController.swift; sourceTree = "<group>"; };
 		F589C6D025DEEC9F00CBBD99 /* LaboratoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryModel.swift; sourceTree = "<group>"; };
 		F589C6D625DEEEEC00CBBD99 /* LaboratoryListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryListAPI.swift; sourceTree = "<group>"; };
 		F589C6DB25DEEFC300CBBD99 /* LaboratoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryResponse.swift; sourceTree = "<group>"; };
@@ -1096,6 +1148,7 @@
 		3959E9D3249A63FA00FA1F74 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F51DCC2825EE717C00626DF7 /* TableAdapter */,
 				603D319924E3B25A000E5A6C /* CollectionDataSource */,
 				603D319224E3B229000E5A6C /* TableDataSource */,
 				395A7FB624A34B3100A7CFC6 /* UIBlockerDelegate */,
@@ -1316,6 +1369,7 @@
 		396C45CE249774AC00A569CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F51DCBF725EE518300626DF7 /* InformationHeaderView */,
 				2488BAF325515396008D7EEB /* EmptyResultsViewCell */,
 				601E7ED32549D49700C936BF /* LightRoundedButton */,
 				87131D262509FBA80050B8F2 /* SearchBar */,
@@ -1345,6 +1399,11 @@
 		396C45CF249774D200A569CE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				F56E420825ED356400599CAA /* CancelOrder */,
+				F56E41DD25ED128A00599CAA /* MyOrder */,
+				F51C02EA25E92D8300C266C5 /* ChooseClinic */,
+				F51C02D125E8F64B00C266C5 /* DeteilClinicInfo */,
+				F52D2CBA25E79A7600242A5B /* InformationAboutClinic */,
 				F528151D25E66CDB007FC2FA /* AddPrivileges */,
 				F528150E25E64DEF007FC2FA /* PrivilegesViewController */,
 				F51C16EE25E5083900231E6D /* OrderService */,
@@ -2552,6 +2611,8 @@
 		F51BF7F125E3C855004BFBFD /* ShowAnalisisInformationViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F51C02E625E91B0C00C266C5 /* Models */,
+				F51C02E125E91A9D00C266C5 /* API */,
 				F51C16E925E4FDB700231E6D /* Model */,
 				F51BF7FE25E41A44004BFBFD /* Cell */,
 				F51BF7F225E3C869004BFBFD /* AnalisInformationViewController.storyboard */,
@@ -2565,8 +2626,53 @@
 			isa = PBXGroup;
 			children = (
 				F51BF7FF25E41A4C004BFBFD /* ClinicTableCell.swift */,
+				F51DCC3725EE7BF500626DF7 /* ClinicTableCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		F51C02D125E8F64B00C266C5 /* DeteilClinicInfo */ = {
+			isa = PBXGroup;
+			children = (
+				F51C02D225E8F66C00C266C5 /* DeteilClinicInfoController.storyboard */,
+				F51C02DA25E9145A00C266C5 /* DeteilClinicInfoController.swift */,
+				F51C02DD25E9165C00C266C5 /* DeteilClinicInfoModel.swift */,
+			);
+			path = DeteilClinicInfo;
+			sourceTree = "<group>";
+		};
+		F51C02D525E8FB3E00C266C5 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		F51C02E125E91A9D00C266C5 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F51C02E225E91AA600C266C5 /* AnalisInformationAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F51C02E625E91B0C00C266C5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F51C02E725E91B1800C266C5 /* File.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F51C02EA25E92D8300C266C5 /* ChooseClinic */ = {
+			isa = PBXGroup;
+			children = (
+				F56E41D325ECF06A00599CAA /* API */,
+				F549F36525EC26EC008749BD /* ClinicsListController */,
+				F51C02EB25E92DA000C266C5 /* ChooseClinicViewController.storyboard */,
+				F549F37125EC295D008749BD /* ChooseClinicViewController.swift */,
+			);
+			path = ChooseClinic;
 			sourceTree = "<group>";
 		};
 		F51C16E925E4FDB700231E6D /* Model */ = {
@@ -2594,6 +2700,25 @@
 				F51C16FC25E54B1E00231E6D /* PaymantCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		F51DCBF725EE518300626DF7 /* InformationHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				F51DCBF825EE51C000626DF7 /* InformationHeaderView.swift */,
+				F51DCBFC25EE51CE00626DF7 /* InformationHeaderView.xib */,
+			);
+			path = InformationHeaderView;
+			sourceTree = "<group>";
+		};
+		F51DCC2825EE717C00626DF7 /* TableAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				F51DCC2925EE718800626DF7 /* TableAdapter.swift */,
+				F51DCC2C25EE71D400626DF7 /* TableAdapterSection.swift */,
+				F51DCC2F25EE71EB00626DF7 /* TableAdapterBaseCell.swift */,
+			);
+			path = TableAdapter;
 			sourceTree = "<group>";
 		};
 		F51F88C425DE744F00C1A9ED /* TypeOfAnalysisCell */ = {
@@ -2720,6 +2845,26 @@
 			path = AddPrivileges;
 			sourceTree = "<group>";
 		};
+		F52D2CBA25E79A7600242A5B /* InformationAboutClinic */ = {
+			isa = PBXGroup;
+			children = (
+				F51C02D525E8FB3E00C266C5 /* DataSource */,
+				F52D2CBB25E79AA900242A5B /* InformationAboutClicController.storyboard */,
+				F51C02CB25E8E4C500C266C5 /* InformationAboutClicController.swift */,
+				F51C02CE25E8E5B700C266C5 /* InformationAboutClicModel.swift */,
+			);
+			path = InformationAboutClinic;
+			sourceTree = "<group>";
+		};
+		F549F36525EC26EC008749BD /* ClinicsListController */ = {
+			isa = PBXGroup;
+			children = (
+				F549F37B25EC2D5F008749BD /* ClinicsListController.swift */,
+				F56E41D925ECF3E900599CAA /* ClinicListModel.swift */,
+			);
+			path = ClinicsListController;
+			sourceTree = "<group>";
+		};
 		F56B649925DD2F6E00B108AC /* AnalysisAndDiagnosticsFlow */ = {
 			isa = PBXGroup;
 			children = (
@@ -2743,6 +2888,43 @@
 				F521BCEC25DFE28200289081 /* SimpleWithSearchNavigationBar.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		F56E41D325ECF06A00599CAA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F56E41D425ECF0AB00599CAA /* ChoseClinicAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		F56E41DD25ED128A00599CAA /* MyOrder */ = {
+			isa = PBXGroup;
+			children = (
+				F56E41E125ED12EA00599CAA /* MyOrderCell */,
+				F56E41DE25ED129F00599CAA /* MyOrderViewController.storyboard */,
+				F56E41EC25ED24E200599CAA /* MyOrderModel.swift */,
+				F56E421325ED38DA00599CAA /* MyOrderViewController.swift */,
+			);
+			path = MyOrder;
+			sourceTree = "<group>";
+		};
+		F56E41E125ED12EA00599CAA /* MyOrderCell */ = {
+			isa = PBXGroup;
+			children = (
+				F56E41E325ED134500599CAA /* MyOrderTableViewCell.swift */,
+				F56E41E425ED134500599CAA /* MyOrderTableViewCell.xib */,
+			);
+			path = MyOrderCell;
+			sourceTree = "<group>";
+		};
+		F56E420825ED356400599CAA /* CancelOrder */ = {
+			isa = PBXGroup;
+			children = (
+				F56E420A25ED375700599CAA /* CancelOrderViewController.storyboard */,
+				F51F1E2925EE231E00DEDE06 /* CancelOrderViewController.swift */,
+			);
+			path = CancelOrder;
 			sourceTree = "<group>";
 		};
 		F589C6D525DEEEDB00CBBD99 /* API */ = {
@@ -2816,12 +2998,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F51C02EC25E92DA000C266C5 /* ChooseClinicViewController.storyboard in Resources */,
 				398B0DE124F50AD60084EC54 /* UserMarkerView.xib in Resources */,
 				4D8BCF6B254891A40094C43C /* InDevelopment.storyboard in Resources */,
 				F51F88C825DE747900C1A9ED /* TypeOfAnalysisCell.xib in Resources */,
 				4DE4D54025498E5A00EE0E3A /* AboutAppTableViewCell.xib in Resources */,
 				397541D524ED23CB0069F8DE /* SimpleNavigationBarView.xib in Resources */,
 				F520B9A725DAB63B0077CB03 /* GoogleService-Info.plist in Resources */,
+				F51DCBFD25EE51CE00626DF7 /* InformationHeaderView.xib in Resources */,
 				6075BD4724DEA7FB00BC78BD /* OpenSans-BoldItalic.ttf in Resources */,
 				6075BD4824DEA7FB00BC78BD /* OpenSans-ExtraBold.ttf in Resources */,
 				39F0AD6024EEBFB000CD6CA4 /* EmptyResultsView.xib in Resources */,
@@ -2829,7 +3013,9 @@
 				87131D32251146C10050B8F2 /* EmptySearchView.xib in Resources */,
 				60AE31922553090D002BD404 /* ChatCloseCollectionViewCell.xib in Resources */,
 				6075BD4924DEA7FB00BC78BD /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				F51C02D325E8F66C00C266C5 /* DeteilClinicInfoController.storyboard in Resources */,
 				398B0DF124F53AD60084EC54 /* FoundMedicineView.xib in Resources */,
+				F56E41DF25ED129F00599CAA /* MyOrderViewController.storyboard in Resources */,
 				2488BAFE255154DA008D7EEB /* EmptyResultsViewCell.xib in Resources */,
 				61CFAAAE254C4CC200569DEF /* OrderSummaryCell.xib in Resources */,
 				61CFAA9F254C2E9300569DEF /* PaymentTypeCell.xib in Resources */,
@@ -2868,6 +3054,7 @@
 				393DDFBE250286C500652A01 /* RegionCell.xib in Resources */,
 				24F5FD42254A0BAF00D28275 /* ChooseLocationViewController.storyboard in Resources */,
 				6036EB0324DD27A5003336C2 /* Search.storyboard in Resources */,
+				F51DCC3925EE7BF500626DF7 /* ClinicTableCell.xib in Resources */,
 				603D31BD24E57871000E5A6C /* Product.storyboard in Resources */,
 				618C33A12498BE4A00951D11 /* Auth.storyboard in Resources */,
 				6036EAF124DD1A81003336C2 /* Catalogue.storyboard in Resources */,
@@ -2889,6 +3076,7 @@
 				61CFAAA9254C3CB700569DEF /* OrderCommentCell.xib in Resources */,
 				F528151025E64E1A007FC2FA /* PrivilegesViewController.storyboard in Resources */,
 				87131D2A250A04490050B8F2 /* SearchBar.xib in Resources */,
+				F56E420B25ED375700599CAA /* CancelOrderViewController.storyboard in Resources */,
 				6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */,
 				396C45C22497699900A569CE /* Assets.xcassets in Resources */,
 				60E1A71124ECE0C300B3D205 /* Scan.storyboard in Resources */,
@@ -2900,8 +3088,10 @@
 				603D31E124E5A8E3000E5A6C /* ProductCategoryTableViewCell.xib in Resources */,
 				398B0DD924F50A630084EC54 /* FarmacyPinView.xib in Resources */,
 				395A7FC624A3980D00A7CFC6 /* NameTableViewCell.xib in Resources */,
+				F52D2CBC25E79AA900242A5B /* InformationAboutClicController.storyboard in Resources */,
 				61CFAA562549EB7200569DEF /* EmptyUserCell.xib in Resources */,
 				603D31DC24E5A88C000E5A6C /* ProductAnalogTableViewCell.xib in Resources */,
+				F56E41E625ED134500599CAA /* MyOrderTableViewCell.xib in Resources */,
 				6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */,
 				60289A53254AF5FB00F6A503 /* SubcategoryTableViewCell.xib in Resources */,
 				395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */,
@@ -3027,6 +3217,8 @@
 				60E1A71324ECE0D100B3D205 /* ScanViewController.swift in Sources */,
 				618C339C2498BDF000951D11 /* SignUpViewController.swift in Sources */,
 				8715DB9724FFF97B00BBF37C /* OnboardingModel.swift in Sources */,
+				F51DCBF925EE51C000626DF7 /* InformationHeaderView.swift in Sources */,
+				F51C02DB25E9145A00C266C5 /* DeteilClinicInfoController.swift in Sources */,
 				395B9CCD24EFC6E000254881 /* AnalizesViewController.swift in Sources */,
 				601612252566D2B8005151BC /* PDFViewController.swift in Sources */,
 				875223A72500043D000759C8 /* NibReusable.swift in Sources */,
@@ -3053,6 +3245,7 @@
 				F51F88DE25DEC87F00C1A9ED /* AnalisisCoordinator.swift in Sources */,
 				395A7FCC24A3A2B700A7CFC6 /* ProfileCoordinator.swift in Sources */,
 				39F0AD6F24EEC86200CD6CA4 /* WishlistModel.swift in Sources */,
+				F51C02E325E91AA600C266C5 /* AnalisInformationAPI.swift in Sources */,
 				603D31C124E5789D000E5A6C /* ProductCoordinator.swift in Sources */,
 				8715DB8924FFC76F00BBF37C /* OnboardingViewController.swift in Sources */,
 				39505F5624AC73620045EC02 /* TabBarModel.swift in Sources */,
@@ -3068,8 +3261,10 @@
 				603D319B24E3B2B1000E5A6C /* CollectionCellSection.swift in Sources */,
 				603D31B624E3D323000E5A6C /* UIButton.swift in Sources */,
 				395C9D762499FC14001EB6CD /* EmailValidator.swift in Sources */,
+				F51C02CC25E8E4C500C266C5 /* InformationAboutClicController.swift in Sources */,
 				6075BD5A24DEB9EA00BC78BD /* UIView+Nib.swift in Sources */,
 				603D31F624E5AA09000E5A6C /* ProductQuestionsTableViewCell.swift in Sources */,
+				F51DCC3025EE71EB00626DF7 /* TableAdapterBaseCell.swift in Sources */,
 				2488BAD125506422008D7EEB /* Street&CityValidator.swift in Sources */,
 				393DDFC025028F3D00652A01 /* LocationAPI.swift in Sources */,
 				F528151625E65417007FC2FA /* PrivilegesModel.swift in Sources */,
@@ -3132,8 +3327,10 @@
 				3939A6D524F6A3C90045FB71 /* LocationService.swift in Sources */,
 				61CFAACA254F1C0D00569DEF /* OrderContactInfo.swift in Sources */,
 				619AAA402498A9AE00AB46ED /* AuthAPI.swift in Sources */,
+				F549F37225EC295D008749BD /* ChooseClinicViewController.swift in Sources */,
 				60AE319B2553F980002BD404 /* Chat.swift in Sources */,
 				398880C4250F799400942D30 /* PharmacyResponse.swift in Sources */,
+				F56E41DA25ECF3E900599CAA /* ClinicListModel.swift in Sources */,
 				61850144255091950094A6A6 /* OrderDetailsPharmacyCell.swift in Sources */,
 				87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */,
 				2488BB1E255188C4008D7EEB /* UIViewController+EmptyView.swift in Sources */,
@@ -3151,6 +3348,7 @@
 				246A83F625472E260004ECEC /* CategoryDTO.swift in Sources */,
 				603D31A924E3B67B000E5A6C /* Category.swift in Sources */,
 				614494432552EB4B003E20F9 /* ErrorPresenter.swift in Sources */,
+				F51DCC2A25EE718800626DF7 /* TableAdapter.swift in Sources */,
 				618C339F2498BE0200951D11 /* ProfileViewController.swift in Sources */,
 				60AE318E255308A5002BD404 /* ChatCloseCollectionViewCell.swift in Sources */,
 				61AA47142550157700D140D3 /* Order.swift in Sources */,
@@ -3163,6 +3361,7 @@
 				60B9545F255AD139002DE2A1 /* FileAttachment.swift in Sources */,
 				3961590824E6D35100A5EF85 /* UIImage+Blur.swift in Sources */,
 				60E1A70E24ECD6F400B3D205 /* SearchNavigationModel.swift in Sources */,
+				F56E41ED25ED24E200599CAA /* MyOrderModel.swift in Sources */,
 				24F5FDB3254B3C1F00D28275 /* ChooseLocationTableViewCell.swift in Sources */,
 				39F0AD6724EEC81400CD6CA4 /* OrdersModel.swift in Sources */,
 				60A12B3A256426F00001C994 /* ChatEvaluationModel.swift in Sources */,
@@ -3174,6 +3373,7 @@
 				247C4E4B2562933400A46061 /* UIImage+Orientation.swift in Sources */,
 				87131D30251146960050B8F2 /* EmptySearchView.swift in Sources */,
 				4DE4D5352549810C00EE0E3A /* AboutAppViewController.swift in Sources */,
+				F56E41D525ECF0AB00599CAA /* ChoseClinicAPI.swift in Sources */,
 				60E1A6FD24EBB25B00B3D205 /* NSObject+RunTime.swift in Sources */,
 				60655B95256303DE0030DC63 /* ChatRecipe.swift in Sources */,
 				393DDFC32502954200652A01 /* RegionHeaderCell.swift in Sources */,
@@ -3203,6 +3403,7 @@
 				6184731E2549ACFB0062D8B9 /* CartMedecineCell.swift in Sources */,
 				875223CF2500FECC000759C8 /* Pharmacy.xcdatamodeld in Sources */,
 				601121A02565B56500532C26 /* ChatTagsCollectionViewLayout.swift in Sources */,
+				F51C02E825E91B1800C266C5 /* File.swift in Sources */,
 				395CB74424FCE9BF000A958F /* CheckoutViewController.swift in Sources */,
 				F51F88D525DEA4D500C1A9ED /* AnalisisAndDiagnosResponse.swift in Sources */,
 				60E1A70C24ECD6E500B3D205 /* SearchNavigationController.swift in Sources */,
@@ -3214,9 +3415,11 @@
 				F51C16E725E4FB8E00231E6D /* AnalisInformationModel.swift in Sources */,
 				61D90F9B255DE9B100AE6124 /* UserReceipt.swift in Sources */,
 				F51F88CB25DE8D3600C1A9ED /* AnalysisAndDiagnosticsModel.swift in Sources */,
+				F56E421425ED38DA00599CAA /* MyOrderViewController.swift in Sources */,
 				603D31D224E5A09F000E5A6C /* ProductInfoTableViewCell.swift in Sources */,
 				601E7ED52549D4B500C936BF /* RoundedButton.swift in Sources */,
 				39534EA724A4D98E009AA5BB /* UIView+Shadow.swift in Sources */,
+				F51DCC2D25EE71D400626DF7 /* TableAdapterSection.swift in Sources */,
 				60891C88255050C800ED2AEE /* SearchController.swift in Sources */,
 				87A50B6A25262FAD00CF89CF /* PriceRange.swift in Sources */,
 				6036EAF324DD1A98003336C2 /* CatalogueCoordinator.swift in Sources */,
@@ -3231,6 +3434,7 @@
 				24F5FD45254A0BBB00D28275 /* ChooseLocationViewModel.swift in Sources */,
 				618C33982498BDC200951D11 /* SignInViewController.swift in Sources */,
 				608E3AF32551A94C00AEE56C /* Sender.swift in Sources */,
+				F51C02CF25E8E5B700C266C5 /* InformationAboutClicModel.swift in Sources */,
 				39505F5824AC73620045EC02 /* TabBarEmbedCoordinable.swift in Sources */,
 				60F2673B24E0566B00BFF296 /* NavigationTransitionAnimator.swift in Sources */,
 				608E3AF62551AB5F00AEE56C /* ImageMediaItem.swift in Sources */,
@@ -3244,8 +3448,10 @@
 				875223B72500ECCF000759C8 /* Accessible.swift in Sources */,
 				619AAA4A2498B09800AB46ED /* Token.swift in Sources */,
 				875223B92500ED29000759C8 /* UserDefaults+Persistent.swift in Sources */,
+				F549F37C25EC2D5F008749BD /* ClinicsListController.swift in Sources */,
 				61CFAA98254C2C1700569DEF /* DeliveryAddressCell.swift in Sources */,
 				603D31CD24E57E6B000E5A6C /* ProductPageViewController.swift in Sources */,
+				F51C02DE25E9165C00C266C5 /* DeteilClinicInfoModel.swift in Sources */,
 				60289A57254AF9E100F6A503 /* SubcategoryTableViewCell.swift in Sources */,
 				392BD73A24FFE23000088002 /* CategoryAPI.swift in Sources */,
 				603D319624E3B22A000E5A6C /* TableDataSource.swift in Sources */,
@@ -3320,6 +3526,7 @@
 				875223CC2500FE07000759C8 /* NSManagedObject+Name.swift in Sources */,
 				608E3B002551D73E00AEE56C /* CustomMessageSizeCalculator.swift in Sources */,
 				24F5FC54254892CC00D28275 /* RecentMedicineDTO.swift in Sources */,
+				F51F1E2A25EE231E00DEDE06 /* CancelOrderViewController.swift in Sources */,
 				61850140255091830094A6A6 /* OrderDetailsContactCell.swift in Sources */,
 				61CFAA83254B1AB800569DEF /* CreateOrderContactInfoCell.swift in Sources */,
 				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,
@@ -3347,6 +3554,7 @@
 				39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */,
 				60AE318A2552FA26002BD404 /* ChatService.swift in Sources */,
 				60AE31982553391A002BD404 /* ChatResponse.swift in Sources */,
+				F56E41E525ED134500599CAA /* MyOrderTableViewCell.swift in Sources */,
 				603D31BA24E3FA1F000E5A6C /* UIImageView+URL.swift in Sources */,
 				61CFAA7A254AFFB300569DEF /* CreateOrderViewController.swift in Sources */,
 				F51C16F925E5472800231E6D /* OrderServiceViewController.swift in Sources */,
@@ -3496,7 +3704,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -3520,7 +3728,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 34;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;

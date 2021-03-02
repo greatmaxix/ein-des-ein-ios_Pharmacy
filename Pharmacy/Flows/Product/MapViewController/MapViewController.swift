@@ -22,14 +22,14 @@ class MapViewController: UIViewController {
         static let messageHeight: CGFloat = 375
     }
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl?
     @IBOutlet private weak var messageViewHolder: UIView!
     @IBOutlet weak var messageHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var mapView: GMSMapView!
     @IBOutlet private weak var currentLocationButton: UIButton!
     @IBOutlet private weak var zoomInButton: UIButton!
     @IBOutlet private weak var zoomOutButton: UIButton!
-    @IBOutlet weak var selectionBackground: UIView!
+    @IBOutlet private weak var selectionBackground: UIView?
 
     var model: MapInput!
     
@@ -53,7 +53,7 @@ class MapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        segmentedControl.selectedSegmentIndex = 1
+        segmentedControl?.selectedSegmentIndex = 1
     }
     
     private func setupUI() {
@@ -81,14 +81,14 @@ class MapViewController: UIViewController {
         messageViewHolder.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         messageViewHolder.layer.cornerRadius = 18
         
-        segmentedControl.selectedSegmentIndex = 1
+        segmentedControl?.selectedSegmentIndex = 1
         
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.welcomeBlue()!], for: .selected)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.gray()!], for: .normal)
+        segmentedControl?.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.welcomeBlue()!], for: .selected)
+        segmentedControl?.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.gray()!], for: .normal)
         
-        selectionBackground.dropBlueShadow()
-        selectionBackground.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        selectionBackground.layer.cornerRadius = 8
+        selectionBackground?.dropBlueShadow()
+        selectionBackground?.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        selectionBackground?.layer.cornerRadius = 8
     }
     
     private func setupMap() {
@@ -149,8 +149,10 @@ class MapViewController: UIViewController {
     private func setupLocalization() {
         
         let newValue = [R.string.localize.farmaciesListList(), R.string.localize.farmaciesListMap()]
-        for i in 0..<newValue.count where i < segmentedControl.numberOfSegments {
-            segmentedControl.setTitle(newValue[i], forSegmentAt: i)
+        if let segmentControl = self.segmentedControl {
+            for i in 0..<newValue.count where i < segmentControl.numberOfSegments {
+                segmentControl.setTitle(newValue[i], forSegmentAt: i)
+            }
         }
         title = R.string.localize.farmaciesListTitle()
     }

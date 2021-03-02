@@ -8,7 +8,11 @@
 
 import UIKit
 
-class TypeOfAnalysisCell: UITableViewCell {
+enum TypeOfAnalysisCellEvent {
+    
+}
+
+class TypeOfAnalysisCell: BaseCell<TypeOfAnalysis, TypeOfAnalysisCellEvent> {
 
     @IBOutlet private var whiteCotentView: UIView?
     @IBOutlet private var nameOfTypeAnalysis: UILabel?
@@ -16,5 +20,10 @@ class TypeOfAnalysisCell: UITableViewCell {
     func apply(analisName: TypeOfAnalysis) {
         self.whiteCotentView?.layer.cornerRadius = 10
         self.nameOfTypeAnalysis?.text = analisName.analisName
+    }
+    
+    override func fill(with model: TypeOfAnalysis) {
+        super.fill(with: model)
+        apply(analisName: model)
     }
 }

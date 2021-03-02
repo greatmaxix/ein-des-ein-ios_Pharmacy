@@ -16,14 +16,13 @@ class AnalisInformationViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var tableHeight: NSLayoutConstraint!
     @IBOutlet private var infoView: UIView!
-    
+        
     var model: AnalisInformationControllerOutput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
         model.load()
-        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +31,7 @@ class AnalisInformationViewController: UIViewController {
     }
     
     @IBAction func openInfoAboutClinic(_ sender: Any) {
-        let modelClinic = ClinicModel(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "")
+        let modelClinic = ClinicModel(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "")
         model.openDeteilClinic(modelClinic)
     }
     
@@ -55,12 +54,9 @@ class AnalisInformationViewController: UIViewController {
             bar.barDelegate = self
         }
     }
-}
-
-extension AnalisInformationViewController {
-    private func setupTableView() {
-        self.tableView.register(UINib(resource: R.nib.detailLaboratoryTableViewCell),
-                                forCellReuseIdentifier: String(describing: DetailLaboratoryTableViewCell.self))
+    
+    @IBAction func showAllAction(_ sender: Any) {
+        model.openFilialList()
     }
 }
 
@@ -71,14 +67,14 @@ extension AnalisInformationViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: ClinicTableCell.self)
-        cell.apply()
+        cell.apply(model: self.model.models[indexPath.row])
         return cell
     }
 }
 
 extension AnalisInformationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       model.didSelectCell(at: indexPath)
+        model.didSelectCell(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -96,8 +92,8 @@ extension AnalisInformationViewController: SimpleWithSearchNavigationBarDelegate
 }
 
 extension AnalisInformationViewController: AnalisInformationControllerInput {
-    func didLoad(models: [String]) {
-        tableHeight.constant = CGFloat(models.count) * model.cellHeight
+    func didLoad(models: [ClinicModel]) {
+//        tableHeight.constant = CGFloat(models.count) * model.cellHeight
     }
 
     

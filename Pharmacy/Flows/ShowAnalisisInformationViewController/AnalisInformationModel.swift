@@ -9,18 +9,19 @@
 import UIKit
 
 protocol AnalisInformationModelInput: class {
+    func openFilialList()
     func load()
     func didSelectCell(at indexPath: IndexPath)
     func close()
     func openDeteilClinic(_ model: ClinicModel)
     func orderService()
     
-    var models: [String] { get }
+    var models: [ClinicModel] { get }
     var cellHeight: CGFloat { get }
 }
 
 protocol AnalisInformationyModelOutput: class {
-    func didLoad(models: [String])
+    func didLoad(models: [ClinicModel])
     func didFetchError(error: Error)
 }
 
@@ -31,11 +32,15 @@ final class AnalisInformationModel: Model {
     
     private let laboratoryProvider = DataManager<DeteilLaboratorAPI, LaboratoryDetailModel>()
     
-    private(set) var models: [String] = []
+    var models: [ClinicModel] = []
     let cellHeight: CGFloat = 190
 }
 
 extension AnalisInformationModel: AnalisInformationControllerOutput {
+    
+    func openFilialList() {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList)
+    }
     
     
     func orderService() {
@@ -52,8 +57,12 @@ extension AnalisInformationModel: AnalisInformationControllerOutput {
     }
     
     func load() {
-        models = ["1", "2"]
-        output.didLoad(models: models)
+        let mockData: [ClinicModel] = [
+            .init(clinicName: "Инвитро", adressClinic: "ул Горная 23а, Харьков", imageClinic: "logo_invitro", priceClinic: "568 ₸  ", phoneNumber: "📞️ +7 (098) 000 02 00 • +7 (098) 000 02 00"),
+            .init(clinicName: "Синево", adressClinic: "ул Горная 23а, Харьков", imageClinic: "logo_seneva", priceClinic: "568 ₸  ", phoneNumber: "📞️ +7 (098) 000 02 00 • +7 (098) 000 02 00")
+        ]
+        self.models = mockData
+        output.didLoad(models: self.models)
         
         self.laboratoryProvider.load(target: .getLaboratoryList) { [weak self] result in
             switch result {
@@ -66,6 +75,6 @@ extension AnalisInformationModel: AnalisInformationControllerOutput {
     }
     
     func didSelectCell(at indexPath: IndexPath) {
-        raise(event: AnalysisAndDiagnosticsModelEvent.openAnalisInformation)
+
     }
 }

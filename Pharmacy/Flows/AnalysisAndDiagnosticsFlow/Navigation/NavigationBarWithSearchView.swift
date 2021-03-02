@@ -17,6 +17,7 @@ class NavigationBarWithSearchView: UIView {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var searchTextField: UITextField!
     
+    @IBOutlet var titleConteiner: UIView!
     var style: NavigationBarStyle = .normalWithSearch
     
     func setupStyle(style: NavigationBarStyle) {
@@ -40,6 +41,12 @@ class NavigationBarWithSearchView: UIView {
     private func configure() {
         searchView.backgroundColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 0.3)
         searchView.layer.cornerRadius = 12
+        self.layer.cornerRadius = 6
+        self.clipsToBounds = true
+//        self.frontView.layer.cornerRadius = 12
+     //   self.titleConteiner.clipsToBounds = true
+//        self.frontView.clipsToBounds = true
+      //  self.titleConteiner.layer.cornerRadius = 6
         searchTextField?.attributedPlaceholder = NSAttributedString(string: "Какие исследования вы ищите?",
                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }

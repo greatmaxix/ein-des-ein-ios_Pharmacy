@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3aQ-Qu-Sfe">
-                                <rect key="frame" x="0.0" y="68" width="414" height="794"/>
+                                <rect key="frame" x="15" y="68" width="383" height="794"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mXo-YU-I3b"/>
                         <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
-                            <constraint firstItem="mXo-YU-I3b" firstAttribute="trailing" secondItem="3aQ-Qu-Sfe" secondAttribute="trailing" id="O9Y-kz-1Be"/>
+                            <constraint firstItem="mXo-YU-I3b" firstAttribute="trailing" secondItem="3aQ-Qu-Sfe" secondAttribute="trailing" constant="16" id="O9Y-kz-1Be"/>
                             <constraint firstItem="mXo-YU-I3b" firstAttribute="bottom" secondItem="3aQ-Qu-Sfe" secondAttribute="bottom" id="X5a-qI-KMU"/>
-                            <constraint firstItem="3aQ-Qu-Sfe" firstAttribute="leading" secondItem="mXo-YU-I3b" secondAttribute="leading" id="heA-dS-AAq"/>
+                            <constraint firstItem="3aQ-Qu-Sfe" firstAttribute="leading" secondItem="mXo-YU-I3b" secondAttribute="leading" constant="15" id="heA-dS-AAq"/>
                             <constraint firstItem="3aQ-Qu-Sfe" firstAttribute="top" secondItem="yPm-rV-u2h" secondAttribute="top" constant="68" id="nre-GL-EWE"/>
                         </constraints>
                     </view>
