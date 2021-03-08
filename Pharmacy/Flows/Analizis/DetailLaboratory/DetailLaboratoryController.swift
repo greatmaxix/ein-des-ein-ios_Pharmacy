@@ -43,9 +43,7 @@ class DetailLaboratoryController: UIViewController, NavigationBarStyled {
     
     
     private func setupTitle() {
-        if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = "Биохимические"
-        }
+        title = "Биохимические"
     }
 }
 
@@ -77,17 +75,6 @@ extension DetailLaboratoryController: UITableViewDelegate {
     }
 }
 
-
-extension DetailLaboratoryController: SimpleNavigationBarDelegate {
-    
-    func leftBarItemAction() {
-        model.close()
-    }
-    
-    func rightBarItemAction() {
-        
-    }
-}
 extension DetailLaboratoryController: DeteilLaboratoryControllerInput {
     
     func didLoad(models: [LaboratoryDetailModel]) {

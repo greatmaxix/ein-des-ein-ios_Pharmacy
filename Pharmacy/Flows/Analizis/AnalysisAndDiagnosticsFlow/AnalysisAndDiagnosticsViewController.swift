@@ -11,27 +11,37 @@ import UIKit
 protocol AnalysisAndDiagnosticsControllerInput: AnalysisAndDiagnosticsModelOutput {}
 protocol AnalysisAndDiagnosticsControllerOutput: AnalysisAndDiagnosticsModelInput {}
 
-class AnalysisAndDiagnostics: UIViewController, NavigationBarStyled {
+class AnalysisAndDiagnostics: UIViewController {
     
-    var style: NavigationBarStyle = .normalWithoutSearch
-    
+    @IBOutlet private var emptySearchMessageView: UIView!
+    @IBOutlet private var navigationBarBackground: UIView!
     @IBOutlet private var tableView: UITableView!
-    @IBOutlet private var topNavBarView: UIView?
+    
+    private let searchController = SearchController(searchResultsController: nil)
     
     var model: AnalysisAndDiagnosticsControllerOutput!
-    var types: [TypeOfAnalysis] = []
+    var isMainController = true
+    
+    private var loadedTypes: [TypeOfAnalysis] = []
+    private var types: [TypeOfAnalysis] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         model.load()
         configUI()
         setupTableView()
+        setupUI()
+        setupSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        setupUI()
+                
+    }
+    
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        view.layoutIfNeeded()
     }
 
     func configUI() {
@@ -40,10 +50,28 @@ class AnalysisAndDiagnostics: UIViewController, NavigationBarStyled {
         tableView.dataSource = self
     }
     
-    private func setupUI() {
-        if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = R.string.localize.analizesEmptyBarTitle()
+    func setupSearchBar() {
+        searchController.searchResultsUpdater = self
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.leftBarButtonItem = .init(image: R.image.icon_back2(), style: .plain, target: self, action: #selector(dismisSelf))
+        
+        view.bringSubviewToFront(navigationBarBackground)
+        navigationBarBackground.layer.cornerRadius = 10.0
+        navigationBarBackground.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+    }
+    
+    @objc private func dismisSelf() {
+        if isMainController {
+            self.navigationController?.dismiss(animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    private func setupUI() {
+        self.title = "Анализы"
     }
 }
 
@@ -81,23 +109,6 @@ extension AnalysisAndDiagnostics: UITableViewDataSourcePrefetching {
     }
 }
 
-// MARK: - SearchBarDelegate
-extension AnalysisAndDiagnostics: SearchBarDelegate {
-    
-    func searchBar(_ searchBar: SearchBar, textDidChange searchText: String) {
-        //model.updateSearchTerm(searchText)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: SearchBar) {
-        searchBar.endEditing(false)
-        // model.processSearch()
-    }
-    
-    func searchBarDidCancel() {
-        // model.cleanSearchTerm()
-    }
-}
-
 // MARK: - UITableViewDelegate
 extension AnalysisAndDiagnostics: UITableViewDelegate {
     
@@ -111,10 +122,35 @@ extension AnalysisAndDiagnostics: UITableViewDelegate {
 extension AnalysisAndDiagnostics: AnalysisAndDiagnosticsControllerInput {
     
     func didLoad(models: [TypeOfAnalysis]) {
-        self.types = models
+        loadedTypes = models
+        types = models
     }
     
     func didFetchError(error: Error) {
         
     }
 }
+
+extension AnalysisAndDiagnostics: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchController.searchBar.text == "" || searchController.searchBar.text == nil {
+            emptySearchMessageView.isHidden = true
+            types = loadedTypes
+            tableView.reloadData()
+            
+            return
+        }
+        
+        let filtered = self.loadedTypes.filter { ($0.analisName?.contains(searchController.searchBar.text ?? "") ?? false) }
+        if filtered.isEmpty {
+            emptySearchMessageView.isHidden = false
+            types = []
+            tableView.reloadData()
+        } else {
+            emptySearchMessageView.isHidden = true
+            types = filtered
+            tableView.reloadData()
+        }
+    }
+}
+

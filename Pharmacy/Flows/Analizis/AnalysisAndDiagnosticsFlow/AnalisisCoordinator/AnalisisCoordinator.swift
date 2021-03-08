@@ -13,7 +13,6 @@ import MapKit
 
 struct AnalisisFlowConfiguration {
     let parent: EventNode
-    var navigation: UINavigationController?
 }
 
 final class AnalisisCoordinator: EventNode, Coordinator {
@@ -22,20 +21,21 @@ final class AnalisisCoordinator: EventNode, Coordinator {
     func createFlow() -> UIViewController {
         let root = R.storyboard.analysisAndDiagnostics.instantiateInitialViewController()!
         let model = AnalysisAndDiagnosticsModel(parent: self)
+        let nav = NavigationController(rootViewController: root)
+        navigation = nav
         root.model = model
         model.output = root
 
-        return root
+        return nav
     }
     
     init(configuration: AnalisisFlowConfiguration) {
-        self.navigation = configuration.navigation
         super.init(parent: configuration.parent)
         addHandler(.onRaise) { [weak self] (event: AnalysisAndDiagnosticsModelEvent) in
             guard let self = self else { return }
             switch event {
-            case . openAnalisis:
-                _ = self.createFlow()
+            case .openAnalisis:
+                self.openAnalizis()
             case let .openLaboratoryList(type):
                 self.openLaboratoryList(type: type)
             case let .openLaboratoryDetail(model):
@@ -43,7 +43,7 @@ final class AnalisisCoordinator: EventNode, Coordinator {
             case .openAnalisInformation:
                 self.openAnalisInformation()
             case .back:
-                self.navigation?.popViewController(animated: false)
+                self.navigation?.popViewController(animated: true)
             case .openClinicFilial:
                 self.openClinicFilial()
             case .openClinic:
@@ -60,18 +60,14 @@ final class AnalisisCoordinator: EventNode, Coordinator {
                 model.output = controller
                 
                 controller.modalPresentationStyle = .overFullScreen
-                self.navigation?.topViewController?.present(controller, animated: false)
-
+                controller.modalTransitionStyle = .crossDissolve
+                self.navigation?.topViewController?.present(controller, animated: true)
             case .closeAlert:
                 print("event ")
             case .finishOrder:
                 let controller = R.storyboard.paymendSuccessfullyAlertController.instantiateInitialViewController()!
                 controller.modalPresentationStyle = .overFullScreen
-//                let model = (parent: self)
-//                controller.model = model
-//                model.output = controller
-//
-//                controller.modalPresentationStyle = .overFullScreen
+                controller.modalTransitionStyle = .crossDissolve
                 self.navigation?.topViewController?.present(controller, animated: true)
             }
         }
@@ -80,9 +76,19 @@ final class AnalisisCoordinator: EventNode, Coordinator {
 
 fileprivate extension AnalisisCoordinator {
     
+    func openAnalizis() {
+        let controller = R.storyboard.analysisAndDiagnostics.instantiateInitialViewController()!
+        let model = AnalysisAndDiagnosticsModel(parent: self)
+        controller.model = model
+        model.output = controller
+        controller.isMainController = false
+
+        self.navigation?.pushViewController(controller, animated: true)
+    }
+    
     func openFilialList() {
         let controller = R.storyboard.chooseClinicViewController.instantiateInitialViewController()!
-        self.navigation?.pushViewController(controller, animated: false)
+        self.navigation?.pushViewController(controller, animated: true)
     }
     
     func openClinicFilial() {
@@ -90,7 +96,7 @@ fileprivate extension AnalisisCoordinator {
         let model = DeteilClinicInfoModel(parent: self)
         controller.model = model
         model.output = controller
-        self.navigation?.pushViewController(controller, animated: false)
+        self.navigation?.pushViewController(controller, animated: true)
     }
     
     func openClinic() {
@@ -98,7 +104,7 @@ fileprivate extension AnalisisCoordinator {
         let model = InformationAboutClicModel(parent: self)
         controller.model = model
         model.output = controller
-        self.navigation?.pushViewController(controller, animated: false)
+        self.navigation?.pushViewController(controller, animated: true)
     }
     
     func openLaboratoryList(type: TypeOfAnalysis) {
@@ -106,7 +112,7 @@ fileprivate extension AnalisisCoordinator {
         let model = LaboratoryModel(parent: self)
         controller.model = model
         model.output = controller
-        navigation?.pushViewController(controller, animated: false)
+        navigation?.pushViewController(controller, animated: true)
     }
     
     func openOrder() {
@@ -114,7 +120,7 @@ fileprivate extension AnalisisCoordinator {
         let model = OrderServiceViewModel(parent: self)
         controller.model = model
         model.output = controller
-        navigation?.pushViewController(controller, animated: false)
+        navigation?.pushViewController(controller, animated: true)
     }
     
     func openLaboratoryDetail(model: LaboratoryResearchModel) {
@@ -122,7 +128,7 @@ fileprivate extension AnalisisCoordinator {
         let model = DeteilLaboratoryyModel(parent: self)
         controller.model = model
         model.output = controller
-        navigation?.pushViewController(controller, animated: false)
+        navigation?.pushViewController(controller, animated: true)
     }
     
     func openAnalisInformation() {
@@ -130,7 +136,7 @@ fileprivate extension AnalisisCoordinator {
         let model = AnalisInformationModel(parent: self)
         controller.model = model
         model.output = controller
-        navigation?.pushViewController(controller, animated: false)
+        navigation?.pushViewController(controller, animated: true)
     }
     
     func openMyOrderVC() {
@@ -138,6 +144,6 @@ fileprivate extension AnalisisCoordinator {
         let modelVC = MyOrderModel(parent: self)
         controller.model = modelVC
         modelVC.output = controller
-        navigation?.pushViewController(controller, animated: false)
+        navigation?.pushViewController(controller, animated: true)
     }
 }

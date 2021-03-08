@@ -27,23 +27,11 @@ class LaboratoryViewController: UIViewController, NavigationBarStyled {
         model.load()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        setupTitle()
-    }
-    
     private func configUI() {
+        title = "Лабараторные"
         tableView?.separatorStyle = .none
         tableView?.delegate = self
         tableView?.dataSource = self
-        
-        self.setupTitle()
-    }
-    private func setupTitle() {
-        if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = "Лабараторные"
-        }
     }
 }
 

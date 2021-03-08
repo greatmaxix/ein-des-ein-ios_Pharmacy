@@ -25,6 +25,6 @@ final class AddPrivilegesModel: Model {
 
 extension AddPrivilegesModel: AddPrivilegesViewControllerOutput {
     func close() {
-      //  raise(event: ProfileEvent.back)
+        raise(event: ProfileEvent.close)
     }
 }

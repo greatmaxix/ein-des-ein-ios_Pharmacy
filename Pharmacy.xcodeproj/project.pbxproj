@@ -1421,9 +1421,6 @@
 				F51C02EA25E92D8300C266C5 /* ChooseClinic */,
 				F51C02D125E8F64B00C266C5 /* DeteilClinicInfo */,
 				F52D2CBA25E79A7600242A5B /* InformationAboutClinic */,
-				F528151D25E66CDB007FC2FA /* AddPrivileges */,
-				F528150E25E64DEF007FC2FA /* PrivilegesViewController */,
-				F51C16EE25E5083900231E6D /* OrderService */,
 				61D90F8A255DCEED00AE6124 /* Receipts */,
 				60475FDA2551512A00448EF3 /* Chat */,
 				4D8BCF69254891570094C43C /* InDevelopment */,
@@ -2229,6 +2226,8 @@
 		618C339D2498BDF600951D11 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				F528151D25E66CDB007FC2FA /* AddPrivileges */,
+				F528150E25E64DEF007FC2FA /* PrivilegesViewController */,
 				24567C0B255011ED001CF931 /* ChooseDeliveryAddress */,
 				24F5FD3C254A0B6B00D28275 /* ChooseLocation */,
 				4DE4D533254980A400EE0E3A /* AboutApp */,
@@ -2696,7 +2695,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		F51C16EE25E5083900231E6D /* OrderService */ = {
+		F51C16EE25E5083900231E6D /* OrderServiceViewController */ = {
 			isa = PBXGroup;
 			children = (
 				F523E70D25EFD4120029E84E /* Model */,
@@ -2705,7 +2704,7 @@
 				F51C16F825E5472800231E6D /* OrderServiceViewController.swift */,
 				F51C170025E5569B00231E6D /* OrderServiceViewModel.swift */,
 			);
-			path = OrderService;
+			path = OrderServiceViewController;
 			sourceTree = "<group>";
 		};
 		F51C16FB25E54AF700231E6D /* Cell */ = {
@@ -2719,6 +2718,7 @@
 		F51D899125F2DE40003B91BB /* Analizis */ = {
 			isa = PBXGroup;
 			children = (
+				F51C16EE25E5083900231E6D /* OrderServiceViewController */,
 				F51BF7F125E3C855004BFBFD /* ShowAnalisisInformationViewController */,
 				F521BCE125DFB86900289081 /* DetailLaboratory */,
 				F51F88E125DED59900C1A9ED /* Labaratory */,

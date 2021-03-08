@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hXK-Bs-gMh">
-                                <rect key="frame" x="0.0" y="24" width="414" height="838"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="806"/>
                                 <color key="backgroundColor" name="backgroundGray"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OLn-v9-8B8"/>
                         <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
-                            <constraint firstItem="hXK-Bs-gMh" firstAttribute="top" secondItem="bq1-3a-d0m" secondAttribute="top" constant="24" id="480-lS-e9p"/>
+                            <constraint firstItem="hXK-Bs-gMh" firstAttribute="top" secondItem="OLn-v9-8B8" secondAttribute="top" constant="12" id="480-lS-e9p"/>
                             <constraint firstItem="OLn-v9-8B8" firstAttribute="trailing" secondItem="hXK-Bs-gMh" secondAttribute="trailing" id="Es5-ri-eC2"/>
                             <constraint firstItem="hXK-Bs-gMh" firstAttribute="leading" secondItem="OLn-v9-8B8" secondAttribute="leading" id="JNy-rM-h2e"/>
                             <constraint firstItem="OLn-v9-8B8" firstAttribute="bottom" secondItem="hXK-Bs-gMh" secondAttribute="bottom" id="VD5-DX-0tw"/>

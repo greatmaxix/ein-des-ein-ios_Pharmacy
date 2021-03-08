@@ -39,9 +39,8 @@ final class DeteilClinicInfoModel: Model {
 extension DeteilClinicInfoModel: DeteilClinicInfoControllerOutput {
 
     
-    
     func showAll() {
-        //raise(event: AnalysisAndDiagnosticsModelEvent.openAnalisis)
+        raise(event: AnalysisAndDiagnosticsModelEvent.openAnalisis)
     }
     
     func openDeteilClinic(_ model: TypeOfAnalysis) {

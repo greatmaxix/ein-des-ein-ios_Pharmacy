@@ -36,12 +36,10 @@ class DeteilClinicInfoController: UIViewController {
         model.models.first.map {
             model.openDeteilClinic($0)
         }
-        
     }
     
     @IBAction func showAllList(_ sender: Any) {
         model.showAll()
-        
     }
     
     private func configUI() {
@@ -49,9 +47,7 @@ class DeteilClinicInfoController: UIViewController {
     }
     
     private func setupTitle() {
-        if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = "Detail Clinic"
-        }
+        title = "Инвитро"
     }
 }
 

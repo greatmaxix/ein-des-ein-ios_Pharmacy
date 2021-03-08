@@ -45,21 +45,20 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vector_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KcB-Ne-jGk">
-                                <rect key="frame" x="269" y="12" width="12" height="28"/>
+                                <rect key="frame" x="269" y="19" width="12" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="12" id="S3u-F2-vnL"/>
+                                    <constraint firstAttribute="height" constant="14" id="gi4-mT-oiA"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KcB-Ne-jGk" firstAttribute="top" secondItem="NbS-HN-Fsk" secondAttribute="top" constant="12" id="G9Y-hk-jX5"/>
                             <constraint firstItem="5lY-lu-hJN" firstAttribute="top" secondItem="NbS-HN-Fsk" secondAttribute="top" constant="8" id="RDB-1E-7ty"/>
                             <constraint firstItem="5lY-lu-hJN" firstAttribute="leading" secondItem="NbS-HN-Fsk" secondAttribute="leading" constant="8" id="U6e-C6-QaB"/>
                             <constraint firstAttribute="trailing" secondItem="KcB-Ne-jGk" secondAttribute="trailing" constant="12" id="kUJ-gC-JZ3"/>
                             <constraint firstAttribute="bottom" secondItem="5lY-lu-hJN" secondAttribute="bottom" constant="8" id="p4d-Gy-ti4"/>
                             <constraint firstItem="KcB-Ne-jGk" firstAttribute="leading" secondItem="5lY-lu-hJN" secondAttribute="trailing" constant="5" id="rzd-RN-epP"/>
-                            <constraint firstAttribute="bottom" secondItem="KcB-Ne-jGk" secondAttribute="bottom" constant="12" id="sWF-nY-iE8"/>
                         </constraints>
                     </view>
                 </subviews>

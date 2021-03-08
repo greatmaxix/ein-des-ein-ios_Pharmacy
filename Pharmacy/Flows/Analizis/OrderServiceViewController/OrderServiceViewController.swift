@@ -220,9 +220,7 @@ class OrderServiceViewController: UIViewController, NavigationBarStyled {
     }
     
     private func setupTitle() {
-        if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = R.string.localize.checkoutTitle()
-        }
+        title = R.string.localize.checkoutTitle()
     }
 }
 extension OrderServiceViewController {

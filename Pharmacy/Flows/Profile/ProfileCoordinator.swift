@@ -162,7 +162,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     
     func presentAddDocuments() {
         let viewController = R.storyboard.addPrivilegesViewController.instantiateInitialViewController()!
-        root.navigationController?.pushViewController(viewController, animated: false)
+        root.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func presentMyOrders() {

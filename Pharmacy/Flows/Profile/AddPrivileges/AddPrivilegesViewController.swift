@@ -27,12 +27,15 @@ class AddPrivilegesViewController: UIViewController, NavigationBarStyled {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = "addPrivileges"
-        }
     }
+    
     private func configure() {
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            bar.barDelegate = self
+            bar.title = "Льготы"
+            bar.isLeftItemHidden = false
+        }
+
         self.infoLabel.text = "Уже в следующих версиях! Следите за обновленями!"
     }
 }
@@ -40,6 +43,16 @@ class AddPrivilegesViewController: UIViewController, NavigationBarStyled {
 extension AddPrivilegesViewController: AddPrivilegesViewControllerInput {
     
     func didFetchError(error: Error) {
+        
+    }
+}
+
+extension AddPrivilegesViewController: SimpleNavigationBarDelegate {
+    func leftBarItemAction() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func rightBarItemAction() {
         
     }
 }

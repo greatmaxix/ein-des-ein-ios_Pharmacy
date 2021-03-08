@@ -63,8 +63,8 @@ final class InformationAboutClicModel: Model {
         output.didFetchTableHeight(height)
         
         let typesHeader = R.nib.informationHeaderView(owner: nil)!
-        typesHeader.configure(title: "Перечень услуг", action: {
-            
+        typesHeader.configure(title: "Перечень услуг", action: { [weak self] in
+            self?.raise(event: AnalysisAndDiagnosticsModelEvent.openAnalisis)
         })
         let filialsHeader = R.nib.informationHeaderView(owner: nil)!
         filialsHeader.configure(title: "Филиалы (\(clinics.count))", action: { [weak self] in

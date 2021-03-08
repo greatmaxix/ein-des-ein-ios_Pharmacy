@@ -23,8 +23,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qyk-OM-erm">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="Qyk-OM-erm">
+                                <rect key="frame" x="0.0" y="36" width="414" height="826"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IfM-Oz-XRx">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="876.5"/>
@@ -214,7 +214,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cfK-kr-zVZ" firstAttribute="trailing" secondItem="Qyk-OM-erm" secondAttribute="trailing" id="9wn-xi-83y"/>
-                            <constraint firstItem="Qyk-OM-erm" firstAttribute="top" secondItem="cfK-kr-zVZ" secondAttribute="top" id="SXs-7v-YyM"/>
+                            <constraint firstItem="Qyk-OM-erm" firstAttribute="top" secondItem="cfK-kr-zVZ" secondAttribute="top" constant="-8" id="SXs-7v-YyM"/>
                             <constraint firstItem="IfM-Oz-XRx" firstAttribute="width" secondItem="ejw-KR-Jqy" secondAttribute="width" id="jCo-qO-VJK"/>
                             <constraint firstItem="cfK-kr-zVZ" firstAttribute="bottom" secondItem="Qyk-OM-erm" secondAttribute="bottom" id="ne1-UB-yh7"/>
                             <constraint firstItem="Qyk-OM-erm" firstAttribute="leading" secondItem="cfK-kr-zVZ" secondAttribute="leading" id="xf9-cW-Wkh"/>

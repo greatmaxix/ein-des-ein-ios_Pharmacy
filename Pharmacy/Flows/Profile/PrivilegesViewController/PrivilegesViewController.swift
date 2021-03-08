@@ -48,8 +48,10 @@ class PrivilegesViewController: UIViewController, NavigationBarStyled {
         
     }
     private func setupTitle() {
-        if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = "Пенсионер"
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            bar.barDelegate = self
+            bar.title = "Льготы"
+            bar.isLeftItemHidden = false
         }
     }
 }
@@ -81,6 +83,16 @@ extension PrivilegesViewController: UITableViewDelegate {
 extension PrivilegesViewController: PrivilegesControllerInput {
     
     func didFetchError(error: Error) {
+        
+    }
+}
+
+extension PrivilegesViewController: SimpleNavigationBarDelegate {
+    func leftBarItemAction() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func rightBarItemAction() {
         
     }
 }

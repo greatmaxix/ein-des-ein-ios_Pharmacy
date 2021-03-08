@@ -36,11 +36,6 @@ class AnalisInformationViewController: UIViewController, NavigationBarStyled {
         model.openDeteilClinic(modelClinic)
     }
     
-//    @IBAction func showAllClinicks(_ sender: Any) {
-//        model.apenListClinick()
-//    }
-    
-    
     @IBAction func orderSrvice(_ sender: Any) {
         model.orderService()
     }
@@ -54,9 +49,7 @@ class AnalisInformationViewController: UIViewController, NavigationBarStyled {
     }
     
     private func setupTitle() {
-        if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = "Клинический "
-        }
+        title = "Клинический"
     }
     
     @IBAction func showAllAction(_ sender: Any) {

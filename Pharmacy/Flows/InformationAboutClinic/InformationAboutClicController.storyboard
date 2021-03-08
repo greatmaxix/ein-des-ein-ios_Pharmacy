@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIX-y3-tpa">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="MIX-y3-tpa">
+                                <rect key="frame" x="0.0" y="36" width="414" height="826"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rPu-AO-yuA" userLabel="Container">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="608.5"/>
@@ -150,7 +150,7 @@
                         <viewLayoutGuide key="safeArea" id="qrL-XF-wKj"/>
                         <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
-                            <constraint firstItem="MIX-y3-tpa" firstAttribute="top" secondItem="qrL-XF-wKj" secondAttribute="top" id="Mme-24-k4H"/>
+                            <constraint firstItem="MIX-y3-tpa" firstAttribute="top" secondItem="qrL-XF-wKj" secondAttribute="top" constant="-8" id="Mme-24-k4H"/>
                             <constraint firstItem="qrL-XF-wKj" firstAttribute="trailing" secondItem="MIX-y3-tpa" secondAttribute="trailing" id="QsE-cn-bxP"/>
                             <constraint firstItem="MIX-y3-tpa" firstAttribute="leading" secondItem="qrL-XF-wKj" secondAttribute="leading" id="a4d-1b-soh"/>
                             <constraint firstItem="rPu-AO-yuA" firstAttribute="width" secondItem="irf-ta-Ydv" secondAttribute="width" id="aED-y0-sPK"/>

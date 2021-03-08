@@ -11,9 +11,7 @@ import UIKit
 protocol InformationAboutClicControllerInput: InformationAboutClicModelOutput {}
 protocol InformationAboutClicControllerOutput: InformationAboutClicModelInput {}
 
-class InformationAboutClicController: UIViewController, NavigationBarStyled {
-    
-    var style: NavigationBarStyle = .normalWithoutSearch
+class InformationAboutClicController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var tableHeight: NSLayoutConstraint!
@@ -35,9 +33,7 @@ class InformationAboutClicController: UIViewController, NavigationBarStyled {
     }
     
     private func setupUI() {
-        if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = "Information About"
-        }
+        title = "Инвитро"
     }
 }
 
@@ -53,17 +49,6 @@ extension InformationAboutClicController: InformationAboutClicControllerInput {
     }
     
     func didLoad() {
-        
-    }
-}
-
-extension InformationAboutClicController: SimpleNavigationBarDelegate {
-    
-    func leftBarItemAction() {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    func rightBarItemAction() {
         
     }
 }
