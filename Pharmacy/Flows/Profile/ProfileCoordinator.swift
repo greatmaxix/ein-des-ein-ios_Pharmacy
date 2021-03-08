@@ -49,6 +49,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 self?.presentPrivilegesVC()
             case .openAddPrivileges:
                 self?.presentAddDocuments()
+            case .openCloseOrder:
+                self?.openCloseOrder()
             default:
                 break
             }
@@ -187,12 +189,13 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     }
     
     func presentAnalizes() {
-        guard let analizesVC: AnalizesViewController = storyboard.instantiateViewController(withIdentifier: "AnalizesViewController") as? AnalizesViewController else {
+        guard let analizesVC = R.storyboard.myOrderViewController.instantiateInitialViewController() else {
             return
         }
         
-        let model = AnalizesModel(parent: self)
+        let model = MyOrderModel(parent: self)
         analizesVC.model = model
+        model.output = analizesVC
         root.navigationController?.pushViewController(analizesVC, animated: true)
     }
 
@@ -266,6 +269,15 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     private func saveToFiles(data: Data) {
         let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
         root.navigationController?.present(activityController, animated: true, completion: nil)
+    }
+    
+    private func openCloseOrder() {
+        let controller = R.storyboard.cancelOrderViewController.instantiateInitialViewController()!
+        let model = CancelOrderModel(parent: self)
+        controller.model = model
+        model.output = controller
+
+        root.navigationController?.pushViewController(controller, animated: true)
     }
 }
 

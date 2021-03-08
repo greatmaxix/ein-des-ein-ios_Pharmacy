@@ -13,7 +13,7 @@ protocol AnalysisAndDiagnosticsControllerOutput: AnalysisAndDiagnosticsModelInpu
 
 class AnalysisAndDiagnostics: UIViewController, NavigationBarStyled {
     
-    var style: NavigationBarStyle = .normalWithSearch
+    var style: NavigationBarStyle = .normalWithoutSearch
     
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var topNavBarView: UIView?
@@ -41,12 +41,8 @@ class AnalysisAndDiagnostics: UIViewController, NavigationBarStyled {
     }
     
     private func setupUI() {
-        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
-            bar.barDelegate = self
-            bar.style = style
-            bar.title =  "Биохимические"
-            bar.isLeftItemHidden = false
-            bar.leftItemTitle = nil
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = R.string.localize.analizesEmptyBarTitle()
         }
     }
 }
@@ -119,17 +115,6 @@ extension AnalysisAndDiagnostics: AnalysisAndDiagnosticsControllerInput {
     }
     
     func didFetchError(error: Error) {
-        
-    }
-}
-
-extension AnalysisAndDiagnostics: SimpleWithSearchNavigationBarDelegate {
-    
-    func leftBarItemAction() {
-        navigationController?.dismiss(animated: true, completion: nil)
-    }
-    
-    func rightBarItemAction() {
         
     }
 }

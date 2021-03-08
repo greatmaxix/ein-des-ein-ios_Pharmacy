@@ -11,9 +11,9 @@ import UIKit
 protocol PrivilegesControllerOutput: PrivilegesModelInput {}
 protocol PrivilegesControllerInput: PrivilegesModelOutput {}
 
-class PrivilegesViewController: UIViewController {
+class PrivilegesViewController: UIViewController, NavigationBarStyled {
     
-
+    var style: NavigationBarStyle = .normalWithoutSearch
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var nextButton: UIButton!
@@ -48,10 +48,8 @@ class PrivilegesViewController: UIViewController {
         
     }
     private func setupTitle() {
-        if let bar = self.navigationController?.navigationBar as? SimpleNavigationBar {
-            bar.title = "Льготы"
-            bar.style = .normal
-            bar.barDelegate = self
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = "Пенсионер"
         }
     }
 }
@@ -77,18 +75,6 @@ extension PrivilegesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         model.didSelectCell(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
-
-
-extension PrivilegesViewController: SimpleNavigationBarDelegate {
-    
-    func leftBarItemAction() {
-        model.close()
-    }
-    
-    func rightBarItemAction() {
-        
     }
 }
 

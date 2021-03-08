@@ -11,11 +11,14 @@ import UIKit
 class PaymantCell: UITableViewCell {
 
     @IBOutlet private var paymentType: UIImageView!
-    @IBOutlet private var notEnableView: UIImageView!
-    @IBOutlet private var namePaymentLabel: UILabel!
+    @IBOutlet var notEnableView: UIImageView!
+    @IBOutlet var conteinerView: UIView!
+    @IBOutlet var namePaymentLabel: UILabel!
     
-    func apply() {
-       
+    func apply(model: PaymentModel, selected: Bool) {
+        self.namePaymentLabel.text = model.paymetText
+        self.notEnableView.image = selected ? UIImage(named: "radiobutton_checked") : UIImage(named: "unselectedRadio_icon")
+        self.paymentType.image = UIImage(named: model.paymetImage ?? "googlePay_icon")
     }
 }
     

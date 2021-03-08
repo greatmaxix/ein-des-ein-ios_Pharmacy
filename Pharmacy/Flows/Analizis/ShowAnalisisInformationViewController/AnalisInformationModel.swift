@@ -9,12 +9,13 @@
 import UIKit
 
 protocol AnalisInformationModelInput: class {
-    func openFilialList()
+
     func load()
     func didSelectCell(at indexPath: IndexPath)
     func close()
     func openDeteilClinic(_ model: ClinicModel)
     func orderService()
+    func openFilialList()
     
     var models: [ClinicModel] { get }
     var cellHeight: CGFloat { get }
@@ -37,6 +38,12 @@ final class AnalisInformationModel: Model {
 }
 
 extension AnalisInformationModel: AnalisInformationControllerOutput {
+//    func apenListClinick() {
+//        
+//    }
+    
+
+    
     
     func openFilialList() {
         raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList)

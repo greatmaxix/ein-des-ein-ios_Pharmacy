@@ -37,31 +37,32 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCK-Q2-1jA">
-                        <rect key="frame" x="16" y="48" width="288" height="160"/>
+                        <rect key="frame" x="16" y="48" width="288" height="208"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="04L-LI-i65">
-                                <rect key="frame" x="0.0" y="8" width="288" height="144"/>
+                                <rect key="frame" x="0.0" y="8" width="288" height="192"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cia-R9-0ah">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="48"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_radiobutton_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Wcc-rb-h1L">
                                                 <rect key="frame" x="16" y="12" width="24" height="24"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="ovt-JN-KeE"/>
                                                     <constraint firstAttribute="width" constant="24" id="yGU-oz-AEk"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit card *  8344" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvI-Cr-cPZ">
-                                                <rect key="frame" x="48" y="14.5" width="134" height="19"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LvI-Cr-cPZ">
+                                                <rect key="frame" x="48" y="14.5" width="73" height="19"/>
                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
                                                 <color key="textColor" name="gray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_mastercard" translatesAutoresizingMaskIntoConstraints="NO" id="sJx-aj-uHY">
-                                                <rect key="frame" x="222" y="8" width="50" height="32"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appPayNotSelected" translatesAutoresizingMaskIntoConstraints="NO" id="sJx-aj-uHY">
+                                                <rect key="frame" x="240" y="8" width="32" height="32"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="I7x-WF-Owd"/>
+                                                    <constraint firstAttribute="width" constant="32" id="I7x-WF-Owd"/>
                                                     <constraint firstAttribute="height" constant="32" id="eLC-aZ-LuH"/>
                                                 </constraints>
                                             </imageView>
@@ -93,6 +94,7 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_radiobutton_empty" translatesAutoresizingMaskIntoConstraints="NO" id="LOd-fZ-47x">
                                                 <rect key="frame" x="16" y="12" width="24" height="24"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="24" id="Az0-fR-Jcj"/>
                                                     <constraint firstAttribute="height" constant="24" id="R20-Tf-5ds"/>
@@ -134,8 +136,55 @@
                                             <constraint firstAttribute="trailing" secondItem="Bsa-zv-uYr" secondAttribute="trailing" constant="16" id="zQz-S2-jPV"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XW-ek-lGT">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjU-FD-Ksz">
                                         <rect key="frame" x="0.0" y="96" width="288" height="48"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_radiobutton_empty" translatesAutoresizingMaskIntoConstraints="NO" id="cOk-eF-TL5">
+                                                <rect key="frame" x="16" y="12" width="24" height="24"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="24" id="C4q-RE-eRS"/>
+                                                    <constraint firstAttribute="height" constant="24" id="wDk-Un-ZTE"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Страховой полис" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0s-AQ-e5A">
+                                                <rect key="frame" x="48" y="14.5" width="130.5" height="19"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                                <color key="textColor" name="gray"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insuranceNotSelected" translatesAutoresizingMaskIntoConstraints="NO" id="aVR-nl-VgY">
+                                                <rect key="frame" x="240" y="12.5" width="32" height="23"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="32" id="7Hg-Yw-hRq"/>
+                                                    <constraint firstAttribute="height" constant="23" id="w9O-YI-1Ks"/>
+                                                </constraints>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAq-kU-WMG">
+                                                <rect key="frame" x="24" y="47" width="248" height="1"/>
+                                                <color key="backgroundColor" name="confirmCircleGray"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="jah-NZ-2wG"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="2jq-Ud-qTp"/>
+                                            <constraint firstItem="jAq-kU-WMG" firstAttribute="leading" secondItem="tjU-FD-Ksz" secondAttribute="leading" constant="24" id="Jpe-DZ-S7v"/>
+                                            <constraint firstItem="cOk-eF-TL5" firstAttribute="top" secondItem="tjU-FD-Ksz" secondAttribute="top" constant="12" id="RUN-jc-Vue"/>
+                                            <constraint firstItem="aVR-nl-VgY" firstAttribute="centerY" secondItem="tjU-FD-Ksz" secondAttribute="centerY" id="UvI-Zg-vwl"/>
+                                            <constraint firstAttribute="trailing" secondItem="jAq-kU-WMG" secondAttribute="trailing" constant="16" id="boR-c7-TGv"/>
+                                            <constraint firstItem="u0s-AQ-e5A" firstAttribute="centerY" secondItem="tjU-FD-Ksz" secondAttribute="centerY" id="gOr-g6-jCL"/>
+                                            <constraint firstAttribute="bottom" secondItem="cOk-eF-TL5" secondAttribute="bottom" constant="12" id="kLa-QS-Byk"/>
+                                            <constraint firstItem="cOk-eF-TL5" firstAttribute="leading" secondItem="tjU-FD-Ksz" secondAttribute="leading" constant="16" id="pU4-ej-her"/>
+                                            <constraint firstItem="u0s-AQ-e5A" firstAttribute="leading" secondItem="cOk-eF-TL5" secondAttribute="trailing" constant="8" id="uDe-rF-Tzl"/>
+                                            <constraint firstAttribute="bottom" secondItem="jAq-kU-WMG" secondAttribute="bottom" id="uTs-L1-dTW"/>
+                                            <constraint firstAttribute="trailing" secondItem="aVR-nl-VgY" secondAttribute="trailing" constant="16" id="zEC-5I-RYo"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XW-ek-lGT">
+                                        <rect key="frame" x="0.0" y="144" width="288" height="48"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_radiobutton_empty" translatesAutoresizingMaskIntoConstraints="NO" id="XEv-pf-mfH">
                                                 <rect key="frame" x="16" y="12" width="24" height="24"/>
@@ -187,7 +236,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Состав заказа :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gy8-ia-SDB">
-                        <rect key="frame" x="16" y="232" width="288" height="24"/>
+                        <rect key="frame" x="16" y="280" width="288" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="zcq-aS-f0N"/>
                         </constraints>
@@ -217,10 +266,11 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="appPayNotSelected" width="38" height="16"/>
         <image name="icon_cash" width="75" height="48"/>
         <image name="icon_caspy" width="75" height="48"/>
-        <image name="icon_mastercard" width="75" height="48"/>
         <image name="icon_radiobutton_empty" width="36" height="36"/>
+        <image name="insuranceNotSelected" width="18" height="22"/>
         <namedColor name="backgroundGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

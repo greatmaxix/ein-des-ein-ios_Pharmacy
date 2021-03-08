@@ -12,7 +12,9 @@ import UIKit
 protocol AddPrivilegesViewControllerOutput: AddPrivilegesModelInput {}
 protocol AddPrivilegesViewControllerInput: AddPrivilegesModelOutput {}
 
-class AddPrivilegesViewController: UIViewController {
+class AddPrivilegesViewController: UIViewController, NavigationBarStyled {
+    
+    var style: NavigationBarStyle = .normalWithoutSearch
     
     var model: AddPrivilegesViewControllerOutput!
     
@@ -22,21 +24,16 @@ class AddPrivilegesViewController: UIViewController {
         super.viewDidLoad()
         self.configure()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = "addPrivileges"
+        }
+    }
     private func configure() {
         self.infoLabel.text = "Уже в следующих версиях! Следите за обновленями!"
-    }
-}
-
-
-
-extension AddPrivilegesViewController: SimpleNavigationBarDelegate {
-    
-    func leftBarItemAction() {
-        model.close()
-    }
-    
-    func rightBarItemAction() {
-        
     }
 }
 

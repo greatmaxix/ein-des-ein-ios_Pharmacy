@@ -9,7 +9,9 @@
 import UIKit
 import  EventsTree
 
-class ChooseClinicViewController: UIViewController {
+class ChooseClinicViewController: UIViewController, NavigationBarStyled {
+    
+    var style: NavigationBarStyle = .normalWithoutSearch
     
     @IBOutlet private weak var segmentControl: UISegmentedControl!
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -30,6 +32,14 @@ class ChooseClinicViewController: UIViewController {
         segmentControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.gray()!], for: .normal)
         
         configureChildren()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = "Choose CLinic"
+        }
     }
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {

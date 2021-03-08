@@ -240,6 +240,7 @@
 "checkout.farmacyAddress" = "Адрес аптеки";
 "checkout.paymentType" = "Выберите тип оплаты";
 "checkout.orderConsistence" = "Состав заказа";
+"checkout.orderForOther" = "Заказать другому";
 
 "checkout.name" = "Имя и фамилия";
 "checkout.phone" = "+7";
@@ -258,6 +259,7 @@
 
 "checkout.promocode" = "Промокод";
 "checkout.applyPurchase" = "Оформить заказ";
+"checkout.addComment" = "Оставить комменатарий";
 
 // MARK: - Region
 

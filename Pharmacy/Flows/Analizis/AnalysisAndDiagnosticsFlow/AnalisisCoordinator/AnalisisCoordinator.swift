@@ -13,6 +13,7 @@ import MapKit
 
 struct AnalisisFlowConfiguration {
     let parent: EventNode
+    var navigation: UINavigationController?
 }
 
 final class AnalisisCoordinator: EventNode, Coordinator {
@@ -23,21 +24,17 @@ final class AnalisisCoordinator: EventNode, Coordinator {
         let model = AnalysisAndDiagnosticsModel(parent: self)
         root.model = model
         model.output = root
-        
-        let navigationVC: UINavigationController = UINavigationController(navigationBarClass: SimpleWithSearchNavigationBar.self, toolbarClass: nil)
-        navigationVC.setViewControllers([root], animated: false)
-        navigationVC.isToolbarHidden = true
-        navigation = navigationVC
-        
-        return navigationVC
+
+        return root
     }
     
     init(configuration: AnalisisFlowConfiguration) {
+        self.navigation = configuration.navigation
         super.init(parent: configuration.parent)
         addHandler(.onRaise) { [weak self] (event: AnalysisAndDiagnosticsModelEvent) in
             guard let self = self else { return }
             switch event {
-            case .openAnalisis:
+            case . openAnalisis:
                 _ = self.createFlow()
             case let .openLaboratoryList(type):
                 self.openLaboratoryList(type: type)
@@ -46,7 +43,7 @@ final class AnalisisCoordinator: EventNode, Coordinator {
             case .openAnalisInformation:
                 self.openAnalisInformation()
             case .back:
-                self.navigation?.popViewController(animated: true)
+                self.navigation?.popViewController(animated: false)
             case .openClinicFilial:
                 self.openClinicFilial()
             case .openClinic:
@@ -56,6 +53,26 @@ final class AnalisisCoordinator: EventNode, Coordinator {
                 break
             case .openOrderService:
                 self.openOrder()
+            case .openPromocod:
+                let controller = R.storyboard.promocodViewController.instantiateInitialViewController()!
+                let model = PromocodModel(parent: self)
+                controller.model = model
+                model.output = controller
+                
+                controller.modalPresentationStyle = .overFullScreen
+                self.navigation?.topViewController?.present(controller, animated: false)
+
+            case .closeAlert:
+                print("event ")
+            case .finishOrder:
+                let controller = R.storyboard.paymendSuccessfullyAlertController.instantiateInitialViewController()!
+                controller.modalPresentationStyle = .overFullScreen
+//                let model = (parent: self)
+//                controller.model = model
+//                model.output = controller
+//
+//                controller.modalPresentationStyle = .overFullScreen
+                self.navigation?.topViewController?.present(controller, animated: true)
             }
         }
     }
@@ -65,7 +82,7 @@ fileprivate extension AnalisisCoordinator {
     
     func openFilialList() {
         let controller = R.storyboard.chooseClinicViewController.instantiateInitialViewController()!
-        self.navigation?.pushViewController(controller, animated: true)
+        self.navigation?.pushViewController(controller, animated: false)
     }
     
     func openClinicFilial() {
@@ -73,7 +90,7 @@ fileprivate extension AnalisisCoordinator {
         let model = DeteilClinicInfoModel(parent: self)
         controller.model = model
         model.output = controller
-        self.navigation?.pushViewController(controller, animated: true)
+        self.navigation?.pushViewController(controller, animated: false)
     }
     
     func openClinic() {
@@ -81,7 +98,7 @@ fileprivate extension AnalisisCoordinator {
         let model = InformationAboutClicModel(parent: self)
         controller.model = model
         model.output = controller
-        self.navigation?.pushViewController(controller, animated: true)
+        self.navigation?.pushViewController(controller, animated: false)
     }
     
     func openLaboratoryList(type: TypeOfAnalysis) {
@@ -89,7 +106,7 @@ fileprivate extension AnalisisCoordinator {
         let model = LaboratoryModel(parent: self)
         controller.model = model
         model.output = controller
-        navigation?.pushViewController(controller, animated: true)
+        navigation?.pushViewController(controller, animated: false)
     }
     
     func openOrder() {
@@ -97,7 +114,7 @@ fileprivate extension AnalisisCoordinator {
         let model = OrderServiceViewModel(parent: self)
         controller.model = model
         model.output = controller
-        navigation?.pushViewController(controller, animated: true)
+        navigation?.pushViewController(controller, animated: false)
     }
     
     func openLaboratoryDetail(model: LaboratoryResearchModel) {
@@ -105,7 +122,7 @@ fileprivate extension AnalisisCoordinator {
         let model = DeteilLaboratoryyModel(parent: self)
         controller.model = model
         model.output = controller
-        navigation?.pushViewController(controller, animated: true)
+        navigation?.pushViewController(controller, animated: false)
     }
     
     func openAnalisInformation() {
@@ -113,7 +130,7 @@ fileprivate extension AnalisisCoordinator {
         let model = AnalisInformationModel(parent: self)
         controller.model = model
         model.output = controller
-        navigation?.pushViewController(controller, animated: true)
+        navigation?.pushViewController(controller, animated: false)
     }
     
     func openMyOrderVC() {
@@ -121,6 +138,6 @@ fileprivate extension AnalisisCoordinator {
         let modelVC = MyOrderModel(parent: self)
         controller.model = modelVC
         modelVC.output = controller
-        navigation?.pushViewController(controller, animated: true)
+        navigation?.pushViewController(controller, animated: false)
     }
 }

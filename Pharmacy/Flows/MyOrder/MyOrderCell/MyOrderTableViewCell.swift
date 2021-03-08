@@ -18,6 +18,15 @@ class MyOrderTableViewCell: UITableViewCell {
     @IBOutlet var phoneClinic: UILabel!
     @IBOutlet var price: UILabel!
     @IBOutlet var clinicName: UILabel!
+    @IBOutlet var backgroundColorView: UIView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        backgroundColorView.backgroundColor = .white
+        backgroundColorView.clipsToBounds = true
+        backgroundColorView.layer.cornerRadius = 8
+    }
     
     
     func apply() {

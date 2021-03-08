@@ -24,7 +24,6 @@ extension NavigationBarStyled {
 
 enum NavigationBarStyle {
     case normal
-    case normalWithSearch
     case largeSearch
     case normalWithoutSearch
     case search

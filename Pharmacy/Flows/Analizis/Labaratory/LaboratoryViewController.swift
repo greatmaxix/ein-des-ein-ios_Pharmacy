@@ -13,7 +13,8 @@ protocol LaboratoryControllerInput: LaboratoryModelOutput {}
 
 class LaboratoryViewController: UIViewController, NavigationBarStyled {
         
-    var style: NavigationBarStyle = .normal
+    var style: NavigationBarStyle = .normalWithoutSearch
+    
     var model: LaboratoryControllerOutput!
     private var models: [LaboratoryResearchModel] = []
     
@@ -40,10 +41,8 @@ class LaboratoryViewController: UIViewController, NavigationBarStyled {
         self.setupTitle()
     }
     private func setupTitle() {
-        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
-            bar.barDelegate = self
-            bar.title = "Лабараторные"
-            bar.style = style
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = "Лабараторные"
         }
     }
 }
@@ -88,20 +87,6 @@ extension LaboratoryViewController: LaboratoryControllerInput {
     }
         
     func didFetchError(error: Error) {
-        
-    }
-}
-extension  LaboratoryViewController: SimpleWithSearchNavigationBarDelegate {
-    
-    func leftBarItemAction() {
-        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
-            bar.setupUI()
-        }
-        
-        model.close()
-    }
-    
-    func rightBarItemAction() {
         
     }
 }

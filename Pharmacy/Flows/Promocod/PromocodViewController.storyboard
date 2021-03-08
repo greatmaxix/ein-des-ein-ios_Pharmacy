@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d9f-9G-Vja">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+        <array key="OpenSans-SemiBold.ttf">
+            <string>OpenSans-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Promocod View Controller-->
+        <scene sceneID="rRK-Eh-iZa">
+            <objects>
+                <viewController id="d9f-9G-Vja" customClass="PromocodViewController" customModule="Pharmacy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sBf-ax-43q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBS-zl-xOM" userLabel="ViewTop">
+                                <rect key="frame" x="72" y="364" width="270" height="178"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Промокод" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W6J-cO-9rD">
+                                        <rect key="frame" x="16" y="18" width="238" height="20"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A short, complete sentence that takes up the first and the second line." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aP5-pt-5Aw">
+                                        <rect key="frame" x="16" y="40" width="238" height="30.5"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Промокод" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1s-6o-29X">
+                                        <rect key="frame" x="16" y="95.5" width="238" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="t79-f6-4we"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRg-Mb-AZG">
+                                        <rect key="frame" x="0.0" y="135.5" width="270" height="1"/>
+                                        <color key="backgroundColor" name="lightGray"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="WYT-cn-wvY"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fX4-GJ-k5W">
+                                        <rect key="frame" x="0.0" y="135.5" width="270" height="42.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ak4-Av-Jlq">
+                                                <rect key="frame" x="0.0" y="0.0" width="135" height="42.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="135" id="xPD-RT-cnP"/>
+                                                </constraints>
+                                                <state key="normal" title="Отмена"/>
+                                                <connections>
+                                                    <action selector="closeButtonAction:" destination="d9f-9G-Vja" eventType="touchUpInside" id="WYs-33-ChK"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3tI-Un-HMZ">
+                                                <rect key="frame" x="135" y="0.0" width="1" height="42.5"/>
+                                                <color key="backgroundColor" name="lightGray"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="1" id="Spn-vl-r9E"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jmo-1R-ML5">
+                                                <rect key="frame" x="136" y="0.0" width="134" height="42.5"/>
+                                                <state key="normal" title="Применить"/>
+                                                <connections>
+                                                    <action selector="usePromoAction:" destination="d9f-9G-Vja" eventType="touchUpInside" id="2vY-qp-eaM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42.5" id="mnM-z0-gaN"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BRg-Mb-AZG" secondAttribute="trailing" id="0R5-Jb-ZKf"/>
+                                    <constraint firstAttribute="trailing" secondItem="b1s-6o-29X" secondAttribute="trailing" constant="16" id="7LU-HR-X7S"/>
+                                    <constraint firstItem="aP5-pt-5Aw" firstAttribute="leading" secondItem="gBS-zl-xOM" secondAttribute="leading" constant="16" id="9n3-Fx-mPF"/>
+                                    <constraint firstItem="b1s-6o-29X" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aP5-pt-5Aw" secondAttribute="bottom" constant="16" id="GQB-vk-X96"/>
+                                    <constraint firstAttribute="height" constant="178" id="JJC-hr-ntU"/>
+                                    <constraint firstItem="W6J-cO-9rD" firstAttribute="leading" secondItem="gBS-zl-xOM" secondAttribute="leading" constant="16" id="MDG-Gb-rly"/>
+                                    <constraint firstAttribute="trailing" secondItem="W6J-cO-9rD" secondAttribute="trailing" constant="16" id="PIB-Xe-UZu"/>
+                                    <constraint firstItem="BRg-Mb-AZG" firstAttribute="top" secondItem="b1s-6o-29X" secondAttribute="bottom" constant="15" id="RFE-bI-eXt"/>
+                                    <constraint firstAttribute="bottom" secondItem="fX4-GJ-k5W" secondAttribute="bottom" id="eK9-2B-Att"/>
+                                    <constraint firstAttribute="trailing" secondItem="aP5-pt-5Aw" secondAttribute="trailing" constant="16" id="hmX-lB-rZ3"/>
+                                    <constraint firstItem="b1s-6o-29X" firstAttribute="leading" secondItem="gBS-zl-xOM" secondAttribute="leading" constant="16" id="mQN-gF-gOi"/>
+                                    <constraint firstAttribute="trailing" secondItem="fX4-GJ-k5W" secondAttribute="trailing" id="nyn-yz-YyN"/>
+                                    <constraint firstItem="fX4-GJ-k5W" firstAttribute="leading" secondItem="gBS-zl-xOM" secondAttribute="leading" id="pTY-gT-gER"/>
+                                    <constraint firstItem="W6J-cO-9rD" firstAttribute="top" secondItem="gBS-zl-xOM" secondAttribute="top" constant="18" id="sQ1-DV-TD7"/>
+                                    <constraint firstItem="BRg-Mb-AZG" firstAttribute="leading" secondItem="gBS-zl-xOM" secondAttribute="leading" id="xeC-1s-Xdc"/>
+                                    <constraint firstItem="aP5-pt-5Aw" firstAttribute="top" secondItem="W6J-cO-9rD" secondAttribute="bottom" constant="2" id="yaO-A5-Sh0"/>
+                                    <constraint firstItem="fX4-GJ-k5W" firstAttribute="top" secondItem="BRg-Mb-AZG" secondAttribute="top" id="z6B-ZB-cTl"/>
+                                    <constraint firstAttribute="width" constant="270" id="zYY-NF-pRj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nNO-s4-Gwg"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gBS-zl-xOM" firstAttribute="centerY" secondItem="nNO-s4-Gwg" secondAttribute="centerY" id="DCn-LM-qG1"/>
+                            <constraint firstItem="gBS-zl-xOM" firstAttribute="centerX" secondItem="nNO-s4-Gwg" secondAttribute="centerX" id="xDo-0E-764"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="Ak4-Av-Jlq" id="DTA-hM-044"/>
+                        <outlet property="textAlert" destination="aP5-pt-5Aw" id="vVH-iD-Tg7"/>
+                        <outlet property="topView" destination="gBS-zl-xOM" id="4J3-pp-3E1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ce2-U0-jFw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-91.304347826086968" y="72.991071428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="lightGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

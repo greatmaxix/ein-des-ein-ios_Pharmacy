@@ -49,10 +49,8 @@ class DeteilClinicInfoController: UIViewController {
     }
     
     private func setupTitle() {
-        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
-            bar.title = "Клинический"
-            bar.style = .normal
-            bar.barDelegate = self
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = "Detail Clinic"
         }
     }
 }
@@ -85,7 +83,7 @@ extension DeteilClinicInfoController: UITableViewDelegate {
 }
 
 
-extension DeteilClinicInfoController: SimpleWithSearchNavigationBarDelegate {
+extension DeteilClinicInfoController: SimpleNavigationBarDelegate {
     
     func leftBarItemAction() {
         model.close()

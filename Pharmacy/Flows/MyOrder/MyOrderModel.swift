@@ -50,7 +50,7 @@ extension MyOrderModel: MyOrderViewControllerOutput {
     }
     
     func didSelectCell(at indexPath: IndexPath) {
-        let model = self.typesOfAnalysis[indexPath.row]
-//        self.raise(event: AnalysisAndDiagnosticsModelEvent.openLaboratoryList(model))
+//        let model = self.typesOfAnalysis[indexPath.row]
+        self.raise(event: ProfileEvent.openCloseOrder)
     }
 }

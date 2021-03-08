@@ -114,12 +114,13 @@ fileprivate extension WelcomeCoordinator {
     }
 
     func presentAnalizes() {
-        let controller = AnalisisCoordinator(configuration: AnalisisFlowConfiguration(parent: self)).createFlow()
+        let controller = AnalisisCoordinator(configuration: AnalisisFlowConfiguration(parent: self, navigation: navigation)).createFlow()
         controller.modalPresentationStyle = .overFullScreen
-        navigation.present(controller, animated: true)
+        navigation.pushViewController(controller, animated: true)
     }
 
     func presentPrescriptions() {
+        
         guard let controller: ReceiptsViewController = R.storyboard.receipts().instantiateViewController(withIdentifier: "ReceiptsViewController") as? ReceiptsViewController else {
             return
         }

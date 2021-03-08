@@ -416,6 +416,7 @@
 		F51C16F925E5472800231E6D /* OrderServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C16F825E5472800231E6D /* OrderServiceViewController.swift */; };
 		F51C16FD25E54B1E00231E6D /* PaymantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C16FC25E54B1E00231E6D /* PaymantCell.swift */; };
 		F51C170125E5569B00231E6D /* OrderServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C170025E5569B00231E6D /* OrderServiceViewModel.swift */; };
+		F51D898D25F237AB003B91BB /* CancelOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51D898C25F237AB003B91BB /* CancelOrderModel.swift */; };
 		F51DCBF925EE51C000626DF7 /* InformationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCBF825EE51C000626DF7 /* InformationHeaderView.swift */; };
 		F51DCBFD25EE51CE00626DF7 /* InformationHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51DCBFC25EE51CE00626DF7 /* InformationHeaderView.xib */; };
 		F51DCC2A25EE718800626DF7 /* TableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCC2925EE718800626DF7 /* TableAdapter.swift */; };
@@ -438,11 +439,16 @@
 		F520B9A725DAB63B0077CB03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F520B9A625DAB63B0077CB03 /* GoogleService-Info.plist */; };
 		F521BCE625DFB9CC00289081 /* DetailLaboratoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521BCE525DFB9CC00289081 /* DetailLaboratoryController.swift */; };
 		F521BCEA25DFBC8A00289081 /* DetailLaboratoryController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F521BCE925DFBC8A00289081 /* DetailLaboratoryController.storyboard */; };
-		F521BCED25DFE28200289081 /* SimpleWithSearchNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521BCEC25DFE28200289081 /* SimpleWithSearchNavigationBar.swift */; };
 		F521BCF325E004F000289081 /* LaboratoryDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521BCF225E004F000289081 /* LaboratoryDetailModel.swift */; };
 		F521BCFA25E0084900289081 /* DetailLaboratoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521BCF825E0084900289081 /* DetailLaboratoryTableViewCell.swift */; };
 		F521BCFB25E0084900289081 /* DetailLaboratoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F521BCF925E0084900289081 /* DetailLaboratoryTableViewCell.xib */; };
 		F521BCFE25E00CE500289081 /* DetailLaboratoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521BCFD25E00CE500289081 /* DetailLaboratoryModel.swift */; };
+		F522A09025F16AA300BEAC6D /* PromocodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F522A08F25F16AA200BEAC6D /* PromocodView.swift */; };
+		F522A09825F1891400BEAC6D /* PaymendSuccessfullyAlertController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F522A09725F1891400BEAC6D /* PaymendSuccessfullyAlertController.storyboard */; };
+		F522A09B25F18B0100BEAC6D /* PaymendSuccessfullyAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F522A09A25F18B0100BEAC6D /* PaymendSuccessfullyAlertController.swift */; };
+		F523E70825EFB0980029E84E /* CustomTextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F523E70725EFB0980029E84E /* CustomTextFieldView.xib */; };
+		F523E70B25EFB2340029E84E /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523E70A25EFB2340029E84E /* CustomTextFieldView.swift */; };
+		F523E70F25EFD41B0029E84E /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523E70E25EFD41B0029E84E /* PaymentModel.swift */; };
 		F528151025E64E1A007FC2FA /* PrivilegesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F528150F25E64E1A007FC2FA /* PrivilegesViewController.storyboard */; };
 		F528151325E652EB007FC2FA /* PrivilegesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F528151225E652EB007FC2FA /* PrivilegesViewController.swift */; };
 		F528151625E65417007FC2FA /* PrivilegesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F528151525E65417007FC2FA /* PrivilegesModel.swift */; };
@@ -450,13 +456,13 @@
 		F528151F25E66CED007FC2FA /* AddPrivilegesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F528151E25E66CED007FC2FA /* AddPrivilegesViewController.storyboard */; };
 		F528152225E67090007FC2FA /* AddPrivilegesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F528152125E67090007FC2FA /* AddPrivilegesViewController.swift */; };
 		F528152525E677C8007FC2FA /* AddPrivilegesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F528152425E677C8007FC2FA /* AddPrivilegesModel.swift */; };
+		F52A8B2225F11C26005E8CFF /* PromocodViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52A8B2125F11C26005E8CFF /* PromocodViewController.storyboard */; };
+		F52A8B2525F121B2005E8CFF /* PromocodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A8B2425F121B2005E8CFF /* PromocodViewController.swift */; };
 		F52D2CBC25E79AA900242A5B /* InformationAboutClicController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52D2CBB25E79AA900242A5B /* InformationAboutClicController.storyboard */; };
 		F549F37225EC295D008749BD /* ChooseClinicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F37125EC295D008749BD /* ChooseClinicViewController.swift */; };
 		F549F37C25EC2D5F008749BD /* ClinicsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F37B25EC2D5F008749BD /* ClinicsListController.swift */; };
 		F56B649B25DD300000B108AC /* AnalysisAndDiagnostics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56B649A25DD300000B108AC /* AnalysisAndDiagnostics.storyboard */; };
 		F56B649E25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B649D25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift */; };
-		F56B64A225DD538400B108AC /* NavigationBarWithSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B64A125DD538400B108AC /* NavigationBarWithSearchView.swift */; };
-		F56B64A625DD539800B108AC /* NavigationBarWithSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F56B64A525DD539800B108AC /* NavigationBarWithSearchView.xib */; };
 		F56E41D525ECF0AB00599CAA /* ChoseClinicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E41D425ECF0AB00599CAA /* ChoseClinicAPI.swift */; };
 		F56E41DA25ECF3E900599CAA /* ClinicListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E41D925ECF3E900599CAA /* ClinicListModel.swift */; };
 		F56E41DF25ED129F00599CAA /* MyOrderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56E41DE25ED129F00599CAA /* MyOrderViewController.storyboard */; };
@@ -883,6 +889,7 @@
 		F51C16F825E5472800231E6D /* OrderServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceViewController.swift; sourceTree = "<group>"; };
 		F51C16FC25E54B1E00231E6D /* PaymantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymantCell.swift; sourceTree = "<group>"; };
 		F51C170025E5569B00231E6D /* OrderServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceViewModel.swift; sourceTree = "<group>"; };
+		F51D898C25F237AB003B91BB /* CancelOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderModel.swift; sourceTree = "<group>"; };
 		F51DCBF825EE51C000626DF7 /* InformationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationHeaderView.swift; sourceTree = "<group>"; };
 		F51DCBFC25EE51CE00626DF7 /* InformationHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationHeaderView.xib; sourceTree = "<group>"; };
 		F51DCC2925EE718800626DF7 /* TableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapter.swift; sourceTree = "<group>"; };
@@ -905,11 +912,16 @@
 		F520B9A625DAB63B0077CB03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F521BCE525DFB9CC00289081 /* DetailLaboratoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLaboratoryController.swift; sourceTree = "<group>"; };
 		F521BCE925DFBC8A00289081 /* DetailLaboratoryController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailLaboratoryController.storyboard; sourceTree = "<group>"; };
-		F521BCEC25DFE28200289081 /* SimpleWithSearchNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWithSearchNavigationBar.swift; sourceTree = "<group>"; };
 		F521BCF225E004F000289081 /* LaboratoryDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryDetailModel.swift; sourceTree = "<group>"; };
 		F521BCF825E0084900289081 /* DetailLaboratoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLaboratoryTableViewCell.swift; sourceTree = "<group>"; };
 		F521BCF925E0084900289081 /* DetailLaboratoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailLaboratoryTableViewCell.xib; sourceTree = "<group>"; };
 		F521BCFD25E00CE500289081 /* DetailLaboratoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLaboratoryModel.swift; sourceTree = "<group>"; };
+		F522A08F25F16AA200BEAC6D /* PromocodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodView.swift; sourceTree = "<group>"; };
+		F522A09725F1891400BEAC6D /* PaymendSuccessfullyAlertController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymendSuccessfullyAlertController.storyboard; sourceTree = "<group>"; };
+		F522A09A25F18B0100BEAC6D /* PaymendSuccessfullyAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymendSuccessfullyAlertController.swift; sourceTree = "<group>"; };
+		F523E70725EFB0980029E84E /* CustomTextFieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextFieldView.xib; sourceTree = "<group>"; };
+		F523E70A25EFB2340029E84E /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
+		F523E70E25EFD41B0029E84E /* PaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
 		F528150F25E64E1A007FC2FA /* PrivilegesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PrivilegesViewController.storyboard; sourceTree = "<group>"; };
 		F528151225E652EB007FC2FA /* PrivilegesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivilegesViewController.swift; sourceTree = "<group>"; };
 		F528151525E65417007FC2FA /* PrivilegesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivilegesModel.swift; sourceTree = "<group>"; };
@@ -917,13 +929,13 @@
 		F528151E25E66CED007FC2FA /* AddPrivilegesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPrivilegesViewController.storyboard; sourceTree = "<group>"; };
 		F528152125E67090007FC2FA /* AddPrivilegesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPrivilegesViewController.swift; sourceTree = "<group>"; };
 		F528152425E677C8007FC2FA /* AddPrivilegesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPrivilegesModel.swift; sourceTree = "<group>"; };
+		F52A8B2125F11C26005E8CFF /* PromocodViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PromocodViewController.storyboard; sourceTree = "<group>"; };
+		F52A8B2425F121B2005E8CFF /* PromocodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodViewController.swift; sourceTree = "<group>"; };
 		F52D2CBB25E79AA900242A5B /* InformationAboutClicController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InformationAboutClicController.storyboard; sourceTree = "<group>"; };
 		F549F37125EC295D008749BD /* ChooseClinicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseClinicViewController.swift; sourceTree = "<group>"; };
 		F549F37B25EC2D5F008749BD /* ClinicsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicsListController.swift; sourceTree = "<group>"; };
 		F56B649A25DD300000B108AC /* AnalysisAndDiagnostics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnalysisAndDiagnostics.storyboard; sourceTree = "<group>"; };
 		F56B649D25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisAndDiagnosticsViewController.swift; sourceTree = "<group>"; };
-		F56B64A125DD538400B108AC /* NavigationBarWithSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSearchView.swift; sourceTree = "<group>"; };
-		F56B64A525DD539800B108AC /* NavigationBarWithSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarWithSearchView.xib; sourceTree = "<group>"; };
 		F56E41D425ECF0AB00599CAA /* ChoseClinicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseClinicAPI.swift; sourceTree = "<group>"; };
 		F56E41D925ECF3E900599CAA /* ClinicListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicListModel.swift; sourceTree = "<group>"; };
 		F56E41DE25ED129F00599CAA /* MyOrderViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyOrderViewController.storyboard; sourceTree = "<group>"; };
@@ -1369,6 +1381,7 @@
 		396C45CE249774AC00A569CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F523E70625EFB07E0029E84E /* TextFieldView */,
 				F51DCBF725EE518300626DF7 /* InformationHeaderView */,
 				2488BAF325515396008D7EEB /* EmptyResultsViewCell */,
 				601E7ED32549D49700C936BF /* LightRoundedButton */,
@@ -1399,6 +1412,10 @@
 		396C45CF249774D200A569CE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				F51D899125F2DE40003B91BB /* Analizis */,
+				F522A09625F188F200BEAC6D /* PaymendSuccessfullyAlert */,
+				F52A8B1F25F11C06005E8CFF /* Promocod */,
+				F523E72A25F010DA0029E84E /* Languages */,
 				F56E420825ED356400599CAA /* CancelOrder */,
 				F56E41DD25ED128A00599CAA /* MyOrder */,
 				F51C02EA25E92D8300C266C5 /* ChooseClinic */,
@@ -1407,10 +1424,6 @@
 				F528151D25E66CDB007FC2FA /* AddPrivileges */,
 				F528150E25E64DEF007FC2FA /* PrivilegesViewController */,
 				F51C16EE25E5083900231E6D /* OrderService */,
-				F51BF7F125E3C855004BFBFD /* ShowAnalisisInformationViewController */,
-				F521BCE125DFB86900289081 /* DetailLaboratory */,
-				F51F88E125DED59900C1A9ED /* Labaratory */,
-				F56B649925DD2F6E00B108AC /* AnalysisAndDiagnosticsFlow */,
 				61D90F8A255DCEED00AE6124 /* Receipts */,
 				60475FDA2551512A00448EF3 /* Chat */,
 				4D8BCF69254891570094C43C /* InDevelopment */,
@@ -2686,6 +2699,7 @@
 		F51C16EE25E5083900231E6D /* OrderService */ = {
 			isa = PBXGroup;
 			children = (
+				F523E70D25EFD4120029E84E /* Model */,
 				F51C16FB25E54AF700231E6D /* Cell */,
 				F51C16EF25E5085600231E6D /* OrderServiceViewController.storyboard */,
 				F51C16F825E5472800231E6D /* OrderServiceViewController.swift */,
@@ -2700,6 +2714,17 @@
 				F51C16FC25E54B1E00231E6D /* PaymantCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		F51D899125F2DE40003B91BB /* Analizis */ = {
+			isa = PBXGroup;
+			children = (
+				F51BF7F125E3C855004BFBFD /* ShowAnalisisInformationViewController */,
+				F521BCE125DFB86900289081 /* DetailLaboratory */,
+				F51F88E125DED59900C1A9ED /* Labaratory */,
+				F56B649925DD2F6E00B108AC /* AnalysisAndDiagnosticsFlow */,
+			);
+			path = Analizis;
 			sourceTree = "<group>";
 		};
 		F51DCBF725EE518300626DF7 /* InformationHeaderView */ = {
@@ -2816,6 +2841,39 @@
 			path = DetailLaboratoryCell;
 			sourceTree = "<group>";
 		};
+		F522A09625F188F200BEAC6D /* PaymendSuccessfullyAlert */ = {
+			isa = PBXGroup;
+			children = (
+				F522A09725F1891400BEAC6D /* PaymendSuccessfullyAlertController.storyboard */,
+				F522A09A25F18B0100BEAC6D /* PaymendSuccessfullyAlertController.swift */,
+			);
+			path = PaymendSuccessfullyAlert;
+			sourceTree = "<group>";
+		};
+		F523E70625EFB07E0029E84E /* TextFieldView */ = {
+			isa = PBXGroup;
+			children = (
+				F523E70725EFB0980029E84E /* CustomTextFieldView.xib */,
+				F523E70A25EFB2340029E84E /* CustomTextFieldView.swift */,
+			);
+			path = TextFieldView;
+			sourceTree = "<group>";
+		};
+		F523E70D25EFD4120029E84E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F523E70E25EFD41B0029E84E /* PaymentModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F523E72A25F010DA0029E84E /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Languages;
+			sourceTree = "<group>";
+		};
 		F528150E25E64DEF007FC2FA /* PrivilegesViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2845,6 +2903,16 @@
 			path = AddPrivileges;
 			sourceTree = "<group>";
 		};
+		F52A8B1F25F11C06005E8CFF /* Promocod */ = {
+			isa = PBXGroup;
+			children = (
+				F52A8B2125F11C26005E8CFF /* PromocodViewController.storyboard */,
+				F52A8B2425F121B2005E8CFF /* PromocodViewController.swift */,
+				F522A08F25F16AA200BEAC6D /* PromocodView.swift */,
+			);
+			path = Promocod;
+			sourceTree = "<group>";
+		};
 		F52D2CBA25E79A7600242A5B /* InformationAboutClinic */ = {
 			isa = PBXGroup;
 			children = (
@@ -2872,22 +2940,11 @@
 				F51F88D325DEA4BC00C1A9ED /* Models */,
 				F51F88CF25DEA48F00C1A9ED /* API */,
 				F51F88C425DE744F00C1A9ED /* TypeOfAnalysisCell */,
-				F56B64A025DD533F00B108AC /* Navigation */,
 				F56B649A25DD300000B108AC /* AnalysisAndDiagnostics.storyboard */,
 				F56B649D25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift */,
 				F51F88CA25DE8D3600C1A9ED /* AnalysisAndDiagnosticsModel.swift */,
 			);
 			path = AnalysisAndDiagnosticsFlow;
-			sourceTree = "<group>";
-		};
-		F56B64A025DD533F00B108AC /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				F56B64A125DD538400B108AC /* NavigationBarWithSearchView.swift */,
-				F56B64A525DD539800B108AC /* NavigationBarWithSearchView.xib */,
-				F521BCEC25DFE28200289081 /* SimpleWithSearchNavigationBar.swift */,
-			);
-			path = Navigation;
 			sourceTree = "<group>";
 		};
 		F56E41D325ECF06A00599CAA /* API */ = {
@@ -2923,6 +2980,7 @@
 			children = (
 				F56E420A25ED375700599CAA /* CancelOrderViewController.storyboard */,
 				F51F1E2925EE231E00DEDE06 /* CancelOrderViewController.swift */,
+				F51D898C25F237AB003B91BB /* CancelOrderModel.swift */,
 			);
 			path = CancelOrder;
 			sourceTree = "<group>";
@@ -3031,7 +3089,6 @@
 				601E7ECE2549C69300C936BF /* MapGetDirections.xib in Resources */,
 				6075BD4D24DEA7FB00BC78BD /* OpenSans-Regular.ttf in Resources */,
 				61CFAA99254C2C1700569DEF /* DeliveryAddressCell.xib in Resources */,
-				F56B64A625DD539800B108AC /* NavigationBarWithSearchView.xib in Resources */,
 				87131D3A25137B910050B8F2 /* RecentsHeaderView.xib in Resources */,
 				603D318D24E2A269000E5A6C /* ReceiptView.xib in Resources */,
 				F51C16F025E5085600231E6D /* OrderServiceViewController.storyboard in Resources */,
@@ -3060,6 +3117,7 @@
 				6036EAF124DD1A81003336C2 /* Catalogue.storyboard in Resources */,
 				61CFAA8A254B214400569DEF /* OrderDeliveryCell.xib in Resources */,
 				F521BCEA25DFBC8A00289081 /* DetailLaboratoryController.storyboard in Resources */,
+				F523E70825EFB0980029E84E /* CustomTextFieldView.xib in Resources */,
 				6184730A2549A0C80062D8B9 /* CartSectionHeader.xib in Resources */,
 				F521BCFB25E0084900289081 /* DetailLaboratoryTableViewCell.xib in Resources */,
 				393D3CDB24FD33BD00E8181F /* PaymentMethodView.xib in Resources */,
@@ -3091,6 +3149,7 @@
 				F52D2CBC25E79AA900242A5B /* InformationAboutClicController.storyboard in Resources */,
 				61CFAA562549EB7200569DEF /* EmptyUserCell.xib in Resources */,
 				603D31DC24E5A88C000E5A6C /* ProductAnalogTableViewCell.xib in Resources */,
+				F522A09825F1891400BEAC6D /* PaymendSuccessfullyAlertController.storyboard in Resources */,
 				F56E41E625ED134500599CAA /* MyOrderTableViewCell.xib in Resources */,
 				6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */,
 				60289A53254AF5FB00F6A503 /* SubcategoryTableViewCell.xib in Resources */,
@@ -3101,6 +3160,7 @@
 				393DDFC42502954200652A01 /* RegionHeaderCell.xib in Resources */,
 				60E1A6F524EB8C5E00B3D205 /* SearchTableViewCell.xib in Resources */,
 				61CFAA84254B1AB800569DEF /* CreateOrderContactInfoCell.xib in Resources */,
+				F52A8B2225F11C26005E8CFF /* PromocodViewController.storyboard in Resources */,
 				F528151F25E66CED007FC2FA /* AddPrivilegesViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3231,6 +3291,7 @@
 				F521BCF325E004F000289081 /* LaboratoryDetailModel.swift in Sources */,
 				398B0DEF24F53AC50084EC54 /* FoundMedicineView.swift in Sources */,
 				608F0225255C2272002F7161 /* PhotoLibraryManager.swift in Sources */,
+				F523E70F25EFD41B0029E84E /* PaymentModel.swift in Sources */,
 				875223CA2500FDEE000759C8 /* Entity.swift in Sources */,
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
 				39854D0224EAB4870070E0D1 /* ProfileAPI.swift in Sources */,
@@ -3290,15 +3351,14 @@
 				618473072549A0B80062D8B9 /* CartSectionHeader.swift in Sources */,
 				603D31FD24E64912000E5A6C /* UITableViewCell.swift in Sources */,
 				60289A63254B028500F6A503 /* SubcategoryModel.swift in Sources */,
+				F52A8B2525F121B2005E8CFF /* PromocodViewController.swift in Sources */,
 				6036EB0724DD27BB003336C2 /* SearchModel.swift in Sources */,
 				398880C2250F798300942D30 /* PharmacyModel.swift in Sources */,
-				F56B64A225DD538400B108AC /* NavigationBarWithSearchView.swift in Sources */,
 				601E7EE82549EF8100C936BF /* CommonMapCoordinator.swift in Sources */,
 				60E1A6F724EB8C7800B3D205 /* SearchCellSection.swift in Sources */,
 				24F5FD3E254A0BA300D28275 /* ChooseLocationViewController.swift in Sources */,
 				6184730125496E950062D8B9 /* CartResponse.swift in Sources */,
 				603D31A724E3B627000E5A6C /* CategoryCellSection.swift in Sources */,
-				F521BCED25DFE28200289081 /* SimpleWithSearchNavigationBar.swift in Sources */,
 				603D31A424E3B608000E5A6C /* CategoryCollectionViewCell.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
 				39F0AD6524EEC80200CD6CA4 /* OrdersViewController.swift in Sources */,
@@ -3368,6 +3428,7 @@
 				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
 				60383A2D255B223800654C1A /* ChatGallery.swift in Sources */,
 				396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */,
+				F522A09025F16AA300BEAC6D /* PromocodView.swift in Sources */,
 				87A50B682526256800CF89CF /* ImageContainer.swift in Sources */,
 				4DE4D5392549812000EE0E3A /* AboutAppModel.swift in Sources */,
 				247C4E4B2562933400A46061 /* UIImage+Orientation.swift in Sources */,
@@ -3461,6 +3522,7 @@
 				39520E8E24A5EFAC00C2B7D8 /* UIViewController+Alert.swift in Sources */,
 				F51F88C725DE747900C1A9ED /* TypeOfAnalysisCell.swift in Sources */,
 				60A12B33256401400001C994 /* ChatEvaluationViewController.swift in Sources */,
+				F522A09B25F18B0100BEAC6D /* PaymendSuccessfullyAlertController.swift in Sources */,
 				395085E724EBC3650076E1DF /* ProfileResponse.swift in Sources */,
 				603D31B824E3F57B000E5A6C /* NSAttributedString+Price.swift in Sources */,
 				61AA472225505A4800D140D3 /* OrderDetailsModel.swift in Sources */,
@@ -3476,6 +3538,7 @@
 				39CBDA70249CF7F900A04831 /* SMSCodeValidator.swift in Sources */,
 				4DE4D53D25498E4100EE0E3A /* AboutAppTableViewCell.swift in Sources */,
 				87131D232507B9890050B8F2 /* Executor.swift in Sources */,
+				F523E70B25EFB2340029E84E /* CustomTextFieldView.swift in Sources */,
 				395A7FC324A3980D00A7CFC6 /* EmptyTableViewCell.swift in Sources */,
 				871E71A32501606200C8489B /* AvatarDTO.swift in Sources */,
 				60475FDC2551515D00448EF3 /* ChatCoordinator.swift in Sources */,
@@ -3560,6 +3623,7 @@
 				F51C16F925E5472800231E6D /* OrderServiceViewController.swift in Sources */,
 				603D318F24E2A2D3000E5A6C /* ReceiptView.swift in Sources */,
 				8715DB9524FFEA3900BBF37C /* OnboardingCoordinator.swift in Sources */,
+				F51D898D25F237AB003B91BB /* CancelOrderModel.swift in Sources */,
 				395C9D772499FC14001EB6CD /* PhoneValidator.swift in Sources */,
 				395D050524D05206007A278D /* MedicineCell.swift in Sources */,
 				F51F88F025DEDA8400C1A9ED /* LaboratoryResearchModel.swift in Sources */,

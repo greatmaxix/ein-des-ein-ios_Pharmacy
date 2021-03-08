@@ -11,13 +11,14 @@ import UIKit
 protocol AnalisInformationControllerOutput: AnalisInformationModelInput {}
 protocol AnalisInformationControllerInput: AnalisInformationyModelOutput {}
 
-class AnalisInformationViewController: UIViewController {
+class AnalisInformationViewController: UIViewController, NavigationBarStyled {
     
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var tableHeight: NSLayoutConstraint!
     @IBOutlet private var infoView: UIView!
         
     var model: AnalisInformationControllerOutput!
+    var style: NavigationBarStyle = .normalWithoutSearch
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,11 @@ class AnalisInformationViewController: UIViewController {
         model.openDeteilClinic(modelClinic)
     }
     
+//    @IBAction func showAllClinicks(_ sender: Any) {
+//        model.apenListClinick()
+//    }
+    
+    
     @IBAction func orderSrvice(_ sender: Any) {
         model.orderService()
     }
@@ -48,10 +54,8 @@ class AnalisInformationViewController: UIViewController {
     }
     
     private func setupTitle() {
-        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
-            bar.title = "Клинический"
-            bar.style = .normal
-            bar.barDelegate = self
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = "Клинический "
         }
     }
     
@@ -76,18 +80,6 @@ extension AnalisInformationViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         model.didSelectCell(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
-
-
-extension AnalisInformationViewController: SimpleWithSearchNavigationBarDelegate {
-    
-    func leftBarItemAction() {
-        model.close()
-    }
-    
-    func rightBarItemAction() {
-        
     }
 }
 

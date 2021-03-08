@@ -13,7 +13,7 @@ protocol MyOrderViewControllerOutput: MyOrderModelInput {}
 
 class MyOrderViewController: UIViewController, NavigationBarStyled {
     
-    var style: NavigationBarStyle = .normalWithSearch
+    var style: NavigationBarStyle = .normal
     
     @IBOutlet private var tableView: UITableView!
     var model: MyOrderViewControllerOutput!
@@ -30,6 +30,7 @@ class MyOrderViewController: UIViewController, NavigationBarStyled {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        
         setupUI()
     }
 
@@ -40,12 +41,10 @@ class MyOrderViewController: UIViewController, NavigationBarStyled {
     }
     
     private func setupUI() {
-        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.barDelegate = self
-            bar.style = style
-            bar.title =  "Биохимические"
+            bar.title = "Анализы"
             bar.isLeftItemHidden = false
-            bar.leftItemTitle = nil
         }
     }
 }
@@ -54,7 +53,7 @@ class MyOrderViewController: UIViewController, NavigationBarStyled {
 extension MyOrderViewController {
     
     private func setupTableView() {
-        tableView.register(UINib(resource: R.nib.typeOfAnalysisCell),
+        tableView.register(UINib(resource: R.nib.myOrderTableViewCell),
                            forCellReuseIdentifier: String(describing: MyOrderTableViewCell.self))
         
     }
@@ -90,7 +89,7 @@ extension MyOrderViewController: UITableViewDataSourcePrefetching {
 extension MyOrderViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //model.didSelectCell(at: indexPath)
+        model.didSelectCell(at: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -107,17 +106,14 @@ extension MyOrderViewController: MyOrderViewControllerInput {
     }
 }
 
-extension MyOrderViewController: SimpleWithSearchNavigationBarDelegate {
+extension MyOrderViewController: SimpleNavigationBarDelegate {
     
     func leftBarItemAction() {
-        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
-            bar.setupUI()
-        }
-        
-        //model.close()
+        self.navigationController?.popViewController(animated: true)
     }
     
     func rightBarItemAction() {
         
     }
+    
 }

@@ -13,7 +13,7 @@ protocol InformationAboutClicControllerOutput: InformationAboutClicModelInput {}
 
 class InformationAboutClicController: UIViewController, NavigationBarStyled {
     
-    var style: NavigationBarStyle = .normal
+    var style: NavigationBarStyle = .normalWithoutSearch
     
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var tableHeight: NSLayoutConstraint!
@@ -35,12 +35,8 @@ class InformationAboutClicController: UIViewController, NavigationBarStyled {
     }
     
     private func setupUI() {
-        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
-            bar.barDelegate = self
-            bar.style = style
-            bar.title =  "Биохимические"
-            bar.isLeftItemHidden = false
-            bar.leftItemTitle = nil
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = "Information About"
         }
     }
 }
@@ -61,7 +57,7 @@ extension InformationAboutClicController: InformationAboutClicControllerInput {
     }
 }
 
-extension InformationAboutClicController: SimpleWithSearchNavigationBarDelegate {
+extension InformationAboutClicController: SimpleNavigationBarDelegate {
     
     func leftBarItemAction() {
         navigationController?.popViewController(animated: true)

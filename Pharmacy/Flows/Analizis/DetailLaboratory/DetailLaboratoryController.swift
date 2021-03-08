@@ -12,12 +12,15 @@ protocol DeteilLaboratoryControllerOutput: DetailLaboratoryModelInput {}
 protocol DeteilLaboratoryControllerInput: DetailLaboratoryModelOutput {}
 
 
-class DetailLaboratoryController: UIViewController {
+class DetailLaboratoryController: UIViewController, NavigationBarStyled {
     
     @IBOutlet private var tableView: UITableView!
-    private var models: [LaboratoryDetailModel] = []
     
+    private var models: [LaboratoryDetailModel] = []
+
+    var style: NavigationBarStyle = .normalWithoutSearch
     var model: DeteilLaboratoryControllerOutput!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,10 +43,8 @@ class DetailLaboratoryController: UIViewController {
     
     
     private func setupTitle() {
-        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
-            bar.title = "Биохимические"
-            bar.style = .normal
-            bar.barDelegate = self
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.smallNavBarTitleLabel.text = "Биохимические"
         }
     }
 }
@@ -77,7 +78,7 @@ extension DetailLaboratoryController: UITableViewDelegate {
 }
 
 
-extension DetailLaboratoryController: SimpleWithSearchNavigationBarDelegate {
+extension DetailLaboratoryController: SimpleNavigationBarDelegate {
     
     func leftBarItemAction() {
         model.close()

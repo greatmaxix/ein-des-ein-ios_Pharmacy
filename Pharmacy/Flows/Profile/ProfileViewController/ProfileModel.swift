@@ -28,6 +28,7 @@ enum ProfileEvent: Event {
     case openChooseLocation
     case openChooseDeliveryAdress
     case openAddPrivileges
+    case openCloseOrder
 }
 
 protocol ProfileInput {

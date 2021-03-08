@@ -19,7 +19,10 @@ enum AnalysisAndDiagnosticsModelEvent: Event {
     case openFilialList
     case openAnalisis
     case openOrderService
+    case openPromocod
+    case finishOrder
     case back
+    case closeAlert
 }
 
 protocol AnalysisAndDiagnosticsModelInput: class {

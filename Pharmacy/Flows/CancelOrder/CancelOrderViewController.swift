@@ -8,10 +8,10 @@
 
 import UIKit
 
-protocol CancelOrderViewControllerOutput{}
-//: LaboratoryModelInput {}
-protocol CancelOrderViewControllerInput{}
-//: LaboratoryModelOutput {}
+protocol CancelOrderViewControllerOutput: CancelOrderModelInput{}
+
+protocol CancelOrderViewControllerInput: CancelOrderModelOutput {}
+//a
 
 class CancelOrderViewController: UIViewController, NavigationBarStyled {
         
@@ -33,8 +33,10 @@ class CancelOrderViewController: UIViewController, NavigationBarStyled {
     @IBOutlet var totalView: UIView!
     @IBOutlet var cncelButton: UIButton!
     @IBOutlet var viewPromo: UIView!
+    
     var style: NavigationBarStyle = .normal
-    var model: LaboratoryControllerOutput!
+    
+    var model: CancelOrderViewControllerOutput!
     private var models: [LaboratoryResearchModel] = []
     
     @IBOutlet private var tableView: UITableView?
@@ -62,14 +64,14 @@ class CancelOrderViewController: UIViewController, NavigationBarStyled {
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        
+        model.close()
     }
     
     private func setupTitle() {
-        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.barDelegate = self
             bar.title = "№ 12583"
-            bar.style = style
+            bar.isLeftItemHidden = false
         }
     }
     
@@ -109,17 +111,17 @@ extension CancelOrderViewController: LaboratoryControllerInput {
         
     }
 }
-extension CancelOrderViewController: SimpleWithSearchNavigationBarDelegate {
+extension CancelOrderViewController: SimpleNavigationBarDelegate {
     
     func leftBarItemAction() {
-        if let bar = self.navigationController?.navigationBar as? SimpleWithSearchNavigationBar {
-            bar.setupUI()
-        }
-        
-        model.close()
+        self.navigationController?.popViewController(animated: true)
     }
     
     func rightBarItemAction() {
         
     }
+}
+
+extension CancelOrderViewController: CancelOrderModelOutput {
+    
 }
