@@ -27,6 +27,13 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
             switch event {
             case .editProfile:
                 self?.presentEditProfile()
+            case .openHelp:
+                let controller = R.storyboard.questionViewController.instantiateInitialViewController()!
+                controller.modalPresentationStyle = .overFullScreen
+                let model = QuestionViewModel(parent: self)
+                model.output = controller
+                controller.model = model
+                self?.root.navigationController?.pushViewController(controller, animated: true)
             case .openOrder:
                 self?.presentMyOrders()
             case .openPrescriptions:
@@ -51,6 +58,20 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 self?.presentAddDocuments()
             case .openCloseOrder:
                 self?.openCloseOrder()
+            case .showCancelView:
+                let controller = R.storyboard.cancelOrderView.instantiateInitialViewController()!
+                controller.modalPresentationStyle = .overFullScreen
+                let model = CancelOrderViewModel(parent: self)
+                model.output = controller
+                controller.model = model
+                self?.root.navigationController?.present(controller, animated: false)
+            case .connectWithUs:
+                let controller = R.storyboard.connectWithUsController.instantiateInitialViewController()!
+//                controller.modalPresentationStyle = .overFullScreen
+//                let model = CancelOrderViewModel(parent: self)
+//                model.output = controller
+//                controller.model = model
+                self?.root.navigationController?.pushViewController(controller, animated: true)
             default:
                 break
             }

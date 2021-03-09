@@ -76,7 +76,6 @@ class CancelOrderViewController: UIViewController, NavigationBarStyled {
     }
     
     func configure() {
-//        UserDefaults.
         self.cncelButton.layer.borderWidth = 1
         self.cncelButton.layer.borderColor = UIColor(red: 0.145, green: 0.4, blue: 0.976, alpha: 1).cgColor
         self.cncelButton.layer.cornerRadius = 20

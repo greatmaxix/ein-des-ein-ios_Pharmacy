@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EventsTree
 
 
 protocol CancelOrderModelInput: class {
@@ -27,6 +28,6 @@ final class CancelOrderModel: Model {
 
 extension CancelOrderModel: CancelOrderViewControllerOutput {
     func close() {
-        
+        raise(event: ProfileEvent.showCancelView)
     }
 }

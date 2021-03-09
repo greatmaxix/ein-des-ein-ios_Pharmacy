@@ -6,8 +6,6 @@
 //  Copyright © 2021 pharmacy. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
 
 protocol DeteilClinicInfoControllerOutput: DeteilClinicInfoModelInput {}

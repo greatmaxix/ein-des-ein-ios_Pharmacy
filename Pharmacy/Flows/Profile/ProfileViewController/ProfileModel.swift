@@ -28,7 +28,10 @@ enum ProfileEvent: Event {
     case openChooseLocation
     case openChooseDeliveryAdress
     case openAddPrivileges
+    case showCancelView
     case openCloseOrder
+    case connectWithUs
+
 }
 
 protocol ProfileInput {
@@ -177,7 +180,7 @@ final class ProfileModel: Model {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileQuestions())
             cellData.image = R.image.profileQuestion()
             cellData.selectHandler = { [weak self] in
-                self?.raise(event: AppEvent.presentInDev)
+                self?.raise(event: ProfileEvent.openHelp)
             }
             cellsData.append(cellData)
         }

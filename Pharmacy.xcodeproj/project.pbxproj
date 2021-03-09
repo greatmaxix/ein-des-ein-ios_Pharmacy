@@ -459,6 +459,16 @@
 		F52A8B2225F11C26005E8CFF /* PromocodViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52A8B2125F11C26005E8CFF /* PromocodViewController.storyboard */; };
 		F52A8B2525F121B2005E8CFF /* PromocodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A8B2425F121B2005E8CFF /* PromocodViewController.swift */; };
 		F52D2CBC25E79AA900242A5B /* InformationAboutClicController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52D2CBB25E79AA900242A5B /* InformationAboutClicController.storyboard */; };
+		F53A07BD25F7704A0091C969 /* CancelOrderView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F53A07BC25F7704A0091C969 /* CancelOrderView.storyboard */; };
+		F53A07C025F77AA00091C969 /* CancelOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A07BF25F77AA00091C969 /* CancelOrderView.swift */; };
+		F53A07C325F77C760091C969 /* CancelOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A07C225F77C760091C969 /* CancelOrderViewModel.swift */; };
+		F53A07C725F78D290091C969 /* QuestionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F53A07C625F78D290091C969 /* QuestionViewController.storyboard */; };
+		F53A07CA25F78FC80091C969 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A07C925F78FC80091C969 /* QuestionViewController.swift */; };
+		F53A07CD25F7902E0091C969 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A07CC25F7902E0091C969 /* QuestionViewModel.swift */; };
+		F53A07D225F7951A0091C969 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A07D025F7951A0091C969 /* QuestionCell.swift */; };
+		F53A07D325F7951A0091C969 /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F53A07D125F7951A0091C969 /* QuestionCell.xib */; };
+		F53A07DA25F7B50A0091C969 /* ConnectWithUsController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F53A07D925F7B50A0091C969 /* ConnectWithUsController.storyboard */; };
+		F53A07DD25F7BD990091C969 /* ConnectWithUsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A07DC25F7BD990091C969 /* ConnectWithUsController.swift */; };
 		F549F37225EC295D008749BD /* ChooseClinicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F37125EC295D008749BD /* ChooseClinicViewController.swift */; };
 		F549F37C25EC2D5F008749BD /* ClinicsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F37B25EC2D5F008749BD /* ClinicsListController.swift */; };
 		F56B649B25DD300000B108AC /* AnalysisAndDiagnostics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56B649A25DD300000B108AC /* AnalysisAndDiagnostics.storyboard */; };
@@ -932,6 +942,16 @@
 		F52A8B2125F11C26005E8CFF /* PromocodViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PromocodViewController.storyboard; sourceTree = "<group>"; };
 		F52A8B2425F121B2005E8CFF /* PromocodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodViewController.swift; sourceTree = "<group>"; };
 		F52D2CBB25E79AA900242A5B /* InformationAboutClicController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InformationAboutClicController.storyboard; sourceTree = "<group>"; };
+		F53A07BC25F7704A0091C969 /* CancelOrderView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CancelOrderView.storyboard; sourceTree = "<group>"; };
+		F53A07BF25F77AA00091C969 /* CancelOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderView.swift; sourceTree = "<group>"; };
+		F53A07C225F77C760091C969 /* CancelOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderViewModel.swift; sourceTree = "<group>"; };
+		F53A07C625F78D290091C969 /* QuestionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QuestionViewController.storyboard; sourceTree = "<group>"; };
+		F53A07C925F78FC80091C969 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		F53A07CC25F7902E0091C969 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
+		F53A07D025F7951A0091C969 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
+		F53A07D125F7951A0091C969 /* QuestionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCell.xib; sourceTree = "<group>"; };
+		F53A07D925F7B50A0091C969 /* ConnectWithUsController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConnectWithUsController.storyboard; sourceTree = "<group>"; };
+		F53A07DC25F7BD990091C969 /* ConnectWithUsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectWithUsController.swift; sourceTree = "<group>"; };
 		F549F37125EC295D008749BD /* ChooseClinicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseClinicViewController.swift; sourceTree = "<group>"; };
 		F549F37B25EC2D5F008749BD /* ClinicsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicsListController.swift; sourceTree = "<group>"; };
 		F56B649A25DD300000B108AC /* AnalysisAndDiagnostics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnalysisAndDiagnostics.storyboard; sourceTree = "<group>"; };
@@ -2698,6 +2718,7 @@
 		F51C16EE25E5083900231E6D /* OrderServiceViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F53A07BB25F7702F0091C969 /* CancelOrderView */,
 				F523E70D25EFD4120029E84E /* Model */,
 				F51C16FB25E54AF700231E6D /* Cell */,
 				F51C16EF25E5085600231E6D /* OrderServiceViewController.storyboard */,
@@ -2718,6 +2739,8 @@
 		F51D899125F2DE40003B91BB /* Analizis */ = {
 			isa = PBXGroup;
 			children = (
+				F53A07D725F7B3600091C969 /* ConnectWithUs */,
+				F53A07C525F78CB00091C969 /* QustionView */,
 				F51C16EE25E5083900231E6D /* OrderServiceViewController */,
 				F51BF7F125E3C855004BFBFD /* ShowAnalisisInformationViewController */,
 				F521BCE125DFB86900289081 /* DetailLaboratory */,
@@ -2922,6 +2945,45 @@
 				F51C02CE25E8E5B700C266C5 /* InformationAboutClicModel.swift */,
 			);
 			path = InformationAboutClinic;
+			sourceTree = "<group>";
+		};
+		F53A07BB25F7702F0091C969 /* CancelOrderView */ = {
+			isa = PBXGroup;
+			children = (
+				F53A07BC25F7704A0091C969 /* CancelOrderView.storyboard */,
+				F53A07BF25F77AA00091C969 /* CancelOrderView.swift */,
+				F53A07C225F77C760091C969 /* CancelOrderViewModel.swift */,
+			);
+			path = CancelOrderView;
+			sourceTree = "<group>";
+		};
+		F53A07C525F78CB00091C969 /* QustionView */ = {
+			isa = PBXGroup;
+			children = (
+				F53A07D525F795210091C969 /* Cell */,
+				F53A07C625F78D290091C969 /* QuestionViewController.storyboard */,
+				F53A07C925F78FC80091C969 /* QuestionViewController.swift */,
+				F53A07CC25F7902E0091C969 /* QuestionViewModel.swift */,
+			);
+			path = QustionView;
+			sourceTree = "<group>";
+		};
+		F53A07D525F795210091C969 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F53A07D025F7951A0091C969 /* QuestionCell.swift */,
+				F53A07D125F7951A0091C969 /* QuestionCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F53A07D725F7B3600091C969 /* ConnectWithUs */ = {
+			isa = PBXGroup;
+			children = (
+				F53A07D925F7B50A0091C969 /* ConnectWithUsController.storyboard */,
+				F53A07DC25F7BD990091C969 /* ConnectWithUsController.swift */,
+			);
+			path = ConnectWithUs;
 			sourceTree = "<group>";
 		};
 		F549F36525EC26EC008749BD /* ClinicsListController */ = {
@@ -3137,6 +3199,7 @@
 				F56E420B25ED375700599CAA /* CancelOrderViewController.storyboard in Resources */,
 				6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */,
 				396C45C22497699900A569CE /* Assets.xcassets in Resources */,
+				F53A07C725F78D290091C969 /* QuestionViewController.storyboard in Resources */,
 				60E1A71124ECE0C300B3D205 /* Scan.storyboard in Resources */,
 				603D31EF24E5A9E5000E5A6C /* ProductInstructionTableViewCell.xib in Resources */,
 				61CFAAA4254C356400569DEF /* OrderedProductCell.xib in Resources */,
@@ -3154,6 +3217,8 @@
 				6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */,
 				60289A53254AF5FB00F6A503 /* SubcategoryTableViewCell.xib in Resources */,
 				395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */,
+				F53A07BD25F7704A0091C969 /* CancelOrderView.storyboard in Resources */,
+				F53A07D325F7951A0091C969 /* QuestionCell.xib in Resources */,
 				24567C112550121B001CF931 /* ChooseDeliveryAdressViewController.storyboard in Resources */,
 				F56B649B25DD300000B108AC /* AnalysisAndDiagnostics.storyboard in Resources */,
 				24F5FDB6254B3C3A00D28275 /* ChooseLocationTableViewCell.xib in Resources */,
@@ -3162,6 +3227,7 @@
 				61CFAA84254B1AB800569DEF /* CreateOrderContactInfoCell.xib in Resources */,
 				F52A8B2225F11C26005E8CFF /* PromocodViewController.storyboard in Resources */,
 				F528151F25E66CED007FC2FA /* AddPrivilegesViewController.storyboard in Resources */,
+				F53A07DA25F7B50A0091C969 /* ConnectWithUsController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3294,6 +3360,7 @@
 				F523E70F25EFD41B0029E84E /* PaymentModel.swift in Sources */,
 				875223CA2500FDEE000759C8 /* Entity.swift in Sources */,
 				618C33A82498BF2100951D11 /* AuthCoordinator.swift in Sources */,
+				F53A07C325F77C760091C969 /* CancelOrderViewModel.swift in Sources */,
 				39854D0224EAB4870070E0D1 /* ProfileAPI.swift in Sources */,
 				601E7EEB2549EF8F00C936BF /* CommonMapModel.swift in Sources */,
 				2488BAD425506685008D7EEB /* HouseValidator.swift in Sources */,
@@ -3410,6 +3477,7 @@
 				614494432552EB4B003E20F9 /* ErrorPresenter.swift in Sources */,
 				F51DCC2A25EE718800626DF7 /* TableAdapter.swift in Sources */,
 				618C339F2498BE0200951D11 /* ProfileViewController.swift in Sources */,
+				F53A07C025F77AA00091C969 /* CancelOrderView.swift in Sources */,
 				60AE318E255308A5002BD404 /* ChatCloseCollectionViewCell.swift in Sources */,
 				61AA47142550157700D140D3 /* Order.swift in Sources */,
 				F51F88E625DED69D00C1A9ED /* LaboratoryViewController.swift in Sources */,
@@ -3427,6 +3495,7 @@
 				60A12B3A256426F00001C994 /* ChatEvaluationModel.swift in Sources */,
 				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
 				60383A2D255B223800654C1A /* ChatGallery.swift in Sources */,
+				F53A07DD25F7BD990091C969 /* ConnectWithUsController.swift in Sources */,
 				396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */,
 				F522A09025F16AA300BEAC6D /* PromocodView.swift in Sources */,
 				87A50B682526256800CF89CF /* ImageContainer.swift in Sources */,
@@ -3449,6 +3518,7 @@
 				6040F0AC254F6CCB006B4B39 /* NavigationController.swift in Sources */,
 				395324BC2508CE450038D2DC /* RegionResponse.swift in Sources */,
 				F521BCE625DFB9CC00289081 /* DetailLaboratoryController.swift in Sources */,
+				F53A07D225F7951A0091C969 /* QuestionCell.swift in Sources */,
 				396448E224ADE17A00E6D852 /* UserDTO.swift in Sources */,
 				60E1A71A24ED025000B3D205 /* CustomIntensityVisualEffectView.swift in Sources */,
 				39273A0B24A0DFEC004A9909 /* Model.swift in Sources */,
@@ -3470,6 +3540,7 @@
 				60E1A70C24ECD6E500B3D205 /* SearchNavigationController.swift in Sources */,
 				87131D3725137B6C0050B8F2 /* RecentsHeaderView.swift in Sources */,
 				60E1A71724ECE0EA00B3D205 /* ScanModel.swift in Sources */,
+				F53A07CD25F7902E0091C969 /* QuestionViewModel.swift in Sources */,
 				60515CFE254B068900977BEF /* SubcategoryCellSection.swift in Sources */,
 				398B0DE724F51C410084EC54 /* MapFarmacyListModel.swift in Sources */,
 				603D319824E3B22A000E5A6C /* TableCellSection.swift in Sources */,
@@ -3561,6 +3632,7 @@
 				61CFAAA3254C356400569DEF /* OrderedProductCell.swift in Sources */,
 				6075BD5324DEB16600BC78BD /* RoundedCornerNavigationBar.swift in Sources */,
 				611CA281255EA17E009BD8B6 /* ReceiptsAPI.swift in Sources */,
+				F53A07CA25F78FC80091C969 /* QuestionViewController.swift in Sources */,
 				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
 				87131D3425135E3E0050B8F2 /* UITableView+Reusable.swift in Sources */,
 				60E1A6FB24EBB20E00B3D205 /* UIViewController+Keyboard.swift in Sources */,
