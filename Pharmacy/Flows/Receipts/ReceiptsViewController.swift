@@ -15,7 +15,8 @@ protocol ReceiptsViewControllerOutput: ReceiptsModelInput {}
 
 class ReceiptsViewController: UIViewController, NavigationBarStyled {
 
-   var style: NavigationBarStyle = .normalWithoutSearch
+    @IBOutlet var addReceptButton: UIButton!
+    var style: NavigationBarStyle = .normalWithoutSearch
 
     private lazy var activityIndicator: MBProgressHUD = {
         setupActivityIndicator()
@@ -33,7 +34,7 @@ class ReceiptsViewController: UIViewController, NavigationBarStyled {
         // Do any additional setup after loading the view.
 
         tableView.register(UINib(nibName: "ReceiptCell", bundle: nil), forCellReuseIdentifier: "ReceiptCell")
-        
+        addReceptButton.layer.cornerRadius = 14
         title = "Рецепты"
 
         setupUI()
@@ -42,6 +43,9 @@ class ReceiptsViewController: UIViewController, NavigationBarStyled {
         emptyView.isHidden = true
     }
 
+    @IBAction func addReceptButtonAction(_ sender: Any) {
+        print("addReceptButtonAction")
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 

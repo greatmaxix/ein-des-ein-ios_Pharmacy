@@ -68,7 +68,7 @@ final class InformationAboutClicModel: Model {
         })
         let filialsHeader = R.nib.informationHeaderView(owner: nil)!
         filialsHeader.configure(title: "Филиалы (\(clinics.count))", action: { [weak self] in
-            self?.raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList)
+            self?.raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList(.init(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "")))
         })
         
         let modelsClinic = clinics.prefix(upTo: 3).map { $0 }
@@ -102,7 +102,6 @@ extension InformationAboutClicModel: InformationAboutClicControllerOutput {
             switch result {
             case let .success(response):
                 self?.typesOfAnalysis = response.item
-                //self?.output.didLoad(models: response.item)
             case let .failure(error):
                 self?.output.didFetchError(error: error)
             }

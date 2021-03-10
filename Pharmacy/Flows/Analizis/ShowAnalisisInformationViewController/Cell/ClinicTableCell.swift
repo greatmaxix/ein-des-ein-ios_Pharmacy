@@ -9,7 +9,7 @@
 import UIKit
 
 enum ClinicTableCellEvent {
-    
+    case mapAction
 }
 
 class ClinicTableCell: BaseCell<ClinicModel, ClinicTableCellEvent> {
@@ -23,24 +23,34 @@ class ClinicTableCell: BaseCell<ClinicModel, ClinicTableCellEvent> {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var orderedView: UIView?
     
+    private var mapAction: () -> Void = { }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         containerView.clipsToBounds = true
         containerView.layer.cornerRadius = 13
         orderServiceButton.layer.cornerRadius = 12
+        mapButton.addTarget(self, action: #selector(self.showOnMap), for: .touchUpInside)
     }
     
-    func apply(model: ClinicModel) {
+    func apply(model: ClinicModel, mapAction: @escaping () -> Void) {
         self.logoImageView.image = UIImage(named: model.imageClinic ?? "logo_invitro")
         self.nameLabel.text = model.clinicName
         self.addressLabel.text = model.adressClinic
         self.phoneLabel.text = model.phoneNumber
         self.orderedView?.isHidden = !model.ordered
+        self.mapAction = mapAction
     }
     
     override func fill(with model: ClinicModel) {
         super.fill(with: model)
-        apply(model: model)
+        apply(model: model, mapAction: { [weak self] in
+            self?.eventHandler?(.mapAction)
+        })
+    }
+    
+    @objc private func showOnMap() {
+        mapAction()
     }
 }

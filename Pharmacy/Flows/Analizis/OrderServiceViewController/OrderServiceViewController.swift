@@ -65,7 +65,7 @@ class OrderServiceViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private var dateAndTimeTextFieldFi: UITextField!
     @IBOutlet private var anotherPersonOrderView: UIView!
         
-    private var countClick = 1
+    private var isAddedAnother: Bool = false
     private var textFieldView: CustomTextFieldView?
     
     var style: NavigationBarStyle = .normalWithoutSearch
@@ -77,12 +77,16 @@ class OrderServiceViewController: UIViewController, NavigationBarStyled {
     @IBAction func openFilialListButton(_ sender: Any) {
         model.openFilialList()
     }
+    
     @IBAction func orderToAnotherPersonButtonAction(_ sender: Any) {
-        countClick += 1
-        if countClick % 2 == 0 {
-            print(countClick)
-            self.createTextFieldView(countClick: countClick, placeholder: R.string.localize.checkoutName())
+        isAddedAnother.toggle()
+        if isAddedAnother {
+            orderToAnotherPersonButton.setImage(R.image.delete_icon(), for: .normal)
+            orderToAnotherPersonButton.setTitleColor(R.color.textDarkBlue(), for: .normal)
+            self.createTextFieldView(placeholder: R.string.localize.checkoutName())
         } else {
+            orderToAnotherPersonButton.setImage(R.image.add_icon(), for: .normal)
+            orderToAnotherPersonButton.setTitleColor(R.color.welcomeBlue(), for: .normal)
             self.textFieldView?.removeFromSuperview()
             orderViewHeight.constant = 1
         }
@@ -91,6 +95,7 @@ class OrderServiceViewController: UIViewController, NavigationBarStyled {
     @IBAction func payAction(_ sender: Any) {
         model.finishOrder()
     }
+    
     var model: OrderServiceVControllerOutput!
     
     override func viewDidLoad() {
@@ -177,7 +182,7 @@ class OrderServiceViewController: UIViewController, NavigationBarStyled {
         view.layer.cornerRadius = 6
     }
     
-    private func createTextFieldView(countClick: Int, placeholder: String) -> UIView  {
+    private func createTextFieldView(placeholder: String) {
         let textView = CustomTextFieldView()
         textView.backgroundColor = .white
         self.textFieldView = textView
@@ -185,8 +190,6 @@ class OrderServiceViewController: UIViewController, NavigationBarStyled {
         let spacing = (self.orderStackView.arrangedSubviews.count - 1) * 24
         self.orderViewHeight.constant = (48 * CGFloat(self.orderStackView.arrangedSubviews.count)) + CGFloat(spacing)
         textView.configure(placeholder: placeholder)
-        
-        return self.textFieldView!
     }
     
     func addDoneButtonOnKeyboard(){

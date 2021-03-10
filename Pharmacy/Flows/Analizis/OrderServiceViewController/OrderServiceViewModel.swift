@@ -70,7 +70,7 @@ extension OrderServiceViewModel: OrderServiceVControllerOutput {
 
     
     func openFilialList() {
-        raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList)
+        raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList(.init(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "")))
     }
     
     func close() {
@@ -86,6 +86,4 @@ extension OrderServiceViewModel: OrderServiceVControllerOutput {
             self.selected = modelValue
         }
     }
-    
-    
 }

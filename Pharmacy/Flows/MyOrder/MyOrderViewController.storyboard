@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cYo-st-A4h">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cYo-st-A4h">
                                 <rect key="frame" x="15" y="68" width="383" height="794"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -25,7 +25,7 @@
                         <viewLayoutGuide key="safeArea" id="Acc-RH-HXd"/>
                         <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
-                            <constraint firstItem="cYo-st-A4h" firstAttribute="top" secondItem="VRo-AT-hxF" secondAttribute="top" constant="68" id="4R3-7Y-48S"/>
+                            <constraint firstItem="cYo-st-A4h" firstAttribute="top" secondItem="Acc-RH-HXd" secondAttribute="top" constant="24" id="4R3-7Y-48S"/>
                             <constraint firstItem="Acc-RH-HXd" firstAttribute="trailing" secondItem="cYo-st-A4h" secondAttribute="trailing" constant="16" id="Pqx-Ie-eKR"/>
                             <constraint firstItem="cYo-st-A4h" firstAttribute="leading" secondItem="Acc-RH-HXd" secondAttribute="leading" constant="15" id="WIN-Ea-n4j"/>
                             <constraint firstItem="Acc-RH-HXd" firstAttribute="bottom" secondItem="cYo-st-A4h" secondAttribute="bottom" id="g5U-YJ-VJu"/>

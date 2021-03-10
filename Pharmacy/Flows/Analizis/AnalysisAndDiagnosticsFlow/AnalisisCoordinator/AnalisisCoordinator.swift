@@ -23,6 +23,7 @@ final class AnalisisCoordinator: EventNode, Coordinator {
         let model = AnalysisAndDiagnosticsModel(parent: self)
         let nav = NavigationController(rootViewController: root)
         navigation = nav
+//        nav.isNavigationBarHidden = true
         root.model = model
         model.output = root
 
@@ -54,21 +55,13 @@ final class AnalisisCoordinator: EventNode, Coordinator {
             case .openOrderService:
                 self.openOrder()
             case .openPromocod:
-                let controller = R.storyboard.promocodViewController.instantiateInitialViewController()!
-                let model = PromocodModel(parent: self)
-                controller.model = model
-                model.output = controller
-                
-                controller.modalPresentationStyle = .overFullScreen
-                controller.modalTransitionStyle = .crossDissolve
-                self.navigation?.topViewController?.present(controller, animated: true)
+                self.openPromocod()
             case .closeAlert:
-                print("event ")
+                break
+            case let .showOnMap(model):
+                self.showOnMap(model: model)
             case .finishOrder:
-                let controller = R.storyboard.paymendSuccessfullyAlertController.instantiateInitialViewController()!
-                controller.modalPresentationStyle = .overFullScreen
-                controller.modalTransitionStyle = .crossDissolve
-                self.navigation?.topViewController?.present(controller, animated: true)
+                self.openFinishOrder()
             }
         }
     }
@@ -76,14 +69,38 @@ final class AnalisisCoordinator: EventNode, Coordinator {
 
 fileprivate extension AnalisisCoordinator {
     
+    func showOnMap(model: ClinicModel) {
+        let controller = R.storyboard.chooseClinicOnMap.instantiateInitialViewController()!
+        let model = ChooseClinicOnMapViewModel(parent: self, model: model)
+        model.output = controller
+        controller.model = model
+        navigation?.pushViewController(controller, animated: true)
+    }
+    
+    func openPromocod() {
+        let controller = R.storyboard.promocodViewController.instantiateInitialViewController()!
+        let model = PromocodModel(parent: self)
+        controller.model = model
+        model.output = controller
+        controller.modalPresentationStyle = .overFullScreen
+        controller.modalTransitionStyle = .crossDissolve
+        navigation?.topViewController?.present(controller, animated: true)
+    }
+    
+    func openFinishOrder() {
+        let controller = R.storyboard.paymendSuccessfullyAlertController.instantiateInitialViewController()!
+        controller.modalPresentationStyle = .overFullScreen
+        controller.modalTransitionStyle = .crossDissolve
+        navigation?.topViewController?.present(controller, animated: true)
+    }
+    
     func openAnalizis() {
         let controller = R.storyboard.analysisAndDiagnostics.instantiateInitialViewController()!
         let model = AnalysisAndDiagnosticsModel(parent: self)
         controller.model = model
         model.output = controller
         controller.isMainController = false
-
-        self.navigation?.pushViewController(controller, animated: true)
+        navigation?.pushViewController(controller, animated: true)
     }
     
     func openFilialList() {
@@ -96,7 +113,7 @@ fileprivate extension AnalisisCoordinator {
         let model = DeteilClinicInfoModel(parent: self)
         controller.model = model
         model.output = controller
-        self.navigation?.pushViewController(controller, animated: true)
+        navigation?.pushViewController(controller, animated: true)
     }
     
     func openClinic() {
@@ -104,7 +121,7 @@ fileprivate extension AnalisisCoordinator {
         let model = InformationAboutClicModel(parent: self)
         controller.model = model
         model.output = controller
-        self.navigation?.pushViewController(controller, animated: true)
+        navigation?.pushViewController(controller, animated: true)
     }
     
     func openLaboratoryList(type: TypeOfAnalysis) {

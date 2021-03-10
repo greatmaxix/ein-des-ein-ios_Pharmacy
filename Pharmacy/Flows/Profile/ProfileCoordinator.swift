@@ -59,19 +59,13 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
             case .openCloseOrder:
                 self?.openCloseOrder()
             case .showCancelView:
-                let controller = R.storyboard.cancelOrderView.instantiateInitialViewController()!
-                controller.modalPresentationStyle = .overFullScreen
-                let model = CancelOrderViewModel(parent: self)
-                model.output = controller
-                controller.model = model
-                self?.root.navigationController?.present(controller, animated: false)
+                self?.presentCancelController()
             case .connectWithUs:
-                let controller = R.storyboard.connectWithUsController.instantiateInitialViewController()!
-//                controller.modalPresentationStyle = .overFullScreen
-//                let model = CancelOrderViewModel(parent: self)
-//                model.output = controller
-//                controller.model = model
-                self?.root.navigationController?.pushViewController(controller, animated: true)
+                self?.presentConnectWithUs()
+            case .deliveryTutorial:
+                self?.presentDeliveryTutorial()
+            case .openLanguage:
+                self?.createLanguage()
             default:
                 break
             }
@@ -150,6 +144,15 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         return navigationVC
     }
     
+    func createLanguage() {
+        let controller = R.storyboard.languageViewController.instantiateInitialViewController()!
+//        guard let vc = R.storyboard.languageViewController() else { return }
+        let model = LanguageViewModel(parent: self)
+        model.output = controller
+        controller.model = model
+        root.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     func createMapFlow(medicineId: Int) {
         guard let vc = R.storyboard.product.mapViewController() else { return }
         let model = MapModel(parent: self, medicineId: medicineId)
@@ -170,6 +173,15 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         root.navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
+    func presentCancelController() {
+        let controller = R.storyboard.cancelOrderView.instantiateInitialViewController()!
+        controller.modalPresentationStyle = .overFullScreen
+        let model = CancelOrderViewModel(parent: self)
+        model.output = controller
+        controller.model = model
+        root.navigationController?.present(controller, animated: false)
+    }
+    
     func presentWishlist() {
         guard let wishlistVC: WishlistViewController = storyboard.instantiateViewController(withIdentifier: "WishlistViewController") as? WishlistViewController else {
             return
@@ -184,6 +196,17 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
     func presentAddDocuments() {
         let viewController = R.storyboard.addPrivilegesViewController.instantiateInitialViewController()!
         root.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func presentConnectWithUs() {
+        let controller = R.storyboard.connectWithUsController.instantiateInitialViewController()!
+        root.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func presentDeliveryTutorial() {
+        guard let deliveryVC: DeliveryTutorialViewController = R.storyboard.deliveryTutorialViewController.instantiateInitialViewController() else {return}
+
+        root.navigationController?.pushViewController(deliveryVC, animated: true)
     }
     
     func presentMyOrders() {
@@ -274,9 +297,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         model.output = viewController
         viewController.model = model
         root.navigationController?.pushViewController(viewController, animated: true)
-
     }
-
     
     private func presentPrivilegesVC() {
         guard let viewController = R.storyboard.privilegesViewController.instantiateInitialViewController() else { return }

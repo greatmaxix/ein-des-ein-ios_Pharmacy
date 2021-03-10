@@ -22,6 +22,7 @@ enum ProfileEvent: Event {
     case openAbout
     case openHelp
     case openPrivileges
+    case openLanguage
     case logout
     case close
     case openProduct(Medicine)
@@ -31,6 +32,7 @@ enum ProfileEvent: Event {
     case showCancelView
     case openCloseOrder
     case connectWithUs
+    case deliveryTutorial
 
 }
 
@@ -122,6 +124,14 @@ final class ProfileModel: Model {
             }
             cellsData.append(cellData)
         }
+        do {
+            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileLanguage())
+            cellData.image = R.image.language_icon()
+            cellData.selectHandler = { [weak self] in
+                self?.raise(event: ProfileEvent.openLanguage)
+            }
+            cellsData.append(cellData)
+        }
 
         if UserSession.shared.user != nil {
             do {
@@ -134,13 +144,24 @@ final class ProfileModel: Model {
             }
 
             do {
-                let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: "Льготы")
+                let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePrivileges())
                 cellData.image = R.image.prosent_icon()
                 cellData.selectHandler = { [weak self] in
                     self?.raise(event: ProfileEvent.openPrivileges)
                 }
                 cellsData.append(cellData)
             }
+            
+            do {
+                let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileInsurance())
+                cellData.image = R.image.insurance_policy()
+                cellData.selectHandler = { [weak self] in
+                    self?.raise(event: AppEvent.presentInDev)
+                }
+                cellsData.append(cellData)
+            }
+            
+
             
             do {
                 let location = user?.deliveryAddress
@@ -153,8 +174,6 @@ final class ProfileModel: Model {
                 cellsData.append(cellData)
             }
         }
-        
-  
 
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileNotifications())
@@ -164,6 +183,22 @@ final class ProfileModel: Model {
             }
             cellsData.append(cellData)
         }
+        do {
+            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 32, color: .clear)
+            cellsData.append(cellData)
+        }
+        
+        do {
+            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileCharity())
+            cellData.image = R.image.charity()
+            cellData.selectHandler = { [weak self] in
+
+                self?.raise(event: AppEvent.presentInDev)
+            }
+            cellsData.append(cellData)
+        }
+        
+        
         do {
             let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 32, color: .clear)
             cellsData.append(cellData)

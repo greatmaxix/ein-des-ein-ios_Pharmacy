@@ -53,7 +53,8 @@ class AnalisInformationViewController: UIViewController, NavigationBarStyled {
     }
     
     @IBAction func showAllAction(_ sender: Any) {
-        model.openFilialList()
+        let modelClinic = ClinicModel(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "")
+        model.openFilialList(model: modelClinic)
     }
 }
 
@@ -64,7 +65,10 @@ extension AnalisInformationViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: ClinicTableCell.self)
-        cell.apply(model: self.model.models[indexPath.row])
+        let model = self.model.models[indexPath.row]
+        cell.apply(model: model, mapAction: { [weak self] in
+            self?.model.showOnMap(model: model)
+        })
         return cell
     }
 }
@@ -78,9 +82,8 @@ extension AnalisInformationViewController: UITableViewDelegate {
 
 extension AnalisInformationViewController: AnalisInformationControllerInput {
     func didLoad(models: [ClinicModel]) {
-//        tableHeight.constant = CGFloat(models.count) * model.cellHeight
-    }
 
+    }
     
     func didFetchError(error: Error) {
         

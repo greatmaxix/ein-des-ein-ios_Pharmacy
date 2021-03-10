@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -12,6 +12,9 @@
     <customFonts key="customFonts">
         <array key="OpenSans-Bold.ttf">
             <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
         </array>
         <array key="OpenSans-SemiBold.ttf">
             <string>OpenSans-SemiBold</string>
@@ -33,8 +36,23 @@
                         <color key="textColor" name="textDarkBlue"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Человеческая служба поддержки!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ab7-Fb-VWH">
+                        <rect key="frame" x="16" y="78.5" width="343" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="J2e-FZ-otO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Никаких автоответчиков и роботов. Общение только с живыми людьми, которые расшибутся ради вас в лепешку!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHQ-HL-NuP">
+                        <rect key="frame" x="16" y="104.5" width="343" height="49"/>
+                        <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgb-6H-UKK">
-                        <rect key="frame" x="40" y="87.5" width="295" height="136"/>
+                        <rect key="frame" x="40" y="170.5" width="295" height="136"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zv-4w-1z6" userLabel="DoctorShadow">
                                 <rect key="frame" x="159" y="0.0" width="136" height="136"/>
@@ -107,7 +125,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="666-p4-elN" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
-                        <rect key="frame" x="16" y="323.5" width="343" height="48"/>
+                        <rect key="frame" x="16" y="406.5" width="343" height="48"/>
                         <color key="backgroundColor" name="applyBlueGray"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="beT-4c-NOF"/>
@@ -129,13 +147,13 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доктор" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6Q-M0-Bj0">
-                        <rect key="frame" x="239.5" y="235.5" width="55.5" height="19"/>
+                        <rect key="frame" x="239.5" y="318.5" width="55.5" height="19"/>
                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                         <nil key="textColor"/>
                         <color key="highlightedColor" name="textDarkBlue"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фармацевт" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcC-42-DZo">
-                        <rect key="frame" x="65.5" y="235.5" width="85.5" height="19"/>
+                        <rect key="frame" x="65.5" y="318.5" width="85.5" height="19"/>
                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                         <nil key="textColor"/>
                         <color key="highlightedColor" name="textDarkBlue"/>
@@ -148,9 +166,15 @@
                     <constraint firstItem="2qh-jm-OvI" firstAttribute="leading" secondItem="tQ8-f2-FUk" secondAttribute="leading" constant="16" id="SXK-1G-TEe"/>
                     <constraint firstItem="2qh-jm-OvI" firstAttribute="top" secondItem="tQ8-f2-FUk" secondAttribute="top" constant="33" id="V1n-7R-dbZ"/>
                     <constraint firstItem="xcC-42-DZo" firstAttribute="top" secondItem="Sgb-6H-UKK" secondAttribute="bottom" constant="12" id="VLf-Sg-4tQ"/>
+                    <constraint firstItem="ab7-Fb-VWH" firstAttribute="leading" secondItem="tQ8-f2-FUk" secondAttribute="leading" constant="16" id="Wmm-IB-vyv"/>
                     <constraint firstAttribute="trailing" secondItem="2qh-jm-OvI" secondAttribute="trailing" constant="16" id="XWO-Ix-4fL"/>
+                    <constraint firstAttribute="trailing" secondItem="sHQ-HL-NuP" secondAttribute="trailing" constant="16" id="clL-io-UqS"/>
+                    <constraint firstItem="sHQ-HL-NuP" firstAttribute="top" secondItem="ab7-Fb-VWH" secondAttribute="bottom" constant="4" id="dle-kx-YiA"/>
+                    <constraint firstAttribute="trailing" secondItem="ab7-Fb-VWH" secondAttribute="trailing" constant="16" id="efB-2r-w7i"/>
+                    <constraint firstItem="ab7-Fb-VWH" firstAttribute="top" secondItem="2qh-jm-OvI" secondAttribute="bottom" constant="8" id="fhi-CV-Ibw"/>
                     <constraint firstItem="666-p4-elN" firstAttribute="leading" secondItem="tQ8-f2-FUk" secondAttribute="leading" constant="16" id="hNp-1o-0rY"/>
-                    <constraint firstItem="Sgb-6H-UKK" firstAttribute="top" secondItem="2qh-jm-OvI" secondAttribute="bottom" constant="17" id="jW6-wV-5dS"/>
+                    <constraint firstItem="Sgb-6H-UKK" firstAttribute="top" secondItem="sHQ-HL-NuP" secondAttribute="bottom" constant="17" id="jW6-wV-5dS"/>
+                    <constraint firstItem="sHQ-HL-NuP" firstAttribute="leading" secondItem="tQ8-f2-FUk" secondAttribute="leading" constant="16" id="kQZ-qb-TAz"/>
                     <constraint firstItem="w6Q-M0-Bj0" firstAttribute="top" secondItem="Sgb-6H-UKK" secondAttribute="bottom" constant="12" id="pkQ-Kq-MeJ"/>
                     <constraint firstItem="xcC-42-DZo" firstAttribute="centerX" secondItem="3y3-fH-y6Z" secondAttribute="centerX" id="trp-UP-hce"/>
                     <constraint firstAttribute="trailing" secondItem="666-p4-elN" secondAttribute="trailing" constant="16" id="yxZ-XI-2QE"/>

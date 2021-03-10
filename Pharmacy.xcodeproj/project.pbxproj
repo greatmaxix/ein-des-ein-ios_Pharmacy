@@ -436,6 +436,12 @@
 		F51F88EB25DED72900C1A9ED /* LaboratoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F88E925DED72900C1A9ED /* LaboratoryTableViewCell.swift */; };
 		F51F88EC25DED72900C1A9ED /* LaboratoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51F88EA25DED72900C1A9ED /* LaboratoryTableViewCell.xib */; };
 		F51F88F025DEDA8400C1A9ED /* LaboratoryResearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F88EF25DEDA8400C1A9ED /* LaboratoryResearchModel.swift */; };
+		F5205C8C25F8C4B2005FD6EB /* LanguageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5205C8B25F8C4B2005FD6EB /* LanguageViewController.storyboard */; };
+		F5205C8F25F8C5BB005FD6EB /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5205C8E25F8C5BB005FD6EB /* LanguageViewController.swift */; };
+		F5205C9425F8C6A5005FD6EB /* LanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5205C9225F8C6A5005FD6EB /* LanguageTableViewCell.swift */; };
+		F5205C9525F8C6A5005FD6EB /* LanguageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5205C9325F8C6A5005FD6EB /* LanguageTableViewCell.xib */; };
+		F5205C9825F8C7A7005FD6EB /* LanguageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5205C9725F8C7A7005FD6EB /* LanguageViewModel.swift */; };
+		F5205C9C25F8C911005FD6EB /* LanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5205C9B25F8C911005FD6EB /* LanguageModel.swift */; };
 		F520B9A725DAB63B0077CB03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F520B9A625DAB63B0077CB03 /* GoogleService-Info.plist */; };
 		F521BCE625DFB9CC00289081 /* DetailLaboratoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521BCE525DFB9CC00289081 /* DetailLaboratoryController.swift */; };
 		F521BCEA25DFBC8A00289081 /* DetailLaboratoryController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F521BCE925DFBC8A00289081 /* DetailLaboratoryController.storyboard */; };
@@ -481,6 +487,11 @@
 		F56E41ED25ED24E200599CAA /* MyOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E41EC25ED24E200599CAA /* MyOrderModel.swift */; };
 		F56E420B25ED375700599CAA /* CancelOrderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56E420A25ED375700599CAA /* CancelOrderViewController.storyboard */; };
 		F56E421425ED38DA00599CAA /* MyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E421325ED38DA00599CAA /* MyOrderViewController.swift */; };
+		F573A58F25F8984900B4CC4F /* DeliveryTutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F573A58E25F8984900B4CC4F /* DeliveryTutorialViewController.storyboard */; };
+		F573A59225F8985100B4CC4F /* DeliveryTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F573A59125F8985100B4CC4F /* DeliveryTutorialViewController.swift */; };
+		F580C0F925F955E200F8A5BC /* ChooseClinicOnMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F580C0F825F955E200F8A5BC /* ChooseClinicOnMap.storyboard */; };
+		F580C0FC25F955EB00F8A5BC /* ChooseClinicOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580C0FB25F955EB00F8A5BC /* ChooseClinicOnMap.swift */; };
+		F580C0FF25F9569300F8A5BC /* ChooseClinicOnMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580C0FE25F9569300F8A5BC /* ChooseClinicOnMapViewModel.swift */; };
 		F589C6D125DEEC9F00CBBD99 /* LaboratoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6D025DEEC9F00CBBD99 /* LaboratoryModel.swift */; };
 		F589C6D725DEEEEC00CBBD99 /* LaboratoryListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6D625DEEEEC00CBBD99 /* LaboratoryListAPI.swift */; };
 		F589C6DC25DEEFC300CBBD99 /* LaboratoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6DB25DEEFC300CBBD99 /* LaboratoryResponse.swift */; };
@@ -919,6 +930,12 @@
 		F51F88E925DED72900C1A9ED /* LaboratoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryTableViewCell.swift; sourceTree = "<group>"; };
 		F51F88EA25DED72900C1A9ED /* LaboratoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaboratoryTableViewCell.xib; sourceTree = "<group>"; };
 		F51F88EF25DEDA8400C1A9ED /* LaboratoryResearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryResearchModel.swift; sourceTree = "<group>"; };
+		F5205C8B25F8C4B2005FD6EB /* LanguageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LanguageViewController.storyboard; sourceTree = "<group>"; };
+		F5205C8E25F8C5BB005FD6EB /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		F5205C9225F8C6A5005FD6EB /* LanguageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewCell.swift; sourceTree = "<group>"; };
+		F5205C9325F8C6A5005FD6EB /* LanguageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageTableViewCell.xib; sourceTree = "<group>"; };
+		F5205C9725F8C7A7005FD6EB /* LanguageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewModel.swift; sourceTree = "<group>"; };
+		F5205C9B25F8C911005FD6EB /* LanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageModel.swift; sourceTree = "<group>"; };
 		F520B9A625DAB63B0077CB03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F521BCE525DFB9CC00289081 /* DetailLaboratoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLaboratoryController.swift; sourceTree = "<group>"; };
 		F521BCE925DFBC8A00289081 /* DetailLaboratoryController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailLaboratoryController.storyboard; sourceTree = "<group>"; };
@@ -964,6 +981,11 @@
 		F56E41EC25ED24E200599CAA /* MyOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderModel.swift; sourceTree = "<group>"; };
 		F56E420A25ED375700599CAA /* CancelOrderViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CancelOrderViewController.storyboard; sourceTree = "<group>"; };
 		F56E421325ED38DA00599CAA /* MyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderViewController.swift; sourceTree = "<group>"; };
+		F573A58E25F8984900B4CC4F /* DeliveryTutorialViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeliveryTutorialViewController.storyboard; sourceTree = "<group>"; };
+		F573A59125F8985100B4CC4F /* DeliveryTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTutorialViewController.swift; sourceTree = "<group>"; };
+		F580C0F825F955E200F8A5BC /* ChooseClinicOnMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseClinicOnMap.storyboard; sourceTree = "<group>"; };
+		F580C0FB25F955EB00F8A5BC /* ChooseClinicOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseClinicOnMap.swift; sourceTree = "<group>"; };
+		F580C0FE25F9569300F8A5BC /* ChooseClinicOnMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseClinicOnMapViewModel.swift; sourceTree = "<group>"; };
 		F589C6D025DEEC9F00CBBD99 /* LaboratoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryModel.swift; sourceTree = "<group>"; };
 		F589C6D625DEEEEC00CBBD99 /* LaboratoryListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryListAPI.swift; sourceTree = "<group>"; };
 		F589C6DB25DEEFC300CBBD99 /* LaboratoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryResponse.swift; sourceTree = "<group>"; };
@@ -1438,7 +1460,6 @@
 				F523E72A25F010DA0029E84E /* Languages */,
 				F56E420825ED356400599CAA /* CancelOrder */,
 				F56E41DD25ED128A00599CAA /* MyOrder */,
-				F51C02EA25E92D8300C266C5 /* ChooseClinic */,
 				F51C02D125E8F64B00C266C5 /* DeteilClinicInfo */,
 				F52D2CBA25E79A7600242A5B /* InformationAboutClinic */,
 				61D90F8A255DCEED00AE6124 /* Receipts */,
@@ -2246,6 +2267,9 @@
 		618C339D2498BDF600951D11 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				F573A58D25F8980400B4CC4F /* DeliveryTutorialViewController */,
+				F53A07C525F78CB00091C969 /* QuestionViewController */,
+				F53A07D725F7B3600091C969 /* ConnectWithUsController */,
 				F528151D25E66CDB007FC2FA /* AddPrivileges */,
 				F528150E25E64DEF007FC2FA /* PrivilegesViewController */,
 				24567C0B255011ED001CF931 /* ChooseDeliveryAddress */,
@@ -2739,8 +2763,8 @@
 		F51D899125F2DE40003B91BB /* Analizis */ = {
 			isa = PBXGroup;
 			children = (
-				F53A07D725F7B3600091C969 /* ConnectWithUs */,
-				F53A07C525F78CB00091C969 /* QustionView */,
+				F580C0F725F955C000F8A5BC /* ChooseClinicOnMap */,
+				F51C02EA25E92D8300C266C5 /* ChooseClinic */,
 				F51C16EE25E5083900231E6D /* OrderServiceViewController */,
 				F51BF7F125E3C855004BFBFD /* ShowAnalisisInformationViewController */,
 				F521BCE125DFB86900289081 /* DetailLaboratory */,
@@ -2834,6 +2858,23 @@
 			path = LaboratoryModel;
 			sourceTree = "<group>";
 		};
+		F5205C9125F8C66B005FD6EB /* LanguageCell */ = {
+			isa = PBXGroup;
+			children = (
+				F5205C9225F8C6A5005FD6EB /* LanguageTableViewCell.swift */,
+				F5205C9325F8C6A5005FD6EB /* LanguageTableViewCell.xib */,
+			);
+			path = LanguageCell;
+			sourceTree = "<group>";
+		};
+		F5205C9A25F8C901005FD6EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F5205C9B25F8C911005FD6EB /* LanguageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F521BCE125DFB86900289081 /* DetailLaboratory */ = {
 			isa = PBXGroup;
 			children = (
@@ -2893,6 +2934,11 @@
 		F523E72A25F010DA0029E84E /* Languages */ = {
 			isa = PBXGroup;
 			children = (
+				F5205C9A25F8C901005FD6EB /* Model */,
+				F5205C9125F8C66B005FD6EB /* LanguageCell */,
+				F5205C8B25F8C4B2005FD6EB /* LanguageViewController.storyboard */,
+				F5205C8E25F8C5BB005FD6EB /* LanguageViewController.swift */,
+				F5205C9725F8C7A7005FD6EB /* LanguageViewModel.swift */,
 			);
 			path = Languages;
 			sourceTree = "<group>";
@@ -2957,7 +3003,7 @@
 			path = CancelOrderView;
 			sourceTree = "<group>";
 		};
-		F53A07C525F78CB00091C969 /* QustionView */ = {
+		F53A07C525F78CB00091C969 /* QuestionViewController */ = {
 			isa = PBXGroup;
 			children = (
 				F53A07D525F795210091C969 /* Cell */,
@@ -2965,7 +3011,7 @@
 				F53A07C925F78FC80091C969 /* QuestionViewController.swift */,
 				F53A07CC25F7902E0091C969 /* QuestionViewModel.swift */,
 			);
-			path = QustionView;
+			path = QuestionViewController;
 			sourceTree = "<group>";
 		};
 		F53A07D525F795210091C969 /* Cell */ = {
@@ -2977,13 +3023,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		F53A07D725F7B3600091C969 /* ConnectWithUs */ = {
+		F53A07D725F7B3600091C969 /* ConnectWithUsController */ = {
 			isa = PBXGroup;
 			children = (
 				F53A07D925F7B50A0091C969 /* ConnectWithUsController.storyboard */,
 				F53A07DC25F7BD990091C969 /* ConnectWithUsController.swift */,
 			);
-			path = ConnectWithUs;
+			path = ConnectWithUsController;
 			sourceTree = "<group>";
 		};
 		F549F36525EC26EC008749BD /* ClinicsListController */ = {
@@ -3045,6 +3091,25 @@
 				F51D898C25F237AB003B91BB /* CancelOrderModel.swift */,
 			);
 			path = CancelOrder;
+			sourceTree = "<group>";
+		};
+		F573A58D25F8980400B4CC4F /* DeliveryTutorialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F573A58E25F8984900B4CC4F /* DeliveryTutorialViewController.storyboard */,
+				F573A59125F8985100B4CC4F /* DeliveryTutorialViewController.swift */,
+			);
+			path = DeliveryTutorialViewController;
+			sourceTree = "<group>";
+		};
+		F580C0F725F955C000F8A5BC /* ChooseClinicOnMap */ = {
+			isa = PBXGroup;
+			children = (
+				F580C0F825F955E200F8A5BC /* ChooseClinicOnMap.storyboard */,
+				F580C0FB25F955EB00F8A5BC /* ChooseClinicOnMap.swift */,
+				F580C0FE25F9569300F8A5BC /* ChooseClinicOnMapViewModel.swift */,
+			);
+			path = ChooseClinicOnMap;
 			sourceTree = "<group>";
 		};
 		F589C6D525DEEEDB00CBBD99 /* API */ = {
@@ -3119,6 +3184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F51C02EC25E92DA000C266C5 /* ChooseClinicViewController.storyboard in Resources */,
+				F5205C8C25F8C4B2005FD6EB /* LanguageViewController.storyboard in Resources */,
 				398B0DE124F50AD60084EC54 /* UserMarkerView.xib in Resources */,
 				4D8BCF6B254891A40094C43C /* InDevelopment.storyboard in Resources */,
 				F51F88C825DE747900C1A9ED /* TypeOfAnalysisCell.xib in Resources */,
@@ -3180,6 +3246,7 @@
 				61CFAA8A254B214400569DEF /* OrderDeliveryCell.xib in Resources */,
 				F521BCEA25DFBC8A00289081 /* DetailLaboratoryController.storyboard in Resources */,
 				F523E70825EFB0980029E84E /* CustomTextFieldView.xib in Resources */,
+				F580C0F925F955E200F8A5BC /* ChooseClinicOnMap.storyboard in Resources */,
 				6184730A2549A0C80062D8B9 /* CartSectionHeader.xib in Resources */,
 				F521BCFB25E0084900289081 /* DetailLaboratoryTableViewCell.xib in Resources */,
 				393D3CDB24FD33BD00E8181F /* PaymentMethodView.xib in Resources */,
@@ -3207,6 +3274,7 @@
 				603D31CE24E57E6B000E5A6C /* ProductPageViewController.xib in Resources */,
 				395C9D6A2498E2EA001EB6CD /* localize.strings in Resources */,
 				603D31E124E5A8E3000E5A6C /* ProductCategoryTableViewCell.xib in Resources */,
+				F5205C9525F8C6A5005FD6EB /* LanguageTableViewCell.xib in Resources */,
 				398B0DD924F50A630084EC54 /* FarmacyPinView.xib in Resources */,
 				395A7FC624A3980D00A7CFC6 /* NameTableViewCell.xib in Resources */,
 				F52D2CBC25E79AA900242A5B /* InformationAboutClicController.storyboard in Resources */,
@@ -3220,6 +3288,7 @@
 				F53A07BD25F7704A0091C969 /* CancelOrderView.storyboard in Resources */,
 				F53A07D325F7951A0091C969 /* QuestionCell.xib in Resources */,
 				24567C112550121B001CF931 /* ChooseDeliveryAdressViewController.storyboard in Resources */,
+				F573A58F25F8984900B4CC4F /* DeliveryTutorialViewController.storyboard in Resources */,
 				F56B649B25DD300000B108AC /* AnalysisAndDiagnostics.storyboard in Resources */,
 				24F5FDB6254B3C3A00D28275 /* ChooseLocationTableViewCell.xib in Resources */,
 				393DDFC42502954200652A01 /* RegionHeaderCell.xib in Resources */,
@@ -3354,6 +3423,7 @@
 				8717E4E12507850800546A55 /* RequestConvertible.swift in Sources */,
 				603D31FA24E5AA31000E5A6C /* ProductDescriptionTableViewCell.swift in Sources */,
 				F51C16EB25E4FDCF00231E6D /* ClinicModel.swift in Sources */,
+				F5205C9425F8C6A5005FD6EB /* LanguageTableViewCell.swift in Sources */,
 				F521BCF325E004F000289081 /* LaboratoryDetailModel.swift in Sources */,
 				398B0DEF24F53AC50084EC54 /* FoundMedicineView.swift in Sources */,
 				608F0225255C2272002F7161 /* PhotoLibraryManager.swift in Sources */,
@@ -3371,6 +3441,7 @@
 				395A7FC924A399B000A7CFC6 /* ProfileModel.swift in Sources */,
 				603D31AB24E3BFBE000E5A6C /* UIEdgeInsets.swift in Sources */,
 				F51F88DE25DEC87F00C1A9ED /* AnalisisCoordinator.swift in Sources */,
+				F573A59225F8985100B4CC4F /* DeliveryTutorialViewController.swift in Sources */,
 				395A7FCC24A3A2B700A7CFC6 /* ProfileCoordinator.swift in Sources */,
 				39F0AD6F24EEC86200CD6CA4 /* WishlistModel.swift in Sources */,
 				F51C02E325E91AA600C266C5 /* AnalisInformationAPI.swift in Sources */,
@@ -3494,6 +3565,7 @@
 				39F0AD6724EEC81400CD6CA4 /* OrdersModel.swift in Sources */,
 				60A12B3A256426F00001C994 /* ChatEvaluationModel.swift in Sources */,
 				398B0DE524F51C250084EC54 /* MapFarmacyListViewController.swift in Sources */,
+				F5205C9C25F8C911005FD6EB /* LanguageModel.swift in Sources */,
 				60383A2D255B223800654C1A /* ChatGallery.swift in Sources */,
 				F53A07DD25F7BD990091C969 /* ConnectWithUsController.swift in Sources */,
 				396FE9D425064C8A0063E466 /* RegionsDataSource.swift in Sources */,
@@ -3538,6 +3610,7 @@
 				395CB74424FCE9BF000A958F /* CheckoutViewController.swift in Sources */,
 				F51F88D525DEA4D500C1A9ED /* AnalisisAndDiagnosResponse.swift in Sources */,
 				60E1A70C24ECD6E500B3D205 /* SearchNavigationController.swift in Sources */,
+				F580C0FF25F9569300F8A5BC /* ChooseClinicOnMapViewModel.swift in Sources */,
 				87131D3725137B6C0050B8F2 /* RecentsHeaderView.swift in Sources */,
 				60E1A71724ECE0EA00B3D205 /* ScanModel.swift in Sources */,
 				F53A07CD25F7902E0091C969 /* QuestionViewModel.swift in Sources */,
@@ -3566,6 +3639,7 @@
 				24F5FD45254A0BBB00D28275 /* ChooseLocationViewModel.swift in Sources */,
 				618C33982498BDC200951D11 /* SignInViewController.swift in Sources */,
 				608E3AF32551A94C00AEE56C /* Sender.swift in Sources */,
+				F580C0FC25F955EB00F8A5BC /* ChooseClinicOnMap.swift in Sources */,
 				F51C02CF25E8E5B700C266C5 /* InformationAboutClicModel.swift in Sources */,
 				39505F5824AC73620045EC02 /* TabBarEmbedCoordinable.swift in Sources */,
 				60F2673B24E0566B00BFF296 /* NavigationTransitionAnimator.swift in Sources */,
@@ -3662,6 +3736,7 @@
 				608E3B002551D73E00AEE56C /* CustomMessageSizeCalculator.swift in Sources */,
 				24F5FC54254892CC00D28275 /* RecentMedicineDTO.swift in Sources */,
 				F51F1E2A25EE231E00DEDE06 /* CancelOrderViewController.swift in Sources */,
+				F5205C8F25F8C5BB005FD6EB /* LanguageViewController.swift in Sources */,
 				61850140255091830094A6A6 /* OrderDetailsContactCell.swift in Sources */,
 				61CFAA83254B1AB800569DEF /* CreateOrderContactInfoCell.swift in Sources */,
 				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,
@@ -3689,6 +3764,7 @@
 				39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */,
 				60AE318A2552FA26002BD404 /* ChatService.swift in Sources */,
 				60AE31982553391A002BD404 /* ChatResponse.swift in Sources */,
+				F5205C9825F8C7A7005FD6EB /* LanguageViewModel.swift in Sources */,
 				F56E41E525ED134500599CAA /* MyOrderTableViewCell.swift in Sources */,
 				603D31BA24E3FA1F000E5A6C /* UIImageView+URL.swift in Sources */,
 				61CFAA7A254AFFB300569DEF /* CreateOrderViewController.swift in Sources */,

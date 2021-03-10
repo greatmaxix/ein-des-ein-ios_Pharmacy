@@ -91,6 +91,10 @@
 
 "profile.profile" = "Профиль";
 "profile.region" = "Мой регион";
+"profile.charity" = "Благотворительность";
+"profile.insurance" = "Мой страховой полис";
+"profile.language" = "Язык";
+"profile.privileges" = "Льготы";
 "profile.payment" = "Оплата и бонусы";
 "profile.notifications" = "Уведомления";
 "profile.address" = "Адрес доставки";

@@ -16,13 +16,14 @@ enum AnalysisAndDiagnosticsModelEvent: Event {
     case openAnalisInformation
     case openClinic(ClinicModel)
     case openClinicFilial(ClinicModel)
-    case openFilialList
+    case openFilialList(ClinicModel)
     case openAnalisis
     case openOrderService
     case openPromocod
     case finishOrder
     case back
     case closeAlert
+    case showOnMap(ClinicModel)
 }
 
 protocol AnalysisAndDiagnosticsModelInput: class {

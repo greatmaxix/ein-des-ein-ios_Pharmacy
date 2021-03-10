@@ -77,7 +77,7 @@
                                                 <rect key="frame" x="18" y="293" width="378" height="24"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <state key="normal" title="dfssdf" image="add_icon">
+                                                <state key="normal" image="add_icon">
                                                     <color key="titleColor" name="welcomeBlue"/>
                                                 </state>
                                                 <connections>
@@ -146,15 +146,16 @@
                                                                 <color key="textColor" name="textDarkBlue"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Изменить" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrX-SO-exn">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnS-u8-hru">
                                                                 <rect key="frame" x="300" y="0.0" width="86" height="32"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="86" id="uV8-ec-m0p"/>
+                                                                    <constraint firstAttribute="width" constant="86" id="UtJ-1Q-I2r"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" name="primaryColor2"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
+                                                                <state key="normal" title="Изменить"/>
+                                                                <connections>
+                                                                    <action selector="openFilialListButton:" destination="2hV-rs-Ycw" eventType="touchUpInside" id="ZbU-KV-0dZ"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJi-CX-03p">
@@ -202,24 +203,14 @@
                                                             <constraint firstAttribute="trailing" secondItem="3dr-2p-1kP" secondAttribute="trailing" constant="16" id="rxP-2C-DcW"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tY-07-FHP">
-                                                        <rect key="frame" x="0.0" y="32" width="386" height="124"/>
-                                                        <connections>
-                                                            <action selector="openFilialListButton:" destination="2hV-rs-Ycw" eventType="touchUpInside" id="dyR-JH-BWA"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="lJi-CX-03p" firstAttribute="leading" secondItem="c1t-la-jjI" secondAttribute="leading" id="2BL-Ll-c6v"/>
-                                                    <constraint firstItem="1tY-07-FHP" firstAttribute="leading" secondItem="c1t-la-jjI" secondAttribute="leading" id="4W8-Ch-e7A"/>
                                                     <constraint firstItem="Ba3-Pl-cPS" firstAttribute="top" secondItem="c1t-la-jjI" secondAttribute="top" id="6dr-kv-Wfq"/>
                                                     <constraint firstAttribute="bottom" secondItem="lJi-CX-03p" secondAttribute="bottom" id="EM7-XS-Sq4"/>
                                                     <constraint firstAttribute="trailing" secondItem="Ba3-Pl-cPS" secondAttribute="trailing" id="Fhw-nk-OKC"/>
-                                                    <constraint firstItem="1tY-07-FHP" firstAttribute="top" secondItem="Ba3-Pl-cPS" secondAttribute="bottom" id="OEo-sG-4jo"/>
-                                                    <constraint firstAttribute="bottom" secondItem="1tY-07-FHP" secondAttribute="bottom" id="eak-Oo-d4b"/>
                                                     <constraint firstItem="Ba3-Pl-cPS" firstAttribute="leading" secondItem="c1t-la-jjI" secondAttribute="leading" id="ed4-1b-IS6"/>
                                                     <constraint firstAttribute="trailing" secondItem="lJi-CX-03p" secondAttribute="trailing" id="gZp-J4-hTF"/>
-                                                    <constraint firstAttribute="trailing" secondItem="1tY-07-FHP" secondAttribute="trailing" id="q7s-31-BLc"/>
                                                     <constraint firstAttribute="height" constant="156" id="vPK-39-rgJ"/>
                                                     <constraint firstItem="lJi-CX-03p" firstAttribute="top" secondItem="Ba3-Pl-cPS" secondAttribute="bottom" id="vk5-N1-cSo"/>
                                                 </constraints>
@@ -689,7 +680,7 @@
                         <outlet property="generalPriceView" destination="BUb-Jd-LJV" id="z3J-Ge-i3a"/>
                         <outlet property="infoClinicView" destination="lJi-CX-03p" id="SBd-0l-UvW"/>
                         <outlet property="nameTextField" destination="lye-Oh-MQE" id="qwB-Jt-wVR"/>
-                        <outlet property="openFilialListButton" destination="1tY-07-FHP" id="j6K-9H-1UZ"/>
+                        <outlet property="openFilialListButton" destination="dnS-u8-hru" id="Ecb-34-ysx"/>
                         <outlet property="orderStackView" destination="Z8y-H3-ivO" id="cOW-3d-BDM"/>
                         <outlet property="orderToAnotherPersonButton" destination="237-Uv-mwC" id="0Q4-6d-MO9"/>
                         <outlet property="orderViewHeight" destination="eKz-bJ-tQ7" id="TFA-1B-PCB"/>
@@ -722,9 +713,6 @@
         </namedColor>
         <namedColor name="greyText">
             <color red="0.39215686274509803" green="0.45098039215686275" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="primaryColor2">
-            <color red="0.30980392156862746" green="0.66666666666666663" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textDarkBlue">
             <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

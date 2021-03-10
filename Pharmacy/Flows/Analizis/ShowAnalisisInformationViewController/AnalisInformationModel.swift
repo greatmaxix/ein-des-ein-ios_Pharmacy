@@ -15,7 +15,8 @@ protocol AnalisInformationModelInput: class {
     func close()
     func openDeteilClinic(_ model: ClinicModel)
     func orderService()
-    func openFilialList()
+    func openFilialList(model: ClinicModel)
+    func showOnMap(model: ClinicModel)
     
     var models: [ClinicModel] { get }
     var cellHeight: CGFloat { get }
@@ -38,17 +39,14 @@ final class AnalisInformationModel: Model {
 }
 
 extension AnalisInformationModel: AnalisInformationControllerOutput {
-//    func apenListClinick() {
-//        
-//    }
     
-
-    
-    
-    func openFilialList() {
-        raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList)
+    func showOnMap(model: ClinicModel) {
+        raise(event: AnalysisAndDiagnosticsModelEvent.showOnMap(model))
     }
     
+    func openFilialList(model: ClinicModel) {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList(model))
+    }
     
     func orderService() {
         raise(event: AnalysisAndDiagnosticsModelEvent.openOrderService)
