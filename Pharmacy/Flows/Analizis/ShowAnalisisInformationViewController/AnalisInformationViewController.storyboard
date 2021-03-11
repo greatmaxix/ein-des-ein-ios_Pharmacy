@@ -146,9 +146,6 @@
                                                                                     <subviews>
                                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEb-j8-twZ">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="344" height="101"/>
-                                                                                            <connections>
-                                                                                                <action selector="openInfoAboutClinic:" destination="PrM-z0-bH4" eventType="touchUpInside" id="tUl-lh-aMf"/>
-                                                                                            </connections>
                                                                                         </button>
                                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_invitro" translatesAutoresizingMaskIntoConstraints="NO" id="BNb-Tm-uVN">
                                                                                             <rect key="frame" x="16" y="16" width="48" height="48"/>
@@ -177,7 +174,7 @@
                                                                                         </label>
                                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6z-F1-BNc">
                                                                                             <rect key="frame" x="304" y="8" width="32" height="32"/>
-                                                                                            <state key="normal" image="map_icon"/>
+                                                                                            <state key="normal" image="map-1"/>
                                                                                         </button>
                                                                                     </subviews>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -216,9 +213,6 @@
                                                                                             <state key="normal" title="Заказать услугу">
                                                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             </state>
-                                                                                            <connections>
-                                                                                                <action selector="orderSrvice:" destination="PrM-z0-bH4" eventType="touchUpInside" id="wj3-F2-lDg"/>
-                                                                                            </connections>
                                                                                         </button>
                                                                                     </subviews>
                                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -256,6 +250,7 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
                                                             <outlet property="addressLabel" destination="lxn-HO-wNV" id="kh2-OQ-QZ3"/>
+                                                            <outlet property="clinicInfoButton" destination="uEb-j8-twZ" id="6Ni-rq-9JI"/>
                                                             <outlet property="containerView" destination="cch-Vp-DmF" id="TLh-9M-oER"/>
                                                             <outlet property="logoImageView" destination="BNb-Tm-uVN" id="1AZ-0Z-YML"/>
                                                             <outlet property="mapButton" destination="P6z-F1-BNc" id="nh5-AM-ONn"/>
@@ -322,7 +317,7 @@
     <resources>
         <image name="info" width="24" height="24"/>
         <image name="logo_invitro" width="48" height="48"/>
-        <image name="map_icon" width="32" height="32"/>
+        <image name="map-1" width="32" height="32"/>
         <namedColor name="backgroundGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

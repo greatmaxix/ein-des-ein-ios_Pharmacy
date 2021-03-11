@@ -18,6 +18,10 @@ protocol InformationAboutClicModelInput: class {
     func configureTableView(_ table: UITableView?)
     func load()
     func didSelectCell(at indexPath: IndexPath)
+    func showOnMap(model: ClinicModel)
+    func openFilialList()
+    func orderService(model: ClinicModel)
+    func openDeteilClinic(_ model: ClinicModel)
 }
 
 protocol InformationAboutClicModelOutput: class {
@@ -68,14 +72,23 @@ final class InformationAboutClicModel: Model {
         })
         let filialsHeader = R.nib.informationHeaderView(owner: nil)!
         filialsHeader.configure(title: "Филиалы (\(clinics.count))", action: { [weak self] in
-            self?.raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList(.init(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "")))
+            self?.raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList)
         })
         
         let modelsClinic = clinics.prefix(upTo: 3).map { $0 }
         
         self.tableAdapter?.sections = [
             Section(cell: TypeOfAnalysisCell.self, models: types, header: .init(view: typesHeader, height: 80)),
-            Section(cell: ClinicTableCell.self, models: modelsClinic, header: .init(view: filialsHeader, height: 80))
+            Section(cell: ClinicTableCell.self, models: modelsClinic, eventHandler: { [weak self] event in
+                switch event {
+                case let .mapAction(model):
+                    self?.showOnMap(model: model)
+                case let .orderAction(model):
+                    self?.orderService(model: model)
+                case let .clinicInfo(model):
+                    self?.openDeteilClinic(model)
+                }
+            }, header: .init(view: filialsHeader, height: 80))
         ]
         
         self.tableAdapter?.eventHandler = { [weak self] event in
@@ -95,6 +108,22 @@ final class InformationAboutClicModel: Model {
 
 extension InformationAboutClicModel: InformationAboutClicControllerOutput {
     
+    func showOnMap(model: ClinicModel) {
+        raise(event: AnalysisAndDiagnosticsModelEvent.showOnMap(model))
+    }
+    
+    func openFilialList() {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList)
+    }
+    
+    func orderService(model: ClinicModel) {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openOrderService(model))
+    }
+    
+    func openDeteilClinic(_ model: ClinicModel) {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openClinicFilial(model))
+    }
+    
     func load() {
         prepareTable()
         
@@ -112,8 +141,6 @@ extension InformationAboutClicModel: InformationAboutClicControllerOutput {
         switch indexPath.section {
         case 0:
             raise(event: AnalysisAndDiagnosticsModelEvent.openLaboratoryList(types[indexPath.row]))
-        case 1:
-            raise(event: AnalysisAndDiagnosticsModelEvent.openClinicFilial(clinics[indexPath.row]))
         default:
             break
         }

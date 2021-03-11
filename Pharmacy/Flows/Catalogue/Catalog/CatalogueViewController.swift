@@ -23,6 +23,10 @@ final class CatalogueViewController: CollectionDataSourceViewController {
     }
     private var isViewDidAppear = false
     
+    deinit {
+        debugPrint("\(Self.self)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         model.load()

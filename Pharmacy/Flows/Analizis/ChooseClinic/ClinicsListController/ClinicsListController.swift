@@ -16,21 +16,12 @@ protocol ClinicsListControllerOutput: ClinicListModellInput {}
 class ClinicsListController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var model: ClinicsListControllerOutput!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let model = ClinicListModel(parent: nil)
-        model.output = self
-        self.model = model
-        
-        model.load()
-    }
-    
+    var model: ClinicsListControllerOutput?
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        model?.load()
     }
 }
 
@@ -51,14 +42,18 @@ extension ClinicsListController: UITableViewDelegate {
 extension ClinicsListController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.clinicModelList.count
+        return model?.clinicModelList.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: ClinicTableCell.self)
-        let clinic = self.model.clinicModelList[indexPath.row]
+        let clinic = self.model?.clinicModelList[indexPath.row] ?? .init(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "")
         cell.apply(model: clinic, mapAction: { [weak self] in
-            self?.model.showOnMap(model: clinic)
+            self?.model?.showOnMap(model: clinic)
+        }, orderAction: { [weak self] in
+            self?.model?.showOrder(model: clinic)
+        }, clinicInfoAction: { [weak self] in
+            self?.model?.openDeteilClinic(clinic)
         })
         
         return cell

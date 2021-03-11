@@ -114,8 +114,11 @@ fileprivate extension WelcomeCoordinator {
     }
 
     func presentAnalizes() {
-        let controller = AnalisisCoordinator(configuration: AnalisisFlowConfiguration(parent: self)).createFlow()
+        let controller = AnalisisCoordinator(configuration: AnalisisFlowConfiguration(parent: self, dismisAction: { [weak self] in
+            self?.navigation.tabBarController?.tabBar.isHidden = false
+        })).createFlow()
         controller.modalPresentationStyle = .overCurrentContext
+        navigation.tabBarController?.tabBar.isHidden = true
         navigation.present(controller, animated: true)
     }
 

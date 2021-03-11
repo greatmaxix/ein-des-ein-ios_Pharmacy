@@ -12,6 +12,8 @@ protocol ClinicListModellInput: class {
     func didSelectCell(at indexPath: IndexPath)
     func close()
     func showOnMap(model: ClinicModel)
+    func showOrder(model: ClinicModel)
+    func openDeteilClinic(_ model: ClinicModel)
     
     var clinicModelList: [ClinicModel] { get }
 }
@@ -27,8 +29,7 @@ final class ClinicListModel: Model {
     private let clinicModel = DataManager<ChoseClinicAPI, ClinicModel>()
     var clinicModelList: [ClinicModel] = []
 }
-//
-////
+
 extension ClinicListModel: ClinicsListControllerOutput {
     
     func close() {
@@ -56,8 +57,16 @@ extension ClinicListModel: ClinicsListControllerOutput {
         }
     }
     
+    func showOrder(model: ClinicModel) {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openOrderService(model))
+    }
+    
     func showOnMap(model: ClinicModel) {
         raise(event: AnalysisAndDiagnosticsModelEvent.showOnMap(model))
+    }
+    
+    func openDeteilClinic(_ model: ClinicModel) {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openClinic(model))
     }
     
     func didSelectCell(at indexPath: IndexPath) {

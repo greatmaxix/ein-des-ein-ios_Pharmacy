@@ -16,17 +16,19 @@ enum AnalysisAndDiagnosticsModelEvent: Event {
     case openAnalisInformation
     case openClinic(ClinicModel)
     case openClinicFilial(ClinicModel)
-    case openFilialList(ClinicModel)
+    case openFilialList
     case openAnalisis
-    case openOrderService
+    case openOrderService(ClinicModel)
     case openPromocod
     case finishOrder
     case back
     case closeAlert
     case showOnMap(ClinicModel)
+    case dismis
 }
 
 protocol AnalysisAndDiagnosticsModelInput: class {
+    func close()
     func load()
     func didSelectCell(at indexPath: IndexPath)
 }
@@ -46,6 +48,10 @@ final class AnalysisAndDiagnosticsModel: Model {
 // MARK: - AnalysisAndDiagnosticsModelOutput
 
 extension AnalysisAndDiagnosticsModel: AnalysisAndDiagnosticsControllerOutput {
+    
+    func close() {
+        raise(event: AnalysisAndDiagnosticsModelEvent.dismis)
+    }
     
     func load() {
         let mockData: [TypeOfAnalysis] = [

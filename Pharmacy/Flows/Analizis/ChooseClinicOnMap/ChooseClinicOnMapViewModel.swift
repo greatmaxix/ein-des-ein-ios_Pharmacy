@@ -17,6 +17,10 @@ protocol ChooseClinicOnMapViewModelInput: class {
     
     func startLocationTracking()
     func load()
+    func showOnMap(model: ClinicModel)
+    func openFilialList()
+    func orderService(model: ClinicModel)
+    func openDeteilClinic(_ model: ClinicModel)
     func open(_ route: MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D)
 }
 
@@ -44,6 +48,22 @@ extension ChooseClinicOnMapViewModel: ChooseClinicOnMapViewModelInput {
     
     func load() {
         
+    }
+    
+    func showOnMap(model: ClinicModel) {
+        raise(event: AnalysisAndDiagnosticsModelEvent.showOnMap(model))
+    }
+    
+    func openFilialList() {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList)
+    }
+    
+    func orderService(model: ClinicModel) {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openOrderService(model))
+    }
+    
+    func openDeteilClinic(_ model: ClinicModel) {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openClinic(model))
     }
     
     var currentLocation: CLLocation? {

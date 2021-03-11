@@ -70,7 +70,7 @@ extension OrderServiceViewModel: OrderServiceVControllerOutput {
 
     
     func openFilialList() {
-        raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList(.init(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "")))
+        raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList)
     }
     
     func close() {

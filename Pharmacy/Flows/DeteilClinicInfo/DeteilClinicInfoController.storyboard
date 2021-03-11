@@ -75,7 +75,10 @@
                                                                             <constraint firstAttribute="height" constant="32" id="9ih-er-K8g"/>
                                                                             <constraint firstAttribute="width" constant="34" id="ner-pH-30h"/>
                                                                         </constraints>
-                                                                        <state key="normal" title="Смотреть все" image="map_icon"/>
+                                                                        <state key="normal" title="Смотреть все" image="map-1"/>
+                                                                        <connections>
+                                                                            <action selector="showOnMap:" destination="zsB-hn-Ywf" eventType="touchUpInside" id="CPr-xV-5zb"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="backgroundGray"/>
@@ -232,7 +235,7 @@
     </scenes>
     <resources>
         <image name="invitro_icon" width="375.5" height="244"/>
-        <image name="map_icon" width="32" height="32"/>
+        <image name="map-1" width="32" height="32"/>
         <namedColor name="backgroundGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

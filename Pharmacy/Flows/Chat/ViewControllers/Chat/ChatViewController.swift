@@ -36,6 +36,10 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     }
     var pdfView = PDFView()
     
+    deinit {
+        debugPrint("\(Self.self)")
+    }
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         messageInputBar = ChatInputBar()

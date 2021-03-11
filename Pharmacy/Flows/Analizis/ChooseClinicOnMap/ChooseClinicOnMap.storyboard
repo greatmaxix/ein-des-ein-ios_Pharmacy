@@ -65,16 +65,19 @@
                                 <rect key="frame" x="0.0" y="685" width="414" height="211"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvF-kJ-cLV">
-                                        <rect key="frame" x="16" y="0.0" width="383" height="206"/>
+                                        <rect key="frame" x="16" y="25" width="383" height="181"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ueb-Io-ZPs">
-                                                <rect key="frame" x="0.0" y="0.0" width="383" height="206"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="383" height="181"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KqW-ug-dcA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="383" height="141"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="383" height="116"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ih3-b7-f7b">
-                                                                <rect key="frame" x="0.0" y="0.0" width="383" height="141"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="383" height="116"/>
+                                                                <connections>
+                                                                    <action selector="clinicInfoAction:" destination="792-z2-3Nj" eventType="touchUpInside" id="vXn-Xu-YBQ"/>
+                                                                </connections>
                                                             </button>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_invitro" translatesAutoresizingMaskIntoConstraints="NO" id="2WR-c8-pmS">
                                                                 <rect key="frame" x="16" y="16" width="48" height="48"/>
@@ -96,21 +99,24 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📞️ +7 (098) 000 02 00  • +7 (098) 000 02 00 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aZ-US-KLD">
-                                                                <rect key="frame" x="16" y="108.5" width="333" height="16.5"/>
+                                                                <rect key="frame" x="16" y="84" width="333" height="16.5"/>
                                                                 <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                                 <color key="textColor" name="textDarkBlue"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ss-Y5-1Ny">
                                                                 <rect key="frame" x="343" y="8" width="32" height="32"/>
-                                                                <state key="normal" image="map_icon"/>
+                                                                <state key="normal" image="map-1"/>
+                                                                <connections>
+                                                                    <action selector="mapAction:" destination="792-z2-3Nj" eventType="touchUpInside" id="Y92-H0-1Kz"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="2WR-c8-pmS" firstAttribute="leading" secondItem="KqW-ug-dcA" secondAttribute="leading" constant="16" id="1Ty-Bh-l4j"/>
                                                             <constraint firstItem="Hd9-aH-pcS" firstAttribute="leading" secondItem="2WR-c8-pmS" secondAttribute="trailing" constant="8" id="71Y-iA-prh"/>
-                                                            <constraint firstAttribute="bottom" secondItem="3aZ-US-KLD" secondAttribute="bottom" constant="16" id="9aT-Vq-ke5"/>
+                                                            <constraint firstItem="3aZ-US-KLD" firstAttribute="top" secondItem="2WR-c8-pmS" secondAttribute="bottom" constant="20" id="Cmb-Qf-pmo"/>
                                                             <constraint firstItem="0ss-Y5-1Ny" firstAttribute="top" secondItem="KqW-ug-dcA" secondAttribute="top" constant="8" id="FF3-37-Hpp"/>
                                                             <constraint firstAttribute="bottom" secondItem="ih3-b7-f7b" secondAttribute="bottom" id="N3w-g3-6Kg"/>
                                                             <constraint firstAttribute="trailing" secondItem="3aZ-US-KLD" secondAttribute="trailing" constant="34" id="VsU-Ie-GXs"/>
@@ -126,7 +132,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBx-lG-nIS">
-                                                        <rect key="frame" x="0.0" y="141" width="383" height="65"/>
+                                                        <rect key="frame" x="0.0" y="116" width="383" height="65"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="568 ₸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42B-HP-pOg">
                                                                 <rect key="frame" x="16" y="12" width="60.5" height="34"/>
@@ -144,6 +150,14 @@
                                                                 <state key="normal" title="Заказать услугу">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="orderAction:" destination="792-z2-3Nj" eventType="touchUpInside" id="1y5-UW-eWr"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -176,7 +190,7 @@
                                     <constraint firstAttribute="height" constant="211" id="670-LE-giA"/>
                                     <constraint firstItem="uvF-kJ-cLV" firstAttribute="leading" secondItem="Bgm-1E-njx" secondAttribute="leading" constant="16" id="ANV-hI-urA"/>
                                     <constraint firstAttribute="bottom" secondItem="uvF-kJ-cLV" secondAttribute="bottom" constant="5" id="fMF-sF-Krd"/>
-                                    <constraint firstItem="uvF-kJ-cLV" firstAttribute="top" secondItem="Bgm-1E-njx" secondAttribute="top" id="gxw-1Q-MIT"/>
+                                    <constraint firstItem="uvF-kJ-cLV" firstAttribute="top" secondItem="Bgm-1E-njx" secondAttribute="top" constant="25" id="gxw-1Q-MIT"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -234,10 +248,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="clinicDetailButton" destination="ih3-b7-f7b" id="U1r-lr-t8f"/>
                         <outlet property="currentLocationButton" destination="1rE-b8-NU0" id="Ua6-de-daf"/>
+                        <outlet property="mapButton" destination="0ss-Y5-1Ny" id="F1c-eN-cOr"/>
                         <outlet property="mapView" destination="VEa-iJ-fVc" id="cFT-uc-8v7"/>
                         <outlet property="messageHeightConstraint" destination="KT9-o5-ptd" id="AEv-DJ-xN5"/>
                         <outlet property="messageViewHolder" destination="Y1d-vN-CG1" id="ohA-RE-0ce"/>
+                        <outlet property="orderButton" destination="bHF-aV-LyM" id="FvU-zY-Vjb"/>
                         <outlet property="zoomInButton" destination="paY-Oi-8Ro" id="XWT-fH-WCx"/>
                         <outlet property="zoomOutButton" destination="lo9-0T-sXK" id="1u4-fp-AvG"/>
                     </connections>
@@ -252,7 +269,7 @@
         <image name="decreaseMap" width="24" height="24"/>
         <image name="inscreaseMap" width="24" height="24"/>
         <image name="logo_invitro" width="48" height="48"/>
-        <image name="map_icon" width="32" height="32"/>
+        <image name="map-1" width="32" height="32"/>
         <namedColor name="backgroundGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

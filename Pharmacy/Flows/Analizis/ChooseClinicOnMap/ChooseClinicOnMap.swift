@@ -32,6 +32,10 @@ class ChooseClinicOnMap: UIViewController {
     @IBOutlet private weak var zoomOutButton: UIButton!
     @IBOutlet private weak var selectionBackground: UIView?
 
+    @IBOutlet private weak var orderButton: UIButton!
+    @IBOutlet private weak var clinicDetailButton: UIButton!
+    @IBOutlet private weak var mapButton: UIButton!
+    
     var model: ChooseClinicOnMapViewModelInput!
     
     private lazy var activityIndicator: MBProgressHUD = {
@@ -84,6 +88,21 @@ class ChooseClinicOnMap: UIViewController {
     private func setupMap() {
         model.startLocationTracking()
         mapView.delegate = self
+    }
+    
+    //TO-DO: Fix Model
+    @IBAction func orderAction(_ sender: Any) {
+        model.orderService(model: .init(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "", ordered: false))
+    }
+    
+    //TO-DO: Fix Model
+    @IBAction func mapAction(_ sender: Any) {
+//        model.showOnMap(model: .init(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "", ordered: false))
+    }
+    
+    //TO-DO: Fix Model
+    @IBAction func clinicInfoAction(_ sender: Any) {
+        model.openDeteilClinic(.init(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "", ordered: false))
     }
     
     @IBAction private func moveToCurrentLocation(_ sender: UIButton) {

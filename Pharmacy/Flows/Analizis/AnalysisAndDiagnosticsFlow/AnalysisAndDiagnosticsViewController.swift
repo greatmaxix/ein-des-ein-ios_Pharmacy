@@ -25,6 +25,10 @@ class AnalysisAndDiagnostics: UIViewController {
     private var loadedTypes: [TypeOfAnalysis] = []
     private var types: [TypeOfAnalysis] = []
     
+    deinit {
+        model.close()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         model.load()
@@ -34,9 +38,8 @@ class AnalysisAndDiagnostics: UIViewController {
         setupSearchBar()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-                
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -64,7 +67,8 @@ class AnalysisAndDiagnostics: UIViewController {
     
     @objc private func dismisSelf() {
         if isMainController {
-            self.navigationController?.dismiss(animated: true)
+            self.model.close()
+//            self.navigationController?.dismiss(animated: true)
         } else {
             self.navigationController?.popViewController(animated: true)
         }
@@ -88,7 +92,6 @@ extension AnalysisAndDiagnostics {
 extension AnalysisAndDiagnostics: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return self.types.count
     }
     

@@ -31,15 +31,6 @@ class AnalisInformationViewController: UIViewController, NavigationBarStyled {
         setupTitle()
     }
     
-    @IBAction func openInfoAboutClinic(_ sender: Any) {
-        let modelClinic = ClinicModel(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "")
-        model.openDeteilClinic(modelClinic)
-    }
-    
-    @IBAction func orderSrvice(_ sender: Any) {
-        model.orderService()
-    }
-    
     private func configUI() {
         tableView.separatorStyle = .none
         tableView.delegate = self
@@ -53,8 +44,7 @@ class AnalisInformationViewController: UIViewController, NavigationBarStyled {
     }
     
     @IBAction func showAllAction(_ sender: Any) {
-        let modelClinic = ClinicModel(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "")
-        model.openFilialList(model: modelClinic)
+        model.openFilialList()
     }
 }
 
@@ -68,6 +58,10 @@ extension AnalisInformationViewController: UITableViewDataSource {
         let model = self.model.models[indexPath.row]
         cell.apply(model: model, mapAction: { [weak self] in
             self?.model.showOnMap(model: model)
+        }, orderAction: { [weak self] in
+            self?.model.orderService(model: model)
+        }, clinicInfoAction: { [weak self] in
+            self?.model.openDeteilClinic(model)
         })
         return cell
     }

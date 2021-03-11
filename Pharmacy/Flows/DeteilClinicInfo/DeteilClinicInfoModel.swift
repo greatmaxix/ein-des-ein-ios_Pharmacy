@@ -15,6 +15,7 @@ protocol DeteilClinicInfoModelInput: class {
     func close()
     func openDeteilClinic(_ model: TypeOfAnalysis)
     func showAll()
+    func showOnMap(model: ClinicModel)
     
     var models: [TypeOfAnalysis] { get }
     var cellHeight: CGFloat { get }
@@ -37,7 +38,10 @@ final class DeteilClinicInfoModel: Model {
 }
 
 extension DeteilClinicInfoModel: DeteilClinicInfoControllerOutput {
-
+    
+    func showOnMap(model: ClinicModel) {
+        raise(event: AnalysisAndDiagnosticsModelEvent.showOnMap(model))
+    }
     
     func showAll() {
         raise(event: AnalysisAndDiagnosticsModelEvent.openAnalisis)
@@ -49,7 +53,7 @@ extension DeteilClinicInfoModel: DeteilClinicInfoControllerOutput {
     
     
     func close() {
-        raise(event: AnalysisAndDiagnosticsModelEvent.back)
+//        raise(event: AnalysisAndDiagnosticsModelEvent.back)
     }
     
     func load() {

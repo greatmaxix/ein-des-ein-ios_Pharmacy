@@ -14,8 +14,8 @@ protocol AnalisInformationModelInput: class {
     func didSelectCell(at indexPath: IndexPath)
     func close()
     func openDeteilClinic(_ model: ClinicModel)
-    func orderService()
-    func openFilialList(model: ClinicModel)
+    func orderService(model: ClinicModel)
+    func openFilialList()
     func showOnMap(model: ClinicModel)
     
     var models: [ClinicModel] { get }
@@ -44,18 +44,17 @@ extension AnalisInformationModel: AnalisInformationControllerOutput {
         raise(event: AnalysisAndDiagnosticsModelEvent.showOnMap(model))
     }
     
-    func openFilialList(model: ClinicModel) {
-        raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList(model))
+    func openFilialList() {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openFilialList)
     }
     
-    func orderService() {
-        raise(event: AnalysisAndDiagnosticsModelEvent.openOrderService)
+    func orderService(model: ClinicModel) {
+        raise(event: AnalysisAndDiagnosticsModelEvent.openOrderService(model))
     }
     
     func openDeteilClinic(_ model: ClinicModel) {
         raise(event: AnalysisAndDiagnosticsModelEvent.openClinic(model))
     }
-    
     
     func close() {
         raise(event: AnalysisAndDiagnosticsModelEvent.back)

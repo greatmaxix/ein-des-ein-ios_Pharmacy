@@ -93,6 +93,7 @@ class OrderServiceViewController: UIViewController, NavigationBarStyled {
     }
     
     @IBAction func payAction(_ sender: Any) {
+        
         model.finishOrder()
     }
     

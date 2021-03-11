@@ -14,8 +14,8 @@ protocol DeteilClinicInfoControllerInput: DeteilClinicInfoModelOutput {}
 class DeteilClinicInfoController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var height: NSLayoutConstraint!
     
-    @IBOutlet var height: NSLayoutConstraint!
     var model: DeteilClinicInfoControllerOutput!
     
     override func viewDidLoad() {
@@ -34,6 +34,11 @@ class DeteilClinicInfoController: UIViewController {
         model.models.first.map {
             model.openDeteilClinic($0)
         }
+    }
+    
+    @IBAction func showOnMap(_ sender: Any) {
+        let clinic = ClinicModel(clinicName: "", adressClinic: "", imageClinic: "", priceClinic: "", phoneNumber: "")
+        model.showOnMap(model: clinic)
     }
     
     @IBAction func showAllList(_ sender: Any) {
@@ -80,7 +85,7 @@ extension DeteilClinicInfoController: UITableViewDelegate {
 extension DeteilClinicInfoController: SimpleNavigationBarDelegate {
     
     func leftBarItemAction() {
-        model.close()
+        navigationController?.popViewController(animated: true)
     }
     
     func rightBarItemAction() {

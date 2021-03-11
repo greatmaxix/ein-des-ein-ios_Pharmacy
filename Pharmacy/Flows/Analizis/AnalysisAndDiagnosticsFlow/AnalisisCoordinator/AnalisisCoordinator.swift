@@ -13,24 +13,31 @@ import MapKit
 
 struct AnalisisFlowConfiguration {
     let parent: EventNode
+    let dismisAction: () -> Void
 }
 
 final class AnalisisCoordinator: EventNode, Coordinator {
+    
     var navigation: UINavigationController?
+    var dismisAction: () -> Void = { }
     
     func createFlow() -> UIViewController {
         let root = R.storyboard.analysisAndDiagnostics.instantiateInitialViewController()!
         let model = AnalysisAndDiagnosticsModel(parent: self)
         let nav = NavigationController(rootViewController: root)
         navigation = nav
-//        nav.isNavigationBarHidden = true
         root.model = model
         model.output = root
 
         return nav
     }
     
+    deinit {
+        debugPrint("\(Self.self)")
+    }
+    
     init(configuration: AnalisisFlowConfiguration) {
+        self.dismisAction = configuration.dismisAction
         super.init(parent: configuration.parent)
         addHandler(.onRaise) { [weak self] (event: AnalysisAndDiagnosticsModelEvent) in
             guard let self = self else { return }
@@ -62,6 +69,12 @@ final class AnalisisCoordinator: EventNode, Coordinator {
                 self.showOnMap(model: model)
             case .finishOrder:
                 self.openFinishOrder()
+            case .dismis:
+                self.navigation?.dismiss(animated: true, completion: { [weak self] in
+                    self?.navigation = nil
+                })
+                
+                self.dismisAction()
             }
         }
     }
@@ -104,7 +117,9 @@ fileprivate extension AnalisisCoordinator {
     }
     
     func openFilialList() {
+        let model = ClinicListModel(parent: self)        
         let controller = R.storyboard.chooseClinicViewController.instantiateInitialViewController()!
+        controller.clinicModel = model
         self.navigation?.pushViewController(controller, animated: true)
     }
     

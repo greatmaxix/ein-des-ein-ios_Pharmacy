@@ -18,6 +18,8 @@ class ChooseClinicViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var containerMap: UIView!
     @IBOutlet private weak var containerList: UIView!
     
+    var clinicModel: ClinicListModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
  
@@ -48,8 +50,9 @@ class ChooseClinicViewController: UIViewController, NavigationBarStyled {
     }
     
     func configureChildren() {
-        if let listVC = self.children.first(where: { $0 is ClinicsListController }) {
-            debugPrint(listVC)
+        if let listVC = self.children.first(where: { $0 is ClinicsListController }) as? ClinicsListController {
+            self.clinicModel.output = listVC
+            listVC.model = clinicModel
         }
         
         if let mapVC = self.children.first(where: { $0 is MapViewController }) {

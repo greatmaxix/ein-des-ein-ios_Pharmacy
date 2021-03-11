@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventsTree
 
 class PaymendSuccessfullyAlertController: UIViewController {
     
@@ -26,5 +27,7 @@ class PaymendSuccessfullyAlertController: UIViewController {
     }
     @IBAction func okAction(_ sender: Any) {
         self.dismiss(animated: false)
+        
+        
     }
 }
