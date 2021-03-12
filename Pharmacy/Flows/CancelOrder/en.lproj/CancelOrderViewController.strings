@@ -1,0 +1,72 @@
+
+/* Class = "UILabel"; text = "Данные покупателя :"; ObjectID = "0a2-P6-VZR"; */
+"0a2-P6-VZR.text" = "Данные покупателя :";
+
+/* Class = "UILabel"; text = "Инвитро"; ObjectID = "24W-Ym-QUu"; */
+"24W-Ym-QUu.text" = "Инвитро";
+
+/* Class = "UILabel"; text = "📪 odnopozvaeindesifn@exapmle.com"; ObjectID = "3SB-OX-iRa"; */
+"3SB-OX-iRa.text" = "📪 odnopozvaeindesifn@exapmle.com";
+
+/* Class = "UILabel"; text = "Оставьте у двери, предварительно позвонив  4 раза в дверь"; ObjectID = "90e-uc-9OD"; */
+"90e-uc-9OD.text" = "Оставьте у двери, предварительно позвонив  4 раза в дверь";
+
+/* Class = "UILabel"; text = "Услуга :"; ObjectID = "9lW-45-8Lv"; */
+"9lW-45-8Lv.text" = "Услуга :";
+
+/* Class = "UILabel"; text = "Евгения Леонидовна"; ObjectID = "Aev-Po-fUY"; */
+"Aev-Po-fUY.text" = "Евгения Леонидовна";
+
+/* Class = "UILabel"; text = "Дата и Время"; ObjectID = "Jhc-YG-U4T"; */
+"Jhc-YG-U4T.text" = "Дата и Время";
+
+/* Class = "UILabel"; text = "Google Pay"; ObjectID = "Lg0-Ld-Kwi"; */
+"Lg0-Ld-Kwi.text" = "Google Pay";
+
+/* Class = "UILabel"; text = "📱 +3809994824231"; ObjectID = "M5M-DW-7H4"; */
+"M5M-DW-7H4.text" = "📱 +3809994824231";
+
+/* Class = "UILabel"; text = "Итого к оплате"; ObjectID = "MOd-Cf-fsH"; */
+"MOd-Cf-fsH.text" = "Итого к оплате";
+
+/* Class = "UILabel"; text = "ул Горная 23а, Харьков"; ObjectID = "PpH-Jk-Ezo"; */
+"PpH-Jk-Ezo.text" = "ул Горная 23а, Харьков";
+
+/* Class = "UILabel"; text = " 📞️ +7 (098) 000 02 00 • +7 (098) 000 02 00"; ObjectID = "T5F-kn-sFW"; */
+"T5F-kn-sFW.text" = " 📞️ +7 (098) 000 02 00 • +7 (098) 000 02 00";
+
+/* Class = "UILabel"; text = "51ДНЕ"; ObjectID = "Wxv-g2-x7f"; */
+"Wxv-g2-x7f.text" = "51ДНЕ";
+
+/* Class = "UILabel"; text = " 568 ₸  "; ObjectID = "abX-KN-4A5"; */
+"abX-KN-4A5.text" = " 568 ₸  ";
+
+/* Class = "UILabel"; text = "Тип оплаты :"; ObjectID = "bes-w9-THz"; */
+"bes-w9-THz.text" = "Тип оплаты :";
+
+/* Class = "UILabel"; text = "Клинический анализ крови"; ObjectID = "gr1-4y-yq0"; */
+"gr1-4y-yq0.text" = "Клинический анализ крови";
+
+/* Class = "UILabel"; text = "Комметарий к заказу :"; ObjectID = "h6X-xm-Pac"; */
+"h6X-xm-Pac.text" = "Комметарий к заказу :";
+
+/* Class = "UIButton"; normalTitle = "Отменить запись"; ObjectID = "jcX-4f-oRG"; */
+"jcX-4f-oRG.normalTitle" = "Отменить запись";
+
+/* Class = "UILabel"; text = "14 фев 18:00"; ObjectID = "kkE-qb-bSX"; */
+"kkE-qb-bSX.text" = "14 фев 18:00";
+
+/* Class = "UILabel"; text = "Промокод"; ObjectID = "lMF-1p-xL4"; */
+"lMF-1p-xL4.text" = "Промокод";
+
+/* Class = "UILabel"; text = "590 ₸  "; ObjectID = "ntp-jA-u8f"; */
+"ntp-jA-u8f.text" = "590 ₸  ";
+
+/* Class = "UILabel"; text = "Уже скоро!  "; ObjectID = "pQS-RD-oh7"; */
+"pQS-RD-oh7.text" = "Уже скоро!  ";
+
+/* Class = "UILabel"; text = "Клиника :"; ObjectID = "q2h-jT-NqJ"; */
+"q2h-jT-NqJ.text" = "Клиника :";
+
+/* Class = "UILabel"; text = "Общая сумма"; ObjectID = "xtR-ZL-KSC"; */
+"xtR-ZL-KSC.text" = "Общая сумма";

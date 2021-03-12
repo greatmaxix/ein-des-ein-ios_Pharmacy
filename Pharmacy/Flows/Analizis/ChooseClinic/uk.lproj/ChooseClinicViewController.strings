@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "Заказать услугу"; ObjectID = "91Q-ae-qe3"; */
+"91Q-ae-qe3.normalTitle" = "Заказать услугу";
+
+/* Class = "UILabel"; text = "ул Горная 23а, Харьков"; ObjectID = "BJy-MC-vOe"; */
+"BJy-MC-vOe.text" = "ул Горная 23а, Харьков";
+
+/* Class = "UISegmentedControl"; aS6-aF-iz0.segmentTitles[0] = "Списком"; ObjectID = "aS6-aF-iz0"; */
+"aS6-aF-iz0.segmentTitles[0]" = "Списком";
+
+/* Class = "UISegmentedControl"; aS6-aF-iz0.segmentTitles[1] = "На карте"; ObjectID = "aS6-aF-iz0"; */
+"aS6-aF-iz0.segmentTitles[1]" = "На карте";
+
+/* Class = "UILabel"; text = "568 ₸"; ObjectID = "fLu-PQ-HAl"; */
+"fLu-PQ-HAl.text" = "568 ₸";
+
+/* Class = "UILabel"; text = "📞️ +7 (098) 000 02 00  • +7 (098) 000 02 00 "; ObjectID = "k3w-Zj-4Wg"; */
+"k3w-Zj-4Wg.text" = "📞️ +7 (098) 000 02 00  • +7 (098) 000 02 00 ";
+
+/* Class = "UILabel"; text = "Инвитро"; ObjectID = "p53-5T-MhB"; */
+"p53-5T-MhB.text" = "Инвитро";

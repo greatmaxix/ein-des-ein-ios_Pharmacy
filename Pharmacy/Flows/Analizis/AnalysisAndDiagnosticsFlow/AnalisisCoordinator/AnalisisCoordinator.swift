@@ -83,11 +83,11 @@ final class AnalisisCoordinator: EventNode, Coordinator {
 fileprivate extension AnalisisCoordinator {
     
     func showOnMap(model: ClinicModel) {
-        let controller = R.storyboard.chooseClinicOnMap.instantiateInitialViewController()!
-        let model = ChooseClinicOnMapViewModel(parent: self, model: model)
-        model.output = controller
-        controller.model = model
-        navigation?.pushViewController(controller, animated: true)
+//        let controller = R.storyboard.chooseClinicOnMap.instantiateInitialViewController()
+//        let model = ChooseClinicOnMapViewModel(parent: self, model: model)
+//        model.output = controller
+//        controller.model = model
+//        navigation?.pushViewController(controller, animated: true)
     }
     
     func openPromocod() {

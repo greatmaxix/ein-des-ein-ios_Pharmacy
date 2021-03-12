@@ -43,7 +43,7 @@ class DetailLaboratoryController: UIViewController, NavigationBarStyled {
     
     
     private func setupTitle() {
-        title = "Биохимические"
+        title = R.string.localize.analisisChoseClinickBiohimicheskiy()
     }
 }
 

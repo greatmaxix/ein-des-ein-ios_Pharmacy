@@ -24,9 +24,9 @@ class ChooseClinicViewController: UIViewController, NavigationBarStyled {
         super.viewDidLoad()
  
         scrollView.delegate = self
-
-        segmentControl.setTitle("Списком", forSegmentAt: 0)
-        segmentControl.setTitle("На карте", forSegmentAt: 1)
+        
+        segmentControl.setTitle(R.string.localize.analisisChoseClinickList(), forSegmentAt: 0)
+        segmentControl.setTitle(R.string.localize.analisisChoseClinickMap(), forSegmentAt: 1)
         segmentControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.welcomeBlue()!], for: .selected)
         
         segmentControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.gray()!], for: .normal)
@@ -36,7 +36,7 @@ class ChooseClinicViewController: UIViewController, NavigationBarStyled {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = "Выбор клиники"
+        title = R.string.localize.analisisTitleChoseClinick()
     }
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {

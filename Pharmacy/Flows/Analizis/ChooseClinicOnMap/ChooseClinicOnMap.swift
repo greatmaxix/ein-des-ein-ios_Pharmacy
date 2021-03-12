@@ -148,7 +148,7 @@ class ChooseClinicOnMap: UIViewController {
     }
     
     private func setupLocalization() {
-        title = "Выбор клиники"
+        title = R.string.localize.analisisTitleChoseClinick()
     }
 }
 
@@ -169,7 +169,7 @@ extension ChooseClinicOnMap: GMSMapViewDelegate {
 
 extension ChooseClinicOnMap: MapOutput {
     func successfullyAddedToCart() {
-        showMessage(text: "Товар успешно добавлен в корзину!")
+        showMessage(text: R.string.localize.analisisChoseClinickAddToBusket())
         activityIndicator.hide(animated: true)
     }
     

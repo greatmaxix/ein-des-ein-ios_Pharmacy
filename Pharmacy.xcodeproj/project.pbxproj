@@ -398,7 +398,6 @@
 		87A50B6A25262FAD00CF89CF /* PriceRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6925262FAD00CF89CF /* PriceRange.swift */; };
 		87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6D2527072800CF89CF /* ProductAPI.swift */; };
 		F51BF7EB25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7EA25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift */; };
-		F51BF7F325E3C869004BFBFD /* AnalisInformationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51BF7F225E3C869004BFBFD /* AnalisInformationViewController.storyboard */; };
 		F51BF7F825E40AAB004BFBFD /* AnalisInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7F725E40AAB004BFBFD /* AnalisInformationViewController.swift */; };
 		F51BF80025E41A4C004BFBFD /* ClinicTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7FF25E41A4C004BFBFD /* ClinicTableCell.swift */; };
 		F51C02CC25E8E4C500C266C5 /* InformationAboutClicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C02CB25E8E4C500C266C5 /* InformationAboutClicController.swift */; };
@@ -408,10 +407,8 @@
 		F51C02DE25E9165C00C266C5 /* DeteilClinicInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C02DD25E9165C00C266C5 /* DeteilClinicInfoModel.swift */; };
 		F51C02E325E91AA600C266C5 /* AnalisInformationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C02E225E91AA600C266C5 /* AnalisInformationAPI.swift */; };
 		F51C02E825E91B1800C266C5 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C02E725E91B1800C266C5 /* File.swift */; };
-		F51C02EC25E92DA000C266C5 /* ChooseClinicViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51C02EB25E92DA000C266C5 /* ChooseClinicViewController.storyboard */; };
 		F51C16E725E4FB8E00231E6D /* AnalisInformationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C16E625E4FB8E00231E6D /* AnalisInformationModel.swift */; };
 		F51C16EB25E4FDCF00231E6D /* ClinicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C16EA25E4FDCF00231E6D /* ClinicModel.swift */; };
-		F51C16F025E5085600231E6D /* OrderServiceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51C16EF25E5085600231E6D /* OrderServiceViewController.storyboard */; };
 		F51C16F925E5472800231E6D /* OrderServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C16F825E5472800231E6D /* OrderServiceViewController.swift */; };
 		F51C16FD25E54B1E00231E6D /* PaymantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C16FC25E54B1E00231E6D /* PaymantCell.swift */; };
 		F51C170125E5569B00231E6D /* OrderServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51C170025E5569B00231E6D /* OrderServiceViewModel.swift */; };
@@ -421,8 +418,15 @@
 		F51DCC2A25EE718800626DF7 /* TableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCC2925EE718800626DF7 /* TableAdapter.swift */; };
 		F51DCC2D25EE71D400626DF7 /* TableAdapterSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCC2C25EE71D400626DF7 /* TableAdapterSection.swift */; };
 		F51DCC3025EE71EB00626DF7 /* TableAdapterBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51DCC2F25EE71EB00626DF7 /* TableAdapterBaseCell.swift */; };
-		F51DCC3925EE7BF500626DF7 /* ClinicTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51DCC3725EE7BF500626DF7 /* ClinicTableCell.xib */; };
 		F51F1E2A25EE231E00DEDE06 /* CancelOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F1E2925EE231E00DEDE06 /* CancelOrderViewController.swift */; };
+		F51F5DA625FB9F24001B4EC7 /* ChooseClinicViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51F5DA825FB9F24001B4EC7 /* ChooseClinicViewController.storyboard */; };
+		F51F5DB325FBA067001B4EC7 /* CancelOrderView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51F5DB525FBA067001B4EC7 /* CancelOrderView.storyboard */; };
+		F51F5DC025FBA0E0001B4EC7 /* OrderServiceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51F5DC225FBA0E0001B4EC7 /* OrderServiceViewController.storyboard */; };
+		F51F5DCC25FBA1AF001B4EC7 /* ClinicTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51F5DCE25FBA1AF001B4EC7 /* ClinicTableCell.xib */; };
+		F51F5DD825FBA1F8001B4EC7 /* AnalisInformationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51F5DDA25FBA1F8001B4EC7 /* AnalisInformationViewController.storyboard */; };
+		F51F5DE325FBA2EB001B4EC7 /* PaymendSuccessfullyAlertController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51F5DE525FBA2EB001B4EC7 /* PaymendSuccessfullyAlertController.storyboard */; };
+		F51F5DF125FBA66E001B4EC7 /* PromocodViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51F5DF325FBA66E001B4EC7 /* PromocodViewController.storyboard */; };
+		F51F5DFE25FBA77A001B4EC7 /* CancelOrderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51F5E0025FBA77A001B4EC7 /* CancelOrderViewController.storyboard */; };
 		F51F88C725DE747900C1A9ED /* TypeOfAnalysisCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F88C525DE747900C1A9ED /* TypeOfAnalysisCell.swift */; };
 		F51F88C825DE747900C1A9ED /* TypeOfAnalysisCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51F88C625DE747900C1A9ED /* TypeOfAnalysisCell.xib */; };
 		F51F88CB25DE8D3600C1A9ED /* AnalysisAndDiagnosticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F88CA25DE8D3600C1A9ED /* AnalysisAndDiagnosticsModel.swift */; };
@@ -449,7 +453,6 @@
 		F521BCFB25E0084900289081 /* DetailLaboratoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F521BCF925E0084900289081 /* DetailLaboratoryTableViewCell.xib */; };
 		F521BCFE25E00CE500289081 /* DetailLaboratoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F521BCFD25E00CE500289081 /* DetailLaboratoryModel.swift */; };
 		F522A09025F16AA300BEAC6D /* PromocodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F522A08F25F16AA200BEAC6D /* PromocodView.swift */; };
-		F522A09825F1891400BEAC6D /* PaymendSuccessfullyAlertController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F522A09725F1891400BEAC6D /* PaymendSuccessfullyAlertController.storyboard */; };
 		F522A09B25F18B0100BEAC6D /* PaymendSuccessfullyAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F522A09A25F18B0100BEAC6D /* PaymendSuccessfullyAlertController.swift */; };
 		F523E70825EFB0980029E84E /* CustomTextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F523E70725EFB0980029E84E /* CustomTextFieldView.xib */; };
 		F523E70B25EFB2340029E84E /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523E70A25EFB2340029E84E /* CustomTextFieldView.swift */; };
@@ -461,10 +464,7 @@
 		F528151F25E66CED007FC2FA /* AddPrivilegesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F528151E25E66CED007FC2FA /* AddPrivilegesViewController.storyboard */; };
 		F528152225E67090007FC2FA /* AddPrivilegesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F528152125E67090007FC2FA /* AddPrivilegesViewController.swift */; };
 		F528152525E677C8007FC2FA /* AddPrivilegesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F528152425E677C8007FC2FA /* AddPrivilegesModel.swift */; };
-		F52A8B2225F11C26005E8CFF /* PromocodViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52A8B2125F11C26005E8CFF /* PromocodViewController.storyboard */; };
 		F52A8B2525F121B2005E8CFF /* PromocodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52A8B2425F121B2005E8CFF /* PromocodViewController.swift */; };
-		F52D2CBC25E79AA900242A5B /* InformationAboutClicController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52D2CBB25E79AA900242A5B /* InformationAboutClicController.storyboard */; };
-		F53A07BD25F7704A0091C969 /* CancelOrderView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F53A07BC25F7704A0091C969 /* CancelOrderView.storyboard */; };
 		F53A07C025F77AA00091C969 /* CancelOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A07BF25F77AA00091C969 /* CancelOrderView.swift */; };
 		F53A07C325F77C760091C969 /* CancelOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A07C225F77C760091C969 /* CancelOrderViewModel.swift */; };
 		F53A07C725F78D290091C969 /* QuestionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F53A07C625F78D290091C969 /* QuestionViewController.storyboard */; };
@@ -484,18 +484,18 @@
 		F56E41E525ED134500599CAA /* MyOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E41E325ED134500599CAA /* MyOrderTableViewCell.swift */; };
 		F56E41E625ED134500599CAA /* MyOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F56E41E425ED134500599CAA /* MyOrderTableViewCell.xib */; };
 		F56E41ED25ED24E200599CAA /* MyOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E41EC25ED24E200599CAA /* MyOrderModel.swift */; };
-		F56E420B25ED375700599CAA /* CancelOrderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56E420A25ED375700599CAA /* CancelOrderViewController.storyboard */; };
 		F56E421425ED38DA00599CAA /* MyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E421325ED38DA00599CAA /* MyOrderViewController.swift */; };
 		F573A58F25F8984900B4CC4F /* DeliveryTutorialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F573A58E25F8984900B4CC4F /* DeliveryTutorialViewController.storyboard */; };
 		F573A59225F8985100B4CC4F /* DeliveryTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F573A59125F8985100B4CC4F /* DeliveryTutorialViewController.swift */; };
-		F580C0F925F955E200F8A5BC /* ChooseClinicOnMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F580C0F825F955E200F8A5BC /* ChooseClinicOnMap.storyboard */; };
 		F580C0FC25F955EB00F8A5BC /* ChooseClinicOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580C0FB25F955EB00F8A5BC /* ChooseClinicOnMap.swift */; };
 		F580C0FF25F9569300F8A5BC /* ChooseClinicOnMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F580C0FE25F9569300F8A5BC /* ChooseClinicOnMapViewModel.swift */; };
 		F589C6D125DEEC9F00CBBD99 /* LaboratoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6D025DEEC9F00CBBD99 /* LaboratoryModel.swift */; };
 		F589C6D725DEEEEC00CBBD99 /* LaboratoryListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6D625DEEEEC00CBBD99 /* LaboratoryListAPI.swift */; };
 		F589C6DC25DEEFC300CBBD99 /* LaboratoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6DB25DEEFC300CBBD99 /* LaboratoryResponse.swift */; };
 		F5B7B1E925FB946500C23CE7 /* PaymendSuccessfullyAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B7B1E825FB946500C23CE7 /* PaymendSuccessfullyAlertModel.swift */; };
-		F5F2C56025FA70C00082F0A5 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5F2C55F25FA70C00082F0A5 /* localize.strings */; };
+		F5B7B1FE25FB98E700C23CE7 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5B7B20025FB98E700C23CE7 /* localize.strings */; };
+		F5B7B20525FB9D0700C23CE7 /* InformationAboutClicController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B7B20725FB9D0700C23CE7 /* InformationAboutClicController.storyboard */; };
+		F5B7B20F25FB9DAE00C23CE7 /* ChooseClinicOnMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B7B21125FB9DAE00C23CE7 /* ChooseClinicOnMap.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -893,7 +893,6 @@
 		87A50B6D2527072800CF89CF /* ProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPI.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51BF7EA25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilLaboratorAPI.swift; sourceTree = "<group>"; };
-		F51BF7F225E3C869004BFBFD /* AnalisInformationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnalisInformationViewController.storyboard; sourceTree = "<group>"; };
 		F51BF7F725E40AAB004BFBFD /* AnalisInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalisInformationViewController.swift; sourceTree = "<group>"; };
 		F51BF7FF25E41A4C004BFBFD /* ClinicTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicTableCell.swift; sourceTree = "<group>"; };
 		F51C02CB25E8E4C500C266C5 /* InformationAboutClicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationAboutClicController.swift; sourceTree = "<group>"; };
@@ -903,10 +902,8 @@
 		F51C02DD25E9165C00C266C5 /* DeteilClinicInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilClinicInfoModel.swift; sourceTree = "<group>"; };
 		F51C02E225E91AA600C266C5 /* AnalisInformationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalisInformationAPI.swift; sourceTree = "<group>"; };
 		F51C02E725E91B1800C266C5 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		F51C02EB25E92DA000C266C5 /* ChooseClinicViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseClinicViewController.storyboard; sourceTree = "<group>"; };
 		F51C16E625E4FB8E00231E6D /* AnalisInformationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalisInformationModel.swift; sourceTree = "<group>"; };
 		F51C16EA25E4FDCF00231E6D /* ClinicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicModel.swift; sourceTree = "<group>"; };
-		F51C16EF25E5085600231E6D /* OrderServiceViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderServiceViewController.storyboard; sourceTree = "<group>"; };
 		F51C16F825E5472800231E6D /* OrderServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceViewController.swift; sourceTree = "<group>"; };
 		F51C16FC25E54B1E00231E6D /* PaymantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymantCell.swift; sourceTree = "<group>"; };
 		F51C170025E5569B00231E6D /* OrderServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderServiceViewModel.swift; sourceTree = "<group>"; };
@@ -916,8 +913,45 @@
 		F51DCC2925EE718800626DF7 /* TableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapter.swift; sourceTree = "<group>"; };
 		F51DCC2C25EE71D400626DF7 /* TableAdapterSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapterSection.swift; sourceTree = "<group>"; };
 		F51DCC2F25EE71EB00626DF7 /* TableAdapterBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapterBaseCell.swift; sourceTree = "<group>"; };
-		F51DCC3725EE7BF500626DF7 /* ClinicTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClinicTableCell.xib; sourceTree = "<group>"; };
 		F51F1E2925EE231E00DEDE06 /* CancelOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderViewController.swift; sourceTree = "<group>"; };
+		F51F5DA725FB9F24001B4EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ChooseClinicViewController.storyboard; sourceTree = "<group>"; };
+		F51F5DAB25FB9F54001B4EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ChooseClinicViewController.strings; sourceTree = "<group>"; };
+		F51F5DAE25FB9F85001B4EC7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/ChooseClinicViewController.strings; sourceTree = "<group>"; };
+		F51F5DB025FB9FBE001B4EC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ChooseClinicViewController.strings; sourceTree = "<group>"; };
+		F51F5DB225FBA02D001B4EC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ChooseClinicViewController.strings; sourceTree = "<group>"; };
+		F51F5DB425FBA067001B4EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CancelOrderView.storyboard; sourceTree = "<group>"; };
+		F51F5DB825FBA06B001B4EC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/CancelOrderView.strings; sourceTree = "<group>"; };
+		F51F5DBB25FBA080001B4EC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CancelOrderView.strings; sourceTree = "<group>"; };
+		F51F5DBD25FBA08B001B4EC7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/CancelOrderView.strings; sourceTree = "<group>"; };
+		F51F5DBF25FBA097001B4EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CancelOrderView.strings; sourceTree = "<group>"; };
+		F51F5DC125FBA0E0001B4EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OrderServiceViewController.storyboard; sourceTree = "<group>"; };
+		F51F5DC525FBA0F1001B4EC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/OrderServiceViewController.strings; sourceTree = "<group>"; };
+		F51F5DC725FBA124001B4EC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OrderServiceViewController.strings; sourceTree = "<group>"; };
+		F51F5DC925FBA127001B4EC7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/OrderServiceViewController.strings; sourceTree = "<group>"; };
+		F51F5DCB25FBA15F001B4EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrderServiceViewController.strings; sourceTree = "<group>"; };
+		F51F5DCD25FBA1AF001B4EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ClinicTableCell.xib; sourceTree = "<group>"; };
+		F51F5DD125FBA1B6001B4EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ClinicTableCell.strings; sourceTree = "<group>"; };
+		F51F5DD325FBA1C0001B4EC7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/ClinicTableCell.strings; sourceTree = "<group>"; };
+		F51F5DD525FBA1C6001B4EC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ClinicTableCell.strings; sourceTree = "<group>"; };
+		F51F5DD725FBA1D0001B4EC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ClinicTableCell.strings; sourceTree = "<group>"; };
+		F51F5DD925FBA1F8001B4EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AnalisInformationViewController.storyboard; sourceTree = "<group>"; };
+		F51F5DDC25FBA1FD001B4EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AnalisInformationViewController.strings; sourceTree = "<group>"; };
+		F51F5DDE25FBA22F001B4EC7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/AnalisInformationViewController.strings; sourceTree = "<group>"; };
+		F51F5DE025FBA24E001B4EC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AnalisInformationViewController.strings; sourceTree = "<group>"; };
+		F51F5DE225FBA283001B4EC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/AnalisInformationViewController.strings; sourceTree = "<group>"; };
+		F51F5DE425FBA2EB001B4EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PaymendSuccessfullyAlertController.storyboard; sourceTree = "<group>"; };
+		F51F5DE925FBA5D5001B4EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PaymendSuccessfullyAlertController.strings; sourceTree = "<group>"; };
+		F51F5DEB25FBA5D8001B4EC7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/PaymendSuccessfullyAlertController.strings; sourceTree = "<group>"; };
+		F51F5DEE25FBA617001B4EC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PaymendSuccessfullyAlertController.strings; sourceTree = "<group>"; };
+		F51F5DF025FBA61D001B4EC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/PaymendSuccessfullyAlertController.strings; sourceTree = "<group>"; };
+		F51F5DF225FBA66E001B4EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PromocodViewController.storyboard; sourceTree = "<group>"; };
+		F51F5DF625FBA673001B4EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PromocodViewController.strings; sourceTree = "<group>"; };
+		F51F5DF825FBA677001B4EC7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/PromocodViewController.strings; sourceTree = "<group>"; };
+		F51F5DFA25FBA68E001B4EC7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PromocodViewController.strings; sourceTree = "<group>"; };
+		F51F5DFC25FBA691001B4EC7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/PromocodViewController.strings; sourceTree = "<group>"; };
+		F51F5DFF25FBA77A001B4EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CancelOrderViewController.storyboard; sourceTree = "<group>"; };
+		F51F5E0225FBA7AD001B4EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CancelOrderViewController.strings; sourceTree = "<group>"; };
+		F51F5E0525FBA7DF001B4EC7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/CancelOrderViewController.strings; sourceTree = "<group>"; };
 		F51F88C525DE747900C1A9ED /* TypeOfAnalysisCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfAnalysisCell.swift; sourceTree = "<group>"; };
 		F51F88C625DE747900C1A9ED /* TypeOfAnalysisCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeOfAnalysisCell.xib; sourceTree = "<group>"; };
 		F51F88CA25DE8D3600C1A9ED /* AnalysisAndDiagnosticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisAndDiagnosticsModel.swift; sourceTree = "<group>"; };
@@ -944,7 +978,6 @@
 		F521BCF925E0084900289081 /* DetailLaboratoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailLaboratoryTableViewCell.xib; sourceTree = "<group>"; };
 		F521BCFD25E00CE500289081 /* DetailLaboratoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLaboratoryModel.swift; sourceTree = "<group>"; };
 		F522A08F25F16AA200BEAC6D /* PromocodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodView.swift; sourceTree = "<group>"; };
-		F522A09725F1891400BEAC6D /* PaymendSuccessfullyAlertController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymendSuccessfullyAlertController.storyboard; sourceTree = "<group>"; };
 		F522A09A25F18B0100BEAC6D /* PaymendSuccessfullyAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymendSuccessfullyAlertController.swift; sourceTree = "<group>"; };
 		F523E70725EFB0980029E84E /* CustomTextFieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextFieldView.xib; sourceTree = "<group>"; };
 		F523E70A25EFB2340029E84E /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
@@ -956,10 +989,7 @@
 		F528151E25E66CED007FC2FA /* AddPrivilegesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddPrivilegesViewController.storyboard; sourceTree = "<group>"; };
 		F528152125E67090007FC2FA /* AddPrivilegesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPrivilegesViewController.swift; sourceTree = "<group>"; };
 		F528152425E677C8007FC2FA /* AddPrivilegesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPrivilegesModel.swift; sourceTree = "<group>"; };
-		F52A8B2125F11C26005E8CFF /* PromocodViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PromocodViewController.storyboard; sourceTree = "<group>"; };
 		F52A8B2425F121B2005E8CFF /* PromocodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromocodViewController.swift; sourceTree = "<group>"; };
-		F52D2CBB25E79AA900242A5B /* InformationAboutClicController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InformationAboutClicController.storyboard; sourceTree = "<group>"; };
-		F53A07BC25F7704A0091C969 /* CancelOrderView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CancelOrderView.storyboard; sourceTree = "<group>"; };
 		F53A07BF25F77AA00091C969 /* CancelOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderView.swift; sourceTree = "<group>"; };
 		F53A07C225F77C760091C969 /* CancelOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderViewModel.swift; sourceTree = "<group>"; };
 		F53A07C625F78D290091C969 /* QuestionViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QuestionViewController.storyboard; sourceTree = "<group>"; };
@@ -979,18 +1009,29 @@
 		F56E41E325ED134500599CAA /* MyOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderTableViewCell.swift; sourceTree = "<group>"; };
 		F56E41E425ED134500599CAA /* MyOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrderTableViewCell.xib; sourceTree = "<group>"; };
 		F56E41EC25ED24E200599CAA /* MyOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderModel.swift; sourceTree = "<group>"; };
-		F56E420A25ED375700599CAA /* CancelOrderViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CancelOrderViewController.storyboard; sourceTree = "<group>"; };
 		F56E421325ED38DA00599CAA /* MyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderViewController.swift; sourceTree = "<group>"; };
 		F573A58E25F8984900B4CC4F /* DeliveryTutorialViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeliveryTutorialViewController.storyboard; sourceTree = "<group>"; };
 		F573A59125F8985100B4CC4F /* DeliveryTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTutorialViewController.swift; sourceTree = "<group>"; };
-		F580C0F825F955E200F8A5BC /* ChooseClinicOnMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChooseClinicOnMap.storyboard; sourceTree = "<group>"; };
 		F580C0FB25F955EB00F8A5BC /* ChooseClinicOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseClinicOnMap.swift; sourceTree = "<group>"; };
 		F580C0FE25F9569300F8A5BC /* ChooseClinicOnMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseClinicOnMapViewModel.swift; sourceTree = "<group>"; };
 		F589C6D025DEEC9F00CBBD99 /* LaboratoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryModel.swift; sourceTree = "<group>"; };
 		F589C6D625DEEEEC00CBBD99 /* LaboratoryListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryListAPI.swift; sourceTree = "<group>"; };
 		F589C6DB25DEEFC300CBBD99 /* LaboratoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryResponse.swift; sourceTree = "<group>"; };
 		F5B7B1E825FB946500C23CE7 /* PaymendSuccessfullyAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymendSuccessfullyAlertModel.swift; sourceTree = "<group>"; };
-		F5F2C55F25FA70C00082F0A5 /* localize.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = localize.strings; sourceTree = "<group>"; };
+		F5B7B1FA25FB98BC00C23CE7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F5B7B1FC25FB98CF00C23CE7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F5B7B1FD25FB98D500C23CE7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F5B7B1FF25FB98E700C23CE7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/localize.strings; sourceTree = "<group>"; };
+		F5B7B20125FB98EB00C23CE7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/localize.strings; sourceTree = "<group>"; };
+		F5B7B20225FB98EC00C23CE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/localize.strings; sourceTree = "<group>"; };
+		F5B7B20325FB98ED00C23CE7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/localize.strings; sourceTree = "<group>"; };
+		F5B7B20625FB9D0700C23CE7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = uk; path = uk.lproj/InformationAboutClicController.storyboard; sourceTree = "<group>"; };
+		F5B7B20A25FB9D1700C23CE7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InformationAboutClicController.strings; sourceTree = "<group>"; };
+		F5B7B20C25FB9D1900C23CE7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/InformationAboutClicController.strings; sourceTree = "<group>"; };
+		F5B7B20E25FB9D1A00C23CE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InformationAboutClicController.strings; sourceTree = "<group>"; };
+		F5B7B21025FB9DAE00C23CE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ChooseClinicOnMap.storyboard; sourceTree = "<group>"; };
+		F5B7B21425FB9DB400C23CE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ChooseClinicOnMap.strings; sourceTree = "<group>"; };
+		F5CF491625FB9DF5005542C3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ChooseClinicOnMap.strings; sourceTree = "<group>"; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1285,8 +1326,9 @@
 		395C9D682498E28A001EB6CD /* Localize */ = {
 			isa = PBXGroup;
 			children = (
+				F5B7B1F925FB989300C23CE7 /* ru.lproj */,
 				F5F2C55E25FA70C00082F0A5 /* en.lproj */,
-				F5F2C55F25FA70C00082F0A5 /* localize.strings */,
+				F5B7B20025FB98E700C23CE7 /* localize.strings */,
 			);
 			path = Localize;
 			sourceTree = "<group>";
@@ -2673,7 +2715,7 @@
 				F51C02E125E91A9D00C266C5 /* API */,
 				F51C16E925E4FDB700231E6D /* Model */,
 				F51BF7FE25E41A44004BFBFD /* Cell */,
-				F51BF7F225E3C869004BFBFD /* AnalisInformationViewController.storyboard */,
+				F51F5DDA25FBA1F8001B4EC7 /* AnalisInformationViewController.storyboard */,
 				F51BF7F725E40AAB004BFBFD /* AnalisInformationViewController.swift */,
 				F51C16E625E4FB8E00231E6D /* AnalisInformationModel.swift */,
 			);
@@ -2684,7 +2726,7 @@
 			isa = PBXGroup;
 			children = (
 				F51BF7FF25E41A4C004BFBFD /* ClinicTableCell.swift */,
-				F51DCC3725EE7BF500626DF7 /* ClinicTableCell.xib */,
+				F51F5DCE25FBA1AF001B4EC7 /* ClinicTableCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2727,7 +2769,7 @@
 			children = (
 				F56E41D325ECF06A00599CAA /* API */,
 				F549F36525EC26EC008749BD /* ClinicsListController */,
-				F51C02EB25E92DA000C266C5 /* ChooseClinicViewController.storyboard */,
+				F51F5DA825FB9F24001B4EC7 /* ChooseClinicViewController.storyboard */,
 				F549F37125EC295D008749BD /* ChooseClinicViewController.swift */,
 			);
 			path = ChooseClinic;
@@ -2747,7 +2789,7 @@
 				F53A07BB25F7702F0091C969 /* CancelOrderView */,
 				F523E70D25EFD4120029E84E /* Model */,
 				F51C16FB25E54AF700231E6D /* Cell */,
-				F51C16EF25E5085600231E6D /* OrderServiceViewController.storyboard */,
+				F51F5DC225FBA0E0001B4EC7 /* OrderServiceViewController.storyboard */,
 				F51C16F825E5472800231E6D /* OrderServiceViewController.swift */,
 				F51C170025E5569B00231E6D /* OrderServiceViewModel.swift */,
 			);
@@ -2911,7 +2953,7 @@
 		F522A09625F188F200BEAC6D /* PaymendSuccessfullyAlert */ = {
 			isa = PBXGroup;
 			children = (
-				F522A09725F1891400BEAC6D /* PaymendSuccessfullyAlertController.storyboard */,
+				F51F5DE525FBA2EB001B4EC7 /* PaymendSuccessfullyAlertController.storyboard */,
 				F522A09A25F18B0100BEAC6D /* PaymendSuccessfullyAlertController.swift */,
 				F5B7B1E825FB946500C23CE7 /* PaymendSuccessfullyAlertModel.swift */,
 			);
@@ -2979,7 +3021,7 @@
 		F52A8B1F25F11C06005E8CFF /* Promocod */ = {
 			isa = PBXGroup;
 			children = (
-				F52A8B2125F11C26005E8CFF /* PromocodViewController.storyboard */,
+				F51F5DF325FBA66E001B4EC7 /* PromocodViewController.storyboard */,
 				F52A8B2425F121B2005E8CFF /* PromocodViewController.swift */,
 				F522A08F25F16AA200BEAC6D /* PromocodView.swift */,
 			);
@@ -2990,7 +3032,7 @@
 			isa = PBXGroup;
 			children = (
 				F51C02D525E8FB3E00C266C5 /* DataSource */,
-				F52D2CBB25E79AA900242A5B /* InformationAboutClicController.storyboard */,
+				F5B7B20725FB9D0700C23CE7 /* InformationAboutClicController.storyboard */,
 				F51C02CB25E8E4C500C266C5 /* InformationAboutClicController.swift */,
 				F51C02CE25E8E5B700C266C5 /* InformationAboutClicModel.swift */,
 			);
@@ -3000,7 +3042,7 @@
 		F53A07BB25F7702F0091C969 /* CancelOrderView */ = {
 			isa = PBXGroup;
 			children = (
-				F53A07BC25F7704A0091C969 /* CancelOrderView.storyboard */,
+				F51F5DB525FBA067001B4EC7 /* CancelOrderView.storyboard */,
 				F53A07BF25F77AA00091C969 /* CancelOrderView.swift */,
 				F53A07C225F77C760091C969 /* CancelOrderViewModel.swift */,
 			);
@@ -3090,7 +3132,7 @@
 		F56E420825ED356400599CAA /* CancelOrder */ = {
 			isa = PBXGroup;
 			children = (
-				F56E420A25ED375700599CAA /* CancelOrderViewController.storyboard */,
+				F51F5E0025FBA77A001B4EC7 /* CancelOrderViewController.storyboard */,
 				F51F1E2925EE231E00DEDE06 /* CancelOrderViewController.swift */,
 				F51D898C25F237AB003B91BB /* CancelOrderModel.swift */,
 			);
@@ -3109,7 +3151,7 @@
 		F580C0F725F955C000F8A5BC /* ChooseClinicOnMap */ = {
 			isa = PBXGroup;
 			children = (
-				F580C0F825F955E200F8A5BC /* ChooseClinicOnMap.storyboard */,
+				F5B7B21125FB9DAE00C23CE7 /* ChooseClinicOnMap.storyboard */,
 				F580C0FB25F955EB00F8A5BC /* ChooseClinicOnMap.swift */,
 				F580C0FE25F9569300F8A5BC /* ChooseClinicOnMapViewModel.swift */,
 			);
@@ -3122,6 +3164,13 @@
 				F589C6D625DEEEEC00CBBD99 /* LaboratoryListAPI.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		F5B7B1F925FB989300C23CE7 /* ru.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ru.lproj;
 			sourceTree = "<group>";
 		};
 		F5F2C55E25FA70C00082F0A5 /* en.lproj */ = {
@@ -3178,6 +3227,9 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				kk,
+				uk,
 			);
 			mainGroup = 396C45AC2497699800A569CE;
 			productRefGroup = 396C45B62497699800A569CE /* Products */;
@@ -3194,7 +3246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F51C02EC25E92DA000C266C5 /* ChooseClinicViewController.storyboard in Resources */,
+				F51F5DA625FB9F24001B4EC7 /* ChooseClinicViewController.storyboard in Resources */,
 				F5205C8C25F8C4B2005FD6EB /* LanguageViewController.storyboard in Resources */,
 				398B0DE124F50AD60084EC54 /* UserMarkerView.xib in Resources */,
 				4D8BCF6B254891A40094C43C /* InDevelopment.storyboard in Resources */,
@@ -3230,7 +3282,7 @@
 				61CFAA99254C2C1700569DEF /* DeliveryAddressCell.xib in Resources */,
 				87131D3A25137B910050B8F2 /* RecentsHeaderView.xib in Resources */,
 				603D318D24E2A269000E5A6C /* ReceiptView.xib in Resources */,
-				F51C16F025E5085600231E6D /* OrderServiceViewController.storyboard in Resources */,
+				F51F5DC025FBA0E0001B4EC7 /* OrderServiceViewController.storyboard in Resources */,
 				61D90F95255DCF3400AE6124 /* ReceiptCell.xib in Resources */,
 				608E3AFD2551D47000AEE56C /* ChatButtonCollectionViewCell.xib in Resources */,
 				6075BD4E24DEA7FB00BC78BD /* OpenSans-SemiBold.ttf in Resources */,
@@ -3250,14 +3302,14 @@
 				393DDFBE250286C500652A01 /* RegionCell.xib in Resources */,
 				24F5FD42254A0BAF00D28275 /* ChooseLocationViewController.storyboard in Resources */,
 				6036EB0324DD27A5003336C2 /* Search.storyboard in Resources */,
-				F51DCC3925EE7BF500626DF7 /* ClinicTableCell.xib in Resources */,
+				F51F5DCC25FBA1AF001B4EC7 /* ClinicTableCell.xib in Resources */,
 				603D31BD24E57871000E5A6C /* Product.storyboard in Resources */,
 				618C33A12498BE4A00951D11 /* Auth.storyboard in Resources */,
 				6036EAF124DD1A81003336C2 /* Catalogue.storyboard in Resources */,
 				61CFAA8A254B214400569DEF /* OrderDeliveryCell.xib in Resources */,
 				F521BCEA25DFBC8A00289081 /* DetailLaboratoryController.storyboard in Resources */,
 				F523E70825EFB0980029E84E /* CustomTextFieldView.xib in Resources */,
-				F580C0F925F955E200F8A5BC /* ChooseClinicOnMap.storyboard in Resources */,
+				F5B7B20F25FB9DAE00C23CE7 /* ChooseClinicOnMap.storyboard in Resources */,
 				6184730A2549A0C80062D8B9 /* CartSectionHeader.xib in Resources */,
 				F521BCFB25E0084900289081 /* DetailLaboratoryTableViewCell.xib in Resources */,
 				393D3CDB24FD33BD00E8181F /* PaymentMethodView.xib in Resources */,
@@ -3268,13 +3320,13 @@
 				603D31F324E5A9F7000E5A6C /* ProductAdviceTableViewCell.xib in Resources */,
 				396C45C52497699900A569CE /* LaunchScreen.storyboard in Resources */,
 				394EBEE924FF904100C89970 /* MedicineView.xib in Resources */,
-				F51BF7F325E3C869004BFBFD /* AnalisInformationViewController.storyboard in Resources */,
+				F51F5DD825FBA1F8001B4EC7 /* AnalisInformationViewController.storyboard in Resources */,
 				60383A35255B2C6900654C1A /* ChatGalleryCollectionViewCell.xib in Resources */,
 				F51F88E325DED60600C1A9ED /* LaboratoryViewController.storyboard in Resources */,
 				61CFAAA9254C3CB700569DEF /* OrderCommentCell.xib in Resources */,
 				F528151025E64E1A007FC2FA /* PrivilegesViewController.storyboard in Resources */,
 				87131D2A250A04490050B8F2 /* SearchBar.xib in Resources */,
-				F56E420B25ED375700599CAA /* CancelOrderViewController.storyboard in Resources */,
+				F51F5DFE25FBA77A001B4EC7 /* CancelOrderViewController.storyboard in Resources */,
 				6075BD4424DEA6E100BC78BD /* OpenSans-Bold.ttf in Resources */,
 				396C45C22497699900A569CE /* Assets.xcassets in Resources */,
 				F53A07C725F78D290091C969 /* QuestionViewController.storyboard in Resources */,
@@ -3287,15 +3339,15 @@
 				F5205C9525F8C6A5005FD6EB /* LanguageTableViewCell.xib in Resources */,
 				398B0DD924F50A630084EC54 /* FarmacyPinView.xib in Resources */,
 				395A7FC624A3980D00A7CFC6 /* NameTableViewCell.xib in Resources */,
-				F52D2CBC25E79AA900242A5B /* InformationAboutClicController.storyboard in Resources */,
+				F5B7B20525FB9D0700C23CE7 /* InformationAboutClicController.storyboard in Resources */,
 				61CFAA562549EB7200569DEF /* EmptyUserCell.xib in Resources */,
 				603D31DC24E5A88C000E5A6C /* ProductAnalogTableViewCell.xib in Resources */,
-				F522A09825F1891400BEAC6D /* PaymendSuccessfullyAlertController.storyboard in Resources */,
+				F51F5DE325FBA2EB001B4EC7 /* PaymendSuccessfullyAlertController.storyboard in Resources */,
 				F56E41E625ED134500599CAA /* MyOrderTableViewCell.xib in Resources */,
 				6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */,
 				60289A53254AF5FB00F6A503 /* SubcategoryTableViewCell.xib in Resources */,
 				395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */,
-				F53A07BD25F7704A0091C969 /* CancelOrderView.storyboard in Resources */,
+				F51F5DB325FBA067001B4EC7 /* CancelOrderView.storyboard in Resources */,
 				F53A07D325F7951A0091C969 /* QuestionCell.xib in Resources */,
 				24567C112550121B001CF931 /* ChooseDeliveryAdressViewController.storyboard in Resources */,
 				F573A58F25F8984900B4CC4F /* DeliveryTutorialViewController.storyboard in Resources */,
@@ -3304,8 +3356,8 @@
 				393DDFC42502954200652A01 /* RegionHeaderCell.xib in Resources */,
 				60E1A6F524EB8C5E00B3D205 /* SearchTableViewCell.xib in Resources */,
 				61CFAA84254B1AB800569DEF /* CreateOrderContactInfoCell.xib in Resources */,
-				F52A8B2225F11C26005E8CFF /* PromocodViewController.storyboard in Resources */,
-				F5F2C56025FA70C00082F0A5 /* localize.strings in Resources */,
+				F51F5DF125FBA66E001B4EC7 /* PromocodViewController.storyboard in Resources */,
+				F5B7B1FE25FB98E700C23CE7 /* localize.strings in Resources */,
 				F528151F25E66CED007FC2FA /* AddPrivilegesViewController.storyboard in Resources */,
 				F53A07DA25F7B50A0091C969 /* ConnectWithUsController.storyboard in Resources */,
 			);
@@ -3797,8 +3849,137 @@
 			isa = PBXVariantGroup;
 			children = (
 				396C45C42497699900A569CE /* Base */,
+				F5B7B1FA25FB98BC00C23CE7 /* ru */,
+				F5B7B1FC25FB98CF00C23CE7 /* kk */,
+				F5B7B1FD25FB98D500C23CE7 /* uk */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F51F5DA825FB9F24001B4EC7 /* ChooseClinicViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F51F5DA725FB9F24001B4EC7 /* Base */,
+				F51F5DAB25FB9F54001B4EC7 /* en */,
+				F51F5DAE25FB9F85001B4EC7 /* kk */,
+				F51F5DB025FB9FBE001B4EC7 /* ru */,
+				F51F5DB225FBA02D001B4EC7 /* uk */,
+			);
+			name = ChooseClinicViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		F51F5DB525FBA067001B4EC7 /* CancelOrderView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F51F5DB425FBA067001B4EC7 /* Base */,
+				F51F5DB825FBA06B001B4EC7 /* uk */,
+				F51F5DBB25FBA080001B4EC7 /* ru */,
+				F51F5DBD25FBA08B001B4EC7 /* kk */,
+				F51F5DBF25FBA097001B4EC7 /* en */,
+			);
+			name = CancelOrderView.storyboard;
+			sourceTree = "<group>";
+		};
+		F51F5DC225FBA0E0001B4EC7 /* OrderServiceViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F51F5DC125FBA0E0001B4EC7 /* Base */,
+				F51F5DC525FBA0F1001B4EC7 /* uk */,
+				F51F5DC725FBA124001B4EC7 /* ru */,
+				F51F5DC925FBA127001B4EC7 /* kk */,
+				F51F5DCB25FBA15F001B4EC7 /* en */,
+			);
+			name = OrderServiceViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		F51F5DCE25FBA1AF001B4EC7 /* ClinicTableCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F51F5DCD25FBA1AF001B4EC7 /* Base */,
+				F51F5DD125FBA1B6001B4EC7 /* en */,
+				F51F5DD325FBA1C0001B4EC7 /* kk */,
+				F51F5DD525FBA1C6001B4EC7 /* ru */,
+				F51F5DD725FBA1D0001B4EC7 /* uk */,
+			);
+			name = ClinicTableCell.xib;
+			sourceTree = "<group>";
+		};
+		F51F5DDA25FBA1F8001B4EC7 /* AnalisInformationViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F51F5DD925FBA1F8001B4EC7 /* Base */,
+				F51F5DDC25FBA1FD001B4EC7 /* en */,
+				F51F5DDE25FBA22F001B4EC7 /* kk */,
+				F51F5DE025FBA24E001B4EC7 /* ru */,
+				F51F5DE225FBA283001B4EC7 /* uk */,
+			);
+			name = AnalisInformationViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		F51F5DE525FBA2EB001B4EC7 /* PaymendSuccessfullyAlertController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F51F5DE425FBA2EB001B4EC7 /* Base */,
+				F51F5DE925FBA5D5001B4EC7 /* en */,
+				F51F5DEB25FBA5D8001B4EC7 /* kk */,
+				F51F5DEE25FBA617001B4EC7 /* ru */,
+				F51F5DF025FBA61D001B4EC7 /* uk */,
+			);
+			name = PaymendSuccessfullyAlertController.storyboard;
+			sourceTree = "<group>";
+		};
+		F51F5DF325FBA66E001B4EC7 /* PromocodViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F51F5DF225FBA66E001B4EC7 /* Base */,
+				F51F5DF625FBA673001B4EC7 /* en */,
+				F51F5DF825FBA677001B4EC7 /* kk */,
+				F51F5DFA25FBA68E001B4EC7 /* ru */,
+				F51F5DFC25FBA691001B4EC7 /* uk */,
+			);
+			name = PromocodViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		F51F5E0025FBA77A001B4EC7 /* CancelOrderViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F51F5DFF25FBA77A001B4EC7 /* Base */,
+				F51F5E0225FBA7AD001B4EC7 /* en */,
+				F51F5E0525FBA7DF001B4EC7 /* kk */,
+			);
+			name = CancelOrderViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		F5B7B20025FB98E700C23CE7 /* localize.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5B7B1FF25FB98E700C23CE7 /* ru */,
+				F5B7B20125FB98EB00C23CE7 /* kk */,
+				F5B7B20225FB98EC00C23CE7 /* en */,
+				F5B7B20325FB98ED00C23CE7 /* uk */,
+			);
+			name = localize.strings;
+			sourceTree = "<group>";
+		};
+		F5B7B20725FB9D0700C23CE7 /* InformationAboutClicController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5B7B20625FB9D0700C23CE7 /* uk */,
+				F5B7B20A25FB9D1700C23CE7 /* ru */,
+				F5B7B20C25FB9D1900C23CE7 /* kk */,
+				F5B7B20E25FB9D1A00C23CE7 /* en */,
+			);
+			name = InformationAboutClicController.storyboard;
+			sourceTree = "<group>";
+		};
+		F5B7B21125FB9DAE00C23CE7 /* ChooseClinicOnMap.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5B7B21025FB9DAE00C23CE7 /* Base */,
+				F5B7B21425FB9DB400C23CE7 /* en */,
+				F5CF491625FB9DF5005542C3 /* ru */,
+			);
+			name = ChooseClinicOnMap.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -3808,6 +3989,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -3869,6 +4051,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

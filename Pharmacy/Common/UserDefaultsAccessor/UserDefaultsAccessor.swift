@@ -55,7 +55,6 @@ extension UserDefaultsAccessor {
         let userIdentifier: Int
         let regionId: Int
         let regionName: String
-        let languageName: String
         
         // MARK: - Init / Deinit methods
         private init() {
@@ -85,8 +84,6 @@ extension PartialKeyPath where Root == UserDefaultsAccessor.StoredValue {
             return "regionId"
         case \UserDefaultsAccessor.StoredValue.regionName:
             return "regionName"
-        case \UserDefaultsAccessor.StoredValue.languageName:
-            return "languageName"
         default:
             fatalError("Unexpected key path")
         }

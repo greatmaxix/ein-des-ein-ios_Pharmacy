@@ -28,7 +28,7 @@ class LaboratoryViewController: UIViewController, NavigationBarStyled {
     }
     
     private func configUI() {
-        title = "Лабараторные"
+        title = R.string.localize.analisisChoseClinickLaboratorniy()
         tableView?.separatorStyle = .none
         tableView?.delegate = self
         tableView?.dataSource = self

@@ -82,10 +82,10 @@
     </objects>
     <designables>
         <designable name="5gc-Re-9yL">
-            <size key="intrinsicContentSize" width="86" height="32"/>
+            <size key="intrinsicContentSize" width="84" height="29"/>
         </designable>
         <designable name="O9d-xM-hY4">
-            <size key="intrinsicContentSize" width="103" height="32"/>
+            <size key="intrinsicContentSize" width="98" height="29"/>
         </designable>
     </designables>
     <resources>

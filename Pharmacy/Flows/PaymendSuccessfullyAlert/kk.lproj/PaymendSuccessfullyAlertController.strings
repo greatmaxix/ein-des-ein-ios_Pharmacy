@@ -1,0 +1,9 @@
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "9UP-hx-54E"; */
+"9UP-hx-54E.normalTitle" = "OK";
+
+/* Class = "UILabel"; text = "Для подтверждения записи дождитесь звонка оператора"; ObjectID = "dna-GH-sLi"; */
+"dna-GH-sLi.text" = "Для подтверждения записи дождитесь звонка оператора";
+
+/* Class = "UILabel"; text = "Ваша заявка принята!"; ObjectID = "eV5-oG-ol2"; */
+"eV5-oG-ol2.text" = "Ваша заявка принята!";

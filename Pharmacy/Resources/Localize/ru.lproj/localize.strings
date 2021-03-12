@@ -282,4 +282,8 @@
 "delivery.streenAndCityValidation" = "Поле должно содержать не менее 2 букв";
 "delivery.houseValidation" = "квартира должна быть от 1 до 1000";
 
+// MARK: - Analisis
 
+"analisis.title.inforAoutClinic" = "Инвитро";
+"analisis.title.choseClinick" = "Выбор клиники";
+"analisis.choseClinick.addToBusket" = "Товар успешно добавлен в корзину!";

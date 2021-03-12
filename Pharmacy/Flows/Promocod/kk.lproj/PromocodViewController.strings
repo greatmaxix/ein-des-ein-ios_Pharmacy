@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "Отмена"; ObjectID = "Ak4-Av-Jlq"; */
+"Ak4-Av-Jlq.normalTitle" = "Отмена";
+
+/* Class = "UIButton"; normalTitle = "Применить"; ObjectID = "Jmo-1R-ML5"; */
+"Jmo-1R-ML5.normalTitle" = "Применить";
+
+/* Class = "UILabel"; text = "Промокод"; ObjectID = "W6J-cO-9rD"; */
+"W6J-cO-9rD.text" = "Промокод";
+
+/* Class = "UILabel"; text = "A short, complete sentence that takes up the first and the second line."; ObjectID = "aP5-pt-5Aw"; */
+"aP5-pt-5Aw.text" = "A short, complete sentence that takes up the first and the second line.";
+
+/* Class = "UITextField"; placeholder = "Промокод"; ObjectID = "b1s-6o-29X"; */
+"b1s-6o-29X.placeholder" = "Промокод";

@@ -30,10 +30,10 @@ class QuestionViewController: UIViewController, NavigationBarStyled {
     }
     
     @IBAction func callAction(_ sender: Any) {
-        if let url = URL(string: "tel://\(7178881234)"), UIApplication.shared.canOpenURL(url as URL) {
+        let phoneNumber: String = "telprompt://" + "+380679264663"
+        let url = URL(string: phoneNumber)!
+  
             UIApplication.shared.open(url, options: [:])
-        }
-        
     }
     
     

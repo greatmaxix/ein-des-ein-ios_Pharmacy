@@ -58,7 +58,7 @@ extension LanguageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: LanguageTableViewCell.self)
         let model = self.model.languageList[indexPath.row]
-        cell.apply(languageModel: model, selected: UserDefaultsAccessor.languageName == model.languageName)
+        cell.apply(languageModel: model, selected: false)
         
         return cell
     }

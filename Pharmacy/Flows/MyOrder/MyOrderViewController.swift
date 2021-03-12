@@ -43,7 +43,7 @@ class MyOrderViewController: UIViewController, NavigationBarStyled {
     private func setupUI() {
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.barDelegate = self
-            bar.title = "Анализы"
+            bar.title = R.string.localize.profileAnalize()
             bar.isLeftItemHidden = false
         }
     }
@@ -69,9 +69,7 @@ extension MyOrderViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: MyOrderTableViewCell.self)
         cell.apply()
-//        let model = self.types[indexPath.row]
-       // cell.apply(analisName: model.)
-//
+        
         return cell
     }
 }

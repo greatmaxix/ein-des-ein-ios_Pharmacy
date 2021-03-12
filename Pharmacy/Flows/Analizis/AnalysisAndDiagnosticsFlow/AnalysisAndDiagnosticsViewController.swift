@@ -75,7 +75,7 @@ class AnalysisAndDiagnostics: UIViewController {
     }
     
     private func setupUI() {
-        self.title = "Анализы"
+        self.title = R.string.localize.profileAnalize()
     }
 }
 

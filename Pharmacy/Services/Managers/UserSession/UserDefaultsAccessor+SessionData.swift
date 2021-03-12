@@ -39,16 +39,6 @@ extension UserDefaultsAccessor: UserSessionDataAccessible {
         }
     }
     
-    static var languageName: String? {
-        get {
-            UserDefaultsAccessor.value(for: \.languageName)
-        }
-        set {
-            if let name = newValue {
-                UserDefaultsAccessor.write(value: name, for: \.languageName)}
-        }
-    }
-    
     static func removeUserId() {
         UserDefaultsAccessor.removeValue(for: \.userIdentifier)
     }

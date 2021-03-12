@@ -54,10 +54,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vP-5C-xi4">
-                                <rect key="frame" x="0.0" y="345.5" width="414" height="550.5"/>
+                                <rect key="frame" x="0.0" y="354" width="414" height="542"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXb-jq-GM8" userLabel="TapView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="550.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="542"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -65,7 +65,7 @@
                                         </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tI-Nf-2u3">
-                                        <rect key="frame" x="137.5" y="470.5" width="139" height="48"/>
+                                        <rect key="frame" x="139" y="462" width="136" height="48"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="bA7-z1-ASI"/>
                                         </constraints>
@@ -76,7 +76,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfL-UD-GSW" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="404.5" width="366" height="48"/>
+                                        <rect key="frame" x="24" y="396" width="366" height="48"/>
                                         <color key="backgroundColor" name="mediumGrey"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="48" id="gmH-p5-cmX"/>
@@ -98,19 +98,19 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Как прошла консультация?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tER-p6-y1r">
-                                        <rect key="frame" x="20" y="20" width="374" height="22"/>
+                                        <rect key="frame" x="20" y="20" width="374" height="19"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" name="textDarkBlue"/>
                                         <color key="highlightedColor" name="textDarkBlue"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Насколько фармацевт был заинтересован в решении Вашего вопроса?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQb-kW-04L">
-                                        <rect key="frame" x="22" y="42" width="370" height="38.5"/>
+                                        <rect key="frame" x="22" y="39" width="370" height="33"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" name="textDarkBlue"/>
                                         <color key="highlightedColor" name="textDarkBlue"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mbD-9z-I5G">
-                                        <rect key="frame" x="0.0" y="100.5" width="414" height="274"/>
+                                        <rect key="frame" x="0.0" y="92" width="414" height="274"/>
                                         <subviews>
                                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0J-qw-c1G" userLabel="CommentsView">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="234"/>
@@ -145,7 +145,7 @@
                                                         </connections>
                                                     </textView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оставить комментарий" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9v-1o-9xo">
-                                                        <rect key="frame" x="37" y="174" width="161" height="19.5"/>
+                                                        <rect key="frame" x="37" y="174" width="154" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                                                         <color key="textColor" name="textDarkBlue"/>
                                                         <nil key="highlightedColor"/>
@@ -344,7 +344,7 @@
     </scenes>
     <designables>
         <designable name="YfL-UD-GSW">
-            <size key="intrinsicContentSize" width="44" height="33"/>
+            <size key="intrinsicContentSize" width="44" height="30"/>
         </designable>
     </designables>
     <resources>

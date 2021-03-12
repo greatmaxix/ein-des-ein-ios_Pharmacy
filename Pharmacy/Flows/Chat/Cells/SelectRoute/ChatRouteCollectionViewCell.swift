@@ -51,6 +51,12 @@ class ChatRouteCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        confirmButton.setTitle(R.string.localize.loginApply(), for: .normal)
+    }
+    
     @IBAction func doctorPressed(_ sender: UIButton) {
         selecetedRoute = .doctor
     }

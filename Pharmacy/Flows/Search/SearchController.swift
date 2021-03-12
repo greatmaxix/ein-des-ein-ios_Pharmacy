@@ -13,7 +13,7 @@ class SearchController: UISearchController {
     override init(searchResultsController: UIViewController?) {
         super.init(searchResultsController: searchResultsController)
         setupSearchBar()
-        searchBar.placeholder = "Поиск"
+        searchBar.placeholder = R.string.localize.basketEmptyButton()
     }
     
     required init?(coder: NSCoder) {

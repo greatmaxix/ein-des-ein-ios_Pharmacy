@@ -49,7 +49,6 @@ extension LanguageViewModel: LanguageViewControllerOutput {
     
     func didSelectCell(at indexPath: IndexPath) {
         let model = self.languageList[indexPath.row]
-        UserDefaultsAccessor.languageName = model.languageName
         output.didSelect()
     }
 }

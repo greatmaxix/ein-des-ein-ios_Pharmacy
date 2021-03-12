@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         GMSServices.provideAPIKey("AIzaSyDJfvTblScxj6gZYw-Xtg1NJeHbHUcAURs")
         window = UIWindow(frame: UIScreen.main.bounds)
-
         appNavigationCoordinator = AppNavigation(window: window!)
         appNavigationCoordinator.startFlow()
 
