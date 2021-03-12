@@ -76,6 +76,7 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         messagesCollectionView.backgroundColor = .clear
+        self.messageInputBar.isHidden = true
         showMessageTimestampOnSwipeLeft = false
         if let bar = self.navigationController?.navigationBar as? NavigationBar {
             bar.smallNavBarTitleLabel.text = R.string.localize.productFarmacept()

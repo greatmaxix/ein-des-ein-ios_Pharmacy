@@ -280,6 +280,7 @@ extension OrderServiceViewController: UITextViewDelegate {
         if textView.text == R.string.localize.checkoutAddComment() {
             self.commentTextField.text = nil
             self.commentTextField.textColor = .black
+            self.commentTextField.layer.borderColor = UIColor(red: 0.145, green: 0.4, blue: 0.976, alpha: 1).cgColor
         }
     }
     
@@ -287,6 +288,7 @@ extension OrderServiceViewController: UITextViewDelegate {
         if textView.text.isEmpty {
             self.commentTextField.text = R.string.localize.checkoutAddComment()
             self.commentTextField.textColor = .lightGray
+            self.commentTextField.layer.borderColor = UIColor(red: 0.859, green: 0.882, blue: 0.922, alpha: 1).cgColor
         }
     }
 }

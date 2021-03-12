@@ -29,6 +29,18 @@ class QuestionViewController: UIViewController, NavigationBarStyled {
         
     }
     
+    @IBAction func callAction(_ sender: Any) {
+        if let url = URL(string: "tel://\(7178881234)"), UIApplication.shared.canOpenURL(url as URL) {
+            UIApplication.shared.open(url, options: [:])
+        }
+        
+    }
+    
+    
+    func makeAPhoneCall()  {
+        let url: NSURL = URL(string: "TEL://1234567890")! as NSURL
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupUI()

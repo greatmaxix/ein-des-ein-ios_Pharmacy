@@ -24,7 +24,7 @@ class CancelOrderView: UIViewController {
     }
     @IBAction func cancelAction(_ sender: Any) {
         self.dismiss(animated: false)
-        self.model.close()
+
         
     }
 }

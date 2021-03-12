@@ -22,7 +22,7 @@ class CustomTextFieldView: UIView, NibView {
     
     @IBAction func clearButtonAction(_ sender: Any) {
         self.textField.text = nil
-        
+        self.clearButton.isHidden = true
     }
     
     override func awakeFromNib() {
@@ -74,6 +74,8 @@ extension CustomTextFieldView: UITextFieldDelegate {
         textField.resignFirstResponder()
         if (textField.text?.count ?? 0) >= 0 {
             clearButton.isHidden = false
+        }  else {
+            clearButton.isHidden = true
         }
         
         return true

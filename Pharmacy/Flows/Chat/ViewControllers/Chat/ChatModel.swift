@@ -464,9 +464,9 @@ extension ChatModel: MessagesLayoutDelegate {
     }
 
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        guard indexPath.section != 0 else { return 40.0 }
+        guard indexPath.section != 0 else { return 60.0 }
         let previousMessage = messages[indexPath.section]
-        return previousMessage.sentDate.dateCompactString == message.sentDate.dateCompactString ? 0.0 : 40.0
+        return previousMessage.sentDate.dateCompactString == message.sentDate.dateCompactString ? 0.0 : 60.0
     }
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {

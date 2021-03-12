@@ -494,6 +494,7 @@
 		F589C6D125DEEC9F00CBBD99 /* LaboratoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6D025DEEC9F00CBBD99 /* LaboratoryModel.swift */; };
 		F589C6D725DEEEEC00CBBD99 /* LaboratoryListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6D625DEEEEC00CBBD99 /* LaboratoryListAPI.swift */; };
 		F589C6DC25DEEFC300CBBD99 /* LaboratoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6DB25DEEFC300CBBD99 /* LaboratoryResponse.swift */; };
+		F5B7B1E925FB946500C23CE7 /* PaymendSuccessfullyAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B7B1E825FB946500C23CE7 /* PaymendSuccessfullyAlertModel.swift */; };
 		F5F2C56025FA70C00082F0A5 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5F2C55F25FA70C00082F0A5 /* localize.strings */; };
 /* End PBXBuildFile section */
 
@@ -988,6 +989,7 @@
 		F589C6D025DEEC9F00CBBD99 /* LaboratoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryModel.swift; sourceTree = "<group>"; };
 		F589C6D625DEEEEC00CBBD99 /* LaboratoryListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryListAPI.swift; sourceTree = "<group>"; };
 		F589C6DB25DEEFC300CBBD99 /* LaboratoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaboratoryResponse.swift; sourceTree = "<group>"; };
+		F5B7B1E825FB946500C23CE7 /* PaymendSuccessfullyAlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymendSuccessfullyAlertModel.swift; sourceTree = "<group>"; };
 		F5F2C55F25FA70C00082F0A5 /* localize.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = localize.strings; sourceTree = "<group>"; };
 		F7E7B25B7F44FB1EC1A449EA /* Pods-Pharmacy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.debug.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2911,6 +2913,7 @@
 			children = (
 				F522A09725F1891400BEAC6D /* PaymendSuccessfullyAlertController.storyboard */,
 				F522A09A25F18B0100BEAC6D /* PaymendSuccessfullyAlertController.swift */,
+				F5B7B1E825FB946500C23CE7 /* PaymendSuccessfullyAlertModel.swift */,
 			);
 			path = PaymendSuccessfullyAlert;
 			sourceTree = "<group>";
@@ -3706,6 +3709,7 @@
 				603D31BF24E57884000E5A6C /* ProductModel.swift in Sources */,
 				61AA471F25505A2600D140D3 /* OrderDetailsViewController.swift in Sources */,
 				393DDFBD250286C500652A01 /* RegionCell.swift in Sources */,
+				F5B7B1E925FB946500C23CE7 /* PaymendSuccessfullyAlertModel.swift in Sources */,
 				395D04FF24D04B19007A278D /* CatalogueViewController.swift in Sources */,
 				F51BF7EB25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift in Sources */,
 				875223AB25000482000759C8 /* NibLoadable.swift in Sources */,
@@ -3924,7 +3928,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 35;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -3948,7 +3952,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 34;
+				CURRENT_PROJECT_VERSION = 35;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;

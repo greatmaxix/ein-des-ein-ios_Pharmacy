@@ -9,10 +9,13 @@
 import UIKit
 import EventsTree
 
+protocol PaymendSuccessfullyAlertControllerOutput: PaymendSuccessfullyAlertModelInput {}
+protocol PaymendSuccessfullyAlertControllerInput: PaymendSuccessfullyAlertModelOutput {}
+
 class PaymendSuccessfullyAlertController: UIViewController {
     
     
-    
+    var model: PaymendSuccessfullyAlertControllerOutput!
     @IBOutlet var topView: UIView!
     
     override func viewDidLoad() {
@@ -26,8 +29,16 @@ class PaymendSuccessfullyAlertController: UIViewController {
         self.view.backgroundColor = UIColor(red: 0, green: 0.039, blue: 0.387, alpha: 0.2)
     }
     @IBAction func okAction(_ sender: Any) {
-        self.dismiss(animated: false)
+        self.dismiss(animated: false) { [weak self] in 
+            self?.model.close()
+        }
         
         
     }
+}
+
+
+extension PaymendSuccessfullyAlertController: PaymendSuccessfullyAlertModelOutput {
+
+
 }

@@ -104,6 +104,9 @@ fileprivate extension AnalisisCoordinator {
         let controller = R.storyboard.paymendSuccessfullyAlertController.instantiateInitialViewController()!
         controller.modalPresentationStyle = .overFullScreen
         controller.modalTransitionStyle = .crossDissolve
+        let model = PaymendSuccessfullyAlertModel(parent: self)
+        controller.model = model
+        model.output = controller
         navigation?.topViewController?.present(controller, animated: true)
     }
     

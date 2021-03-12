@@ -8,6 +8,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--In Development View Controller-->
         <scene sceneID="JyV-5H-jfv">
@@ -17,6 +25,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InDelivary" translatesAutoresizingMaskIntoConstraints="NO" id="acE-9K-trK">
+                                <rect key="frame" x="15" y="164" width="420" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="6ig-jB-WGq"/>
+                                    <constraint firstAttribute="width" constant="420" id="jDt-iU-Tnf"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CN-V1-pVM">
                                 <rect key="frame" x="344" y="64" width="50" height="30"/>
                                 <constraints>
@@ -24,26 +39,42 @@
                                     <constraint firstAttribute="height" constant="30" id="qda-ew-lNU"/>
                                 </constraints>
                                 <state key="normal" title="Close">
-                                    <color key="titleColor" name="inputGray"/>
+                                    <color key="titleColor" name="welcomeBlue"/>
                                 </state>
                                 <connections>
                                     <action selector="closePressed:" destination="GUC-H2-CRh" eventType="touchUpInside" id="D8f-0R-lyA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В Разработке" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xec-ub-W2I">
-                                <rect key="frame" x="61.5" y="244" width="291" height="57.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                <color key="textColor" name="inputGray"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="В Разработке" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xec-ub-W2I">
+                                <rect key="frame" x="15" y="600" width="383" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="GMH-MF-4QT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="24"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Новые функции уже совсем скоро! Следите за обновленяими!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JD0-38-upS">
+                                <rect key="frame" x="16" y="641" width="382" height="37.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="16"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2JK-q2-71d"/>
-                        <color key="backgroundColor" name="lightBlue"/>
+                        <color key="backgroundColor" name="backgroundGray"/>
                         <constraints>
-                            <constraint firstItem="xec-ub-W2I" firstAttribute="top" secondItem="2JK-q2-71d" secondAttribute="top" constant="200" id="3Uf-ep-6G4"/>
+                            <constraint firstItem="xec-ub-W2I" firstAttribute="top" secondItem="SwM-Ro-zBj" secondAttribute="top" constant="600" id="11y-vQ-W8W"/>
+                            <constraint firstItem="xec-ub-W2I" firstAttribute="leading" secondItem="2JK-q2-71d" secondAttribute="leading" constant="15" id="Fig-4F-cJt"/>
+                            <constraint firstItem="JD0-38-upS" firstAttribute="top" secondItem="xec-ub-W2I" secondAttribute="bottom" constant="8" id="Fok-1M-xuV"/>
+                            <constraint firstItem="2JK-q2-71d" firstAttribute="trailing" secondItem="xec-ub-W2I" secondAttribute="trailing" constant="16" id="IbZ-c6-3Dn"/>
+                            <constraint firstItem="acE-9K-trK" firstAttribute="leading" secondItem="2JK-q2-71d" secondAttribute="leading" constant="15" id="Jcf-9D-yUA"/>
+                            <constraint firstAttribute="trailing" secondItem="JD0-38-upS" secondAttribute="trailing" constant="16" id="UGn-F0-znt"/>
+                            <constraint firstAttribute="trailing" secondItem="acE-9K-trK" secondAttribute="trailing" id="kat-xv-z44"/>
+                            <constraint firstItem="JD0-38-upS" firstAttribute="leading" secondItem="2JK-q2-71d" secondAttribute="leading" constant="16" id="lGW-F0-zue"/>
                             <constraint firstItem="2JK-q2-71d" firstAttribute="trailing" secondItem="0CN-V1-pVM" secondAttribute="trailing" constant="20" id="lin-dY-MCc"/>
                             <constraint firstItem="0CN-V1-pVM" firstAttribute="top" secondItem="2JK-q2-71d" secondAttribute="top" constant="20" id="mbQ-KR-WVC"/>
-                            <constraint firstItem="xec-ub-W2I" firstAttribute="centerX" secondItem="SwM-Ro-zBj" secondAttribute="centerX" id="v7i-Fg-oxm"/>
+                            <constraint firstItem="acE-9K-trK" firstAttribute="top" secondItem="0CN-V1-pVM" secondAttribute="bottom" constant="70" id="ylq-u1-O2Z"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -53,11 +84,12 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="inputGray">
-            <color red="0.9649999737739563" green="0.97299998998641968" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="InDelivary" width="422" height="500.5"/>
+        <namedColor name="backgroundGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="lightBlue">
-            <color red="0.24705882352941178" green="0.54117647058823526" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="welcomeBlue">
+            <color red="0.14509803921568629" green="0.40000000000000002" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

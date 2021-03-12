@@ -72,6 +72,9 @@
                                                                     <constraint firstAttribute="width" constant="30" id="jUE-pf-se6"/>
                                                                 </constraints>
                                                                 <state key="normal" image="call_icon"/>
+                                                                <connections>
+                                                                    <action selector="callAction:" destination="v4g-5Y-Tu2" eventType="touchUpInside" id="czv-kt-lQd"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
