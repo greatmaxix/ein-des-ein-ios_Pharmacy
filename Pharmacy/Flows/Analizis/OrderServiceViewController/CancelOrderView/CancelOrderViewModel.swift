@@ -29,6 +29,7 @@ final class CancelOrderViewModel: Model {
 }
 
 extension CancelOrderViewModel: CancelOrderViewOutput {
+    
     func close() {
         raise(event: ProfileEvent.close)
     }

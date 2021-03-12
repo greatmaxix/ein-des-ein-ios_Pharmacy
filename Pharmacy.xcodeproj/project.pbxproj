@@ -427,6 +427,7 @@
 		F51F5DE325FBA2EB001B4EC7 /* PaymendSuccessfullyAlertController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51F5DE525FBA2EB001B4EC7 /* PaymendSuccessfullyAlertController.storyboard */; };
 		F51F5DF125FBA66E001B4EC7 /* PromocodViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51F5DF325FBA66E001B4EC7 /* PromocodViewController.storyboard */; };
 		F51F5DFE25FBA77A001B4EC7 /* CancelOrderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51F5E0025FBA77A001B4EC7 /* CancelOrderViewController.storyboard */; };
+		F51F5E0F25FBC1DA001B4EC7 /* InformationAboutClicController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51F5E0E25FBC1DA001B4EC7 /* InformationAboutClicController.storyboard */; };
 		F51F88C725DE747900C1A9ED /* TypeOfAnalysisCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F88C525DE747900C1A9ED /* TypeOfAnalysisCell.swift */; };
 		F51F88C825DE747900C1A9ED /* TypeOfAnalysisCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51F88C625DE747900C1A9ED /* TypeOfAnalysisCell.xib */; };
 		F51F88CB25DE8D3600C1A9ED /* AnalysisAndDiagnosticsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F88CA25DE8D3600C1A9ED /* AnalysisAndDiagnosticsModel.swift */; };
@@ -494,7 +495,6 @@
 		F589C6DC25DEEFC300CBBD99 /* LaboratoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F589C6DB25DEEFC300CBBD99 /* LaboratoryResponse.swift */; };
 		F5B7B1E925FB946500C23CE7 /* PaymendSuccessfullyAlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B7B1E825FB946500C23CE7 /* PaymendSuccessfullyAlertModel.swift */; };
 		F5B7B1FE25FB98E700C23CE7 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5B7B20025FB98E700C23CE7 /* localize.strings */; };
-		F5B7B20525FB9D0700C23CE7 /* InformationAboutClicController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B7B20725FB9D0700C23CE7 /* InformationAboutClicController.storyboard */; };
 		F5B7B20F25FB9DAE00C23CE7 /* ChooseClinicOnMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B7B21125FB9DAE00C23CE7 /* ChooseClinicOnMap.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -952,6 +952,7 @@
 		F51F5DFF25FBA77A001B4EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CancelOrderViewController.storyboard; sourceTree = "<group>"; };
 		F51F5E0225FBA7AD001B4EC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CancelOrderViewController.strings; sourceTree = "<group>"; };
 		F51F5E0525FBA7DF001B4EC7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/CancelOrderViewController.strings; sourceTree = "<group>"; };
+		F51F5E0E25FBC1DA001B4EC7 /* InformationAboutClicController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InformationAboutClicController.storyboard; sourceTree = "<group>"; };
 		F51F88C525DE747900C1A9ED /* TypeOfAnalysisCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfAnalysisCell.swift; sourceTree = "<group>"; };
 		F51F88C625DE747900C1A9ED /* TypeOfAnalysisCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeOfAnalysisCell.xib; sourceTree = "<group>"; };
 		F51F88CA25DE8D3600C1A9ED /* AnalysisAndDiagnosticsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisAndDiagnosticsModel.swift; sourceTree = "<group>"; };
@@ -1025,10 +1026,6 @@
 		F5B7B20125FB98EB00C23CE7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/localize.strings; sourceTree = "<group>"; };
 		F5B7B20225FB98EC00C23CE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/localize.strings; sourceTree = "<group>"; };
 		F5B7B20325FB98ED00C23CE7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/localize.strings; sourceTree = "<group>"; };
-		F5B7B20625FB9D0700C23CE7 /* uk */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = uk; path = uk.lproj/InformationAboutClicController.storyboard; sourceTree = "<group>"; };
-		F5B7B20A25FB9D1700C23CE7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InformationAboutClicController.strings; sourceTree = "<group>"; };
-		F5B7B20C25FB9D1900C23CE7 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/InformationAboutClicController.strings; sourceTree = "<group>"; };
-		F5B7B20E25FB9D1A00C23CE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InformationAboutClicController.strings; sourceTree = "<group>"; };
 		F5B7B21025FB9DAE00C23CE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ChooseClinicOnMap.storyboard; sourceTree = "<group>"; };
 		F5B7B21425FB9DB400C23CE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ChooseClinicOnMap.strings; sourceTree = "<group>"; };
 		F5CF491625FB9DF5005542C3 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ChooseClinicOnMap.strings; sourceTree = "<group>"; };
@@ -3032,9 +3029,9 @@
 			isa = PBXGroup;
 			children = (
 				F51C02D525E8FB3E00C266C5 /* DataSource */,
-				F5B7B20725FB9D0700C23CE7 /* InformationAboutClicController.storyboard */,
 				F51C02CB25E8E4C500C266C5 /* InformationAboutClicController.swift */,
 				F51C02CE25E8E5B700C266C5 /* InformationAboutClicModel.swift */,
+				F51F5E0E25FBC1DA001B4EC7 /* InformationAboutClicController.storyboard */,
 			);
 			path = InformationAboutClinic;
 			sourceTree = "<group>";
@@ -3339,10 +3336,10 @@
 				F5205C9525F8C6A5005FD6EB /* LanguageTableViewCell.xib in Resources */,
 				398B0DD924F50A630084EC54 /* FarmacyPinView.xib in Resources */,
 				395A7FC624A3980D00A7CFC6 /* NameTableViewCell.xib in Resources */,
-				F5B7B20525FB9D0700C23CE7 /* InformationAboutClicController.storyboard in Resources */,
 				61CFAA562549EB7200569DEF /* EmptyUserCell.xib in Resources */,
 				603D31DC24E5A88C000E5A6C /* ProductAnalogTableViewCell.xib in Resources */,
 				F51F5DE325FBA2EB001B4EC7 /* PaymendSuccessfullyAlertController.storyboard in Resources */,
+				F51F5E0F25FBC1DA001B4EC7 /* InformationAboutClicController.storyboard in Resources */,
 				F56E41E625ED134500599CAA /* MyOrderTableViewCell.xib in Resources */,
 				6036EAFA24DD1C83003336C2 /* Basket.storyboard in Resources */,
 				60289A53254AF5FB00F6A503 /* SubcategoryTableViewCell.xib in Resources */,
@@ -3959,17 +3956,6 @@
 				F5B7B20325FB98ED00C23CE7 /* uk */,
 			);
 			name = localize.strings;
-			sourceTree = "<group>";
-		};
-		F5B7B20725FB9D0700C23CE7 /* InformationAboutClicController.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F5B7B20625FB9D0700C23CE7 /* uk */,
-				F5B7B20A25FB9D1700C23CE7 /* ru */,
-				F5B7B20C25FB9D1900C23CE7 /* kk */,
-				F5B7B20E25FB9D1A00C23CE7 /* en */,
-			);
-			name = InformationAboutClicController.storyboard;
 			sourceTree = "<group>";
 		};
 		F5B7B21125FB9DAE00C23CE7 /* ChooseClinicOnMap.storyboard */ = {

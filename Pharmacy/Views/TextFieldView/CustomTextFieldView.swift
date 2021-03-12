@@ -86,7 +86,7 @@ extension CustomTextFieldView: UITextFieldDelegate {
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
         if updatedText.isEmpty {
             clearButton.isHidden = true
-            textField.text = "Имя и Фамилия"
+
             textField.textColor = UIColor.lightGray
             
             textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.beginningOfDocument)

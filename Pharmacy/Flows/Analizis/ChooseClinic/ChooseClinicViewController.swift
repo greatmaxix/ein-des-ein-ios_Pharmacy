@@ -24,9 +24,7 @@ class ChooseClinicViewController: UIViewController, NavigationBarStyled {
         super.viewDidLoad()
  
         scrollView.delegate = self
-        
-        segmentControl.setTitle(R.string.localize.analisisChoseClinickList(), forSegmentAt: 0)
-        segmentControl.setTitle(R.string.localize.analisisChoseClinickMap(), forSegmentAt: 1)
+
         segmentControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.welcomeBlue()!], for: .selected)
         
         segmentControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.gray()!], for: .normal)

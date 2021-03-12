@@ -40,7 +40,7 @@ class AnalisInformationViewController: UIViewController, NavigationBarStyled {
     }
     
     private func setupTitle() {
-        title = R.string.localize.analisisChoseClinickKlinicheskiy()
+        title = "Клинический"
     }
     
     @IBAction func showAllAction(_ sender: Any) {
