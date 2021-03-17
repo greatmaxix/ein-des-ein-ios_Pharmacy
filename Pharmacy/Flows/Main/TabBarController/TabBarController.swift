@@ -21,6 +21,11 @@ final class TabBarController: UITabBarController, UITabBarControllerDelegate {
         setViewControllers(controllers, animated: false)
         // We should set tabbarItems after setting controllers to allow changes to apply
         configuration.forEach { $0.controller.tabBarItem = $0.tabItem }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         setupTabBar()
     }
     
