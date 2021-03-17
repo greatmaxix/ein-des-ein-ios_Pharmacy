@@ -16,6 +16,8 @@ protocol ReceiptsViewControllerOutput: ReceiptsModelInput {}
 class ReceiptsViewController: UIViewController, NavigationBarStyled {
 
     @IBOutlet var addReceptButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var subTitleLabel: UILabel!
     var style: NavigationBarStyle = .normalWithoutSearch
 
     private lazy var activityIndicator: MBProgressHUD = {
@@ -42,28 +44,38 @@ class ReceiptsViewController: UIViewController, NavigationBarStyled {
         tableView.isHidden = true
         emptyView.isHidden = true
     }
+    
+
 
     @IBAction func addReceptButtonAction(_ sender: Any) {
         print("addReceptButtonAction")
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         activityIndicator.show(animated: true)
         model.initialLoad()
+        self.lolilization()
     }
 
     private func setupUI() {
         if let bar = self.navigationController?.navigationBar as? SimpleNavigationBar {
-            bar.title = "Рецепты"
+            bar.title = R.string.localize.prescriptionsEmptyBarTitle.localized()
             bar.isLeftItemHidden = false
             bar.leftItemTitle = nil
             bar.isRightItemHidden = true
             bar.barDelegate = self
             bar.style = .normalWithoutSearch
         } else if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = "Рецепты"
+            bar.smallNavBarTitleLabel.text = R.string.localize.prescriptionsEmptyBarTitle.localized()
         }
+    }
+    private func lolilization() {
+        self.titleLabel.text = R.string.localize.prescriptionsEmptyTitle.localized()
+        self.subTitleLabel.text = R.string.localize.prescriptionsEmptyDescription.localized()
+        addReceptButton.setTitle(R.string.localize.recipient_cancel.localized(), for: .normal)
     }
 }
 

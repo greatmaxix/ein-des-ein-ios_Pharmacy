@@ -16,11 +16,12 @@ protocol QuestionViewControllerInput: QuestionViewModelOutput {}
 class QuestionViewController: UIViewController, NavigationBarStyled {
     
     @IBOutlet private var tableView: UITableView!
-    
     @IBOutlet var callToUsView: UIView!
     @IBOutlet var height: NSLayoutConstraint!
+    
     var model: QuestionViewControllerOutput!
     var style: NavigationBarStyle = .normalWithoutSearch
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -76,7 +77,7 @@ extension QuestionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: QuestionCell.self)
         let model = self.model.models[indexPath.row]
-        cell.apply(model: model)
+        cell.apply(model: model, isHidden: !(self.model.selectedModel?.name == model.name))
         return cell
     }
 }
@@ -84,6 +85,7 @@ extension QuestionViewController: UITableViewDataSource {
 extension QuestionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         model.didSelectCell(at: indexPath)
+        tableView.reloadData()
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

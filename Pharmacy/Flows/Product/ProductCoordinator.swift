@@ -58,6 +58,8 @@ final class ProductCoordinator: EventNode, Coordinator {
                 self.openCheckout()
             case .route(let route, let coordinate):
                 self.open(route, coordinate: coordinate)
+            case .openChat:
+                self.openChat()
             }
         }
     }
@@ -78,6 +80,10 @@ fileprivate extension ProductCoordinator {
         let model = MapModel(parent: self, medicineId: medicineId)
         model.output = vc
         vc.model = model
+        navigation.pushViewController(vc, animated: true)
+    }
+    func openChat() {
+        let vc = ChatCoordinator(parent: self, navigation: navigation).createFlow()
         navigation.pushViewController(vc, animated: true)
     }
     
@@ -118,7 +124,7 @@ fileprivate extension ProductCoordinator {
             }
             
         case .uber:
-            raise(event: AppEvent.presentInDev)
+            raise(event: AppEvent.presentInDev(nil))
         }
     }
 }

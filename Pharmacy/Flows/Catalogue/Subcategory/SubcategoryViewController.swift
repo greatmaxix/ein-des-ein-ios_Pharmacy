@@ -26,6 +26,11 @@ class SubcategoryViewController: TableDataSourceViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupUI()
+    }
+    
     private func setupUI() {
         title = model.title
         tableView.backgroundColor = view.backgroundColor
@@ -33,6 +38,7 @@ class SubcategoryViewController: TableDataSourceViewController {
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         searchController.searchResultsUpdater = self
+        searchController.setupSearchBar()
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
         view.sendSubviewToBack(tableView)

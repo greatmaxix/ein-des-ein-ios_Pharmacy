@@ -34,12 +34,11 @@ class AnalysisAndDiagnostics: UIViewController {
         model.load()
         configUI()
         setupTableView()
-        setupUI()
-        setupSearchBar()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupUI()
     }
     
     override func viewSafeAreaInsetsDidChange() {
@@ -59,7 +58,7 @@ class AnalysisAndDiagnostics: UIViewController {
         definesPresentationContext = true
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.leftBarButtonItem = .init(image: R.image.icon_back2(), style: .plain, target: self, action: #selector(dismisSelf))
-        
+        searchController.setupSearchBar()
         view.bringSubviewToFront(navigationBarBackground)
         navigationBarBackground.layer.cornerRadius = 10.0
         navigationBarBackground.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -75,7 +74,8 @@ class AnalysisAndDiagnostics: UIViewController {
     }
     
     private func setupUI() {
-        self.title = R.string.localize.profileAnalize()
+        self.title = R.string.localize.profileAnalize.localized()
+        setupSearchBar()
     }
 }
 

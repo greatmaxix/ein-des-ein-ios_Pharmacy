@@ -43,7 +43,7 @@ final class WishlistViewController: UIViewController {
         view.addSubview(emptyView)
         emptyView.constraintsToSuperView()
         
-        emptyView.setup(title: R.string.localize.wishlistEmptyTitle(), decriptionText: R.string.localize.wishlistEmptyDescription(), buttonTitle: R.string.localize.wishlistEmptyButton())
+        emptyView.setup(title: R.string.localize.wishlistEmptyTitle.localized(), decriptionText: R.string.localize.wishlistEmptyDescription.localized(), buttonTitle: R.string.localize.wishlistEmptyButton.localized())
         emptyView.setupImage(image: R.image.emptyWishList()!)
         emptyView.tapButtonHandler = {[weak self] in
             self?.model.startSearch()
@@ -68,7 +68,7 @@ final class WishlistViewController: UIViewController {
         
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             
-            bar.title = R.string.localize.wishlistEmptyBarTitle()
+            bar.title = R.string.localize.wishlistEmptyBarTitle.localized()
             bar.isLeftItemHidden = false
             bar.leftItemTitle = nil
             bar.isRightItemHidden = true

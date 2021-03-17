@@ -105,7 +105,7 @@ final class CheckoutViewController: UIViewController, NavigationBarStyled {
 
     func setupUI() {
         
-        title = R.string.localize.checkoutTitle()
+        title = R.string.localize.checkoutTitle.localized()
         
         deliveryButton.layer.borderColor = R.color.welcomeBlue()?.cgColor
         pickupButton.layer.borderColor = R.color.textDarkBlue()?.cgColor
@@ -123,34 +123,34 @@ final class CheckoutViewController: UIViewController, NavigationBarStyled {
     
     func setupLocalization() {
         
-        contactInfoLabel.text = R.string.localize.checkoutContactData()
-        contactInfoButton.setTitle(R.string.localize.checkoutChange(), for: .normal)
+        contactInfoLabel.text = R.string.localize.checkoutContactData.localized()
+        contactInfoButton.setTitle(R.string.localize.checkoutChange.localized(), for: .normal)
         
-        nameInputView.placeholder = R.string.localize.checkoutName()
-        phoneInputView.placeholder = R.string.localize.checkoutPhone()
-        emailInputView.placeholder = R.string.localize.checkoutEmail()
+        nameInputView.placeholder = R.string.localize.checkoutName.localized()
+        phoneInputView.placeholder = R.string.localize.checkoutPhone.localized()
+        emailInputView.placeholder = R.string.localize.checkoutEmail.localized()
         
-        deliveryTitleLabel.text = R.string.localize.checkoutDeliveryType()
-        deliveryLabel.text = R.string.localize.checkoutDelivery()
-        pickupLabel.text = R.string.localize.checkoutPickup()
-        deliveryAddressLabel.text = R.string.localize.checkoutFarmacyAddress()
+        deliveryTitleLabel.text = R.string.localize.checkoutDeliveryType.localized()
+        deliveryLabel.text = R.string.localize.checkoutDelivery.localized()
+        pickupLabel.text = R.string.localize.checkoutPickup.localized()
+        deliveryAddressLabel.text = R.string.localize.checkoutFarmacyAddress.localized()
         
-        showDeliveryButton.setTitle(R.string.localize.checkoutChange(), for: .normal)
-        cityInputView.placeholder = R.string.localize.checkoutCity()
-        streetInputView.placeholder = R.string.localize.checkoutStreet()
-        houseInputView.placeholder = R.string.localize.checkoutHouseNumber()
-        flatNumberInputView.placeholder = R.string.localize.checkoutFlatNumber()
+        showDeliveryButton.setTitle(R.string.localize.checkoutChange.localized(), for: .normal)
+        cityInputView.placeholder = R.string.localize.checkoutCity.localized()
+        streetInputView.placeholder = R.string.localize.checkoutStreet.localized()
+        houseInputView.placeholder = R.string.localize.checkoutHouseNumber.localized()
+        flatNumberInputView.placeholder = R.string.localize.checkoutFlatNumber.localized()
         
-        descriptionPlaceholderLabel.text = R.string.localize.checkoutDescription()
-        paymentMethodLabel.text = R.string.localize.checkoutPaymentType()
-        customerAddressLabel.text = R.string.localize.checkoutDeliveryAddress()
-        orderLabel.text = R.string.localize.checkoutOrderConsistence()
-        orderButton.setTitle(R.string.localize.checkoutChange(), for: .normal)
+        descriptionPlaceholderLabel.text = R.string.localize.checkoutDescription.localized()
+        paymentMethodLabel.text = R.string.localize.checkoutPaymentType.localized()
+        customerAddressLabel.text = R.string.localize.checkoutDeliveryAddress.localized()
+        orderLabel.text = R.string.localize.checkoutOrderConsistence.localized()
+        orderButton.setTitle(R.string.localize.checkoutChange.localized(), for: .normal)
         
-        sumTitleLabel.text = R.string.localize.checkoutWhorePrice()
-        deliverySumTitleLabel.text = R.string.localize.checkoutDelivery()
-        priceTitleLabel.text = R.string.localize.checkoutFinalPrice()
-        applyButton.setTitle(R.string.localize.checkoutApplyPurchase(), for: .normal)
+        sumTitleLabel.text = R.string.localize.checkoutWhorePrice.localized()
+        deliverySumTitleLabel.text = R.string.localize.checkoutDelivery.localized()
+        priceTitleLabel.text = R.string.localize.checkoutFinalPrice.localized()
+        applyButton.setTitle(R.string.localize.checkoutApplyPurchase.localized(), for: .normal)
     }
     
     private func setupOrder() {

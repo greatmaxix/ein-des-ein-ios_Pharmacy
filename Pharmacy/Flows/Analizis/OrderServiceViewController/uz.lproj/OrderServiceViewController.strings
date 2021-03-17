@@ -1,0 +1,63 @@
+
+/* Class = "UITextView"; text = "Оставить комменатарий"; ObjectID = "0fL-8f-Bzo"; */
+"0fL-8f-Bzo.text" = "Оставить комменатарий";
+
+/* Class = "UILabel"; text = "Google Pay"; ObjectID = "1Hr-zD-Zor"; */
+"1Hr-zD-Zor.text" = "Google Pay";
+
+/* Class = "UILabel"; text = "ул Горная 23а, Харьков"; ObjectID = "3dr-2p-1kP"; */
+"3dr-2p-1kP.text" = "ул Горная 23а, Харьков";
+
+/* Class = "UILabel"; text = "Выбрать"; ObjectID = "6EU-fO-qy4"; */
+"6EU-fO-qy4.text" = "Выбрать";
+
+/* Class = "UILabel"; text = "Услуга :"; ObjectID = "Bch-u8-kw0"; */
+"Bch-u8-kw0.text" = "Услуга :";
+
+/* Class = "UILabel"; text = "Общая сумма"; ObjectID = "CqB-1B-Epn"; */
+"CqB-1B-Epn.text" = "Общая сумма";
+
+/* Class = "UILabel"; text = "568 ₸"; ObjectID = "JdP-xA-r03"; */
+"JdP-xA-r03.text" = "568 ₸";
+
+/* Class = "UILabel"; text = "590 ₸  "; ObjectID = "Q1z-eY-9Fi"; */
+"Q1z-eY-9Fi.text" = "590 ₸  ";
+
+/* Class = "UILabel"; text = "Клинический анализ крови"; ObjectID = "VKr-Iw-shA"; */
+"VKr-Iw-shA.text" = "Клинический анализ крови";
+
+/* Class = "UILabel"; text = " 📞️ +7 (098) 000 02 00 • +7 (098) 000 02 00"; ObjectID = "WS1-oj-LMb"; */
+"WS1-oj-LMb.text" = " 📞️ +7 (098) 000 02 00 • +7 (098) 000 02 00";
+
+/* Class = "UILabel"; text = "Инвитро"; ObjectID = "cQT-gl-LKb"; */
+"cQT-gl-LKb.text" = "Инвитро";
+
+/* Class = "UIButton"; normalTitle = "Изменить"; ObjectID = "dnS-u8-hru"; */
+"dnS-u8-hru.normalTitle" = "Изменить";
+
+/* Class = "UIButton"; normalTitle = "Оплатить анализ"; ObjectID = "fEw-cG-myL"; */
+"fEw-cG-myL.normalTitle" = "Оплатить анализ";
+
+/* Class = "UILabel"; text = "Клиника :"; ObjectID = "hjs-ET-yXr"; */
+"hjs-ET-yXr.text" = "Клиника :";
+
+/* Class = "UILabel"; text = "51 ДНЕ"; ObjectID = "j67-jn-gN7"; */
+"j67-jn-gN7.text" = "51 ДНЕ";
+
+/* Class = "UILabel"; text = "Итого к оплате"; ObjectID = "lvj-KC-Ad6"; */
+"lvj-KC-Ad6.text" = "Итого к оплате";
+
+/* Class = "UILabel"; text = "Выберите тип оплаты :"; ObjectID = "oXA-9z-jMp"; */
+"oXA-9z-jMp.text" = "Выберите тип оплаты :";
+
+/* Class = "UILabel"; text = "Комметарий :"; ObjectID = "s40-rY-Zcg"; */
+"s40-rY-Zcg.text" = "Комметарий :";
+
+/* Class = "UILabel"; text = "Дата и Время"; ObjectID = "sx4-N5-JL0"; */
+"sx4-N5-JL0.text" = "Дата и Время";
+
+/* Class = "UILabel"; text = "Промокод"; ObjectID = "wSh-Qb-lZr"; */
+"wSh-Qb-lZr.text" = "Промокод";
+
+/* Class = "UILabel"; text = "Контактные данные :"; ObjectID = "ycx-Qg-pIn"; */
+"ycx-Qg-pIn.text" = "Контактные данные :";

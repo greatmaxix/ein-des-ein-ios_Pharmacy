@@ -13,7 +13,7 @@ protocol TabBarControllerOutput: TabBarModelInput {}
 protocol TabBarControllerInput: TabBarModelOutput {}
 
 final class TabBarController: UITabBarController, UITabBarControllerDelegate {
-    
+
     var model: TabBarControllerOutput!
     
     func configureTabs(with configuration: [(controller: UIViewController, tabItem: UITabBarItem)]) {

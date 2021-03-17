@@ -71,7 +71,7 @@
                                             <constraint firstItem="lrq-dU-ZrK" firstAttribute="top" secondItem="vOe-cf-Xsg" secondAttribute="top" id="jZh-OO-Irb"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptySearchView" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-oo-8Ah">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptySearchView2" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-oo-8Ah">
                                         <rect key="frame" x="72" y="50" width="270" height="282"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="282" id="Vk1-Vd-HT3"/>
@@ -118,7 +118,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="emptySearchView" width="283.5" height="270"/>
+        <image name="emptySearchView2" width="280" height="272.5"/>
         <namedColor name="backgroundGray">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

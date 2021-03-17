@@ -19,6 +19,6 @@ class EmailValidator: BaseTextValidator {
     }
     
     override var errorText: String {
-        return R.string.localize.errorEmail()
+        return R.string.localize.errorEmail.localized()
     }
 }

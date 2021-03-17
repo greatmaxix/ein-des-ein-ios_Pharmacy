@@ -39,14 +39,14 @@ final class ConfirmCodeViewController: UIViewController {
     
     func setupLocalization() {
         
-        titleLabel.text = R.string.localize.confirmTitle()
-        confirmTextLabel.text = R.string.localize.confirmDescription()
-        resendCodeLabel.text = R.string.localize.confirmResendCode()
+        titleLabel.text = R.string.localize.confirmTitle.localized()
+        confirmTextLabel.text = R.string.localize.confirmDescription.localized()
+        resendCodeLabel.text = R.string.localize.confirmResendCode.localized()
         phoneLabel.text = PhoneFormatter().formattedFinalNumber(number: model.phoneNumber)
         let attrs: [NSAttributedString.Key: Any] = [.font: R.font.openSansBold(size: 12) ?? UIFont.systemFont(ofSize: 12, weight: .bold),
                                                     .underlineStyle: 1, .foregroundColor: R.color.textDarkBlue() ?? UIColor.black]
         
-        let attrText: NSAttributedString = NSAttributedString(string: R.string.localize.confirmResendAgain(), attributes: attrs)
+        let attrText: NSAttributedString = NSAttributedString(string: R.string.localize.confirmResendAgain.localized(), attributes: attrs)
         resendButton.setAttributedTitle(attrText, for: .normal)
     }
     
@@ -57,7 +57,7 @@ final class ConfirmCodeViewController: UIViewController {
             bar.isRightItemHidden = true
             bar.isLeftItemHidden = false
             bar.leftItemTitle = "   "
-            bar.title = R.string.localize.confirmScreenTitle()
+            bar.title = R.string.localize.confirmScreenTitle.localized()
             bar.barDelegate = self
             navigationController?.navigationBar.isHidden = false
         }

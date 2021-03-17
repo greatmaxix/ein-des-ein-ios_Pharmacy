@@ -82,19 +82,19 @@ final class SignUpViewController: UIViewController {
     
     private func setupLocalization() {
         
-        titleLabel.text = R.string.localize.signupTitle()
-        descriptionLabel.text = R.string.localize.signupDescription()
-        skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
-        registrationLabel.text = R.string.localize.signupRegistration()
-        accountLabel.text = R.string.localize.signupAccount()
-        loginButton.setTitle(R.string.localize.loginSignin(), for: .normal)
+        titleLabel.text = R.string.localize.signupTitle.localized()
+        descriptionLabel.text = R.string.localize.signupDescription.localized()
+        skipButton.setTitle(R.string.localize.signupSkip.localized(), for: .normal)
+        registrationLabel.text = R.string.localize.signupRegistration.localized()
+        accountLabel.text = R.string.localize.signupAccount.localized()
+        loginButton.setTitle(R.string.localize.loginSignin.localized(), for: .normal)
         
         if let font: UIFont = R.font.openSansRegular(size: 14) {
             
             var attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor: R.color.textDarkBlue() ??  UIColor.black]
-            let attrText: NSMutableAttributedString = NSMutableAttributedString(string: R.string.localize.signupPrivacy(), attributes: attributes)
+            let attrText: NSMutableAttributedString = NSMutableAttributedString(string: R.string.localize.signupPrivacy.localized(), attributes: attributes)
             attributes[NSAttributedString.Key.foregroundColor] = UIColor.systemBlue
-            let linkText: NSAttributedString = NSMutableAttributedString(string: R.string.localize.signupLink(), attributes: attributes)
+            let linkText: NSAttributedString = NSMutableAttributedString(string: R.string.localize.signupLink.localized(), attributes: attributes)
             attrText.append(linkText)
             privacyLabel.attributedText = attrText
         }
@@ -107,11 +107,11 @@ final class SignUpViewController: UIViewController {
         let blurVisualEffectView = UIVisualEffectView(effect: blurEffect)
         blurVisualEffectView.frame = view.bounds
         
-        let alertController = UIAlertController.init(title: R.string.localize.signupAlert_title(), message: R.string.localize.signupAlert_body(), preferredStyle: .alert)
+        let alertController = UIAlertController.init(title: R.string.localize.signupAlert_title.localized(), message: R.string.localize.signupAlert_body.localized(), preferredStyle: .alert)
 
-        let actionOK = UIAlertAction(title: R.string.localize.signupAlert_ok(), style: .default, handler: { _ in blurVisualEffectView.removeFromSuperview()})
+        let actionOK = UIAlertAction(title: R.string.localize.signupAlert_ok.localized(), style: .default, handler: { _ in blurVisualEffectView.removeFromSuperview()})
 
-        let actionCancel = UIAlertAction(title: R.string.localize.signupAlert_cancel(), style: .default, handler: {[unowned self] _ in
+        let actionCancel = UIAlertAction(title: R.string.localize.signupAlert_cancel.localized(), style: .default, handler: {[unowned self] _ in
             self.model.startMainFlowWithOutRegistration()
             blurVisualEffectView.removeFromSuperview()
         })

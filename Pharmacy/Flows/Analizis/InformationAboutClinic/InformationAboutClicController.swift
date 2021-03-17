@@ -33,7 +33,7 @@ class InformationAboutClicController: UIViewController {
     }
     
     private func setupUI() {
-        title = R.string.localize.analisisTitleInforAoutClinic()
+        title = R.string.localize.analisisTitleInforAoutClinic.localized()
     }
 }
 

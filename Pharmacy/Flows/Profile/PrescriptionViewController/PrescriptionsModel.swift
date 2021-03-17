@@ -24,6 +24,6 @@ extension PrescriptionsModel: PrescriptionsInput {
     }
     
     func signUpAnalysis() {
-        raise(event: AppEvent.presentInDev)
+        raise(event: AppEvent.presentInDev(nil))
     }
 }

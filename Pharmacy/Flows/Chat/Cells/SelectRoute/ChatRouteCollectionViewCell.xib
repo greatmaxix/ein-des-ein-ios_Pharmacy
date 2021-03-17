@@ -30,14 +30,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="371" height="522"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пожалуйста, выберите, с кем вы хотите начать консультацию" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qh-jm-OvI">
-                        <rect key="frame" x="16" y="33" width="339" height="37.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qh-jm-OvI">
+                        <rect key="frame" x="16" y="33" width="339" height="0.0"/>
                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                         <color key="textColor" name="textDarkBlue"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Человеческая служба поддержки!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ab7-Fb-VWH">
-                        <rect key="frame" x="16" y="78.5" width="339" height="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ab7-Fb-VWH">
+                        <rect key="frame" x="16" y="41" width="339" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="J2e-FZ-otO"/>
                         </constraints>
@@ -45,14 +45,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Никаких автоответчиков и роботов. Общение только с живыми людьми, которые расшибутся ради вас в лепешку!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHQ-HL-NuP">
-                        <rect key="frame" x="16" y="104.5" width="339" height="49"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHQ-HL-NuP">
+                        <rect key="frame" x="16" y="67" width="339" height="0.0"/>
                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgb-6H-UKK">
-                        <rect key="frame" x="38" y="170.5" width="295" height="136"/>
+                        <rect key="frame" x="38" y="84" width="295" height="136"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Zv-4w-1z6" userLabel="DoctorShadow">
                                 <rect key="frame" x="159" y="0.0" width="136" height="136"/>
@@ -125,7 +125,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="666-p4-elN" customClass="RoundedButton" customModule="Pharmacy" customModuleProvider="target">
-                        <rect key="frame" x="16" y="376.5" width="339" height="48"/>
+                        <rect key="frame" x="16" y="290" width="339" height="48"/>
                         <color key="backgroundColor" name="applyBlueGray"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="beT-4c-NOF"/>
@@ -147,13 +147,13 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Доктор" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6Q-M0-Bj0">
-                        <rect key="frame" x="237.5" y="318.5" width="55.5" height="19"/>
+                        <rect key="frame" x="237.5" y="232" width="55.5" height="19"/>
                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                         <nil key="textColor"/>
                         <color key="highlightedColor" name="textDarkBlue"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фармацевт" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcC-42-DZo">
-                        <rect key="frame" x="63.5" y="318.5" width="85.5" height="19"/>
+                        <rect key="frame" x="63.5" y="232" width="85.5" height="19"/>
                         <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                         <nil key="textColor"/>
                         <color key="highlightedColor" name="textDarkBlue"/>
@@ -183,11 +183,16 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <size key="customSize" width="46" height="455"/>
             <connections>
+                <outlet property="chosseTitleInfo" destination="2qh-jm-OvI" id="tGd-qg-Gdq"/>
                 <outlet property="confirmButton" destination="666-p4-elN" id="jgs-a3-7jD"/>
                 <outlet property="doctorBackground" destination="7Zv-4w-1z6" id="Ade-vg-3NP"/>
                 <outlet property="doctorButton" destination="fve-dd-KZd" id="Ya4-rV-Fcj"/>
+                <outlet property="doctorLabel" destination="w6Q-M0-Bj0" id="XOP-fG-YZM"/>
+                <outlet property="farmaLabel" destination="xcC-42-DZo" id="DKD-Gp-vtB"/>
+                <outlet property="helpTitle" destination="ab7-Fb-VWH" id="9ag-W3-gmb"/>
                 <outlet property="pharmacistBackground" destination="3y3-fH-y6Z" id="hod-MS-3DL"/>
                 <outlet property="pharmacistButton" destination="w2E-CP-SvT" id="zPE-Yx-ujo"/>
+                <outlet property="subTitleLabel" destination="sHQ-HL-NuP" id="KzK-vO-936"/>
             </connections>
             <point key="canvasLocation" x="151.44927536231884" y="125.22321428571428"/>
         </collectionViewCell>

@@ -148,13 +148,13 @@ class MapViewController: UIViewController {
     
     private func setupLocalization() {
         
-        let newValue = [R.string.localize.farmaciesListList(), R.string.localize.farmaciesListMap()]
+        let newValue = [R.string.localize.farmaciesListList(), R.string.localize.farmaciesListMap.localized()]
         if let segmentControl = self.segmentedControl {
             for i in 0..<newValue.count where i < segmentControl.numberOfSegments {
                 segmentControl.setTitle(newValue[i], forSegmentAt: i)
             }
         }
-        title = R.string.localize.farmaciesListTitle()
+        title = R.string.localize.farmaciesListTitle.localized()
     }
 }
 

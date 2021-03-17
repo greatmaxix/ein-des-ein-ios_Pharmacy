@@ -196,9 +196,8 @@
 "placeholder.email" = "email for sending";
 "checkout.email" = "email";
 "about.description" = "1208742, Astana, st. Beibitshilik, 33, entrance 6, floor 5, room 730";
-"placeholder.phone" = "";
-"checkout.phone" = "Language";
-
+"placeholder.phone" = "+7(•••) •••-••-••";
+"checkout.phone" = "+7";
 
 "analisis.title.inforAoutClinic" = "Инвитро";
 "analisis.title.choseClinick" = "Выбор клиники";
@@ -208,3 +207,28 @@
 "analisis.choseClinick.klinicheskiy" = "Клинический";
 "analisis.choseClinick.biohimicheskiy" = "Биохимические";
 "analisis.choseClinick.laboratorniy" = "Лабараторные";
+
+"chat_chose_info" = "Пожалуйста, выберите, с кем вы хотите начать консультацию";
+"chat_help_info" = "Человеческая служба поддержки!";
+"chat_subTitle_info" = "Никаких автоответчиков и роботов. Общение только с живыми людьми, которые расшибутся ради вас в лепешку!";
+"chat_farma_label" = "Фармацевт";
+"chat_doctor_label" = "Доктор";
+
+
+"instruction_label" = "Инструкция";
+"product_categoriy" = "Категорія";
+"product_image_info" = "Внешний вид упаковки может отличаться от фотографии";
+"empty_welcome_title" = "Путешествуем безопасно и без границ!";
+"empty_insurence_title" = "Ой, вы еще не добавили страховой полис!";
+"empty_charity_title" = "Медецинская благотворительность";
+"empty_subtitle_title" = "Уже в следующих версиях!  Следите за обновлениями!";
+"order_new" = "НОВЫЙ";
+"order_in_progress" = "В ОБРАБОТКЕ";
+"order_done" = "ВЫПОЛНЕН";
+"order_cancel" = "ОТМЕНЕН";
+"order_delivary" = "Доставка";
+"order_delivary_own" = "Самовывоз";
+"order_title" = "Мои заказы";
+"order_title" = "Мои заказы";
+"recipient_cancel" = "Добавить рецепт";
+"recipient_cancel" = "Добавить рецепт";

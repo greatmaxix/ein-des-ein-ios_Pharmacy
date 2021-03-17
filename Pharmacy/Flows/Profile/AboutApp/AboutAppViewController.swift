@@ -40,8 +40,8 @@ final class AboutAppViewController: UIViewController {
     view.backgroundColor = R.color.lightGray()
     
     /// setup text
-    titleLabel.text = R.string.localize.aboutTitle()
-    descriptionLabel.text = R.string.localize.aboutDescription()
+    titleLabel.text = R.string.localize.aboutTitle.localized()
+    descriptionLabel.text = R.string.localize.aboutDescription.localized()
 //    linkTextView.text = R.string.localize.aboutLink()
     
     /// setup label styles
@@ -52,8 +52,8 @@ final class AboutAppViewController: UIViewController {
     linkTextView.font = R.font.openSansRegular(size: 12)
     
     /// setup textView link
-    let url = URL(string: "https://\(R.string.localize.aboutLink())")
-    let attributedLinkString = NSMutableAttributedString(string: R.string.localize.aboutLink(),
+    let url = URL(string: "https://\(R.string.localize.aboutLink.localized())")
+    let attributedLinkString = NSMutableAttributedString(string: R.string.localize.aboutLink.localized(),
                                                          attributes: [.link: url!])
     linkTextView.linkTextAttributes = [
       .foregroundColor: R.color.welcomeBlue(),
@@ -71,8 +71,8 @@ final class AboutAppViewController: UIViewController {
     if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
       bar.isLeftItemHidden = false
       bar.isRightItemHidden = false
-      bar.title = R.string.localize.aboutAbout()
-      bar.leftItemTitle = R.string.localize.profileProfile()
+      bar.title = R.string.localize.aboutAbout.localized()
+      bar.leftItemTitle = R.string.localize.profileProfile.localized()
       bar.barDelegate = self
     }
   }

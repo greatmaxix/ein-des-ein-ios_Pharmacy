@@ -15,9 +15,12 @@ protocol SearchBarDelegate: class {
 }
 
 class SearchBar: UIView, NibView {
+    @IBOutlet var conteinerView: UIView!
     
     // MARK: - Outlets
-    @IBOutlet private(set) weak var textField: UITextField!
+    @IBOutlet private(set) weak var textField: UITextField! { didSet {
+        localize()
+    }}
     @IBOutlet private(set) weak var cancelButton: UIButton!
     
     // MARK: - Properties
@@ -34,13 +37,17 @@ class SearchBar: UIView, NibView {
         
         loadViewFromNib()
         initialize()
+
     }
+    
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         loadViewFromNib()
         initialize()
+   
     }
     
     override func draw(_ rect: CGRect) {
@@ -69,8 +76,13 @@ extension SearchBar {
     
     private func initialize() {
         self.clipsToBounds = true
-        self.textField.placeholder = R.string.localize.welcomeSearchBarPlaceholder()
+        self.textField.placeholder = R.string.localize.welcomeSearchBarPlaceholder.localized()
+//        conteinerView.layer.cornerRadius = 10
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    }
+    
+    func localize() {
+        self.textField.placeholder = R.string.localize.welcomeSearchBarPlaceholder.localized()
     }
 }
 

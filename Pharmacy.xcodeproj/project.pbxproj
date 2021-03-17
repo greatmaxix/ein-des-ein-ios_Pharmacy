@@ -136,7 +136,7 @@
 		39F8B2F924CEFBDA00195AD8 /* WelcomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2F824CEFBDA00195AD8 /* WelcomeModel.swift */; };
 		39F8B2FB24CEFED600195AD8 /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */; };
 		39F8B2FD24CF004900195AD8 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F8B2FC24CF004900195AD8 /* Welcome.storyboard */; };
-		4D8BCF6B254891A40094C43C /* InDevelopment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8BCF6A254891A40094C43C /* InDevelopment.storyboard */; };
+		4D8BCF6B254891A40094C43C /* InDevelopmentViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8BCF6A254891A40094C43C /* InDevelopmentViewController.storyboard */; };
 		4D8BCF6E2548932B0094C43C /* InDevelopmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BCF6D2548932B0094C43C /* InDevelopmentViewController.swift */; };
 		4DE4D5352549810C00EE0E3A /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4D5342549810C00EE0E3A /* AboutAppViewController.swift */; };
 		4DE4D5392549812000EE0E3A /* AboutAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE4D5382549812000EE0E3A /* AboutAppModel.swift */; };
@@ -477,6 +477,15 @@
 		F53A07DD25F7BD990091C969 /* ConnectWithUsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A07DC25F7BD990091C969 /* ConnectWithUsController.swift */; };
 		F549F37225EC295D008749BD /* ChooseClinicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F37125EC295D008749BD /* ChooseClinicViewController.swift */; };
 		F549F37C25EC2D5F008749BD /* ClinicsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F37B25EC2D5F008749BD /* ClinicsListController.swift */; };
+		F556C236260259CC0012117A /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = F556C234260259CC0012117A /* localize.strings */; };
+		F55D46322601CA3C00B67EC5 /* LanguageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D462F2601CA3B00B67EC5 /* LanguageModels.swift */; };
+		F55D46332601CA3C00B67EC5 /* LanguageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D46302601CA3B00B67EC5 /* LanguageService.swift */; };
+		F55D46342601CA3C00B67EC5 /* ExtensionString .swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D46312601CA3B00B67EC5 /* ExtensionString .swift */; };
+		F55D46372601CAC100B67EC5 /* Locale+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D46362601CAC100B67EC5 /* Locale+Extension.swift */; };
+		F55D463C2601D29900B67EC5 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = F55D463A2601D29900B67EC5 /* localize.strings */; };
+		F55D46412601D2A700B67EC5 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = F55D463F2601D2A700B67EC5 /* localize.strings */; };
+		F55D46452601D2B300B67EC5 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = F55D46432601D2B300B67EC5 /* localize.strings */; };
+		F55D46492601D2BD00B67EC5 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = F55D46472601D2BD00B67EC5 /* localize.strings */; };
 		F56B649B25DD300000B108AC /* AnalysisAndDiagnostics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F56B649A25DD300000B108AC /* AnalysisAndDiagnostics.storyboard */; };
 		F56B649E25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56B649D25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift */; };
 		F56E41D525ECF0AB00599CAA /* ChoseClinicAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56E41D425ECF0AB00599CAA /* ChoseClinicAPI.swift */; };
@@ -631,7 +640,7 @@
 		39F8B2FA24CEFED600195AD8 /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
 		39F8B2FC24CF004900195AD8 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		447B6BF7452CC91EDC27B562 /* Pods-Pharmacy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pharmacy.release.xcconfig"; path = "Target Support Files/Pods-Pharmacy/Pods-Pharmacy.release.xcconfig"; sourceTree = "<group>"; };
-		4D8BCF6A254891A40094C43C /* InDevelopment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InDevelopment.storyboard; sourceTree = "<group>"; };
+		4D8BCF6A254891A40094C43C /* InDevelopmentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InDevelopmentViewController.storyboard; sourceTree = "<group>"; };
 		4D8BCF6D2548932B0094C43C /* InDevelopmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InDevelopmentViewController.swift; sourceTree = "<group>"; };
 		4DE4D5342549810C00EE0E3A /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		4DE4D5382549812000EE0E3A /* AboutAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppModel.swift; sourceTree = "<group>"; };
@@ -1002,6 +1011,27 @@
 		F53A07DC25F7BD990091C969 /* ConnectWithUsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectWithUsController.swift; sourceTree = "<group>"; };
 		F549F37125EC295D008749BD /* ChooseClinicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseClinicViewController.swift; sourceTree = "<group>"; };
 		F549F37B25EC2D5F008749BD /* ClinicsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicsListController.swift; sourceTree = "<group>"; };
+		F556C228260259B20012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/ChooseClinicOnMap.strings; sourceTree = "<group>"; };
+		F556C229260259B20012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/ChooseClinicViewController.strings; sourceTree = "<group>"; };
+		F556C22A260259B30012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/CancelOrderView.strings; sourceTree = "<group>"; };
+		F556C22B260259B30012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/OrderServiceViewController.strings; sourceTree = "<group>"; };
+		F556C22C260259B40012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/ClinicTableCell.strings; sourceTree = "<group>"; };
+		F556C22D260259B40012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/AnalisInformationViewController.strings; sourceTree = "<group>"; };
+		F556C22E260259B40012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/PaymendSuccessfullyAlertController.strings; sourceTree = "<group>"; };
+		F556C22F260259B50012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/PromocodViewController.strings; sourceTree = "<group>"; };
+		F556C230260259B50012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/CancelOrderViewController.strings; sourceTree = "<group>"; };
+		F556C231260259B50012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		F556C232260259B60012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = ../uz.lproj/localize.strings; sourceTree = "<group>"; };
+		F556C235260259CC0012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = localize.strings; sourceTree = "<group>"; };
+		F556C238260259D50012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/localize.strings; sourceTree = "<group>"; };
+		F55D462F2601CA3B00B67EC5 /* LanguageModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageModels.swift; sourceTree = "<group>"; };
+		F55D46302601CA3B00B67EC5 /* LanguageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageService.swift; sourceTree = "<group>"; };
+		F55D46312601CA3B00B67EC5 /* ExtensionString .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ExtensionString .swift"; sourceTree = "<group>"; };
+		F55D46362601CAC100B67EC5 /* Locale+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Extension.swift"; sourceTree = "<group>"; };
+		F55D463B2601D29900B67EC5 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = localize.strings; sourceTree = "<group>"; };
+		F55D46402601D2A700B67EC5 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = localize.strings; sourceTree = "<group>"; };
+		F55D46442601D2B300B67EC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = localize.strings; sourceTree = "<group>"; };
+		F55D46482601D2BD00B67EC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = localize.strings; sourceTree = "<group>"; };
 		F56B649A25DD300000B108AC /* AnalysisAndDiagnostics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnalysisAndDiagnostics.storyboard; sourceTree = "<group>"; };
 		F56B649D25DD301C00B108AC /* AnalysisAndDiagnosticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisAndDiagnosticsViewController.swift; sourceTree = "<group>"; };
 		F56E41D425ECF0AB00599CAA /* ChoseClinicAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseClinicAPI.swift; sourceTree = "<group>"; };
@@ -1226,6 +1256,7 @@
 				8732E4342518AAF0007CBBEF /* UIImage+Grayscale.swift */,
 				247C4E4A2562933400A46061 /* UIImage+Orientation.swift */,
 				6016121D2566B1DC005151BC /* Date+String.swift */,
+				F55D46362601CAC100B67EC5 /* Locale+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1323,6 +1354,9 @@
 		395C9D682498E28A001EB6CD /* Localize */ = {
 			isa = PBXGroup;
 			children = (
+				F556C233260259CC0012117A /* uz.lproj */,
+				F55D463E2601D2A700B67EC5 /* uk.lproj */,
+				F55D46392601D29900B67EC5 /* kk.lproj */,
 				F5B7B1F925FB989300C23CE7 /* ru.lproj */,
 				F5F2C55E25FA70C00082F0A5 /* en.lproj */,
 				F5B7B20025FB98E700C23CE7 /* localize.strings */,
@@ -1696,7 +1730,7 @@
 		4D8BCF69254891570094C43C /* InDevelopment */ = {
 			isa = PBXGroup;
 			children = (
-				4D8BCF6A254891A40094C43C /* InDevelopment.storyboard */,
+				4D8BCF6A254891A40094C43C /* InDevelopmentViewController.storyboard */,
 				4D8BCF6D2548932B0094C43C /* InDevelopmentViewController.swift */,
 			);
 			path = InDevelopment;
@@ -2345,6 +2379,7 @@
 			children = (
 				614494412552EB3C003E20F9 /* UI */,
 				618C33932498BD1A00951D11 /* Coordinator */,
+				F55D462E2601CA2200B67EC5 /* LanguageService */,
 				619AAA412498ADF100AB46ED /* Managers */,
 				3939A6D324F6A39E0045FB71 /* Location Service */,
 				619AAA3E2498A99700AB46ED /* API */,
@@ -3084,6 +3119,40 @@
 			path = ClinicsListController;
 			sourceTree = "<group>";
 		};
+		F556C233260259CC0012117A /* uz.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F556C234260259CC0012117A /* localize.strings */,
+			);
+			path = uz.lproj;
+			sourceTree = "<group>";
+		};
+		F55D462E2601CA2200B67EC5 /* LanguageService */ = {
+			isa = PBXGroup;
+			children = (
+				F55D46312601CA3B00B67EC5 /* ExtensionString .swift */,
+				F55D462F2601CA3B00B67EC5 /* LanguageModels.swift */,
+				F55D46302601CA3B00B67EC5 /* LanguageService.swift */,
+			);
+			path = LanguageService;
+			sourceTree = "<group>";
+		};
+		F55D46392601D29900B67EC5 /* kk.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F55D463A2601D29900B67EC5 /* localize.strings */,
+			);
+			path = kk.lproj;
+			sourceTree = "<group>";
+		};
+		F55D463E2601D2A700B67EC5 /* uk.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F55D463F2601D2A700B67EC5 /* localize.strings */,
+			);
+			path = uk.lproj;
+			sourceTree = "<group>";
+		};
 		F56B649925DD2F6E00B108AC /* AnalysisAndDiagnosticsFlow */ = {
 			isa = PBXGroup;
 			children = (
@@ -3166,6 +3235,7 @@
 		F5B7B1F925FB989300C23CE7 /* ru.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				F55D46432601D2B300B67EC5 /* localize.strings */,
 			);
 			path = ru.lproj;
 			sourceTree = "<group>";
@@ -3173,6 +3243,7 @@
 		F5F2C55E25FA70C00082F0A5 /* en.lproj */ = {
 			isa = PBXGroup;
 			children = (
+				F55D46472601D2BD00B67EC5 /* localize.strings */,
 			);
 			path = en.lproj;
 			sourceTree = "<group>";
@@ -3227,6 +3298,7 @@
 				ru,
 				kk,
 				uk,
+				uz,
 			);
 			mainGroup = 396C45AC2497699800A569CE;
 			productRefGroup = 396C45B62497699800A569CE /* Products */;
@@ -3246,7 +3318,7 @@
 				F51F5DA625FB9F24001B4EC7 /* ChooseClinicViewController.storyboard in Resources */,
 				F5205C8C25F8C4B2005FD6EB /* LanguageViewController.storyboard in Resources */,
 				398B0DE124F50AD60084EC54 /* UserMarkerView.xib in Resources */,
-				4D8BCF6B254891A40094C43C /* InDevelopment.storyboard in Resources */,
+				4D8BCF6B254891A40094C43C /* InDevelopmentViewController.storyboard in Resources */,
 				F51F88C825DE747900C1A9ED /* TypeOfAnalysisCell.xib in Resources */,
 				4DE4D54025498E5A00EE0E3A /* AboutAppTableViewCell.xib in Resources */,
 				397541D524ED23CB0069F8DE /* SimpleNavigationBarView.xib in Resources */,
@@ -3280,8 +3352,10 @@
 				87131D3A25137B910050B8F2 /* RecentsHeaderView.xib in Resources */,
 				603D318D24E2A269000E5A6C /* ReceiptView.xib in Resources */,
 				F51F5DC025FBA0E0001B4EC7 /* OrderServiceViewController.storyboard in Resources */,
+				F556C236260259CC0012117A /* localize.strings in Resources */,
 				61D90F95255DCF3400AE6124 /* ReceiptCell.xib in Resources */,
 				608E3AFD2551D47000AEE56C /* ChatButtonCollectionViewCell.xib in Resources */,
+				F55D46412601D2A700B67EC5 /* localize.strings in Resources */,
 				6075BD4E24DEA7FB00BC78BD /* OpenSans-SemiBold.ttf in Resources */,
 				61CFAA94254C28DD00569DEF /* OrderPharmacyCell.xib in Resources */,
 				60655B9D256328A20030DC63 /* ChatRecipeCollectionViewCell.xib in Resources */,
@@ -3298,6 +3372,7 @@
 				603D31FB24E5AA31000E5A6C /* ProductDescriptionTableViewCell.xib in Resources */,
 				393DDFBE250286C500652A01 /* RegionCell.xib in Resources */,
 				24F5FD42254A0BAF00D28275 /* ChooseLocationViewController.storyboard in Resources */,
+				F55D463C2601D29900B67EC5 /* localize.strings in Resources */,
 				6036EB0324DD27A5003336C2 /* Search.storyboard in Resources */,
 				F51F5DCC25FBA1AF001B4EC7 /* ClinicTableCell.xib in Resources */,
 				603D31BD24E57871000E5A6C /* Product.storyboard in Resources */,
@@ -3346,12 +3421,14 @@
 				395D04FC24D01242007A278D /* ReadyOrderView.xib in Resources */,
 				F51F5DB325FBA067001B4EC7 /* CancelOrderView.storyboard in Resources */,
 				F53A07D325F7951A0091C969 /* QuestionCell.xib in Resources */,
+				F55D46492601D2BD00B67EC5 /* localize.strings in Resources */,
 				24567C112550121B001CF931 /* ChooseDeliveryAdressViewController.storyboard in Resources */,
 				F573A58F25F8984900B4CC4F /* DeliveryTutorialViewController.storyboard in Resources */,
 				F56B649B25DD300000B108AC /* AnalysisAndDiagnostics.storyboard in Resources */,
 				24F5FDB6254B3C3A00D28275 /* ChooseLocationTableViewCell.xib in Resources */,
 				393DDFC42502954200652A01 /* RegionHeaderCell.xib in Resources */,
 				60E1A6F524EB8C5E00B3D205 /* SearchTableViewCell.xib in Resources */,
+				F55D46452601D2B300B67EC5 /* localize.strings in Resources */,
 				61CFAA84254B1AB800569DEF /* CreateOrderContactInfoCell.xib in Resources */,
 				F51F5DF125FBA66E001B4EC7 /* PromocodViewController.storyboard in Resources */,
 				F5B7B1FE25FB98E700C23CE7 /* localize.strings in Resources */,
@@ -3673,6 +3750,7 @@
 				F580C0FF25F9569300F8A5BC /* ChooseClinicOnMapViewModel.swift in Sources */,
 				87131D3725137B6C0050B8F2 /* RecentsHeaderView.swift in Sources */,
 				60E1A71724ECE0EA00B3D205 /* ScanModel.swift in Sources */,
+				F55D46342601CA3C00B67EC5 /* ExtensionString .swift in Sources */,
 				F53A07CD25F7902E0091C969 /* QuestionViewModel.swift in Sources */,
 				60515CFE254B068900977BEF /* SubcategoryCellSection.swift in Sources */,
 				398B0DE724F51C410084EC54 /* MapFarmacyListModel.swift in Sources */,
@@ -3786,7 +3864,9 @@
 				60475FE02551569400448EF3 /* ChatModel.swift in Sources */,
 				24F5FC58254892D900D28275 /* RecentMedicineEntity.swift in Sources */,
 				F521BCFA25E0084900289081 /* DetailLaboratoryTableViewCell.swift in Sources */,
+				F55D46372601CAC100B67EC5 /* Locale+Extension.swift in Sources */,
 				39273A0D24A0F09B004A9909 /* SignUpModel.swift in Sources */,
+				F55D46332601CA3C00B67EC5 /* LanguageService.swift in Sources */,
 				61CFAA93254C28DD00569DEF /* OrderPharmacyCell.swift in Sources */,
 				39505F5524AC73620045EC02 /* TabBarController.swift in Sources */,
 				608E3AEF2551A71200AEE56C /* Message.swift in Sources */,
@@ -3802,6 +3882,7 @@
 				61CFAA83254B1AB800569DEF /* CreateOrderContactInfoCell.swift in Sources */,
 				3954D12324D1BB7400AB44BD /* EditProfileModel.swift in Sources */,
 				F51F88DA25DEC51200C1A9ED /* TypeOfAnalysis.swift in Sources */,
+				F55D46322601CA3C00B67EC5 /* LanguageModels.swift in Sources */,
 				87131D3C251392270050B8F2 /* String+HTML.swift in Sources */,
 				6036EB0024DD1CAA003336C2 /* BasketCoordinator.swift in Sources */,
 				246A83C62547070A0004ECEC /* PostResponse.swift in Sources */,
@@ -3849,6 +3930,7 @@
 				F5B7B1FA25FB98BC00C23CE7 /* ru */,
 				F5B7B1FC25FB98CF00C23CE7 /* kk */,
 				F5B7B1FD25FB98D500C23CE7 /* uk */,
+				F556C231260259B50012117A /* uz */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -3861,6 +3943,7 @@
 				F51F5DAE25FB9F85001B4EC7 /* kk */,
 				F51F5DB025FB9FBE001B4EC7 /* ru */,
 				F51F5DB225FBA02D001B4EC7 /* uk */,
+				F556C229260259B20012117A /* uz */,
 			);
 			name = ChooseClinicViewController.storyboard;
 			sourceTree = "<group>";
@@ -3873,6 +3956,7 @@
 				F51F5DBB25FBA080001B4EC7 /* ru */,
 				F51F5DBD25FBA08B001B4EC7 /* kk */,
 				F51F5DBF25FBA097001B4EC7 /* en */,
+				F556C22A260259B30012117A /* uz */,
 			);
 			name = CancelOrderView.storyboard;
 			sourceTree = "<group>";
@@ -3885,6 +3969,7 @@
 				F51F5DC725FBA124001B4EC7 /* ru */,
 				F51F5DC925FBA127001B4EC7 /* kk */,
 				F51F5DCB25FBA15F001B4EC7 /* en */,
+				F556C22B260259B30012117A /* uz */,
 			);
 			name = OrderServiceViewController.storyboard;
 			sourceTree = "<group>";
@@ -3897,6 +3982,7 @@
 				F51F5DD325FBA1C0001B4EC7 /* kk */,
 				F51F5DD525FBA1C6001B4EC7 /* ru */,
 				F51F5DD725FBA1D0001B4EC7 /* uk */,
+				F556C22C260259B40012117A /* uz */,
 			);
 			name = ClinicTableCell.xib;
 			sourceTree = "<group>";
@@ -3909,6 +3995,7 @@
 				F51F5DDE25FBA22F001B4EC7 /* kk */,
 				F51F5DE025FBA24E001B4EC7 /* ru */,
 				F51F5DE225FBA283001B4EC7 /* uk */,
+				F556C22D260259B40012117A /* uz */,
 			);
 			name = AnalisInformationViewController.storyboard;
 			sourceTree = "<group>";
@@ -3921,6 +4008,7 @@
 				F51F5DEB25FBA5D8001B4EC7 /* kk */,
 				F51F5DEE25FBA617001B4EC7 /* ru */,
 				F51F5DF025FBA61D001B4EC7 /* uk */,
+				F556C22E260259B40012117A /* uz */,
 			);
 			name = PaymendSuccessfullyAlertController.storyboard;
 			sourceTree = "<group>";
@@ -3933,6 +4021,7 @@
 				F51F5DF825FBA677001B4EC7 /* kk */,
 				F51F5DFA25FBA68E001B4EC7 /* ru */,
 				F51F5DFC25FBA691001B4EC7 /* uk */,
+				F556C22F260259B50012117A /* uz */,
 			);
 			name = PromocodViewController.storyboard;
 			sourceTree = "<group>";
@@ -3943,8 +4032,50 @@
 				F51F5DFF25FBA77A001B4EC7 /* Base */,
 				F51F5E0225FBA7AD001B4EC7 /* en */,
 				F51F5E0525FBA7DF001B4EC7 /* kk */,
+				F556C230260259B50012117A /* uz */,
 			);
 			name = CancelOrderViewController.storyboard;
+			sourceTree = "<group>";
+		};
+		F556C234260259CC0012117A /* localize.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F556C235260259CC0012117A /* uz */,
+			);
+			name = localize.strings;
+			sourceTree = "<group>";
+		};
+		F55D463A2601D29900B67EC5 /* localize.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F55D463B2601D29900B67EC5 /* kk */,
+			);
+			name = localize.strings;
+			sourceTree = "<group>";
+		};
+		F55D463F2601D2A700B67EC5 /* localize.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F55D46402601D2A700B67EC5 /* uk */,
+				F556C232260259B60012117A /* uz */,
+			);
+			name = localize.strings;
+			sourceTree = "<group>";
+		};
+		F55D46432601D2B300B67EC5 /* localize.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F55D46442601D2B300B67EC5 /* ru */,
+			);
+			name = localize.strings;
+			sourceTree = "<group>";
+		};
+		F55D46472601D2BD00B67EC5 /* localize.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F55D46482601D2BD00B67EC5 /* en */,
+			);
+			name = localize.strings;
 			sourceTree = "<group>";
 		};
 		F5B7B20025FB98E700C23CE7 /* localize.strings */ = {
@@ -3954,6 +4085,7 @@
 				F5B7B20125FB98EB00C23CE7 /* kk */,
 				F5B7B20225FB98EC00C23CE7 /* en */,
 				F5B7B20325FB98ED00C23CE7 /* uk */,
+				F556C238260259D50012117A /* uz */,
 			);
 			name = localize.strings;
 			sourceTree = "<group>";
@@ -3964,6 +4096,7 @@
 				F5B7B21025FB9DAE00C23CE7 /* Base */,
 				F5B7B21425FB9DB400C23CE7 /* en */,
 				F5CF491625FB9DF5005542C3 /* ru */,
+				F556C228260259B20012117A /* uz */,
 			);
 			name = ChooseClinicOnMap.storyboard;
 			sourceTree = "<group>";
@@ -4097,7 +4230,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
@@ -4121,7 +4254,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 35;
+				CURRENT_PROJECT_VERSION = 37;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				INFOPLIST_FILE = Pharmacy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;

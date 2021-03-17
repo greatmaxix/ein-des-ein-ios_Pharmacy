@@ -19,6 +19,6 @@ class PhoneValidator: BaseTextValidator {
     }
     
     override var errorText: String {
-        return R.string.localize.errorPhone()
+        return R.string.localize.errorPhone.localized()
     }
 }

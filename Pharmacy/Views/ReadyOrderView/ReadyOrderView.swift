@@ -22,8 +22,8 @@ final class ReadyOrderView: UIView {
     
     override func didMoveToSuperview() {
         
-        deliveryLable.text = R.string.localize.welcomeDelivery()
-        titleLable.text = R.string.localize.welcomeYourOrder() + " " + orderNumber + " "
-            + R.string.localize.welcomeReady() + "!"
+        deliveryLable.text = R.string.localize.welcomeDelivery.localized()
+        titleLable.text = R.string.localize.welcomeYourOrder.localized() + " " + orderNumber + " "
+            + R.string.localize.welcomeReady.localized() + "!"
     }
 }

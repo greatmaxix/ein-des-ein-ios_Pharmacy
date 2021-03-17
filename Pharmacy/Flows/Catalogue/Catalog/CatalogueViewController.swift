@@ -33,6 +33,16 @@ final class CatalogueViewController: CollectionDataSourceViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupSearchBar()
+    }
+    
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        view.layoutIfNeeded()
+    }
+    
     private func setupUI() {
         title = model.title
         view.backgroundColor = .white
@@ -54,17 +64,14 @@ final class CatalogueViewController: CollectionDataSourceViewController {
     
     func setupSearchBar() {
         searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = R.string.localize.basketEmptyButton.localized()
+        searchController.setupSearchBar()
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
         view.bringSubviewToFront(navigationBarBackground)
         navigationBarBackground.layer.cornerRadius = 10.0
         navigationBarBackground.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-    }
-    
-    override func viewSafeAreaInsetsDidChange() {
-        super.viewSafeAreaInsetsDidChange()
-        view.layoutIfNeeded()
     }
 }
 

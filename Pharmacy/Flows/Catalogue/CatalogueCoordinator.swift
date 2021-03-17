@@ -103,7 +103,7 @@ extension CatalogueCoordinator {
 // MARK: - TabBarEmbedCoordinable
 extension CatalogueCoordinator: TabBarEmbedCoordinable {
     var tabItemInfo: TabBarItemInfo {
-        return TabBarItemInfo(title: R.string.localize.tabbarCatalogue(),
+        return TabBarItemInfo(title: R.string.localize.tabbarCatalogue.localized(),
                               icon: R.image.tabbarCatalogue(),
                               highlightedIcon: R.image.tabbarCatalogue())
     }

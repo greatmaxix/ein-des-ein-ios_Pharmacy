@@ -81,7 +81,7 @@ final class WelcomeCoordinator: EventNode, NaviagationEmbedCoordinable {
 extension WelcomeCoordinator: TabBarEmbedCoordinable {
     
     var tabItemInfo: TabBarItemInfo {
-        return TabBarItemInfo(title: R.string.localize.tabbarMain(),
+        return TabBarItemInfo(title: R.string.localize.tabbarMain.localized(),
                               icon: R.image.tabbarMain(),
                               highlightedIcon: R.image.tabbarMain())
     }

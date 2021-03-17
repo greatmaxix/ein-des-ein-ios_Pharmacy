@@ -20,6 +20,10 @@ final class ProductAdviceTableViewCell: HighlightedTableViewCell, ContainerView 
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = GUI.cornerRadius
-        descriptionLabel.text = R.string.localize.productCunsumWarning()
+        descriptionLabel.text = R.string.localize.productCunsumWarning.localized()
+    }
+    
+    func apply() {
+        descriptionLabel.text = R.string.localize.productCunsumWarning.localized()
     }
 }

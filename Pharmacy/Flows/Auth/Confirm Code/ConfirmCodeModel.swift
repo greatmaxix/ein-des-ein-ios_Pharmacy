@@ -102,7 +102,7 @@ final class ConfirmCodeModel: Model {
     
     private func loginFail() {
         output.unblockResendButton()
-        output.failedToConfirmCode(message: R.string.localize.confirmConfirm_fail())
+        output.failedToConfirmCode(message: R.string.localize.confirmConfirm_fail.localized())
     }
 }
 

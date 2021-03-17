@@ -415,6 +415,7 @@
                         <outlet property="doneButton" destination="uBA-D3-nOO" id="U91-eU-1fC"/>
                         <outlet property="emptyView" destination="MvQ-qN-Ws4" id="hbY-Fy-JXi"/>
                         <outlet property="inProgressButton" destination="aZT-El-Zeb" id="5Xb-Lp-nhm"/>
+                        <outlet property="navBarTitle" destination="L1U-c0-Sls" id="Odu-we-EeA"/>
                         <outlet property="tableView" destination="jb3-ZE-cTQ" id="U24-RW-Fc9"/>
                         <outletCollection property="controllButtons" destination="Rlh-gv-ax9" collectionClass="NSMutableArray" id="AXn-qr-ZKD"/>
                         <outletCollection property="controllButtons" destination="aZT-El-Zeb" collectionClass="NSMutableArray" id="gth-vj-bvy"/>

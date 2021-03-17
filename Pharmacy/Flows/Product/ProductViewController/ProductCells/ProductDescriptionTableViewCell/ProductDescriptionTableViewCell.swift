@@ -14,7 +14,7 @@ final class ProductDescriptionTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
-        titleLabel.text = R.string.localize.productDescription()
+        titleLabel.text = R.string.localize.productDescription.localized()
     }
     
     func apply(product: Product) {

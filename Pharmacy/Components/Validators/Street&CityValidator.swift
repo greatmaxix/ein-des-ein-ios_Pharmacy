@@ -19,6 +19,6 @@ class CityValidator: BaseTextValidator {
     }
     
     override var errorText: String {
-        return R.string.localize.deliveryStreenAndCityValidation()
+        return R.string.localize.deliveryStreenAndCityValidation.localized()
     }
 }

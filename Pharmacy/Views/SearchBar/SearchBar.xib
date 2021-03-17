@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBar" customModule="Pharmacy" customModuleProvider="target">
             <connections>
                 <outlet property="cancelButton" destination="p2W-Uc-RLv" id="N8p-GZ-tTC"/>
+                <outlet property="conteinerView" destination="GAK-rv-qnr" id="oke-rb-stF"/>
                 <outlet property="textField" destination="XsP-gl-WVw" id="P5n-yg-4v7"/>
             </connections>
         </placeholder>

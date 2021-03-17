@@ -62,21 +62,21 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
             
             bar.isLeftItemHidden = false
             bar.isRightItemHidden = false
-            bar.title = R.string.localize.profileEdit()
-            bar.leftItemTitle = R.string.localize.profileProfile()
-            bar.rightItemTitle = R.string.localize.profileSaveChanges()
+            bar.title = R.string.localize.profileEdit.localized()
+            bar.leftItemTitle = R.string.localize.profileProfile.localized()
+            bar.rightItemTitle = R.string.localize.profileSaveChanges.localized()
             bar.barDelegate = self
         }
     }
     
     @IBAction private func editImage() {
         
-        let alertVC = UIAlertController(title: R.string.localize.profileMakePhoto(), message: R.string.localize.profileMakePhotoDescription(), preferredStyle: .alert)
+        let alertVC = UIAlertController(title: R.string.localize.profileMakePhoto.localized(), message: R.string.localize.profileMakePhotoDescription.localized(), preferredStyle: .alert)
         
-        alertVC.addAction(UIAlertAction(title: R.string.localize.profileCamera(), style: .default, handler: { [weak self] _ in
+        alertVC.addAction(UIAlertAction(title: R.string.localize.profileCamera.localized(), style: .default, handler: { [weak self] _ in
             self?.openCamera()
         }))
-        alertVC.addAction(UIAlertAction(title: R.string.localize.profileGalery(), style: .default, handler: { [weak self] _ in
+        alertVC.addAction(UIAlertAction(title: R.string.localize.profileGalery.localized(), style: .default, handler: { [weak self] _ in
             self?.openPhotoLibrary()
         }))
         alertVC.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))

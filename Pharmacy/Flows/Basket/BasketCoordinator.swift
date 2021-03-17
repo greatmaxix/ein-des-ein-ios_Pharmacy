@@ -64,7 +64,7 @@ final class BasketCoordinator: EventNode, Coordinator {
 extension BasketCoordinator: TabBarEmbedCoordinable {
 
     var tabItemInfo: TabBarItemInfo {
-        return TabBarItemInfo(title: R.string.localize.tabbarBasket(),
+        return TabBarItemInfo(title: R.string.localize.tabbarBasket.localized(),
                               icon: R.image.tabbarShopping(),
                               highlightedIcon: R.image.tabbarShopping())
     }

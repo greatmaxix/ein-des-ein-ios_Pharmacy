@@ -48,13 +48,13 @@ class OrderListCell: UITableViewCell {
         totalCostLabel.text = order.totalCost?.moneyString(with: "₸")
 
         if order.deliveryInfo?.type == "pickup" {
-            deliveryTypeLabel.text = "Самовывоз"
+            deliveryTypeLabel.text = R.string.localize.order_delivary_own.localized()
             deliveryTypeLabel.textColor = R.color.textDarkBlue()
             deliveryTypeImageView.image = R.image.icon_selfdelivery()
             deliveryTypeImageView.tintColor = R.color.textDarkBlue()
             deliveryView.backgroundColor = R.color.pickup()
         } else {
-            deliveryTypeLabel.text = "Доставка"
+            deliveryTypeLabel.text = R.string.localize.order_delivary.localized()
             deliveryTypeLabel.textColor = R.color.textDarkBlue()
             deliveryTypeImageView.image = R.image.icon_delivery()
             deliveryTypeImageView.tintColor = R.color.textDarkBlue()
@@ -64,22 +64,23 @@ class OrderListCell: UITableViewCell {
 
         let state = OrderListRequestState.init(rawValue: order.status ?? "new")
 
-        switch state {
-        case .new:
-            orderStatusView.backgroundColor = R.color.welcomeBlue()
-            orderStatusLabel.text = "НОВЫЙ"
-        case .inProgress:
-            orderStatusView.backgroundColor = R.color.orange()
-            orderStatusLabel.text = "В ОБРАБОТКЕ"
-        case .done:
-            orderStatusView.backgroundColor = R.color.welcomeBlue()
-            orderStatusLabel.text = "ВЫПОЛНЕН"
-        case .canceled:
-            orderStatusView.backgroundColor = R.color.validationRed()
-            orderStatusLabel.text = "ОТМЕНЕН"
-        default:
-            orderStatusView.backgroundColor = R.color.welcomeGreen()
-            orderStatusLabel.text = "В ОБРАБОТКЕ"
-        }
+            switch state {
+            case .new:
+                orderStatusView.backgroundColor = R.color.welcomeBlue()
+                orderStatusLabel.text = R.string.localize.order_new.localized()
+            case .inProgress:
+                orderStatusView.backgroundColor = R.color.orange()
+                orderStatusLabel.text = R.string.localize.order_delivary.localized()
+            case .done:
+                orderStatusView.backgroundColor = R.color.welcomeBlue()
+                orderStatusLabel.text = R.string.localize.order_done.localized()
+            case .canceled:
+                orderStatusView.backgroundColor = R.color.validationRed()
+                orderStatusLabel.text = R.string.localize.order_cancel.localized()
+            default:
+                orderStatusView.backgroundColor = R.color.welcomeGreen()
+                orderStatusLabel.text = R.string.localize.order_delivary.localized()
+            }
     }
+
 }

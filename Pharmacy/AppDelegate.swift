@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import CoreData
 import Firebase
+import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyDJfvTblScxj6gZYw-Xtg1NJeHbHUcAURs")
         window = UIWindow(frame: UIScreen.main.bounds)
         appNavigationCoordinator = AppNavigation(window: window!)
+        
+        IQKeyboardManager.shared().isEnabled = true
         appNavigationCoordinator.startFlow()
 
         return true

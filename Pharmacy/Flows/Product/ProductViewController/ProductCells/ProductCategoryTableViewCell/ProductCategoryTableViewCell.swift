@@ -13,6 +13,7 @@ final class ProductCategoryTableViewCell: HighlightedTableViewCell, ContainerVie
     private enum GUI {
         static let cornerRadius: CGFloat = 8
     }
+    @IBOutlet var categoryName: UILabel!
     
     @IBOutlet internal weak var containerView: UIView!
     @IBOutlet private weak var imageLabel: UIImageView!
@@ -22,9 +23,11 @@ final class ProductCategoryTableViewCell: HighlightedTableViewCell, ContainerVie
         super.awakeFromNib()
         containerView.layer.cornerRadius = GUI.cornerRadius
         containerView.dropBlueShadow()
+        categoryName.text = R .string.localize.product_categoriy.localized()
     }
     
     func apply(product: Product) {
         titleLabel.text = product.category
+        titleLabel.text = R.string.localize.product_categoriy.localized()
     }
 }

@@ -35,7 +35,7 @@ class LanguageViewController: UIViewController, NavigationBarStyled {
         
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.barDelegate = self
-            bar.title =  R.string.localize.profileLanguage()
+            bar.title =  R.string.localize.profileLanguage.localized()
             bar.isLeftItemHidden = false
         }
     }
@@ -58,7 +58,8 @@ extension LanguageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: LanguageTableViewCell.self)
         let model = self.model.languageList[indexPath.row]
-        cell.apply(languageModel: model, selected: false)
+        let selected = LanguageService.current.getCurrentLanguageModel().languageCode == model.languageCode
+        cell.apply(languageModel: model, selected: selected)
         
         return cell
     }
@@ -83,6 +84,9 @@ extension LanguageViewController: LanguageViewControllerInput {
     
     func didSelect() {
         tableView?.reloadData()
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            bar.title =  R.string.localize.profileLanguage.localized()
+        }
     }
         
     func didFetchError(error: Error) {

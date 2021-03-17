@@ -41,7 +41,7 @@ class PromocodViewController: UIViewController, NavigationBarStyled {
         super.viewWillAppear(animated)
         
         if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = R.string.localize.checkoutPromocode()
+            bar.smallNavBarTitleLabel.text = R.string.localize.checkoutPromocode.localized()
         }
     }
 

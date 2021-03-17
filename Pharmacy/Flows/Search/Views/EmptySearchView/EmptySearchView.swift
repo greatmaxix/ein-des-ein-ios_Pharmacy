@@ -33,7 +33,7 @@ class EmptySearchView: UIView, NibView {
 extension EmptySearchView {
     
     private func initialize() {
-        titleLabel.text = R.string.localize.searchEmptyStateTitle()
-        descriptionLabel.text = R.string.localize.searchEmptyStateDescription()
+        titleLabel.text = R.string.localize.searchEmptyStateTitle.localized()
+        descriptionLabel.text = R.string.localize.searchEmptyStateDescription.localized()
     }
 }

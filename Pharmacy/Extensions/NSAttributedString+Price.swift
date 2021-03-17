@@ -12,13 +12,13 @@ extension NSAttributedString {
     
     static func fromPriceAttributed(for price: String, currency: String? = nil) -> NSAttributedString {
         priceAttributed(for: price,
-                        prefixText: R.string.localize.generalPriceFrom(),
+                        prefixText: R.string.localize.generalPriceFrom.localized(),
                         currency: currency)
     }
     
     static func toPriceAttributed(for price: String, currency: String? = nil) -> NSAttributedString {
         priceAttributed(for: price,
-                        prefixText: R.string.localize.generalPriceTo(),
+                        prefixText: R.string.localize.generalPriceTo.localized(),
                         currency: currency)
     }
     

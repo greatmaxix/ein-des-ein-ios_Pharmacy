@@ -18,12 +18,18 @@ final class ProductQuestionsTableViewCell: HighlightedTableViewCell, ContainerVi
     @IBOutlet weak var questionsLabel: UILabel!
     @IBOutlet weak var askLabel: UILabel!
     
+
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = GUI.cornerRadius
         containerView.dropBlueShadow()
         
-        questionsLabel.text = R.string.localize.productQuestions()
-        askLabel.text = R.string.localize.productAskFarmacept()
+        questionsLabel.text = R.string.localize.productQuestions.localized()
+        askLabel.text = R.string.localize.productAskFarmacept.localized()
+    }
+    
+    func apply() {
+        questionsLabel.text = R.string.localize.productQuestions.localized()
+        askLabel.text = R.string.localize.productAskFarmacept.localized()
     }
 }

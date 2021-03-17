@@ -19,8 +19,8 @@ struct SlideInfo {
     let title: String
     let description: String
     var slideOption: SlideOption
-    var skipTitle: String = R.string.localize.onboardingButtonSkip()
-    var applyButtonTitle: String = R.string.localize.onboardingButtonNext()
+    var skipTitle: String = R.string.localize.onboardingButtonSkip.localized()
+    var applyButtonTitle: String = R.string.localize.onboardingButtonNext.localized()
     var backgroundColor: UIColor = R.color.textDarkBlue()!
     var fontColor: UIColor = .white
     var alternativeOnboardingConfiguration: Bool = false
@@ -30,8 +30,8 @@ struct SlideInfo {
         self.title = title
         self.description = description
         self.slideOption = option
-        self.skipTitle = skipTitle ?? R.string.localize.onboardingButtonSkip()
-        self.applyButtonTitle = nextButtonTitle ?? R.string.localize.onboardingButtonNext()
+        self.skipTitle = skipTitle ?? R.string.localize.onboardingButtonSkip.localized()
+        self.applyButtonTitle = nextButtonTitle ?? R.string.localize.onboardingButtonNext.localized()
         
         switch alternativeConfiguration {
         case true:

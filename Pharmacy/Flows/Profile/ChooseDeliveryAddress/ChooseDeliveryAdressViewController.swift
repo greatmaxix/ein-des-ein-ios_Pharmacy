@@ -56,8 +56,8 @@ class ChooseDeliveryAdressViewController: UIViewController {
         bar.style = .search
         bar.isLeftItemHidden = false
         bar.isRightItemHidden = true
-        bar.title = R.string.localize.deliveryTitle()
-        bar.leftItemTitle = R.string.localize.profileProfile()
+        bar.title = R.string.localize.deliveryTitle.localized()
+        bar.leftItemTitle = R.string.localize.profileProfile.localized()
         bar.barDelegate = self
       }
     }
@@ -84,13 +84,13 @@ class ChooseDeliveryAdressViewController: UIViewController {
         
         validationView.forEach({[unowned self] in $0.textFieldDelegate = self})
         
-        pavilionTextView.placeholder = R.string.localize.deliveryPavilion()
+        pavilionTextView.placeholder = R.string.localize.deliveryPavilion.localized()
         pavilionTextView.setupFontSize(fontSize: GUI.fontSize)
         pavilionTextView.statusButtonDisable()
         pavilionTextView.setupTextFieldSpaceing(leading: 10, trailing: 0, top: 3, bottom: 3)
         pavilionTextView.setupKeyboardType(type: .numberPad)
         
-        flatTextView.placeholder = R.string.localize.deliveryFlat()
+        flatTextView.placeholder = R.string.localize.deliveryFlat.localized()
         flatTextView.setupFontSize(fontSize: GUI.fontSize)
         flatTextView.statusButtonDisable()
         flatTextView.setupTextFieldSpaceing(leading: 10, trailing: 0, top: 3, bottom: 3)
@@ -98,7 +98,7 @@ class ChooseDeliveryAdressViewController: UIViewController {
     }
     
     private func setupNoteView() {
-        noteTextView.text = R.string.localize.deliveryNote()
+        noteTextView.text = R.string.localize.deliveryNote.localized()
         noteTextView.textColor = R.color.applyBlueGray()?.withAlphaComponent(0.7)
         noteTextView.font = R.font.openSansRegular(size: 14)
         
@@ -185,7 +185,7 @@ extension ChooseDeliveryAdressViewController: SimpleNavigationBarDelegate, UITex
 extension ChooseDeliveryAdressViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        if textView.text == R.string.localize.deliveryNote() {
+        if textView.text == R.string.localize.deliveryNote.localized() {
                 textView.text = ""
                 textView.textColor = .black
             }
@@ -195,7 +195,7 @@ extension ChooseDeliveryAdressViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         
         if textView.text == "" {
-            textView.text = R.string.localize.deliveryNote()
+            textView.text = R.string.localize.deliveryNote.localized()
             textView.textColor = R.color.applyBlueGray()?.withAlphaComponent(0.7)
         }
         textView.resignFirstResponder()

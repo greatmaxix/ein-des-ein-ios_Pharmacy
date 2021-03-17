@@ -29,6 +29,12 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kkK-fl-iWY">
                         <rect key="frame" x="20" y="16" width="301" height="112"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBF-a2-a2m">
+                                <rect key="frame" x="0.0" y="0.0" width="301" height="92"/>
+                                <connections>
+                                    <action selector="openChatAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YSQ-Vp-scG"/>
+                                </connections>
+                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question" translatesAutoresizingMaskIntoConstraints="NO" id="xcv-Kc-Aks">
                                 <rect key="frame" x="261" y="16" width="24" height="24"/>
                                 <constraints>
@@ -56,12 +62,16 @@
                         </subviews>
                         <color key="backgroundColor" name="textDarkBlue"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="RBF-a2-a2m" secondAttribute="trailing" id="Cal-xS-0rC"/>
+                            <constraint firstAttribute="bottom" secondItem="RBF-a2-a2m" secondAttribute="bottom" constant="20" symbolic="YES" id="FgI-XB-cu1"/>
                             <constraint firstAttribute="trailing" secondItem="xcv-Kc-Aks" secondAttribute="trailing" constant="16" id="RVX-Ct-PkX"/>
                             <constraint firstItem="nbm-ag-9NR" firstAttribute="top" secondItem="kkK-fl-iWY" secondAttribute="top" constant="16" id="U4g-2H-1m8"/>
                             <constraint firstItem="xcv-Kc-Aks" firstAttribute="top" secondItem="kkK-fl-iWY" secondAttribute="top" constant="16" id="Vl4-aY-UhI"/>
                             <constraint firstItem="nbm-ag-9NR" firstAttribute="leading" secondItem="kkK-fl-iWY" secondAttribute="leading" constant="16" id="XHk-GR-TdR"/>
                             <constraint firstItem="xcv-Kc-Aks" firstAttribute="leading" secondItem="nbm-ag-9NR" secondAttribute="trailing" constant="16" id="ddD-f5-h4I"/>
+                            <constraint firstItem="RBF-a2-a2m" firstAttribute="leading" secondItem="kkK-fl-iWY" secondAttribute="leading" id="dua-Et-L0l"/>
                             <constraint firstAttribute="bottom" secondItem="nbm-ag-9NR" secondAttribute="bottom" constant="16" id="wnl-Og-RPc"/>
+                            <constraint firstItem="RBF-a2-a2m" firstAttribute="top" secondItem="kkK-fl-iWY" secondAttribute="top" id="xsK-5w-gj0"/>
                         </constraints>
                     </view>
                 </subviews>

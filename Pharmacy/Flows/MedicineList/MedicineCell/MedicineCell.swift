@@ -66,7 +66,7 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
             placeholder = R.image.medicineImagePlaceholder()
         } else {
             setUnavaliableStyle()
-            costLabel.text = R.string.localize.productTemporarilyUnavailable()
+            costLabel.text = R.string.localize.productTemporarilyUnavailable.localized()
             placeholder = R.image.medicineImageGrayscalePlaceholder()
         }
         

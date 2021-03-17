@@ -16,7 +16,7 @@ class LanguageTableViewCell: UITableViewCell {
     
     func apply(languageModel: LanguageModel, selected: Bool) {
         self.languageImageView.isHidden = !selected
-        self.languageName.text = languageModel.languageName
+        self.languageName.text = languageModel.name
         self.whiteCotentView?.layer.cornerRadius = 10
     }
 }

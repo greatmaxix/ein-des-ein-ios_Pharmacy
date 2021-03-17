@@ -146,9 +146,9 @@ extension MedicineListViewController: UITableViewDelegate {
 extension MedicineListViewController {
     
     fileprivate func titleAttributed(count: Int) -> NSAttributedString {
-        let foundText = R.string.localize.medicineFound()
+        let foundText = R.string.localize.medicineFound.localized()
         let countText = "\(count)"
-        let productText = count == 1 ?  R.string.localize.medicineFoundProduct() : R.string.localize.medicineFoundProducts()
+        let productText = count == 1 ?  R.string.localize.medicineFoundProduct.localized() : R.string.localize.medicineFoundProducts.localized()
         let text = "\(foundText) \(countText) \(productText)"
         
         let countFont = R.font.openSansBold(size: 16)!

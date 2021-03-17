@@ -54,9 +54,10 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
     var model: ProductViewControllerOutput!
     
     var viewControllers: [UIViewController] = []
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         activityIndicator.show(animated: true)
         configUI()
         model.load()
@@ -66,7 +67,7 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
     
     private func configUI() {
         title = model.title
-
+        findButton.setTitle(R.string.localize.productFindIn.localized(), for: .normal)
         likeButton.buttonDropBlueShadow()
         likeButton.setImage(R.image.button_wishlist(), for: .normal)
         likeButton.setImage(R.image.button_wishlist_selected(), for: .selected)

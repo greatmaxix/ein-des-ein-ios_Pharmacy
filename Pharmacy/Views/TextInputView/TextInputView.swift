@@ -361,17 +361,17 @@ extension TextInputView {
             
             switch self {
             case .email:
-                return R.string.localize.placeholderEmail()
+                return R.string.localize.placeholderEmail.localized()
             case .phone:
-                return R.string.localize.placeholderPhone()
+                return R.string.localize.placeholderPhone.localized()
             case .name:
-                return R.string.localize.placeholderName()
+                return R.string.localize.placeholderName.localized()
             case .city:
-                return R.string.localize.deliveryCity()
+                return R.string.localize.deliveryCity.localized()
             case .street:
-                return R.string.localize.deliveryStreet()
+                return R.string.localize.deliveryStreet.localized()
             case .house:
-                return R.string.localize.deliveryHouse()
+                return R.string.localize.deliveryHouse.localized()
             default:
                 return nil
             }

@@ -287,3 +287,25 @@
 "analisis.title.inforAoutClinic" = "Инвитро";
 "analisis.title.choseClinick" = "Выбор клиники";
 "analisis.choseClinick.addToBusket" = "Товар успешно добавлен в корзину!";
+
+"chat_chose_info" = "Пожалуйста, выберите, с кем вы хотите начать консультацию";
+"chat_help_info" = "Человеческая служба поддержки!";
+"chat_subTitle_info" = "Никаких автоответчиков и роботов. Общение только с живыми людьми, которые расшибутся ради вас в лепешку!";
+"chat_farma_label" = "Фармацевт";
+"chat_doctor_label" = "Доктор";
+
+"instruction_label" = "Инструкция";
+"product_categoriy" = "Категория";
+"product_image_info" = "Внешний вид упаковки может отличаться от фотографии";
+"empty_welcome_title" = "Путешествуем безопасно и без границ!";
+"empty_insurence_title" = "Ой, вы еще не добавили страховой полис!";
+"empty_charity_title" = "Медецинская благотворительность";
+"empty_subtitle_title" = "Уже в следующих версиях!  Следите за обновлениями!";
+"order_new" = "НОВИЙ";
+"order_in_progress" = "В ОБРАБОТКЕ";
+"order_done" = "ВИКОНАНИЙ";
+"order_cancel" = "ОТМЕНЕН";
+"order_delivary" = "Доставка";
+"order_delivary_own" = "Самовывоз";
+"order_title" = "Мои заказы";
+"recipient_cancel" = "Добавить рецепт";

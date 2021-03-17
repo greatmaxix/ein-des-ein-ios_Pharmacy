@@ -23,7 +23,7 @@ enum ChooseLocationViewModelConfuguration {
     func getBackButtonTitle() -> String {
         switch self {
         case .profile:
-           return R.string.localize.profileProfile()
+           return R.string.localize.profileProfile.localized()
         case .onboarding:
             return ""
         }

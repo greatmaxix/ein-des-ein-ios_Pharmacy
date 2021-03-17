@@ -19,4 +19,5 @@ target 'Pharmacy' do
   pod 'MessageKit'
   pod 'LDSwiftEventSource', '~> 1.2'
   pod 'Firebase/Messaging'
+  pod 'IQKeyboardManager'
 end

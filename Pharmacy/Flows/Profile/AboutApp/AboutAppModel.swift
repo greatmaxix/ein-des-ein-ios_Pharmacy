@@ -46,37 +46,37 @@ final class AboutAppModel: EventNode {
     cellsData = []
     
     do {
-      let cellData: AboutAppTableViewCellData = AboutAppTableViewCellData(title: R.string.localize.aboutTerms())
+      let cellData: AboutAppTableViewCellData = AboutAppTableViewCellData(title: R.string.localize.aboutTerms.localized())
       cellData.image = R.image.user()
       cellData.selectHandler = { [weak self] in
-        self?.raise(event: AppEvent.presentInDev)
+        self?.raise(event: AppEvent.presentInDev(nil))
 //        self?.raise(event: AppEvent.openTerms)
       }
       cellsData.append(cellData)
     }
     do {
-      let cellData: AboutAppTableViewCellData = AboutAppTableViewCellData(title: R.string.localize.aboutData())
+      let cellData: AboutAppTableViewCellData = AboutAppTableViewCellData(title: R.string.localize.aboutData.localized())
       cellData.image = R.image.lock()
       cellData.selectHandler = { [weak self] in
-        self?.raise(event: AppEvent.presentInDev)
+        self?.raise(event: AppEvent.presentInDev(nil))
 //        self?.raise(event: AppEvent.openData)
       }
       cellsData.append(cellData)
     }
     do {
-      let cellData: AboutAppTableViewCellData = AboutAppTableViewCellData(title: R.string.localize.aboutCondition())
+      let cellData: AboutAppTableViewCellData = AboutAppTableViewCellData(title: R.string.localize.aboutCondition.localized())
       cellData.image = R.image.shield()
       cellData.selectHandler = { [weak self] in
-        self?.raise(event: AppEvent.presentInDev)
+        self?.raise(event: AppEvent.presentInDev(nil))
 //        self?.raise(event: AppEvent.openCondition)
       }
       cellsData.append(cellData)
     }
     do {
-      let cellData: AboutAppTableViewCellData = AboutAppTableViewCellData(title: R.string.localize.aboutCashback())
+      let cellData: AboutAppTableViewCellData = AboutAppTableViewCellData(title: R.string.localize.aboutCashback.localized())
       cellData.image = R.image.dollar()
       cellData.selectHandler = { [weak self] in
-        self?.raise(event: AppEvent.presentInDev)
+        self?.raise(event: AppEvent.presentInDev(nil))
 //        self?.raise(event: AppEvent.openCashback)
       }
       cellsData.append(cellData)

@@ -10,6 +10,7 @@ import UIKit
 
 final class ProductInstructionTableViewCell: HighlightedTableViewCell, ContainerView {
     
+    @IBOutlet var instructionLabel: UILabel!
     private enum GUI {
         static let cornerRadius: CGFloat = 8
     }
@@ -19,5 +20,10 @@ final class ProductInstructionTableViewCell: HighlightedTableViewCell, Container
     override func awakeFromNib() {
         containerView.layer.cornerRadius = GUI.cornerRadius
         containerView.dropBlueShadow()
+        instructionLabel.text = R.string.localize.instruction_label.localized()
+    }
+    
+    func apply() {
+        instructionLabel.text = R.string.localize.instruction_label.localized()
     }
 }

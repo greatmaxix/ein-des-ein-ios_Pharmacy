@@ -64,7 +64,7 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
         blurView.backgroundColor = GUI.blurViewBackgroundColor
         view.insertSubview(blurView, belowSubview: preview)
         
-        title = R.string.localize.scanTitle()
+        title = R.string.localize.scanTitle.localized()
         preview.isHidden = !model.isShouldShowPreview
         doneButton.layer.cornerRadius = doneButton.frame.height / 2
     }

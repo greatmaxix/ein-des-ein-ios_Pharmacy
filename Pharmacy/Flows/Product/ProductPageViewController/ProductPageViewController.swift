@@ -13,6 +13,7 @@ final class ProductPageViewController: UIViewController {
     @IBOutlet private weak var tagButton: UIButton!
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet var infoLabel: UILabel!
     
     static func createWith(image: UIImage, title: String) -> ProductPageViewController {
         let vc = ProductPageViewController(nib: R.nib.productPageViewController)
@@ -28,5 +29,14 @@ final class ProductPageViewController: UIViewController {
         vc.imageView.loadImageBy(url: url)
         vc.tagButton.setTitle(title, for: .normal)
         return vc
+    }
+    
+    func localized() {
+        infoLabel.text = R.string.localize.product_image_info.localized()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.localized()
     }
 }

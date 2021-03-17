@@ -16,6 +16,7 @@ enum ProductModelEvent: Event {
     case openMap(Product)
     case openFarmacyList([PharmacyModel])
     case openCheckout
+    case openChat
     case route(MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D)
 }
 
@@ -106,7 +107,6 @@ extension ProductModel: ProductViewControllerOutput {
     }
     
     func load() {
-        
         provider.load(target: .global(identifier: medicine.id)) { [weak self] result in
             guard let self = self else {
                 return
@@ -134,9 +134,9 @@ extension ProductModel: ProductViewControllerOutput {
         case .category(let product):
             raise(event: ProductModelEvent.openCatalogsFor(product))
         case .instruction:
-            raise(event: AppEvent.presentInDev)
+            raise(event: AppEvent.presentInDev(nil))
         case .questions:
-            raise(event: AppEvent.presentInDev)
+            raise(event: ProductModelEvent.openChat)
         default:
             return
         }

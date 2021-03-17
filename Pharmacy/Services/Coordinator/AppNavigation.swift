@@ -11,7 +11,7 @@ import UIKit
 import EventsTree
 
 enum AppEvent: Event {
-  case presentInDev
+    case presentInDev(_ model: InDevelopmentModel?)
 }
 
 final class AppNavigation: EventNode {

@@ -46,7 +46,7 @@ final class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
-            bar.title = R.string.localize.profileTitle()
+            bar.title = R.string.localize.profileTitle.localized()
             bar.isLeftItemHidden = true
             bar.isRightItemHidden = true
         }
@@ -98,9 +98,9 @@ extension ProfileViewController: ProfileOutput {
     }
     
     func presentLogoutView() {
-        let logoutVC = UIAlertController(title: R.string.localize.profileExitQuestion(), message: R.string.localize.profileExitDescription(), preferredStyle: .alert)
-        logoutVC.addAction(UIAlertAction(title: R.string.localize.profileExitNo(), style: .default, handler: nil))
-        logoutVC.addAction(UIAlertAction(title: R.string.localize.profileExitYes(), style: .destructive, handler: { [weak self] _ in
+        let logoutVC = UIAlertController(title: R.string.localize.profileExitQuestion.localized(), message: R.string.localize.profileExitDescription.localized(), preferredStyle: .alert)
+        logoutVC.addAction(UIAlertAction(title: R.string.localize.profileExitNo.localized(), style: .default, handler: nil))
+        logoutVC.addAction(UIAlertAction(title: R.string.localize.profileExitYes.localized(), style: .destructive, handler: { [weak self] _ in
             self?.model.logout()
         }))
         

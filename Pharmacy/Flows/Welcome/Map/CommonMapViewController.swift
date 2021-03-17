@@ -37,7 +37,7 @@ class CommonMapViewController: UIViewController, NavigationBarStyled {
     
     private func setupTitle() {
         if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = R.string.localize.farmaciesListTitle()
+            bar.smallNavBarTitleLabel.text = R.string.localize.farmaciesListTitle.localized()
         }
     }
     

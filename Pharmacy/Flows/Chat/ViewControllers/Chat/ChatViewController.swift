@@ -60,12 +60,13 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        //setup()
         model.load()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setup()
         photoLibraryAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
         cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
     }
@@ -79,8 +80,11 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
         self.messageInputBar.isHidden = true
         showMessageTimestampOnSwipeLeft = false
         if let bar = self.navigationController?.navigationBar as? NavigationBar {
-            bar.smallNavBarTitleLabel.text = R.string.localize.productFarmacept()
+            bar.smallNavBarTitleLabel.text = R.string.localize.productFarmacept.localized()
+        } else {
+            title = R.string.localize.productFarmacept.localized()
         }
+        
         view.backgroundColor = .white
         navigationItem.setRightBarButtonItems([UIBarButtonItem.init(image: R.image.info(), style: .plain, target: self, action: #selector(showChatInfo))], animated: true)
         

@@ -72,6 +72,12 @@ enum ProductCellSection: ProductCellSections {
     
     func apply(cell: UITableViewCell) {
         switch cell {
+        case let cell as ProductQuestionsTableViewCell:
+            cell.apply()
+        case let cell as ProductInstructionTableViewCell:
+            cell.apply()
+        case let cell as ProductAdviceTableViewCell:
+            cell.apply()
         case let cell as ProductInfoTableViewCell:
             cell.apply(product: product)
         case let cell as ProductAnalogTableViewCell:

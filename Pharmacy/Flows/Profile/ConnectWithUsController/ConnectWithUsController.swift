@@ -49,7 +49,7 @@ class ConnectWithUsController: UIViewController {
 extension ConnectWithUsController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == R.string.localize.checkoutAddComment() {
+        if textView.text == R.string.localize.checkoutAddComment.localized() {
             textView.text = nil
             textView.textColor = .black
         }

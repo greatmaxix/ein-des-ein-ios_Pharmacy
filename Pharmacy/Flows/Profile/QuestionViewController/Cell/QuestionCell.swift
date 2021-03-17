@@ -8,22 +8,29 @@
 
 import UIKit
 
-struct QustionModel: Codable {
-    let image: String
-    let name: String
-    
+enum QustionCellType {
+    case selected
+    case openInfo
 }
 
-class QuestionCell: UITableViewCell {
+struct QustionModel {
+    let image: String
+    let name: String
+    let type: QustionCellType
+}
+
+class QuestionCell: BaseCell<QustionModel, QustionCellType> {
 
     @IBOutlet var conteinerView: UIView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var questionImageiew: UIImageView!
     
-    func apply(model: QustionModel) {
-        self.questionImageiew.image = UIImage(named: model.image)
-        self.nameLabel.text = model.name
-        self.conteinerView.layer.cornerRadius = 8
-    }
+    @IBOutlet var informAboutType: UIView!
     
+    func apply(model: QustionModel, isHidden: Bool) {
+        questionImageiew.image = UIImage(named: model.image)
+        nameLabel.text = model.name
+        conteinerView.layer.cornerRadius = 8
+        informAboutType.isHidden = isHidden
+    }
 }

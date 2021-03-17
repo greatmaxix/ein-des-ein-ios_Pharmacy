@@ -66,7 +66,7 @@ struct Product: Decodable, Equatable {
         name = "Лазолван"
         releaseForm = "Таблетки 50мг"
         description = "Лекарство"
-        category = "Категория"
+        category = R.string.localize.product_categoriy.localized()
         categoryCode = ""
         imageURLs = []
         activeSubstances = ["Кто", "Што"]

@@ -71,7 +71,10 @@ final class NavigationBar: UINavigationBar {
     
     var title: String? {
         get { titleLabel.text }
-        set { titleLabel.text = newValue }
+        set {
+            titleLabel.text = newValue
+            localize()
+        }
     }
     
     var style: NavigationBarStyle = .normal
@@ -122,6 +125,10 @@ final class NavigationBar: UINavigationBar {
         default:
             return GUI.smallHeight
         }
+    }
+    
+    func localize() {
+        self.searchBar.localize()
     }
 
     // MARK: - Actions

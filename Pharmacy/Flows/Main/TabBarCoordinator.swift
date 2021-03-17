@@ -9,17 +9,24 @@
 import UIKit
 import EventsTree
 
-class TabBarCoordinator: EventNode, Coordinator {
+class TabBarCoordinator: EventNode, Coordinator, Observer {
+    
+    func update(subject: Observable) {
+        updateTabItems()
+    }
     
     private weak var root: TabBarController!
+    private var coordinators: [TabBarEmbedCoordinable] = []
   
     override init(parent: EventNode?) {
         super.init(parent: parent)
 
         addHandler { [weak self] (event: AppEvent) in
             switch event {
-            case .presentInDev:
-                self?.presentInDev()
+            case let .presentInDev(model):
+                model.map {
+                    self?.presentInDev(model: $0)
+                }
             }
         }
     }
@@ -37,11 +44,9 @@ class TabBarCoordinator: EventNode, Coordinator {
         return tabBarController
     }
   
-    private func presentInDev() {
-        guard let inDevVC: InDevelopmentViewController = R.storyboard.inDevelopment.inDevelopmentViewController() else {
-            return
-        }
-        
+    private func presentInDev(model: InDevelopmentModel) {
+        let inDevVC = R.storyboard.inDevelopmentViewController.instantiateInitialViewController()!
+        inDevVC.model = model
         root.present(inDevVC, animated: true, completion: nil)
     }
 
@@ -55,6 +60,19 @@ class TabBarCoordinator: EventNode, Coordinator {
             controllers.append(controller)
         }
 
+        self.coordinators = coordinators
+        root.configureTabs(with: tabItemMap)
+        LanguageService.current.attach(self)
+    }
+    
+    private func updateTabItems() {
+        let controllers = self.root.viewControllers ?? []
+        var tabItemMap: [(controller: UIViewController, tabItem: UITabBarItem)] = []
+        zip(controllers, coordinators).forEach { (controller, coordinator) in
+            let tabItem = coordinator.tabItem()
+            tabItemMap.append((controller: controller, tabItem: tabItem))
+        }
+        
         root.configureTabs(with: tabItemMap)
     }
     

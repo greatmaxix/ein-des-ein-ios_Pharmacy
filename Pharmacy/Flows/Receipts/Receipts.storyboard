@@ -111,7 +111,9 @@
                         <outlet property="addReceptButton" destination="GgY-Ui-jbK" id="Hcs-WK-Z9o"/>
                         <outlet property="emptyView" destination="Fuf-Q4-5dU" id="BKE-kC-vfW"/>
                         <outlet property="pdfView" destination="ZVt-lE-Ioz" id="spm-XU-wvW"/>
+                        <outlet property="subTitleLabel" destination="g95-W9-maO" id="tJi-cj-pUE"/>
                         <outlet property="tableView" destination="tS6-Yb-AAm" id="WLb-kJ-9SI"/>
+                        <outlet property="titleLabel" destination="Pkj-SW-zWJ" id="hQD-AQ-zLM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ML-Cl-v6u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

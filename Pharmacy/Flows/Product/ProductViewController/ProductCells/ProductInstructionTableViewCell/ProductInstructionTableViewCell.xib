@@ -87,6 +87,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="containerView" destination="Sma-y3-Gqt" id="MRI-h6-IBE"/>
+                <outlet property="instructionLabel" destination="KuI-8p-F75" id="J8W-SX-e1F"/>
             </connections>
             <point key="canvasLocation" x="126.08695652173914" y="182.47767857142856"/>
         </tableViewCell>

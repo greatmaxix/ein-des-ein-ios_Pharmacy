@@ -19,6 +19,6 @@ class HouseValidator: BaseTextValidator {
     }
     
     override var errorText: String {
-        return R.string.localize.deliveryHouseValidation()
+        return R.string.localize.deliveryHouseValidation.localized()
     }
 }

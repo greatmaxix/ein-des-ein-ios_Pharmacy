@@ -141,11 +141,8 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHF-aV-LyM">
-                                                                <rect key="frame" x="147" y="10" width="228" height="40"/>
+                                                                <rect key="frame" x="156.5" y="10" width="218.5" height="40"/>
                                                                 <color key="backgroundColor" name="welcomeBlue"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="228" id="uZy-4K-Lnv"/>
-                                                                </constraints>
                                                                 <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                                                                 <state key="normal" title="Заказать услугу">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -165,6 +162,7 @@
                                                             <constraint firstItem="bHF-aV-LyM" firstAttribute="top" secondItem="HBx-lG-nIS" secondAttribute="top" constant="10" id="0q2-gt-o8p"/>
                                                             <constraint firstAttribute="bottom" secondItem="42B-HP-pOg" secondAttribute="bottom" constant="19" id="H0a-oS-Kxx"/>
                                                             <constraint firstItem="42B-HP-pOg" firstAttribute="leading" secondItem="HBx-lG-nIS" secondAttribute="leading" constant="16" id="U9I-1M-VWu"/>
+                                                            <constraint firstItem="bHF-aV-LyM" firstAttribute="leading" secondItem="42B-HP-pOg" secondAttribute="trailing" constant="80" id="XR4-a3-gv4"/>
                                                             <constraint firstAttribute="height" constant="65" id="l16-HF-6Rj"/>
                                                             <constraint firstItem="42B-HP-pOg" firstAttribute="top" secondItem="HBx-lG-nIS" secondAttribute="top" constant="12" id="lQE-9Y-dNI"/>
                                                             <constraint firstAttribute="bottom" secondItem="bHF-aV-LyM" secondAttribute="bottom" constant="15" id="pqm-W6-5Tg"/>

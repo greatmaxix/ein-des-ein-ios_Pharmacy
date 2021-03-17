@@ -101,7 +101,7 @@ final class RegionModel: EventNode {
 extension RegionModel: RegionInput {
     
     var title: String {
-        return R.string.localize.regionTitle()
+        return R.string.localize.regionTitle.localized()
     }
     
     var dataSource: RegionsDataSource {

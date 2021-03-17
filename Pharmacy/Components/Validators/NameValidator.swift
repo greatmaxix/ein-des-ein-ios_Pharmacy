@@ -19,6 +19,6 @@ class NameValidator: BaseTextValidator {
     }
     
     override var errorText: String {
-        return R.string.localize.errorName()
+        return R.string.localize.errorName.localized()
     }
 }

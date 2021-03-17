@@ -22,10 +22,11 @@ final class ProductAnalogTableViewCell: HighlightedTableViewCell, ContainerView 
         super.awakeFromNib()
         containerView.layer.cornerRadius = GUI.cornerRadius
         
-        analogsLabel.text = R.string.localize.productAnalogs()
+        analogsLabel.text = R.string.localize.productAnalogs.localized()
     }
     
     func apply(product: Product) {
         titleLabel.text = product.activeSubstances.first
+        analogsLabel.text = R.string.localize.productAnalogs.localized()
     }
 }

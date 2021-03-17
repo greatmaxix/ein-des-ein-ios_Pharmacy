@@ -37,8 +37,8 @@ extension RecentsHeaderView {
 extension RecentsHeaderView {
     
     private func setupView() {
-        titleLabel.text = R.string.localize.searchRecentsHeader()
-        clearButton.setTitle(R.string.localize.actionClean(),
+        titleLabel.text = R.string.localize.searchRecentsHeader.localized()
+        clearButton.setTitle(R.string.localize.actionClean.localized(),
                              for: .normal)
     }
 }

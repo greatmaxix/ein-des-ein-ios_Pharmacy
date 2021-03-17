@@ -19,6 +19,7 @@
             <connections>
                 <outlet property="containerView" destination="BqH-qX-hU5" id="mXj-U6-PQz"/>
                 <outlet property="imageView" destination="HKv-UE-IDZ" id="Dsa-51-ZmM"/>
+                <outlet property="infoLabel" destination="BdQ-AF-LTC" id="O8N-Z0-asD"/>
                 <outlet property="tagButton" destination="NZY-Ky-yf9" id="HK7-6e-0xl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

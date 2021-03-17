@@ -49,7 +49,7 @@ class CatalogueModel: Model {
     var searchTerm = ""
     
     init(category: Category? = nil, parent: EventNode?) {
-        self.title = category?.shortTitle ?? R.string.localize.welcomeCategories()
+        self.title = category?.shortTitle ?? R.string.localize.welcomeCategories.localized()
         categories = category?.subCategories ?? []
         super.init(parent: parent)
     }

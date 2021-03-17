@@ -25,6 +25,6 @@ extension AnalizesModel: AnalizesInput {
     }
     
     func signUpAnalysis(){
-        raise(event: AppEvent.presentInDev)
+        raise(event: AppEvent.presentInDev(nil))
     }
 }

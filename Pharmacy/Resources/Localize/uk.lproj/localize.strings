@@ -39,7 +39,7 @@
 "profile.makePhotoDescription" = "Зробіть нову фотографію або виберіть зі свого альбому";
 "checkout.pickup" = "Самовивіз";
 "login.title" = "З поверненням!";
-"profile.receipes" = "рецепти";
+"profile.receipes" = "Pецепти";
 "prescriptions.emptyBarTitle" = "Рецепти";
 "product.recommended" = "Рекомендоване вам:";
 "profile.edit" = "Редагувати";
@@ -48,7 +48,7 @@
 "region.title" = "Регіон";
 "onboarding.description" = "Дозвольте доступ до геолокації для актуального відображення контенту";
 "tabbar.profile" = "Профіль";
-"profile.title" = "профіль";
+"profile.title" = "Профіль";
 "profile.profile" = "Профіль";
 "signup.skip" = "Пропустити";
 "onboarding.button.skip" = "Пропустити";
@@ -84,8 +84,8 @@
 "product.questions" = "Залишились питання?";
 "checkout.addComment" = "залишити комменатар";
 "profile.payment" = "Оплата і бонуси";
-"product.description" = "опис:";
-"product.askFarmacept" = "онлайн Консультації";
+"product.description" = "Опис:";
+"product.askFarmacept" = "Онлайн Консультації";
 "error.phone" = "Ой: Здається це не схоже на номер телефону";
 "error.email" = "Ой: Здається це не схоже на імейл адресу";
 "search.emptyState.title" = "Ой, здається такого товару немає в нашій базі";
@@ -102,8 +102,8 @@
 "wishlist.emptyDescription" = "Почніть пошук, щоб додати товар в корзину";
 "Basket.emptyDescription" = "Почніть пошук, щоб додати товар в корзину";
 "welcome.title" = "Почніть пошук";
-"wishlist.emptyButton" = "почати пошук";
-"Basket.emptyButton" = "почати пошук";
+"wishlist.emptyButton" = "Почати пошук";
+"Basket.emptyButton" = "Почати пошук";
 "product.findIn" = "Знайти в аптеках";
 "medicine.found" = "Знайдено";
 "farmaciesList.map" = "На карті";
@@ -196,5 +196,34 @@
 "placeholder.email" = "email для розсилок";
 "checkout.email" = "email";
 "about.description" = "1208742, м.Астана, вул. Бейбітшилік, 33, під'їзд 6, поверх 5, приміщення 730";
-"placeholder.phone" = "";
-"checkout.phone" = "Мова";
+"placeholder.phone" = "+7(•••) •••-••-••";
+"checkout.phone" = "+7";
+
+"chat_chose_info" = "Будь ласка, виберіть, з кем ви хочете почати консультацію";
+"chat_help_info" = "Служба підтримки!";
+"chat_subTitle_info" = "Ніяких автовідповідачів і роботів. Спілкування тільки з живими людьми, які розіб'ються заради вас в коржик!";
+"chat_farma_label" = "Фармацевт";
+"chat_doctor_label" = "Доктор";
+
+"instruction_label" = "Інструкція";
+"product_categoriy" = "Категорія";
+"product_image_info" = "Зовнішній вигляд упаковки може відрізнятися від фотографії";
+"empty_welcome_title" = "Путешествуем безопасно и без границ!";
+"empty_insurence_title" = "Ой, вы еще не добавили страховой полис!";
+"empty_charity_title" = "Медецинская благотворительность";
+"empty_subtitle_title" = "Уже в следующих версиях!  Следите за обновлениями!";
+"instruction_label" = "Инструкция";
+"product_categoriy" = "Категорія";
+"product_image_info" = "Внешний вид упаковки может отличаться от фотографии";
+"empty_welcome_title" = "Путешествуем безопасно и без границ!";
+"empty_insurence_title" = "Ой, вы еще не добавили страховой полис!";
+"empty_charity_title" = "Медецинская благотворительность";
+"empty_subtitle_title" = "Уже в следующих версиях!  Следите за обновлениями!";
+"order_new" = "НОВИЙ";
+"order_in_progress" = "В ОБРАБОТКЕ";
+"order_done" = "ВИКОНАНИЙ";
+"order_cancel" = "ВIДХИЛЕНИЙ";
+"order_delivary" = "Доставка";
+"order_delivary_own" = "Самовывоз";
+"order_title" = "Мои заказы";
+"recipient_cancel" = "Добавить рецепт";

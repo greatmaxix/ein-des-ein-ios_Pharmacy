@@ -51,21 +51,21 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.show(animated: true)
-        setupUI()
         model.load()
-        
-        if let nvc = navigationController,
-            let navigationBar = nvc.navigationBar as? NavigationBar {
-            navigationBar.title = R.string.localize.welcomeTitle()
-            navigationBar.searchBar.searchBarHandler = {
-                self.searchHandler()
-                return false
-            }
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        if let nvc = navigationController,
+            let navigationBar = nvc.navigationBar as? NavigationBar {
+            navigationBar.title = R.string.localize.welcomeTitle.localized()
+            navigationBar.searchBar.searchBarHandler = { [weak self] in
+                self?.searchHandler()
+                
+                return false
+            }
+        }
+        setupUI()
         model.load()
         self.reloadInputViews()
     }
@@ -73,17 +73,16 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     // MARK: - Setup
     
     private func setupLocalization() {
-        
         scrollView.horizontalScrollIndicatorInsets = .zero
         scrollView.alwaysBounceHorizontal = false
-        askLabel.text = R.string.localize.welcomeAsk()
-        diagnosticLabel.text = R.string.localize.welcomeDiagnostic()
-        mapLabel.text = R.string.localize.welcomeMap()
+        askLabel.text = R.string.localize.welcomeAsk.localized()
+        diagnosticLabel.text = R.string.localize.welcomeDiagnostic.localized()
+        mapLabel.text = R.string.localize.welcomeMap.localized()
         
-        loadReceipeButton.setTitle(R.string.localize.welcomeReceipe(), for: .normal)
-        watchCategoriesButton.setTitle(R.string.localize.welcomeWatch_all(), for: .normal)
-        categoriesLabel.text = R.string.localize.welcomeCategories()
-        watchRecentlyLabel.text = R.string.localize.welcomeWatchRecently()
+        loadReceipeButton.setTitle(R.string.localize.welcomeReceipe.localized(), for: .normal)
+        watchCategoriesButton.setTitle(R.string.localize.welcomeWatch_all.localized(), for: .normal)
+        categoriesLabel.text = R.string.localize.welcomeCategories.localized()
+        watchRecentlyLabel.text = R.string.localize.welcomeWatchRecently.localized()
         
         subscribeScrollViewToKeyboard(scrollView)
     }

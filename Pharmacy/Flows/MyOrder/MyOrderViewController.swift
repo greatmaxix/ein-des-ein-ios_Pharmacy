@@ -43,7 +43,7 @@ class MyOrderViewController: UIViewController, NavigationBarStyled {
     private func setupUI() {
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.barDelegate = self
-            bar.title = R.string.localize.profileAnalize()
+            bar.title = R.string.localize.profileAnalize.localized()
             bar.isLeftItemHidden = false
         }
     }

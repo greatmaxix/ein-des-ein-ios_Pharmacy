@@ -54,7 +54,7 @@ class ChooseLocationViewController: UIViewController {
         
         bar.barDelegate = self
         bar.isLeftItemHidden = false
-        bar.title = R.string.localize.regionTitle()
+        bar.title = R.string.localize.regionTitle.localized()
         bar.leftItemTitle = model.getNavBarTitle()
       }
     }

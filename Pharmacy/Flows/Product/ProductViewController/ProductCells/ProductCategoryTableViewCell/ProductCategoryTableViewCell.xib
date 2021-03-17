@@ -38,16 +38,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="upt-y4-jSw">
-                                <rect key="frame" x="64" y="17" width="212" height="30.5"/>
+                                <rect key="frame" x="64" y="-1" width="212" height="66.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xvb-yZ-5xS">
-                                        <rect key="frame" x="0.0" y="0.0" width="212" height="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xvb-yZ-5xS">
+                                        <rect key="frame" x="0.0" y="0.0" width="212" height="50"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                                         <color key="textColor" name="applyBlueGray"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUR-ta-bBW">
-                                        <rect key="frame" x="0.0" y="14" width="212" height="16.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="212" height="16.5"/>
                                         <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
                                         <color key="textColor" name="welcomeBlue"/>
                                         <nil key="highlightedColor"/>
@@ -76,6 +76,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="categoryName" destination="Xvb-yZ-5xS" id="zis-gb-XVM"/>
                 <outlet property="containerView" destination="e6f-rp-bhk" id="JYq-hn-4ap"/>
                 <outlet property="imageLabel" destination="ARb-J4-aqW" id="e4K-cV-9u1"/>
                 <outlet property="titleLabel" destination="iUR-ta-bBW" id="h75-sA-teh"/>

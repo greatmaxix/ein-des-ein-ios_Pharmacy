@@ -30,13 +30,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2T-Wy-pMt">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="604"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zxc-ri-peu">
-                                                <rect key="frame" x="0.0" y="24" width="414" height="328"/>
+                                                <rect key="frame" x="0.0" y="24" width="414" height="425"/>
                                                 <color key="backgroundColor" name="backgroundGray"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="328" id="6CL-Yk-0Yd"/>
+                                                    <constraint firstAttribute="height" constant="425" id="6CL-Yk-0Yd"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="dataSource" destination="v4g-5Y-Tu2" id="CD5-Ge-Efd"/>
@@ -44,7 +44,7 @@
                                                 </connections>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dvq-7R-1Nv">
-                                                <rect key="frame" x="16" y="407" width="382" height="80"/>
+                                                <rect key="frame" x="16" y="474" width="382" height="80"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Xf-iR-4Xo">
                                                         <rect key="frame" x="16" y="16" width="350" height="48"/>
@@ -95,14 +95,14 @@
                                             <constraint firstItem="Zxc-ri-peu" firstAttribute="top" secondItem="A2T-Wy-pMt" secondAttribute="top" constant="24" id="WJ2-mA-liG"/>
                                             <constraint firstItem="Zxc-ri-peu" firstAttribute="leading" secondItem="A2T-Wy-pMt" secondAttribute="leading" id="aNy-98-8T0"/>
                                             <constraint firstAttribute="trailing" secondItem="Dvq-7R-1Nv" secondAttribute="trailing" constant="16" id="pF5-iU-Nj4"/>
-                                            <constraint firstItem="Dvq-7R-1Nv" firstAttribute="top" secondItem="Zxc-ri-peu" secondAttribute="bottom" constant="55" id="tc4-k7-qhD"/>
-                                            <constraint firstAttribute="bottom" secondItem="Dvq-7R-1Nv" secondAttribute="bottom" constant="180" id="ye6-1c-aEL"/>
+                                            <constraint firstItem="Dvq-7R-1Nv" firstAttribute="top" secondItem="Zxc-ri-peu" secondAttribute="bottom" constant="25" id="tc4-k7-qhD"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="A2T-Wy-pMt" firstAttribute="top" secondItem="IYp-PO-AOh" secondAttribute="top" id="32i-nr-uSS"/>
                                     <constraint firstAttribute="trailing" secondItem="A2T-Wy-pMt" secondAttribute="trailing" id="Czv-yK-w7d"/>
+                                    <constraint firstAttribute="bottom" secondItem="Dvq-7R-1Nv" secondAttribute="bottom" constant="50" id="GyA-Hw-9Lt"/>
                                     <constraint firstItem="A2T-Wy-pMt" firstAttribute="leading" secondItem="IYp-PO-AOh" secondAttribute="leading" id="aF8-Ca-700"/>
                                     <constraint firstAttribute="bottom" secondItem="A2T-Wy-pMt" secondAttribute="bottom" id="qBs-Mj-cTl"/>
                                 </constraints>

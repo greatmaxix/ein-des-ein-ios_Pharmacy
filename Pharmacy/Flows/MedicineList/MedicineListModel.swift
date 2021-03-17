@@ -42,7 +42,7 @@ final class MedicineListModel: Model {
     private(set) var medicines: [Medicine] = []
     private(set) var totalNumberOfItems: Int = 0
     var title: String {
-        self.category?.shortTitle ?? R.string.localize.welcomeCategories()
+        self.category?.shortTitle ?? R.string.localize.welcomeCategories.localized()
     }
     
     private var category: Category?
@@ -176,7 +176,7 @@ extension MedicineListModel: MedicineListViewControllerOutput {
     }
     
     func openFilter() {
-        raise(event: AppEvent.presentInDev)
+        raise(event: AppEvent.presentInDev(nil))
     }
 }
 

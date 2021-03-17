@@ -22,18 +22,17 @@ final class PrescriptionsViewController: UIViewController, NavigationBarStyled {
     }
 
     private func initEmptyStyle() {
-        emptyResultsView = setupEmptyView(title: R.string.localize.prescriptionsEmptyTitle(),
-                                          decriptionText: R.string.localize.prescriptionsEmptyDescription(),
-                                          buttonTitle: R.string.localize.prescriptionsEmptyButton(),
+        emptyResultsView = setupEmptyView(title: R.string.localize.prescriptionsEmptyTitle.localized(),
+                                          decriptionText: R.string.localize.prescriptionsEmptyDescription.localized(),
+                                          buttonTitle: R.string.localize.prescriptionsEmptyButton.localized(),
                                           imageName: "emptyReciept",
                                           actionHandler: {[weak self] in
                                             self?.model.signUpAnalysis()})
     }
     
     private func setupUI() {
-        if let bar = navigationController?.navigationBar as? NavigationBar {
-            
-            bar.title = R.string.localize.prescriptionsEmptyBarTitle()
+        if let bar = navigationController?.navigationBar as? NavigationBar {            
+            bar.title = R.string.localize.prescriptionsEmptyBarTitle.localized()
             bar.style = .normalWithoutSearch
         }
     }

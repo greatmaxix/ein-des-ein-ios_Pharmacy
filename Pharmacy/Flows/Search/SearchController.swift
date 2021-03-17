@@ -24,5 +24,10 @@ class SearchController: UISearchController {
         searchBar.searchBarStyle = .prominent
         obscuresBackgroundDuringPresentation = false
         searchBar.setSearchFieldBackgroundImage(R.image.search_Field_active(), for: .normal)
+        localized()
+    }
+    
+    func localized() {
+        searchBar.placeholder = R.string.localize.basketEmptyButton.localized()
     }
 }

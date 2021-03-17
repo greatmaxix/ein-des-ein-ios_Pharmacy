@@ -46,8 +46,13 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
         super.viewDidLoad()
         configUI()
         setupTableView()
-        setupNavigationBar()
         model.load()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupNavigationBar()
     }
     
     func configUI() {
@@ -58,10 +63,10 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     
 // MARK: - Actions
     private func cleanAction() {
-        showAlert(title: R.string.localize.searchCleanTitle(),
-                  message: R.string.localize.searchCleanMessage(),
-                  action: AlertAction(title: R.string.localize.actionClean(), callback: model.cleanSearchTerm),
-                  cancelStyleAction: AlertAction(title: R.string.localize.actionCancel(), callback: {}))
+        showAlert(title: R.string.localize.searchCleanTitle.localized(),
+                  message: R.string.localize.searchCleanMessage.localized(),
+                  action: AlertAction(title: R.string.localize.actionClean.localized(), callback: model.cleanSearchTerm),
+                  cancelStyleAction: AlertAction(title: R.string.localize.actionCancel.localized(), callback: {}))
     }
 }
 
@@ -89,6 +94,7 @@ extension SearchViewController {
         searchBar.heightAnchor.constraint(equalToConstant: 36).isActive = true
         
         navigationItem.titleView = searchBar
+        searchBar.localize()
         searchBar.topAnchor.constraint(equalTo: searchBar.superview!.topAnchor).isActive = true
         searchBar.bottomAnchor.constraint(equalTo: searchBar.superview!.bottomAnchor, constant: -8.0).isActive = true
     }

@@ -38,7 +38,7 @@ class MapFarmacyListViewController: UIViewController {
     }
     
     func setupLocalization() {
-        title = R.string.localize.farmaciesListTitle()
+        title = R.string.localize.farmaciesListTitle.localized()
         filterControl.setTitle(R.string.localize.farmaciesListByPrice(), forSegmentAt: 0)
         filterControl.setTitle(R.string.localize.farmaciesListByDistance(), forSegmentAt: 1)
         filterControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: R.color.welcomeBlue()], for: .selected)

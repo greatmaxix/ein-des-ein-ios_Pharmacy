@@ -37,11 +37,15 @@ class ProfileOptionsCell: BaseTableViewCell {
         roundedView.layer.cornerRadius = 12
         selectionStyle = .none
         optionImageViews.forEach({$0.layer.cornerRadius = 8})
-        optionLabels[0].text = R.string.localize.profileSelected()
-        optionLabels[1].text = R.string.localize.profileOrders()
-        optionLabels[2].text = R.string.localize.profileAnalize()
-        optionLabels[3].text = R.string.localize.profileReceipes()
+        setLocalize()
         dropBlueShadow()
+    }
+    
+    private func setLocalize() {
+        optionLabels[0].text = R.string.localize.profileSelected.localized()
+        optionLabels[1].text = R.string.localize.profileOrders.localized()
+        optionLabels[2].text = R.string.localize.profileAnalize.localized()
+        optionLabels[3].text = R.string.localize.profileReceipes.localized()
     }
     
     override func setup(cellData: BaseCellData) {
@@ -49,6 +53,7 @@ class ProfileOptionsCell: BaseTableViewCell {
             openProfileOption = cd.openProfileOption
             events = cd.events
         }
+        setLocalize()
     }
     
     @IBAction func selectOption(sender: UIButton) {

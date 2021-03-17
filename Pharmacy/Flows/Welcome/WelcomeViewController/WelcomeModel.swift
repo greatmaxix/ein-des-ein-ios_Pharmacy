@@ -174,7 +174,8 @@ extension WelcomeModel: WelcomeModelInput {
     }
 
     func openMap() {
-        raise(event: WelcomeEvent.openMap)
+        let model = InDevelopmentModel(title: R.string.localize.empty_welcome_title.localized(), subTitle: R.string.localize.empty_subtitle_title.localized(), image: "empty_travel")
+        raise(event: AppEvent.presentInDev(model))
     }
 
     func openChat() {

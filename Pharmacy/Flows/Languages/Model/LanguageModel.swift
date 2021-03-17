@@ -8,21 +8,21 @@
 
 import Foundation
 
-struct LanguageModel: Codable {
-    
-    var languageName: String?
-    
-    enum Keys: String, CodingKey {
-        case languageName
-    }
-    
-    init(languageName: String) {
-        self.languageName = languageName
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: Keys.self)
-
-        languageName = try? container.decode(String.self, forKey: .languageName)
-    }
-}
+//struct LanguageModel: Codable {
+//
+//    var languageName: String?
+//    
+//    enum Keys: String, CodingKey {
+//        case languageName
+//    }
+//
+//    init(languageName: String) {
+//        self.languageName = languageName
+//    }
+//
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: Keys.self)
+//
+//        languageName = try? container.decode(String.self, forKey: .languageName)
+//    }
+//}

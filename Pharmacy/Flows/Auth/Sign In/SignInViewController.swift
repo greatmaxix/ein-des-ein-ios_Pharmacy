@@ -43,16 +43,15 @@ final class SignInViewController: UIViewController {
     
     func setupLocalization() {
         
-        titleLabel.text = R.string.localize.loginTitle()
-        descriptionLabel.text = R.string.localize.loginDescription()
-        registerButton.setTitle(R.string.localize.loginSignup(), for: .normal)
-        enterLabel.text = R.string.localize.loginEnter()
-        accountLabel.text = R.string.localize.loginAccount()
-        skipButton.setTitle(R.string.localize.signupSkip(), for: .normal)
+        titleLabel.text = R.string.localize.loginTitle.localized()
+        descriptionLabel.text = R.string.localize.loginDescription.localized()
+        registerButton.setTitle(R.string.localize.loginSignup.localized(), for: .normal)
+        enterLabel.text = R.string.localize.loginEnter.localized()
+        accountLabel.text = R.string.localize.loginAccount.localized()
+        skipButton.setTitle(R.string.localize.signupSkip.localized(), for: .normal)
     }
     
     func setupUI() {
-        
         phoneInputView.contentType = .phone
         applyButton.layer.cornerRadius = applyButton.frame.height / 2
         applyButton.imageView?.contentMode = .scaleToFill
@@ -109,11 +108,11 @@ final class SignInViewController: UIViewController {
         let blurVisualEffectView = UIVisualEffectView(effect: blurEffect)
         blurVisualEffectView.frame = view.bounds
         
-        let alertController = UIAlertController.init(title: R.string.localize.signupAlert_title(), message: R.string.localize.signupAlert_body(), preferredStyle: .alert)
+        let alertController = UIAlertController.init(title: R.string.localize.signupAlert_title.localized(), message: R.string.localize.signupAlert_body.localized(), preferredStyle: .alert)
 
-        let actionOK = UIAlertAction(title: R.string.localize.signupAlert_ok(), style: .default, handler: { _ in blurVisualEffectView.removeFromSuperview()})
+        let actionOK = UIAlertAction(title: R.string.localize.signupAlert_ok.localized(), style: .default, handler: { _ in blurVisualEffectView.removeFromSuperview()})
 
-        let actionCancel = UIAlertAction(title: R.string.localize.signupAlert_cancel(), style: .default, handler: {[unowned self] _ in
+        let actionCancel = UIAlertAction(title: R.string.localize.signupAlert_cancel.localized(), style: .default, handler: {[unowned self] _ in
             self.model.startMainFlowWithOutRegistration()
             blurVisualEffectView.removeFromSuperview()
         })

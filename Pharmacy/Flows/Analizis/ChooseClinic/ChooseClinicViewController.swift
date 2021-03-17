@@ -34,7 +34,7 @@ class ChooseClinicViewController: UIViewController, NavigationBarStyled {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = R.string.localize.analisisTitleChoseClinick()
+        title = R.string.localize.analisisTitleChoseClinick.localized()
     }
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {

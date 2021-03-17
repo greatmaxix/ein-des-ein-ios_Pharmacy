@@ -23,6 +23,7 @@ final class OrdersViewController: UIViewController {
     @IBOutlet weak var cancelledButton: UIButton!
     @IBOutlet weak var emptyView: UIView!
 
+    @IBOutlet var navBarTitle: UILabel!
     @IBOutlet var controllButtons: [UIButton]!
 
     private lazy var activityIndicator: MBProgressHUD = {
@@ -33,6 +34,11 @@ final class OrdersViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         allButton.dropBlueShadow()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navBarTitle.text = R.string.localize.order_title.localized()
     }
     
     private func setupTableView() {

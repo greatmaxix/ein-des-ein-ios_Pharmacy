@@ -83,7 +83,7 @@ class OrderServiceViewController: UIViewController, NavigationBarStyled {
         if isAddedAnother {
             orderToAnotherPersonButton.setImage(R.image.delete_icon(), for: .normal)
             orderToAnotherPersonButton.setTitleColor(R.color.textDarkBlue(), for: .normal)
-            self.createTextFieldView(placeholder: R.string.localize.checkoutName())
+            self.createTextFieldView(placeholder: R.string.localize.checkoutName.localized())
         } else {
             orderToAnotherPersonButton.setImage(R.image.add_icon(), for: .normal)
             orderToAnotherPersonButton.setTitleColor(R.color.welcomeBlue(), for: .normal)
@@ -121,9 +121,9 @@ class OrderServiceViewController: UIViewController, NavigationBarStyled {
         infoClinicView.layer.cornerRadius = 6
         timeView.layer.cornerRadius = 6
         
-        nameTextField.configure(placeholder: R.string.localize.checkoutName())
+        nameTextField.configure(placeholder: R.string.localize.checkoutName.localized())
         phoneTextField.configure(placeholder: "+73809994824231")
-        emailtextField.configure(placeholder: R.string.localize.checkoutEmail())
+        emailtextField.configure(placeholder: R.string.localize.checkoutEmail.localized())
         configure(to: clinicView)
         configure(to: paymentView)
         configure(to: infoClinicView)
@@ -147,7 +147,7 @@ class OrderServiceViewController: UIViewController, NavigationBarStyled {
         
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
-        let cancelButton = UIBarButtonItem(title: R.string.localize.actionCancel(), style: .plain, target: self, action: #selector(cancelDatePicker));
+        let cancelButton = UIBarButtonItem(title: R.string.localize.actionCancel.localized(), style: .plain, target: self, action: #selector(cancelDatePicker));
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
         toolbar.setItems([cancelButton,spaceButton,doneButton], animated: false)
@@ -224,7 +224,7 @@ class OrderServiceViewController: UIViewController, NavigationBarStyled {
     }
     
     private func setupTitle() {
-        title = R.string.localize.checkoutTitle()
+        title = R.string.localize.checkoutTitle.localized()
     }
 }
 extension OrderServiceViewController {
@@ -277,7 +277,7 @@ extension OrderServiceViewController: OrderServiceViewModelModelOutput {
 extension OrderServiceViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == R.string.localize.checkoutAddComment() {
+        if textView.text == R.string.localize.checkoutAddComment.localized() {
             self.commentTextField.text = nil
             self.commentTextField.textColor = .black
             self.commentTextField.layer.borderColor = UIColor(red: 0.145, green: 0.4, blue: 0.976, alpha: 1).cgColor
@@ -286,7 +286,7 @@ extension OrderServiceViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            self.commentTextField.text = R.string.localize.checkoutAddComment()
+            self.commentTextField.text = R.string.localize.checkoutAddComment.localized()
             self.commentTextField.textColor = .lightGray
             self.commentTextField.layer.borderColor = UIColor(red: 0.859, green: 0.882, blue: 0.922, alpha: 1).cgColor
         }

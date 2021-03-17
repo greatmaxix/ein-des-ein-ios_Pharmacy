@@ -26,7 +26,19 @@ class ChatRouteCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var pharmacistButton: UIButton!
     @IBOutlet weak var doctorButton: UIButton!
+    @IBOutlet var chosseTitleInfo: UILabel!
+    @IBOutlet var helpTitle: UILabel!
+    @IBOutlet var subTitleLabel: UILabel!
+    @IBOutlet var farmaLabel: UILabel!
+    @IBOutlet var doctorLabel: UILabel!
     
+    func localized() {
+        self.chosseTitleInfo.text = R.string.localize.chat_chose_info.localized()
+        self.helpTitle.text = R.string.localize.chat_help_info.localized()
+        self.subTitleLabel.text = R.string.localize.chat_subTitle_info.localized()
+        self.doctorLabel.text = R.string.localize.chat_doctor_label.localized()
+        self.farmaLabel.text = R.string.localize.chat_farma_label.localized()
+    }
     var routeAction: ((ChatAPI.ChatRoute) -> Void)?
     
     private var selecetedRoute: ChatAPI.ChatRoute? {
@@ -53,8 +65,9 @@ class ChatRouteCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.localized()
         
-        confirmButton.setTitle(R.string.localize.loginApply(), for: .normal)
+        confirmButton.setTitle(R.string.localize.loginApply.localized(), for: .normal)
     }
     
     @IBAction func doctorPressed(_ sender: UIButton) {
