@@ -30,13 +30,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2T-Wy-pMt">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="604"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="674"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zxc-ri-peu">
-                                                <rect key="frame" x="0.0" y="24" width="414" height="425"/>
+                                                <rect key="frame" x="0.0" y="24" width="414" height="495"/>
                                                 <color key="backgroundColor" name="backgroundGray"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="425" id="6CL-Yk-0Yd"/>
+                                                    <constraint firstAttribute="height" constant="495" id="6CL-Yk-0Yd"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="dataSource" destination="v4g-5Y-Tu2" id="CD5-Ge-Efd"/>
@@ -44,8 +44,14 @@
                                                 </connections>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dvq-7R-1Nv">
-                                                <rect key="frame" x="16" y="474" width="382" height="80"/>
+                                                <rect key="frame" x="16" y="544" width="382" height="80"/>
                                                 <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1f-s5-mHC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="80"/>
+                                                        <connections>
+                                                            <action selector="callAction:" destination="v4g-5Y-Tu2" eventType="touchUpInside" id="czv-kt-lQd"/>
+                                                        </connections>
+                                                    </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Xf-iR-4Xo">
                                                         <rect key="frame" x="16" y="16" width="350" height="48"/>
                                                         <subviews>
@@ -66,16 +72,12 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1f-s5-mHC">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="call_icon" translatesAutoresizingMaskIntoConstraints="NO" id="p7c-2j-ZgP">
                                                                 <rect key="frame" x="320" y="0.0" width="30" height="48"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="30" id="jUE-pf-se6"/>
+                                                                    <constraint firstAttribute="width" constant="30" id="vU1-dM-AFf"/>
                                                                 </constraints>
-                                                                <state key="normal" image="call_icon"/>
-                                                                <connections>
-                                                                    <action selector="callAction:" destination="v4g-5Y-Tu2" eventType="touchUpInside" id="czv-kt-lQd"/>
-                                                                </connections>
-                                                            </button>
+                                                            </imageView>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
@@ -84,8 +86,12 @@
                                                     <constraint firstAttribute="trailing" secondItem="1Xf-iR-4Xo" secondAttribute="trailing" constant="16" id="5os-Fh-fTH"/>
                                                     <constraint firstAttribute="bottom" secondItem="1Xf-iR-4Xo" secondAttribute="bottom" constant="16" id="HEt-wf-4ib"/>
                                                     <constraint firstAttribute="height" constant="80" id="N1h-Qb-zDT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="O1f-s5-mHC" secondAttribute="trailing" id="PdE-qG-MBF"/>
+                                                    <constraint firstAttribute="bottom" secondItem="O1f-s5-mHC" secondAttribute="bottom" id="UEf-JD-AfF"/>
                                                     <constraint firstItem="1Xf-iR-4Xo" firstAttribute="top" secondItem="Dvq-7R-1Nv" secondAttribute="top" constant="16" id="fR1-1K-ayk"/>
+                                                    <constraint firstItem="O1f-s5-mHC" firstAttribute="leading" secondItem="Dvq-7R-1Nv" secondAttribute="leading" id="mu8-zc-jfS"/>
                                                     <constraint firstItem="1Xf-iR-4Xo" firstAttribute="leading" secondItem="Dvq-7R-1Nv" secondAttribute="leading" constant="16" id="paR-wK-oOE"/>
+                                                    <constraint firstItem="O1f-s5-mHC" firstAttribute="top" secondItem="Dvq-7R-1Nv" secondAttribute="top" id="ruI-Bo-JNI"/>
                                                 </constraints>
                                             </view>
                                         </subviews>

@@ -17,16 +17,17 @@ class PrivilegesViewController: UIViewController, NavigationBarStyled {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var nextButton: UIButton!
+    @IBOutlet var typePrivilegesLabel: UILabel!
     
     var model: PrivilegesControllerOutput!
     
     var models: [String] = [
-        "Пенсионер",
-        "Инвалид",
-        "Один кормилец в семье",
-        "Страховой полис",
-        "Многодетная семья",
-        "Ветиран ВОВ"
+        R.string.localize.privilegy_pensioner.localized(),
+        R.string.localize.privilegy_pinvalid.localized(),
+        R.string.localize.privilegy_alone_parents.localized(),
+        R.string.localize.privilegy_insurence.localized(),
+        R.string.localize.privilegy_a_lot_children.localized(),
+        R.string.localize.privilegy_vov.localized()
     ]
     
     override func viewDidLoad() {
@@ -37,6 +38,7 @@ class PrivilegesViewController: UIViewController, NavigationBarStyled {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTitle()
+        self.typePrivilegesLabel.text = R.string.localize.privilegy_type.localized()
     }
 
     private func configure() {
@@ -50,7 +52,7 @@ class PrivilegesViewController: UIViewController, NavigationBarStyled {
     private func setupTitle() {
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.barDelegate = self
-            bar.title = "Льготы"
+            bar.title = R.string.localize.profilePrivileges()
             bar.isLeftItemHidden = false
         }
     }

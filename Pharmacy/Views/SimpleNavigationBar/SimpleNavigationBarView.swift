@@ -26,6 +26,7 @@ class SimpleNavigationBarView: UIView {
     
     override func awakeFromNib() {
         frontView.layer.cornerRadius = 10
+        searchView.layer.cornerRadius = (searchView.frame.height / 2)
         frontView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         frontView.clipsToBounds = true
         dropBlueShadow()
@@ -36,9 +37,10 @@ class SimpleNavigationBarView: UIView {
         if style == .normal {
     
             hideSearch()
+            leftButton.setTitle("", for: .normal)
             rightButton.removeTarget(self, action: #selector(showSearch), for: .touchUpInside)
+            rightButton.setImage(nil, for: .normal)
         } else if style == .search {
-            
             rightButton.isHidden = false
             rightButton.setImage(R.image.welcomeSearch(), for: .normal)
             rightButton.setTitle("", for: .normal)

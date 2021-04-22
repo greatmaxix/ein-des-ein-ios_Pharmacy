@@ -48,9 +48,10 @@ final class ProfileViewController: UIViewController {
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.title = R.string.localize.profileTitle.localized()
             bar.isLeftItemHidden = true
+            bar.leftItemTitle = nil
             bar.isRightItemHidden = true
         }
-
+       
         model.loadUser { [weak self] in
             self?.tableView.reloadData()
             self?.activityIndicator.hide(animated: true)

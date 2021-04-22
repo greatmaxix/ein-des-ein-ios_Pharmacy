@@ -27,12 +27,14 @@ class AddPrivilegesViewController: UIViewController, NavigationBarStyled {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.configure()
     }
     
     private func configure() {
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.barDelegate = self
             bar.title = "Льготы"
+            bar.leftItemTitle = nil
             bar.isLeftItemHidden = false
         }
 

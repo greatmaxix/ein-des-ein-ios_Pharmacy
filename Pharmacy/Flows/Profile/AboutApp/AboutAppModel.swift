@@ -49,7 +49,8 @@ final class AboutAppModel: EventNode {
       let cellData: AboutAppTableViewCellData = AboutAppTableViewCellData(title: R.string.localize.aboutTerms.localized())
       cellData.image = R.image.user()
       cellData.selectHandler = { [weak self] in
-        self?.raise(event: AppEvent.presentInDev(nil))
+        let model = InDevelopmentModel(title: R.string.localize.empty_model_title.localized(), subTitle: R.string.localize.empty_subtitle_title.localized(), image: "inDelivary")
+        self?.raise(event: AppEvent.presentInDev(model))
 //        self?.raise(event: AppEvent.openTerms)
       }
       cellsData.append(cellData)
@@ -58,7 +59,8 @@ final class AboutAppModel: EventNode {
       let cellData: AboutAppTableViewCellData = AboutAppTableViewCellData(title: R.string.localize.aboutData.localized())
       cellData.image = R.image.lock()
       cellData.selectHandler = { [weak self] in
-        self?.raise(event: AppEvent.presentInDev(nil))
+        let model = InDevelopmentModel(title: R.string.localize.empty_model_title.localized(), subTitle: R.string.localize.empty_subtitle_title.localized(), image: "inDelivary")
+        self?.raise(event: AppEvent.presentInDev(model))
 //        self?.raise(event: AppEvent.openData)
       }
       cellsData.append(cellData)
@@ -67,7 +69,8 @@ final class AboutAppModel: EventNode {
       let cellData: AboutAppTableViewCellData = AboutAppTableViewCellData(title: R.string.localize.aboutCondition.localized())
       cellData.image = R.image.shield()
       cellData.selectHandler = { [weak self] in
-        self?.raise(event: AppEvent.presentInDev(nil))
+        let model = InDevelopmentModel(title: R.string.localize.empty_model_title.localized(), subTitle: R.string.localize.empty_subtitle_title.localized(), image: "inDelivary")
+        self?.raise(event: AppEvent.presentInDev(model))
 //        self?.raise(event: AppEvent.openCondition)
       }
       cellsData.append(cellData)
@@ -76,7 +79,8 @@ final class AboutAppModel: EventNode {
       let cellData: AboutAppTableViewCellData = AboutAppTableViewCellData(title: R.string.localize.aboutCashback.localized())
       cellData.image = R.image.dollar()
       cellData.selectHandler = { [weak self] in
-        self?.raise(event: AppEvent.presentInDev(nil))
+        let model = InDevelopmentModel(title: R.string.localize.empty_model_title.localized(), subTitle: R.string.localize.empty_subtitle_title.localized(), image: "inDelivary")
+        self?.raise(event: AppEvent.presentInDev(model))
 //        self?.raise(event: AppEvent.openCashback)
       }
       cellsData.append(cellData)

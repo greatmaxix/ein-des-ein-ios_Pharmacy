@@ -27,13 +27,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lD-JQ-r9W">
-                            <rect key="frame" x="192" y="57" width="30" height="19"/>
+                            <rect key="frame" x="189.5" y="54" width="35.5" height="22"/>
                             <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUy-h4-mP0">
-                            <rect key="frame" x="16" y="52.5" width="40" height="28"/>
+                            <rect key="frame" x="16" y="51" width="40" height="28"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="6hO-l2-oOb"/>
                             </constraints>
@@ -43,16 +43,16 @@
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-Z6-s0d">
-                            <rect key="frame" x="368" y="49.5" width="30" height="34"/>
+                            <rect key="frame" x="368" y="48" width="30" height="34"/>
                             <state key="normal">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
                         <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwr-aB-3WZ">
-                            <rect key="frame" x="300" y="42" width="98" height="38"/>
+                            <rect key="frame" x="300" y="44" width="98" height="36"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRJ-SY-pXS">
-                                    <rect key="frame" x="9" y="7" width="24" height="24"/>
+                                    <rect key="frame" x="9" y="6" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="Df6-1g-G5q"/>
                                         <constraint firstAttribute="width" constant="24" id="RUi-h2-slI"/>
@@ -64,7 +64,7 @@
                                     </connections>
                                 </button>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ношпа" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o1K-6E-QqR">
-                                    <rect key="frame" x="46" y="7" width="10" height="24"/>
+                                    <rect key="frame" x="46" y="6" width="10" height="24"/>
                                     <color key="tintColor" name="welcomeBlue"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="7Be-mf-TFS"/>
@@ -74,7 +74,7 @@
                                     <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8d-xo-Gt3">
-                                    <rect key="frame" x="65" y="7" width="24" height="24"/>
+                                    <rect key="frame" x="65" y="6" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="24" id="541-Oq-3q8"/>
                                         <constraint firstAttribute="height" constant="24" id="mMW-da-KZv"/>
@@ -91,7 +91,7 @@
                                 <constraint firstItem="qRJ-SY-pXS" firstAttribute="centerY" secondItem="lwr-aB-3WZ" secondAttribute="centerY" id="FrF-Vm-nKO"/>
                                 <constraint firstItem="A8d-xo-Gt3" firstAttribute="leading" secondItem="o1K-6E-QqR" secondAttribute="trailing" constant="9" id="J8a-aY-odl"/>
                                 <constraint firstItem="qRJ-SY-pXS" firstAttribute="leading" secondItem="lwr-aB-3WZ" secondAttribute="leading" constant="9" id="NTy-Xo-lTb"/>
-                                <constraint firstAttribute="height" constant="38" id="ZR4-QD-A1v"/>
+                                <constraint firstAttribute="height" constant="36" id="ZR4-QD-A1v"/>
                                 <constraint firstItem="o1K-6E-QqR" firstAttribute="centerY" secondItem="lwr-aB-3WZ" secondAttribute="centerY" id="apJ-zA-55F"/>
                                 <constraint firstAttribute="trailing" secondItem="A8d-xo-Gt3" secondAttribute="trailing" constant="9" id="btu-Jj-qEN"/>
                                 <constraint firstItem="A8d-xo-Gt3" firstAttribute="centerY" secondItem="lwr-aB-3WZ" secondAttribute="centerY" id="yqO-Qq-gtF"/>

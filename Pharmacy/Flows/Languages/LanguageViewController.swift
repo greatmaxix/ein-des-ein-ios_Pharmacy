@@ -35,8 +35,15 @@ class LanguageViewController: UIViewController, NavigationBarStyled {
         
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.barDelegate = self
+            bar.leftItemTitle = nil
             bar.title =  R.string.localize.profileLanguage.localized()
             bar.isLeftItemHidden = false
+        }
+    }
+    
+    func setBarTitle() {
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            bar.title =  R.string.localize.profileLanguage.localized()
         }
     }
 }
@@ -84,9 +91,7 @@ extension LanguageViewController: LanguageViewControllerInput {
     
     func didSelect() {
         tableView?.reloadData()
-        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
-            bar.title =  R.string.localize.profileLanguage.localized()
-        }
+        setBarTitle()
     }
         
     func didFetchError(error: Error) {

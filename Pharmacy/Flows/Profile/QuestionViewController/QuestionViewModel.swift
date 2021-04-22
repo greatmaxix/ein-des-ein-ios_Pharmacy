@@ -24,6 +24,7 @@ protocol QuestionViewModelInput: class {
 protocol QuestionViewModelOutput: class {
     func didLoad(models: [QustionModel])
     func didFetchError(error: Error)
+    
 }
 
 

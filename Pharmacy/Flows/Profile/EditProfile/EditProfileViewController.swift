@@ -33,6 +33,11 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
         imagePicker.delegate = self
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupLocalization()
+    }
     private func setupUI() {
         
         nameInputView.contentType = .name
@@ -60,6 +65,7 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     private func setupLocalization() {
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             
+            bar.style = .normal
             bar.isLeftItemHidden = false
             bar.isRightItemHidden = false
             bar.title = R.string.localize.profileEdit.localized()

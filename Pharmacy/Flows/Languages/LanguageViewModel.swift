@@ -43,7 +43,6 @@ extension LanguageViewModel: LanguageViewControllerOutput {
     }
     
     func didSelectCell(at indexPath: IndexPath) {
-//        R.
         let model = self.languageList[indexPath.row]
         LanguageService.current.saveLanguageModel(model)
         output.didSelect()

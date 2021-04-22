@@ -40,6 +40,7 @@ class ChooseLocationViewController: UIViewController {
     
     private func setupTableView() {
         tableView.backgroundColor = GUI.backgroundColor
+
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self

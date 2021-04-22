@@ -176,7 +176,8 @@ extension MedicineListModel: MedicineListViewControllerOutput {
     }
     
     func openFilter() {
-        raise(event: AppEvent.presentInDev(nil))
+        let model = InDevelopmentModel(title: R.string.localize.empty_model_title.localized(), subTitle: R.string.localize.empty_subtitle_title.localized(), image: "inDelivary")
+        raise(event: AppEvent.presentInDev(model))
     }
 }
 

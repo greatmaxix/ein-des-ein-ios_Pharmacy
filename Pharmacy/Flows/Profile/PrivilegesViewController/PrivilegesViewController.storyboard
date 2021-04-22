@@ -141,6 +141,7 @@
                     <connections>
                         <outlet property="nextButton" destination="DWf-Ie-uax" id="HsE-zb-qY7"/>
                         <outlet property="tableView" destination="lUo-nD-7BT" id="uY0-nS-lQK"/>
+                        <outlet property="typePrivilegesLabel" destination="Vpw-By-Q4h" id="2w4-ry-LZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eux-qz-PBv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

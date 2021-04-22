@@ -134,7 +134,8 @@ extension ProductModel: ProductViewControllerOutput {
         case .category(let product):
             raise(event: ProductModelEvent.openCatalogsFor(product))
         case .instruction:
-            raise(event: AppEvent.presentInDev(nil))
+            let model = InDevelopmentModel(title: R.string.localize.empty_model_title.localized(), subTitle: R.string.localize.empty_subtitle_title.localized(), image: "inDelivary")
+            raise(event: AppEvent.presentInDev(model))
         case .questions:
             raise(event: ProductModelEvent.openChat)
         default:

@@ -37,6 +37,7 @@ class DeliveryTutorialViewController: UIViewController, NavigationBarStyled {
         
         if let bar = self.navigationController?.navigationBar as? SimpleNavigationBar {
             bar.title = "Как заказать"
+            
             bar.isLeftItemHidden = false
             bar.barDelegate = self
         }

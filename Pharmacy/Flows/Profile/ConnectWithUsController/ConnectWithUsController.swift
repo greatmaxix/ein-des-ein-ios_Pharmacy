@@ -39,6 +39,7 @@ class ConnectWithUsController: UIViewController {
     private func setupUI() {
         if let bar = self.navigationController?.navigationBar as? SimpleNavigationBar {
             bar.title = "Связаться с нами"
+            bar.leftItemTitle = nil
             bar.leftItemTitle = "Назад"
         }
      

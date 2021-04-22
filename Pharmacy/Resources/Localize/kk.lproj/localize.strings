@@ -221,3 +221,11 @@
 "order_delivary_own" = "Самовывоз";
 "order_title" = "Мои заказы";
 "recipient_cancel" = "Добавить рецепт";
+"empty_model_title" = "В Разработке";
+"privilegy_pensioner" = "Пенсионер";
+"privilegy_pinvalid" = "Инвалид";
+"privilegy_alone_parents" = "Один кормилец в семье";
+"privilegy_insurence" = "Страховой полис";
+"privilegy_a_lot_children" = "Многодетная семья";
+"privilegy_vov" = "Ветиран ВОВ";
+"privilegy_type" = "Выберите тип льготы :";

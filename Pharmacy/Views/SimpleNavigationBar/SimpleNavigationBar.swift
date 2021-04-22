@@ -34,6 +34,15 @@ final class SimpleNavigationBar: UINavigationBar {
             contentView.titleLabel.text = newValue
         }
     }
+    var isTitleHidden: Bool {
+        get {
+            contentView.titleLabel.isHidden
+        }
+        set {
+            contentView.titleLabel.isHidden = newValue
+        }
+    }
+
     
     var leftItemTitle: String? {
         get {
@@ -67,6 +76,15 @@ final class SimpleNavigationBar: UINavigationBar {
         }
         set {
             contentView.rightButton.isHidden = newValue
+        }
+    }
+    
+    var isSearchHidden: Bool {
+        get {
+            contentView.searchButton.isHidden
+        }
+        set {
+            contentView.searchButton.isHidden = newValue
         }
     }
     
