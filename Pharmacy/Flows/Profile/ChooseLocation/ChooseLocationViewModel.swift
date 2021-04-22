@@ -147,16 +147,17 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     func selected(indexPath: IndexPath) {
         self.state = true
         guard !countryResionsData.isEmpty,
-            let cities = countryResionsData[indexPath.row].subRegions else {
+              let cities = self.sections[indexPath.section].items[indexPath.row].subRegions
+              else {
             self.output.applyTableViewCell(indexPath: indexPath)
             return
         }
         
+        
         countryResionsData.removeAll()
         self.sections.removeAll()
         
-        let array =  Dictionary(grouping: cities) {$0.name.prefix(1)}
-            .sorted(by: { $0.0 < $1.0 })
+        let array =  Dictionary(grouping: cities) {$0.name.prefix(1)}.sorted(by: { $0.0 < $1.0 })
         
         array.forEach {[weak self] (key, value) in
                 self?.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
@@ -166,6 +167,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     }
     
     func load() {
+        self.sections.removeAll()
         countryProvider.load(target: .getRegions(nil, nil)) {[unowned self] (result) in
             switch result {
             case .success(let response):
@@ -178,8 +180,9 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
                     .sorted(by: { $0.0 < $1.0 })
                         
             array.forEach {[unowned self] (key, value) in
-                        self.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
-                }
+                self.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
+            }
+        
             self.output.reloadTableViewData(state: state)
             state = false
             self.backupSection = sections
