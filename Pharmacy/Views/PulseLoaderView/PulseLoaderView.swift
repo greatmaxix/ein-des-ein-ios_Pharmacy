@@ -55,31 +55,19 @@ class PulseLoaderView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        
-
-        // Specify the fill color and apply it to the path.
         self.layer.addSublayer(self.shapeLayer)
         shapeLayer.backgroundColor = UIColor.clear.cgColor
-        
-        self.pulse()
-//        UIColor.clear.setFill()
-//        freefrom.fill()
-//
-//        // Specify a border (stroke) color.
-//        (R.color.welcomeBlue() ?? .blue).setStroke()
-//        freefrom.stroke()
+        pulse()
     }
     
     func startAnimating() {
         isHidden = false
         pulse()
-//                rotate()
     }
     
     func stopAnimating() {
         isHidden = true
         removePulse()
-//                removeRotation()
     }
     
     func pulse() {
