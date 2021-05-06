@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 final class EditProfileViewController: UIViewController, SimpleNavigationBarDelegate {
 
@@ -19,7 +18,6 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     @IBOutlet private weak var emailInputView: TextInputView!
     
     private var tapGesture: UITapGestureRecognizer!
-    private var activityIndicator: MBProgressHUD!
     private var imagePicker: UIImagePickerController = UIImagePickerController()
     
     var model: EditProfileInput!
@@ -27,7 +25,6 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        activityIndicator = setupActivityIndicator()
         setupLocalization()
         
         imagePicker.delegate = self
@@ -133,7 +130,7 @@ final class EditProfileViewController: UIViewController, SimpleNavigationBarDele
            let name: String = nameInputView.text,
            let email: String = emailInputView.text,
            let _: String = phoneInputView.text {
-            self.activityIndicator.show(animated: true)
+            PulseLoaderService.showAdded(to: view)
             let checkedEmail = !email.isEmpty && emailInputView.validate() ? email : ""
             model.saveProfile(name: name, email: checkedEmail)
         }
@@ -175,9 +172,9 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     }
     
     private func disableHUD() {
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
     }
     private func enableHUD() {
-        activityIndicator.show(animated: true)
+        PulseLoaderService.showAdded(to: view)
     }
 }

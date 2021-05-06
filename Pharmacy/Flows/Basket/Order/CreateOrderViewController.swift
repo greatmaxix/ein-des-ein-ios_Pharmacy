@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 protocol CreateOrderViewControllerInput: CreateOrderModelOutput {}
 protocol CreateOrderViewControllerOutput: CreateOrderModelInput {}
@@ -16,28 +15,17 @@ class CreateOrderViewController: UIViewController {
 
     var model: CreateOrderViewControllerOutput!
 
-    private lazy var activityIndicator: MBProgressHUD = {
-        setupActivityIndicator()
-    }()
-
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.register(UINib(nibName: "CreateOrderContactInfoCell", bundle: nil), forCellReuseIdentifier: "CreateOrderContactInfoCell")
-
         tableView.register(UINib(nibName: "OrderDeliveryCell", bundle: nil), forCellReuseIdentifier: "OrderDeliveryCell")
-
         tableView.register(UINib(nibName: "OrderPharmacyCell", bundle: nil), forCellReuseIdentifier: "OrderPharmacyCell")
-
         tableView.register(UINib(nibName: "DeliveryAddressCell", bundle: nil), forCellReuseIdentifier: "DeliveryAddressCell")
-
         tableView.register(UINib(nibName: "PaymentTypeCell", bundle: nil), forCellReuseIdentifier: "PaymentTypeCell")
-
         tableView.register(UINib(nibName: "OrderedProductCell", bundle: nil), forCellReuseIdentifier: "OrderedProductCell")
-
         tableView.register(UINib(nibName: "OrderCommentCell", bundle: nil), forCellReuseIdentifier: "OrderCommentCell")
-
         tableView.register(UINib(nibName: "OrderSummaryCell", bundle: nil), forCellReuseIdentifier: "OrderSummaryCell")
     }
 
@@ -97,9 +85,9 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
 
         cell.apply(order: model.currentOrder, valid: true)
 
-        cell.confirmAction = { [weak self] in
-            self?.activityIndicator.show(animated: true)
-            self?.model.createOrder()
+        cell.confirmAction = { [unowned self] in
+            PulseLoaderService.showAdded(to: self.view)
+            self.model.createOrder()
         }
 
         return cell
@@ -160,7 +148,7 @@ extension CreateOrderViewController: UITableViewDelegate, UITableViewDataSource 
 extension CreateOrderViewController: CreateOrderViewControllerInput {
 
     func networkEnded(with error: String?) {
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
         if error != nil {
             showError(text: error!)
         }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,26 +19,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="XoT-rr-7oB">
-                        <rect key="frame" x="15" y="4" width="338" height="50"/>
+                        <rect key="frame" x="15" y="4" width="338" height="123"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMW-7d-ZAf" userLabel="ConteinerView">
-                                <rect key="frame" x="0.0" y="0.0" width="338" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="338" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Khv-nR-iFX">
-                                        <rect key="frame" x="8" y="5" width="40" height="40"/>
+                                        <rect key="frame" x="8" y="4" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Bn2-pb-x0v"/>
                                             <constraint firstAttribute="height" constant="40" id="TFb-Tn-jfj"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelsadlasdjas;l" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BU-TH-xJt">
-                                        <rect key="frame" x="56" y="12" width="226" height="26"/>
+                                        <rect key="frame" x="56" y="12" width="226" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vector_icon" translatesAutoresizingMaskIntoConstraints="NO" id="qqI-Ip-o1o">
-                                        <rect key="frame" x="310" y="18" width="12" height="14"/>
+                                        <rect key="frame" x="310" y="17" width="12" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="12" id="STi-qB-mXJ"/>
                                             <constraint firstAttribute="height" constant="14" id="n13-39-MfT"/>
@@ -58,11 +58,11 @@
                                     <constraint firstAttribute="trailing" secondItem="qqI-Ip-o1o" secondAttribute="trailing" constant="16" id="ujC-19-O5d"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YCE-m5-Hbu">
-                                <rect key="frame" x="0.0" y="0.0" width="338" height="15"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YCE-m5-Hbu">
+                                <rect key="frame" x="0.0" y="55" width="338" height="68"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLa-pI-1qJ">
-                                        <rect key="frame" x="15" y="15" width="308" height="0.0"/>
+                                        <rect key="frame" x="15" y="15" width="308" height="31"/>
                                         <color key="backgroundColor" name="backgroundGray"/>
                                         <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet rutrum vel non volutpat. Sagittis aliquam mattis tortorLorem ipsum dolor sit amet, consectetur adipiscing elit. Amet rutrum vel non volutpat. Sagittis aliquam mattis tortor</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -74,7 +74,7 @@
                                 <constraints>
                                     <constraint firstItem="FLa-pI-1qJ" firstAttribute="top" secondItem="YCE-m5-Hbu" secondAttribute="top" constant="15" id="8uL-uv-teB"/>
                                     <constraint firstItem="FLa-pI-1qJ" firstAttribute="leading" secondItem="YCE-m5-Hbu" secondAttribute="leading" constant="15" id="BIa-RD-5Dv"/>
-                                    <constraint firstAttribute="bottom" secondItem="FLa-pI-1qJ" secondAttribute="bottom" id="bMI-Pa-gTI"/>
+                                    <constraint firstAttribute="bottom" secondItem="FLa-pI-1qJ" secondAttribute="bottom" constant="22" id="bMI-Pa-gTI"/>
                                     <constraint firstAttribute="trailing" secondItem="FLa-pI-1qJ" secondAttribute="trailing" constant="15" id="iRx-BT-etZ"/>
                                 </constraints>
                             </view>
@@ -84,7 +84,7 @@
                 <color key="backgroundColor" name="backgroundGray"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="XoT-rr-7oB" secondAttribute="trailing" constant="16" id="2ED-cm-S36"/>
-                    <constraint firstAttribute="bottom" secondItem="XoT-rr-7oB" secondAttribute="bottom" constant="4" id="H5p-Zw-nlb"/>
+                    <constraint firstAttribute="bottom" secondItem="XoT-rr-7oB" secondAttribute="bottom" id="H5p-Zw-nlb"/>
                     <constraint firstItem="XoT-rr-7oB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Mlb-3l-ndb"/>
                     <constraint firstItem="XoT-rr-7oB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="pzW-aO-quv"/>
                 </constraints>

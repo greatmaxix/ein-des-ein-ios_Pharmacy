@@ -8,14 +8,13 @@
 
 import Foundation
 import UIKit
-import MBProgressHUD
 
 class ChooseDeliveryAdressViewController: UIViewController {
     
     var model: ChooseDeliveryAdressInput!
-    private var activityIndicator: MBProgressHUD!
     
     @IBOutlet private weak var scrollView: UIScrollView!
+    
     private var scrollViewInsets: UIEdgeInsets!
     
     @IBOutlet private weak var cityTextView: TextInputView!
@@ -38,9 +37,8 @@ class ChooseDeliveryAdressViewController: UIViewController {
         
     }
     
-        override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator = setupActivityIndicator()
         setupNavBar()
         setupValidationViews()
         setupNoteView()
@@ -51,15 +49,21 @@ class ChooseDeliveryAdressViewController: UIViewController {
         setupScrollView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        PulseLoaderService.showAdded(to: view)
+    }
+    
     private func setupNavBar() {
-      if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
-        bar.style = .search
-        bar.isLeftItemHidden = false
-        bar.isRightItemHidden = true
-        bar.title = R.string.localize.deliveryTitle.localized()
-        bar.leftItemTitle = R.string.localize.profileProfile.localized()
-        bar.barDelegate = self
-      }
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            bar.style = .search
+            bar.isLeftItemHidden = false
+            bar.isRightItemHidden = true
+            bar.title = R.string.localize.deliveryTitle.localized()
+            bar.leftItemTitle = R.string.localize.profileProfile.localized()
+            bar.barDelegate = self
+        }
     }
     
     private func setupScrollView() {
@@ -128,26 +132,26 @@ class ChooseDeliveryAdressViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func apply(_ sender: UIButton) {
-            if self.validationView.allSatisfy({$0.validate()}) {
-                sender.isUserInteractionEnabled = false
-    // TODO :- нужно сделать реалзицию приведения полей в соответсвии с сервером
-                model.saveDeliveryAddress(city: cityTextView.text!, street: streetTextView.text!,
-                                          house: houseTextView.text!, pavilion: pavilionTextView.text,
-                                          flat: flatTextView.text, note: noteTextView.text)
+        if self.validationView.allSatisfy({$0.validate()}) {
+            sender.isUserInteractionEnabled = false
+            // TODO :- нужно сделать реалзицию приведения полей в соответсвии с сервером
+            model.saveDeliveryAddress(city: cityTextView.text!, street: streetTextView.text!,
+                                      house: houseTextView.text!, pavilion: pavilionTextView.text,
+                                      flat: flatTextView.text, note: noteTextView.text)
         }
     }
     
     // MARK: - Keyboard
     
     @objc private func hideKeyboard() {
-            scrollView.contentInset = scrollViewInsets
-            guard validationView.allSatisfy({$0.validate()}) else {
-                blockApplyButton()
-                return
-            }
+        scrollView.contentInset = scrollViewInsets
+        guard validationView.allSatisfy({$0.validate()}) else {
+            blockApplyButton()
+            return
+        }
         unblockApplyButton()
     }
-
+    
     @objc private func keyboardWillAppear(notification: NSNotification) {
         if let rect: CGRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
             
@@ -186,9 +190,9 @@ extension ChooseDeliveryAdressViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         if textView.text == R.string.localize.deliveryNote.localized() {
-                textView.text = ""
-                textView.textColor = .black
-            }
+            textView.text = ""
+            textView.textColor = .black
+        }
         textView.becomeFirstResponder()
     }
     

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 final class WishlistViewController: UIViewController {
 
@@ -15,10 +14,6 @@ final class WishlistViewController: UIViewController {
 
     var model: WishlistInput!
     private var emptyResultsView: EmptyResultsView?
-
-    private lazy var activityIndicator: MBProgressHUD = {
-        setupActivityIndicator()
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +23,12 @@ final class WishlistViewController: UIViewController {
         setupUI()
 
         model.load()
-        activityIndicator.show(animated: true)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        PulseLoaderService.showAdded(to: view)
     }
 
     private func applyEmptyStyle() {
@@ -92,17 +88,17 @@ extension WishlistViewController: WishlistOutput {
     func deleteFarovireRow(index: IndexPath) {
         tableView.deleteRows(at: [index], with: .fade)
         tableView.reloadData()
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
     }
     
     func showDeletionError() {
         showError(message: "Unable to remove medicine from wishlist")
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
     }
     
     func didLoadList() {
         emptyResultsView?.isHidden = !model.wishlistIsEmpty
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
         tableView.reloadData()
     }
 }
@@ -123,7 +119,7 @@ extension WishlistViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.favoriteButtonHandler = { [weak self] state in
             guard let `self` = self else { return }
-            self.activityIndicator.show(animated: true)
+            PulseLoaderService.showAdded(to: self.view)
             self.model.deleteMedicine(id: self.model.favoriteMedicine[indexPath.row].id, index: indexPath)
         }
         

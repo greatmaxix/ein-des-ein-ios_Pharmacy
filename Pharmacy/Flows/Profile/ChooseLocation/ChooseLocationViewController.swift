@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import MBProgressHUD
 
 protocol ChooseLocationViewControllerInput: ChooseLocationViewModelOutput {}
 protocol ChooseLocationViewControllerOutput: ChooseLocationViewModelInput {}
@@ -25,17 +24,18 @@ class ChooseLocationViewController: UIViewController {
         static let textFont = UIFont.systemFont(ofSize: 14)
     }
     
-    private lazy var activityIndicator: MBProgressHUD = {
-        setupActivityIndicator()
-    }()
-    
 // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.show(animated: true)
         setupTableView()
         setupNavBar()
         model.load()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        PulseLoaderService.showAdded(to: view)
     }
     
     private func setupTableView() {
@@ -113,7 +113,7 @@ extension ChooseLocationViewController: ChooseLocationViewModelOutput {
     }
     
     func reloadTableViewData(state: Bool) {
-        activityIndicator.hide(animated: true, afterDelay: 0.3)
+        PulseLoaderService.hide(from: view)
         
         let transition = CATransition()
         transition.type = CATransitionType.push
@@ -141,7 +141,7 @@ extension ChooseLocationViewController: SimpleNavigationBarDelegate {
     
     func leftBarItemAction() {
         if model.screenState {
-            activityIndicator.show(animated: true)
+            PulseLoaderService.showAdded(to: view)
             model.load()
         } else {
             model.close()

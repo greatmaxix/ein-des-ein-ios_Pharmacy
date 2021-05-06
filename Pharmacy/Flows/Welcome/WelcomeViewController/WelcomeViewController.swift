@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 final class WelcomeViewController: UIViewController, NavigationBarStyled {
 
@@ -37,20 +36,9 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
     
     var model: WelcomeModelInput!
     
-    private lazy var activityIndicator: MBProgressHUD = {
-        let hud = MBProgressHUD(view: view)
-        hud.contentColor = .gray
-        hud.backgroundView.style = .solidColor
-        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
-        hud.removeFromSuperViewOnHide = false
-        view.addSubview(hud)
-
-        return hud
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.show(animated: true)
+        
         model.load()
     }
 
@@ -66,6 +54,7 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
             }
         }
         setupUI()
+        PulseLoaderService.showAdded(to: view)
         model.load()
         self.reloadInputViews()
     }
@@ -154,7 +143,8 @@ extension WelcomeViewController: WelcomeModelOutput {
             categorieLabels[index].text = model.categories[index].shortTitle
             categorieImageView[index].image = UIImage(named: model.categories[index].imageTitle)
         }
-        activityIndicator.hide(animated: true)
+        
+        PulseLoaderService.hide(from: view)
     }
     
     func showReadyOrders(orders: [String]) {

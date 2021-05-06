@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 protocol MedicineListViewControllerInput: MedicineListModelOutput {}
 protocol MedicineListViewControllerOutput: MedicineListModelInput {}
@@ -22,23 +21,13 @@ final class MedicineListViewController: UIViewController {
     // MARK: - Properties
     var model: MedicineListViewControllerOutput!
     
-    private lazy var activityIndicator: MBProgressHUD = {
-        let hud = MBProgressHUD(view: view)
-        hud.backgroundView.style = .solidColor
-        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
-        hud.removeFromSuperViewOnHide = false
-        view.addSubview(hud)
-        
-        return hud
-    }()
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         maskNavigation()
         configUI()
         setupTableView()
-        activityIndicator.show(animated: true)
+        PulseLoaderService.showAdded(to: view)
         model.load()
     }
 }
@@ -82,12 +71,13 @@ extension MedicineListViewController: MedicineListViewControllerInput {
     
     func retrivesNewResults() {
         productCountLabel.attributedText = titleAttributed(count: model.totalNumberOfItems)
-        activityIndicator.hide(animated: true)
+        retreivingMoreMedicinesDidEnd()
+        PulseLoaderService.hide(from: view)
         tableView.reloadData()
     }
     
     func retreivingMoreMedicinesDidEnd() {
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
     }
     
     func needToInsertNewMedicines(at indexPathes: [IndexPath]?) {
@@ -124,7 +114,7 @@ extension MedicineListViewController: UITableViewDataSource {
         }
         
         if model.isEndOfList == false && indexPath.row == model.medicines.count - 1 {
-            activityIndicator.show(animated: true)
+            PulseLoaderService.showAdded(to: view)
             model.retreiveMoreMedecines()
         }
         

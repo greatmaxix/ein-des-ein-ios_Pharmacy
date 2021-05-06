@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 protocol ActivityIndicatorDelegate: class {
     
@@ -43,10 +42,13 @@ extension ActivityIndicatorDelegate where Self: UIViewController {
 
 extension UIViewController {
     func showActivityIndicator() {
-        MBProgressHUD.showAdded(to: view, animated: true)
+        PulseLoaderService.showAdded(to: view)
+//        MBProgressHUD.showAdded(to: view, animated: true)
         
     }
     func hideActivityIndicator() {
-        MBProgressHUD.hide(for: view, animated: true)
+        PulseLoaderService.hide(from: view)
+//        MBProgressHUD.hide(for: view, animated: true)
     }
 }
+

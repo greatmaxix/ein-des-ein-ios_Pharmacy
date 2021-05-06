@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 final class ProfileViewController: UIViewController {
 
@@ -15,22 +14,11 @@ final class ProfileViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    private lazy var activityIndicator: MBProgressHUD = {
-        let hud = MBProgressHUD(view: view)
-        hud.backgroundView.style = .solidColor
-        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
-        hud.removeFromSuperViewOnHide = false
-        view.addSubview(hud)
-        
-        return hud
-    }()
-    
     var model: ProfileInput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicator.show(animated: true)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
@@ -44,6 +32,7 @@ final class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        PulseLoaderService.showAdded(to: view)
         
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.title = R.string.localize.profileTitle.localized()
@@ -52,9 +41,9 @@ final class ProfileViewController: UIViewController {
             bar.isRightItemHidden = true
         }
        
-        model.loadUser { [weak self] in
-            self?.tableView.reloadData()
-            self?.activityIndicator.hide(animated: true)
+        model.loadUser { [unowned self] in
+            self.tableView.reloadData()
+            PulseLoaderService.hide(from: self.view)
         }
 
         navigationController?.isNavigationBarHidden = false

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 protocol SearchViewControllerInput: SearchModelOutput {}
 protocol SearchViewControllerOutput: SearchModelInput {}
@@ -27,16 +26,6 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
     @IBOutlet private weak var emptyView: EmptySearchView!
     
     private let searchBar = SearchBar()
-    
-    private lazy var activityIndicator: MBProgressHUD = {
-        let hud = MBProgressHUD(view: view)
-        hud.backgroundView.style = .solidColor
-        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
-        hud.removeFromSuperViewOnHide = false
-        view.addSubview(hud)
-        
-        return hud
-    }()
     
     var style: NavigationBarStyle = .search
     
@@ -122,7 +111,7 @@ extension SearchViewController: SearchViewControllerInput {
     }
     
     func willSendRequest() {
-        activityIndicator.show(animated: true)
+        PulseLoaderService.showAdded(to: view)
     }
     
     func retrivesNewResults() {
@@ -134,11 +123,11 @@ extension SearchViewController: SearchViewControllerInput {
         
         tableView.reloadData()
         
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
     }
     
     func retreivingMoreMedicinesDidEnd() {
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
     }
     
     func didLoadRecentRequests() {
@@ -226,7 +215,7 @@ extension SearchViewController: UITableViewDataSourcePrefetching {
             return
         }
         
-        activityIndicator.show(animated: true)
+        PulseLoaderService.showAdded(to: view)
         
         model.retreiveMoreMedecines()
     }

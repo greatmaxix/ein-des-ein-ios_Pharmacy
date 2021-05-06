@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 protocol OrdersViewControllerInput: OrdersListOutput {}
 protocol OrdersViewControllerOutput: OrdersListInput {}
@@ -25,10 +24,6 @@ final class OrdersViewController: UIViewController {
 
     @IBOutlet var navBarTitle: UILabel!
     @IBOutlet var controllButtons: [UIButton]!
-
-    private lazy var activityIndicator: MBProgressHUD = {
-        setupActivityIndicator()
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,8 +94,7 @@ final class OrdersViewController: UIViewController {
 
 extension OrdersViewController: OrdersViewControllerInput {
     func complete(isEmpty: Bool, error: String?) {
-
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
 
         if error != nil {
             showError(text: error!)
@@ -116,7 +110,7 @@ extension OrdersViewController: OrdersViewControllerInput {
     }
 
     func startLoading() {
-        activityIndicator.show(animated: true)
+        PulseLoaderService.showAdded(to: view)
     }
 }
 

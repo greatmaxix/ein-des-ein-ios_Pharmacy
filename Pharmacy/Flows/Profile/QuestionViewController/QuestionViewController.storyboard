@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v4g-5Y-Tu2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v4g-5Y-Tu2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -96,6 +96,7 @@
                                             </view>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Zxc-ri-peu" secondAttribute="bottom" constant="155" id="7QU-Wo-DtN"/>
                                             <constraint firstItem="Dvq-7R-1Nv" firstAttribute="leading" secondItem="A2T-Wy-pMt" secondAttribute="leading" constant="16" id="BnF-sJ-OKo"/>
                                             <constraint firstAttribute="trailing" secondItem="Zxc-ri-peu" secondAttribute="trailing" id="RdK-kg-GaJ"/>
                                             <constraint firstItem="Zxc-ri-peu" firstAttribute="top" secondItem="A2T-Wy-pMt" secondAttribute="top" constant="24" id="WJ2-mA-liG"/>
@@ -108,7 +109,6 @@
                                 <constraints>
                                     <constraint firstItem="A2T-Wy-pMt" firstAttribute="top" secondItem="IYp-PO-AOh" secondAttribute="top" id="32i-nr-uSS"/>
                                     <constraint firstAttribute="trailing" secondItem="A2T-Wy-pMt" secondAttribute="trailing" id="Czv-yK-w7d"/>
-                                    <constraint firstAttribute="bottom" secondItem="Dvq-7R-1Nv" secondAttribute="bottom" constant="50" id="GyA-Hw-9Lt"/>
                                     <constraint firstItem="A2T-Wy-pMt" firstAttribute="leading" secondItem="IYp-PO-AOh" secondAttribute="leading" id="aF8-Ca-700"/>
                                     <constraint firstAttribute="bottom" secondItem="A2T-Wy-pMt" secondAttribute="bottom" id="qBs-Mj-cTl"/>
                                 </constraints>

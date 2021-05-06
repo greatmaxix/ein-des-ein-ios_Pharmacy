@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 protocol ProductViewControllerInput: ProductModelOutput {}
 protocol ProductViewControllerOutput: ProductModelInput {}
@@ -20,16 +19,6 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
         static let separatorInset = UIEdgeInsets.only(left: 16, right: 16)
         static let separatorColor = R.color.applyBlueGray()?.withAlphaComponent(0.2)
     }
-    
-    private lazy var activityIndicator: MBProgressHUD = {
-        let hud = MBProgressHUD(view: view)
-        hud.backgroundView.style = .solidColor
-        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
-        hud.removeFromSuperViewOnHide = false
-        view.addSubview(hud)
-        
-        return hud
-    }()
     
     @IBOutlet weak var findButton: UIButton!
     
@@ -58,7 +47,7 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        activityIndicator.show(animated: true)
+        PulseLoaderService.showAdded(to: view)
         configUI()
         model.load()
     }
@@ -129,7 +118,7 @@ extension ProductViewController: ProductViewControllerInput {
         pageControl.isHidden = (viewControllers.count == 1) ? true : false
         model.dataSource.assign(tableView: tableView)
         tableView.reloadData()
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
     }
 }
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 import PDFKit
 
 protocol ReceiptsViewControllerInput: ReceiptsModelOutput {}
@@ -19,11 +18,7 @@ class ReceiptsViewController: UIViewController, NavigationBarStyled {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subTitleLabel: UILabel!
     var style: NavigationBarStyle = .normalWithoutSearch
-
-    private lazy var activityIndicator: MBProgressHUD = {
-        setupActivityIndicator()
-    }()
-
+    
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var pdfView: PDFView!
@@ -43,6 +38,7 @@ class ReceiptsViewController: UIViewController, NavigationBarStyled {
 
         tableView.isHidden = true
         emptyView.isHidden = true
+        PulseLoaderService.showAdded(to: view)
     }
     
 
@@ -54,8 +50,7 @@ class ReceiptsViewController: UIViewController, NavigationBarStyled {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        activityIndicator.show(animated: true)
+        
         model.initialLoad()
         self.lolilization()
     }
@@ -91,7 +86,7 @@ extension ReceiptsViewController: SimpleNavigationBarDelegate {
 extension ReceiptsViewController: ReceiptsViewControllerInput {
 
     func complete(isEmpty: Bool, error: String?) {
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
 
         if error != nil {
             showError(text: error!)
@@ -106,7 +101,7 @@ extension ReceiptsViewController: ReceiptsViewControllerInput {
     }
 
     func startLoading() {
-        activityIndicator.show(animated: true)
+        PulseLoaderService.showAdded(to: view)
     }
 
     func openPDF(url: URL) {
@@ -120,7 +115,7 @@ extension ReceiptsViewController: ReceiptsViewControllerInput {
     }
 
     func pdfLoaded() {
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
     }
     
 }

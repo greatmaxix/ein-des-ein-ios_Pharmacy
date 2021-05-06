@@ -7,15 +7,14 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 final class RegionViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     
-    private lazy var activityIndicator: MBProgressHUD = {
-        setupActivityIndicator()
-    }()
+//    private lazy var activityIndicator: MBProgressHUD = {
+//        setupActivityIndicator()
+//    }()
     
     var model: RegionInput!
 
@@ -25,7 +24,8 @@ final class RegionViewController: UIViewController {
         model.load()
         model.dataSource.assign(tableView: tableView)
         setupNavigation()
-        activityIndicator.show(animated: true)
+        PulseLoaderService.showAdded(to: view)
+//        activityIndicator.show(animated: true)
     }
     
     private func setupNavigation() {
@@ -79,6 +79,7 @@ extension RegionViewController: RegionOutput {
     func reloadRegions() {
         model.dataSource.assign(tableView: tableView)
         tableView.isHidden = false
-        activityIndicator.hide(animated: true)
+//        PulseLoaderService.hide(from: self)
+//        activityIndicator.hide(animated: true)
     }
 }

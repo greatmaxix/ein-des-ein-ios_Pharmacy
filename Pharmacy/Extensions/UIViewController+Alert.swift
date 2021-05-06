@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 struct AlertAction {
     let title: String
@@ -15,15 +14,6 @@ struct AlertAction {
 }
 
 extension UIViewController {
-    
-    func setupActivityIndicator() -> MBProgressHUD {
-        let hud = MBProgressHUD(view: view)
-        hud.backgroundView.style = .solidColor
-        hud.backgroundView.color = UIColor.black.withAlphaComponent(0.2)
-        hud.removeFromSuperViewOnHide = false
-        view.addSubview(hud)
-        return hud
-    }
     
     func showError(title: String = "Error", message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)

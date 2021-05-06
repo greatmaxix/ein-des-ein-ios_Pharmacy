@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 protocol BasketViewControllerInput: BasketModelOutput {}
 protocol BasketViewControllerOutput: BasketModelInput {}
@@ -17,10 +16,6 @@ final class BasketViewController: UIViewController {
 
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var tableView: UITableView!
-
-    private lazy var activityIndicator: MBProgressHUD = {
-        setupActivityIndicator()
-    }()
     
     private var emptyResultsView: EmptyResultsView?
     
@@ -45,7 +40,7 @@ final class BasketViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        activityIndicator.show(animated: true)
+        PulseLoaderService.showAdded(to: view)
         
         model.load()
     }
@@ -79,9 +74,9 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
             self?.model.decreaseCount(at: indexPath)
         }
 
-        cell.deleteHandler = { [weak self] in
-            self?.activityIndicator.show(animated: true)
-            self?.model.deleteProduct(at: indexPath)
+        cell.deleteHandler = { [unowned self] in
+            PulseLoaderService.showAdded(to: self.view)
+            self.model.deleteProduct(at: indexPath)
         }
 
         return cell
@@ -158,7 +153,7 @@ extension BasketViewController: BasketViewControllerInput {
     }
 
     func requestCompleted() {
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
         tableView.reloadData()
     }
 
@@ -170,7 +165,7 @@ extension BasketViewController: BasketViewControllerInput {
             emptyView.isHidden = true
             tableView.isHidden = false
         }
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
         tableView.reloadData()
     }
 

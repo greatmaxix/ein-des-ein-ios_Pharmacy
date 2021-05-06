@@ -477,6 +477,7 @@
 		F53A07DD25F7BD990091C969 /* ConnectWithUsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53A07DC25F7BD990091C969 /* ConnectWithUsController.swift */; };
 		F549F37225EC295D008749BD /* ChooseClinicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F37125EC295D008749BD /* ChooseClinicViewController.swift */; };
 		F549F37C25EC2D5F008749BD /* ClinicsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F549F37B25EC2D5F008749BD /* ClinicsListController.swift */; };
+		F54D3D182643BC0E0023DD0D /* PulseLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54D3D172643BC0E0023DD0D /* PulseLoaderView.swift */; };
 		F556C236260259CC0012117A /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = F556C234260259CC0012117A /* localize.strings */; };
 		F55D46322601CA3C00B67EC5 /* LanguageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D462F2601CA3B00B67EC5 /* LanguageModels.swift */; };
 		F55D46332601CA3C00B67EC5 /* LanguageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55D46302601CA3B00B67EC5 /* LanguageService.swift */; };
@@ -1011,6 +1012,7 @@
 		F53A07DC25F7BD990091C969 /* ConnectWithUsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectWithUsController.swift; sourceTree = "<group>"; };
 		F549F37125EC295D008749BD /* ChooseClinicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseClinicViewController.swift; sourceTree = "<group>"; };
 		F549F37B25EC2D5F008749BD /* ClinicsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicsListController.swift; sourceTree = "<group>"; };
+		F54D3D172643BC0E0023DD0D /* PulseLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseLoaderView.swift; sourceTree = "<group>"; };
 		F556C228260259B20012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/ChooseClinicOnMap.strings; sourceTree = "<group>"; };
 		F556C229260259B20012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/ChooseClinicViewController.strings; sourceTree = "<group>"; };
 		F556C22A260259B30012117A /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/CancelOrderView.strings; sourceTree = "<group>"; };
@@ -1499,6 +1501,7 @@
 		396C45CE249774AC00A569CE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F54D3D162643BBF40023DD0D /* PulseLoaderView */,
 				F523E70625EFB07E0029E84E /* TextFieldView */,
 				F51DCBF725EE518300626DF7 /* InformationHeaderView */,
 				2488BAF325515396008D7EEB /* EmptyResultsViewCell */,
@@ -3119,6 +3122,14 @@
 			path = ClinicsListController;
 			sourceTree = "<group>";
 		};
+		F54D3D162643BBF40023DD0D /* PulseLoaderView */ = {
+			isa = PBXGroup;
+			children = (
+				F54D3D172643BC0E0023DD0D /* PulseLoaderView.swift */,
+			);
+			path = PulseLoaderView;
+			sourceTree = "<group>";
+		};
 		F556C233260259CC0012117A /* uz.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -3635,6 +3646,7 @@
 				6184730125496E950062D8B9 /* CartResponse.swift in Sources */,
 				603D31A724E3B627000E5A6C /* CategoryCellSection.swift in Sources */,
 				603D31A424E3B608000E5A6C /* CategoryCollectionViewCell.swift in Sources */,
+				F54D3D182643BC0E0023DD0D /* PulseLoaderView.swift in Sources */,
 				396C45B92497699800A569CE /* AppDelegate.swift in Sources */,
 				39F0AD6524EEC80200CD6CA4 /* OrdersViewController.swift in Sources */,
 				39DBC18F24F7C2CC00CB82D5 /* MapMessageView.swift in Sources */,

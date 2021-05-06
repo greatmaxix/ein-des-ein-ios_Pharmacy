@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MBProgressHUD
 
 protocol OrderDetailsViewControllerInput: OrderDetailsModelOutput {}
 protocol OrderDetailsViewControllerOutput: OrderDetailsModelInput {}
@@ -18,10 +17,6 @@ class OrderDetailsViewController: UIViewController {
 
     private var isCanceled = false
 
-    private lazy var activityIndicator: MBProgressHUD = {
-        setupActivityIndicator()
-    }()
-
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var canceledOrderView: UIView!
@@ -30,7 +25,7 @@ class OrderDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        activityIndicator.show(animated: true)
+        PulseLoaderService.showAdded(to: view)
         model.load()
         titleLabel.text = "№ \(model.currentOrderId)"
 
@@ -86,9 +81,9 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "OrderDetailsTotalCell", for: indexPath) as? OrderDetailsTotalCell else { return UITableViewCell() }
 
         cell.apply(cost: model.cost, isCanceled: isCanceled)
-        cell.actionHandler = { [weak self] in
-            self?.activityIndicator.show(animated: true)
-            self?.model.cancelOrder()
+        cell.actionHandler = { [unowned self] in
+            PulseLoaderService.showAdded(to: self.view)
+            self.model.cancelOrder()
         }
 
         return cell
@@ -143,7 +138,7 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
 extension OrderDetailsViewController: OrderDetailsViewControllerInput {
 
     func didLoadData(error: String?) {
-        activityIndicator.hide(animated: true)
+        PulseLoaderService.hide(from: view)
 
         if model.orderState == .canceled {
             canceledOrderView.isHidden = false
