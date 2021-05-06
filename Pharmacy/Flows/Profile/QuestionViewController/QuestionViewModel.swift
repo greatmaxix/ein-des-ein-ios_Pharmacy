@@ -52,12 +52,12 @@ extension QuestionViewModel: QuestionViewControllerOutput {
     
     func load() {
         let mockData: [QustionModel] = [
-            .init(image: "busket_icon", name: "Как купить", type: .openInfo),
-            .init(image: "duble_back_icon", name: "Возврат", type: .openInfo),
-            .init(image: "recipient_icon", name: "Рецепты", type: .openInfo),
-            .init(image: "paymet_info_icon", name: "Оплата и бонусы", type: .openInfo),
-            .init(image: "delivary_icon", name: "Доставка", type: .selected),
-            .init(image: "write_us_icon", name: "Напишите нам!", type: .selected)
+            .init(image: "busket_icon", name: R.string.localize.how_to_buy.localized(), type: .openInfo),
+            .init(image: "duble_back_icon", name: R.string.localize.how_to_return.localized(), type: .openInfo),
+            .init(image: "recipient_icon", name: R.string.localize.recipient_question.localized(), type: .openInfo),
+            .init(image: "paymet_info_icon", name: R.string.localize.payment_question.localized(), type: .openInfo),
+            .init(image: "delivary_icon", name: R.string.localize.delivery_question.localized(), type: .selected),
+            .init(image: "write_us_icon", name: R.string.localize.write_us.localized(), type: .selected)
         ]
         self.models = mockData
         output.didLoad(models: models)

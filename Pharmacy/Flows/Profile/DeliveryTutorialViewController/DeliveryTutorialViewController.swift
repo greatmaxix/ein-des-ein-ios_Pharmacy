@@ -23,8 +23,8 @@ class DeliveryTutorialViewController: UIViewController, NavigationBarStyled {
  
         scrollView.delegate = self
 
-        segmentControl.setTitle("Самовывоз", forSegmentAt: 0)
-        segmentControl.setTitle("Доставка", forSegmentAt: 1)
+        segmentControl.setTitle(R.string.localize.order_delivary_own.localized(), forSegmentAt: 0)
+        segmentControl.setTitle(R.string.localize.order_delivary.localized(), forSegmentAt: 1)
         segmentControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.welcomeBlue()!], for: .selected)
         
         segmentControl.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.gray()!], for: .normal)
@@ -36,7 +36,7 @@ class DeliveryTutorialViewController: UIViewController, NavigationBarStyled {
         super.viewWillAppear(animated)
         
         if let bar = self.navigationController?.navigationBar as? SimpleNavigationBar {
-            bar.title = "Как заказать"
+            bar.title = R.string.localize.how_to_order.localized()
             
             bar.isLeftItemHidden = false
             bar.barDelegate = self
