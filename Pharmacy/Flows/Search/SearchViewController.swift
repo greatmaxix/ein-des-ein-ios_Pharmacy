@@ -37,11 +37,13 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
         setupTableView()
         model.load()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        setupNavigationBar()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            self?.setupNavigationBar()
+        }
     }
     
     func configUI() {
@@ -81,11 +83,13 @@ extension SearchViewController {
         searchBar.delegate = self
         
         searchBar.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        
+
         navigationItem.titleView = searchBar
         searchBar.localize()
+
         searchBar.topAnchor.constraint(equalTo: searchBar.superview!.topAnchor).isActive = true
         searchBar.bottomAnchor.constraint(equalTo: searchBar.superview!.bottomAnchor, constant: -8.0).isActive = true
+
     }
     
     private func setupTableView() {

@@ -72,6 +72,8 @@ final class ProfileModel: Model {
         }
     }
 
+    // swiftlint:disable all
+
     private func setupDataSource() {
         self.user = UserSession.shared.user
 
