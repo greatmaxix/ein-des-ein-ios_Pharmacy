@@ -73,7 +73,7 @@ final class ProfileModel: Model {
     }
 
     // swiftlint:disable all
-
+    
     private func setupDataSource() {
         self.user = UserSession.shared.user
 
@@ -84,37 +84,82 @@ final class ProfileModel: Model {
         cellsData = []
 
         if UserSession.shared.user != nil {
-
-            do {
-                let cellData: NameTableViewCellData = NameTableViewCellData(imageUrl: user?.avatarURL, name: user?.name ?? "Name Surname", phone: user?.phone ?? "+1111111111111")
-                cellData.editProfile = { [weak self] in
-                    self?.raise(event: ProfileEvent.editProfile)
-                }
-                cellData.selectHandler = nil
-                cellsData.append(cellData)
-            }
-            do {
-                let cd: ProfileOptionsCellData = ProfileOptionsCellData()
-                cd.events = [ProfileEvent.openWishlist, ProfileEvent.openOrder, ProfileEvent.openAnalize, ProfileEvent.openPrescriptions]
-                cd.openProfileOption = openOptionHandler
-                cellsData.append(cd)
-            }
-            do {
-                let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24.5, color: .clear)
-                cellsData.append(cellData)
-            }
-
+            setupNameTableViewCellData()
+            setupProfileOptionsCellDataWithHandler(openOptionHandler)
+            setupEmptyCellDataWithHeight(24.5)
         } else {
-            do {
-                let cellData = EmptyUserCellData()
-                cellData.authorize = { [weak self] in
-                    self?.raise(event: ProfileEvent.logout)
-                }
-                cellData.selectHandler = nil
-                cellsData.append(cellData)
-            }
+            setupEmptyUserCellData()
         }
 
+        setupRegionCellData()
+        setupLanguageCellData()
+
+        if UserSession.shared.user != nil {
+            setupAddressCellData()
+        }
+
+        setupNotificationsCellData()
+        
+        if UserSession.shared.user != nil {
+            setupInsuranceCellData()
+            setupPaymentCellData()
+            setupPrivilegesCellData()
+        }
+        
+        setupEmptyCellDataWithHeight(32)
+        
+        setupCharityCellData()
+        setupEmptyCellDataWithHeight(32)
+        
+        setupAboutCellData()
+        setupQuestionsCellData()
+        setupEmptyCellDataWithHeight(38)
+        
+        setupExitCellData()
+        setupEmptyCellDataWithHeight(24)
+    }
+}
+
+extension ProfileModel {
+    fileprivate func setupNameTableViewCellData() {
+        do {
+            let cellData: NameTableViewCellData = NameTableViewCellData(imageUrl: user?.avatarURL, name: user?.name ?? "Name Surname", phone: user?.phone ?? "+1111111111111")
+            cellData.editProfile = { [weak self] in
+                self?.raise(event: ProfileEvent.editProfile)
+            }
+            cellData.selectHandler = nil
+            cellsData.append(cellData)
+        }
+    }
+    
+    fileprivate func setupProfileOptionsCellDataWithHandler(_ openOptionHandler: @escaping ((ProfileEvent) -> Void)) {
+        do {
+            let cd: ProfileOptionsCellData = ProfileOptionsCellData()
+            cd.events = [ProfileEvent.openWishlist, ProfileEvent.openOrder, ProfileEvent.openAnalize, ProfileEvent.openPrescriptions]
+            cd.openProfileOption = openOptionHandler
+            cellsData.append(cd)
+        }
+    }
+    
+    fileprivate func setupEmptyCellDataWithHeight(_ height: CGFloat) {
+        do {
+            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: height, color: .clear)
+            cellsData.append(cellData)
+        }
+    }
+    
+    fileprivate func setupEmptyUserCellData() {
+        do {
+            let cellData = EmptyUserCellData()
+            cellData.authorize = { [weak self] in
+                self?.raise(event: ProfileEvent.logout)
+            }
+            cellData.selectHandler = nil
+            cellsData.append(cellData)
+        }
+    }
+    
+    fileprivate func setupRegionCellData() {
         do {
             let location = user?.regionName
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileRegion.localized(), additionalInfo: location, type: .region)
@@ -126,6 +171,9 @@ final class ProfileModel: Model {
             }
             cellsData.append(cellData)
         }
+    }
+    
+    fileprivate func setupLanguageCellData() {
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileLanguage.localized())
             cellData.image = R.image.language_icon()
@@ -134,51 +182,57 @@ final class ProfileModel: Model {
             }
             cellsData.append(cellData)
         }
-
-        if UserSession.shared.user != nil {
-            do {
-                let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePayment.localized(), additionalInfo: "1000", type: .payment)
-                cellData.image = R.image.profilePayment()
-                cellData.selectHandler = { [weak self] in
-                    let model = InDevelopmentModel(title: R.string.localize.empty_model_title.localized(), subTitle: R.string.localize.empty_subtitle_title.localized(), image: "inDelivary")
-                    self?.raise(event: AppEvent.presentInDev(model))
-                }
-                cellsData.append(cellData)
+    }
+    
+    fileprivate func setupPaymentCellData() {
+        do {
+            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePayment.localized(), additionalInfo: "1000", type: .payment)
+            cellData.image = R.image.profilePayment()
+            cellData.selectHandler = { [weak self] in
+                let model = InDevelopmentModel(title: R.string.localize.empty_model_title.localized(), subTitle: R.string.localize.empty_subtitle_title.localized(), image: "inDelivary")
+                self?.raise(event: AppEvent.presentInDev(model))
             }
-
-            do {
-                let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePrivileges.localized())
-                cellData.image = R.image.prosent_icon()
-                cellData.selectHandler = { [weak self] in
-                    self?.raise(event: ProfileEvent.openPrivileges)
-                }
-                cellsData.append(cellData)
-            }
-            
-            do {
-                let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileInsurance.localized())
-                cellData.image = R.image.insurance_policy()
-                cellData.selectHandler = { [weak self] in
-                    let insurnceModel = InDevelopmentModel(title: R.string.localize.empty_insurence_title.localized(), subTitle:R.string.localize.empty_subtitle_title.localized(), image: "empty_Insurance")
-                    self?.raise(event: AppEvent.presentInDev(insurnceModel))
-                }
-                cellsData.append(cellData)
-            }
-            
-
-            
-            do {
-                let location = user?.deliveryAddress
-                let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAddress.localized(), additionalInfo: location, type: .delivery)
-
-                cellData.image = R.image.profileAddress()
-                cellData.selectHandler = { [weak self] in
-                    self?.raise(event: ProfileEvent.openChooseDeliveryAdress)
-                }
-                cellsData.append(cellData)
-            }
+            cellsData.append(cellData)
         }
-
+    }
+    
+    fileprivate func setupPrivilegesCellData() {
+        do {
+            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profilePrivileges.localized())
+            cellData.image = R.image.prosent_icon()
+            cellData.selectHandler = { [weak self] in
+                self?.raise(event: ProfileEvent.openPrivileges)
+            }
+            cellsData.append(cellData)
+        }
+    }
+    
+    fileprivate func setupInsuranceCellData() {
+        do {
+            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileInsurance.localized())
+            cellData.image = R.image.insurance_policy()
+            cellData.selectHandler = { [weak self] in
+                let insurnceModel = InDevelopmentModel(title: R.string.localize.empty_insurence_title.localized(), subTitle:R.string.localize.empty_subtitle_title.localized(), image: "empty_Insurance")
+                self?.raise(event: AppEvent.presentInDev(insurnceModel))
+            }
+            cellsData.append(cellData)
+        }
+    }
+    
+    fileprivate func setupAddressCellData() {
+        do {
+            let location = user?.deliveryAddress
+            let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAddress.localized(), additionalInfo: location, type: .delivery)
+            
+            cellData.image = R.image.profileAddress()
+            cellData.selectHandler = { [weak self] in
+                self?.raise(event: ProfileEvent.openChooseDeliveryAdress)
+            }
+            cellsData.append(cellData)
+        }
+    }
+    
+    fileprivate func setupNotificationsCellData() {
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileNotifications.localized())
             cellData.image = R.image.profileBellOn()
@@ -188,28 +242,21 @@ final class ProfileModel: Model {
             }
             cellsData.append(cellData)
         }
-        do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 32, color: .clear)
-            cellsData.append(cellData)
-        }
-        
+    }
+    
+    fileprivate func setupCharityCellData() {
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileCharity.localized())
             cellData.image = R.image.charity()
             cellData.selectHandler = { [weak self] in
-                // Благотворительность
-//                R.string.localize.emptySu
                 let insurnceModel = InDevelopmentModel(title:R.string.localize.empty_charity_title.localized(), subTitle: R.string.localize.empty_subtitle_title.localized(), image: "empty_bell")
                 self?.raise(event: AppEvent.presentInDev(insurnceModel))
             }
             cellsData.append(cellData)
         }
-        
-        
-        do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 32, color: .clear)
-            cellsData.append(cellData)
-        }
+    }
+    
+    fileprivate func setupAboutCellData() {
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileAbout.localized())
             cellData.image = R.image.profileAttension()
@@ -219,6 +266,9 @@ final class ProfileModel: Model {
             }
             cellsData.append(cellData)
         }
+    }
+    
+    fileprivate func setupQuestionsCellData() {
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileQuestions.localized())
             cellData.image = R.image.profileQuestion()
@@ -227,22 +277,15 @@ final class ProfileModel: Model {
             }
             cellsData.append(cellData)
         }
-        
-
-        do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 38, color: .clear)
-            cellsData.append(cellData)
-        }
+    }
+    
+    fileprivate func setupExitCellData() {
         do {
             let cellData: ProfileTableViewCellData = ProfileTableViewCellData(title: R.string.localize.profileExit.localized(), type: .exit)
             cellData.image = R.image.profileQuit()
             cellData.selectHandler = { [weak self] in
                 self?.output.presentLogoutView()
             }
-            cellsData.append(cellData)
-        }
-        do {
-            let cellData: EmptyTableViewCellData = EmptyTableViewCellData(height: 24, color: .clear)
             cellsData.append(cellData)
         }
     }
