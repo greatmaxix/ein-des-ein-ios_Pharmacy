@@ -100,7 +100,7 @@
 "profile.address" = "Адрес доставки";
 "profile.about" = "О приложении";
 "profile.questions" = "Нужна помощь?";
-"profile.exit" = "Выйти из аккаунта";
+"profile.exit" = "Выйти из приложения";
 
 "profile.exitQuestion" = "Вы уверены, что хотите выйти из приложения?";
 "profile.exitDescription" = "Это позволяет приложению\nподелиться информацией о вас.";
