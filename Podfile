@@ -14,7 +14,6 @@ target 'Pharmacy' do
   pod 'Moya', '~> 14.0'
   pod 'Kingfisher', '~> 5.0'
   pod 'GoogleMaps'
-  pod 'MBProgressHUD', '~> 1.2.0'
   pod 'TPKeyboardAvoiding'
   pod 'MessageKit'
   pod 'LDSwiftEventSource', '~> 1.2'
