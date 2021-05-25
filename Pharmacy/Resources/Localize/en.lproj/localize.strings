@@ -46,6 +46,7 @@
 "signup.privacy" = "By registering, I agree to";
 "signup.registration" = "check in";
 "region.title" = "Region";
+"region.searchBar.placeholder" = "Maybe Astana?";
 "onboarding.description" = "Allow access to geolocation for actual display of content";
 "tabbar.profile" = "Profile";
 "profile.title" = "Profile";

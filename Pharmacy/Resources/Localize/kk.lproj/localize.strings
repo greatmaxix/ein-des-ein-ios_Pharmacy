@@ -48,6 +48,7 @@
 "signup.privacy" = "Тіркелу арқылы мен келісемін";
 "signup.registration" = "тіркеу";
 "region.title" = "Аймақ";
+"region.searchBar.placeholder" = "Мүмкін Астана?";
 "onboarding.description" = "Мазмұнды нақты көрсету үшін геолокацияға қол жеткізуге рұқсат етіңіз";
 "tabbar.profile" = "Профиль";
 "profile.title" = "Профиль";

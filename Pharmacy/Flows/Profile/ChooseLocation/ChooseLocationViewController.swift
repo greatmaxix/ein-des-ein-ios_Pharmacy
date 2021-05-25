@@ -52,7 +52,7 @@ class ChooseLocationViewController: UIViewController {
     navigationController?.isNavigationBarHidden = false
       if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
         bar.style = .search
-        
+        bar.setup(placeholder: R.string.localize.regionSearchBarPlaceholder.localized())
         bar.barDelegate = self
         bar.isLeftItemHidden = false
         bar.title = R.string.localize.regionTitle.localized()
