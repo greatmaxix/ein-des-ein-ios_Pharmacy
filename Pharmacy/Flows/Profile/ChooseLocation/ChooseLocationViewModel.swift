@@ -212,12 +212,18 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
         guard !trimmedTerm.isEmpty else {
             sections = backupSection
             self.output.searchActionReloading()
-            return }
+            return
+        }
         
         guard let firstCharacter = trimmedTerm.first?.description else { return }
+        let sections = backupSection.filter { $0.header?.lowercased().contains(firstCharacter) ?? false }
         
-        self.sections = sections.filter({ ($0.header?.lowercased().contains(firstCharacter))!})
-        self.sections[0].items = sections[0].items.filter({$0.name.lowercased().contains(trimmedTerm.lowercased())})
+        if sections.isEmpty {
+            self.sections = []
+        } else {
+            self.sections = sections
+            self.sections[0].items = sections[0].items.filter { $0.name.lowercased().contains(trimmedTerm.lowercased()) }
+        }
         
         self.output.searchActionReloading()
     }
