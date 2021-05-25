@@ -37,10 +37,6 @@ class ChooseClinicOnMap: UIViewController {
     
     var model: ChooseClinicOnMapViewModelInput!
     
-//    private lazy var activityIndicator: MBProgressHUD = {
-//        setupActivityIndicator()
-//    }()
-    
     private var userMarker: GMSMarker?
     private var messageView: MapMessageView!
     private var swipeGesture: UISwipeGestureRecognizer!
@@ -132,7 +128,6 @@ class ChooseClinicOnMap: UIViewController {
         messageView.setup(pharmacy: pharmacy, coordinates: coordinates)
         messageView.addToPurchesesHandler = { [unowned self] in
             PulseLoaderService.showAdded(to: self.view)
-//            self?.activityIndicator.show(animated: true)
         }
         
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveLinear, animations: {
@@ -171,7 +166,6 @@ extension ChooseClinicOnMap: MapOutput {
     func successfullyAddedToCart() {
         showMessage(text: R.string.localize.analisisChoseClinickAddToBusket.localized())
         PulseLoaderService.hide(from: view)
-//        activityIndicator.hide(animated: true)
     }
     
     func setMarkers(positions: [CLLocationCoordinate2D], prices: [Double]) {
