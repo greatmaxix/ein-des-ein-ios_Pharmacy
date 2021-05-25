@@ -46,6 +46,7 @@
 "signup.privacy" = "Реєструючись, я погоджуюся на";
 "signup.registration" = "Реєстрація";
 "region.title" = "Регіон";
+"region.searchBar.placeholder" = "Може бути Астана?";
 "onboarding.description" = "Дозвольте доступ до геолокації для актуального відображення контенту";
 "tabbar.profile" = "Профіль";
 "profile.title" = "Профіль";

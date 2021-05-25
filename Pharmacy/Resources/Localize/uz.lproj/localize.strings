@@ -46,6 +46,7 @@
 "signup.privacy" = "Ro'yxatdan o'tish orqali men roziman";
 "signup.registration" = "belgilanish";
 "region.title" = "Mintaqa";
+"region.searchBar.placeholder" = "Balki Ostona?";
 "onboarding.description" = "Tarkibni haqiqiy namoyish qilish uchun geolokatsiyaga kirishga ruxsat bering";
 "tabbar.profile" = "Profil";
 "profile.title" = "Profil";

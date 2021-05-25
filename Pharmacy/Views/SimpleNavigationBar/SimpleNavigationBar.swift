@@ -154,6 +154,10 @@ final class SimpleNavigationBar: UINavigationBar {
     @objc private func cancelSearchAction() {
         barDelegate?.cancelSearch()
     }
+    
+    func setup(placeholder: String) {
+        contentView.textField.placeholder = placeholder
+    }
 }
 
 // MARK: - UITextFieldDelegate
