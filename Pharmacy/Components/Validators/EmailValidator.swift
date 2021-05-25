@@ -15,7 +15,7 @@ class EmailValidator: BaseTextValidator {
     }
     
     override var pattern: String {
-        return "^[a-zA-Z0-9]{3,32}\\@[a-zA-Z0-9]{3,18}\\.[a-z]{2,5}$"
+        return "^[a-zA-Z0-9._-]{3,32}\\@[a-zA-Z0-9_-]{3,18}\\.[a-z]{2,5}$"
     }
     
     override var errorText: String {
