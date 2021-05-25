@@ -12,10 +12,6 @@ final class RegionViewController: UIViewController {
     
     @IBOutlet private var tableView: UITableView!
     
-//    private lazy var activityIndicator: MBProgressHUD = {
-//        setupActivityIndicator()
-//    }()
-    
     var model: RegionInput!
 
     override func viewDidLoad() {

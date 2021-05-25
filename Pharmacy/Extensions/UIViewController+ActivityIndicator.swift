@@ -8,47 +8,12 @@
 
 import UIKit
 
-protocol ActivityIndicatorDelegate: class {
-    
-    var activityIndicator: UIActivityIndicatorView { get }
-    func showActivityIndicator()
-    func hideActivityIndicator()
-    func setupActivityIndicator()
-}
-
-extension ActivityIndicatorDelegate where Self: UIViewController {
-    
-    func setupActivityIndicator() {
-        activityIndicator.isHidden = true
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(activityIndicator)
-        NSLayoutConstraint.activate([
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-    }
-    
-    func showActivityIndicator() {        
-        activityIndicator.startAnimating()
-        view.isUserInteractionEnabled = false
-    }
-    
-    func hideActivityIndicator() {
-        activityIndicator.stopAnimating()
-        view.isUserInteractionEnabled = true
-    }
-}
-
 extension UIViewController {
     func showActivityIndicator() {
         PulseLoaderService.showAdded(to: view)
-//        MBProgressHUD.showAdded(to: view, animated: true)
         
     }
     func hideActivityIndicator() {
         PulseLoaderService.hide(from: view)
-//        MBProgressHUD.hide(for: view, animated: true)
     }
 }
-

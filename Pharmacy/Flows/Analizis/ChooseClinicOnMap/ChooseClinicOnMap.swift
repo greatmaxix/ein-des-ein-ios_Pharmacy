@@ -37,10 +37,6 @@ class ChooseClinicOnMap: UIViewController {
     
     var model: ChooseClinicOnMapViewModelInput!
     
-//    private lazy var activityIndicator: MBProgressHUD = {
-//        setupActivityIndicator()
-//    }()
-    
     private var userMarker: GMSMarker?
     private var messageView: MapMessageView!
     private var swipeGesture: UISwipeGestureRecognizer!
