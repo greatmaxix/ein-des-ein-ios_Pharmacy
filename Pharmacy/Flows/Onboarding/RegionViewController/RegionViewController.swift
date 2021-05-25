@@ -21,7 +21,6 @@ final class RegionViewController: UIViewController {
         model.dataSource.assign(tableView: tableView)
         setupNavigation()
         PulseLoaderService.showAdded(to: view)
-//        activityIndicator.show(animated: true)
     }
     
     private func setupNavigation() {
@@ -75,7 +74,5 @@ extension RegionViewController: RegionOutput {
     func reloadRegions() {
         model.dataSource.assign(tableView: tableView)
         tableView.isHidden = false
-//        PulseLoaderService.hide(from: self)
-//        activityIndicator.hide(animated: true)
     }
 }

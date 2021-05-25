@@ -11,8 +11,8 @@ import UIKit
 extension UIViewController {
     func showActivityIndicator() {
         PulseLoaderService.showAdded(to: view)
-        
     }
+    
     func hideActivityIndicator() {
         PulseLoaderService.hide(from: view)
     }
