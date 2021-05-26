@@ -19,7 +19,7 @@ class AuthFlowCoordinator: EventNode, Coordinator {
     
     private let storyboard = UIStoryboard(name: "Auth", bundle: nil)
 
-    fileprivate weak var root: SignInViewController!
+    fileprivate weak var root: SignInViewController?
 
     init(configuration: AuthFlowConfiguration) {
         super.init(parent: configuration.parent)
@@ -72,7 +72,9 @@ class AuthFlowCoordinator: EventNode, Coordinator {
         
         root = signInController
         let navigation = UINavigationController(navigationBarClass: SimpleNavigationBar.self, toolbarClass: nil)
-        navigation.setViewControllers([root], animated: true)
+        if let root = root {
+            navigation.setViewControllers([root], animated: true)
+        }
         navigation.isToolbarHidden = true
         navigation.navigationBar.isHidden = true
 
@@ -85,8 +87,8 @@ class AuthFlowCoordinator: EventNode, Coordinator {
             let model: SignUpModel = SignUpModel(parent: self)
             model.output = signUpVC
             signUpVC.model = model
-            root.navigationController?.navigationBar.isHidden = true
-            root.navigationController?.pushViewController(signUpVC, animated: true)
+            root?.navigationController?.navigationBar.isHidden = true
+            root?.navigationController?.pushViewController(signUpVC, animated: true)
         }
     }
     
@@ -98,11 +100,11 @@ class AuthFlowCoordinator: EventNode, Coordinator {
                                          congratulatioNeeded: congratulationNeeded)
             confirmVC.model = model
             model.output = confirmVC
-            root.navigationController?.pushViewController(confirmVC, animated: true)
+            root?.navigationController?.pushViewController(confirmVC, animated: true)
         }
     }
   
     private func popController() {
-        root.navigationController?.popViewController(animated: true)
+        root?.navigationController?.popViewController(animated: true)
     }
 }
