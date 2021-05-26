@@ -164,7 +164,7 @@
 "onboarding.text2" = "Birinchi marta retsept bo'yicha dori-darmonlarni etkazib berish mumkin bo'ldi";
 "login.enter" = "Kirish";
 "login.signin" = "tizimga kirish";
-"about.title" = "1.1.24 versiyasi";
+"about.title" = "{version} versiyasi";
 "successfulLogin.title" = "Tekshiruv muvaffaqiyatli!";
 "confirm.screenTitle" = "Tekshirish";
 "search.clean.message" = "Oldingi so'rovlaringiz tezkor kirishdan o'chiriladi";
