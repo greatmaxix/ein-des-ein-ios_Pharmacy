@@ -77,7 +77,6 @@ class TabBarCoordinator: EventNode, Coordinator, Observer {
     }
     
     private func setupTabBar() {
-        self.coordinators.removeAll()
         var coordinators: [TabBarEmbedCoordinable] = []
         let welcomeConfig = WelcomeFlowConfiguration(parent: self)
         coordinators.append(WelcomeCoordinator(configuration: welcomeConfig))

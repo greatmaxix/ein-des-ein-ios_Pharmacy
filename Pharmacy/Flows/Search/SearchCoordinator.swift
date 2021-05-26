@@ -56,12 +56,8 @@ extension SearchCoordinator: TabBarEmbedCoordinable {
 private extension SearchCoordinator {
     
     func openScan() {
-        let viewController =  R.storyboard.scan.instantiateInitialViewController()!
-        let model = ScanModel(parent: self)
-        root.hidesBottomBarWhenPushed = true
-        viewController.model = model
-        model.output = viewController
-        root.pushViewController(viewController, animated: true)
+        let vc = ScanCoordinator(configuration: .init(parent: self)).createFlow()
+        root.pushViewController(vc, animated: true)
     }
     
     func openMedicineList() {
