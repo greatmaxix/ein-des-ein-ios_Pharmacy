@@ -83,6 +83,8 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
     }
     
     private func configCamera() {
+        self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
         let videoInput: AVCaptureDeviceInput
         
@@ -113,12 +115,15 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = codeCaptureView.layer.bounds
+        previewLayer.frame = self.view.bounds
         previewLayer.videoGravity = .resizeAspectFill
-        codeCaptureView.layer.insertSublayer(previewLayer, at: 0)
+        self.view.layer.insertSublayer(previewLayer, at: 0)
         captureSession.commitConfiguration()
         captureSession.startRunning()
-        metadataOutput.rectOfInterest = previewLayer.metadataOutputRectConverted(fromLayerRect: codeCaptureView.layer.bounds)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            metadataOutput.rectOfInterest = self.previewLayer.metadataOutputRectConverted(fromLayerRect: self.codeCaptureView.frame)
+        }
     }
     
     private func failed() {
