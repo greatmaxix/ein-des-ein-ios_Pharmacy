@@ -118,7 +118,7 @@
 
 // MARK: - About App
 "about.about" = "О приложении";
-"about.title" = "Версия 1.1.24";
+"about.title" = "Версия {version}";
 "about.description" = "1208742, г. Астана, ул. Бейбитшилик, 33, подьезд 6, этаж 5, помещение 730";
 "about.link" = "pulspharma.com";
 "about.terms" = "Пользовательское соглашение";

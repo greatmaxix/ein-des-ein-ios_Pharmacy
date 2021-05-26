@@ -164,7 +164,7 @@
 "onboarding.text2" = "Вперше стала можлива доставка рецептурних препаратів";
 "login.enter" = "Увійти";
 "login.signin" = "Увійдіть";
-"about.title" = "версія 1.1.24";
+"about.title" = "версія {version}";
 "successfulLogin.title" = "Верифікація успішна!";
 "confirm.screenTitle" = "верифікація";
 "search.clean.message" = "Ваші попередні запити будуть видалені з швидкого доступу";

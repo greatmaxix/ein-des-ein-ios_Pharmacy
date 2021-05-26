@@ -45,7 +45,8 @@ final class AboutAppViewController: UIViewController {
         view.backgroundColor = R.color.lightGray()
         
         /// setup text
-        titleLabel.text = R.string.localize.aboutTitle.localized()
+
+        titleLabel.text = R.string.localize.aboutTitle.localized().replacingOccurrences(of: "{version}", with: UIApplication.versionBuild())
         descriptionLabel.text = R.string.localize.aboutDescription.localized()
         //    linkTextView.text = R.string.localize.aboutLink()
         

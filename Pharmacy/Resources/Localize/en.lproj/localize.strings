@@ -164,7 +164,7 @@
 "onboarding.text2" = "Delivery of prescription drugs made possible for the first time";
 "login.enter" = "Login";
 "login.signin" = "Sign in";
-"about.title" = "Version 1.1.24";
+"about.title" = "Version {version}";
 "successfulLogin.title" = "Verification successful!";
 "confirm.screenTitle" = "Verification";
 "search.clean.message" = "Your previous requests will be removed from quick access";
