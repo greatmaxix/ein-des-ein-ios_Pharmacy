@@ -16,7 +16,7 @@ struct ProfileFlowConfiguration {
 
 class ProfileFlowCoordinator: EventNode, Coordinator {
     
-    private weak var root: ProfileViewController!
+    private weak var root: ProfileViewController?
     private let storyboard: UIStoryboard = R.storyboard.profile()
 
     // swiftlint:disable cyclomatic_complexity
@@ -33,7 +33,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
                 let model = QuestionViewModel(parent: self)
                 model.output = controller
                 controller.model = model
-                self?.root.navigationController?.pushViewController(controller, animated: true)
+                self?.root?.navigationController?.pushViewController(controller, animated: true)
             case .openOrder:
                 self?.presentMyOrders()
             case .openPrescriptions:
@@ -138,7 +138,9 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         root = profileVC
         
         let navigationVC: UINavigationController = UINavigationController(navigationBarClass: SimpleNavigationBar.self, toolbarClass: nil)
-        navigationVC.setViewControllers([root], animated: false)
+        if let root = root {
+            navigationVC.setViewControllers([root], animated: false)
+        }
 
         navigationVC.isToolbarHidden = true
         return navigationVC
@@ -149,7 +151,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = LanguageViewModel(parent: self)
         model.output = controller
         controller.model = model
-        root.navigationController?.pushViewController(controller, animated: true)
+        root?.navigationController?.pushViewController(controller, animated: true)
     }
     
     func createMapFlow(medicineId: Int) {
@@ -157,7 +159,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = MapModel(parent: self, medicineId: medicineId)
         model.output = vc
         vc.model = model
-        root.navigationController?.pushViewController(vc, animated: true)
+        root?.navigationController?.pushViewController(vc, animated: true)
     }
     
     func presentEditProfile() {
@@ -169,7 +171,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = EditProfileModel(parent: self)
         model.output = editProfileVC
         editProfileVC.model = model
-        root.navigationController?.pushViewController(editProfileVC, animated: true)
+        root?.navigationController?.pushViewController(editProfileVC, animated: true)
     }
     
     func presentCancelController() {
@@ -178,7 +180,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = CancelOrderViewModel(parent: self)
         model.output = controller
         controller.model = model
-        root.navigationController?.present(controller, animated: false)
+        root?.navigationController?.present(controller, animated: false)
     }
     
     func presentWishlist() {
@@ -189,23 +191,23 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = WishlistModel(parent: self)
         model.output = wishlistVC
         wishlistVC.model = model
-        root.navigationController?.pushViewController(wishlistVC, animated: true)
+        root?.navigationController?.pushViewController(wishlistVC, animated: true)
     }
     
     func presentAddDocuments() {
         let viewController = R.storyboard.addPrivilegesViewController.instantiateInitialViewController()!
-        root.navigationController?.pushViewController(viewController, animated: true)
+        root?.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func presentConnectWithUs() {
         let controller = R.storyboard.connectWithUsController.instantiateInitialViewController()!
-        root.navigationController?.pushViewController(controller, animated: true)
+        root?.navigationController?.pushViewController(controller, animated: true)
     }
     
     func presentDeliveryTutorial() {
         guard let deliveryVC: DeliveryTutorialViewController = R.storyboard.deliveryTutorialViewController.instantiateInitialViewController() else {return}
 
-        root.navigationController?.pushViewController(deliveryVC, animated: true)
+        root?.navigationController?.pushViewController(deliveryVC, animated: true)
     }
     
     func presentMyOrders() {
@@ -216,8 +218,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = OrdersListModel(parent: self)
         ordersVC.model = model
         model.output = ordersVC
-        root.navigationController?.isNavigationBarHidden = true
-        root.navigationController?.pushViewController(ordersVC, animated: true)
+        root?.navigationController?.isNavigationBarHidden = true
+        root?.navigationController?.pushViewController(ordersVC, animated: true)
     }
     
     func presentPrescriptions() {
@@ -228,7 +230,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = ReceiptsModel(parent: self)
         controller.model = model
         model.output = controller
-        root.navigationController?.pushViewController(controller, animated: true)
+        root?.navigationController?.pushViewController(controller, animated: true)
     }
     
     func presentAnalizes() {
@@ -239,7 +241,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = MyOrderModel(parent: self)
         analizesVC.model = model
         model.output = analizesVC
-        root.navigationController?.pushViewController(analizesVC, animated: true)
+        root?.navigationController?.pushViewController(analizesVC, animated: true)
     }
 
     func presentAbout() {
@@ -247,11 +249,11 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
 
         let model = AboutAppModel(parent: self)
         aboutVC.model = model
-        root.navigationController?.pushViewController(aboutVC, animated: true)
+        root?.navigationController?.pushViewController(aboutVC, animated: true)
     }
     
     private func popController() {
-        root.navigationController?.popViewController(animated: true)
+        root?.navigationController?.popViewController(animated: true)
     }
     
     private func openProductMedicineFor(medicine: Medicine) {
@@ -259,7 +261,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = ProductModel(product: medicine, parent: self)
         viewController.model = model
         model.output = viewController
-        root.navigationController?.pushViewController(viewController, animated: true)
+        root?.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func openMapFarmacyList(pharmacies: [PharmacyModel]) {
@@ -267,7 +269,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = MapFarmacyListModel(parent: self, pharmacies: pharmacies)
         model.output = vc
         vc.model = model
-        root.navigationController?.pushViewController(vc, animated: true)
+        root?.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func presentChooseLocation() {
@@ -275,7 +277,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = ChooseLocationViewModel.init(parent: self, configuretion: .profile)
         model.output = viewController
         viewController.model = model
-        root.navigationController?.pushViewController(viewController, animated: true)
+        root?.navigationController?.pushViewController(viewController, animated: true)
     }
 
     fileprivate func openOrder(id: Int) {
@@ -285,7 +287,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         controller.model = model
         model.output = controller
 
-        root.navigationController?.pushViewController(controller, animated: true)
+        root?.navigationController?.pushViewController(controller, animated: true)
     }
 
     private func presentChooseDeliveryAdress() {
@@ -295,7 +297,7 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         
         model.output = viewController
         viewController.model = model
-        root.navigationController?.pushViewController(viewController, animated: true)
+        root?.navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func presentPrivilegesVC() {
@@ -304,12 +306,12 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
 
         model.output = viewController
         viewController.model = model
-        root.navigationController?.pushViewController(viewController, animated: true)
+        root?.navigationController?.pushViewController(viewController, animated: true)
 
     }
     private func saveToFiles(data: Data) {
         let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-        root.navigationController?.present(activityController, animated: true, completion: nil)
+        root?.navigationController?.present(activityController, animated: true, completion: nil)
     }
     
     private func openCloseOrder() {
@@ -317,8 +319,8 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         let model = CancelOrderModel(parent: self)
         controller.model = model
         model.output = controller
-
-        root.navigationController?.pushViewController(controller, animated: true)
+        
+        root?.navigationController?.pushViewController(controller, animated: true)
     }
 }
 
