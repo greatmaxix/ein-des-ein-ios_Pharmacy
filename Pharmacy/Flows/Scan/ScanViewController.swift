@@ -116,8 +116,9 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
         previewLayer.frame = codeCaptureView.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
         codeCaptureView.layer.insertSublayer(previewLayer, at: 0)
-        
+        captureSession.commitConfiguration()
         captureSession.startRunning()
+        metadataOutput.rectOfInterest = previewLayer.metadataOutputRectConverted(fromLayerRect: codeCaptureView.layer.bounds)
     }
     
     private func failed() {
