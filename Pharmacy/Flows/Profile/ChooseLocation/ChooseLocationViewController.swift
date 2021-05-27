@@ -40,7 +40,6 @@ class ChooseLocationViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        model.resetData()
         model.filterRegions(searchText: "")
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.finishSearch()

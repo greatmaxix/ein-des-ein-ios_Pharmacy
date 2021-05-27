@@ -43,6 +43,7 @@ class SimpleNavigationBarView: UIView {
             rightButton.removeTarget(self, action: #selector(showSearch), for: .touchUpInside)
             rightButton.setImage(nil, for: .normal)
         } else if style == .search {
+            self.shouldHideRightButton = false
             rightButton.isHidden = false
             rightButton.setImage(R.image.welcomeSearch(), for: .normal)
             rightButton.setTitle("", for: .normal)
