@@ -108,7 +108,9 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
             bar.smallNavBarTitleLabel.text = R.string.localize.productFarmacept.localized()
             bar.additionalTopTrailingButton.isHidden = false
             bar.additionalTopTrailingButton.setImage(R.image.info(), for: .normal)
-            bar.additionalTopTrailingButton.addTarget(self, action: #selector(showChatInfo), for: .touchUpInside)
+            bar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: nil))
+            let infoTap = UITapGestureRecognizer(target: self, action: #selector(showChatInfo))
+            bar.additionalTopTrailingButton.addGestureRecognizer(infoTap)
         } else {
             title = R.string.localize.productFarmacept.localized()
             let barButtonItem = UIBarButtonItem(
