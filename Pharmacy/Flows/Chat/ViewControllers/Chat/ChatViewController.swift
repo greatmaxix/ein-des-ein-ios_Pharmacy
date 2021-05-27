@@ -60,35 +60,70 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setup()
+        
+        setupMessagesCollectionView()
+        setup()
+        setupHideKeyboardGesture()
+        setupAttachDialogue()
+        
         model.load()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setup()
+        setupNavBar()
         photoLibraryAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
         cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
     }
     
-    func setup() {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.additionalTopTrailingButton.isHidden = true
+        }
+    }
+    
+    private func setup() {
+        messageInputBar.isHidden = true
+        showMessageTimestampOnSwipeLeft = false
+        view.backgroundColor = .white
+        imagePicker.delegate = self
+    }
+    
+    private func setupMessagesCollectionView() {
         messagesCollectionView.contentInset = UIEdgeInsets(top: 12.0, left: 0.0, bottom: 0.0, right: 12.0)
+        messagesCollectionView.backgroundColor = .clear
+    }
+    
+    private func setupHideKeyboardGesture() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardIfNeeded))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
-        messagesCollectionView.backgroundColor = .clear
-        self.messageInputBar.isHidden = true
-        showMessageTimestampOnSwipeLeft = false
+    }
+    
+    private func setupNavBar() {
         if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            navigationItem.setHidesBackButton(true, animated: false)
+            title = ""
             bar.smallNavBarTitleLabel.text = R.string.localize.productFarmacept.localized()
+            bar.additionalTopTrailingButton.isHidden = false
+            bar.additionalTopTrailingButton.setImage(R.image.info(), for: .normal)
+            bar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: nil))
+            let infoTap = UITapGestureRecognizer(target: self, action: #selector(showChatInfo))
+            bar.additionalTopTrailingButton.addGestureRecognizer(infoTap)
         } else {
             title = R.string.localize.productFarmacept.localized()
+            let barButtonItem = UIBarButtonItem(
+                image: R.image.info(),
+                style: .plain,
+                target: self,
+                action: #selector(showChatInfo)
+            )
+            navigationItem.setRightBarButtonItems([barButtonItem], animated: true)
         }
-        
-        view.backgroundColor = .white
-        navigationItem.setRightBarButtonItems([UIBarButtonItem.init(image: R.image.info(), style: .plain, target: self, action: #selector(showChatInfo))], animated: true)
-        
-        imagePicker.delegate = self
+    }
+    
+    private func setupAttachDialogue() {
         attachDialogue.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { [weak self] _ in
             self?.openGallery()
         }))
@@ -114,25 +149,30 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
     
     func requestPhotoLibraryAuthorization() {
         PHPhotoLibrary.requestAuthorization {[weak self] status in
-            self?.photoLibraryAuthorizationStatus = status
-            switch status {
-            case .authorized, .limited:
-                self?.openGallery()
-            case .denied:
-                self?.showDeniedPhotoMessage()
-            default: break
+            DispatchQueue.main.async {
+                self?.photoLibraryAuthorizationStatus = status
+                switch status {
+                case .authorized, .limited:
+                    self?.openGallery()
+                case .denied:
+                    self?.showDeniedPhotoMessage()
+                default: break
+                }
             }
         }
     }
     
     func requestCameraUsageAuthorization() {
         AVCaptureDevice.requestAccess(for: .video) {[weak self] isGranted in
-            self?.cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
-            if isGranted {
-                self?.openCamera()
-            } else {
-                self?.showDeniedCameraMessage()
+            DispatchQueue.main.async {
+                self?.cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
+                if isGranted {
+                    self?.openCamera()
+                } else {
+                    self?.showDeniedCameraMessage()
+                }
             }
+            
         }
     }
     
@@ -183,16 +223,19 @@ extension ChatViewController: ChatOutput {
         switch cameraAuthorizationStatus {
         case .none: break
         case .some(let status):
-            switch status {
-            case .notDetermined:
-                requestCameraUsageAuthorization()
-            case .denied, .restricted:
-                self.showDeniedCameraMessage()
-            case .authorized:
-                imagePicker.sourceType = .camera
-                imagePicker.allowsEditing = false
-                present(imagePicker, animated: true, completion: nil)
-            @unknown default: break
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                switch status {
+                case .notDetermined:
+                    self.requestCameraUsageAuthorization()
+                case .denied, .restricted:
+                    self.showDeniedCameraMessage()
+                case .authorized:
+                    self.imagePicker.sourceType = .camera
+                    self.imagePicker.allowsEditing = false
+                    self.present(self.imagePicker, animated: true, completion: nil)
+                @unknown default: break
+                }
             }
         }
     }

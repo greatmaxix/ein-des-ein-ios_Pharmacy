@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationBar" customModule="Pharmacy" customModuleProvider="target">
             <connections>
+                <outlet property="additionalTopTrailingButton" destination="Rdj-p6-txd" id="cUk-64-Ly2"/>
                 <outlet property="backButton" destination="ayr-iR-W0Y" id="xie-fD-tGS"/>
                 <outlet property="backButtonConstraint" destination="s23-MD-rFy" id="mcA-yM-V4Z"/>
                 <outlet property="backgroundImageView" destination="gse-GL-no1" id="gQV-VR-CcD"/>
@@ -44,7 +45,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="449" height="244"/>
                         </imageView>
                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Начните поиск" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WH4-I2-bvT">
-                            <rect key="frame" x="18" y="135.5" width="222.5" height="37.5"/>
+                            <rect key="frame" x="18" y="129" width="254" height="44"/>
                             <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="32"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -57,6 +58,13 @@
                             </constraints>
                             <inset key="imageEdgeInsets" minX="-7" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <state key="normal" image="leftArrow"/>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rdj-p6-txd" userLabel="AdditionalButton">
+                            <rect key="frame" x="415" y="12" width="28" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="28" id="uok-p8-fee"/>
+                                <constraint firstAttribute="height" constant="28" id="vlh-ja-Itt"/>
+                            </constraints>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YP0-IU-yky">
                             <rect key="frame" x="18" y="185" width="415" height="43"/>
@@ -94,6 +102,7 @@
                     </subviews>
                     <color key="backgroundColor" name="welcomeBlue"/>
                     <constraints>
+                        <constraint firstItem="Rdj-p6-txd" firstAttribute="centerY" secondItem="ayr-iR-W0Y" secondAttribute="centerY" id="1nL-y1-l1y"/>
                         <constraint firstItem="gse-GL-no1" firstAttribute="leading" secondItem="Hd1-fq-e0X" secondAttribute="leading" id="2ow-cR-6J9"/>
                         <constraint firstItem="9fR-rb-4Xt" firstAttribute="centerX" secondItem="Hd1-fq-e0X" secondAttribute="centerX" id="4F6-6L-ns1"/>
                         <constraint firstAttribute="bottom" secondItem="YP0-IU-yky" secondAttribute="bottom" constant="16" id="7AM-Qv-8qQ"/>
@@ -110,6 +119,7 @@
                         <constraint firstItem="YP0-IU-yky" firstAttribute="leading" secondItem="Hd1-fq-e0X" secondAttribute="leading" constant="18" id="pA2-ty-HpN"/>
                         <constraint firstItem="WH4-I2-bvT" firstAttribute="centerX" secondItem="Hd1-fq-e0X" secondAttribute="centerX" id="qx0-Og-v1Q"/>
                         <constraint firstItem="ayr-iR-W0Y" firstAttribute="top" secondItem="Hd1-fq-e0X" secondAttribute="top" constant="12" id="s23-MD-rFy"/>
+                        <constraint firstAttribute="trailing" secondItem="Rdj-p6-txd" secondAttribute="trailing" constant="6" id="spf-1U-wfk"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
