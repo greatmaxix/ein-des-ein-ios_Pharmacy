@@ -49,6 +49,7 @@ protocol ChooseLocationViewModelInput: class {
     func startLocationTracking()
     func filterRegions(searchText: String)
     func getNavBarTitle() -> String
+    func resetData()
     var isProfileConfiguration: Bool { get }
     
 }
@@ -58,6 +59,7 @@ class ChooseLocationViewModel: Model {
     weak var output: ChooseLocationViewModelOutput!
     private(set) var sections: [TableViewSection<Region>] = []
     
+    private var backupCountryResionsData: [Region] = []
     private var backupSection: [TableViewSection<Region>] = []
     
     private let countryProvider = DataManager<LocationAPI, RegionResponse>()
@@ -125,6 +127,11 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
         }
     }
     
+    func resetData() {
+        self.countryResionsData = backupCountryResionsData
+        self.sections = backupSection
+    }
+    
     func successSaveRegion() {
         
         switch configuretion {
@@ -175,7 +182,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
             guard let region = response.regions.first else {return}
                 
             self.countryResionsData = region.subRegions!
-                
+            self.backupCountryResionsData = region.subRegions!
             let array =  Dictionary(grouping: self.countryResionsData) {$0.name.prefix(1)}
                     .sorted(by: { $0.0 < $1.0 })
                         

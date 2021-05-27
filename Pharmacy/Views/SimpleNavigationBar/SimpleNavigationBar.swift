@@ -177,3 +177,11 @@ private extension SimpleNavigationBar {
         static let barHeight: CGFloat = 44
     }
 }
+
+extension SimpleNavigationBar {
+    func finishSearch() {
+        contentView.textField.text = ""
+        barDelegate?.cancelSearch()
+        contentView.finishSearch()
+    }
+}

@@ -24,6 +24,8 @@ class SimpleNavigationBarView: UIView {
     
     var style: NavigationBarStyle = .normal
     
+    var shouldHideRightButton = false
+    
     override func awakeFromNib() {
         frontView.layer.cornerRadius = 10
         searchView.layer.cornerRadius = (searchView.frame.height / 2)
@@ -35,7 +37,7 @@ class SimpleNavigationBarView: UIView {
     func setupStyle(style: NavigationBarStyle) {
         self.style = style
         if style == .normal {
-    
+            self.shouldHideRightButton = false
             hideSearch()
             leftButton.setTitle("", for: .normal)
             rightButton.removeTarget(self, action: #selector(showSearch), for: .touchUpInside)
@@ -51,11 +53,12 @@ class SimpleNavigationBarView: UIView {
     @IBAction func clearSearch(_ sender: Any) {
         textField.text = nil
         cancelSearchViewButtonHandler?()
-        
+        shouldHideRightButton = false
         hideSearch()
     }
     
     @IBAction func hideSearch(_ sender: Any) {
+        shouldHideRightButton = false
         hideSearch()
     }
     
@@ -76,13 +79,18 @@ class SimpleNavigationBarView: UIView {
         searchLeadingConstraint.constant = GUI.searchHidden
         self.leftButton.isHidden = false
 
-        UIView.animate(withDuration: 0.3, animations: {[weak self] in
-            self?.layoutIfNeeded()
-        }, completion: {[weak self] _ in
-            self?.searchView.isHidden = true
-            self?.titleLabel.isHidden = false
-            self?.rightButton.isHidden = false
+        UIView.animate(withDuration: 0.3, animations: {
+            self.layoutIfNeeded()
+        }, completion: { _ in
+            self.searchView.isHidden = true
+            self.titleLabel.isHidden = false
+            self.rightButton.isHidden = self.shouldHideRightButton
         })
+    }
+    
+    func finishSearch() {
+        self.shouldHideRightButton = true
+        self.hideSearch()
     }
 }
 
