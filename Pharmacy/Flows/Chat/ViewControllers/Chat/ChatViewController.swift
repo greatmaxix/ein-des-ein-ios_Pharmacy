@@ -76,6 +76,13 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
         cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            bar.additionalTopTrailingButton.isHidden = true
+        }
+    }
+    
     private func setup() {
         messageInputBar.isHidden = true
         showMessageTimestampOnSwipeLeft = false
@@ -99,6 +106,9 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
             navigationItem.setHidesBackButton(true, animated: false)
             title = ""
             bar.smallNavBarTitleLabel.text = R.string.localize.productFarmacept.localized()
+            bar.additionalTopTrailingButton.isHidden = false
+            bar.additionalTopTrailingButton.setImage(R.image.info(), for: .normal)
+            bar.additionalTopTrailingButton.addTarget(self, action: #selector(showChatInfo), for: .touchUpInside)
         } else {
             title = R.string.localize.productFarmacept.localized()
             let barButtonItem = UIBarButtonItem(

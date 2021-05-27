@@ -64,6 +64,7 @@ final class NavigationBar: UINavigationBar {
     @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var additionalTopTrailingButton: UIButton!
     
     @IBOutlet private(set) weak var searchBar: SearchBar!
     @IBOutlet private weak var scanButton: UIButton!
