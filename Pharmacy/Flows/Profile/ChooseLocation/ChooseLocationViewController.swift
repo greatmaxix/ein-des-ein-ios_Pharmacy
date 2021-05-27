@@ -28,14 +28,22 @@ class ChooseLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupNavBar()
+        
+        PulseLoaderService.showAdded(to: view)
         model.load()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        PulseLoaderService.showAdded(to: view)
+        setupNavBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        model.filterRegions(searchText: "")
+        if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
+            bar.finishSearch()
+        }
     }
     
     private func setupTableView() {

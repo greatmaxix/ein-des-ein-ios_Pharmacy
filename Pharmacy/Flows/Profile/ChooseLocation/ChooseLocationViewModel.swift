@@ -58,7 +58,9 @@ class ChooseLocationViewModel: Model {
     weak var output: ChooseLocationViewModelOutput!
     private(set) var sections: [TableViewSection<Region>] = []
     
+    private var backupCountryResionsData: [Region] = []
     private var backupSection: [TableViewSection<Region>] = []
+    private var citiesBackupSection: [TableViewSection<Region>] = []
     
     private let countryProvider = DataManager<LocationAPI, RegionResponse>()
     private let updateUserProvider = DataManager<ProfileAPI, ProfileResponse>()
@@ -149,6 +151,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
         guard !countryResionsData.isEmpty,
               let cities = self.sections[indexPath.section].items[indexPath.row].subRegions
               else {
+            self.citiesBackupSection.removeAll()
             self.output.applyTableViewCell(indexPath: indexPath)
             return
         }
@@ -162,7 +165,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
         array.forEach {[weak self] (key, value) in
                 self?.sections.append(TableViewSection(header: key.description, footer: nil, list: value))
         }
-        
+        citiesBackupSection = self.sections
         self.output.reloadTableViewData(state: false)
     }
     
@@ -175,7 +178,7 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
             guard let region = response.regions.first else {return}
                 
             self.countryResionsData = region.subRegions!
-                
+            self.backupCountryResionsData = region.subRegions!
             let array =  Dictionary(grouping: self.countryResionsData) {$0.name.prefix(1)}
                     .sorted(by: { $0.0 < $1.0 })
                         
@@ -209,14 +212,21 @@ extension ChooseLocationViewModel: ChooseLocationViewModelInput {
     
     private func updateSections(searchText: String) {
         let trimmedTerm = searchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        var backup: [TableViewSection<Region>]
+        if !countryResionsData.isEmpty {
+            backup = backupSection
+        } else {
+            backup = citiesBackupSection
+        }
+        
         guard !trimmedTerm.isEmpty else {
-            sections = backupSection
+            sections = backup
             self.output.searchActionReloading()
             return
         }
         
         guard let firstCharacter = trimmedTerm.first?.description else { return }
-        let sections = backupSection.filter { $0.header?.lowercased().contains(firstCharacter) ?? false }
+        let sections = backup.filter { $0.header?.lowercased().contains(firstCharacter) ?? false }
         
         if sections.isEmpty {
             self.sections = []
