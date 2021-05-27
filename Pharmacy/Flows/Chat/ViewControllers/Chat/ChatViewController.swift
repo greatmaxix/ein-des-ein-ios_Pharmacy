@@ -76,41 +76,42 @@ class ChatViewController: MessagesViewController, NavigationBarStyled {
         cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
     }
     
-    func setup() {
+    private func setup() {
         messageInputBar.isHidden = true
         showMessageTimestampOnSwipeLeft = false
         view.backgroundColor = .white
         imagePicker.delegate = self
     }
     
-    func setupMessagesCollectionView() {
+    private func setupMessagesCollectionView() {
         messagesCollectionView.contentInset = UIEdgeInsets(top: 12.0, left: 0.0, bottom: 0.0, right: 12.0)
         messagesCollectionView.backgroundColor = .clear
     }
     
-    func setupHideKeyboardGesture() {
+    private func setupHideKeyboardGesture() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardIfNeeded))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     
-    func setupNavBar() {
+    private func setupNavBar() {
         if let bar = self.navigationController?.navigationBar as? NavigationBar {
+            navigationItem.setHidesBackButton(true, animated: false)
+            title = ""
             bar.smallNavBarTitleLabel.text = R.string.localize.productFarmacept.localized()
         } else {
             title = R.string.localize.productFarmacept.localized()
+            let barButtonItem = UIBarButtonItem(
+                image: R.image.info(),
+                style: .plain,
+                target: self,
+                action: #selector(showChatInfo)
+            )
+            navigationItem.setRightBarButtonItems([barButtonItem], animated: true)
         }
-        
-        let barButtonItem = UIBarButtonItem(
-            image: R.image.info(),
-            style: .plain,
-            target: self,
-            action: #selector(showChatInfo)
-        )
-        navigationItem.setRightBarButtonItems([barButtonItem], animated: true)
     }
     
-    func setupAttachDialogue() {
+    private func setupAttachDialogue() {
         attachDialogue.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { [weak self] _ in
             self?.openGallery()
         }))
