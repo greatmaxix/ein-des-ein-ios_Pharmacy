@@ -162,6 +162,10 @@ final class TextInputView: UIView {
         return self.inputTextField == textfield
     }
     
+    func addTextFieldTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
+        self.inputTextField.addTarget(target, action: action, for: controlEvents)
+    }
+    
     // MARK: - Setup
     
     private func setup() {

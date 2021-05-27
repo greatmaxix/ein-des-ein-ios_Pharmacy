@@ -39,6 +39,7 @@ final class SignInViewController: UIViewController {
         scrollView.addGestureRecognizer(tapGesture)
         scrollViewInsets = scrollView.contentInset
         setupUI()
+        setupTargets()
     }
     
     func setupLocalization() {
@@ -61,14 +62,38 @@ final class SignInViewController: UIViewController {
         logoTopConstraint.constant = heightCoef * Const.maxLogoTopSpace + (1 - heightCoef) * Const.minLogoTopSpace
     }
     
+    func setupTargets() {
+        phoneInputView.addTextFieldTarget(self, action: #selector(manageSignInButton), for: .editingChanged)
+    }
+    
+    @objc private func manageSignInButton() {
+        guard phoneInputView.validate() else {
+            disableSignInButton()
+            return
+        }
+
+        enableSignInButton()
+    }
+    
+    private func enableSignInButton() {
+        enterLabel.textColor = R.color.textDarkBlue()
+        applyButton.backgroundColor = R.color.welcomeBlue()
+        applyButton.isUserInteractionEnabled = true
+    }
+    
+    private func disableSignInButton() {
+        enterLabel.textColor = R.color.applyBlueGray()
+        applyButton.backgroundColor = R.color.applyBlueGray()
+        applyButton.isUserInteractionEnabled = false
+    }
+    
     // MARK: - Actions
     
     @IBAction func apply(_ sender: UIButton) {
-            if let phone: String = self.phoneInputView.text, phoneInputView.validate() {
-            self.model.signIn(phone: phone)
-            sender.isUserInteractionEnabled = false
-            self.enterLabel.textColor = R.color.textDarkBlue()
-            }
+        guard let phone = self.phoneInputView.text, phoneInputView.validate() else {
+            return
+        }
+        self.model.signIn(phone: phone)
     }
     
     @IBAction func createAccount(_ sender: UIButton) {
@@ -142,7 +167,7 @@ extension SignInViewController: UITextFieldDelegate {
 extension SignInViewController: SignInOutput {
     
     func unblockApplyButton() {
-        applyButton.isUserInteractionEnabled = true
+        enableSignInButton()
     }
     
     func failedToLogin(message: String) {
