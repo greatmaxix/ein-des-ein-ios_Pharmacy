@@ -90,6 +90,8 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
     }
     
     private func configCamera() {
+        self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
         let videoInput: AVCaptureDeviceInput
         
@@ -120,11 +122,15 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = codeCaptureView.layer.bounds
+        previewLayer.frame = self.view.bounds
         previewLayer.videoGravity = .resizeAspectFill
-        codeCaptureView.layer.insertSublayer(previewLayer, at: 0)
-        
+        self.view.layer.insertSublayer(previewLayer, at: 0)
+        captureSession.commitConfiguration()
         captureSession.startRunning()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            metadataOutput.rectOfInterest = self.previewLayer.metadataOutputRectConverted(fromLayerRect: self.codeCaptureView.frame)
+        }
     }
     
     private func failed() {
@@ -150,6 +156,7 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
 // MARK: - Actions
     
     @IBAction func doneAction(_ sender: UIButton) {
+        model.shouldStartScan = true
         hidePreview()
     }
 }
@@ -169,6 +176,9 @@ extension ScanViewController: ScanViewControllerInput {
 
 extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        guard model.shouldStartScan else {
+            return
+        }
         captureSession.stopRunning()
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
