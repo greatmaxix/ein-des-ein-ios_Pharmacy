@@ -166,7 +166,7 @@
 "onboarding.text2" = "Рецепт бойынша дәрі-дәрмектерді жеткізу бірінші рет мүмкін болды";
 "login.enter" = "Кіру";
 "login.signin" = "Кіру";
-"about.title" = "1.1.24 нұсқасы";
+"about.title" = "{version} нұсқасы";
 "successfulLogin.title" = "Тексеру сәтті өтті!";
 "confirm.screenTitle" = "Тексеру";
 "search.clean.message" = "Алдыңғы сұрауларыңыз жылдам қол жетімділіктен жойылады";

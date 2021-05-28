@@ -397,6 +397,7 @@
 		87A50B682526256800CF89CF /* ImageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B672526256800CF89CF /* ImageContainer.swift */; };
 		87A50B6A25262FAD00CF89CF /* PriceRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6925262FAD00CF89CF /* PriceRange.swift */; };
 		87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6D2527072800CF89CF /* ProductAPI.swift */; };
+		E4F32F4A265E8217000AB1B3 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F32F49265E8217000AB1B3 /* UIApplication+Extensions.swift */; };
 		F51BF7EB25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7EA25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift */; };
 		F51BF7F825E40AAB004BFBFD /* AnalisInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7F725E40AAB004BFBFD /* AnalisInformationViewController.swift */; };
 		F51BF80025E41A4C004BFBFD /* ClinicTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7FF25E41A4C004BFBFD /* ClinicTableCell.swift */; };
@@ -904,6 +905,7 @@
 		87A50B6925262FAD00CF89CF /* PriceRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRange.swift; sourceTree = "<group>"; };
 		87A50B6D2527072800CF89CF /* ProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPI.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4F32F49265E8217000AB1B3 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		F51BF7EA25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilLaboratorAPI.swift; sourceTree = "<group>"; };
 		F51BF7F725E40AAB004BFBFD /* AnalisInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalisInformationViewController.swift; sourceTree = "<group>"; };
 		F51BF7FF25E41A4C004BFBFD /* ClinicTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicTableCell.swift; sourceTree = "<group>"; };
@@ -1263,6 +1265,7 @@
 				247C4E4A2562933400A46061 /* UIImage+Orientation.swift */,
 				6016121D2566B1DC005151BC /* Date+String.swift */,
 				F55D46362601CAC100B67EC5 /* Locale+Extension.swift */,
+				E4F32F49265E8217000AB1B3 /* UIApplication+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -3688,6 +3691,7 @@
 				61850144255091950094A6A6 /* OrderDetailsPharmacyCell.swift in Sources */,
 				87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */,
 				2488BB1E255188C4008D7EEB /* UIViewController+EmptyView.swift in Sources */,
+				E4F32F4A265E8217000AB1B3 /* UIApplication+Extensions.swift in Sources */,
 				60E1A71524ECE0DD00B3D205 /* ScanCoordinator.swift in Sources */,
 				601E7ED12549CDB300C936BF /* MapGetDirections.swift in Sources */,
 				395D050124D04B3A007A278D /* CatalogueModel.swift in Sources */,
@@ -4250,7 +4254,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -4276,7 +4280,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 40;
+				CURRENT_PROJECT_VERSION = 42;
 				DEVELOPMENT_TEAM = B9H63QRDPT;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;

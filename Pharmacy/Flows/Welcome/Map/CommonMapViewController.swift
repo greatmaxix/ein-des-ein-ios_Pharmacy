@@ -43,6 +43,10 @@ class CommonMapViewController: UIViewController, NavigationBarStyled {
     
 }
 extension CommonMapViewController: MapOutput {
+    func loadingError() {
+        
+    }
+    
     
     func successfullyAddedToCart() {}
     

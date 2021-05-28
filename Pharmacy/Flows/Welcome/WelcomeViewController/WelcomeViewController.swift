@@ -138,6 +138,10 @@ final class WelcomeViewController: UIViewController, NavigationBarStyled {
 }
 
 extension WelcomeViewController: WelcomeModelOutput {
+    func loadingError() {
+        PulseLoaderService.hide(from: view)
+    }
+    
     func modelIsLoaded() {
         for index in 0...categorieLabels.count-1 {
             categorieLabels[index].text = model.categories[index].shortTitle

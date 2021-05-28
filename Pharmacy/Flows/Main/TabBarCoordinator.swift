@@ -15,7 +15,7 @@ class TabBarCoordinator: EventNode, Coordinator, Observer {
         updateTabItems()
     }
     
-    private weak var root: TabBarController!
+    private weak var root: TabBarController?
     private var coordinators: [TabBarEmbedCoordinable] = []
   
     override init(parent: EventNode?) {
@@ -47,7 +47,7 @@ class TabBarCoordinator: EventNode, Coordinator, Observer {
     private func presentInDev(model: InDevelopmentModel) {
         let inDevVC = R.storyboard.inDevelopmentViewController.instantiateInitialViewController()!
         inDevVC.model = model
-        root.present(inDevVC, animated: true, completion: nil)
+        root?.present(inDevVC, animated: true, completion: nil)
     }
 
     private func addTabCoordinators(coordinators: [TabBarEmbedCoordinable]) {
@@ -61,19 +61,19 @@ class TabBarCoordinator: EventNode, Coordinator, Observer {
         }
 
         self.coordinators = coordinators
-        root.configureTabs(with: tabItemMap)
+        root?.configureTabs(with: tabItemMap)
         LanguageService.current.attach(self)
     }
     
     private func updateTabItems() {
-        let controllers = self.root.viewControllers ?? []
+        let controllers = self.root?.viewControllers ?? []
         var tabItemMap: [(controller: UIViewController, tabItem: UITabBarItem)] = []
         zip(controllers, coordinators).forEach { (controller, coordinator) in
             let tabItem = coordinator.tabItem()
             tabItemMap.append((controller: controller, tabItem: tabItem))
         }
         
-        root.configureTabs(with: tabItemMap)
+        root?.configureTabs(with: tabItemMap)
     }
     
     private func setupTabBar() {

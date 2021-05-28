@@ -34,19 +34,13 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
         return children.first as? UIPageViewController
     }
     
-    var additionalViews: [UIView] {
-        let button = UIButton(type: .custom)
-        button.setImage(R.image.share(), for: .normal)
-        return [button]
-    }
-    
     var model: ProductViewControllerOutput!
     
     var viewControllers: [UIViewController] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setupNavBar()
         PulseLoaderService.showAdded(to: view)
         configUI()
         model.load()
@@ -54,8 +48,17 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
     
     // MARK: - Private
     
+    private func setupNavBar() {
+        if let navController = navigationController as? SearchNavigationController,
+           let navBar = navController.navigationBar as? NavigationBar {
+            navigationItem.setHidesBackButton(true, animated: false)
+            navBar.smallNavBarTitleLabel.text = model.title
+        } else {
+            title = model.title
+        }
+    }
+    
     private func configUI() {
-        title = model.title
         findButton.setTitle(R.string.localize.productFindIn.localized(), for: .normal)
         likeButton.buttonDropBlueShadow()
         likeButton.setImage(R.image.button_wishlist(), for: .normal)
@@ -102,6 +105,10 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
 // MARK: - ProductViewControllerInput
 
 extension ProductViewController: ProductViewControllerInput {
+    
+    func loadingError() {
+        PulseLoaderService.hide(from: view)
+    }
     
     func addRemoveFromFavoriteError() {
         self.likeButton.isSelected.toggle()

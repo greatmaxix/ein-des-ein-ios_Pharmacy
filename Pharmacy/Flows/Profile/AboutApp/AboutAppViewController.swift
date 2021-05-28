@@ -45,7 +45,8 @@ final class AboutAppViewController: UIViewController {
         view.backgroundColor = R.color.lightGray()
         
         /// setup text
-        titleLabel.text = R.string.localize.aboutTitle.localized()
+
+        titleLabel.text = R.string.localize.aboutTitle.localized().replacingOccurrences(of: "{version}", with: UIApplication.versionBuild())
         descriptionLabel.text = R.string.localize.aboutDescription.localized()
         //    linkTextView.text = R.string.localize.aboutLink()
         
@@ -75,7 +76,7 @@ final class AboutAppViewController: UIViewController {
     private func setupNavBar() {
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.isLeftItemHidden = false
-            bar.isRightItemHidden = false
+            bar.isRightItemHidden = true
             bar.leftItemTitle = nil
             bar.title = R.string.localize.aboutAbout.localized()
             bar.leftItemTitle = R.string.localize.profileProfile.localized()
