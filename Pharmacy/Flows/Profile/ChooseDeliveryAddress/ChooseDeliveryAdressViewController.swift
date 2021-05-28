@@ -48,12 +48,25 @@ class ChooseDeliveryAdressViewController: UIViewController {
         setupScrollView()
         setupKeyboard()
         setupScrollView()
+        setupData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func setupData() {
+        let address = CoreDataService.shared.getDeliveryAddress()
+        cityTextView.text = address?.city
+        streetTextView.text = address?.street
+        houseTextView.text = address?.house
+        pavilionTextView.text = address?.pavilion
+        flatTextView.text = address?.flat
         
-//        PulseLoaderService.showAdded(to: view)
+        if let note = address?.note {
+            noteTextView.text = note
+        } else {
+            noteTextView.text = R.string.localize.deliveryNote.localized()
+            noteTextView.textColor = R.color.applyBlueGray()?.withAlphaComponent(0.7)
+        }
+        
+        manageSaveButton()
     }
     
     private func setupNavBar() {
@@ -117,8 +130,6 @@ class ChooseDeliveryAdressViewController: UIViewController {
     }
     
     private func setupNoteView() {
-        noteTextView.text = R.string.localize.deliveryNote.localized()
-        noteTextView.textColor = R.color.applyBlueGray()?.withAlphaComponent(0.7)
         noteTextView.font = R.font.openSansRegular(size: 14)
         
         noteTextView.backgroundColor = R.color.backgroundGray()

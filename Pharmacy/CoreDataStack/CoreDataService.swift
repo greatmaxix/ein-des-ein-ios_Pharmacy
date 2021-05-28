@@ -56,6 +56,11 @@ final class CoreDataService {
         return result
         }
     
+    func getDeliveryAddress() -> DeliveryAddressEntity? {
+        let deliveryAdress: DeliveryAddressEntity? = (try? viewContext.all().first) ?? nil
+        return deliveryAdress
+    }
+    
     func save(user dto: UserDTO) {
         let predicate = NSPredicate(format: "\(dto.entityType.primaryKey) = %@", dto.identifier)
         
