@@ -40,6 +40,7 @@ class ChooseDeliveryAdressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        setupTargets()
         setupValidationViews()
         setupNoteView()
         setupApplyButton()
@@ -64,6 +65,20 @@ class ChooseDeliveryAdressViewController: UIViewController {
             bar.leftItemTitle = R.string.localize.profileProfile.localized()
             bar.barDelegate = self
         }
+    }
+    
+    private func setupTargets() {
+        validationView.forEach {
+            $0.addTextFieldTarget(self, action: #selector(manageSaveButton), for: .editingChanged)
+         }
+    }
+    
+    @objc private func manageSaveButton() {
+        guard validationView.allSatisfy({$0.validate()}) else {
+            blockApplyButton()
+            return
+        }
+        unblockApplyButton()
     }
     
     private func setupScrollView() {
@@ -133,7 +148,6 @@ class ChooseDeliveryAdressViewController: UIViewController {
     // MARK: - Actions
     @IBAction func apply(_ sender: UIButton) {
         if self.validationView.allSatisfy({$0.validate()}) {
-            sender.isUserInteractionEnabled = false
             // TODO :- нужно сделать реалзицию приведения полей в соответсвии с сервером
             model.saveDeliveryAddress(city: cityTextView.text!, street: streetTextView.text!,
                                       house: houseTextView.text!, pavilion: pavilionTextView.text,
