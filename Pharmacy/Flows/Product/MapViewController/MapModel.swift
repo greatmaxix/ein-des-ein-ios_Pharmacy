@@ -61,7 +61,10 @@ extension MapModel: MapInput {
     }
     
     func load() {
-        guard let medicineId = medicineId else { return }
+        guard let medicineId = medicineId else {
+            output.loadingError()
+            return
+        }
         provider.load(target: .getPharmacies(medicineId: medicineId,
                 //TODO: - обработать
             regionId: Int(UserSession.shared.userRegionId ?? 0),
@@ -81,6 +84,7 @@ extension MapModel: MapInput {
                 self.output.setMarkers(positions: positions, prices: prices)
             case .failure(let error):
                 print(error.localizedDescription)
+                self.output.loadingError()
             }
         })
     }

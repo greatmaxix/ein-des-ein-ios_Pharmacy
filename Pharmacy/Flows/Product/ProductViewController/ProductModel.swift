@@ -34,6 +34,7 @@ protocol ProductModelInput: class {
 protocol ProductModelOutput: class {
     func didLoad(product: Product)
     func addRemoveFromFavoriteError()
+    func loadingError()
 }
 
 final class ProductModel: Model {
@@ -121,6 +122,7 @@ extension ProductModel: ProductViewControllerOutput {
                 self.output.didLoad(product: self.product)
             case .failure(let error):
                 debugPrint(error.localizedDescription)
+                self.output.loadingError()
             }
         }
     }

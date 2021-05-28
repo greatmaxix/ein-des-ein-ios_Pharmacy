@@ -86,9 +86,13 @@ extension SearchViewController {
 
         navigationItem.titleView = searchBar
         searchBar.localize()
-
-        searchBar.topAnchor.constraint(equalTo: searchBar.superview!.topAnchor).isActive = true
-        searchBar.bottomAnchor.constraint(equalTo: searchBar.superview!.bottomAnchor, constant: -8.0).isActive = true
+        
+        guard let searchBarSuperview = searchBar.superview else {
+            return
+        }
+        
+        searchBar.topAnchor.constraint(equalTo: searchBarSuperview.topAnchor).isActive = true
+        searchBar.bottomAnchor.constraint(equalTo: searchBarSuperview.bottomAnchor, constant: -8.0).isActive = true
 
     }
     
