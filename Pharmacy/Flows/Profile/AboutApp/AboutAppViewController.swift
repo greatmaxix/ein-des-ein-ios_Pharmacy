@@ -76,7 +76,7 @@ final class AboutAppViewController: UIViewController {
     private func setupNavBar() {
         if let bar = navigationController?.navigationBar as? SimpleNavigationBar {
             bar.isLeftItemHidden = false
-            bar.isRightItemHidden = false
+            bar.isRightItemHidden = true
             bar.leftItemTitle = nil
             bar.title = R.string.localize.aboutAbout.localized()
             bar.leftItemTitle = R.string.localize.profileProfile.localized()
