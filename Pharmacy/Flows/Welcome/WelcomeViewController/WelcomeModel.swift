@@ -23,6 +23,7 @@ protocol WelcomeModelOutput: class {
     func showReadyOrders(orders: [String])
     func showReceipts(_ receipts: [Medicine])
     func modelIsLoaded()
+    func loadingError()
 }
 
 protocol WelcomeModelInput: class {
@@ -129,6 +130,7 @@ extension WelcomeModel: WelcomeModelInput {
                 //self.reloadCategories()
             case .failure(let error):
                 print(error.localizedDescription)
+                self.output.loadingError()
             }
         })
     }

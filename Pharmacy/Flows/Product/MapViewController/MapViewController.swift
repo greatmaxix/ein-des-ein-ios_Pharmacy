@@ -10,12 +10,13 @@ import UIKit
 import GoogleMaps
 
 protocol MapOutput: class {
+    func loadingError()
     func locationUpdated(newCoordinate: CLLocationCoordinate2D)
     func setMarkers(positions: [CLLocationCoordinate2D], prices: [Double])
     func successfullyAddedToCart()
 }
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, NavigationBarStyled {
     
     private struct GUI {
         static let messageHeight: CGFloat = 375
@@ -36,6 +37,8 @@ class MapViewController: UIViewController {
     private var messageView: MapMessageView!
     private var swipeGesture: UISwipeGestureRecognizer!
     
+    var style: NavigationBarStyle { .normalWithoutSearch }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,8 +50,18 @@ class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setupNavBar()
         segmentedControl?.selectedSegmentIndex = 1
+    }
+    
+    private func setupNavBar() {
+        if let navController = navigationController as? SearchNavigationController,
+           let navBar = navController.navigationBar as? NavigationBar {
+            navigationItem.setHidesBackButton(true, animated: false)
+            navBar.smallNavBarTitleLabel.text = R.string.localize.farmaciesListTitle.localized()
+        } else {
+            title = R.string.localize.farmaciesListTitle.localized()
+        }
     }
     
     private func setupUI() {
@@ -149,7 +162,7 @@ class MapViewController: UIViewController {
                 segmentControl.setTitle(newValue[i], forSegmentAt: i)
             }
         }
-        title = R.string.localize.farmaciesListTitle.localized()
+        
     }
 }
 
@@ -171,6 +184,10 @@ extension MapViewController: GMSMapViewDelegate {
 // MARK: - MapOutput
 
 extension MapViewController: MapOutput {
+    func loadingError() {
+        PulseLoaderService.hide(from: view)
+    }
+    
     func successfullyAddedToCart() {
         showMessage(text: "Товар успешно добавлен в корзину!")
         PulseLoaderService.hide(from: view)

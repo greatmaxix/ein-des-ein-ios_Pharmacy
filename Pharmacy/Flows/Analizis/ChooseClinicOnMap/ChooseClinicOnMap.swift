@@ -163,6 +163,10 @@ extension ChooseClinicOnMap: GMSMapViewDelegate {
 // MARK: - MapOutput
 
 extension ChooseClinicOnMap: MapOutput {
+    func loadingError() {
+        
+    }
+    
     func successfullyAddedToCart() {
         showMessage(text: R.string.localize.analisisChoseClinickAddToBusket.localized())
         PulseLoaderService.hide(from: view)
