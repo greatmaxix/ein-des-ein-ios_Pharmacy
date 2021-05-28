@@ -156,6 +156,7 @@ final class ScanViewController: UIViewController, NavigationBarStyled {
 // MARK: - Actions
     
     @IBAction func doneAction(_ sender: UIButton) {
+        model.shouldStartScan = true
         hidePreview()
     }
 }
@@ -175,6 +176,9 @@ extension ScanViewController: ScanViewControllerInput {
 
 extension ScanViewController: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        guard model.shouldStartScan else {
+            return
+        }
         captureSession.stopRunning()
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }

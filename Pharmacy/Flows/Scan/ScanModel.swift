@@ -12,6 +12,7 @@ import EventsTree
 enum ScanModelEvent: Event { }
 
 protocol ScanModelInput: class {
+    var shouldStartScan: Bool { get set }
     var isShouldShowPreview: Bool { get }
     func searchItemBy(code: String)
 }
@@ -24,6 +25,7 @@ final class ScanModel: Model {
     
     weak var output: ScanModelOutput!
     
+    var shouldStartScan = false
 }
 
 // MARK: - ScanViewControllerOutput
