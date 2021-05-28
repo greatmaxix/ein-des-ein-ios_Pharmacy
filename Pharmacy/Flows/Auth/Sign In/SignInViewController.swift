@@ -62,7 +62,7 @@ final class SignInViewController: UIViewController {
         logoTopConstraint.constant = heightCoef * Const.maxLogoTopSpace + (1 - heightCoef) * Const.minLogoTopSpace
     }
     
-    func setupTargets() {
+    private func setupTargets() {
         phoneInputView.addTextFieldTarget(self, action: #selector(manageSignInButton), for: .editingChanged)
     }
     

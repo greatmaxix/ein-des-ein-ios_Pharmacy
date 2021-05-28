@@ -35,17 +35,16 @@ final class SignUpViewController: UIViewController {
 
         setupUI()
         setupLocalization()
+        setupTargets()
     }
     
     // MARK: - Actions
     @IBAction func apply(_ sender: UIButton) {
-            if self.inputViews.allSatisfy({$0.validate()}) {
-                sender.isUserInteractionEnabled = false
-
-                let emailString: String? = emailTextView.validate() ? emailTextView.text : ""
-                model.signUp(name: self.inputViews[0].text, phone: self.inputViews[1].text, email: emailString)
+        if self.inputViews.allSatisfy({$0.validate()}) {
+            let emailString: String? = emailTextView.validate() ? emailTextView.text : ""
+            model.signUp(name: self.inputViews[0].text, phone: self.inputViews[1].text, email: emailString)
         }
-}
+    }
     
     @IBAction func skipSignUp(_ sender: UIButton) {
         skipRegistrationAlertViewController()
@@ -98,6 +97,32 @@ final class SignUpViewController: UIViewController {
             attrText.append(linkText)
             privacyLabel.attributedText = attrText
         }
+    }
+    
+    private func setupTargets() {
+        inputViews.forEach {
+            $0.addTextFieldTarget(self, action: #selector(manageSignUpButton), for: .editingChanged)
+        }
+    }
+    
+    @objc private func manageSignUpButton() {
+        guard inputViews.allSatisfy({ $0.validate() }) else {
+            disableSignUpButton()
+            return
+        }
+        enableSignUpButton()
+    }
+    
+    private func enableSignUpButton() {
+        registrationLabel.textColor = R.color.textDarkBlue()
+        applyButton.backgroundColor = R.color.welcomeBlue()
+        applyButton.isUserInteractionEnabled = true
+    }
+    
+    private func disableSignUpButton() {
+        registrationLabel.textColor = R.color.applyBlueGray()
+        applyButton.backgroundColor = R.color.applyBlueGray()
+        applyButton.isUserInteractionEnabled = false
     }
     
     // MARK: - Alert ViewController to skip registration
@@ -192,6 +217,6 @@ extension SignUpViewController: SignUpOutput {
     }
     
     func unblockApplyButton() {
-        applyButton.isUserInteractionEnabled = true
+        enableSignUpButton()
     }
 }
