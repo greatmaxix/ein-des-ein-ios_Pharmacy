@@ -52,8 +52,6 @@ final class ProductCoordinator: EventNode, Coordinator {
             case .openMap(let product):
                 // TODO: Replace product by medicine after adding detail medicine request
                 self.createMapFlow(medicineId: product.identifier)
-            case .openFarmacyList(let pharmacies):
-                self.openMapFarmacyList(pharmacies: pharmacies)
             case .openCheckout:
                 self.openCheckout()
             case .route(let route, let coordinate):
@@ -86,14 +84,6 @@ fileprivate extension ProductCoordinator {
     
     func openChat() {
         let vc = ChatCoordinator(parent: self, navigation: navigation).createFlow()
-        navigation.pushViewController(vc, animated: true)
-    }
-    
-    func openMapFarmacyList(pharmacies: [PharmacyModel]) {
-        guard let vc = R.storyboard.product.mapFarmacyListViewController() else { return }
-        let model = MapFarmacyListModel(parent: self, pharmacies: pharmacies)
-        model.output = vc
-        vc.model = model
         navigation.pushViewController(vc, animated: true)
     }
     

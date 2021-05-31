@@ -16,7 +16,6 @@ protocol MapInput: class {
     var currentLocation: CLLocation? { get }
     
     func startLocationTracking()
-    func openFarmacyList()
     func farmacyAt(index: Int) -> PharmacyModel?
     func addToCart(productId: Int)
     func open(_ route: MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D)
@@ -54,10 +53,6 @@ extension MapModel: MapInput {
     
     func startLocationTracking() {
         locationService.updateCurrentLocation()
-    }
-    
-    func openFarmacyList() {
-        raise(event: ProductModelEvent.openFarmacyList(pharmacies))
     }
     
     func open(_ route: MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D) {
