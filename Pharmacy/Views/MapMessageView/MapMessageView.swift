@@ -67,8 +67,8 @@ class MapMessageView: UIView {
         v.translatesAutoresizingMaskIntoConstraints = false
         v.isHidden = false
         getDirectionsContainer.addSubview(v)
+        getDirectionsTopConstraints.constant = MapViewController.GUI.messageHeight
         v.constraintsToSuperView()
-        isDirectionsOpened = false
         v.closeAction = { [weak self] in
             self?.isDirectionsOpened = false
         }
@@ -120,6 +120,6 @@ class MapMessageView: UIView {
     }
 
     @IBAction func getDirection(_ sender: Any) {
-        isDirectionsOpened = !isDirectionsOpened
+        isDirectionsOpened.toggle()
     }
 }

@@ -17,7 +17,7 @@ protocol MapOutput: class {
 
 class MapViewController: UIViewController {
     
-    private struct GUI {
+    struct GUI {
         static let messageHeight: CGFloat = 375
     }
     
