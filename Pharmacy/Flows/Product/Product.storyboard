@@ -152,7 +152,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCC-23-U4M" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="52" width="414" height="844"/>
+                                <rect key="frame" x="0.0" y="40" width="414" height="856"/>
                             </view>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rB-8x-bgt">
                                 <rect key="frame" x="358" y="144" width="40" height="40"/>
@@ -219,7 +219,7 @@
                             <constraint firstItem="8rB-8x-bgt" firstAttribute="top" secondItem="IN5-5I-aE8" secondAttribute="top" constant="100" id="X4o-P8-a8s"/>
                             <constraint firstItem="IN5-5I-aE8" firstAttribute="trailing" secondItem="XCC-23-U4M" secondAttribute="trailing" id="Ye2-Mj-VMy"/>
                             <constraint firstItem="SLN-Fk-z9h" firstAttribute="leading" secondItem="IN5-5I-aE8" secondAttribute="leading" id="gTx-mH-klL"/>
-                            <constraint firstItem="XCC-23-U4M" firstAttribute="top" secondItem="IN5-5I-aE8" secondAttribute="top" constant="8" id="hZR-FJ-SGH"/>
+                            <constraint firstItem="XCC-23-U4M" firstAttribute="top" secondItem="IN5-5I-aE8" secondAttribute="top" constant="-4" id="hZR-FJ-SGH"/>
                             <constraint firstItem="dtE-g4-RNu" firstAttribute="top" secondItem="RYd-Wa-Bof" secondAttribute="bottom" constant="1" id="hnK-f8-vuD"/>
                             <constraint firstAttribute="bottom" secondItem="SLN-Fk-z9h" secondAttribute="bottom" id="ids-Fw-jPk"/>
                             <constraint firstItem="mIs-BP-nIh" firstAttribute="centerX" secondItem="RYd-Wa-Bof" secondAttribute="centerX" id="qyl-MS-eVa"/>
@@ -1050,7 +1050,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ipH-Y4-BR9" userLabel="ContainerView">
-                                <rect key="frame" x="0.0" y="116" width="414" height="746"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="754"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjW-KA-8Zv">
@@ -1085,7 +1085,7 @@
                             <constraint firstItem="ipH-Y4-BR9" firstAttribute="leading" secondItem="xNE-RW-yuh" secondAttribute="leading" id="GAo-Rr-dh3"/>
                             <constraint firstItem="CjW-KA-8Zv" firstAttribute="leading" secondItem="xNE-RW-yuh" secondAttribute="leading" id="Yoc-A1-eLR"/>
                             <constraint firstItem="xNE-RW-yuh" firstAttribute="trailing" secondItem="CjW-KA-8Zv" secondAttribute="trailing" id="aZo-bp-3Yb"/>
-                            <constraint firstItem="ipH-Y4-BR9" firstAttribute="top" secondItem="CjW-KA-8Zv" secondAttribute="bottom" constant="8" symbolType="layoutAnchor" id="fih-7h-4H9"/>
+                            <constraint firstItem="ipH-Y4-BR9" firstAttribute="top" secondItem="CjW-KA-8Zv" secondAttribute="bottom" id="vyT-I5-lCG"/>
                             <constraint firstItem="xNE-RW-yuh" firstAttribute="bottom" secondItem="ipH-Y4-BR9" secondAttribute="bottom" id="zQP-nd-pbg"/>
                         </constraints>
                     </view>
