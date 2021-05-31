@@ -113,15 +113,10 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         }
         
         addHandler(.onRaise) { [weak self] (event: ProductModelEvent) in
-            
             guard let self = self else { return }
-            
             switch event {
             case .openMap(let product):
                 self.createMapFlow(medicineId: product.identifier)
-            case .openFarmacyList(let pharmacies):
-                self.openMapFarmacyList(pharmacies: pharmacies)
-                
             default:
                 break
             }
@@ -262,14 +257,6 @@ class ProfileFlowCoordinator: EventNode, Coordinator {
         viewController.model = model
         model.output = viewController
         root?.navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    func openMapFarmacyList(pharmacies: [PharmacyModel]) {
-        guard let vc = R.storyboard.product.mapFarmacyListViewController() else { return }
-        let model = MapFarmacyListModel(parent: self, pharmacies: pharmacies)
-        model.output = vc
-        vc.model = model
-        root?.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func presentChooseLocation() {
