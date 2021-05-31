@@ -1050,7 +1050,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ipH-Y4-BR9" userLabel="ContainerView">
-                                <rect key="frame" x="0.0" y="108" width="414" height="754"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="788"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CjW-KA-8Zv">
@@ -1086,7 +1086,7 @@
                             <constraint firstItem="CjW-KA-8Zv" firstAttribute="leading" secondItem="xNE-RW-yuh" secondAttribute="leading" id="Yoc-A1-eLR"/>
                             <constraint firstItem="xNE-RW-yuh" firstAttribute="trailing" secondItem="CjW-KA-8Zv" secondAttribute="trailing" id="aZo-bp-3Yb"/>
                             <constraint firstItem="ipH-Y4-BR9" firstAttribute="top" secondItem="CjW-KA-8Zv" secondAttribute="bottom" id="vyT-I5-lCG"/>
-                            <constraint firstItem="xNE-RW-yuh" firstAttribute="bottom" secondItem="ipH-Y4-BR9" secondAttribute="bottom" id="zQP-nd-pbg"/>
+                            <constraint firstAttribute="bottom" secondItem="ipH-Y4-BR9" secondAttribute="bottom" id="zQP-nd-pbg"/>
                         </constraints>
                     </view>
                     <connections>

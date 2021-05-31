@@ -96,13 +96,7 @@ final class PharmacyMapListContainerViewController: UIViewController, Navigation
         viewController.willMove(toParent: self)
         self.addChild(viewController)
         self.containerView.addSubview(viewController.view)
-        let conststraints = [
-            viewController.view.topAnchor.constraint(equalTo: self.containerView.topAnchor),
-            viewController.view.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor),
-            viewController.view.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor),
-            viewController.view.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor)
-        ]
-        NSLayoutConstraint.activate(conststraints)
+        viewController.view.constraintsToSuperView()
         viewController.didMove(toParent: self)
     }
     
