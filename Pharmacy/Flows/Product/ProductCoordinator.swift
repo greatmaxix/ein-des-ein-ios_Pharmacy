@@ -76,17 +76,14 @@ fileprivate extension ProductCoordinator {
     }
     
     func createMapFlow(medicineId: Int) {
-//        guard let vc = R.storyboard.product.mapViewController() else { return }
-//        let model = MapModel(parent: self, medicineId: medicineId)
-//        model.output = vc
-//        vc.model = model
-//        navigation.pushViewController(vc, animated: true)
         guard let vc = R.storyboard.product.pharmacyMapListContainerViewController() else { return }
         let model = PharmacyMapListContainerModel(parent: self, medicineId: medicineId)
         model.output = vc
         vc.model = model
+        vc.hidesBottomBarWhenPushed = true
         navigation.pushViewController(vc, animated: true)
     }
+    
     func openChat() {
         let vc = ChatCoordinator(parent: self, navigation: navigation).createFlow()
         navigation.pushViewController(vc, animated: true)
