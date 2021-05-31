@@ -17,10 +17,11 @@ protocol MapInput: class {
     
     func startLocationTracking()
     func openFarmacyList()
-    func load()
     func farmacyAt(index: Int) -> PharmacyModel?
     func addToCart(productId: Int)
     func open(_ route: MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D)
+    func set(pharmacies: [PharmacyModel])
+    func setMarkerPositionsAndPrices()
 }
 
 final class MapModel: EventNode {
@@ -43,6 +44,9 @@ final class MapModel: EventNode {
 // MARK: - MapInput
 
 extension MapModel: MapInput {
+    func set(pharmacies: [PharmacyModel]) {
+        self.pharmacies = pharmacies
+    }
     
     var currentLocation: CLLocation? {
         locationService.currentLocation
@@ -58,35 +62,6 @@ extension MapModel: MapInput {
     
     func open(_ route: MapMessageView.RouteEvent, coordinate: CLLocationCoordinate2D) {
         raise(event: ProductModelEvent.route(route, coordinate: coordinate))
-    }
-    
-    func load() {
-        guard let medicineId = medicineId else {
-            output.loadingError()
-            return
-        }
-        provider.load(target: .getPharmacies(medicineId: medicineId,
-                //TODO: - обработать
-            regionId: Int(UserSession.shared.userRegionId ?? 0),
-            page: Const.startPage,
-            pageCount: Const.itemsPerPage),
-            completion: { [weak self] result in
-            
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let response):
-                self.pharmacies = response.pharmacies
-                let positions: [CLLocationCoordinate2D] = self.pharmacies.map({
-                    CLLocationCoordinate2D(latitude: $0.geometry.lat, longitude: $0.geometry.lng)
-                })
-                let prices: [Double] = self.pharmacies.compactMap({$0.medicines.first?.price})
-                self.output.setMarkers(positions: positions, prices: prices)
-            case .failure(let error):
-                print(error.localizedDescription)
-                self.output.loadingError()
-            }
-        })
     }
     
     func addToCart(productId: Int) {
@@ -106,6 +81,14 @@ extension MapModel: MapInput {
     func farmacyAt(index: Int) -> PharmacyModel? {
         return pharmacies[index]
     }
+    
+    func setMarkerPositionsAndPrices() {
+        let positions: [CLLocationCoordinate2D] = self.pharmacies.map({
+            CLLocationCoordinate2D(latitude: $0.geometry.lat, longitude: $0.geometry.lng)
+        })
+        let prices: [Double] = self.pharmacies.compactMap({$0.medicines.first?.price})
+        self.output?.setMarkers(positions: positions, prices: prices)
+    }
 }
 
 // MARK: - LocationServiceDelegate
@@ -114,12 +97,5 @@ extension MapModel: LocationServiceDelegate {
     
     func locationUpdated(currentLocation: CLLocationCoordinate2D) {
         output.locationUpdated(newCoordinate: currentLocation)
-    }
-}
-
-private extension MapModel {
-    struct Const {
-        static let startPage: Int = 1
-        static let itemsPerPage: Int = 10
     }
 }

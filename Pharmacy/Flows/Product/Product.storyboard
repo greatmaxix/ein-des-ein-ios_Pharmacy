@@ -152,7 +152,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XCC-23-U4M" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
+                                <rect key="frame" x="0.0" y="52" width="414" height="844"/>
                             </view>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rB-8x-bgt">
                                 <rect key="frame" x="358" y="144" width="40" height="40"/>
@@ -204,29 +204,6 @@
                                     <constraint firstAttribute="height" id="NV9-UO-PuY"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjp-Bg-leZ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="64"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wyh-6T-XD2">
-                                        <rect key="frame" x="18" y="16.5" width="382" height="32"/>
-                                        <segments>
-                                            <segment title="Списком"/>
-                                            <segment title="На карте"/>
-                                        </segments>
-                                        <color key="tintColor" name="welcomeBlue"/>
-                                        <connections>
-                                            <action selector="segmentChanged:" destination="tq0-87-ayh" eventType="valueChanged" id="7ec-B2-uYu"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="wyh-6T-XD2" secondAttribute="trailing" constant="14" id="9Km-A7-Ygg"/>
-                                    <constraint firstItem="wyh-6T-XD2" firstAttribute="centerY" secondItem="tjp-Bg-leZ" secondAttribute="centerY" id="Ngj-bB-hwV"/>
-                                    <constraint firstItem="wyh-6T-XD2" firstAttribute="leading" secondItem="tjp-Bg-leZ" secondAttribute="leading" constant="18" id="bus-0R-jYa"/>
-                                    <constraint firstAttribute="height" constant="64" id="iS5-VL-hN0"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IN5-5I-aE8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -234,18 +211,15 @@
                             <constraint firstItem="XCC-23-U4M" firstAttribute="leading" secondItem="IN5-5I-aE8" secondAttribute="leading" id="44D-Pr-47I"/>
                             <constraint firstItem="RYd-Wa-Bof" firstAttribute="centerX" secondItem="8rB-8x-bgt" secondAttribute="centerX" id="4U6-bP-C4q"/>
                             <constraint firstItem="IN5-5I-aE8" firstAttribute="trailing" secondItem="SLN-Fk-z9h" secondAttribute="trailing" id="81x-Yw-MVA"/>
-                            <constraint firstItem="tjp-Bg-leZ" firstAttribute="top" secondItem="IN5-5I-aE8" secondAttribute="top" id="86h-tI-kbH"/>
                             <constraint firstItem="mIs-BP-nIh" firstAttribute="top" secondItem="RYd-Wa-Bof" secondAttribute="bottom" id="ECe-lI-d31"/>
                             <constraint firstItem="IN5-5I-aE8" firstAttribute="trailing" secondItem="8rB-8x-bgt" secondAttribute="trailing" constant="16" id="EQt-bo-Gsv"/>
                             <constraint firstItem="mIs-BP-nIh" firstAttribute="width" secondItem="RYd-Wa-Bof" secondAttribute="width" id="GcX-Lf-jBa"/>
                             <constraint firstAttribute="bottom" secondItem="XCC-23-U4M" secondAttribute="bottom" id="OzZ-Ym-CkA"/>
-                            <constraint firstItem="tjp-Bg-leZ" firstAttribute="leading" secondItem="IN5-5I-aE8" secondAttribute="leading" id="QNm-EQ-cQl"/>
                             <constraint firstItem="dtE-g4-RNu" firstAttribute="centerX" secondItem="8rB-8x-bgt" secondAttribute="centerX" id="VnO-Nd-cpt"/>
                             <constraint firstItem="8rB-8x-bgt" firstAttribute="top" secondItem="IN5-5I-aE8" secondAttribute="top" constant="100" id="X4o-P8-a8s"/>
                             <constraint firstItem="IN5-5I-aE8" firstAttribute="trailing" secondItem="XCC-23-U4M" secondAttribute="trailing" id="Ye2-Mj-VMy"/>
                             <constraint firstItem="SLN-Fk-z9h" firstAttribute="leading" secondItem="IN5-5I-aE8" secondAttribute="leading" id="gTx-mH-klL"/>
-                            <constraint firstItem="IN5-5I-aE8" firstAttribute="trailing" secondItem="tjp-Bg-leZ" secondAttribute="trailing" id="hK0-V0-ufg"/>
-                            <constraint firstItem="XCC-23-U4M" firstAttribute="top" secondItem="tjp-Bg-leZ" secondAttribute="bottom" constant="-8" id="hZR-FJ-SGH"/>
+                            <constraint firstItem="XCC-23-U4M" firstAttribute="top" secondItem="IN5-5I-aE8" secondAttribute="top" constant="8" id="hZR-FJ-SGH"/>
                             <constraint firstItem="dtE-g4-RNu" firstAttribute="top" secondItem="RYd-Wa-Bof" secondAttribute="bottom" constant="1" id="hnK-f8-vuD"/>
                             <constraint firstAttribute="bottom" secondItem="SLN-Fk-z9h" secondAttribute="bottom" id="ids-Fw-jPk"/>
                             <constraint firstItem="mIs-BP-nIh" firstAttribute="centerX" secondItem="RYd-Wa-Bof" secondAttribute="centerX" id="qyl-MS-eVa"/>
@@ -257,8 +231,6 @@
                         <outlet property="mapView" destination="XCC-23-U4M" id="G3B-op-4Mq"/>
                         <outlet property="messageHeightConstraint" destination="NV9-UO-PuY" id="u02-be-dFE"/>
                         <outlet property="messageViewHolder" destination="SLN-Fk-z9h" id="Wnx-5U-Evg"/>
-                        <outlet property="segmentedControl" destination="wyh-6T-XD2" id="fxm-K8-RNy"/>
-                        <outlet property="selectionBackground" destination="tjp-Bg-leZ" id="bnm-cW-0Sk"/>
                         <outlet property="zoomInButton" destination="RYd-Wa-Bof" id="H2t-yD-OQc"/>
                         <outlet property="zoomOutButton" destination="dtE-g4-RNu" id="gIF-T2-TJs"/>
                     </connections>

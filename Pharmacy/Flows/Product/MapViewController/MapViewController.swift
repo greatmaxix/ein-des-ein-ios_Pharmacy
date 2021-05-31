@@ -10,26 +10,23 @@ import UIKit
 import GoogleMaps
 
 protocol MapOutput: class {
-    func loadingError()
     func locationUpdated(newCoordinate: CLLocationCoordinate2D)
     func setMarkers(positions: [CLLocationCoordinate2D], prices: [Double])
     func successfullyAddedToCart()
 }
 
-class MapViewController: UIViewController, NavigationBarStyled {
+class MapViewController: UIViewController {
     
     private struct GUI {
         static let messageHeight: CGFloat = 375
     }
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl?
     @IBOutlet private weak var messageViewHolder: UIView!
     @IBOutlet weak var messageHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var mapView: GMSMapView!
     @IBOutlet private weak var currentLocationButton: UIButton!
     @IBOutlet private weak var zoomInButton: UIButton!
     @IBOutlet private weak var zoomOutButton: UIButton!
-    @IBOutlet private weak var selectionBackground: UIView?
 
     var model: MapInput!
 
@@ -37,31 +34,11 @@ class MapViewController: UIViewController, NavigationBarStyled {
     private var messageView: MapMessageView!
     private var swipeGesture: UISwipeGestureRecognizer!
     
-    var style: NavigationBarStyle { .normalWithoutSearch }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
         setupMap()
-        setupLocalization()
-        model.load()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupNavBar()
-        segmentedControl?.selectedSegmentIndex = 1
-    }
-    
-    private func setupNavBar() {
-        if let navController = navigationController as? SearchNavigationController,
-           let navBar = navController.navigationBar as? NavigationBar {
-            navigationItem.setHidesBackButton(true, animated: false)
-            navBar.smallNavBarTitleLabel.text = R.string.localize.farmaciesListTitle.localized()
-        } else {
-            title = R.string.localize.farmaciesListTitle.localized()
-        }
     }
     
     private func setupUI() {
@@ -88,15 +65,6 @@ class MapViewController: UIViewController, NavigationBarStyled {
         
         messageViewHolder.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         messageViewHolder.layer.cornerRadius = 18
-        
-        segmentedControl?.selectedSegmentIndex = 1
-        
-        segmentedControl?.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.welcomeBlue()!], for: .selected)
-        segmentedControl?.setTitleTextAttributes([NSAttributedString.Key.font: R.font.openSansSemiBold(size: 14)!, NSAttributedString.Key.foregroundColor: R.color.gray()!], for: .normal)
-        
-        selectionBackground?.dropBlueShadow()
-        selectionBackground?.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        selectionBackground?.layer.cornerRadius = 8
     }
     
     private func setupMap() {
@@ -119,12 +87,6 @@ class MapViewController: UIViewController, NavigationBarStyled {
     
     @IBAction private func zoomOut(_ sender: Any) {
         mapView.animate(toZoom: mapView.camera.zoom - 1)
-    }
-    
-    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            model.openFarmacyList()
-        }
     }
     
     private func moveMap(toCoordinate: CLLocationCoordinate2D, zoom: Float?) {
@@ -154,15 +116,12 @@ class MapViewController: UIViewController, NavigationBarStyled {
         })
     }
     
-    private func setupLocalization() {
-        
-        let newValue = [R.string.localize.farmaciesListList(), R.string.localize.farmaciesListMap.localized()]
-        if let segmentControl = self.segmentedControl {
-            for i in 0..<newValue.count where i < segmentControl.numberOfSegments {
-                segmentControl.setTitle(newValue[i], forSegmentAt: i)
-            }
-        }
-        
+    func set(pharmacies: [PharmacyModel]) {
+        model.set(pharmacies: pharmacies)
+    }
+    
+    func setMarkerPositionsAndPrices() {
+        model.setMarkerPositionsAndPrices()
     }
 }
 
@@ -184,10 +143,6 @@ extension MapViewController: GMSMapViewDelegate {
 // MARK: - MapOutput
 
 extension MapViewController: MapOutput {
-    func loadingError() {
-        PulseLoaderService.hide(from: view)
-    }
-    
     func successfullyAddedToCart() {
         showMessage(text: "Товар успешно добавлен в корзину!")
         PulseLoaderService.hide(from: view)

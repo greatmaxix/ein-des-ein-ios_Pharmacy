@@ -8,15 +8,13 @@
 
 import UIKit
 
-class MapFarmacyListViewController: UIViewController, NavigationBarStyled {
+class MapFarmacyListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var selectionBackground: UIView!
     @IBOutlet private weak var filterControl: UISegmentedControl!
     
     var model: FarmacyListInput!
-    
-    var style: NavigationBarStyle { .normalWithoutSearch }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,21 +30,6 @@ class MapFarmacyListViewController: UIViewController, NavigationBarStyled {
         selectionBackground.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         selectionBackground.layer.cornerRadius = 8
         setupLocalization()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupNavBar()
-    }
-    
-    func setupNavBar() {
-        if let navController = navigationController as? SearchNavigationController,
-           let navBar = navController.navigationBar as? NavigationBar {
-            navigationItem.setHidesBackButton(true, animated: false)
-            navBar.smallNavBarTitleLabel.text = R.string.localize.farmaciesListTitle.localized()
-        } else {
-            title = R.string.localize.farmaciesListTitle.localized()
-        }
     }
     
     func setupLocalization() {
