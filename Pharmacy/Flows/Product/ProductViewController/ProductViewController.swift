@@ -115,9 +115,7 @@ extension ProductViewController: ProductViewControllerInput {
     }
     
     func didLoad(product: Product) {
-        if product.isLiked && likeButton.isSelected == false {
-            likeButton.isSelected.toggle()
-        }
+        likeButton.isSelected = product.isLiked
 
         viewControllers = product.imageURLs.count == 0 ? [ProductPageViewController.createWith(image: R.image.medicineImagePlaceholder()!, title: "")] : product.imageURLs.map {ProductPageViewController.createWith(url: $0, title: "")}
         pageController?.setViewControllers([viewControllers[0]], direction: .forward, animated: true, completion: nil)
