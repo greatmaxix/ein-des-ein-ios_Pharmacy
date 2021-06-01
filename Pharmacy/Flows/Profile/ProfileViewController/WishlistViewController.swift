@@ -21,14 +21,13 @@ final class WishlistViewController: UIViewController {
         setupTableView()
         applyEmptyStyle()
         setupUI()
-
-        model.load()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        model.removeMedicines()
         PulseLoaderService.showAdded(to: view)
+        model.load()
     }
 
     private func applyEmptyStyle() {
