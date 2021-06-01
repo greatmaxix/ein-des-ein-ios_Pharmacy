@@ -35,12 +35,11 @@ final class SearchViewController: UIViewController, NavigationBarStyled {
         super.viewDidLoad()
         configUI()
         setupTableView()
-        model.load()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        model.load()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
             self?.setupNavigationBar()
         }
