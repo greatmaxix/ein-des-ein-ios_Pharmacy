@@ -2863,14 +2863,14 @@
 		F51D899125F2DE40003B91BB /* Analizis */ = {
 			isa = PBXGroup;
 			children = (
-				F52D2CBA25E79A7600242A5B /* InformationAboutClinic */,
-				F580C0F725F955C000F8A5BC /* ChooseClinicOnMap */,
+				F56B649925DD2F6E00B108AC /* AnalysisAndDiagnosticsFlow */,
 				F51C02EA25E92D8300C266C5 /* ChooseClinic */,
+				F580C0F725F955C000F8A5BC /* ChooseClinicOnMap */,
+				F521BCE125DFB86900289081 /* DetailLaboratory */,
+				F52D2CBA25E79A7600242A5B /* InformationAboutClinic */,
+				F51F88E125DED59900C1A9ED /* Labaratory */,
 				F51C16EE25E5083900231E6D /* OrderServiceViewController */,
 				F51BF7F125E3C855004BFBFD /* ShowAnalisisInformationViewController */,
-				F521BCE125DFB86900289081 /* DetailLaboratory */,
-				F51F88E125DED59900C1A9ED /* Labaratory */,
-				F56B649925DD2F6E00B108AC /* AnalysisAndDiagnosticsFlow */,
 			);
 			path = Analizis;
 			sourceTree = "<group>";
