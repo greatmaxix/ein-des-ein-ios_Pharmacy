@@ -55,9 +55,42 @@ extension AnalysisAndDiagnosticsModel: AnalysisAndDiagnosticsControllerOutput {
     
     func load() {
         let mockData: [TypeOfAnalysis] = [
-            .init(analisName: "Лабараторные исследования"),
+            .init(analisName: "Исследования мочи"),
+            .init(analisName: "Биохимические и ИФА исследования мочи"),
+            .init(analisName: "Гематологические исследования"),
+            .init(analisName: "Исследования кала"),
+            .init(analisName: "Цитологические исследования"),
+            .init(analisName: "Исследование биологических жидкостей"),
+            .init(analisName: "Трансфузионная иммунология"),
+            .init(analisName: "Исследование параметров гемостаза"),
+            .init(analisName: "Биохимические исследования"),
+            .init(analisName: "Ферменты"),
+            .init(analisName: "Липиды"),
+            .init(analisName: "Электролиты и неорганические вещества"),
+            .init(analisName: "Специфические белки и пептиды"),
+            .init(analisName: "Кардиопанель ( количественное определение кардиомаркеров )"),
+            .init(analisName: "Аллергопанель ( иммуноблоттинг, 20 аллергенов )"),
+            .init(analisName: "Иммуноферментная диагностика ( ИФА )"),
+            .init(analisName: "Гормоны и антитела ( ИФА )"),
+            .init(analisName: "Антифосфолипидный синдром"),
+            .init(analisName: "Иммуноглобулины ( ИФА )"),
+            .init(analisName: "Онкомаркеры"),
+            .init(analisName: "Инфекции ( ИФА и экспресс-тесты )"),
+            .init(analisName: "Гепатиты ( ИФА )"),
+            .init(analisName: "Панель вирусного гепатита В ( ВГВ, HBV )"),
+            .init(analisName: "Паразитарные инвазии ( гельминты )"),
+            .init(analisName: "ПЦР диагностика"),
+            .init(analisName: "Гепатиты ( качественно, количественно )"),
+            .init(analisName: "Патогистологическая лаборатория"),
+            .init(analisName: "Гистологические исследования в урологии"),
+            .init(analisName: "Гистологические исследования в гинекологии"),
+            .init(analisName: "Гистологические исследования в хирургии"),
+            .init(analisName: "Гистологические исследования в травматологии"),
             .init(analisName: "Отделение ЭКО"),
-            .init(analisName: "Массаж")
+            .init(analisName: "Рентген"),
+            .init(analisName: "УЗИ"),
+            .init(analisName: "Массаж"),
+            .init(analisName: "Урология")
         ]
         self.output.didLoad(models: mockData)
         self.typesOfAnalysis = mockData
