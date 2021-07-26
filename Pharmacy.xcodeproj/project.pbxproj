@@ -397,6 +397,8 @@
 		87A50B682526256800CF89CF /* ImageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B672526256800CF89CF /* ImageContainer.swift */; };
 		87A50B6A25262FAD00CF89CF /* PriceRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6925262FAD00CF89CF /* PriceRange.swift */; };
 		87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6D2527072800CF89CF /* ProductAPI.swift */; };
+		E4A69CF426AEC898000C64A5 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A69CF326AEC898000C64A5 /* NetworkLogger.swift */; };
+		E4A69CF626AED6F2000C64A5 /* Moya+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A69CF526AED6F2000C64A5 /* Moya+Extensions.swift */; };
 		E4EAECF32664CEBF00683A8A /* PharmacyMapListContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EAECF22664CEBF00683A8A /* PharmacyMapListContainerViewController.swift */; };
 		E4EAECF52664CECB00683A8A /* PharmacyMapListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EAECF42664CECB00683A8A /* PharmacyMapListContainerModel.swift */; };
 		E4F32F4A265E8217000AB1B3 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F32F49265E8217000AB1B3 /* UIApplication+Extensions.swift */; };
@@ -907,6 +909,8 @@
 		87A50B6925262FAD00CF89CF /* PriceRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRange.swift; sourceTree = "<group>"; };
 		87A50B6D2527072800CF89CF /* ProductAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPI.swift; sourceTree = "<group>"; };
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4A69CF326AEC898000C64A5 /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		E4A69CF526AED6F2000C64A5 /* Moya+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Extensions.swift"; sourceTree = "<group>"; };
 		E4EAECF22664CEBF00683A8A /* PharmacyMapListContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyMapListContainerViewController.swift; sourceTree = "<group>"; };
 		E4EAECF42664CECB00683A8A /* PharmacyMapListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyMapListContainerModel.swift; sourceTree = "<group>"; };
 		E4F32F49265E8217000AB1B3 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
@@ -1270,6 +1274,7 @@
 				6016121D2566B1DC005151BC /* Date+String.swift */,
 				F55D46362601CAC100B67EC5 /* Locale+Extension.swift */,
 				E4F32F49265E8217000AB1B3 /* UIApplication+Extensions.swift */,
+				E4A69CF526AED6F2000C64A5 /* Moya+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2425,6 +2430,7 @@
 		619AAA412498ADF100AB46ED /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				E4A69CF326AEC898000C64A5 /* NetworkLogger.swift */,
 				619AAA422498ADFE00AB46ED /* DataManager.swift */,
 				619AAA472498B01900AB46ED /* KeychainManager.swift */,
 				608F0224255C2272002F7161 /* PhotoLibraryManager.swift */,
@@ -3624,6 +3630,7 @@
 				875223D42501152F000759C8 /* UserEntity.swift in Sources */,
 				E4EAECF32664CEBF00683A8A /* PharmacyMapListContainerViewController.swift in Sources */,
 				60475FE425515CFA00448EF3 /* ChatViewController.swift in Sources */,
+				E4A69CF626AED6F2000C64A5 /* Moya+Extensions.swift in Sources */,
 				608E3AFA2551D3E700AEE56C /* ChatButtonCollectionViewCell.swift in Sources */,
 				39F0AD6D24EEC85400CD6CA4 /* WishlistViewController.swift in Sources */,
 				398B0DD424F506540084EC54 /* MapModel.swift in Sources */,
@@ -3886,6 +3893,7 @@
 				6075BD5324DEB16600BC78BD /* RoundedCornerNavigationBar.swift in Sources */,
 				611CA281255EA17E009BD8B6 /* ReceiptsAPI.swift in Sources */,
 				F53A07CA25F78FC80091C969 /* QuestionViewController.swift in Sources */,
+				E4A69CF426AEC898000C64A5 /* NetworkLogger.swift in Sources */,
 				39505F5724AC73620045EC02 /* TabBarCoordinator.swift in Sources */,
 				87131D3425135E3E0050B8F2 /* UITableView+Reusable.swift in Sources */,
 				60E1A6FB24EBB20E00B3D205 /* UIViewController+Keyboard.swift in Sources */,

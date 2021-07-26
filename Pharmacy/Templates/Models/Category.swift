@@ -24,9 +24,10 @@ struct CategoriesResponse: Decodable {
 
 final class Category: Decodable {
     
+    let id: Int
+    let level: Int
     let title: String
     let imageURL: URL? = nil
-    let code: String
     let subCategories: [Category]?
     
     var imageTitle: String {
@@ -44,26 +45,29 @@ final class Category: Decodable {
     }
     
     var isRootCategory: Bool {
-        return code == "A"
+        return level == 0
     }
 
     enum Keys: String, CodingKey {
         case name
         case nodes
-        case code
+        case lvl
+        case id
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         
         title = try container.decode(String.self, forKey: .name)
-        code = try container.decode(String.self, forKey: .code)
+        level = try container.decode(Int.self, forKey: .lvl)
+        id = try container.decode(Int.self, forKey: .id)
         subCategories = try? container.decode([Category].self, forKey: .nodes)
     }
     
-    init(title: String, imageURL: URL?, code: String? = nil) {
+    init(title: String, imageURL: URL?, level: Int, id: Int) {
         self.title = title
-        self.code = code ?? "A"
+        self.level = level
+        self.id = id
         subCategories = nil
     }
     

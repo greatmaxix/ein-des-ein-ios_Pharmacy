@@ -13,7 +13,7 @@ struct Medicine: Codable {
     let name: String
     var releaseForm: String
     let manufacturerName: String
-    let manufacturerCountryCode: String
+    let manufacturerCountryCode: String?
     var minPrice: Decimal?
     var maxPrice: Decimal?
     var liked: Bool
@@ -50,7 +50,7 @@ struct Medicine: Codable {
         
         let manufactureContainer = try container.nestedContainer(keyedBy: Keys.self, forKey: .manufacturerData)
         manufacturerName = try manufactureContainer.decode(String.self, forKey: .localName)
-        manufacturerCountryCode = try manufactureContainer.decode(String.self, forKey: .iso3CountryCode)
+        manufacturerCountryCode = try manufactureContainer.decode(String?.self, forKey: .iso3CountryCode)
         
         let priceContainer = try? container.nestedContainer(keyedBy: Keys.self, forKey: .pharmacyProductsAggregationData)
         minPrice = try? priceContainer?.decode(Decimal.self, forKey: .minPrice)

@@ -92,6 +92,8 @@ extension MedicineListViewController: MedicineListViewControllerInput {
                              with: .automatic)
         tableView.endUpdates()
     }
+    
+    
 }
 
 // MARK: - UITableViewDataSource

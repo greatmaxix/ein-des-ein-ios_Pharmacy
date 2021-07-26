@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyDJfvTblScxj6gZYw-Xtg1NJeHbHUcAURs")
         window = UIWindow(frame: UIScreen.main.bounds)
         appNavigationCoordinator = AppNavigation(window: window!)
-        
+        NetworkActivityLogger.shared.level = .debug
+        NetworkActivityLogger.shared.startLogging()
         IQKeyboardManager.shared().isEnabled = true
         appNavigationCoordinator.startFlow()
 

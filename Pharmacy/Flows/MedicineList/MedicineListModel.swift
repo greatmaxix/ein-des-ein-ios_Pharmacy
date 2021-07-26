@@ -32,6 +32,7 @@ protocol MedicineListModelOutput: class {
     func needToInsertNewMedicines(at: [IndexPath]?)
     func favoriteAciontReloadCell(cellAt: IndexPath)
     func addRemoveFromFavoriteError(indexPath: IndexPath)
+    func showError(text: String)
 }
 
 final class MedicineListModel: Model {
@@ -66,9 +67,14 @@ final class MedicineListModel: Model {
             - Parameter product: enter product object for setup model
      */
     init(product: Product, parent: EventNode?) {
+//        self.category = Category(title: product.activeSubstances.first ?? "",
+//                                 imageURL: nil,
+//                                 code: product.categoryCode)
         self.category = Category(title: product.activeSubstances.first ?? "",
                                  imageURL: nil,
-                                 code: product.categoryCode)
+                                 level: 0,
+                                 id: 0
+        )
         super.init(parent: parent)
     }
 }
@@ -97,7 +103,7 @@ extension MedicineListModel {
         }
         provider.load(target: .searchByName(name: "",
                                             regionId: userRegionId,
-                                            categoryCode: category?.code,
+//                                            categoryCode: category,
                                             pageNumber: page,
                                             itemsOnPage: pageSize)) { [weak self] response in
                                                 guard let self = self else {
@@ -126,7 +132,7 @@ extension MedicineListModel {
                                                         self.output.needToInsertNewMedicines(at: indexPathesToInsert)
                                                     }
                                                 case .failure(let error):
-                                                    print(error.localizedDescription)
+                                                    self.output.showError(text: error.localizedDescription)
                                                 }
                                                 
                                                 completion?()
