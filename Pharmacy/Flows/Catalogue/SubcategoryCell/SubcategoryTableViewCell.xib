@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="92" id="nhk-9x-uZ7" customClass="SubcategoryTableViewCell" customModule="Pharmacy" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="nhk-9x-uZ7" customClass="SubcategoryTableViewCell" customModule="Pharmacy" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nhk-9x-uZ7" id="Grs-Yr-8c2">
@@ -24,32 +25,54 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oq4-Ai-wVw">
-                        <rect key="frame" x="16" y="11" width="382" height="70"/>
+                        <rect key="frame" x="16" y="6" width="382" height="80"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dcU-Se-dpk">
+                                <rect key="frame" x="10" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="mI4-WJ-zYW"/>
+                                    <constraint firstAttribute="height" constant="40" id="n7y-wZ-EQk"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVW-4p-zPa">
-                                <rect key="frame" x="16" y="16" width="350" height="38"/>
+                                <rect key="frame" x="56" y="16" width="310" height="48"/>
                                 <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" name="textDarkBlue"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m41-rx-v8J">
+                                <rect key="frame" x="350" y="30" width="24" height="20.5"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="cMp-uj-ltX"/>
+                                    <constraint firstAttribute="height" constant="24" id="sJy-ta-4Na"/>
+                                </constraints>
+                                <imageReference key="image" image="chevron.right" catalog="system" renderingMode="template"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XVW-4p-zPa" firstAttribute="leading" secondItem="oq4-Ai-wVw" secondAttribute="leading" constant="16" id="JtD-eY-ycb"/>
+                            <constraint firstAttribute="trailing" secondItem="m41-rx-v8J" secondAttribute="trailing" constant="8" id="AbT-d4-MJg"/>
+                            <constraint firstItem="XVW-4p-zPa" firstAttribute="leading" secondItem="dcU-Se-dpk" secondAttribute="trailing" constant="6" id="JtD-eY-ycb"/>
                             <constraint firstAttribute="bottom" secondItem="XVW-4p-zPa" secondAttribute="bottom" constant="16" id="Qfl-rw-Myw"/>
+                            <constraint firstItem="dcU-Se-dpk" firstAttribute="leading" secondItem="oq4-Ai-wVw" secondAttribute="leading" constant="10" id="S4z-2X-bjz"/>
+                            <constraint firstItem="m41-rx-v8J" firstAttribute="centerY" secondItem="oq4-Ai-wVw" secondAttribute="centerY" id="U5K-wY-Ex3"/>
+                            <constraint firstItem="dcU-Se-dpk" firstAttribute="centerY" secondItem="oq4-Ai-wVw" secondAttribute="centerY" id="XUU-g3-xHj"/>
                             <constraint firstItem="XVW-4p-zPa" firstAttribute="top" secondItem="oq4-Ai-wVw" secondAttribute="top" constant="16" id="j9X-lD-yzv"/>
                             <constraint firstAttribute="trailing" secondItem="XVW-4p-zPa" secondAttribute="trailing" constant="16" id="nm9-Sd-uSN"/>
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="lightGray"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="oq4-Ai-wVw" secondAttribute="trailing" constant="16" id="3R3-Qv-bq9"/>
                     <constraint firstItem="oq4-Ai-wVw" firstAttribute="leading" secondItem="Grs-Yr-8c2" secondAttribute="leading" constant="16" id="JDO-AC-gaQ"/>
-                    <constraint firstItem="oq4-Ai-wVw" firstAttribute="top" secondItem="Grs-Yr-8c2" secondAttribute="top" constant="11" id="KdL-fk-2aE"/>
-                    <constraint firstAttribute="bottom" secondItem="oq4-Ai-wVw" secondAttribute="bottom" constant="11" id="RJ4-zW-OHN"/>
+                    <constraint firstItem="oq4-Ai-wVw" firstAttribute="top" secondItem="Grs-Yr-8c2" secondAttribute="top" constant="6" id="KdL-fk-2aE"/>
+                    <constraint firstAttribute="bottom" secondItem="oq4-Ai-wVw" secondAttribute="bottom" constant="6" id="RJ4-zW-OHN"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="categoryImageView" destination="dcU-Se-dpk" id="FgT-Rq-PrV"/>
                 <outlet property="categoryLabel" destination="XVW-4p-zPa" id="6bj-R2-mEL"/>
                 <outlet property="decorationView" destination="oq4-Ai-wVw" id="rNx-bx-3cb"/>
             </connections>
@@ -57,6 +80,10 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <namedColor name="lightGray">
+            <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="textDarkBlue">
             <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

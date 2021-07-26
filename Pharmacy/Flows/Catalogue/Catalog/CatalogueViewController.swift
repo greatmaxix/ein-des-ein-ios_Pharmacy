@@ -68,8 +68,7 @@ final class CatalogueViewController: UIViewController {
     
     private func setupUI() {
         title = model.title
-        view.backgroundColor = .white
-//        flowLayoutStyle = .grid(count: 2, height: 167)
+        view.backgroundColor = R.color.lightGray()
         collectionView.backgroundColor = view.backgroundColor
         collectionView.delegate = self
         
@@ -81,7 +80,7 @@ final class CatalogueViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.constraintsToSuperView()
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = view.backgroundColor
         tableView.register(SubcategoryTableViewCell.nib, forCellReuseIdentifier: SubcategoryTableViewCell.reuseIdentifier)
         tableView.isHidden = true
         tableView.rowHeight = UITableView.automaticDimension

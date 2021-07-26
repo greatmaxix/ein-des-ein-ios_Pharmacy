@@ -21,7 +21,7 @@ final class CatalogueCollectionViewCell: HighlightedCollectionViewCell, Containe
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = GUI.cornerRadius
-        containerView.decorationBlackShadow()
+        containerView.decorationLightBlackShadow()
         clipsToBounds = false
     }
     
