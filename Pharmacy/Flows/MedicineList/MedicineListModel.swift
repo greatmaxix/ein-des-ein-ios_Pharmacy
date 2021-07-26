@@ -103,7 +103,7 @@ extension MedicineListModel {
         }
         provider.load(target: .searchByName(name: "",
                                             regionId: userRegionId,
-//                                            categoryCode: category,
+                                            newCategoryId: category?.id,
                                             pageNumber: page,
                                             itemsOnPage: pageSize)) { [weak self] response in
                                                 guard let self = self else {
