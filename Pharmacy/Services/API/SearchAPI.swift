@@ -10,7 +10,7 @@ import Moya
 
 enum SearchAPI: RequestConvertible {
     
-    case searchByName(name: String,
+    case searchByName(name: String?,
                       regionId: Int,
                       newCategoryId: Int? = nil,
                       pageNumber: Int = 1,

@@ -10,11 +10,6 @@ import Foundation
 import EventsTree
 import Moya
 
-enum SubcategoryEvent: Event {
-    case openMedicineListFor(category: Category)
-    case close
-}
-
 protocol SubcategoryModelOutput: class {
     var isSearching: Bool { get }
     func didLoadCategories()

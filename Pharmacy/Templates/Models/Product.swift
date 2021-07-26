@@ -26,6 +26,7 @@ struct Product: Decodable, Equatable {
     let categoryCode: String?
     let manufacturer: Manufacturer
     let isLiked: Bool
+    var newCategoryId: Int? = nil
     
     var currency = "₸"
     var minPrice: String {

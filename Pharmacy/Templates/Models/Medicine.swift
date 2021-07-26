@@ -18,6 +18,7 @@ struct Medicine: Codable {
     var maxPrice: Decimal?
     var liked: Bool
     var pictureUrls: [String]
+    var newCategoryId: Int? = nil
     
     enum Keys: String, CodingKey {
         case globalProductId

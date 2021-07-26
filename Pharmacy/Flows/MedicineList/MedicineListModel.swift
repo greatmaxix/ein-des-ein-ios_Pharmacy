@@ -73,7 +73,7 @@ final class MedicineListModel: Model {
         self.category = Category(title: product.activeSubstances.first ?? "",
                                  imageURL: nil,
                                  level: 0,
-                                 id: 0
+                                 id: product.newCategoryId ?? 0
         )
         super.init(parent: parent)
     }
@@ -173,8 +173,9 @@ extension MedicineListModel: MedicineListViewControllerOutput {
         guard indexPath.row <= medicines.endIndex else {
             return
         }
-        
-        raise(event: MedicineListModelEvent.openProduct(medicines[indexPath.row]))
+        var medicine = medicines[indexPath.row]
+        medicine.newCategoryId = category?.id
+        raise(event: MedicineListModelEvent.openProduct(medicine))
     }
     
     func load() {
