@@ -27,7 +27,6 @@ final class ProductCategoryTableViewCell: HighlightedTableViewCell, ContainerVie
     }
     
     func apply(product: Product) {
-        titleLabel.text = product.category
-        titleLabel.text = R.string.localize.product_categoriy.localized()
+        titleLabel.text = product.newCategory ?? R.string.localize.product_categoriy.localized()
     }
 }

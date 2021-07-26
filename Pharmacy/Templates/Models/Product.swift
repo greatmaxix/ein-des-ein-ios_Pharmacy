@@ -20,7 +20,7 @@ struct Product: Decodable, Equatable {
     let name: String
     let releaseForm: String
     let description: String
-    let category: String?
+    let newCategory: String?
     var imageURLs: [URL]
     let activeSubstances: [String]
     let categoryCode: String?
@@ -45,7 +45,7 @@ struct Product: Decodable, Equatable {
         name = try container.decode(String.self, forKey: .rusName)
         releaseForm = try container.decode(String.self, forKey: .releaseForm)
         description = try container.decode(String.self, forKey: .description)
-        category = try container.decodeIfPresent(String.self, forKey: .category)
+        newCategory = try container.decodeIfPresent(String.self, forKey: .newCategory)
         categoryCode = try container.decodeIfPresent(String.self, forKey: .categoryAtcCode)
 
         var picturesUnkeyedContainer = try? container.nestedUnkeyedContainer(forKey: .pictures)
@@ -66,7 +66,7 @@ struct Product: Decodable, Equatable {
         name = "Лазолван"
         releaseForm = "Таблетки 50мг"
         description = "Лекарство"
-        category = R.string.localize.product_categoriy.localized()
+        newCategory = R.string.localize.product_categoriy.localized()
         categoryCode = ""
         imageURLs = []
         activeSubstances = ["Кто", "Што"]
@@ -84,7 +84,7 @@ extension Product {
         case rusName
         case releaseForm
         case description
-        case category
+        case newCategory
         case pictures
         case activeSubstances
         case manufacturerData
