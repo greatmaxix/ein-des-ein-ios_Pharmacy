@@ -20,10 +20,10 @@ struct Product: Decodable, Equatable {
     let name: String
     let releaseForm: String
     let description: String
-    let category: String
+    let category: String?
     var imageURLs: [URL]
     let activeSubstances: [String]
-    let categoryCode: String
+    let categoryCode: String?
     let manufacturer: Manufacturer
     let isLiked: Bool
     
@@ -45,8 +45,8 @@ struct Product: Decodable, Equatable {
         name = try container.decode(String.self, forKey: .rusName)
         releaseForm = try container.decode(String.self, forKey: .releaseForm)
         description = try container.decode(String.self, forKey: .description)
-        category = try container.decode(String.self, forKey: .category)
-        categoryCode = try container.decode(String.self, forKey: .categoryAtcCode)
+        category = try container.decodeIfPresent(String.self, forKey: .category)
+        categoryCode = try container.decodeIfPresent(String.self, forKey: .categoryAtcCode)
 
         var picturesUnkeyedContainer = try? container.nestedUnkeyedContainer(forKey: .pictures)
         let urlContainer = try? picturesUnkeyedContainer?.nestedContainer(keyedBy: Keys.self)
