@@ -399,6 +399,8 @@
 		87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A50B6D2527072800CF89CF /* ProductAPI.swift */; };
 		E4A69CF426AEC898000C64A5 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A69CF326AEC898000C64A5 /* NetworkLogger.swift */; };
 		E4A69CF626AED6F2000C64A5 /* Moya+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A69CF526AED6F2000C64A5 /* Moya+Extensions.swift */; };
+		E4A69CF826AEE95C000C64A5 /* CatalogueCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4A69CF726AEE95C000C64A5 /* CatalogueCollectionViewCell.xib */; };
+		E4A69CFA26AEE964000C64A5 /* CatalogueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A69CF926AEE964000C64A5 /* CatalogueCollectionViewCell.swift */; };
 		E4EAECF32664CEBF00683A8A /* PharmacyMapListContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EAECF22664CEBF00683A8A /* PharmacyMapListContainerViewController.swift */; };
 		E4EAECF52664CECB00683A8A /* PharmacyMapListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EAECF42664CECB00683A8A /* PharmacyMapListContainerModel.swift */; };
 		E4F32F4A265E8217000AB1B3 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F32F49265E8217000AB1B3 /* UIApplication+Extensions.swift */; };
@@ -911,6 +913,8 @@
 		BDD5C6DF309E04B2DA1C9CDA /* Pods_Pharmacy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pharmacy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4A69CF326AEC898000C64A5 /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		E4A69CF526AED6F2000C64A5 /* Moya+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Extensions.swift"; sourceTree = "<group>"; };
+		E4A69CF726AEE95C000C64A5 /* CatalogueCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogueCollectionViewCell.xib; sourceTree = "<group>"; };
+		E4A69CF926AEE964000C64A5 /* CatalogueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCollectionViewCell.swift; sourceTree = "<group>"; };
 		E4EAECF22664CEBF00683A8A /* PharmacyMapListContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyMapListContainerViewController.swift; sourceTree = "<group>"; };
 		E4EAECF42664CECB00683A8A /* PharmacyMapListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyMapListContainerModel.swift; sourceTree = "<group>"; };
 		E4F32F49265E8217000AB1B3 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
@@ -1833,6 +1837,8 @@
 			children = (
 				395D04FE24D04B19007A278D /* CatalogueViewController.swift */,
 				395D050024D04B3A007A278D /* CatalogueModel.swift */,
+				E4A69CF726AEE95C000C64A5 /* CatalogueCollectionViewCell.xib */,
+				E4A69CF926AEE964000C64A5 /* CatalogueCollectionViewCell.swift */,
 			);
 			path = Catalog;
 			sourceTree = "<group>";
@@ -3413,6 +3419,7 @@
 				393DDFBE250286C500652A01 /* RegionCell.xib in Resources */,
 				24F5FD42254A0BAF00D28275 /* ChooseLocationViewController.storyboard in Resources */,
 				F55D463C2601D29900B67EC5 /* localize.strings in Resources */,
+				E4A69CF826AEE95C000C64A5 /* CatalogueCollectionViewCell.xib in Resources */,
 				6036EB0324DD27A5003336C2 /* Search.storyboard in Resources */,
 				F51F5DCC25FBA1AF001B4EC7 /* ClinicTableCell.xib in Resources */,
 				603D31BD24E57871000E5A6C /* Product.storyboard in Resources */,
@@ -3712,6 +3719,7 @@
 				398880C4250F799400942D30 /* PharmacyResponse.swift in Sources */,
 				F56E41DA25ECF3E900599CAA /* ClinicListModel.swift in Sources */,
 				61850144255091950094A6A6 /* OrderDetailsPharmacyCell.swift in Sources */,
+				E4A69CFA26AEE964000C64A5 /* CatalogueCollectionViewCell.swift in Sources */,
 				87A50B6E2527072800CF89CF /* ProductAPI.swift in Sources */,
 				2488BB1E255188C4008D7EEB /* UIViewController+EmptyView.swift in Sources */,
 				E4F32F4A265E8217000AB1B3 /* UIApplication+Extensions.swift in Sources */,
