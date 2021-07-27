@@ -28,6 +28,8 @@ struct Product: Decodable, Equatable {
     let isLiked: Bool
     var newCategoryId: Int? = nil
     
+    var isDescriptionCollapsed = true
+    
     var currency = "₸"
     var minPrice: String {
         return  priceRange?.minPrice.moneyString(with: currency) ?? "--"

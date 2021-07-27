@@ -75,7 +75,7 @@ enum ProductCellSection: ProductCellSections {
         case let cell as ProductQuestionsTableViewCell:
             cell.apply()
         case let cell as ProductInstructionTableViewCell:
-            cell.apply()
+            cell.apply(product: product)
         case let cell as ProductAdviceTableViewCell:
             cell.apply()
         case let cell as ProductInfoTableViewCell:

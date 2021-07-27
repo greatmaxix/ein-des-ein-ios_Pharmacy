@@ -32,6 +32,7 @@ protocol ProductModelInput: class {
 
 protocol ProductModelOutput: class {
     func didLoad(product: Product)
+    func didUpdateInstructions(at indexPath: IndexPath)
     func addRemoveFromFavoriteError()
     func loadingError()
 }
@@ -141,8 +142,9 @@ extension ProductModel: ProductViewControllerOutput {
             product.newCategoryId = self.newCategoryId
             raise(event: ProductModelEvent.openCatalogsFor(product))
         case .instruction:
-            let model = InDevelopmentModel(title: R.string.localize.empty_model_title.localized(), subTitle: R.string.localize.empty_subtitle_title.localized(), image: "inDelivary")
-            raise(event: AppEvent.presentInDev(model))
+            product.isDescriptionCollapsed = !product.isDescriptionCollapsed
+            self.dataSource.cells = ProductCellSection.allSectionsFor(product: self.product)
+            self.output.didUpdateInstructions(at: indexPath)
         case .questions:
             raise(event: ProductModelEvent.openChat)
         default:

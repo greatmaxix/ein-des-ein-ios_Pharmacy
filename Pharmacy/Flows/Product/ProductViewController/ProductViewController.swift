@@ -125,6 +125,11 @@ extension ProductViewController: ProductViewControllerInput {
         tableView.reloadData()
         PulseLoaderService.hide(from: view)
     }
+    
+    func didUpdateInstructions(at indexPath: IndexPath) {
+        model.dataSource.assign(tableView: tableView)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
 }
 
 // MARK: - UITableViewDelegate
