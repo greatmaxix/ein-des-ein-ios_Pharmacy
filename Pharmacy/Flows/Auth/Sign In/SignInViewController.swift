@@ -40,6 +40,7 @@ final class SignInViewController: UIViewController {
         scrollViewInsets = scrollView.contentInset
         setupUI()
         setupTargets()
+        KeychainManager.shared.saveToken(token: "")
     }
     
     func setupLocalization() {

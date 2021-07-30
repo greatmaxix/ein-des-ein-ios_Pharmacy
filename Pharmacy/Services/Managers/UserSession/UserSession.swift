@@ -171,6 +171,7 @@ extension UserSession {
 
     private func clearData() {
         UserDefaultsAccessor.clear()
+        KeychainManager.shared.saveToken(token: "")
     }
 }
 
