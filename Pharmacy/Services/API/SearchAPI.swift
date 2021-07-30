@@ -10,16 +10,16 @@ import Moya
 
 enum SearchAPI: RequestConvertible {
     
-    case searchByName(name: String,
-        regionId: Int,
-        categoryCode: String? = nil,
-        pageNumber: Int = 1,
-        itemsOnPage: Int = 10)
+    case searchByName(name: String?,
+                      regionId: Int,
+                      newCategoryId: Int? = nil,
+                      pageNumber: Int = 1,
+                      itemsOnPage: Int = 10)
     case searchByBarCode(barCode: String,
-        regionId: Int,
-        categoryCode: String? = nil,
-        pageNumber: Int = 1,
-        itemsOnPage: Int = 10)
+                         regionId: Int,
+                         newCategoryId: Int? = nil,
+                         pageNumber: Int = 1,
+                         itemsOnPage: Int = 10)
     
     var path: String {
         switch self {
@@ -40,17 +40,17 @@ enum SearchAPI: RequestConvertible {
     var task: Task {
         let params: [String: Any?]
         switch self {
-        case .searchByName(let name, let regionId, let categoryCode, let pageNumber, let itemsOnPage):
+        case .searchByName(let name, let regionId, let newCategoryId, let pageNumber, let itemsOnPage):
             params = [.nameKey: name,
                       .regionIdKey: regionId,
-                      .categoryCode: categoryCode,
+                      .newCategoryId: newCategoryId,
                       .pageKey: pageNumber,
                       .perPageKey: itemsOnPage]
             
-        case .searchByBarCode(let barCode, let regionId, let categoryCode, let pageNumber, let itemsOnPage):
+        case .searchByBarCode(let barCode, let regionId, let newCategoryId, let pageNumber, let itemsOnPage):
             params = [.barCodeKey: barCode,
                       .regionIdKey: regionId,
-                      .categoryCode: categoryCode,
+                      .newCategoryId: newCategoryId,
                       .pageKey: pageNumber,
                       .perPageKey: itemsOnPage]
         }
@@ -68,4 +68,5 @@ private extension String {
     static let categoryCode: String = "categoryCode"
     static let pageKey: String = "page"
     static let perPageKey: String = "per_page"
+    static let newCategoryId: String = "newCategoryId"
 }

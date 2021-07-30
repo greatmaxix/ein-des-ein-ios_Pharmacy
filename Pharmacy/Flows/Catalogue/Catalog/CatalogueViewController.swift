@@ -8,10 +8,33 @@
 
 import UIKit
 
-final class CatalogueViewController: CollectionDataSourceViewController {
+final class CatalogueViewController: UIViewController {
+    
+    private enum GUI {
+        static let defaultContentInset = UIEdgeInsets.all(16)
+    }
     
     @IBOutlet weak var navigationBarBackground: UIView!
     @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
+    var contentInset = GUI.defaultContentInset
+    
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let spacing = (contentInset.left + contentInset.right) / 2
+        layout.minimumInteritemSpacing = spacing / 2
+        layout.minimumLineSpacing = spacing
+        let width = (view.bounds.width / 2) - spacing - layout.minimumInteritemSpacing
+        layout.itemSize = CGSize(width: width, height: width)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(
+            UINib(nibName: String(describing: CatalogueCollectionViewCell.self), bundle: nil),
+            forCellWithReuseIdentifier: CatalogueCollectionViewCell.description()
+        )
+        collectionView.contentInset =  contentInset
+        return collectionView
+    }()
     
     let tableView = UITableView()
     
@@ -45,14 +68,19 @@ final class CatalogueViewController: CollectionDataSourceViewController {
     
     private func setupUI() {
         title = model.title
-        view.backgroundColor = .white
+        view.backgroundColor = R.color.lightGray()
         collectionView.backgroundColor = view.backgroundColor
         collectionView.delegate = self
+        
+        view.addSubview(collectionView)
+        collectionView.constraintsToSuperView(insets: .zero)
+        
+        
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.constraintsToSuperView()
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = view.backgroundColor
         tableView.register(SubcategoryTableViewCell.nib, forCellReuseIdentifier: SubcategoryTableViewCell.reuseIdentifier)
         tableView.isHidden = true
         tableView.rowHeight = UITableView.automaticDimension
@@ -108,6 +136,7 @@ extension CatalogueViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.filteredCategories.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SubcategoryTableViewCell.reuseIdentifier) as? SubcategoryTableViewCell
         cell?.apply(category: model.filteredCategories[indexPath.row])

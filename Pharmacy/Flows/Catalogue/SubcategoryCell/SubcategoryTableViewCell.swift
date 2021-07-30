@@ -10,14 +10,16 @@ import UIKit
 
 final class SubcategoryTableViewCell: HighlightedTableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var decorationView: UIView! {
         didSet {
-            decorationView.layer.cornerRadius = 8.0
-            decorationView.decorationBlackShadow()
+            decorationView.layer.cornerRadius = 10
+            decorationView.decorationLightBlackShadow()
         }
     }
     
     func apply(category: Category) {
         categoryLabel.text = category.title
+        categoryImageView.kf.setImage(with: category.imageURL)
     }
 }

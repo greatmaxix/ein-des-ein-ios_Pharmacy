@@ -32,8 +32,10 @@ class SubcategoryViewController: TableDataSourceViewController {
     }
     
     private func setupUI() {
+        view.backgroundColor = R.color.lightGray()
         title = model.title
-        tableView.backgroundColor = view.backgroundColor
+        tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+        tableView.backgroundColor = R.color.lightGray()
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.tableFooterView = UIView()

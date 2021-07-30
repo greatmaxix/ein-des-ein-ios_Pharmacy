@@ -17,12 +17,12 @@ enum CategoryCellSection: CollectionCellSection {
     }
     
     func cellType() -> UICollectionViewCell.Type? {
-        return CategoryCollectionViewCell.self
+        return CatalogueCollectionViewCell.self
     }
     
     func apply(cell: UICollectionViewCell) {
         switch (self, cell) {
-        case let (.common(category), cell) as (CategoryCellSection, CategoryCollectionViewCell):
+        case let (.common(category), cell) as (CategoryCellSection, CatalogueCollectionViewCell):
             cell.apply(category: category)
         default: break
         }

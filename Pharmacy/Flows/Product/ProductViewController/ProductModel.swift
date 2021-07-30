@@ -32,6 +32,7 @@ protocol ProductModelInput: class {
 
 protocol ProductModelOutput: class {
     func didLoad(product: Product)
+    func didUpdateInstructions(at indexPath: IndexPath)
     func addRemoveFromFavoriteError()
     func loadingError()
 }
@@ -48,13 +49,17 @@ final class ProductModel: Model {
     let dataSource = TableDataSource<ProductCellSection>()
     var searchTerm: String = ""
     
+    let newCategoryId: Int?
+    
     init(product: Medicine, parent: EventNode?) {
         self.medicine = product
+        self.newCategoryId = product.newCategoryId
         super.init(parent: parent)
     }
     
     init(product: ChatProduct, parent: EventNode?) {
         self.medicine = product.asMedicine
+        self.newCategoryId = product.asMedicine.newCategoryId
         super.init(parent: parent)
     }
 }
@@ -130,13 +135,16 @@ extension ProductModel: ProductViewControllerOutput {
         guard let cell = dataSource.cell(for: indexPath) else { return }
         
         switch cell {
-        case .analog(let product):
+        case .analog(var product):
+            product.newCategoryId = self.newCategoryId
             raise(event: ProductModelEvent.openAnalogsFor(product))
-        case .category(let product):
+        case .category(var product):
+            product.newCategoryId = self.newCategoryId
             raise(event: ProductModelEvent.openCatalogsFor(product))
         case .instruction:
-            let model = InDevelopmentModel(title: R.string.localize.empty_model_title.localized(), subTitle: R.string.localize.empty_subtitle_title.localized(), image: "inDelivary")
-            raise(event: AppEvent.presentInDev(model))
+            product.isDescriptionCollapsed = !product.isDescriptionCollapsed
+            self.dataSource.cells = ProductCellSection.allSectionsFor(product: self.product)
+            self.output.didUpdateInstructions(at: indexPath)
         case .questions:
             raise(event: ProductModelEvent.openChat)
         default:

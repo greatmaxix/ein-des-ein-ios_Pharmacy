@@ -11,7 +11,7 @@ import Moya
 
 enum CategoryAPI {
     
-    case getCategories(startCode: String?, maxLevel: Int?)
+    case getCategories(id: Int?, maxLevel: Int?)
 }
 
 extension CategoryAPI: RequestConvertible {
@@ -19,7 +19,7 @@ extension CategoryAPI: RequestConvertible {
     var path: String {
         switch self {
         case .getCategories:
-            return "public/categories"
+            return "public/new-categories"
         }
     }
     
@@ -32,9 +32,9 @@ extension CategoryAPI: RequestConvertible {
     
     var task: Task {
         switch self {
-        case .getCategories(startCode: let startCode, maxLevel: let maxLevel):
-            if let startCode = startCode, let maxLevel = maxLevel {
-                return .requestParameters(parameters: ["startCode": startCode, "maxLevelCount": maxLevel], encoding: URLEncoding.default)
+        case .getCategories(id: let id, maxLevel: let maxLevel):
+            if let id = id, let maxLevel = maxLevel {
+                return .requestParameters(parameters: ["id": id, "maxLevelCount": maxLevel], encoding: URLEncoding.default)
             }
             return .requestPlain
         }

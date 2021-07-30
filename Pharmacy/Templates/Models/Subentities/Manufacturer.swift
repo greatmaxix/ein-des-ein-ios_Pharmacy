@@ -12,14 +12,14 @@ struct Manufacturer: Decodable, Equatable {
     
     // MARK: - Properties
     let name: String
-    let countryISOCode: String
+    let countryISOCode: String?
     
     // MARK: - Init / Deinit methods
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         name = try container.decode(String.self, forKey: .localName)
-        countryISOCode = try container.decode(String.self, forKey: .iso3CountryCode)
+        countryISOCode = try container.decodeIfPresent(String.self, forKey: .iso3CountryCode)
     }
     
     init(name: String, countryISOCode: String) {

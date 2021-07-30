@@ -17,7 +17,6 @@ enum ProductCellSection: ProductCellSections {
     case info(Product)
     case analog(Product)
     case category(Product)
-    case description(Product)
     case instruction(Product)
     case advice(Product)
     case questions(Product)
@@ -27,7 +26,6 @@ enum ProductCellSection: ProductCellSections {
             .info(product),
             .analog(product),
             .category(product),
-            .description(product),
             .instruction(product),
             .advice(product),
             .questions(product)
@@ -40,7 +38,6 @@ enum ProductCellSection: ProductCellSections {
              .analog(let product),
              .category(let product),
              .advice(let product),
-             .description(let product),
              .instruction(let product),
              .questions(let product):
             return product
@@ -59,8 +56,6 @@ enum ProductCellSection: ProductCellSections {
             return ProductAnalogTableViewCell.self
         case .category:
             return ProductCategoryTableViewCell.self
-        case .description:
-            return ProductDescriptionTableViewCell.self
         case .instruction:
             return ProductInstructionTableViewCell.self
         case .questions:
@@ -75,7 +70,7 @@ enum ProductCellSection: ProductCellSections {
         case let cell as ProductQuestionsTableViewCell:
             cell.apply()
         case let cell as ProductInstructionTableViewCell:
-            cell.apply()
+            cell.apply(product: product)
         case let cell as ProductAdviceTableViewCell:
             cell.apply()
         case let cell as ProductInfoTableViewCell:
@@ -83,8 +78,6 @@ enum ProductCellSection: ProductCellSections {
         case let cell as ProductAnalogTableViewCell:
             cell.apply(product: product)
         case let cell as ProductCategoryTableViewCell:
-            cell.apply(product: product)
-        case let cell as ProductDescriptionTableViewCell:
             cell.apply(product: product)
         default:
             return

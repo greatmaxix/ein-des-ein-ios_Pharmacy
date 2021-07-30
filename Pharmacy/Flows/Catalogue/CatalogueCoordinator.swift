@@ -95,7 +95,8 @@ extension CatalogueCoordinator {
     }
 
     private func openProductMedicineFor(medicine: Medicine) {
-        let vc = ProductCoordinator(configuration: .init(parent: self, navigation: navigation)).createFlowFor(product: medicine)
+        let coordinator = ProductCoordinator(configuration: .init(parent: self, navigation: navigation))
+        let vc = coordinator.createFlowFor(product: medicine)
         navigation.pushViewController(vc, animated: true)
     }
 }

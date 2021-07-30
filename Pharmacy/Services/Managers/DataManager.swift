@@ -74,6 +74,10 @@ class DataManager<T, U> where T: TargetType, U: Decodable {
                 self.completion?(.success(responceData.data))
             } catch let error as MoyaError {
                 isLoading = false
+                if case let .objectMapping(decodingError, _) = error,
+                    let error = decodingError as? DecodingError {
+                    MoyaError.debugPrintDecodingError(error, model: U.self)
+                }
                 self.completion?(.failure(error))
             } catch {
                 isLoading = false
