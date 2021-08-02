@@ -120,6 +120,9 @@ extension MedicineListModel {
                                                     self.pageNumber = result.currentPage
                                                     self.totalNumberOfItems = result.totalNumberOfItems
                                                     self.medicines.append(contentsOf: result.entities)
+                                                    if self.medicines.count == result.totalNumberOfItems {
+                                                        self.isEndOfList = true
+                                                    }
                                                     if self.pageNumber == 1 {
                                                         self.output.retrivesNewResults()
                                                     } else if self.pageNumber > 1 {
