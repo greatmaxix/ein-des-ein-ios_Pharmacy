@@ -403,6 +403,8 @@
 		E4A69CFA26AEE964000C64A5 /* CatalogueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A69CF926AEE964000C64A5 /* CatalogueCollectionViewCell.swift */; };
 		E4EAECF32664CEBF00683A8A /* PharmacyMapListContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EAECF22664CEBF00683A8A /* PharmacyMapListContainerViewController.swift */; };
 		E4EAECF52664CECB00683A8A /* PharmacyMapListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EAECF42664CECB00683A8A /* PharmacyMapListContainerModel.swift */; };
+		E4F2BFB626B825E800FEF696 /* PHAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2BFB526B825E800FEF696 /* PHAError.swift */; };
+		E4F2BFB826B8260200FEF696 /* PharmacyErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2BFB726B8260200FEF696 /* PharmacyErrorResponse.swift */; };
 		E4F32F4A265E8217000AB1B3 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F32F49265E8217000AB1B3 /* UIApplication+Extensions.swift */; };
 		F51BF7EB25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7EA25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift */; };
 		F51BF7F825E40AAB004BFBFD /* AnalisInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51BF7F725E40AAB004BFBFD /* AnalisInformationViewController.swift */; };
@@ -917,6 +919,8 @@
 		E4A69CF926AEE964000C64A5 /* CatalogueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCollectionViewCell.swift; sourceTree = "<group>"; };
 		E4EAECF22664CEBF00683A8A /* PharmacyMapListContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyMapListContainerViewController.swift; sourceTree = "<group>"; };
 		E4EAECF42664CECB00683A8A /* PharmacyMapListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyMapListContainerModel.swift; sourceTree = "<group>"; };
+		E4F2BFB526B825E800FEF696 /* PHAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAError.swift; sourceTree = "<group>"; };
+		E4F2BFB726B8260200FEF696 /* PharmacyErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyErrorResponse.swift; sourceTree = "<group>"; };
 		E4F32F49265E8217000AB1B3 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		F51BF7EA25E3A7E5004BFBFD /* DeteilLaboratorAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeteilLaboratorAPI.swift; sourceTree = "<group>"; };
 		F51BF7F725E40AAB004BFBFD /* AnalisInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalisInformationViewController.swift; sourceTree = "<group>"; };
@@ -1438,6 +1442,7 @@
 		396448E024ADE16600E6D852 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E4F2BFB426B825DA00FEF696 /* Error */,
 				608E3AED2551A6F600AEE56C /* Chat */,
 				87A50B6425261FD100CF89CF /* Subentities */,
 				395324BA2508CE270038D2DC /* Responses */,
@@ -2768,6 +2773,15 @@
 			path = PharmacyMapListContainerViewController;
 			sourceTree = "<group>";
 		};
+		E4F2BFB426B825DA00FEF696 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				E4F2BFB526B825E800FEF696 /* PHAError.swift */,
+				E4F2BFB726B8260200FEF696 /* PharmacyErrorResponse.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		F51BF7E925E3A7CD004BFBFD /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -3786,6 +3800,7 @@
 				60E1A71A24ED025000B3D205 /* CustomIntensityVisualEffectView.swift in Sources */,
 				39273A0B24A0DFEC004A9909 /* Model.swift in Sources */,
 				395A7FB824A34B5200A7CFC6 /* UIBlockerDelegate.swift in Sources */,
+				E4F2BFB626B825E800FEF696 /* PHAError.swift in Sources */,
 				3954D12124D1B60B00AB44BD /* EditProfileViewController.swift in Sources */,
 				F589C6DC25DEEFC300CBBD99 /* LaboratoryResponse.swift in Sources */,
 				39F0AD6924EEC83000CD6CA4 /* PrescriptionsModel.swift in Sources */,
@@ -3806,6 +3821,7 @@
 				60E1A71724ECE0EA00B3D205 /* ScanModel.swift in Sources */,
 				F55D46342601CA3C00B67EC5 /* ExtensionString .swift in Sources */,
 				F53A07CD25F7902E0091C969 /* QuestionViewModel.swift in Sources */,
+				E4F2BFB826B8260200FEF696 /* PharmacyErrorResponse.swift in Sources */,
 				60515CFE254B068900977BEF /* SubcategoryCellSection.swift in Sources */,
 				398B0DE724F51C410084EC54 /* MapFarmacyListModel.swift in Sources */,
 				603D319824E3B22A000E5A6C /* TableCellSection.swift in Sources */,

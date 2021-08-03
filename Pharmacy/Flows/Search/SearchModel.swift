@@ -176,7 +176,7 @@ extension SearchModel {
         pageNumber = 1
         medicines = []
         output.willSendRequest()
-        retreiveMedecines(on: pageNumber, pageSize: .firstPageSize)
+        retreiveMedecines(on: pageNumber, pageSize: .pageSize)
     }
     
     private func retreiveMedecines(on page: Int,
@@ -223,6 +223,5 @@ extension SearchModel {
 }
 
 private extension Int {
-    static let firstPageSize: Int = 20
-    static let pageSize: Int = 10
+    static let pageSize: Int = 20
 }
