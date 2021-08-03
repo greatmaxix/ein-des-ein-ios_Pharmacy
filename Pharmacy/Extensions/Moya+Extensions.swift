@@ -9,6 +9,30 @@
 import Moya
 
 extension MoyaError {
+    func decodedError() -> PHAError {
+        do {
+            guard let response = response else {
+                return PHAError.responseError(message: self.localizedDescription)
+            }
+            let mapped = try response.map(PharmacyErrorResponse.self)
+            return PHAError.responseError(message: mapped.errorFullMessage)
+        } catch {
+            return PHAError.decodeFailed(message: self.localizedDescription)
+        }
+    }
+    
+    func decodedPharmacyErrorResponse() -> PharmacyErrorResponse? {
+        do {
+            guard let response = response else {
+                return nil
+            }
+            let mapped = try response.map(PharmacyErrorResponse.self)
+            return mapped
+        } catch {
+            return nil
+        }
+    }
+    
     static func debugPrintDecodingError(_ error: DecodingError, model: Decodable.Type) {
         switch error {
         case .typeMismatch(let mismatchType, let context):

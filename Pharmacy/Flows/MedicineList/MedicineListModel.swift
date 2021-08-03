@@ -91,7 +91,7 @@ extension MedicineListModel {
     private func retreiveMedecines() {
         pageNumber = 1
         medicines = []
-        retreiveMedecines(on: pageNumber, pageSize: .firstPageSize)
+        retreiveMedecines(on: pageNumber, pageSize: .pageSize)
     }
     
     private func retreiveMedecines(on page: Int,
@@ -135,7 +135,11 @@ extension MedicineListModel {
                                                         self.output.needToInsertNewMedicines(at: indexPathesToInsert)
                                                     }
                                                 case .failure(let error):
-                                                    self.output.showError(text: error.localizedDescription)
+                                                    if error.decodedPharmacyErrorResponse()?.errorType == "pagination_error" {
+                                                        print(error)
+                                                    } else {
+                                                        self.output.showError(text: error.decodedError().localizedDescription)
+                                                    }
                                                 }
                                                 
                                                 completion?()
@@ -192,6 +196,5 @@ extension MedicineListModel: MedicineListViewControllerOutput {
 }
 
 private extension Int {
-    static let firstPageSize: Int = 20
-    static let pageSize: Int = 10
+    static let pageSize: Int = 20
 }
