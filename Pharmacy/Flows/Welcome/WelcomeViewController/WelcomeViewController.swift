@@ -145,7 +145,8 @@ extension WelcomeViewController: WelcomeModelOutput {
     func modelIsLoaded() {
         for index in 0...categorieLabels.count-1 {
             categorieLabels[index].text = model.categories[index].shortTitle
-            categorieImageView[index].image = UIImage(named: model.categories[index].imageTitle)
+            categorieImageView[index].kf.indicatorType = .activity
+            categorieImageView[index].kf.setImage(with: model.categories[index].imageURL, options: [.processor(SVGImgProcessor())])
         }
         
         PulseLoaderService.hide(from: view)
