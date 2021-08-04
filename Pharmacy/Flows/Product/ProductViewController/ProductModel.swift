@@ -135,11 +135,9 @@ extension ProductModel: ProductViewControllerOutput {
         guard let cell = dataSource.cell(for: indexPath) else { return }
         
         switch cell {
-        case .analog(var product):
-            product.newCategoryId = self.newCategoryId
+        case .analog(let product):
             raise(event: ProductModelEvent.openAnalogsFor(product))
-        case .category(var product):
-            product.newCategoryId = self.newCategoryId
+        case .category(let product):
             raise(event: ProductModelEvent.openCatalogsFor(product))
         case .instruction:
             product.isDescriptionCollapsed = !product.isDescriptionCollapsed

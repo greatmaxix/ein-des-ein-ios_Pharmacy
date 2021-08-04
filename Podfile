@@ -19,6 +19,7 @@ target 'Pharmacy' do
   pod 'LDSwiftEventSource', '~> 1.2'
   pod 'Firebase/Messaging'
   pod 'IQKeyboardManager'
+  pod 'SVGKit'
 end
 
 post_install do |installer|

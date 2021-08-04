@@ -20,13 +20,13 @@ struct Product: Decodable, Equatable {
     let name: String
     let releaseForm: String
     let description: String
-    let newCategory: String?
+    let newCategory: String
     var imageURLs: [URL]
     let activeSubstances: [String]
     let categoryCode: String?
     let manufacturer: Manufacturer
     let isLiked: Bool
-    var newCategoryId: Int? = nil
+    let newCategoryId: Int
     
     var isDescriptionCollapsed = true
     
@@ -48,7 +48,8 @@ struct Product: Decodable, Equatable {
         name = try container.decode(String.self, forKey: .rusName)
         releaseForm = try container.decode(String.self, forKey: .releaseForm)
         description = try container.decode(String.self, forKey: .description)
-        newCategory = try container.decodeIfPresent(String.self, forKey: .newCategory)
+        newCategory = try container.decode(String.self, forKey: .newCategory)
+        newCategoryId = try container.decode(Int.self, forKey: .newCategoryId)
         categoryCode = try container.decodeIfPresent(String.self, forKey: .categoryAtcCode)
 
         var picturesUnkeyedContainer = try? container.nestedUnkeyedContainer(forKey: .pictures)
@@ -62,20 +63,6 @@ struct Product: Decodable, Equatable {
         manufacturer = try container.decode(Manufacturer.self, forKey: .manufacturerData)
         priceRange = try container.decodeIfPresent(PriceRange.self, forKey: .pharmacyProductsAggregationData)
         isLiked = (try? container.decode(Bool.self, forKey: .liked)) ?? false
-    }
-
-    init() {
-        identifier = 761
-        name = "Лазолван"
-        releaseForm = "Таблетки 50мг"
-        description = "Лекарство"
-        newCategory = R.string.localize.product_categoriy.localized()
-        categoryCode = ""
-        imageURLs = []
-        activeSubstances = ["Кто", "Што"]
-        manufacturer = Manufacturer(name: "UA", countryISOCode: "212")
-        priceRange = PriceRange(min: 100.20, max: 340.50)
-        isLiked = false
     }
 }
 
@@ -95,5 +82,6 @@ extension Product {
         case liked
         case url
         case categoryAtcCode
+        case newCategoryId
     }
 }

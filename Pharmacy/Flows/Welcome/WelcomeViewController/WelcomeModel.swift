@@ -120,12 +120,12 @@ extension WelcomeModel: WelcomeModelInput {
     }
     
     private func loadCategoryData() {
-        provider.load(target: .getCategories(id: nil, maxLevel: nil), completion: { [weak self] result in
+        provider.loadCustomModel(target: .getCategories(id: nil, maxLevel: nil), completion: { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let response):
-                self.topCategory = response.categories
+                self.topCategory = response
                 self.output.modelIsLoaded()
             case .failure(let error):
                 print(error.localizedDescription)

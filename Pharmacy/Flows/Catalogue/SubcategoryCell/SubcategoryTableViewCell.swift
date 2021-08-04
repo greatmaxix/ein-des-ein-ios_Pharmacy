@@ -20,6 +20,7 @@ final class SubcategoryTableViewCell: HighlightedTableViewCell {
     
     func apply(category: Category) {
         categoryLabel.text = category.title
-        categoryImageView.kf.setImage(with: category.imageURL)
+        categoryImageView.kf.indicatorType = .activity
+        categoryImageView.kf.setImage(with: category.imageURL, options: [.processor(SVGImgProcessor())])
     }
 }
