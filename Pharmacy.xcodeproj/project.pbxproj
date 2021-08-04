@@ -401,6 +401,7 @@
 		E4A69CF626AED6F2000C64A5 /* Moya+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A69CF526AED6F2000C64A5 /* Moya+Extensions.swift */; };
 		E4A69CF826AEE95C000C64A5 /* CatalogueCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4A69CF726AEE95C000C64A5 /* CatalogueCollectionViewCell.xib */; };
 		E4A69CFA26AEE964000C64A5 /* CatalogueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A69CF926AEE964000C64A5 /* CatalogueCollectionViewCell.swift */; };
+		E4D145D226BABBBD000C21D9 /* SVGImgProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D145D126BABBBD000C21D9 /* SVGImgProcessor.swift */; };
 		E4EAECF32664CEBF00683A8A /* PharmacyMapListContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EAECF22664CEBF00683A8A /* PharmacyMapListContainerViewController.swift */; };
 		E4EAECF52664CECB00683A8A /* PharmacyMapListContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EAECF42664CECB00683A8A /* PharmacyMapListContainerModel.swift */; };
 		E4F2BFB626B825E800FEF696 /* PHAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F2BFB526B825E800FEF696 /* PHAError.swift */; };
@@ -917,6 +918,7 @@
 		E4A69CF526AED6F2000C64A5 /* Moya+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moya+Extensions.swift"; sourceTree = "<group>"; };
 		E4A69CF726AEE95C000C64A5 /* CatalogueCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogueCollectionViewCell.xib; sourceTree = "<group>"; };
 		E4A69CF926AEE964000C64A5 /* CatalogueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCollectionViewCell.swift; sourceTree = "<group>"; };
+		E4D145D126BABBBD000C21D9 /* SVGImgProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGImgProcessor.swift; sourceTree = "<group>"; };
 		E4EAECF22664CEBF00683A8A /* PharmacyMapListContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyMapListContainerViewController.swift; sourceTree = "<group>"; };
 		E4EAECF42664CECB00683A8A /* PharmacyMapListContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyMapListContainerModel.swift; sourceTree = "<group>"; };
 		E4F2BFB526B825E800FEF696 /* PHAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAError.swift; sourceTree = "<group>"; };
@@ -2414,6 +2416,7 @@
 				619AAA412498ADF100AB46ED /* Managers */,
 				3939A6D324F6A39E0045FB71 /* Location Service */,
 				619AAA3E2498A99700AB46ED /* API */,
+				E4D145D126BABBBD000C21D9 /* SVGImgProcessor.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -3711,6 +3714,7 @@
 				603D31D724E5A3FE000E5A6C /* Product.swift in Sources */,
 				60655B982563287B0030DC63 /* ChatRecipeCollectionViewCell.swift in Sources */,
 				61CFAA89254B214400569DEF /* OrderDeliveryCell.swift in Sources */,
+				E4D145D226BABBBD000C21D9 /* SVGImgProcessor.swift in Sources */,
 				F51C16FD25E54B1E00231E6D /* PaymantCell.swift in Sources */,
 				395A7FC724A3980D00A7CFC6 /* ProfileTableViewCell.swift in Sources */,
 				618C33AA2498BFB400951D11 /* Coordinator.swift in Sources */,

@@ -28,8 +28,7 @@ final class CatalogueCollectionViewCell: HighlightedCollectionViewCell, Containe
     func apply(category: Category) {
         titleLabel.text = category.title
         
-        if !category.imageTitle.isEmpty {
-            categoryImageView.image = UIImage(named: category.imageTitle)
-        }
+        categoryImageView.kf.indicatorType = .activity
+        categoryImageView.kf.setImage(with: category.imageURL, options: [.processor(SVGImgProcessor())])
     }
 }

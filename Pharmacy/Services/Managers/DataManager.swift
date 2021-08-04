@@ -49,6 +49,13 @@ class DataManager<T, U> where T: TargetType, U: Decodable {
         self.completion = completion
         provider.request(target, completion: requestCompletion)
     }
+    
+    public func loadCustomModel(target: T, completion: @escaping (_ result: Result<U, MoyaError>) -> Void) {
+        
+        isLoading = true
+        self.completion = completion
+        provider.request(target, completion: requestCustomModelCompletion)
+    }
 
     public func requestCompletion(with result: Swift.Result<Moya.Response, Moya.MoyaError>) {
         switch result {
@@ -72,6 +79,45 @@ class DataManager<T, U> where T: TargetType, U: Decodable {
                 self.data = responceData.data
                 isLoading = false
                 self.completion?(.success(responceData.data))
+            } catch let error as MoyaError {
+                isLoading = false
+                if case let .objectMapping(decodingError, _) = error,
+                    let error = decodingError as? DecodingError {
+                    MoyaError.debugPrintDecodingError(error, model: Responce<U>.self)
+                }
+                self.completion?(.failure(error))
+            } catch {
+                isLoading = false
+                self.completion?(.failure(MoyaError.underlying(error, nil)))
+            }
+        case let .failure(error):
+            isLoading = false
+            self.completion?(.failure(error))
+        }
+    }
+    
+    public func requestCustomModelCompletion(with result: Swift.Result<Moya.Response, Moya.MoyaError>) {
+        switch result {
+        case let .success(response):
+            do {
+                let successResponse = try response.filterSuccessfulStatusCodes()
+                let jsonDecoder = JSONDecoder()
+                let keyPath: String
+
+                if let parse = U.self as? ParseKeyPath.Type {
+                    keyPath = parse.parseKeyPathExtension
+                } else {
+                    keyPath = String()
+                }
+
+                let responceData = try successResponse.map(U.self,
+                                                           atKeyPath: keyPath,
+                                                           using: jsonDecoder,
+                                                           failsOnEmptyData: false)
+               
+                self.data = responceData
+                isLoading = false
+                self.completion?(.success(responceData))
             } catch let error as MoyaError {
                 isLoading = false
                 if case let .objectMapping(decodingError, _) = error,
