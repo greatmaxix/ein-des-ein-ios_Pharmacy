@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 import EventsTree
 
+extension Foundation.Notification.Name {
+    static let Login = Foundation.NSNotification.Name(rawValue: "Login")
+}
+
 enum AppEvent: Event {
     case presentInDev(_ model: InDevelopmentModel?)
 }
@@ -22,6 +26,8 @@ final class AppNavigation: EventNode {
         self.window = window
 
         super.init(parent: nil)
+        
+        addNotificationObservers()
 
         addHandler { [weak self] (event: ConfirmCodeEvent) in
             if event == .openMainScreen {
@@ -97,4 +103,19 @@ extension AppNavigation {
         window.makeKeyAndVisible()
     }
 
+}
+
+extension AppNavigation {
+    private func addNotificationObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(openLogin),
+            name: .Login,
+            object: nil
+        )
+    }
+    
+    @objc private func openLogin() {
+        presentAuthFlow()
+    }
 }

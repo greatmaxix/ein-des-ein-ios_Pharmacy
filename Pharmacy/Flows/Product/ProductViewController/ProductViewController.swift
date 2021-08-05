@@ -88,6 +88,10 @@ final class ProductViewController: UIViewController, NavigationBarStyled {
     // MARK: - Actions
     
     @IBAction func wishListAction(_ sender: UIButton) {
+        guard UserSession.shared.isAuthorized else {
+            self.showLoginAlert()
+            return
+        }
         sender.isSelected.toggle()
         if sender.isSelected {
             model.addToWishList()

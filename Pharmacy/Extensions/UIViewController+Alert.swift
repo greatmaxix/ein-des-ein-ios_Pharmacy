@@ -71,4 +71,16 @@ extension UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
+    func showLoginAlert() {
+        let alert = UIAlertController(title: "You have to login", message: "Go to login?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let goAction = UIAlertAction(title: "Go", style: .default) { [weak self] _ in
+            NotificationCenter.default.post(name: .Login, object: nil)
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(goAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
