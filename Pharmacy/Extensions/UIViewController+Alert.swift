@@ -72,13 +72,17 @@ extension UIViewController {
     }
     
     func showLoginAlert() {
-        let alert = UIAlertController(title: "You have to login", message: "Go to login?", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let goAction = UIAlertAction(title: "Go", style: .default) { [weak self] _ in
+        let alert = UIAlertController(
+            title: R.string.localize.login_alert_title.localized(),
+            message: R.string.localize.login_alert_message.localized(),
+            preferredStyle: .alert
+        )
+        let cancelAction = UIAlertAction(title: R.string.localize.login_alert_cancel.localized(), style: .cancel, handler: nil)
+        let yesAction = UIAlertAction(title: R.string.localize.login_alert_yes.localized(), style: .default) { _ in
             NotificationCenter.default.post(name: .Login, object: nil)
         }
         alert.addAction(cancelAction)
-        alert.addAction(goAction)
+        alert.addAction(yesAction)
         
         present(alert, animated: true, completion: nil)
     }

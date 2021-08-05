@@ -245,3 +245,8 @@
 "payment_question" = "Оплата и бонусы";
 "delivery_question" = "Доставка";
 "write_us" = "Напишите нам!";
+
+"login_alert_title" = "Вы должны авторизоваться";
+"login_alert_message" = "Перейти на страницу авторизации?";
+"login_alert_cancel" = "Отмена";
+"login_alert_yes" = "Да";
