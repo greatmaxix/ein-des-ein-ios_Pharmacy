@@ -44,7 +44,6 @@ final class ReceiptView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = GUI.cornerRadius
-        containerView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         containerView.dropBlueShadow()
     }
     
