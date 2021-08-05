@@ -20,7 +20,6 @@ final class ReceiptView: UIView {
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var likeButton: UIButton!
-    @IBOutlet private weak var receiptButton: UIButton!
     
     private(set) var productId: Int!
     private(set) var currentMedicineEntity: Medicine!
@@ -35,7 +34,7 @@ final class ReceiptView: UIView {
         subtitleLabel.text = receipt.releaseForm
         priceLabel.text = receipt.maxPrice!.moneyString()
         productId = receipt.id
-        priceLabel.attributedText = NSAttributedString.fromPriceAttributed(for: receipt.price)
+        priceLabel.attributedText = NSAttributedString.fromRecentsPriceAttributed(for: receipt.price)
     
         if let url = receipt.imageURL {
             imageView.loadImageBy(url: url)
@@ -45,7 +44,6 @@ final class ReceiptView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.cornerRadius = GUI.cornerRadius
-        containerView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         containerView.dropBlueShadow()
     }
     

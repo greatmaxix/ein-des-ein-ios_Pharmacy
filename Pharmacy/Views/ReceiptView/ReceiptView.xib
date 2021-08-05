@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,19 +16,16 @@
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans-Regular</string>
         </array>
-        <array key="OpenSans-SemiBold.ttf">
-            <string>OpenSans-SemiBold</string>
-        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view opaque="NO" contentMode="scaleToFill" id="Ii1-sQ-zPE" customClass="ReceiptView" customModule="Pharmacy" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="299" height="184"/>
+            <rect key="frame" x="0.0" y="0.0" width="299" height="192"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
-                    <rect key="frame" x="0.0" y="0.0" width="299" height="184"/>
+                    <rect key="frame" x="0.0" y="0.0" width="299" height="192"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farmacyExampleHorizontal" translatesAutoresizingMaskIntoConstraints="NO" id="k1q-BK-l8t">
                             <rect key="frame" x="0.0" y="0.0" width="299" height="80"/>
@@ -37,19 +34,19 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nO-Vo-pN2">
-                            <rect key="frame" x="8" y="80" width="283" height="19"/>
+                            <rect key="frame" x="8" y="88" width="283" height="22"/>
                             <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
                             <color key="textColor" name="textDarkBlue"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iz-1O-hnm">
-                            <rect key="frame" x="8" y="99" width="283" height="14"/>
+                            <rect key="frame" x="8" y="114" width="283" height="16.5"/>
                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                             <color key="textColor" name="textDarkBlue"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="от" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tK-Tk-Ppx">
-                            <rect key="frame" x="8" y="162" width="13" height="14"/>
+                            <rect key="frame" x="8" y="157.5" width="13" height="16.5"/>
                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="12"/>
                             <color key="textColor" name="welcomeBlue"/>
                             <nil key="highlightedColor"/>
@@ -66,19 +63,8 @@
                                 <action selector="likeAction:" destination="Ii1-sQ-zPE" eventType="touchUpInside" id="Zta-Zr-glZ"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eo-VJ-HAE">
-                            <rect key="frame" x="0.0" y="0.0" width="74" height="24"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="24" id="FnU-Uk-eAy"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="14"/>
-                            <inset key="contentEdgeInsets" minX="12" minY="3" maxX="12" maxY="4"/>
-                            <state key="normal" title="Рецепт" backgroundImage="orangeBackground">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                        </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSt-gJ-Uls">
-                            <rect key="frame" x="251" y="136" width="40" height="40"/>
+                            <rect key="frame" x="251" y="144" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="jSt-gJ-Uls" secondAttribute="height" multiplier="1:1" id="ITe-7I-3Xo"/>
                                 <constraint firstAttribute="width" constant="40" id="MLh-fG-bde"/>
@@ -93,20 +79,18 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="5nO-Vo-pN2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="42M-06-NDh"/>
-                        <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7tK-Tk-Ppx" secondAttribute="bottom" constant="8" id="4F1-eM-Abj"/>
-                        <constraint firstItem="6eo-VJ-HAE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6kc-cE-evg"/>
+                        <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="7tK-Tk-Ppx" secondAttribute="bottom" constant="18" id="4F1-eM-Abj"/>
                         <constraint firstAttribute="bottom" secondItem="jSt-gJ-Uls" secondAttribute="bottom" constant="8" id="9RY-hT-Yi8"/>
                         <constraint firstItem="IF3-07-xGa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="AHh-hb-T6C"/>
                         <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5nO-Vo-pN2" secondAttribute="trailing" constant="8" id="AaG-Il-UwF"/>
                         <constraint firstItem="k1q-BK-l8t" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Bax-fg-NSl"/>
-                        <constraint firstItem="1iz-1O-hnm" firstAttribute="top" secondItem="5nO-Vo-pN2" secondAttribute="bottom" id="DY5-Qr-RyY"/>
+                        <constraint firstItem="1iz-1O-hnm" firstAttribute="top" secondItem="5nO-Vo-pN2" secondAttribute="bottom" constant="4" id="DY5-Qr-RyY"/>
                         <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="k1q-BK-l8t" secondAttribute="trailing" id="KWu-yg-d3R"/>
                         <constraint firstItem="7tK-Tk-Ppx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="Qbo-i9-2f9"/>
                         <constraint firstAttribute="trailing" secondItem="IF3-07-xGa" secondAttribute="trailing" constant="10" id="T27-UT-mBF"/>
                         <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1iz-1O-hnm" secondAttribute="trailing" constant="8" id="UOi-OI-1O7"/>
                         <constraint firstItem="k1q-BK-l8t" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hJF-sN-ev9"/>
-                        <constraint firstItem="5nO-Vo-pN2" firstAttribute="top" secondItem="k1q-BK-l8t" secondAttribute="bottom" id="myV-0h-fbL"/>
-                        <constraint firstItem="6eo-VJ-HAE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tWj-jc-x5W"/>
+                        <constraint firstItem="5nO-Vo-pN2" firstAttribute="top" secondItem="k1q-BK-l8t" secondAttribute="bottom" constant="8" id="myV-0h-fbL"/>
                         <constraint firstItem="1iz-1O-hnm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="woL-Ik-Bbh"/>
                         <constraint firstAttribute="trailing" secondItem="jSt-gJ-Uls" secondAttribute="trailing" constant="8" id="ziV-eT-Q9q"/>
                     </constraints>
@@ -128,7 +112,6 @@
                 <outlet property="imageView" destination="k1q-BK-l8t" id="Ui9-xn-Wjq"/>
                 <outlet property="likeButton" destination="IF3-07-xGa" id="OKD-C0-nh5"/>
                 <outlet property="priceLabel" destination="7tK-Tk-Ppx" id="Yne-rd-xHL"/>
-                <outlet property="receiptButton" destination="6eo-VJ-HAE" id="Ixv-Gb-kJi"/>
                 <outlet property="subtitleLabel" destination="1iz-1O-hnm" id="PJB-1Q-I14"/>
                 <outlet property="titleLabel" destination="5nO-Vo-pN2" id="Vb8-fR-luv"/>
             </connections>
@@ -139,7 +122,6 @@
         <image name="add_to_bag" width="40" height="40"/>
         <image name="farmacyExampleHorizontal" width="164" height="80"/>
         <image name="liked" width="24" height="24"/>
-        <image name="orangeBackground" width="74" height="24"/>
         <image name="unliked" width="23" height="21"/>
         <namedColor name="textDarkBlue">
             <color red="0.0" green="0.039215686274509803" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

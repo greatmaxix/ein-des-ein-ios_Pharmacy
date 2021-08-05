@@ -107,11 +107,18 @@ extension MedicineListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(at: indexPath, cellType: MedicineCell.self)
         cell.apply(medicine: model.medicines[indexPath.row])
         
-        cell.favoriteButtonHandler = {[weak self] state in
+        cell.favoriteButtonHandler = { [weak self, weak cell] state in
+            guard let self = self,
+                  let cell = cell else { return }
+            guard UserSession.shared.isAuthorized else {
+                self.showLoginAlert()
+                return
+            }
+            cell.toggleFavoriteButton()
             if state {
-                self?.model.addToWishList(productId: cell.medicineProductID, indexPath: indexPath)
+                self.model.addToWishList(productId: cell.medicineProductID, indexPath: indexPath)
             } else {
-                self?.model.removeFromWishList(productId: cell.medicineProductID, indexPath: indexPath)
+                self.model.removeFromWishList(productId: cell.medicineProductID, indexPath: indexPath)
             }
         }
         

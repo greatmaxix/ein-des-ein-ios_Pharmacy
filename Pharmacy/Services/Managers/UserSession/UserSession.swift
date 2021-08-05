@@ -28,6 +28,14 @@ class UserSession {
             }
         }
     }
+    var isAuthorized: Bool {
+        switch authorizationStatus {
+        case .authorized:
+            return true
+        default:
+            return false
+        }
+    }
     var userIdentifier: Int {
         switch authorizationStatus {
         case .authorized(let userId):

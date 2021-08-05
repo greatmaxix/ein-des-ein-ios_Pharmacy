@@ -102,10 +102,13 @@ final class MedicineCell: HighlightedTableViewCell, NibReusable {
         self.likedButton.isSelected = defaultLikedStatus
     }
     
+    func toggleFavoriteButton() {
+        likedButton.isSelected.toggle()
+    }
+    
     // MARK: - Actions
     @IBAction private func likeAction(sender: UIButton) {
         favoriteButtonHandler?(!sender.isSelected)
-        sender.isSelected.toggle()
     }
     
     @IBAction private func buyAction(sender: UIButton) {

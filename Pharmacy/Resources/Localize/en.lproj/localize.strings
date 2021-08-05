@@ -258,3 +258,8 @@
 "payment_question" = "Payment and bonuses";
 "delivery_question" = "Delivery";
 "write_us" = "Write to us!";
+
+"login_alert_title" = "You have to login";
+"login_alert_message" = "Go to login?";
+"login_alert_cancel" = "Cancel";
+"login_alert_yes" = "Yest";
