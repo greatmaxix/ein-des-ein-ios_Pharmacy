@@ -20,7 +20,6 @@ final class ReceiptView: UIView {
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var likeButton: UIButton!
-    @IBOutlet private weak var receiptButton: UIButton!
     
     private(set) var productId: Int!
     private(set) var currentMedicineEntity: Medicine!
